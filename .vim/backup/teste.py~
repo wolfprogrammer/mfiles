@@ -1,5 +1,0 @@
-#!/usr/bin/python
-from matplotlib import *
-
-t=linspace(0,10,1000);
-print t

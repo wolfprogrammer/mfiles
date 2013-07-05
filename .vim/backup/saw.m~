@@ -1,7 +1,0 @@
-n=input ('Enter the length of the sequence N= ');
-t=0:.0001:n;
-y=sawtooth(t);
-plot(t,y);
-ylabel ('Amplitude');
-xlabel ('Time Index');
-%TITLE ('Sawtooth waveform');

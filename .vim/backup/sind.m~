@@ -1,3 +1,0 @@
-function s=cosd(x)
-%COSD(x) Calculates cos(x) in degrees
-s= cos(x*pi/180);

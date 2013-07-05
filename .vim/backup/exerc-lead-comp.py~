@@ -1,8 +1,0 @@
-from control_system2 import *
-
-G= zpk([],[0,-2],40)
-print G
-#import pdb; pdb.set_trace()
-
-FreqResp(G,0.01,100,200)
-bode(G)

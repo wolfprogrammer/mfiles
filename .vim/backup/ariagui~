@@ -1,8 +1,0 @@
-#!/bin/bash
-
-URL=$(zenity --entry  --title="ARIA2GUI" --text="Entre com a URL:" --entry-text "http://")
-
-echo "Download inicia em 10s"
-commandd="aria2c $URL"
-screen  -X exec "cd $HOME/torrents"
-screen  -X exec $commandd

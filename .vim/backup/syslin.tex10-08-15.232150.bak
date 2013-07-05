@@ -1,3 +1,0 @@
-a_0 u(t) + a_1\frac{du}{dt} + a_2\frac{d^2 u}{dt^2} + 
-a_3\frac{d^3 u}{dt^3} + \cdot \cdot \cdot + a_m\frac{d^m u}{dt^m} =b_0 r(t) + b_1\frac{dr}{dt} + b_2\frac{d^2 r}{dt^2} + 
-b_3\frac{d^3 r}{dt^3} + \cdot \cdot \cdot + b_m\frac{d^m r}{dt^n}

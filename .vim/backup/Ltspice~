@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#ltspicedir=$HOME"/.wine/drive_c/Programs/LTC/LTspiceIV"
-ltspicedir=$HOME"/.wine/drive_c/progs/LTC/LTspiceIV"
-echo $HOME
-echo $ltspicedir
-ls $ltspicedir
-#$ltspicedir/wine scad3.exe

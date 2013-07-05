@@ -1,9 +1,0 @@
-*learning.cir
-r1 1 2 1K; resistor between node (1) and node (2) value 1 KOhm
-c1 2 0 1n; capacitor between node (2) and node (0) value 1 nF
-vin 1 0 pulse (0 5 0 1 u 1 u 10 u 20 u); voltage source between node (1) and node (0)
-.tran 0 40u
-.probe
-.plot tran v(1) v(2)
-.end
-

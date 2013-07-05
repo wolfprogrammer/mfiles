@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "Downloading starting"
-cd torrents
-aria2c `xclip -o`

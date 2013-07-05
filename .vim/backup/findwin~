@@ -1,4 +1,0 @@
-#!/bin/bash 
-
-find ~/.wine/drive_c/"Program Files" -name "*.exe" > leafpad
-

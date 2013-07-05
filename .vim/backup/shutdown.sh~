@@ -1,7 +1,0 @@
-#!/bin/bash
- 
-if zenity --question --text="Do you really want to shutdown the computer?"; then
-sudo    shutdown -h now
-else
-    zenity --error --text="Not shutdown"
-fi

@@ -1,2 +1,0 @@
-a_0 U(s) + a_1 s U(s) + a_2 s^2 U(s) + \cdot \cdot \cdot + a_m s^m U(s)=
-b_1 R(s) + b_1 s R(s) + b_2 s^2 R(s) + \cdot \cdot \cdot + b_n s^n R(s)

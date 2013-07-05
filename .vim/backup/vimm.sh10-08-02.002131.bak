@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cmdd="vim $1"
-echo $cmdd
-urxvt -bg black -fg white -fn "xft:Droid Sans:pixelsize=15" -e sh -c "$cmdd" 
-

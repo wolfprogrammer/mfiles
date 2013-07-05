@@ -1,7 +1,0 @@
- In the P&O algo-
-rithm, the operating voltage of the PV array is perturbed by a small increment, and the resulting change in
-power, ÁP, is measured. If ÁP is positive, then the perturbation of the operating voltage moved the PV array’s
-operating point closer to the MPP. Thus, further voltage perturbations in the same direction (that is, with the
-same algebraic sign) should move the operating point toward the MPP. If ÁP is negative, the system operating
-point has moved away from the MPP, and the algebraic sign of the perturbation should be reversed to move back
-toward the MPP.

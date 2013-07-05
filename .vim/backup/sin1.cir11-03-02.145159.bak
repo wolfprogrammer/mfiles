@@ -1,9 +1,0 @@
-#Resistive circuit
-R1 1 2 1k
-R2 2 3 3.3k
-R3 3 0 1k
-V1 1 0 sin(0 12 50 0 0)
-.tran 0.1m 100m
-.print v(1) v(2) v(3) 
-.end
-

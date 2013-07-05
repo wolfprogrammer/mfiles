@@ -1,6 +1,0 @@
-﻿
-
-func! sendline()
-":exec("!screen -S ipython -X stuff ".string(getline("."))."`echo -ne '\015'`")
-!ls
-endfunc

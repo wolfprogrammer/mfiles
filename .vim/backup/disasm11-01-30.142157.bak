@@ -1,8 +1,0 @@
-#!/usr/bin/perl
-
-$string1 = "I love to eat apples all day. I can eat apples every day! Apples are yummy!";
-$string1 =~ s/apples/oranges/g;
-print "The resulting value is : $string1 \n";
-
-$str1=$ARGV[0];
-print "$str1";

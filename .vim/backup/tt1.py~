@@ -1,9 +1,0 @@
-from pylab import *
-
-t=linspace(0,10,100)  ; print t
-y=t**2 ;print  y
-
-plot (t,y)
-show()
-
-

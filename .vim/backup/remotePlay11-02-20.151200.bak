@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd /tmp
-wget http://192.168.1.4/playlist1.txt
-mplayer -playlist playlist1.txt -novideo -shuffle
-

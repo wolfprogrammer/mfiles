@@ -1,3 +1,0 @@
-#!/bin/sh
-$loc1="$1"
-ssh monkey@192.168.1.5 cat "$loc1" | mplayer #-cache 32768 -

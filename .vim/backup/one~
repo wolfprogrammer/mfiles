@@ -1,1 +1,0 @@
- gplink -m -s /usr/share/gputils/lkr/18f4550.lkr -I /usr/share/sdcc/lib/pic16/  *.o  -o main.hex  libio18f4550.lib libdev18f4550.lib  libsdcc.lib

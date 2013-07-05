@@ -1,8 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-[remote "orgigin"]
-	url = git@192.168.1.4:repo.git
-	fetch = +refs/heads/*:refs/remotes/orgigin/*

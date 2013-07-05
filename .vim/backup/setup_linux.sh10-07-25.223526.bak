@@ -1,9 +1,0 @@
-#!/bin/bash
-
-alias inst='aptitude install'
-
-inst build-essential
-inst vim vim-gtk
-inst kernel-sources-`uname -r`
-
-inst openbox
