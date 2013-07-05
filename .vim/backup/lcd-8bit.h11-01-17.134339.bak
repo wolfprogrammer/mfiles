@@ -1,0 +1,288 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  lcd-8bit.h
+ *
+ *    Description:  Rotinas para o LCD no modo 8 bits
+ *
+ *        Version:  1.0
+ *        Created:  01/17/2011 01:43:52 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Caio Rodrigues 
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+
+#ifndef  _lcd-8bit_h_
+#define  _lcd-8bit_h_ 
+
+#include "default.h"
+#include "delay.h"
+
+#ifdef DEBUG_all
+  #include "uart.h"
+#endif // End of DEBUG_ALL test
+
+                  // Testar várias versões de códigos
+
+
+/*
+ 
+============ LCD Basic Commands ======================
+
+
+RS=1 ==> Bits D0-D7 are the adress of cahracter to be displayed
+RS=0 ==> Bits D0-D7 are command which control the display mode
+
+
+    COMMAND						RS	RW	    D7	D6	D5	D4	D3	D2	D1	D0	  EXECUTION TIME
+    Clear display				0	0	    0   0	0	0	0	0	0	1	  1.64mS
+    Cursor home					0	0	    0   0	0	0	0	0	1	x	  1.64mS
+    Entry mode set				0	0	    0   0	0	0	0	1	I/D	S	  40uS
+    Display on/off control		0	0	    0	0	0	0	1	D	U	B	  40uS
+    Cursor/Display Shift		0	0	    0	0	0	1	D/C	R/L	x	x	  40uS
+    Function set				0	0	    0	0	1	DL	N	F	x	x	  40uS
+    Set CGRAM address			0	0	    0	1	CGRAM address	40uS
+    Set DDRAM address			0	0	    1	DDRAM address	40uS
+    Read "BUSY" flag (BF)		0	1	    BF	DDRAM address	-
+    Write to CGRAM or DDRAM		1	0	    D7	D6	D5	D4	D3	D2	D1	D0	  40uS
+    Read from CGRAM or DDRAM	1	1	    D7	D6	D5	D4	D3	D2	D1	D0	  40uS
+
+x: Don't care , don't matter
+
+I/D 1 = Increment (by 1)         R/L 1 = Shift right
+    0 = Decrement (by 1)             0 = Shift left
+    
+S 1 = Display shift on           DL 1 = 8-bit interface
+  0 = Display shift off             0 = 4-bit interface
+  
+D 1 = Dis    play on                 N 1 = Display in two lines
+  0 = Display off                  0 = Display in one line
+  
+U 1 = Cursor on                  F 1 = Character format 5x10 dots
+  0 = Cursor off                   0 = Character format 5x7 dots
+
+B 1 = Cursor blink on            D/C 1 = Display shift
+  0 = Cursor blink off               0 = Cursor shift
+
+
+
+
+     +----------------------------------------------+
+     |            LCD USEFUL COMMANDS               |
+     +----------------------------------------------+
+
+          Code(Hex)     Command
+
+          0x01          Clear display screen
+          0x02          Return Home
+          0x04          Shift cursor to left
+          0x05          Shift display  right
+          0x06          Shift cursor to right
+          0x07          Shift display left
+          0x08          Display off , Cursor off
+          0x0A          Display off, Cursor on
+          0x0C          Display on , Cursor off
+          0x0E          Display on, Cursor blinking
+          0x0F          Display on , Cursor blinking
+          0x10          Shift   cursor position to left
+          0x14          Shift   cursor position to right
+          0x18          Shift the entire Display to the left
+          0x1C          Shift the entire Display to the right
+          0x80          Force cursor to beginning of first line
+          0xC0          Force cursor to beginning of second line
+          0x38          2 lines and 5x7 dot matrix
+                   
+
+
+        +-----------------------------------------------------------+
+        |   4 BIT HEX TABLE       |   4 BIT INVERSE HEX TABLE       |
+        | ------------------------|---------------------------------+
+        | DEC    HEX      BIN     |   BIN    HEX                    |
+        | 00     0x00     0000    |   1111   0x0F                   |
+        | 01     0x01     0001    |   1110   0x0E                   |
+        | 02     0x02     0010    |   1101   0X0D                   |
+        | 03     0x03     0011    |   1100   0X0C                   |
+        | 04     0x04     0100    |   1011   0X0B                   |
+        | 05     0x05     0101    |   1010   0X0A                   |
+        | 06     0x06     0110    |   1001   0X09                   |
+        | 07     0x07     0111    |   1000   0X08                   |
+        | 08     0x08     1000    |   0111   0X07                   |
+        | 09     0x09     1001    |   0110   0X06                   |
+        | 10     0x0A     1010    |   0101   0X05                   |
+        | 11     0x0B     1011    |   0100   0X04                   |
+        | 12     0x0C     1100    |   0011   0X03                   |
+        | 13     0X0D     1101    |   0010   0X02                   |
+        | 14     0X0E     1110    |   0001   0X01                   |
+        | 15     0X0F     1111    |   0000   0X00                   |
+        +-------------------------+---------------------------------+
+        
+
+    
+ */
+
+// ==>LCDcommands   List of definition of LCD commands
+              /* Set of Useful LCD command */
+#define LCD_ON                0x0C
+#define LCD_OFF               0x08
+#define lcd_on_solid_cursor   0x0E
+#define lcd_on_blink          0x0F
+#define LCD_CLEAR             0x01
+#define LCD_2rows_5x7chars    0x38
+
+
+
+#ifdef lcd_default
+  #define LCD_EN     RD0
+  #define LCD_RS     RD1
+  #define LCD_RW     RD2
+
+  #define LCD_data          PORTB
+  #define LCD_data_tris     TRISB
+  #define LCD_EN_tris       TRISD0
+  #define LCD_RS_tris       TRISD1
+  #define LCD_RW_tris       TRISD2
+
+#endif // End of lcd_default
+
+
+
+
+void lcd_cmd(u8 cmd){
+
+#ifdef DEBUGV0
+    #warning  "DEBUGV=0"	
+    LCD_data=cmd;
+    LCD_EN=1;
+    LCD_EN=0;       //Toggle the enable bit from high to low to load the data
+	delay_ms(5);
+
+#endif
+
+#ifdef DEBUGV1
+    #warning  "DEBUGV=1"
+    LCD_RS=0;
+    delay_us(50);
+    
+    LCD_data=cmd;
+    LCD_EN=1;
+//    delay1TCYx(4);   // 4 us delay
+    LCD_EN=0;
+    delay_ms(10);
+
+#endif
+
+
+} //end of lcd_cmd  
+
+
+//      Control of Display and Cursor and Blinking
+//
+// Command list   lcd_cmd2( comm1 & com2 & comm3 ...);
+//
+//    Example  lcd_cmd2( LCD_DISPLAY_ON & LCD_CURSOR_ON & LCD_CURSOR_OFF )
+//
+#define LCD_DISPLAY_ON      0xF3    // Inverted flag ~0xF3 = 0b00001100=0x0C
+#define LCD_DISPLAY_OFF     0xF7
+#define LCD_BLINKING        0xF6
+#define LCD_NOT_BLINKING    0xF7
+#define LCD_CURSOR_ON       0xF5
+#define LCD_CURSOR_OFF      0XF7
+
+
+
+
+void lcd_sendchar(char x){
+    LCD_RS=1;       //Select Write mode
+    
+    delay_us(50); 
+    
+    LCD_data=x;
+
+    LCD_EN=1;
+//    delay1TCYx(3);
+    LCD_EN=0;
+    delay_ms(10);
+}
+
+
+void lcd_print(char * msg){
+
+          newline();
+          prints("Entrou na rotina");
+		while(*msg) {
+				lcd_sendchar(*msg++); 	            //	 Só saí do loop quando *msg=0
+				sendchar(*msg++);					// quando encontra caracter nulo
+        }
+} // end of lcd_print
+
+
+void lcd_init(){
+    /* Set LCD interface pins as output */
+    LCD_data_tris=0X00; 
+    LCD_EN_tris=LOW;
+    LCD_RS_tris=LOW;
+
+    LCD_EN=1;
+
+#ifdef DEBUGV0
+  
+
+    delay_ms(200);   // Wait 20ms for LCD to power up
+    LCD_EN=1;
+    lcd_cmd(0x30);  // Function set 8 bit mode
+
+    
+    lcd_cmd2(LCD_DISPLAY_ON & LCD_CURSOR_ON & LCD_BLINKING);
+    lcd_cmd(LCD_CLEAR);
+   
+    
+    lcd_cmd(0x6); // Increment by 1,  Display Shift OFF
+
+#ifdef DEBUG_all
+  prints("LCD inicializado");
+#endif // End of DEBUG_ALL test
+
+#endif  
+  // End of DEBUGV0
+
+#ifdef DEBUGV1
+
+  delay_ms(500);
+  lcd_cmd(0x38);      // function set 8 bit mode 5x7 dot , 2 lines
+
+  lcd_cmd(0x0C);      // Display 0N
+
+  lcd_cmd(0x01);      // Clear display
+  delay_ms(5);
+
+  lcd_cmd(0x06);      // Entry mode set
+  delay_ms(5);
+
+  lcd_cmd(0x14);      // Cursor shift to the right
+
+  lcd_cmd(0x01);      // LCD clear
+  delay_ms(50);
+  lcd_cmd(0x02);      // LCD home
+  delay_ms(50);
+
+
+  lcd_cmd(0x0F);     // Display on and blinking
+#endif
+
+
+ 
+
+
+
+
+}  // end of lcd_init
+
+
+#endif
+////////////////////////////////////////////////////////
+//              END OF LCD-8bit.h                     //
+////////////////////////////////////////////////////////

@@ -1,0 +1,48 @@
+#!/bin/sh
+# Directory holding your current PDF ebook.
+PDFDIR="current-pdf"
+if [ "$1" = "-p" ] || [ "$1" = "--pipemenu" ]; then
+    echo "<openbox_pipe_menu>"
+    if [ -d $PDFDIR ]; then
+        QUERY="/home/caio/ebooks"
+        if [ "$(ls $PDFDIR/*.pdf 2> /dev/null)" ]; then
+            QUERY="$QUERY$PDFDIR/*.pdf "
+        fi
+        if [ "$(ls $PDFDIR/*.PDF 2> /dev/null)" ]; then
+            QUERY="$QUERY$PDFDIR/*.PDF "
+        fi
+        if [ "$QUERY" = "" ];then
+            echo "<item label=\"Error: Ebook directory is empty!\"></item>"
+        else
+            for file in $QUERY; do
+                LABEL="$(echo $file | sed -e "s/$PDFDIR\///g")"
+                echo "    <item label=\"$LABEL\">"
+                echo "        <action name=\"Execute\">"
+                echo "            <execute>"
+                echo "               evince \"$file\""
+                echo "            </execute>"
+                echo "        </action>"
+                echo "    </item>"
+            done
+        fi
+    else
+        echo "<item label=\"Error: Ebook directory not found!\"></item>"
+    fi
+    echo "</openbox_pipe_menu>"
+    exit
+else
+    if [ -d $PDFDIR ]; then
+        if [ "$(ls $PDFDIR/*.pdf 2> /dev/null)" ]; then
+            for file in $PDFDIR/*.pdf; do
+                (evince "$file") &
+            done
+            exit
+        else
+            zenity --error --text="No ebooks found\! Copy your current ebook to ~/$PDFDIR"
+            exit
+        fi
+    else
+        zenity --error --text="Ebook directory does not exist\!"
+    fi
+    exit
+fi

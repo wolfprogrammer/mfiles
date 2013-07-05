@@ -1,0 +1,60 @@
+#	Calculos das características do painel solar
+#
+#
+
+
+	#--------------------#
+	# 1.0 CONSTANTS      #
+	#--------------------#
+T0K=273.15  ; 		# ºC
+Kb=1.380658e-23 ; 	# J/K Boltzman Constant
+q=1.60217733e-19   ; 	#   Charge of eletron
+Tref=25+T0K ; 		# K Standard test condition (STC) temperature
+
+ 	#--------------------#
+	# 2.0 PAINEL SOLAR   #
+	#--------------------#
+printf("Solar Panel Ratings\n"); 
+
+# Arquivo com caracteristicas do painel solar
+# com parametros dados pelo fabricante
+#source LA30-12S.m
+source painel2.m
+FF=Vmp*Imp/(Voc*Isc)    # Filling Factor
+Rch=Voc/Isc		# Ohmens  Characteristic Resistance
+
+Rsh1=1000*Rch		# Resistance approximations
+Rs1 =0.1*Rch
+
+Rp=1000.0
+Rs=0.001
+
+printf("\n\n");
+	#--------------------#
+        # 2.0 CALCULOS	     #
+	#--------------------#
+
+# Thermal voltage
+T=Tref      # K
+VT=Kb*T/q   # Volts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

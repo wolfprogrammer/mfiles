@@ -1,0 +1,94 @@
+function vimhelp(){
+
+printf "	
+
+
+
+					AJUDA PARA O VIM
+
+	CTRL+Z	: Põem o vim em background para executar algum comando.
+	Para voltar ao vim digite fg
+
+	ZQ : Saí a força do vim
+	ZZ : Saí e salva um arquivo
+	K: Abre uma manpage correspondete com a palvra chave
+
+	:r! <comando> Joga a saída co comando no vim
+
+	----------------------------------------------
+				EDIÇÃO DE TEXTO
+
+	 [gg]	Ir para o inicio do texto:
+	  [G]	Ir para o fim do texto:
+
+	  i: Inseri cursor no modo de inserção
+
+	  w: Move o cursor para frente da palavra
+
+	  u:Desfaz ultima mudança
+	  U:Desfaz todas mudanças
+
+	  dd: Deleta uma linha
+	  D: Deleta ultima linha após o cursor
+
+	  dw Deleta palavra
+	  5dw Deleta 5 palavras
+
+	  x: Deleta caracter nno cursor
+
+	  "."(Ponto) : Repete ultima ação
+
+	  J: junta linhas
+
+	  "*" : Salta para a próxima ocorrência da palavra sobre o cursor
+
+	  45gg : Move o cursor a linha 45
+
+	  $ : Move o cursor ao final da linha
+
+	  -------------------------------------------------------------
+	  Marcador de linhas
+
+	  mq	Cria um marcador para a linha com a marca q
+
+	  'q	Move o cursor a linha de marca q
+		
+
+	  -----------------------------------------------------------
+		JANELAS
+
+		Saltar de um buffer para outro:
+		:\be
+
+		Abrir janela:
+		:sp  Cria uma nova janela com o mesmo arquivo aberto
+
+		:q Fecha a janela do arquivo atual
+
+		:q! Fecha de todo modo a janela atual
+
+		[CTRL] ww : Divide a janela atual verticalmente
+		[CTRL]+wq : Sai da janela
+		[CTRL]+ws : Divide a janela
+
+		-----------------------------------------------------------
+		MAKEFILE
+
+		:make	Compila o código fonte se existir um arquivo dito Makefile no diretório atual
+
+		:copen	Abre uma mini janela com a lista dos erros e as linhas correspondentes
+
+		:cclose Fecha a mine janela
+
+		:cnext	Vai próximo erro
+
+		:cprevious Vai ao erro anterior
+
+
+
+
+autor: Caio Rodrigues Soares Silva
+"
+
+
+}

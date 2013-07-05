@@ -1,0 +1,88 @@
+
+
+rlocf="s1=[1,%i]*locate(1); k1=-1/real(horner(G,s1)) "
+
+
+s=%s;
+
+
+
+
+function pushmybutton ( huibutton )
+  disp("Push!")
+endfunction
+
+function rlocfind1
+  eval(rlocf);
+ printf("%f %f %f",real(s1),imag(s1),k1);
+endfunction
+
+
+function sair ( text1 )
+close();
+endfunction
+
+
+function rootlocusplot 
+G=eval(edit1.String)
+disp(G)
+disp(edit1.String)
+endfunction
+
+
+//===================================================//
+//				Janela Gŕafica		
+//==================================================//
+
+global ('G','button1','button2','edit1','text1','h');
+
+
+
+activate=%f; // callback não aceito ainda
+
+
+// Cria janela da GUI
+h = figure(1);
+h.figure_name="Control System Toolbox"
+
+
+//Caixa de texto1 = 
+edit1=uicontrol(h,"style","edit");
+edit1.Position = [0 200 200 40];
+edit1.String = "RlocFind";
+edit1.BackgroundColor=[0.9 0.9 0.9];
+
+
+
+text1=uicontrol(h,"style","text");
+text1.Position = [0 260 200 20];
+text1.String = "Função de transferência G:";
+text1.BackgroundColor=[0.9 0.9 0.9];
+
+
+
+//Botão1 :  Plota root locus de G  
+button1=uicontrol(h,"style","pushbutton");
+button1.Position = [0 20 200 20];
+button1.String = "Plotar root locus de G";
+button1.BackgroundColor=[0.9 0.9 0.9];
+button1.Callback = "rootlocusplot()";
+
+//Botão2
+button2=uicontrol(h,"style","pushbutton");
+button2.Position = [0 50 200 20];
+button2.String = "Calcular K";
+button2.BackgroundColor=[0.9 0.9 0.9];
+//button2.Callback = "pushmybutton";button2
+
+//Botão3
+button2=uicontrol(h,"style","pushbutton");
+button2.Position = [0 80 200 20];
+button2.String = "Sair";
+button2.BackgroundColor=[0.9 0.9 0.9];
+button2.Callback = "sair"
+
+
+// Fim da função principal
+
+activate=%T

@@ -1,0 +1,58 @@
+%	Teste do modelo do painel solar msx60
+%
+%
+
+G=0:0.25:1;  % Number of suns 1sun=1000W/m2
+T=25;	    % Standard temperature
+V=0:0.01:21;
+
+disp("Teste do painel solar MSX60\n")
+
+figure(1)
+for g=G
+	figure(1)
+	i=msx60i(V,g,T);
+	
+	x=10;
+	y=msx60i(x,g,T);
+	tex=sprintf("SUN= %.2f",g);
+	text(x,y+0.05,tex);
+	plot(V,i)
+	hold on
+ 
+        P= i.*V;
+	max(P)  
+	figure(2)
+	plot(V,P)
+	hold on
+
+end
+figure(1)
+grid()
+xlabel("PV Array Voltage [V] T=25ºC ")
+ylabel("PV Array Current [A]")
+title("PV Array Voltage X Current")
+axis([0 22 0 4])
+
+figure(2)
+grid()
+xlabel("PV Array Voltage [V] T=25ºC ")
+ylabel("PV Array Power [W]")
+title("PV Array Voltage X Power")
+axis([0 22 0 61])
+ 
+
+Temp=10:5:40;
+g=1;
+figure(3)
+for t=Temp
+    i=msx60i(V,g,t);
+    plot(V,i);
+    hold on
+    
+    P=i.*V;
+    printf("T=%.2f  Pmax=%.2f\n",t,P); 
+
+end
+grid()
+axis([0 22 0 4])

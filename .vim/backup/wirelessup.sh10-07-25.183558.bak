@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# Script para conexão a um access point, canal 7, essid rosete
+#
+#------------------------------------------------------------
+# Arquivo de configuração das interfaces de rede
+# /etc/network/interfaces
+#
+# Scritp de inicialização das interfaces de rede:
+# /etc/init.d/networking
+#
+#
+#    Hardware wireless atheros AR5001 
+#
+#
+
+
+
+
+#
+#--------- PARTE PRINCIPAL -------------#
+#
+
+# ifconfig wlan0 down
+# ifconfig wlan0 up
+# ifup  wlan0
+
+
+ ifconfig wlan0 down
+
+ iwconfig wlan0 essid "rosete"
+ iwconfig wlan0 channel 7
+ iwconfig wlan0 mode Managed    			  		  # Mode Managed,Ad-Hoc, Auto , Master ...
+ iwconfig wlan0 192.168.0.0.2 netmask 255.255.255.0   # Configura IP e  máscara de subrede
+
+
+route del default
+route add default wlan0
+route add default gw 192.168.0.1 
+
+ifconfig wlan0 up
+
+
+wpa_supplicant -i wlan0 -c ./wpa.conf -D wext -dd -B
+
+dhclient wlan0
+
+#
+#------- DEBUG ---------------------#
+
+echo "--------------"
+echo "Debug:"
+echo ""
+echo ""
+
+echo "/var/log/messages"
+cat /var/log/messages | grep -i wlan0
+
+echo ""
+echo ""
+echo ""
+echo "dmesg"
+dmesg  |  grep -i wlan0
+
+

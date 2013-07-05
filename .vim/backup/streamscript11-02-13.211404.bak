@@ -1,0 +1,3 @@
+#!/bin/sh
+$PATH="$1"
+ssh server cat "$PATH" | mplayer -cache 32768 -

@@ -1,0 +1,130 @@
+====== Sensores Instrumentação ======
+
+===== Terminology =====
+
+
+Transducer
+\\
+A device that converts a signal from one physical form to a
+corresponding signal having a different physical form
+Physical form: mechanical, thermal, magnetic, electric, optical, chemical...
+Transducers are ENERGY CONVERTERS or MODIFIERS
+\\
+\\
+Sensor
+\\
+A device that receives and responds to a signal or stimulus
+This is a broader concept that includes the extension of our perception
+capabilities to acquire information about physical quantities
+\\
+\\
+Transducers: sensors and actuators
+Sensor: an input transducer (i.e., a microphone)
+Actuator: an output transducer (i.e., a loudspeaker)
+
+\\
+\\
+Sensors Limitations and Characteristics
+\\
+\\
+
+**Accuracy**  \\
+This is the maximum difference between the indicated and actual read-
+ing. For example, if a sensor reads a force of 100N with a ±1% accuracy, then
+the force could be anywhere from 99N to 101N.
+\\
+\\
+**Resolution** - Used for systems that step through readings. This is the smallest increment that the sensor can detect, this may also be incorporated into the
+accuracy value. For example if a sensor measures up to 10 inches of linear dis-
+placements, and it outputs a number between 0 and 100, then the resolution of
+the device is 0.1 inches.
+\\
+\\
+
+**Repeatability** - When a single sensor condition is made and repeated, there will be a small variation for that particular reading. If we take a statistical range for repeated readings (e.g., ±3 standard deviations) this will be the repeatability.  For example, if a flow rate sensor has a repeatability of 0.5cfm, readings for an actual flow of 100cfm should rarely be outside 99.5cfm to 100.5cfm.
+\\
+\\
+** Linearity ** - In a linear sensor the input phenomenon has a linear relationship with the output signal. In most sensors this is a desirable feature. When the relation- ship is not linear, the conversion from the sensor output (e.g., voltage) to a cal- culated quantity (e.g., force) becomes more complex.
+\\
+\\
+** Precision ** - This considers accuracy, resolution and repeatability or one device rel- ative to another.
+\\
+\\
+** Range ** - Natural limits for the sensor. For example, a sensor for reading angular rotation may only rotate 200 degrees.
+\\
+\\
+** Dynamic Response ** - The frequency range for regular operation of the sensor.Typically sensors will have an upper operation frequency, occasionally there will be lower frequency limits. For example, our ears hear best between 10Hz and 16KHz.
+\\
+\\
+** Environmental ** - Sensors all have some limitations over factors such as tempera- ture, humidity, dirt/oil, corrosives and pressures. For example many sensors will work in relative humidities (RH) from 10% to 80%.
+\\
+\\
+** Calibration ** - When manufactured or installed, many sensors will need some cali- bration to determine or set the relationship between the input phenomena, and output. For example, a temperature reading sensor may need to be zeroed or
+adjusted so that the measured temperature matches the actual temperature. This
+may require special equipment, and need to be performed frequently.
+\\
+\\
+** Cost ** - Generally more precision costs more. Some sensors are very inexpensive,
+but the signal conditioning equipment costs are significant.
+
+----
+
+** Sensitivity **
+\\
+The sensitivity of the sensor is defined as the slope of the output characteristic curve (DY/DX in Figure 1) or, more generally, the minimum input of physical parameter that will create a detectable output change. In some sensors, the sensitivity is defined as the input parameter change required to produce a standardized output change. In others, it is defined as an output voltage change for a given change in input parameter. For example, a typical blood pressure transducer may have a sensitivity rating of
+10 mV/V/mm Hg; that is, there will be a 10-mV output voltage for each volt of excitation potential and each mm Hg of applied pressure.
+\\
+\\
+** Sensitivity Error ** 
+The sensitivity error (shown as a dotted curve in Figure 1) is a departure from the ideal slope of the characteristic curve. For example, the pressure transducer discussed above may have an actual sensitivity of 7.8 mV/V/mm Hg instead of 10 mV/V/mm Hg.
+\\
+\\
+
+{{ :instrumentation:sensitivity.gif?400 |}}
+
+----
+
+** Static characteristics **
+
+
+The properties of the system after all transient effects have settled to their final or steady state \\
+
+	* Accuracy
+	* Discrimination
+	* Precision
+	* Errors
+	* Drift
+	* Sensitivity
+	* Linearity
+	* Hystheresis (backslash)
+\\
+\\
+** Dynamic characteristics **- The properties of the system transient response to an input \\
+	*  Zero order systems
+	*  First order systems
+	*  Second order systems
+
+
+===== Sensors Types =====
+
+==== Position Sensors ====
+
+Hall effect: When a magnetic field is applied to a conductor
+with current flowing through it, a voltage drop across the
+conductor is generated.
+
+
+
+=== Hall Effect Sensors ===
+
+
+
+
+
+
+----
+
+Arquivos:
+  * {{:instrumentation:sensors_characteristics_terms.pdf|}} - Compêndio com várias explicações sobre a terminologia dos sensores , lineariade , acurácia ...
+  * {{:instrumentation:inteligent-sensors.pdf|}} - Muitos conceitos sobre sensores e sua terminologia.
+

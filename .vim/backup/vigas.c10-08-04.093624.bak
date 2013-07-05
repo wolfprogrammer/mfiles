@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+#define NMAX 1000
+
+#define __debug
+
+void beam(int k,float * w0,float * x0);
+
+void print_beam(int k,float * w0, float * x0);
+
+void calcV(int k,float *w0, float *x0,float xa,float xb);
+
+
+
+
+int main(){
+
+
+		float W0[NMAX]={0},
+			  X0[NMAX]={0}
+			  ;
+		int N;
+
+
+		#ifndef __debug
+		printf("Entre com o número de termos N=");
+		scanf("%d",&N);
+		#else
+		N=3;
+		#endif
+
+		//Ler dados da viga
+		beam(N,W0,X0);
+
+
+		print_beam(N,W0,X0);
+		
+
+
+	return 0;
+
+} //end of main
+
+
+
+void beam(int k,float * w0,float * x0){
+
+		int i=0;
+
+#if 1
+		for(i=0;i<k;i++){
+
+			printf("w[%d]=",i);
+			scanf("%f",&w0[i]);
+			
+			printf("x[%d]=",i);
+			scanf("%f",&x0[i]);
+			printf("\n--------\n");
+
+		}
+#endif
+		
+}
+
+
+
+
+void print_beam(int k,float * w0, float * x0){
+
+		int i=0;
+
+		for(i=0;i<k;i++){
+
+
+			printf("w[%d]=%f",i,w0[k]);
+			
+			printf("x[%d]=%f",i,x0[k]);
+			printf("\n--------\n");
+
+		}
+
+}

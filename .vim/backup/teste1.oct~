@@ -1,0 +1,24 @@
+#!/usr/bin/octave3.2  -q  
+
+#
+#
+#print "AAAAAA"
+G=tf([1],[1 2 1])
+sysout(G)
+#nychols(G)   
+
+figure(1)
+rlocus(G,200)
+
+#pause(10)
+
+figure(2)
+bode(G)
+
+figure(3)
+nyquist(G)
+
+figure(4)
+pzmap(G)
+
+pause(60)

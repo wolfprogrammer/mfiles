@@ -1,0 +1,31 @@
+function [Vout]=simbuck(Vd,D,P,f,L,C)
+%
+%
+%
+T=1/f;
+Vo=D.*Vd;
+Io=P./Vo;
+Iob=Vo.*(1-D)/(2*f*L);      %  (MOHAN,1995,p169)
+
+if Io>Iob
+       
+	CM=1;    %  CCM  : Continuous conduction mode
+
+else
+	CM=0;
+        d1=2*L*Id/(Vd*D*Ts)-D ; % 
+	Vo=(d1+D)/d1*Vd;
+	Io=d1/(d1+D)*Id;
+end
+
+Vout=Vo;
+
+end
+
+
+
+
+
+
+
+

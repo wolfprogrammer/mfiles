@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+
+#Poe wallpaper aleatório
+djmount /media/upnp
+tint2 -c .tint2rc & ; sleep 3
+
+lxpanel  & ; sleep 4
+conky -d -b -o ; sleep 5
+parcellite -d ; sleep 4
+wbar -b -p top   & ; sleep 10
+$HOME/bin/wallpaper.sh
+# unclutter	&				#Esconde o mouse quando inativo
+

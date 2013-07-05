@@ -1,0 +1,66 @@
+/*! \addtogroup UART UART Driver
+ *
+ * \ingroup PERIPHERAL
+ * @{
+ * \details This is the UART perhipheral driver.
+ *
+ */
+ 
+/*! \file
+ * \details This file is the UART peripheral driver header file.
+ */
+
+#ifndef __UART_H__
+#define __UART_H__
+#include <pic18fregs.h>
+#include "default.h"
+#include "registers.h"
+ 
+/*  --------------- UART BITS AND REGISTERS ------------- */
+
+/** 
+  Custom logging macro blah blah blah... 
+*/  
+#define bTXEN   5  /// \def Transmitter pin  TXSTA register
+#define bRXEN	4  //  RCSTA - bit CREN
+#define bBRG16  3  // BAUDCON bit
+#define bBRGH   2  // TXSTA bit
+#define TXPIN	6  // RC6
+#define RXPIN	7  // RC7
+#define bTXIF	4  // PIR1
+#define TXIF  	PIR1bits.TXIF  
+#define TXEN  	TXSTAbits.TXEN
+#define RXEN 	RCSTAbits.CREN
+#define RCIF	PIR1bits.RCIF
+ 
+
+///  \fn void init_uart(void)
+///  \name    init_uart
+///  \brief   This starts the UART at 19200 bauds
+///  \ingroup example
+/// 
+/// 
+///  Example Usage:
+///  @code
+///     example_nada(3); // Do nothing 3 times.
+///  @endcode
+void init_uart();
+
+
+
+void putc(char txdata);
+
+void print(string STR);
+
+void printr(ROM string STR);
+
+char getc();
+
+#endif
+
+
+
+                             
+
+
+

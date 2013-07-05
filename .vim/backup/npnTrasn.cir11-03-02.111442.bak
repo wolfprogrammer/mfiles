@@ -1,0 +1,17 @@
+*** Example of a NPN transistor
+vin 1 0 ac 1
+rs 1 2 1
+c1 2 3 100uf
+rb 5 3 465k
+rc 5 4 3k
+vcc 5 0 dc 10
+q1 4 3 0 npn-trans
+.model npn-trans npn (is=2e-15 bf=100 vaf=200)
+*calculation of the operating point and small signal parameters
+.op
+*calculation of the small signal gain
+.ac dec 10 100 10k
+.plot ac vm(4)
+* cacluations of the small signal input conductance (i/v)
+.plot ac im(vin)
+.end

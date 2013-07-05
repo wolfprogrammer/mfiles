@@ -1,0 +1,3 @@
+function angle = atand(x)
+% atan2d(y,x) : return atan in degrees
+angle=atan2(x)*180/pi; 

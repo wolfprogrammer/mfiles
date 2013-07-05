@@ -1,0 +1,137 @@
+/*			main.c
+ *
+ *
+ *
+ **/
+
+
+#define pic16f877a
+#define clock4mhz 
+
+#include "pic16f877a.h"
+#include "default.h"
+#include "delay.h"
+#include "uart.h"
+
+#define __code rom
+
+/**
+ *@file main.c
+ *@brief Objetivo: desenvolver uma biblioteca UART para o PIC16F877A 
+ *
+ *
+ *@author Caio Rodrigues Soares Silva
+ *
+ *
+ *@warning It's still under development.Unstable.
+ *
+ */
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           CONFIGURATION BITS               |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+typedef unsigned int config;
+
+config __at 0x2007 __CONFIG= 
+_WDT_OFF &    // Sem Watch dog timer 
+_PWRTE_ON &   // Com Power-On Reset
+_BODEN_OFF &  // Com
+_CP_OFF &       // Sem proteção do código
+_DEBUG_OFF &  // Sem debugger
+_HS_OSC &     // Oscilador cristal 4 MHZ
+_CPD_OFF &    //
+_LVP_OFF;     
+
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |    DECLARAÇÃO DAS ROTINAS                  |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+
+
+void initUART(u8 ,u8);
+void delay_ms(u8 sec);
+void sendchar(char x);
+void prints(pchar msg);
+char mychar;
+
+
+
+u8 getchar(){
+
+		while(!RCIF); // Enquanto não recebeu caracter espera  !1=0
+		return RCREG;
+}
+
+// Imprime número na UART de zero a 255
+void print_num(u8 num){
+
+		u8 alg0,alg1,alg2;
+		
+				alg2=num/100+'0';  		//Mais significativo , most significative
+				alg1=num%100/10+'0';	//Second algarism
+				alg0=num%10+'0';
+
+				sendchar(alg2);
+				sendchar(alg1);
+				sendchar(alg0);
+}
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           MAIN                             |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+void main(void){
+
+
+	initUART(25,1);
+
+
+    TRISB=0X00; // Acende todos leds do Porto B
+    PORTB=0XFF; 
+
+	prints("Hello world!"); // Diz hello! World
+
+
+   	while(TRUE) {
+
+        // Se funcionar imprimirar caio continuamente no terminal
+//        sendchar('c');
+//        sendchar('a');
+//        sendchar('i');
+//        sendchar('o');
+
+
+//        mychar=getchar();    // Recebe caracter
+//        sendchar(mychar);    // Envia caracter
+//        PORTB=mychar;        // Muda estatus do porto B
+
+
+        }//Endwhile
+
+		
+}//Endmain
+
+
+
+
+///////////////////////////////////////////////////////////
+//                      END OF FILE                      //
+///////////////////////////////////////////////////////////

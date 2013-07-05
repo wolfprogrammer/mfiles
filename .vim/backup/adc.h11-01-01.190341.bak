@@ -1,0 +1,124 @@
+/*--------------------------------------------------------------
+                main.c
+  
+ADC training project
+
+PIC16F877A 4MHZ Clock
+
+Caio Rodrigues Soares Silva
+
+--------------------------------------------------------------*/
+
+
+/* Processador de arquivo de cabeçalho */
+#ifndef _adc_h_
+#define _adc_h_
+
+#include "commdefs.h"
+#include "pic/pic16f877a.h"
+
+
+//mode: Modos de configurar o clock do ADC
+#define ADC_OFF             0x00
+#define ADC_CLOCK_DIV_2     0x01
+#define ADC_CLOCK_DIV_8     0x41
+#define ADC_CLOCK_DIV_32    0x81
+#define ADC_CLOCK_INTERNAL  0xC1
+
+//Macro para configurar o clock do ADC: conversor analógico digital
+#define setup_adc(mode) ADCON0=ADCON0 | (mode)
+
+
+//Configuração das portas do conversor analógico/digital (registro ADCON1)
+#define NO_ANALOGS                                          0x06
+#define ALL_ANALOG                                          0x00
+#define AN0_AN1_AN2_AN4_AN5_AN6_AN7_VSS_VREF–VRefh=A3       0x01
+#define AN0_AN1_AN2_AN3_AN4                                 0x02
+//#define AN0_AN1_AN2_AN4_VSS_VREF–VRefh=A3                  0x03      
+#define AN0_AN1_AN3                                         0x04
+#define AN0_AN1_VSS_VREF–VRefh=A3                           0x05
+/* AN0_AN1_AN4_AN5_AN6_AN7_VREF_VREF – VRefh=A3 VRefl=A2 
+AN0_AN1_AN2_AN3_AN4_AN5 
+AN0_AN1_AN2_AN4_AN5_VSS_VREF – VRefh=A3 
+AN0_AN1_AN4_AN5_VREF_VREF – VRefh=A3 VRefl=A2 
+AN0_AN1_AN4_VREF_VREF – VRefh=A3 VRefl=A2 AN0_AN1_VREF_VREF – VRefh=A3 VRefl=A2 AN0 AN0_VREF_VREF – VRefh=A3 VRefl=A2
+*/
+
+
+// Seleciona as portas do conversor anaálogico digital
+#define setup_adc_ports(value)    ADCON1=ADCON1 | (value) ; ADFM=0
+
+
+// Seleciona o canal a ser lido
+#define set_adc_channel(chan)    ADCON0= ADCON0 | (chan)
+
+// Retorna valor lógico 1 se aconversão terminou
+#define adc_done()  GO==1
+
+#define ADC_START_AND_READ   1  // ::1  Default,se não especificado
+#define ADC_START_ONLY       2  //
+#define ADC_READ_ONLY        3  //
+
+
+
+//Canais ADC
+#define ADC_CHANNEL0  0
+#define ADC_CHANNEL1  1
+#define ADC_CHANNEL2  2
+#define ADC_CHANNEL3  3
+#define ADC_CHANNEL4  4
+#define ADC_CHANNEL5  5
+#define ADC_CHANNEL6  6
+#define ADC_CHANNEL7  7
+
+
+
+
+u16 read_adc(u8 mode){
+
+
+    switch(mode){
+
+        case ADC_READ_ONLY:
+
+            return ADRESH<<8+ADRESL;
+
+            break;
+
+        case ADC_START_ONLY:
+
+
+            GO=1;
+            return 0;
+
+            break;
+
+        case ADC_START_AND_READ:
+
+            GO=1;
+
+
+            while(!GO); //Espera terminar a conversão
+            return ADRESH<<8+ADRESL;
+
+
+
+            break;
+
+    };
+
+} // end of read_adc
+
+
+
+
+// read = read_adc(ADC_READ_ONLY);  -->  Lê o resultado do ADC
+// read_adc(ADC_START_ONLY);        -->  Apenas inicia a conversão
+
+
+
+#endif
+
+/*------------------------------------------------------------------
+ ---------------------  END OF FILE --------------------------------
+ ------------------------------------------------------------------*/

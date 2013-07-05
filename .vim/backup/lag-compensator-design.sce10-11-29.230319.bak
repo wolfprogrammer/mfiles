@@ -1,0 +1,54 @@
+
+j=%i;
+s=%s;
+
+exec control_system_tools.sce
+
+clc
+clf
+
+// Sistema não compensado
+num=1;
+den=(s+1)*(s+2)*(s+10);
+G=num/den
+G1=syslin('c',G);
+
+
+// Root locus do sistema não compensado
+//  1+K*G(s)=0
+//
+xset('window',0)
+evans(G1,300);
+sgrid(0.174,[])
+
+
+// Compensador por atraso de fase em cascata- lag compensator
+//
+Gc=(s+0.111)/(s+0.001);
+G2=Gc*G1
+xset('window',1)
+evans(G2,300)
+sgrid(0.174,[])
+
+printf("Localize o ponto de intersecção do root  locus com a linha em qual zeta z=0.174")
+
+
+// Plota a resposta ao degrau unitário para o sistema em malha fechada
+//em dado ponto do root locus selecionado pelo mouse
+//
+//
+
+function [s1,k1]=rlocustuning(G)
+ [s1,k1]=rlocfind()
+ // Função de transferencia em malha fechada
+  H1=ufeedback(G,k1)
+  //Abre segunda janela
+  xset('window',2);
+  t=0:0.01:30;
+  y1=csim('step',t,H1);
+  plot(t,y1)
+  xgrid()
+
+  printf("k1=%f s1=%f+j%f",k1,real(s1),imag(s1));
+ endfunction
+

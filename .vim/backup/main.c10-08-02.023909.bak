@@ -1,0 +1,193 @@
+/*--------------------------------------------------------------
+                main.c
+  
+
+PIC16F877A 20MHZ Clock
+
+Caio Rodrigues Soares Silva
+
+--------------------------------------------------------------*/
+
+
+/* Processador de arquivo de cabeçalho */
+#define __16f877a
+#include "pic/pic16f877a.h"
+#include "commdefs.h"
+#include "delay.h"
+#include "adc.h"
+#include "pwm.h"
+
+
+typedef unsigned int config;
+
+
+config at 0x2007 __CONFIG= 
+_WDT_OFF &		// Sem Watch dog timer 
+_PWRTE_ON & 	// Com Power-On Reset
+_BODEN_OFF &	// Com
+_CP_OFF & 	    // Sem proteção do código
+_DEBUG_OFF & 	// Sem debugger
+_HS_OSC & 		// Oscilador cristal 4 MHZ
+_CPD_OFF & 		//
+_LVP_OFF; 		// Sem LVP:Low Voltage Programmming
+
+
+//#define _debug
+#define _debugb
+
+#ifdef _debug
+  #define _debug2
+#endif
+
+
+
+//Botao para o motor reverter a rotação
+#define pin1A   RB0   // Pino lógico1 de controle de direção da ponte H
+#define pin2A   RB1   // Pino lógico2 de controle de direção da ponte H
+#define pin1EN  RC2   // Pino do PWM
+
+#define Button  RB7   // Botao de entrada,
+                      //quando pressionado reverte o sentido da rotação
+
+
+//Direções, valores de RB0 e RB2
+#define direction1 0b11111101
+#define direction2 0b11111110 
+
+
+
+void setup_motor();
+
+void setup_tmr1(u8 prescaler);
+void delay_tmr1(u16 ticks);
+
+u16 read_adc(u8 mode);
+
+
+
+
+void main(){
+
+
+#ifndef _debug
+
+//Configurações:
+
+    u16 duty_cy; 
+    
+    setup_motor();
+
+
+    TRISA=0xFF;   // PORTA entrada
+
+    setup_adc_ports(AN0_AN1_AN3);
+    setup_adc(ADC_CLOCK_DIV_32);
+   
+
+    set_adc_channel(0); // Ler AN0/RA0, potênciometro de controle do PWM
+
+    T2CON&=tmr2_1b1;
+    setPWM1freq(0b11111001);  //Frequencia 20 KHz
+
+    //  setPwm1_dcy(0x257);  Duty cycle em 60% ou 3V a 20khz
+
+
+ 
+
+
+// Main loop
+
+    while(1){
+
+
+        duty_cy=read_adc(ADC_START_AND_READ);
+
+        setPwm1_dcy(duty_cy);
+
+
+
+        if(Button){
+
+            #ifndef _debugb
+            PORTB&=direction1;
+            //delay_tmr1();
+            #else
+            RB0=0;
+            RB1=1;
+            #endif
+        }
+        else{
+
+            #ifndef _debugb
+            PORTB&=direction2;
+            //delay_tmr1();
+            #else
+            RB0=1;
+            RB1=0;
+            #endif
+        }
+
+
+
+    }// End of endless loop
+
+       
+
+#endif
+
+
+
+
+#ifdef   _debug2
+
+    CMCON=0x07;			// Desabilita comparadores analógicos
+
+    GIE=0;              // Sem interrupts
+
+
+    TRISC2=0;
+
+    T2CON&=tmr2_1b1;
+    setPWM1freq(0b11111001);
+    setPwm1_dcy(0x257);
+    
+    while(1);
+
+#endif
+
+
+
+} //end of main
+
+/*----------------------------------------------------------*/
+
+#if 0
+void turn_direction1(){
+
+pin1A=1;
+pin2A=0; 
+
+}
+
+
+void turn_direction2(){
+pin1A=0;
+pin2A=1;
+}
+#endif
+
+void setup_motor(){
+
+    CMCON=0x07;			// Desabilita comparadores analógicos
+
+    GIE=0;              // Sem interrupts
+
+    TRISB0=0;   // Saída pin1A
+    TRISB1=0;   // Saída pin2A
+    TRISB7=1;   // Entrada pino de inverter rotação
+    
+}
+
+/*------------------------------------------------------------------
+ ---------------------  END OF FILE --------------------------------
+ ------------------------------------------------------------------*/

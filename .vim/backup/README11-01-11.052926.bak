@@ -1,0 +1,12 @@
+				README
+
+	Coleção de projetos em código C para microcontroladores PIC 
+com o compilador SDCC. 
+
+O ambiente de projeto se divide em duas partes:
+	==>pic16f
+	==>pic18f
+
+	O arquivo c.vim contém o código modificado para:
+* reconhecer 0b0001  como número binário
+* reconhecer TRUE FALSE ON OFF HIGH LOW como constantes

@@ -1,0 +1,91 @@
+//
+
+//	    Cálculo do número de ticks para o temporizador
+// timer0 cronometre uma duração
+//
+
+FOSC=4e6 	// 4MHZ
+Tdelay=20e-3 // 20 ms
+
+//Arquivo do Resultado dos cálculos
+fname=PWD+"/resultado_delay_timer0"
+u=file('open',fname,"unknown")
+
+
+//function [N,Tr_delay]=timer0_ticks(FOSC,Tdelay)
+		//	Valores do prescaler
+		PRE=[2 4 8 16 32 64 128 256];
+		N=[];
+
+		for pre = PRE
+			N($+1)=round(FOSC*Tdelay/(4*pre));
+		end
+
+Tr_delay=[] // Delay real correspondente ao prescaler
+		for i=1:length(N)
+
+			if N(i)>255;
+				N(i)=%nan;
+				
+			end
+
+		Tr_delay($+1)=4*N(i)*PRE(i)/FOSC;
+		Error(i)=Tdelay-Tr_delay(i);
+		end
+//endfunction
+
+// =%f hz\n Tempo de instrução Tins= %f\n",FOSC,FOSC/4,1/(4*FOSC));
+
+msg1=msprintf("Frequência do clock =%f hz \n",FOSC);
+printf("%s",msg1);
+fprintf(u,"%s",msg1)
+
+
+msg1=msprintf("\n Frequência de instruções= %f hz",FOSC/4);
+printf("%s",msg1);
+fprintf(u,"%s",msg1)
+
+
+
+msg1=msprintf("Delay desejado:%f\n",Tdelay);
+printf("%s",msg1);
+fprintf(u,"%s",msg1)
+
+
+msg1="Valores do prescaler:";
+printf("%s",msg1);
+fprintf(u,msg1);
+for i=1:length(PRE)
+	printf (" %d",PRE(i));
+	fprintf (u,"\t%d",PRE(i));
+end
+
+printf("\nTimer0 ticks:\t");
+fprintf(u,"\nTimer0 ticks:\t");
+for i=1:length(PRE)
+	printf ("\t%d",N(i));
+	fprintf (u,"\t%d",N(i));
+
+end
+
+printf("\nDelay real (seg):\t");
+fprintf(u,"\nDelay real (seg):\t");
+for i=1:length(PRE)
+	printf ("\t%f",Tr_delay(i));
+end
+
+printf("\nErro (seg)):\t");
+fprintf(u,"\nErro (seg)):\t");
+for i=1:length(PRE)
+	printf ("\t%f",Error(i));
+
+end
+
+
+file('close',u); //Fecha arquivo
+
+
+//		Devolve uma lista com todas durações de todos divisores possíveis
+
+// delays, atrasos reais com todas configurações de prescaler disponíveis
+

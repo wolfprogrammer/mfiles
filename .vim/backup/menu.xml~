@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<menu id="root-menu-994535" label="Apps">
+			<item label="Mutt email: caiorss">
+				<action name="Execute">
+					<execute>
+						lxterminal -e &quot;mutt -F ~/.gmail2&quot;
+					</execute>
+				</action>
+			</item>
+			<item label="Mutt email: blackdog">
+				<action name="Execute">
+					<execute>
+						lxterminal -e &quot;mutt&quot;
+					</execute>
+				</action>
+			</item>
+			<item label="Upload files [hfs] server">
+				<action name="Execute">
+					<execute>
+						wine  ~/.bin/hfs.exe
+					</execute>
+				</action>
+			</item>
+			<menu id="root-menu-994535-52942" label="Programming">
+				<item label="Geany IDE">
+					<action name="Execute">
+						<execute>
+							geany
+						</execute>
+					</action>
+				</item>
+				<item label="Gvim IDE">
+					<action name="Execute">
+						<execute>
+							gvim
+						</execute>
+					</action>
+				</item>
+				<item label="WinpPdb">
+					<action name="Execute">
+						<execute>
+							winpdb
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-994535-85114" label="Tools &amp; Utilitys">
+				<item label="Light Text editor  - leafpad">
+					<action name="Execute">
+						<execute>
+							leafpad
+						</execute>
+					</action>
+				</item>
+				<item label="Screenshot tool  - Shutter">
+					<action name="Execute">
+						<execute>
+							shutter
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-994535-915137" label="Engineering tools">
+				<item label="Ipython">
+					<action name="Execute">
+						<execute>
+							lxterminal -e &quot;ipython&quot;
+						</execute>
+					</action>
+				</item>
+				<item label="Python Spyder IDE light">
+					<action name="Execute">
+						<execute>
+							spyder --light
+						</execute>
+					</action>
+				</item>
+				<item label="Python Spyder IDE">
+					<action name="Execute">
+						<execute>
+							spyder
+						</execute>
+					</action>
+				</item>
+				<item label="Matlab">
+					<action name="Execute">
+						<execute>
+							wine   ~/.bin/MATLABr2007b.exe
+						</execute>
+					</action>
+				</item>
+				<item label="WxMaxima">
+					<action name="Execute">
+						<execute>
+							command
+						</execute>
+					</action>
+				</item>
+				<item label="Spreadsheets:  Open Office Calc">
+					<action name="Execute">
+						<execute>
+							libreoffice --calc
+						</execute>
+					</action>
+				</item>
+				<item label="Galculator">
+					<action name="Execute">
+						<execute>
+							galculator
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-994535-814752" label="Security">
+				<item label="View/edit passwords">
+					<action name="Execute">
+						<execute>
+							lxterminal -e  &quot;~/.bin/editpass&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu execute="~/.bin/bookmarks.sh" id="ID" label="Browser"/>
+		<menu execute="~/.bin/obrecent.sh" id="ID3" label="Recent Documents"/>
+		<menu id="root-menu-935521" label="Office">
+			<item label="LibreOffice">
+				<action name="Execute">
+					<execute>
+						libreoffice 
+					</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="LibreOffice Writer">
+				<action name="Execute">
+					<execute>
+						libreoffice  --writer
+					</execute>
+				</action>
+			</item>
+			<item label="LibreOffice Calc">
+				<action name="Execute">
+					<execute>
+						libreoffice --calc
+					</execute>
+				</action>
+			</item>
+			<item label="LibreOffice Impress">
+				<action name="Execute">
+					<execute>
+						libreoffice  --impress
+					</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="Microsoft Excell">
+				<action name="Execute">
+					<execute>
+						env WINEPREFIX=&quot;/home/caio/.wine&quot; wine start /ProgIDOpen Excel.SheetMacroEnabled.12 %f
+					</execute>
+				</action>
+			</item>
+			<item label="Microsoft Power Point">
+				<action name="Execute">
+					<execute>
+						env WINEPREFIX=&quot;/home/caio/.wine&quot; wine start /ProgIDOpen PowerPoint.ShowMacroEnabled.12 %f
+					</execute>
+				</action>
+			</item>
+			<item label="Microsoft Word">
+				<action name="Execute">
+					<execute>
+						env WINEPREFIX=&quot;/home/caio/.wine&quot; wine start /ProgIDOpen Word.Template.12 %f
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-994154" label="Universisdade">
+			<menu id="root-menu-994154-522458" label="Materiais de construção mecânica">
+				<item label="Pasta da materia">
+					<action name="Execute">
+						<execute>
+							pcmanfm  &quot;/home/caio/materias2012/mota2&quot;
+						</execute>
+					</action>
+				</item>
+				<item label="Site de mota">
+					<action name="Execute">
+						<execute>
+							x-www-browser  http://www.poli.br/~acfm
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-994154-11315" label="Vibracoes-mecanicas">
+				<item label="Pasta da materia">
+					<action name="Execute">
+						<execute>
+							pcmanfm /home/caio/materias2012/vibracoes
+						</execute>
+					</action>
+				</item>
+				<item label="LIvro Singiresu S. Rao  [inglês]">
+					<action name="Execute">
+						<execute>
+							okular &quot;/home/caio/materias2012/vibracoes/Mechanical Vibration by S S Rao.pdf&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-994154-29273" label="Elementos de robotica">
+				<item label="Elementos de robotica">
+					<action name="Execute">
+						<execute>
+							pcmanfm &quot;/home/caio/materias2012/Elementos de Robotica&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="root-menu-994154-855344" label="Elementos de maquinas II">
+				<item label="New Item">
+					<action name="Execute">
+						<execute>
+							command
+						</execute>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<item label="Terminal emulator">
+			<action name="Execute">
+				<execute>
+					x-terminal-emulator
+				</execute>
+			</action>
+		</item>
+		<item label="Web browser">
+			<action name="Execute">
+				<execute>
+					x-www-browser
+				</execute>
+			</action>
+		</item>
+		<item label="Help">
+			<action name="Execute">
+				<execute>
+					gvim ~/.bin/bashhelp
+				</execute>
+			</action>
+		</item>
+		<menu execute="~/.bin/sysinfo.sh" id="ID1" label="System"/>
+		<!-- This requires the presence of the 'menu' package to work -->
+		<menu id="/Debian"/>
+		<separator/>
+		<menu id="client-list-menu"/>
+		<separator/>
+		<item label="Reconfigure">
+			<action name="Reconfigure"/>
+		</item>
+		<item label="Restart">
+			<action name="Restart"/>
+		</item>
+		<menu id="root-menu-67300" label="Configurations">
+			<item label="Printers  - Cups Webserver">
+				<action name="Execute">
+					<execute>
+						x-www-browser  http://localhost:631
+					</execute>
+				</action>
+			</item>
+			<item label="Router de Casa">
+				<action name="Execute">
+					<execute>
+						x-www-browser  http://192.168.1.1
+					</execute>
+				</action>
+			</item>
+			<item label="Sansung Printer Webserver">
+				<action name="Execute">
+					<execute>
+						x-www-browser  http://192.168.1.8
+					</execute>
+				</action>
+			</item>
+			<item label="Obmenu">
+				<action name="Execute">
+					<execute>
+						obmenu
+					</execute>
+				</action>
+			</item>
+			<item label="ObConf">
+				<action name="Execute">
+					<execute>
+						command
+					</execute>
+				</action>
+			</item>
+			<menu id="root-menu-67300-8379" label="Wine">
+				<item label="Winecfg - Wine configurations">
+					<action name="Execute">
+						<execute>
+							winecfg
+						</execute>
+					</action>
+				</item>
+				<item label="Regedit  - Fake windows register">
+					<action name="Execute">
+						<execute>
+							regedit
+						</execute>
+					</action>
+				</item>
+				<item label="Browser wine directory">
+					<action name="Execute">
+						<execute>
+							pcmanfm .wine
+						</execute>
+					</action>
+				</item>
+				<item label="Winetricks">
+					<action name="Execute">
+						<execute>
+							winetricks
+						</execute>
+					</action>
+				</item>
+				<item label="CMD command prompt">
+					<action name="Execute">
+						<execute>
+							lxterminal -e &quot;wine cmd&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="root-menu-254558" label="Configurations files">
+			<item label="Openbox Menu">
+				<action name="Execute">
+					<execute>
+						gvim  ~/.config/openbox/menu.xml
+					</execute>
+				</action>
+			</item>
+			<item label="Openbox autostart">
+				<action name="Execute">
+					<execute>
+						gvim ~/.config/openbox/autostart
+					</execute>
+				</action>
+			</item>
+			<item label="Openbox autostart.sh">
+				<action name="Execute">
+					<execute>
+						gvim ~/.config/openbox/autostart.sh
+					</execute>
+				</action>
+			</item>
+			<item label="Openbox Shortcouts">
+				<action name="Execute">
+					<execute>
+						gvim ~/.config/openbox/rc.xml
+					</execute>
+				</action>
+			</item>
+			<item label="Vimrc">
+				<action name="Execute">
+					<execute>
+					</execute>
+				</action>
+			</item>
+			<item label="Bashrc">
+				<action name="Execute">
+					<execute>
+						gvim ~/.bashrc
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu id="root-menu-962846" label="Servidor de casa">
+			<item label="Serviço hml">
+				<action name="Execute">
+					<execute>
+						x-www-browser  http://192.168.1.2
+					</execute>
+				</action>
+			</item>
+			<item label="SAMBA">
+				<action name="Execute">
+					<execute>
+						pcmanfm smb://192.168.1.2
+					</execute>
+				</action>
+			</item>
+			<item label="SFTP">
+				<action name="Execute">
+					<execute>
+						pcmanfm &quot;sftp://caio@192.168.1.2/home/caio&quot;
+					</execute>
+				</action>
+			</item>
+			<item label="Acesso ssh">
+				<action name="Execute">
+					<execute>
+						lxterminal -e &quot;ssh 192.168.1.2&quot;
+					</execute>
+				</action>
+			</item>
+			<item label="Wiki">
+				<action name="Execute">
+					<execute>
+						x-www-browser  http://192.168.1.2/wiki
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-113151" label="Android">
+			<item label="Acesso html">
+				<action name="Execute">
+					<execute>
+						x-www-browser  http://192.168.1.6:1234
+					</execute>
+				</action>
+			</item>
+			<item label="Acesso SSH">
+				<action name="Execute">
+					<execute>
+						command
+					</execute>
+				</action>
+			</item>
+			<item label="Acesso samba casa">
+				<action name="Execute">
+					<execute>
+						pcmanfm  smb://192.168.1.6
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<item label="Exit">
+			<action name="Execute">
+				<execute>
+					xdg-open /usr/share/applications/lxde-logout.desktop
+				</execute>
+			</action>
+		</item>
+	</menu>
+</openbox_menu>

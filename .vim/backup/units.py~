@@ -1,0 +1,36 @@
+#	Programa para calculo de fator de unidades
+#
+#
+from sympy import Symbol as sy
+import sympy as S
+
+m=sy('m')  # meter
+s=sy('s')  #
+kg=sy('kg')
+K=sy('K')  #
+
+km=1e3*m
+cm=1e-2*m
+mm=1e-3*m
+um=1e-6*m
+
+vel=m/s
+acel=m/s**2
+g0= 9.80665*acel
+
+N=kg*m/s**2
+kN=1e3*N
+N1=sy('N')
+N2=N1/N
+
+J=N*m
+kJ=1e3*J
+
+Pa=N/m**2
+kPa=1e3*Pa
+MPa=1e6*Pa
+GPa=1e9*Pa
+
+#  ------- example -----------#
+mach=S.sqrt(1*(KJ/(kg*K))*K)
+

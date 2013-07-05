@@ -1,0 +1,44 @@
+<?php
+
+
+
+// Add the hook function call to an array defined earlier in the wiki code execution.
+$wgExtensionFunctions[] = "wfFile";
+ 
+// This is the hook function. It adds the tag to the wiki parser and tells it what callback function to use.
+function wfFile() {
+    global $wgParser;
+    # register the extension with the WikiText parser
+    $wgParser->setHook( "file", "renderFile" );
+}
+ 
+# The callback function for converting the input text to HTML output
+function renderFile( $input ) {
+    $file = NULL;
+    if (isset($input))
+    {
+        switch($input)
+        {
+            case "/tmp/status";
+                $file = "/tmp/status";
+                break;
+            case "/var/lib/foo":
+                $file = "/var/lib/foo";
+                break;
+        }
+    }
+ 
+    if (file_exists($file))
+    {
+        $data = file($file);
+        $data = implode($data, "");
+   } else {
+        $data = "Invalid version";
+    }
+    $return   = "
+" . $data . "
+";
+ 
+    return $return;
+}
+?>

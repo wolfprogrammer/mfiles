@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+
+#Poe wallpaper aleatório
+$HOME/bin/wallpaper.sh
+
+tint2 -c .tint2rc &
+
+lxpanel  &
+conky -d -b -o
+parcellite -d
+wbar -b -p top   &
+#adesklets &
+
+# unclutter	&				#Esconde o mouse quando inativo
+
+#urxvtd -f -o &				# Start rxvt-daemon

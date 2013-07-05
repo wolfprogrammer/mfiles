@@ -1,0 +1,9 @@
+function val = enterbox(msg="Enter with data",title="Input",val0=0.00)
+% enterbox(msg,title,default_value)
+%  
+%
+cmd=sprintf("./enter.py  \"%s\"   \"%s\"   %f",msg,title,val0);
+[a,val]=system(cmd);
+val=str2num(val);
+
+

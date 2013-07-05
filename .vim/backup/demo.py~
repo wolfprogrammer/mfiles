@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+
+
+import gtk
+import gtk.glade
+from control_system import *
+from matplotlib.pyplot import draw , figure , show
+from numpy import *
+TF=0
+textbuffer=0
+pylab.hold(False)
+class App:
+
+            # When our window is destroyed, we want to break out of the GTK main loop. 
+	    # We do this by calling gtk_main_quit(). We could have also just specified 
+	    # gtk_main_quit as the handler in Glade!
+	def on_window_destroy(self, widget, data=None):
+		gtk.main_quit()
+ 
+
+	def __init__(self):
+		builder = gtk.Builder()
+	        builder.add_from_file("demo.glade")
+	        self.wnd = builder.get_object("window1")
+	        self.tx = builder.get_object("entry")
+	        self.txout = builder.get_object("text_view")
+                self.bt = builder.get_object("button1")
+
+ 	        # connect signals
+        	builder.connect_signals(self)
+            	global textbuffer
+		textbuffer = self.txout.get_buffer()
+		textbuffer.set_text("Inicio")
+ 
+
+	def bclick(self,data=None):
+		global TF
+		global textbuffer
+		CONT=self.tx.get_text()
+		print CONT
+		tf1="systf("+CONT+")"
+		print tf1
+		TF=eval(tf1)
+                A=str(sysout(TF))
+		textbuffer.insert(textbuffer.get_end_iter(),A)
+	        print A
+
+	
+	def bodeclick(self,data=None):
+		 Fresp=FreqResp(TF,400)
+
+		 print Fresp['W']
+		 f=figure()
+		 af1=f.add_subplot(211)
+		 semilogx(Fresp['W'],Fresp['MAGdb'],color = '#340B8C')
+		 ylabel("Mag-dB")
+		 title("Bode Chart")
+		 Ymin,Ymax= ylim()
+		 ylim(Ymin-5,Ymax+5)
+		 print xticks()
+#ylim(Ymax+2,Ymin-2)
+		 grid(True,which="majorminor",ls="-",color='0.65')
+
+		 af2=f.add_subplot(212)
+		 semilogx(Fresp['W'],Fresp['Phase'])
+		 ylabel("Phase (deg.)")
+		 xlabel("Freq W (rad/s)")
+		 Ymin,Ymax= ylim()   
+		 yticks((-360,-270,-225,-180,-135,-90,-45,0,45,90,135,180,225,270,360))
+		 ylim(Ymin-5,Ymax+5)
+		 grid(True,which="majorminor",ls="-",color='0.65')
+		 draw()
+		 show()
+
+
+
+	
+	def main(self):
+		self.wnd.show()
+                gtk.main()
+
+if __name__ == "__main__":
+	app = App()
+	app.main()

@@ -1,0 +1,13 @@
+sudo modprobe squashfs
+mkdir rescue
+mv lubuntu-10.04.iso rescue
+cd rescue
+mkdir mnt
+sudo mount -o loop lubuntu-10.04.iso mnt
+mkdir extract-cd
+rsync --exclude=/casper/filesystem.squashfs -a mnt/ extract-cd
+mkdir squashfs
+sudo mount -t squashfs -o loop mnt/casper/filesystem.squashfs squashfs
+mkdir edit
+sudo cp -a squashfs/* edit/
+

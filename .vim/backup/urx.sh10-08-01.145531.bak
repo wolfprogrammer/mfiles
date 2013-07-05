@@ -1,0 +1,3 @@
+#!/bin/bash
+
+urxvt  -bg black -fg white -fn "xft:Droid Sans:pixelsize=15"

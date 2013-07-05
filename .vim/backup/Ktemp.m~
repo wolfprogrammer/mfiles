@@ -1,0 +1,48 @@
+function  T=Ktemp(e)
+%
+%    Retorna a Temperatura em funcao da tensoa em um termopar tipo K
+%
+%
+
+
+% Coficiente de 0 a 500ºC
+c1=[
+ 0.000000E+00 
+2.508355E+01  
+7.860106E-02 
+-2.503131E-01  
+8.315270E-02 
+-1.228034E-02 
+  9.804036E-04 
+ -4.413030E-05  
+  1.057734E-06  
+ -1.052755E-08] ;
+
+
+% Coeficientes de 500 a 1273ºC
+c2=[ 
+  -1.3181e+02
+   4.8302e+01
+  -1.6460e+00
+   5.4647e-02
+  -9.6507e-04
+   8.8022e-06
+  -3.1108e-08
+
+] ;
+
+
+
+
+c1=c1(end:-1:1);
+c2=c2(end:-1:1);
+
+if e<20.644
+T=polyval(c1,e)
+else
+T=polyval(c2,e)
+end
+
+
+
+

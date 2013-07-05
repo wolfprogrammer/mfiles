@@ -1,0 +1,33 @@
+# 	fonte_dc1.net
+
+*	GND: Nó 0
+*
+*	Anotações:
+*
+*	1-  nó zero "0" ou GND é o ponto comun do circuito terra
+*	
+*
+*
+*
+*
+
+*.control
+*set filetype=ascii
+
+*Fonte 10V entre 1 e 0 
+VS  n1 GND 10 dc 			; Tensão de eentrada 10 V
+R1  n1 n2 1k				; Resistor entre nó 1 e 2
+R2 n2 GND 3K
+
+* Análise do circuito  Vs variando de 10 a 30 V de 1 em 1V
+*
+*	Aqui imprime-se a tensão no nó 2 v(2)
+*
+.dc Vs 10 30 1
+.print dc V(n2)
+*.plot V(n1)
+.end
+
+*********************************************************
+*		END OF FILE										*
+*********************************************************

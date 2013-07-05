@@ -1,0 +1,144 @@
+#ifndef  __registers__h__
+#define  __registers__h__
+
+#include <pic18fregs.h>
+#include "pic16/pic18f4550.h"                           
+#include "default.h"
+
+//----------  PORT A ------------//
+//TRISA
+#define TRISA0  TRISAbits.TRISA0
+#define TRISA1  TRISAbits.TRISA1
+#define TRISA2  TRISAbits.TRISA2
+#define TRISA3  TRISAbits.TRISA3
+#define TRISA4  TRISAbits.TRISA4
+#define TRISA5  TRISAbits.TRISA5
+#define TRISA6  TRISAbits.TRISA6
+
+
+//LATA
+#define LATA0  LATAbits.LATA0
+#define LATA1  LATAbits.LATA1
+#define LATA2  LATAbits.LATA2
+#define LATA3  LATAbits.LATA3
+#define LATA4  LATAbits.LATA4
+#define LATA5  LATAbits.LATA5
+#define LATA6  LATAbits.LATA6
+
+
+//PORTA
+//RA
+#define RA0  PORTAbits.RA0
+#define RA1  PORTAbits.RA1
+#define RA2  PORTAbits.RA2
+#define RA3  PORTAbits.RA3
+#define RA4  PORTAbits.RA4
+#define RA5  PORTAbits.RA5
+#define RA6  PORTAbits.RA6
+
+
+
+//---------- PORT D-------------//
+
+#define TRISD0  TRISDbits.TRISD0
+#define TRISD1  TRISDbits.TRISD1
+#define TRISD2  TRISDbits.TRISD2
+#define TRISD3  TRISDbits.TRISD3
+#define TRISD4  TRISDbits.TRISD4
+#define TRISD5  TRISDbits.TRISD5
+#define TRISD6  TRISDbits.TRISD6
+#define TRISD7  TRISDbits.TRISD7
+
+#define RD0  PORTDbits.RD0
+#define RD1  PORTDbits.RD1
+#define RD2  PORTDbits.RD2
+#define RD3  PORTDbits.RD3
+#define RD4  PORTDbits.RD4
+#define RD5  PORTDbits.RD5
+#define RD6  PORTDbits.RD6
+#define RD7  PORTDbits.RD7
+
+
+
+#define LATD0  LATDbits.LATD0
+#define LATD1  LATDbits.LATD1
+#define LATD2  LATDbits.LATD2
+#define LATD3  LATDbits.LATD3
+#define LATD4  LATDbits.LATD4
+#define LATD5  LATDbits.LATD5
+#define LATD6  LATDbits.LATD6
+#define LATD7  LATDbits.LATD7
+
+#define PCFG0  ADCON1.ADCON1bits.PCFG0
+#define PCFG1  ADCON1.ADCON1bits.PCFG1
+#define PCFG2  ADCON1.ADCON1bits.PCFG2 
+#define PCFG3  ADCON1.ADCON1bits.PCFG3
+#define VCFG0  ADCON1.ADCON1bits.VCFG0
+#define VCFG1  ADCON1.ADCON1bits.VCFG1
+
+#define ADON      ADCON0bits.ADON
+#define GO  	  ADCON0bits.GO
+#define CHS0      ADCON0bits.CSH0
+#define CHS1      ADCON0bits.CSH1  
+#define CHS2      ADCON0bits.CSH2
+#define CHS3      ADCON0bits.CSH3
+
+#define ADCS0	ADCON2bits.ADCS0
+#define ADCS1	ADCON2bits.ADCS1
+#define ADCS2	ADCON2bits.ADCS2
+#define ACQT0	ADCON2bits.ACQT0
+#define ACQT1	ADCON2bits.ACQT1
+#define ACQT2	ADCON2bits.ACQT2
+#define ADFM	ADCON2bits.ADFM  
+ 
+#define OSC_HS	   		0X0C
+#define OSC_INTERNAL_PORT_RA6   0X08
+#define OSC_XT			0X02
+#define OSC_XTPLL		0x00
+ 
+// Oscilator Settings OSCON|=settings
+#define  INTERNAL_OSCILLATOR  0x02
+#define  TIMER1_OSCILLATOR    0X01
+#define  PRIMARY_OSCILLATOR   0X00
+#define  INTOS_8MHZ 	      7<<4
+#define  INTOS_4MHZ	      6<<4
+#define  INTOS_2MHZ	      5<<4
+#define  INTOS_1MHZ	      4<<4
+#define  INTOS_500KHZ	      3<<4
+#define  INTOS_250KHZ	      2<<4
+#define  INTOS_125KHZ	      1<<4
+#define  INTOS_31KHZ	      0<<4
+
+///	\name Oscillator Setting Macros 
+///
+#define INTERNAL_OSCILLATOR_8MHZ    INTERNAL_OSCILLATOR | INTOS_8MHZ
+#define set_oscillator( OSC_MODE)   OSCOON  = OSCOON | OSC_MODE
+
+#if 0
+void set_oscillator( u8 OSC_MODE){ 
+	OSCOON  = OSCOON | OSC_MODE;  
+}
+#endif
+
+
+
+//   setpin(ADRESS,STATE)
+//
+//   STATE= INP : Pino como entrada
+//   STATE= OUT : Pino como saida 
+//
+//   Configura pino como entrada ou saida
+//   setpin(D0,IN) é equivalente a TRISD0=1 
+//
+//
+
+
+#define  pinmode(PIN,STATE)  (TRIS##PIN=STATE)
+
+#define  readpin(PIN)         (R##PIN)
+
+#define  pinout(PIN,VALUE)    (LAT##PIN=VALUE)    
+
+
+#endif
+

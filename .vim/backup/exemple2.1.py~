@@ -1,0 +1,164 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Exemplo 2.1 saravanamuto pag 63
+
+import sys
+
+# Caminho dos módulos customizados #
+sys.path.append("/home/caio/works/modules")
+
+from pylab import *
+from engdef import *
+
+def setprec(formt="%.3f"):
+	get_ipython().magic('precision '+formt)
+
+
+setprec()
+
+"""
+1: compressor inlet
+2: compressor outlet/heate exchanger inlet
+5: heat exchanger outle/ combustion chamber inlet
+6: 
+
+   
+"""
+
+
+m=1.0         # kg/s Mass air flow
+rc=	4.0 		# Compressor pressure ratio
+T3=     1110.0  	# Turbine inlet temperature  K
+nisc=   0.85     # Isentropic efficiency of compressor
+nist= 	0.87     # Isentropic efficiency of turbine
+nmec=   0.99     # Mechanical transmission efficiency
+ncomb=  0.98	# Combustion efficiency
+eh  =   0.80	# Heat exchanger effectiveness
+
+# Pressure losses  Perdas de pressao
+perc= 0.01    	 	#percent unit = 1%
+dPcomb = 2.0*perc   	# 2% of deliv pressure : Combustion chamber
+dPha= 3.0*perc   	# 3% comp deliv press : Heat exchanger air-side
+dPhg= 0.04       	# bar   Heat exchanger gas side
+
+#Ambient conditions
+Ta=288.15 # K
+Pa=1 # bar
+
+
+# ------  Air properties
+cpa=1.005 # KJ/Kg.K
+Ya=1.40   
+c1a=(Ya-1)/Ya
+c2a=Ya/(Ya-1)
+cva=cpa/Ya
+Ra=cpa-cva
+
+# ----- Combustion gases properties
+cpg=1.148 # KJ/Kg.K
+Yg=1.333  
+c1g=(Yg-1)/Yg
+c2g=Yg/(Yg-1)
+cvg=cpg/Yg
+Rg=cpg-cvg  
+
+def prn(st):
+	print(str(st))
+
+def prn2(st,val,unit):
+	print(str(st + "= %.5G " % val + unit))
+
+prn("cpa= %.4g" % cpa)
+prn("Ya= %.4g" % Ya)
+
+prn("cpg= %.4g" % cpg)
+prn("Yg= %.4g" % Yg)
+
+
+def dtcomp(T,Y,rc,nisc):
+	"""
+	Determina aumento de temperatura no compressor
+	
+	Entrada:
+	T  : Temperatura na entrada do compressor
+	Y
+	rc : Razao de compressao
+	nc : Eficiencia isentropica do compressor
+
+	Rertorna:
+	dt12 : Acrescimo de temperatura no compressor
+
+	"""
+	dt12=T/nisc*(rc**((Y-1)/Y)-1)
+	return dt12
+	
+def dturb(T,Y,rt,nist):
+	"""
+	Determina queda de temperatura na turbina
+	
+	Entrada
+	T: Temperatura na entrada da turbina
+	Y: gamma do gas 
+	rt=P3/P4= Pentrada/Psaida
+	nist Eficiencie isentropica da turbina
+	
+	Saida
+	dt34  : Queda de pressao na turbina
+	
+	"""
+	dt34=nist*T*(1-(1/rt)**((Y-1)/Y))	
+	return dt34
+	
+T1=Ta 
+P1=Pa
+P2=rc*Pa
+
+
+dt12=dtcomp(T1,Ya,rc,nisc)
+T2=T1+dt12
+
+prn2("dt12",dt12,"K")
+prn2("T2",T2,"K")
+
+
+P3=P2*(1-dPha-dPcomb)
+P4=Pa+dPha    #Pressao na saida da turbina
+
+rt=P3/P4	# constante para a turbina
+
+dt34=dturb(T3,Yg,rt,nist)
+T4=T3-dt34
+
+Wcomp=m*cpa*(T2-T1)
+Wturb=m*cpg*(T3-T4)
+Wutil=nmec*Wturb-Wcomp
+
+# eh=( Tsf-Tef)/(Tsq-Tef)
+#
+# eh=(T5-T2)/(T4-T2)
+# eh(T4-T2)=T5-T2
+#  T5= T2 + eh*(T4-T2)
+T5=T2+eh*(T4-T2)
+
+# Calor de entrada desprezível
+Qin=m*cpg*(T3-T2)
+
+#Eficiencia termica
+nth=Wutil/Qin
+
+
+#import IPython 
+#IPython.magic("whos float")
+#IPython.embed()
+
+
+
+	
+	
+#     nome  unidade comentario      #
+vrs=[["cpa","KJ/kg.K","Calor específico do ar a P constante"], \
+     ["cpg","KJ/kg.K","Calor especifico do gás a P constante"]]
+      
+
+addvar(vrs)
+wtch()

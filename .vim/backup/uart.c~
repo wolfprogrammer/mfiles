@@ -1,0 +1,104 @@
+/**
+* \file uart.h
+* \author Sitsofe Wheeler
+*
+* \brief Header file for simple "hello world" OpenGL rectangle example.
+*
+* A detailed description of the Hello class goes here.
+* This is a Class to create an OpenGL triangle. It expects glutInit
+* to have been called.
+*/
+
+
+
+#include "uart.h"
+
+
+void init_uart(){
+
+
+        LATC=0;
+
+	setb(TRISC,TXPIN);
+//	clrb(TRISC,TXPIN);
+	setb(TRISC,RXPIN);
+
+	// Asyncronous - 8 bit mode - TX-off
+	TXSTA=0x00; 
+        // RX and TX pins as serial port 
+	// Asyncronous - 8 bit mode - RX-off
+	RCSTA=0x80;
+	// RX and TX data not inverted 
+	BAUDCON=0x02;
+	 
+        // Set Baudrate
+        // 4 MHZ - 19,2 kbps - 
+	// bits
+	setb(TXSTA,bBRGH);
+	clrb(BAUDCON,bBRG16);
+	SPBRG=12;
+	SPBRGH=0;
+
+
+	// Turn on TX and RX
+	TXEN=ON;
+	RXEN=ON;
+
+
+
+}// End Of eusart
+
+
+
+void putc(char txdata){
+
+//        TXEN=OFF; 
+	while(!TXIF);
+	TXREG= txdata;
+//	TXEN= ON; 
+//	delay10Tcy();
+}
+
+void print(string STR){
+
+	while(*STR){
+		while(!TXIF); //   Waits the buffer be empty.
+		TXREG=*STR;   //   Send the character
+		STR++;        //   Send next char
+
+	}
+
+}
+
+
+// Print string stored in the data memory
+void printr(ROM string STR){
+
+	while(*STR){
+		while(!TXIF); //   Waits the buffer be empty.
+		TXREG=*STR;   //   Send the character
+		STR++;        //   Send next char
+
+	}
+
+}
+ 
+
+char getc(){
+
+	u8 C;
+	
+	while(!RCIF);
+	C=RCREG;
+        return C;
+}
+ 
+
+
+
+
+
+                             
+
+
+

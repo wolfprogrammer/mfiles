@@ -1,0 +1,35 @@
+
+function [t,pulse] = pwm (f,D,N=10)
+%   [t,pulse] = pwm(f,D,N=10)
+%
+%   Gera pulso PWM 
+%   f - frequencia em kHz
+%   D - Duty Cycle  0<=D<=1
+%   N - Números de ciclos. Default N=10
+%   res - Resolução =1 
+
+Ts=1/f;
+res=Ts/1000;
+t=[0:res:N*Ts]    ;
+y=1/Ts*mod(t,Ts)       ;
+
+%figure()           ;
+%hold on            ;
+%plot(t,y)          ;
+
+sig=zeros(size(y)) ;
+sig(y<D)=1;
+
+
+       % plot(t,sig,'r')    ;
+       % grid()             ;
+
+
+pulse=sig;
+%plot(t,pulse)
+
+
+
+
+
+endfunction

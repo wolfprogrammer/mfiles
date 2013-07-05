@@ -1,0 +1,93 @@
+%		 		system1.m
+%
+%	Caio Rodriues Soares Silva
+%	Fri 04 Mar 2011 09:21:47 PM BRT
+%	
+%	Sample de sistemas de controle para o octave
+%
+%	Para rodar este arquivo pelo vim faça:
+%	:!octave system1.m
+%
+%
+%	Sistema G(s)=1/(s+1)
+%
+%
+
+clc();  %% Limpa ecrã
+
+
+function []=halt()
+    pause(inf);
+end
+% Fim da função halt
+% Congela o octave para exibir o resultado
+
+%
+%	Função de transferência
+%
+num=1;	   %  1     numerador
+den=[1 1]; % s+1    denominador
+G=tf(num,den);
+
+
+zer=roots(num)      %   Zeros do sistema
+pls=roots(den)     %   Pólos do sistema
+
+
+t=0:0.1:10;	                % Vetor do tempo
+N=length(t);
+#y=step(G,1,t(end),N);		% Resposta ao degrau
+y=step(G);
+%
+%	Formatação de plotagem
+%	-r	:red 	Gráfico de cor vermelha
+%	-g	:green  Gráfico de cor verde
+%	-y  :yellow Gráfico de cor amarela
+%
+%
+plot(t,y,'-r',"linewidth",3);
+
+%top_title("Control system 1st order simulation");
+title("Step response of 1/(s+1)",'FontName','Vera','FontSize',20);
+xlabel("t: time (s) ","fontsize",14);
+ylabel("y(t): response","fontsize",14);
+grid();
+text(5,0.5,"G(s)=1/(s+1)");			
+%gtext("Ponto clicado");		# NOT  Põe texto no ponto clicado		
+%gpick()						% NOT Retorna um ponto clicado pelo mouse na figura
+%gzoom()						% NOT
+%[xx,yy]=grab;
+[xx,yy,kk]=ginput(4)
+
+for i=1:4
+	text(xx(i),yy(i),"k");
+end
+
+% Imprime gráfico do sistema para arquivo
+print -dpng resposta.png -r300		% -r300 imprime com resolução de 300
+print ('response.tex','-dtex');	 	%Plota em tex
+
+% Log dos esultados da simulação são
+%escritos formato texto no arquivo simu.log
+%
+fid=fopen("simu.log","w");
+fprintf(fid,"Relatório da simulação do sistema 1/(s+1)\n\n");
+fprintf(fid,"t:tempo(s) e y:resposta ao degrau unitário\n\n");
+fprintf(fid," t\t \ty");
+fprintf(fid,"\n***********************\n");
+for i=1:N
+    fprintf(fid,"\n%f\t%f",t(i),y(i));
+end
+fclose(fid);
+
+
+
+%   Dados da simulação em formato binário hdf5
+% estes dados podem depois serem recuperados por
+% load simu-data.hdf5
+%
+save -hdf5 simu-data.hdf5
+
+
+halt();
+printf("Entre com ENTER  para sair");

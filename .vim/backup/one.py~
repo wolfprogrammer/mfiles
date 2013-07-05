@@ -1,0 +1,13 @@
+from pylab import *
+
+
+t=linspace(0,10,100);
+y=sin(t)
+
+print [y,t]
+
+plot(t,y)
+
+show()
+
+r=raw_input("Entre com algo para sair")

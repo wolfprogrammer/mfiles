@@ -1,0 +1,11 @@
+unsigned char Scale_7bit(unsigned char evnt2, unsigned char min, unsigned char max) {
+  // scaled value is (<8-bit random> * ) >> 8
+  PRODL = evnt2 << 1; // 8bit value
+  PRODH = max-min+1;  // range
+__asm
+    movf _PRODL, W
+    mulwf _PRODH, 0
+__endasm;
+ 
+  return min + PRODH;
+}

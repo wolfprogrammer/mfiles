@@ -1,0 +1,5 @@
+#!/bin/bash
+sudo ifconfig wlan0
+sudo iwconfig wlan0 rosete toor1 6384722510
+sleep 10
+sudo dhclient wlan0

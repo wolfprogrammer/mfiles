@@ -1,0 +1,86 @@
+%	Projeto de conversor BUCK para painel solar
+%  modelo MX60  / marca SOLAREX
+%
+
+%--------------------------------------
+% 	PAINEL SOLAR / PV ARRAY
+%
+Pm=   60   % W
+Vmp=  17.1 % V
+Imp=   3.5 % A
+Isc=   3.8 % A
+Voc=  21.1 % V
+
+av=-80*1e-3 % V/ºC
+ai= 0.065   % %/ºC
+ap=-0.5	    % %/ºC
+NOCT= 47  % ºC
+
+%--------------------------------------
+% 	Battery: Lead Acid Battery
+%	Bateria de chumbo ácido
+Vbat=12 % Volts
+
+
+%--------------------------------------
+%%%%%%%   Caculations  %%%%%%%%%%%%%%%%
+%--------------------------------------	
+printf("\n\nCalculations:\n:");
+
+%
+% Definições de projeto
+fs=100e3     % [Hz] Frequência de chaveamento 
+ri=0.10     % Current ripple Oscilação de corrente 10% do valor de entrada
+rv=0.01     % Voltage ripple Oscilação de tensão de saída    
+
+Ts=1/fs
+
+Pmax=Pm	% Máxima potência do painel solar a 25ºC
+Vo=Vbat % Tensão de saída do conversor buck
+
+Vin1= 1.20*Vo   % Mínima tensão de entrada 
+Vin2= Vmp   % Máxima tensão de entrada
+
+Iin1=msx60i(Vin1,1,25)
+Iin2=msx60i(Vin2,1,25)
+
+% Cáuculos dos Ciclos de trabalho Duty Cycle
+D1=Vo/Vin1
+D2=Vo/Vin2
+
+Iomax=Pmax/Vo  % Amps
+di=ri*Iomax   % Current ripple
+dv=rv*Vo      % Voltage ripple
+
+Rmax=Vo^2/Pmax % Ohmens
+R=Rmax
+
+Lmin1=(1-D1)*R/(2*fs)
+Lmin2=(1-D2)*R/(2*fs)
+Lmin=max(Lmin1,Lmin2)
+L=Lmin
+
+diL1=Vo/L*(1-D1)*Ts
+diL2=Vo/L*(1-D2)*Ts
+
+if max(diL1,diL2)> di
+	% Ripple maximo menor que o admissível então recalcular
+	Lmin1=Vo/di*(1-D1)*Ts
+	Lmin2=Vo/di*(1-D2)*Ts
+	Lmin=max(Lmin1,Lmin2)
+else
+	printf("OK");
+end
+
+L=Lmin
+C1=1/8*Ts^2*(1-D1)/(L*rv)
+C2=1/8*Ts^2*(1-D2)/(L*rv)
+C=max(C1,C2)
+
+
+
+
+
+
+
+

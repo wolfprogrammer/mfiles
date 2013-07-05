@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+/usr/bin/zenity --info --text="$1"
+
+scp "$1" git@192.168.1.2:backups
+/usr/bin/zenity --info --text="Transferência terminada"
+

@@ -1,0 +1,25 @@
+
+#include “pic18fregs.h”
+#include  “stdio.h”
+#include “usart.h”
+
+
+
+void main(void)
+{
+    /* Initialise the USART hardware (see usart.h for details */
+    /* The number 79 gives 9600 baud with a 12.288Mhz PIC clock */
+    usart_open(
+           USART_TX_INT_OFF
+        & USART_RX_INT_OFF
+        & USART_BRGH_HIGH
+        & USART_ASYNCH_MODE
+        & USART_EIGHT_BIT,
+           79
+        );
+    /* Direct outout to the USART */
+    stdout = STREAM_USART;
+
+    /* Say “hello” */
+    printf("Hello World\n");
+}

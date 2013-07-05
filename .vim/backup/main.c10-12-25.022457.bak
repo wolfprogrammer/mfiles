@@ -1,0 +1,92 @@
+/* Processador de arquivo de cabeçalho */
+#define __16f877a
+#include "pic/pic16f877a.h"
+#include "commdefs.h"
+
+/** \file sample1.ext
+ *\brief Um teste de documentação
+ *
+ * Testar o desenvolvimento de sistemas embarcados usando
+ *linguagem c no linux
+ */
+
+
+typedef unsigned int config;
+
+
+config at 0x2007 __CONFIG= 
+_WDT_OFF & 
+_PWRTE_ON & 
+_BODEN_OFF &
+_CP_OFF & 
+_DEBUG_OFF & 
+_HS_OSC & 
+_CPD_OFF & 
+_CP_OFF & 
+_LVP_OFF; 
+
+
+#define  LED    	RB0			//
+#define	 BUTTON		RB1			//
+
+
+
+
+
+//static void isr(void) interrupt 0{
+//
+//		T0IF=0; // Limpa a flag do interrupt do Timer0
+//		PORTB++; //Incrementa PORTB
+//}
+
+
+
+/** \brief Uma rotina de delay de 1 segundo para clock de 4MHZ
+ */
+void Delay1s(void);
+
+
+void main(){
+
+		ADCON1=0x06;		// PORTA E/S digitais, por default, são analógica	
+	    CMCON=0x07;			// Desabilita comparadores analógicos
+
+
+		TRISB=0;			//Saída
+		
+		LED=OFF;			//Led apagado
+
+		PORTB=0b01010101;
+
+		while(1){/*Loop Para sempre*/
+		
+	    
+						
+						PORTB=~PORTB;			//Pisca o led quando o botão é apertado
+					    Delay1s();
+
+				}
+
+
+
+		
+
+
+
+} //end of main
+
+/*----------------------------------------------------------*/
+
+#ifdef clock
+//Obs.: Para clock de 4MHZ
+void Delay1s(void){
+
+		u8 count1;
+		OPTION_REG=tmr0_1p32;	//Clock 1 por 32 , prescaler de 32 
+		TMR0=0;					//Inicia o TMR0
+
+		for(count1=0;count1<125;count1++) while(TMR0<250);	
+
+
+}
+#endif

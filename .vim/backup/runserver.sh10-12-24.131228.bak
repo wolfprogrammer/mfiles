@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+ROOTDIR=/home/caio/chroot
+
+
+sudo mount -o bind /proc $ROOTDIR/proc
+sudo cp /etc/resolv.conf $ROOTDIR/etc/resolv.conf
+export DISPLAY=:0.0
+sudo xhost +
+
+alias chr='sudo chroot $ROOTDIR'
+
+echo $ROOTDIR
+
+#No chroot 
+chr /etc/init.d/apache2 start
+chr ls /var/run/mysqld/
+chr touch /var/run/mysqld/mysqld.sock
+chr ls /var/run/mysqld/mysqld.sock
+chr mysqld &
+
+exit
+echo "The server is running now, open http://localhost/mediawiki"
+

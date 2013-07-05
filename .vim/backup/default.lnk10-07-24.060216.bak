@@ -1,0 +1,11 @@
+table Icon
+  Caption: Idesk
+  Command: thunar  
+  Icon: /usr/share/idesk/folder_home.xpm
+
+  Width: 48
+  Height: 48
+  X: 29
+  Y: 29
+end
+

@@ -1,0 +1,195 @@
+# -*- coding: utf-8 -*-
+# Configuracao do ipython
+
+ip=get_ipython()
+
+
+def setprec(n,mode=0):
+	"""
+	Set the ipython precision to print float point numbers
+	>>setprec(n)
+	n: Number of decimal places
+	m: Mode 
+	
+	Configura a precisao para imprimir numeros em ponto flutuante
+	>>setprec(n,mode=0)
+	n:numero de casas decimais
+	m: Modo de impressao
+        --------------------------
+
+	m
+	0  "%f"	 n decimal places
+	1  "%g"	 n fixed digits
+	2  "%e"  b decimal places , scientific notation
+
+	"""
+	if mode==0 : m="f"
+	if mode==1 : m="g"
+	if mode==2 : m="e"
+
+	prec="%."+str(n)+m
+	get_ipython().magic('precision ' + prec)  
+
+
+
+def ptable(labels,LST,formatt="%.3f",TITLE=""):
+	"""
+	ptable
+	
+	Imprime arrays do numpy em formato facil de ser lido:
+	
+	ptable(TITLE,labels,LST,formatt="%.3f")
+	
+	TITLE: Titulo do tabela
+	labels: Lista com nomes das variaveis
+	LST: Lista das variaveis
+	formmatt: default %.3f Imprime float com 3 casas decimais
+	-------------------------------------------------------------
+	
+							Exemplo
+	
+	
+	>>t=arange(0,pi,0.01)
+	>>y=sin(t)
+	>>ptable("Resultados",["x","y"],[t,y])
+	
+	saida:
+	
+	Resultados
+	x		y
+	0.000	0.000
+	0.010	0.010
+	...
+		
+	
+	"""
+	
+	print  "\t"+TITLE
+	L="" # string vazia
+	
+	# Imprime rotulos 
+	for la in labels:
+		L=L+"\t"+la
+	print L
+	
+	LL=array(LST)
+	LL=LL.transpose()
+	for L in LL:
+		S=""
+		for x in L:
+			k= formatt % x
+			S=S+"\t"+k
+		print S 
+
+
+#Função para limpar ecrã
+#
+def clc(self=ip,arg=""):
+	ip.ex("ip.system(\"clear\")")
+
+#para usa-lo faça   >>%cl ou >>cl para limpar o ecrã
+#ip=get_ipython()
+ip.define_magic("cl",clc)
+
+# Some helpful math functions
+
+# Inverso de x
+def INV(x):
+	return 1/x
+
+def sind(x):
+	return sin(deg2rad(x))
+
+def cosd(x):
+	return cos(deg2rad(x))
+
+def tand(x):
+	return tan(deg2rad(x))
+
+#------------------------ Variable Track------------------------------#
+
+global var_dict 
+global var_lst  # Lista de variaveis
+
+var_dict={}	# dicionario, as chaves são os nomes das variávesi, os valores são os 
+		# unidade e comentário
+var_lst=[]
+
+def addvar(vrs):
+	for v in vrs:
+		vname=v[0]
+		unit=v[1]
+		comment=v[2]
+		var_dict[vname]=[unit,comment]
+		var_lst.append(vname)
+
+
+def wtch():
+	"""
+	wtch(vrs,notes)
+	
+	wtch: is watch for short
+	Keep tracks of the user variables , giving it's labels, values, and description.
+	
+	"""
+	print "\nName\tValue\tUnit\t\tComment"
+	for vname in var_lst:
+		v=var_dict[vname]
+		val=eval(vname)
+		unit=v[0]
+		comment=v[1]
+		typ=type(val)
+		
+		vals="%.4f" % val
+		if(typ==ndarray):
+			vals="..."
+		
+		print vname+ "\t" + vals + "\t"+unit  +"\t\t" + comment
+
+
+#---------  Ipython initial configurantion ---------"
+#
+
+modules_dir="/home/caio/works/modules"
+workdir_dir="/home/caio/works"
+logs_dir="/home/caio/works/logs/"
+prec=4
+
+
+from pylab import *     # Import all pylab features
+ion()			# Set interactive matplotlib mode
+ip=get_ipython() 
+
+# Customized modules path
+import sys
+sys.path.append(modules_dir)
+
+
+#------- Ipython initial directory ----------"
+import os
+os.chdir(workdir_dir)
+
+#----- Float point display precision
+setprec(prec) # Display float point numbers with 4 significant digits
+
+
+# --------- BANNER -------------#
+clc() # Clean screen
+
+print "\n\t\tCustomized ipython configuration\n"
+print "Using pylab+numpy+scipy=matplotlib"
+print "Work dir : " + workdir_dir
+print "Custom modules dir : " + modules_dir
+print "Float point precision : " + str(prec)
+print "Ipython session : ip , use ip.feature ..."
+
+#	Salva os logs da sessão em $HOME/works/logs
+
+import datetime
+now = datetime.datetime.now()
+logtime=now.strftime("%Y-%m-%d-%H-%M")
+print logtime
+
+logname= logs_dir+"last-log.py" 
+logname2=logs_dir+"log"+logtime+".py"
+ip.magic("logstart -o -t "+logname2 )

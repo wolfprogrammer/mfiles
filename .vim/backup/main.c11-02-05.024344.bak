@@ -1,0 +1,293 @@
+/*			main.c
+ *
+ *	Objetivo : Ler o a entrada analógica e enviar a saída pela uart
+ *
+ **/
+
+
+#define pic16f877a
+#define clock4mhz 
+
+#include "pic16f877a.h"
+#include "default.h"
+#include "delay.h"
+#include "uart.h"
+
+#define __code rom
+
+/**
+ *@file main.c
+ *@brief Objetivo: desenvolver uma biblioteca UART para o PIC16F877A 
+ *
+ *
+ *@author Caio Rodrigues Soares Silva
+ *
+ *
+ *@warning It's still under development.Unstable.
+ *
+ */
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           CONFIGURATION BITS               |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+typedef unsigned int config;
+
+config __at 0x2007 __CONFIG= 
+_WDT_OFF &    // Sem Watch dog timer 
+_PWRTE_ON &   // Com Power-On Reset
+_BODEN_OFF &  // Com
+_CP_OFF &       // Sem proteção do código
+_DEBUG_OFF &  // Sem debugger
+_HS_OSC &     // Oscilador cristal 4 MHZ
+_CPD_OFF &    //
+_LVP_OFF;     
+
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |    DECLARAÇÃO DAS ROTINAS                  |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+
+
+void initUART(u8 ,u8);
+void delay_ms(u8 sec);
+void sendchar(char x);
+void prints(pchar msg);
+char mychar;
+
+
+
+u8 getchar(){
+
+		while(!RCIF); // Enquanto não recebeu caracter espera  !1=0
+		return RCREG;
+}
+
+// Imprime número na UART de zero a 255
+void print_num(u8 num){
+	
+    u8 alg0,alg1,alg2;				// Algarismos , number algarisms
+
+    alg2=num/100+'0';  		//Mais significativo , most significative
+    alg1=num%100/10+'0';	//Second algarism
+    alg0=num%10+'0';
+
+    sendchar(alg2);
+    sendchar(alg1);
+    sendchar(alg0);
+}
+
+
+
+// Imprime número em formato hexadecimal
+void print_numhex(u8 num){
+  
+    u8 alg0 , alg1;
+ 
+    sendchar('0');
+    sendchar('x');
+    alg0=num&0x0F;  // Low nibble 
+    alg1=num>>4;    // Hight nibble
+
+    if(alg1>10){
+        sendchar(alg1%10+'A');
+    }else{
+        sendchar(alg1+'0');
+    }
+
+
+    if(alg0>10){
+        sendchar(alg0%10+'A');
+    }else{
+        sendchar(alg0+'0');
+    }
+
+
+}
+
+//  
+//    Flag that connects the Interrupt service routine to main loop action
+//
+volatile u8 adc_done;
+
+
+
+		/*		Interrupt Handler
+		 */
+void isr  (void ) __interrupt 0 {
+
+   
+    if(ADIF){
+    ADIF=0;     // Clear interrupt flag
+
+    sendchar('m');
+    adc_done=1; // A/D conversion finished
+
+    PORTB=ADRESH;
+   
+       // GO=1;   // Restart adc conversion
+
+        delay1TCYx(40);   // 40 us delay
+
+        sendchar('y');
+    }
+
+
+}
+
+
+
+//  u16 ad_val; // Valor do AD
+    u32 tlong;  //Valor de 32 bits auxiliar
+    char ch;
+    u8 *ptr;
+
+typedef union
+   {
+		      	unsigned short U16;
+			     unsigned char U8[2];
+				    
+   } U16_U8;
+   
+U16_U8 ad_val;
+
+/*
+ *    |--------------------------------------------+
+ *    |           MAIN                             |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+void main(void){
+
+    
+    initUART(25,1);
+
+    prints("Teste do conversor A/D");
+    newline();
+
+
+		TRISB=0x00;
+		
+		ADON=0;			// Shut down ADC
+		
+		ADCS0=1;		// Clock adc Fosc/8=> Tad= 2 us
+		ADCS1=0;
+		ADCS2=0;
+
+		CHS2=0;			// Set Channel 0 ==> RA0
+		CHS1=0;
+		CHS0=0;
+   
+
+        TRISA0=1;       // Set PORTA as input
+
+        ADFM=1;         // Right justified
+
+        ADCON1|=0x00;   // All analogs
+
+        ADON=1;         // Turn on the A/D module                    
+
+          
+                       // Configure  A/D Interrupt 
+        ADIE=1;
+        PEIE=1;
+        GIE=1;
+
+        ADIF=0;        // Clear flag
+
+        prints("ADCON0="); print_numhex(ADCON0); newline();
+        prints("ADCON1="); print_numhex(ADCON1); newline();
+        prints("INTCON="); print_numhex(INTCON); newline();
+        
+        GO=1;           // Start the conversion
+        adc_done=0;
+
+
+
+        // ADC value for left justified result
+        //  
+        //    u16 adc_val;
+        //   
+        //    
+        //    adc_val= (ADRESH<<2+(ADRESL & 0XC0))*5
+        //
+        //
+        //
+       
+
+
+
+    ////////////////
+    // Main loop  //
+    //            //
+    //            //
+    while(TRUE) {
+
+
+        sendchar('q');
+
+
+        if(adc_done){
+            
+            adc_done=0;
+            ADIE=0;     // Disable
+
+       
+            // ad_val= ((u16) ADRESH)<<2+ ((u16) ADRESH)>>6;  // valoradc
+            ad_val.U8[0]=ADRESL ;  // Teste inteiro 16bits
+			ad_val.U8[1]=ADRESH ;
+
+            tlong=(u32) ad_val.U16*5000;    // Converte em mv
+            
+
+            ch=tlong/1000+'0';       // Volts digit
+            sendchar(ch);
+            sendchar('.');
+            ch=(tlong/100)%10+'0';   // 0.1 volts digit
+            sendchar(ch);
+            ch=tlong%10+'0';         // 0.01 volts digit
+            sendchar(ch);
+            sendchar('V');
+
+	#if 1
+            prints(" ");
+            ptr=0x001E;                 // Endereço de adval_H
+            print_num(*ptr);
+            
+            prints(" ");
+            ptr++;
+            print_num(*ptr);
+	#endif        
+            newline();
+
+            GO=1;
+            ADIE=1;
+
+            
+
+        }
+	
+	}//Endwhile
+
+		
+}//Endmain
+
+
+
+
+///////////////////////////////////////////////////////////
+//                      END OF FILE                      //
+///////////////////////////////////////////////////////////

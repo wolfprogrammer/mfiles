@@ -1,0 +1,26 @@
+from scipy import *
+from scipy.integrate import odeint
+from matplotlib import *
+from pylab import *
+"""
+Example of solving system of differential equations.
+Do the damped oscillator, b is damping factor
+"""
+def damped_osc(u,t,b): #defines the system of odes
+    x=u[0]
+    v=u[1]
+    return(v,-x-b*v) #the derivatives of u
+t = arange(0,20,0.1)
+u0 = array([1,0])
+b=0.4
+u=odeint(damped_osc,u0,t,args=(b,)) #b is in tuple, needs comma
+figure(1)    #Using matplotlib
+plot(t,u[:,0],t,u[:,1])
+xlabel('Time')
+title('Damped Oscillator')
+figure(2)
+plot(u[:,0],u[:,1])
+title('Phase-space')
+xlabel('Position')
+ylabel('Velocity')
+show()

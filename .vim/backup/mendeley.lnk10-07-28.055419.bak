@@ -1,0 +1,11 @@
+table Icon
+  Caption: 
+  ToolTip.Caption: Run chromium browser
+  Command: chromium-browser
+  Icon: /home/caio/.idesktop/mendeley.png
+  Width:  48
+  Height: 48
+  X: 149
+  Y: 89
+end
+

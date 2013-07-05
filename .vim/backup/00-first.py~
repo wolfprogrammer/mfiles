@@ -1,0 +1,160 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#
+import sys
+from os  import system as cmd
+
+from pylab import *
+ion()					# Interactive mode
+
+sys.path.append("/home/caio/works/modules")
+print "\n\nDiretorio dos modulos\n/home/caio/works/modules"
+print "Referencia de comandos entre com :pyref()"
+
+
+EDITOR="gvim"
+
+ipp=get_ipython()
+
+
+def clc():
+        system("clear")
+	system("reset")
+	
+
+#ipp.expose_magic("clc",clc)
+
+#  Calcula seno com argumento em graus
+#
+def sind(x):
+		return sin(deg2rad(x))
+
+#  Cálcula coseno com ângulo em graus
+#
+def cosd(x):
+		return cos(deg2rad(x))
+	
+def tand(x):
+		return tan(deg2rad(x))
+
+
+
+
+def setprec(digits=5):
+	"""
+	[digits]
+	Set the number of  decimal places
+	
+	default=5
+	"""
+	
+	formt="%"+"."+str(digits)+"f"
+	
+	get_ipython().magic('precision '+formt)
+
+
+def pyref():
+	reff= \
+	"""
+	----------------------------------------------------------
+	Ipython Commands:
+	----------------------------------------------------------
+
+	import module        	:  Call a module(library)
+	reload(module_name)     :  Call a module again
+	? module		:  View the module documentation
+
+	run <file.py>		: Run file 
+	ed file.py		: Edit file and run
+
+	logstart  <filename>	: Start logging
+	logstop	                : Stop logging
+	
+
+        ----------------------------------------------------------
+	
+	? object 	: Get help about the object , view the documentation
+			object={variable,function...}
+
+
+	who		: Interactive variables
+	whos
+	who_ls
+
+	exec  In[4]	: Execute line 4
+
+	p [variable]    : Print variable
+
+	ed 		: Enter in text editor and execute command
+
+	Out[10]		: Print the Out of the 10th line
+
+
+	%hist 		: Show history
+	In		: Show input history
+	Out		: Show output history
+
+	psource <file>  : Show file sourcercode
+	pdoc	<file>  : Show file pydoc string
+	pycat   <file>  : Show file docstring
+
+	del     <var> 	: Delete variable
+
+	clear		: Clear screen
+
+	cpaste 		: Paste sourcecode
+
+	pfile		: Print file that the object is defined
+
+	pwd		: Print the working directory
+
+	reset 		: Clean variable
+
+
+	-------------------------------------------------------------
+				SETTINGS
+	-------------------------------------------------------------
+    
+    Ipython settings:
+    $HOME/.ipython
+       
+    Startup scripts:
+	/home/caio/.ipython/profile_default/startup
+	
+	Modules:
+	/home/caio/works/modules
+
+        -------------------------------------------------------------
+				DEBUGGING
+        -------------------------------------------------------------
+	
+	To debug a code put in the main sourcecode:
+	> import pdb; 
+	
+	>pdb.set_trace()  #  Set a breakpoint in some line of the code
+
+	-----------------------------------------------------------------
+			FEATURES
+	-----------------------------------------------------------------
+	
+	edit2("filename")  Edit file with gvim
+	setprec(3)		   Set the numbers of decimal places to 3  
+
+	"""
+
+	print reff
+
+
+def edit2(fname):
+	"""
+	Edit file using GVIM editor
+	"""
+	global EDITOR
+	command="%s %s.py" % (EDITOR,fname)
+	os.system(command)
+
+
+
+
+setprec()

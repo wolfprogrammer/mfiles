@@ -1,0 +1,6 @@
+* rc.lib
+.subckt rc 12 11 10 params: r 1⁄4 1 c 1⁄4 1
+r1 11 12 {r}
+c1 12 10 {c}
+.ends rc
+

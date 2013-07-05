@@ -1,0 +1,145 @@
+/*			main.c
+ *
+ *
+ *
+ **/
+
+
+#define pic16f877a
+#define clock4mhz 
+
+#include "pic16f877a.h"
+#include "default.h"
+#include "delay.h"
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           CONFIGURATION BITS               |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+typedef unsigned int config;
+
+config __at 0x2007 __CONFIG= 
+_WDT_OFF &    // Sem Watch dog timer 
+_PWRTE_ON &   // Com Power-On Reset
+_BODEN_OFF &  // Com
+_CP_OFF &       // Sem proteção do código
+_DEBUG_OFF &  // Sem debugger
+_HS_OSC &     // Oscilador cristal 4 MHZ
+_CPD_OFF &    //
+_LVP_OFF;     
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |    DECLARAÇÃO DAS ROTINAS                  |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+// Inicia SPI
+void spi_init();
+
+/*
+ *    |--------------------------------------------+
+ *    |           MAIN                             |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+void main(void){
+
+
+    void spi_init();
+
+
+    TRISB=0x00;
+    
+
+		while(TRUE){
+
+//            RB7=1;  delay_ms(20); 
+//            RB7=0;  delay_ms(20);
+
+            while(BF);
+
+   	
+		} /* while */
+
+
+}	/*main */
+
+
+
+
+/************************************************
+ *                  Routines                    *
+ ************************************************/
+
+
+
+void spi_init(){
+
+
+   /*   
+        SPI  configuraration
+
+
+    ==>SSPSTAT: MSSP STATUS REGISTER (SPI MODE) (ADDRESS 94h)
+
+    0   0   x   x x  x  x  x   = 0x00
+    SMP CKE D/A P S R/W UA BF
+    |    |
+    |    +----------   0 = Input data sampled at middle of data output time
+    +---------------   0 Transmit occurs on transition from Idle to active clock state
+    
+   
+
+
+    ==>SSPCON(1): MSSP CONTROL REGISTER 1 (SPI MODE) (ADDRESS 14h)
+   
+    0     0     1     0    0     0     0    0     =  0x20
+    WCOL SSPOV SSPEN CKP SSPM3 SSPM2 SSPM1 SSPM0
+     |     |     |    |    |     |     |    |  
+     |     |     |    |    |     |     |    +--- 0   SPI Master mode clock FOSC/4
+     |     |     |    |    |     |     +-------- 0 
+     |     |     |    |    |     +-------------- 0 
+     |     |     |    |    +-------------------- 0
+     |     |     |    +------------------------- 0 = Idle state for clock is a low level
+     |     |     |
+     |     |     +------------------------------ 1 = Enables serial port and configures SCK, SDO, SDI, and SS as serial port pins
+     |     +------------------------------------ 0 No overflow     
+     +------------------------------------------ 0 = No collision
+
+
+     ==>TRISC
+
+           0         0
+     7  6 5-SDO 4 3-SCK 2 1 0
+
+    */
+
+
+     TRISC=0x00;
+     SSPSTAT=0x00;
+     SSPCON=0x20;
+
+      
+
+
+
+
+
+
+}  /* init spi */
+
+
+///////////////////////////////////////////////////////////
+//                      END OF FILE                      //
+///////////////////////////////////////////////////////////

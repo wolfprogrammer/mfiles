@@ -1,0 +1,92 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  main.c
+ *
+ *    Description:  Teste de variáveis flags para sistemas embarcados
+ *
+ *        Version:  1.0
+ *        Created:  02/05/2011 01:08:55 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  YOUR NAME (), 
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+#include <stdio.h>
+
+
+// Tipo de dados de 8 bits
+typedef unsigned char u8;
+
+#define bit0 1<<0
+#define bit1 1<<1
+#define bit2 1<<2
+#define bit3 1<<3
+#define bit4 1<<4
+#define bit5 1<<5
+#define bit6 1<<6
+#define bit7 1<<7
+
+
+#define set(X,bitn) ((X)|=(bitn))
+#define clr(X,bitn)	((X)&=~(bitn))
+#define test(X,bitn) ((X)&(bitn))
+#define togl(X,bitn) ((X)^=(bitn))
+
+//#define set(flag) setb((flag))
+
+
+u8 myflag;
+
+
+// Flag que se refere a ligado se POWER_ON=1 e desligado se POWER_ON=0
+#define POWER_ON bit0
+#define PWM_ON	 bit1
+#define RECEIVED_CHAR bit7
+
+
+#define MSB bit7
+
+
+
+#define print_int(a) printf("%s : %d\n",#a,(a))
+
+#define str(X) #X
+
+int main(){
+
+		myflag=0x0F;
+
+ 
+
+
+		printf("\nmyflag= %d",myflag);
+
+
+		set(myflag,RECEIVED_CHAR);
+		
+		clr(myflag,RECEIVED_CHAR);
+		
+		printf("\nFlags myflag=%d POWER_ON=%d  RECEIVED_CHAR=%d",	\
+						myflag,	\
+						test(myflag,POWER_ON), \
+						test(myflag,RECEIVED_CHAR));
+
+
+		if(test(myflag,RECEIVED_CHAR)) printf("caracter recebido");
+		else printf("Caracter não recebido");
+
+
+		if(1) printf("\n1 ok");
+		if(-1) printf("\n-1 ok");
+		if(200) printf("\n200 ok");
+		if(2.45) printf("\n2.45 ok");
+
+	return 0;
+
+} //end of main
+
+

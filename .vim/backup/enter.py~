@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from sys import argv
+
+from easygui import enterbox
+
+val=enterbox(msg=argv[1], title=argv[2], default=argv[3], strip=True)
+print val 

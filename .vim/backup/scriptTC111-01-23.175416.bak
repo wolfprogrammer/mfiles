@@ -1,0 +1,5 @@
+#!/usr/bin/wish
+label .l -text "Are you sure?"
+button .y -text "Yes" -width 20 -height 10
+pack .l
+

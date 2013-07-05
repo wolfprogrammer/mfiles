@@ -1,0 +1,96 @@
+clc , clear all , home
+
+N=10 % Tamanho da amostra
+
+
+P_= [   
+10758.96
+10726.63
+10762.50
+10797.43
+10756.12
+10755.49
+10805.50
+10713.91
+10757.90
+10805.30
+]
+
+T_=[
+310.36
+331.11
+338.62
+315.84
+338.11
+320.13
+228.96
+332.19
+216.58
+309.65
+]
+
+% Constante
+R= 5.382  % J/Kg.K
+
+
+% Obtem valores médios
+p=mean(P_)
+t=mean(T_)
+
+x= [ p t ] 
+% Comprimentos do vetor
+Np=length(P_)
+Nt=length(T_)
+
+n= [ Np Nt]
+
+
+% Obtem desvios padrões
+Sp=std(P_)
+St=std(T_)
+
+S=[ Sp St]
+
+
+% Valor médio
+rho= p/(R*t)
+
+
+% Derivadas parciais
+
+qp = 1/(R*t)  	% Derivada em relação a pressão
+qt= -p/(R*t^2)  % Derivada parcial em relação a temperatura
+
+q= [ qp qt]
+
+% Incertezas aleatórias
+P= S./sqrt(n)  		 % Incerteza aleatória padrão de medição
+Pr= sqrt(sum((q.*P).^2))  % Incerteza aleatória do resultado
+
+% Incerteza sistemáticas
+Bp= 0.01/100*p
+Bt=0.33
+B=[ Bp Bt ]
+
+Br= sqrt(sum((q.*B).^2))  % Incerteza aleatória do resultado
+
+% Graus de liberdade
+vv= n-1   % Grau de liberdade de cada grandeza
+v= sum((q.*P).^2)^2 / sum (((q.*P).^4)./vv)
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

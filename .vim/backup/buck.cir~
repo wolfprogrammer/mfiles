@@ -1,0 +1,19 @@
+*Buck Regulator with Vswitch
+
+
+.MODEL DI1N4004 D (IS=76.9n RS=42.0m  BV=400 IBV=5.00u CJO=39.8p
++M=0.333 N=1.45 TT=4.32u)
+
+
+Vpls 10 0 PULSE(0V 2V 0s 1us 1us 49us 100us)
+Rpls 10 0 1MEG
+Vdc   1 0 DC 20V
+Sw1   1 2 10 0 Smod
+D1    0 2 DI1N4004
+.MODEL Smod VSWITCH(Ron=1m Roff=1MEG Von=1V Voff=0V)
+Lf    2 3 250uH IC=4.00A
+Cf    3 0  50uF IC=10.0V
+RL    3 0 2.0
+.PROBE
+.TRAN 1us 1ms 0us 1us UIC
+.END

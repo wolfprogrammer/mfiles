@@ -1,0 +1,181 @@
+# 
+# Makefile for sdcc
+# 
+# Compiler : sdcc
+#
+#	Author: Caio Rodrigues Soares Silva
+#
+#	Este Makefife gera compila arquivos fontes com o SDCC: Small Device Compiler, 
+# um compilador C oper-source para Microcontroladores ,em especial para microcontroladores 
+# da familia PIC, mas pode servir a outras arquiteturas.
+#
+#===================================================
+# USO:
+#
+#  No diretório do projeto deve haver
+#
+# /path/projeto{
+#             { main.c
+#             { Makefile
+#             { dists (diretório dos snapshots)
+#
+#====================================================
+#  Comandos:
+#
+# $make 			: Compila o arquivo
+# $make clean		: Limpa os arquivos gerados na compilação
+# $make dists		: Cria snapshot do projeto, empacota os arquivos do projeto
+# 				  	e põe no diretório /path/projeto/dists o arquivo 
+# 				  	nome-projeto-(data-hor).tar.gz útil para criar versões
+# 				  	diferentes do projeto e criar distribuições diferentes.
+#
+# $make cleandists 	: Limpa todos arquivos *.tar.gz em /path/projeto/dists
+#---------------------------------------------------
+#	Nome do código hex a ser quimado no MCU
+#firmware do pic será firmware.hex 
+#
+PRJ		= firmware
+#
+#-------------------------------------------------
+#	Código fonte
+#
+SRCC= main
+SRC = $(SRCC).c
+#
+#---------------------------------------------
+#	Diretório onde estão os arquivos fontes 
+#
+#PACKAGEDIR	= pr1
+#
+#---------------------------------------------------
+#	Tipo de CPU usada
+CPU		= -p16f877a
+CPU2	= pic16f877a 	# Tipo da CPU para o desassembly GPASM
+#
+#--------------------------------------------------
+#	Arquitetura , core 14 bits ou core 16 bits
+#
+ARCH	= -mpic14
+#
+#-------------------------------------------------------
+#		Definições das ferramentas usadas para compilar
+#
+SDCC	= /usr/bin/sdcc	#Usa o SDCC instalado no diretório do usuario
+#SDCC=/tmp/download/sdcc/bin/sdcc
+CC		= $(SDCC)
+GPASM 	= gpasm
+GPDASM	= gpdasm
+GPLINK	= gplink
+#
+#---------------------------------------------------------
+# Flags do SDCC compilaçao
+#
+#  -c :compile only
+#  -S :stop after assembly
+#  -V : show actual command line the compiler executing
+#  --verbose: Shows the various actions the compiler is performing
+##
+DIR_INC=../../include/pic16f
+DIR_LIBS=/usr/share/sdcc/non-free/include/pic14
+
+
+SDCCFLAGS	= -c --debug -V --verbose --use-stdout  $(ARCH) $(CPU) -I $(DIR_INC)  --print-search-dirs    --use-non-free  #--lib-path $(DIR_LIBS)
+#
+#--------------------------------------------------
+#	Data atual do sistema
+#
+DATETIME  = $(shell date +%Y_%m_%d_%H%M%S)
+#
+#
+#--------------------------------------------------------
+# 		Alvo principal/Main Target
+#
+#all: $(PRJ).hex
+#
+#--------------------------------------------------------
+#		Compilar todos códigos fontes
+#
+#
+#
+
+
+$(SRCC).hex: $(SRCC).o
+	gplink $(SRCC).o /usr/share/sdcc/lib/pic/pic16f877a.lib /usr/share/sdcc/lib/pic/libsdcc.lib -o $(SRCC).hex
+	@echo ""
+	@
+	@echo "Firmware: main.hex"
+	@echo "Consultar main.lis para debugger"
+	@echo "***** Compilação terminada ********"
+
+
+$(SRCC).o: $(SRCC).asm
+	gpasm -c $(SRCC).asm
+
+$(SRCC).asm: $(SRCC).c
+	$(CC) $(SDCCFLAGS) $(SRC)
+	
+	
+	
+	
+	
+
+#
+#-------------------------------------------------------
+#		Fazer snapshot do projeto
+#
+dist:
+	@tar --exclude=*.tar.gz --exclude=./dists  --ignore-failed-read -zcvf \
+		./dists/$(PRJ)-$(DATETIME).tar.gz ./$(PAKAGEDIR); 
+	@echo "**** Snapshot Criado: $(PRJ)-$(DATETIME).tar.bz2 ******"
+
+
+#-----------------------------------------------------
+#
+#
+clean:
+	rm -rf *.asm *.hex *.lst *.cod *.o *.p *.adb html *.html tags
+#
+#------------------------------------------------------
+#		
+#
+cleandist:
+	rm -rf ./dists/*.tar.gz
+#
+#
+#------------------------------------------------------
+#			BURN firmware /'Queimar' firmware no MCU
+#
+#	Grava firmware (arquivo hex) no mcu
+#
+#	Por default o gravador aqui é o Pic Kit2
+# e o firmware é gravado usando-se o PK2CMD
+# este comando é similar ao make install
+#
+burn :
+	sudo pk2cmd -PPIC16F877A -M -F/`pwd`/$(PRJ).hex
+#
+#
+#
+#--------------------------------------------------------
+#		Desassemble o código asm gerado para verificação
+#
+disassembly :
+	gpdasm -s -p $(CPU2) $(PRJ).hex > main_asm.asm
+#
+#
+#---------------------------------------------------------
+#		Cria documentação hmtl do projeto		
+#
+doc :
+	doxygen Doxyfile
+	ln -s ./html/index.html .
+#
+#---------------------------------------------------------
+#		
+tags:
+	ctags -R *
+#
+#
+#######################################################
+#END OF MAKEFILE
+#######################################################

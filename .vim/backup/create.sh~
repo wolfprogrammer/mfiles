@@ -1,0 +1,37 @@
+rm *.map *.vpl *.tfm 
+
+ttf2tfm Times.TTF -q -T T1-WGL4.enc -v ectimes.vpl rectimes.tfm >> ttfonts.map
+ttf2tfm Timesi.TTF -q -T T1-WGL4.enc -v ectimesi.vpl rectimesi.tfm >> ttfonts.map
+ttf2tfm Timesbd.TTF -q -T T1-WGL4.enc -v ectimesbd.vpl rectimesbd.tfm >> ttfonts.map
+ttf2tfm Timesbi.TTF -q -T T1-WGL4.enc -v ectimesbi.vpl rectimesbi.tfm >> ttfonts.map
+
+ttf2tfm Times.TTF -q -T T1-WGL4.enc -s .167 -v ectimeso.vpl rectimeso.tfm >> ttfonts.map
+ttf2tfm Timesbd.TTF -q -T T1-WGL4.enc -s .167 -v ectimesbdo.vpl rectimesbdo.tfm >> ttfonts.map
+
+
+vptovf ectimes.vpl ectimes.vf ectimes.tfm
+vptovf ectimesi.vpl ectimesi.vf ectimesi.tfm
+vptovf ectimesbd.vpl ectimesbd.vf ectimesbd.tfm
+vptovf ectimesbi.vpl ectimesbi.vf ectimesbi.tfm
+vptovf ectimeso.vpl ectimeso.vf ectimeso.tfm
+vptovf ectimesbdo.vpl ectimesbdo.vf ectimesbdo.tfm
+
+ kpsewhich --var-value TEXMFLOCAL
+
+rm -rf $HOME/texmf
+mkdir -p $HOME/texmf
+cd $HOME/texmf/
+mkdir -p fonts/afm/initials
+mkdir -p fonts/tfm/initials
+mkdir -p fonts/type1/initials
+mkdir -p fonts/vf/initials
+mkdir map
+
+
+#	73   ls /usr/share/texmf/fonts/
+#  	974  ls /usr/share/texmf/fonts/map/
+#    	975  ls /usr/share/texmf/fonts/vf
+#      	976  ls /usr/share/texmf/fonts/vf/public/
+#      	977  ls /usr/share/texmf/fonts/vf/public/tlwg/
+#	978  ls /usr/share/texmf/fonts/vf/
+	  

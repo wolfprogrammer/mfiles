@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo mount -o bind /proc  /home/caio/chroot/proc
+sudo cp /etc/resolv.conf /home/caio/chroot/etc/resolv.conf
+export DISPLAY=:0.0
+sudo xhost +
+sudo chroot chroot
+

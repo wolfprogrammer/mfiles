@@ -1,0 +1,35 @@
+#	Design de filtro passa baixa
+#
+#
+
+
+
+#FS=  10.0 	# Rule of thumb ( Regra de ouro)
+
+NN=10
+N=NN
+Tf=  1.0  	# seg  filter time contant1    # seg
+Tend=5*Tf
+
+Ts=Tend/N	
+
+t=linspace(0,Tend,N)     # Time vector
+
+C=Tf/Ts
+print "Tf/Ts=",C
+
+
+# filter constants
+a=Ts/(Ts+Tf)
+b=1-a
+
+u=1.0  			# Input
+y=linspace(0,0,N)			# Initial output value
+
+
+for  i in range(1,N):
+	y[i]=b*y[i-1]+a*u
+	print i
+        print u
+	print y[i]
+	print "----"

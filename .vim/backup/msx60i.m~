@@ -1,0 +1,108 @@
+
+
+Va=21.06
+Suns=1
+TaC=25
+
+
+% msx60.m  model for the MSX-60 solar array
+%
+% current given voltage, illumination and temperature
+% Ia = msx60(Va,G,T) = array voltage
+% Ia,Va = array current,voltage
+% G = num of Suns (1 Sun = 1000 W/mˆ2)
+% T = Temp in Deg C
+%
+%
+% EVALUATING MPPT CONVERTER TOPOLOGIES USING A
+% MATLAB PV MODEL
+% Geoff Walker
+% Dept of Computer Science and Electrical Engineering,
+% University of Queensland, Australia.
+%      
+
+k = 1.38e-23 % Boltzman’s const
+q = 1.60e-19 % charge on an electron
+
+
+
+% enter the following constants here, and the model will be
+% calculated based on these. for 1000W/mˆ2
+A = 1.2	% "diode quality" factor, =2 for crystaline, <2 for amorphous
+Vg = 1.12 	% band gap voltage, 1.12eV for xtal Si,  ̃1.75 for amoriphous Si.
+Ns = 36	% number of series connected cells (diodes)
+
+
+T1 = 273 + 25 		
+Voc_T1 = 21.06 /Ns   % open cct voltage per cell at temperature T1
+Isc_T1 = 3.80        % short cct current per cell at temp T1       ii
+
+
+T2 = 273 + 75 		
+Voc_T2 = 17.05 /Ns 	 % open cct voltage per cell at temperature T2
+Isc_T2 = 3.92           % short cct current per cell at temp T2
+
+
+TaK = 273 + TaC % array working temp
+TrK = 273 + 25 % reference temp
+
+
+% when Va = 0, light generated current Iph_T1 = array short cct current
+%   constant "a" can be determined from Isc vs T
+
+Iph_T1 = Isc_T1 * Suns
+a = (Isc_T2 - Isc_T1)/Isc_T1 * 1/(T2 - T1)
+Iph= Iph_T1 * (1 + a*(TaK - T1))
+
+
+Vt_T1 = k * T1 / q % = A * kT/q
+
+Ir_T1 = Isc_T1 / (exp(Voc_T1/(A*Vt_T1))-1)
+
+Ir_T2 = Isc_T2 / (exp(Voc_T2/(A*Vt_T1))-1)
+
+b = Vg * q/(A*k)
+Ir = Ir_T1 * (TaK/T1)^(3/A)* exp(-b*(1/TaK - 1/T1))
+
+
+X2v = Ir_T1/(A*Vt_T1) * exp(Voc_T1/(A*Vt_T1))
+dVdI_Voc = - 1.15/Ns / 2
+% dV/dI at Voc per cell --
+% from manufacturers graph
+Rs = - dVdI_Voc - 1/X2v
+% series resistance per cell
+% Ia = 0:0.01:Iph
+Vt_Ta = A * 1.38e-23 * TaK / 1.60e-19 % = A * kT/q
+% Ia1 = Iph - Ir.*( exp((Vc+Ia.*Rs)./Vt_Ta) -1)
+% solve for Ia: f(Ia) = Iph - Ia - Ir.*( exp((Vc+Ia.*Rs)./Vt_Ta) -1) = 0
+% Newton’s method:Ia2 = Ia1 - f(Ia1)/f’(Ia1)
+Vc = Va/Ns
+Ia = zeros(size(Vc))
+Iav = Ia
+for j=1:5
+
+%{
+	Ia = Ia - ...
+(Iph - Ia - Ir.*( exp((Vc+Ia.*Rs)./Vt_Ta) -1))...
+./ (-1 - (Ir.*( exp((Vc+Ia.*Rs)./Vt_Ta) -1)).*Rs./Vt_Ta)
+Iav = [Iav;Ia]
+% to observe convergence for debugging.
+%}
+
+f= Iph - Ia - Ir.*( exp((Vc+Ia.*Rs)./Vt_Ta) -1)
+df= -1 - Ir.*( exp((Vc+Ia.*Rs)./Vt_Ta) -1).*Rs./Vt_Ta
+Ia=Ia-f/df
+
+end
+
+
+
+
+
+
+
+
+
+
+
+

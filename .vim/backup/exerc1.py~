@@ -1,0 +1,91 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+
+from control_system import *
+from matplotlib.pyplot import draw , figure , show
+
+G=syspz([],[0,-1,-5],5)
+
+
+#sysout(G)
+#print tfeval(G,1+1j);
+
+FreqResp(G,400)
+#print Fresp
+f=figure()
+
+
+print G.FRESP['w']
+af1=f.add_subplot(211)
+semilogx(G.FRESP['w'],G.FRESP['db'],color = '#340B8C')
+ylabel("Mag-dB")
+title("Bode Chart")
+Ymin,Ymax= ylim()
+ylim(Ymin-5,Ymax+5)
+print xticks()
+#ylim(Ymax+2,Ymin-2)
+grid(True,which="majorminor",ls="-",color='0.65')
+
+af2=f.add_subplot(212)
+semilogx(G.FRESP['w'],G.FRESP['phi'])
+ylabel("Phase (deg.)")
+xlabel("Freq W (rad/s)")
+Ymin,Ymax= ylim()   
+yticks((-360,-270,-225,-180,-135,-90,-45,0,45,90,135,180,225,270,360))
+ylim(Ymin-5,Ymax+5)
+grid(True,which="majorminor",ls="-",color='0.65')
+
+
+savefig("bode-chart.png")
+
+
+draw()
+show()
+
+
+
+
+
+#grid()
+#show()
+#draw()
+
+print "continue calculations" 
+
+
+
+def margins(G):
+	from scipy.interpolate import interp1d
+	db_phi=zip(G.FRESP['db'],G.FRESP['phi'],G.FRESP['w'])
+	db_phi.sort()
+	db2,phi2,w2=zip(*db_phi)
+#	print db2
+#	print phi2
+	dbXphi=interp1d(db2,phi2,kind='linear')
+        dbXw=interp1d(db2,w2,kind='linear') 
+	PM=dbXphi(0)+180	## Phase margin
+	wpm=dbXw(0)
+
+#	print wpm
+#	print PM
+	
+ 	phi_db=zip(G.FRESP['db'],G.FRESP['phi'],G.FRESP['w'])
+	phi_db.sort()
+	phi3,db3,w3=zip(*phi_db)
+#	print db2
+#	print phi2
+        phiXdb=interp1d(db3,phi3,kind='linear')
+        phiXw=interp1d(db3,w3,kind='linear')
+	GM=-1*phiXdb(-180)
+	wgm=phiXw(-180)
+	print wgm
+	print GM
+	return[wgm,GM,wpm,PM]
+ 
+
+
+
+
+
+#show()

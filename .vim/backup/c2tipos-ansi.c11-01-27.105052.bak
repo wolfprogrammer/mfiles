@@ -1,0 +1,58 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  c2tipos-ansi.c
+ *
+ *    Description:  Mostra os tipos ansi C
+ *
+ *        Version:  1.0
+ *        Created:  01/27/2011 10:50:53 AM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  YOUR NAME (), 
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+#include <stdio.h>
+#include <limits.h>
+
+int main(){
+
+
+
+
+		printf("\n\nModificadores ansi e seus valores máximos:\n");
+		printf("Char tem sempre 1 byte em qualquer arquitetura de computadores\n");
+		printf("O programa gera como saída os tipos ansi e seus valore máximos e minimos");
+		printf("\n\n");
+
+		printf("char %d %d %d \n ",sizeof(char),SCHAR_MIN,SCHAR_MAX);
+		printf("unsigned char %d 0 %d \n",sizeof(unsigned char),UCHAR_MAX);
+		printf("signed char %d %d %d\n",sizeof(signed char),SCHAR_MIN,SCHAR_MAX);
+		printf("\n");
+
+		printf("int %d %d %ld\n",sizeof(int),INT_MIN,INT_MAX);
+		printf("unsigned int %d 0 %ld\n",sizeof(int),UINT_MAX);
+		printf("signed int %d %d %d\n",sizeof(signed int),INT_MIN,INT_MAX);
+
+		printf("\n");
+		printf("short int %d\n",sizeof(short int));
+		printf("unsigned short int %d 0 %d\n",sizeof(unsigned short int),USHRT_MAX);
+		printf("signed short int %d %d %d\n",sizeof(signed short int),SHRT_MIN,SHRT_MAX);
+	
+		printf("\n");
+		printf("long int %d %ld %ld \n",sizeof(long int),LONG_MIN,LONG_MAX);
+		printf("unsigned long int %d\n",sizeof(unsigned long int));
+		printf("signed long int %d\n",sizeof(signed long int));
+	
+
+		printf("float %d\n",sizeof(float));
+		printf("long double %d\n",sizeof(float));
+
+	return 0;
+
+} //end of main
+
+

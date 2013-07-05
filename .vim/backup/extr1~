@@ -1,0 +1,7 @@
+list=`ls | grep  *.zip`
+echo $list
+
+for a in *.zip 
+do
+	echo $a
+done

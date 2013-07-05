@@ -1,0 +1,10 @@
+default: main
+
+main:
+	sdcc -mpic16 main.c --use-non-free -p18f550
+
+#	sdcc -c -mpic16 hd44780.c
+#	sdcc -mpic16 main.c hd44780.o
+
+clean:
+	rm *.asm *.cod *.cof *.hex *.lst *.o

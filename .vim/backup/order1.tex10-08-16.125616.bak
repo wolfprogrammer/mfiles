@@ -1,0 +1,86 @@
+\documentclass{article}
+%preamble
+
+\usepackage{html,makeidx}
+
+\pagestyle{empty}
+
+\begin{document}
+
+Sistemas de primeira ordem:
+$F(s)=\frac{C(s)}{R(s)}$
+
+Sistemas de segunda ordem:
+
+$F(s)=\frac{C(s)}{R(s)}=\frac{1}{s^2+2\omega\zeta s + \omega^2}$
+
+
+\newpage
+
+Testes em latex
+\\
+
+Alfabeto grego
+$
+\alpha
+\beta
+\gamma
+\delta
+\zeta
+\theta
+%\episilon
+%\lambda
+\pi
+\sigma
+\rho
+\omega
+\varepsilon
+\eta
+\nu
+\varrho
+\psi
+\mu
+\phi
+\Delta
+\Theta
+\Pi
+\Omega
+\Lambda
+\Omega
+\Psi
+\Phi
+
+$
+
+Símbolos gerais
+$
+\int
+\partial
+\pm
+\mp
+%\imath
+%\jmath
+%\div
+%\cdot
+%\times
+
+\leftarrow
+\rightarrow
+\longleftarrow
+\longrightarrow
+\uparrow
+\downarrow 			
+\cdots  			% Tres pontos
+
+$
+
+EEE
+$
+\FallingEdge
+\LongPuseHigh
+\LongPulseLow
+\RaisingEdge
+
+$
+
+\end{document}

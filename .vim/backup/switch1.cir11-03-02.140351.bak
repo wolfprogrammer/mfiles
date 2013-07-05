@@ -1,0 +1,12 @@
+.title SWITCH1
+
+*V1 n2 GND	PULSE(0V,5V,0s,1ns,1ns,7.5us,10us)
+V1	n2 GND  DC 6
+R1 n2 n1	1k
+R2 n1 GND 	2k
+
+.TRAN 10us	500us 
+
+.print TRAN v(1)
+.probe
+.END

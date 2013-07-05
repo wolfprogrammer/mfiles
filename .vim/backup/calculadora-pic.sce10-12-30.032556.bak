@@ -1,0 +1,14 @@
+//
+
+//	    Cálculo do número de ticks para o temporizador
+// timer0 cronometre uma duração
+//
+
+FOSC=4e6 	// 4MHZ
+Tdelay=1e-6 // 20 ms
+
+
+//	Valores do prescaler
+PRE=[2 4 8 16 32 64 128 256];
+
+N=round(FOSC*Tdelay)/(4*PRE)

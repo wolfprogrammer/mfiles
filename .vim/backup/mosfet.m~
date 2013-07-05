@@ -1,0 +1,25 @@
+
+pF=1e-12
+nS=1e-9
+
+fs = [20 250]*1e3
+D= 0.9238
+Power=20
+
+V=21.0 
+I= Power/V
+
+% Dados dom Mosfet
+
+rdson= 44e-3
+tr=35*nS
+tf=35*nS
+Coss=250*pF
+
+
+Pcond= rdson*I^2*D
+Psw=  1/2*V*I*(tr+tf)*fs + Coss*V^2*fs
+Pd=Pcond+Psw
+
+
+

@@ -1,0 +1,143 @@
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+"		GENERAL
+	"
+
+set history=1000
+
+filetype plugin on
+filetype indent on
+
+
+set bg=dark
+set t_Co=256
+ color calmar256-dark
+" color wombat256
+" desert256
+"color relaxedgreen
+
+
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
+
+set path+=~/pic-sdcc/include/pic16f,/usr/share/sdcc/include,/usr/share/sdcc/include/pic,/usr/share/sdcc/include/pic16
+
+set shortmess=atI
+
+nmap ;; :
+
+"nmap <F5> :!python % <CR>
+
+"  Executa script do octave
+"
+autocmd FileType matlab nmap <F5> :!octave % <CR>
+
+nmap <silent> <C-n> :silent :nohlsearch<CR> " Apaga resultado da busca
+
+"
+set autoread
+
+let mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<CR>
+nmap <leader>ew :wq!<CR>
+" Fast saving
+ map <leader>eee :e! ~/.vimrc<cr>
+"
+" " When vimrc is edited, reload it
+
+ autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
+"
+
+set wildmenu
+
+set cmdheight=2
+
+set showcmd " Show command
+
+
+
+set ignorecase
+set smartcase
+set hlsearch  " Destaca termo buscado "
+set incsearch " Busca incremental"
+set smartindent
+
+set ruler
+
+set showmatch
+
+set ai  " Auto ident
+set si  " Smart ident
+set wrap "Wrap lines
+
+set nocompatible
+set ttyfast
+set autowrite " Automatic save before :next :make ...
+
+" Insere data ao se apertar F5
+
+set title "Dá um nome ao terminal"
+
+set virtualedit=all
+
+" Smart way to move btw. windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Close the current buffer
+ map <leader>bd :bd<cr>
+"
+" " Close all the buffers
+ map <leader>ba :1,300 bd!<cr>
+
+
+set autochdir " always switch to the current file directory
+"set backspace=indent,eol,start " make backspace a more flexible
+"set backup " make backup files
+"set backupdir=~/.vim/backup " where to put backup files
+
+set nobackup
+set noswapfile
+set hidden
+set pastetoggle=<F2>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
+
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+               
+nmap <silent> ,/ :nohlsearch<CR>
+
+set clipboard+=unnamed " share windows clipboard
+set directory=~/.vim/tmp " directory to place swap files in
+set fileformats=unix,dos,mac " support all three, in this order
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+set wildmode=list:longest " turn on wild mode huge list
+
+set cursorline
+
+" Execute file being edited with <Shift> + e:
+ "map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+  map ;e :exe ":!python " . getreg("%") . "" <CR>
+
+  set makeef=error.err
+  set nu		" Line numbers
+
+  set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+
+  set nowrap	" Sem quebra linhas
+  
+"  source /home/caio/works/vim-scripts/send.vim

@@ -1,0 +1,40 @@
+function VARS =stp(fnamem)
+%{
+
+Executa script linha a linha e calcula
+
+%}
+
+
+%fname="/tmp/tmpoctave"
+fname=strcat(fnamem,".m")
+fname2="/tmp/vars";
+
+
+fid=fopen(fname,'r')
+
+while ~feof(fid)
+		line=fgetl(fid);
+
+		disp(line);
+		eval(line);
+		disp(""); 
+end
+%endwhile
+
+
+
+fclose(fid);
+
+clear line fid fname;
+
+save(fname2);
+VARS=load(fname2);
+unlink(fname2);        % Apaga o arquivo temporario
+
+
+
+
+
+
+end

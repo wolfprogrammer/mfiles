@@ -1,0 +1,11 @@
+table Icon
+  Caption: 
+  ToolTip.Caption: Run Foxit Reader
+  Command: wine /home/caio/bin/foxit.exe
+  Icon: /home/caio/.idesktop/foxit.png
+  Width: 48
+  Height: 48
+  X: 79
+  Y: 159
+end
+

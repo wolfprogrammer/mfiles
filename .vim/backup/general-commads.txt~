@@ -1,0 +1,70 @@
+====== Linux General Commands ======
+
+===== General =====
+
+==== WGET hacks ====
+
+
+Baixar um site inteiro:
+      * wget -r http://xxxx
+      * wget -r  -erobots=off  http://xxx
+      * wget -r -A pdf http://xxx  Baixa somente arquivos pdf
+	wget -nd -r1 -l1 -np -b ...
+
+      * ERROR HTTP 403 FORBBIDEN
+      * wget -U firefox  www.xxx
+\\
+-r : Recursivo ,escanear site recursivamente \\
+-nd : No directory \\
+-l1 : Apenas nível 1 \\
+-np : No-parent Não paginas pai \\
+-b backround ;  \\
+tail -f wget-log 
+
+
+
+==== Troubleshooting ====
+
+
+Compendio de soluções de problemas comuns
+\\
+\\
+Versão do kernel: 
+<code bash>$uname -a </code>
+\\
+\\
+Matar janelas travadas:
+<code bash> $xkill  </code> 
+O ponteiro do mouse muda então clique na janela travada para matar o processo
+\\
+\\
+
+Matar processos:
+ 	 
+<code bash>
+$ps -ef # Veja o número do processo PID
+kill num_processo(PID)
+</code> 
+\\
+\\
+
+Menssagens do kernel(sistema):
+\\
+Logs importantes:
+
+<code bash>
+tail -f /var/log/messages
+$cat /var/log/daemon.log
+$cat /var/log/syslog
+
+</code>  
+\\
+\\
+
+
+Servidor X
+$ dpkg-reconfigure xserver-xorg
+$ sudo /etc/init.d/gdm restart  	(UBUNTU gnome)
+
+
+

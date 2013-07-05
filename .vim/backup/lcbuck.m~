@@ -1,0 +1,29 @@
+function  [L,C] = lcbuck(Vd,Vo,P,f,ri=0.30,rv=0.01) 
+% lcbuck.m
+%
+% [L,C,D,R]=lcbuck(Vd,Vo,P,f,ri=0.30,rv=0.01)
+%	
+%  Calcula parametros L e C do conversor buck  para 
+%  operar no modo CCM
+%
+%  Vd:  Tensão de entrada		Volts     
+%  Vo:  Tensão de saída                 Volts
+%   P:  Potência transmitida            Watts
+%   f:  Frequência de chavemaneto em    Hz
+%   ri: Ripple de corrente              %Io  (30% default)
+%   rv: Ripple de tensão   em           %Vo  (1%  default)
+%
+%   
+%
+%
+        D=Vo/Vd     		;
+	Io=P/Vo                 ;
+	dv=rv*Vo                ;
+        di=ri*Io                ;
+	Lcc=(1-D)*(Vo/Io)/(2*f) ;
+	lambda=2/ri             ;
+	L=lambda*Lcc		;
+        C=(1-D)*(8*rv*L*f^2)	;
+
+
+end

@@ -1,0 +1,55 @@
+## Copyright (C) 2012 caio
+## 
+## This program is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation; either version 2 of the License, or
+## (at your option) any later version.
+## 
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+## 
+## You should have received a copy of the GNU General Public License
+## along with Octave; see the file COPYING.  If not, see
+## <http://www.gnu.org/licenses/>.
+
+## Ipa
+
+## Author: caio <caio@ghost1>
+## Created: 2012-10-17
+
+function Ipa=Pv(Vpa,S,T) %ajuste da característica I-V
+Rs=0.007; 
+Rp=0.46; 
+Ms=2; %Número de módulos em série 
+Mp=1; %Número de módulos em paralelo
+
+%dados da ficha técnica do painel 
+Ns=36; %células em série no módulo
+Voc=21.6; %tensão de circuito aberto 
+Voc=Voc/Ns; 
+Isc=6.3; %Corrente de curto circuito por célula 
+a=1.18e-3; %Coeficiente de temperatura de Isc (A/ºC)
+
+%constantes 
+
+n=1.2;%fator de idealidade
+k=1.38e-23; %constante de boltzmann 
+q=1.6e-19; %carga do elétron 
+EG=1.1;   %Energia da banda proibida Tr=273+25; %Temperatura de referência, 298ºK
+
+
+%cálculos 
+T=273+T; 
+Vt=n*k*T/q; 
+V=Vpa/Ns/Ms; 
+Iph=(Isc+a*(T-Tr))*S/1000; 
+Irr=(Isc-Voc/Rp)/(exp(q*Voc/n/k/Tr)-1); 
+Ir=Irr*(T/Tr)^3*exp(q*EG/n/k*(1/Tr-1/T));
+
+I=0; 
+for j=1:5; 
+	I=I-(Iph-I-Ir*(exp((V+I*Rs)/Vt)-1)-(V+I*Rs)/Rp)/(-1-Ir*exp((V+I*Rs)/Vt)*Rs/Vt-Rs/Rp);
+end 
+Ipa=I*Mp; %Saída de corrente

@@ -1,0 +1,124 @@
+/*--------------------------------------------------------------------
+          				delay.h										 
+
+
+Caio Rodrigues Soares Silva
+
+
+ 	 Arquivo cabeçalho com de delays rotinas para microcontroladores 
+  PIC
+
+
+  
+  Para usar este header ponha em main.c #include "delay.h" a rotina usada
+depende da frequência do clock usado, frequências mais comuns são:
+4 MHZ , 10 MHZ , 20 MHz.
+ 
+ 
+ 
+ 
+---------------------------------------------------------------------*/
+
+#ifndef _delay_h_
+#define _delay_h_
+
+#define __16f877a
+#include "pic16f877a.h"
+#include "default.h"
+
+
+        /***************************************************
+         *      Definições para os timers                  *
+         *                                                 *
+         **************************************************/
+
+
+
+
+// Timer0 (8 bits) brescaler configurations
+#define  tmr0_1b1      0b00001000	// Sem brescaler
+#define  tmr0_1b2      0b00000000	// bréscaler de 1/2
+#define  tmr0_1b4      0b00000001
+#define  tmr0_1b8      0b00000010
+#define  tmr0_1b16     0b00000011
+#define  tmr0_1b32     0b00000100
+#define  tmr0_1b64     0b00000101
+#define  tmr0_1b128    0b00000110
+#define  tmr0_1b256    0b00000111
+
+
+/* Prescalers para o timer1(16 bits) */
+#define tmr1_1b1      0b00000000
+#define tmr1_1b2      0b01000000
+#define tmr1_1b4      0b10000000
+#define tmr1_1b8      0b11000000
+
+// Configuração do clock,prescaler do tmer1(16 bits)
+#define set_tmr1_clk(value) T1CON|=(value)
+#define start_tmr1 TMR1ON=1   // Inicia o timer 1
+
+
+// Retorna byte alto de uma variável de 16 bits
+#define hbyte(val)  (val)>>8
+
+// Retorna byte baixo de uma variável de 16 bits
+#define lbyte(val)  (val)&0xFF
+
+
+/*----------------------------------------------------
+ *				void  setup_tmr0()
+ *	What it do?	Start timer0 
+ *	
+ *	Input: PRESCALER
+ *		   T0INI : Value to overflow timer0
+ *
+ *	This a function implemented as macro ,it's help the source code to be 
+ *more readable
+ *
+ * 	It's like a inline function this code is expanded in where it's declared.
+ *
+ -----------------------------------------------------*/
+#define  setup_tmr0(PRESCALER,T0INI) OPTION_REG=(PRESCALER); \
+		TMR0=(T0INI);
+
+
+/*--------------------------------------------------
+ *			ROTINAS GERAIS PARA OS TIMERS		  *
+ ***************************************************/
+
+
+void delay1TCYx(u8 x);
+
+void delay100TCYx(u8 x);
+
+void delay1KTCYx(u8 x);
+
+void delay10KTCYx(u8 x);
+
+
+void timer0delay(u8 t0ini);
+
+ // void setup_tmr0(u8 presc);
+
+void delay_tmr1(u16 ticks);
+
+void delay1s(void);
+
+void delay10s(void);
+
+void delay_ms(u8 ticks);
+
+void delay_us(u8 ticks);
+
+        
+
+
+
+
+#endif
+/*------------------------------------------------------------------
+ *===============  End of delay.h ==================================
+ *----------------------------------------------------------------*/
+
+
+

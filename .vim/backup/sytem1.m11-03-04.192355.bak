@@ -1,0 +1,25 @@
+%		 system1.m
+%	
+%	Sample de sistemas de controle para o octave
+%
+%	Para rodar este arquivo pelo vim faça:
+%	:!octave system1.m
+%
+%
+%	Sistema G(s)=1/(s+1)
+%
+%
+
+
+%
+%	Função de transferência
+%
+num=1;	   %  1
+den=[1 1]; % s+1
+G=tf(num,den);
+
+t=0:0.1:10; 	% Vetor do tempo
+y=step(G,1,t(end),lenght(t));		% Resposta ao degrau
+plot(t,y);
+
+

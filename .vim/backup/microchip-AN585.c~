@@ -1,0 +1,133 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  microchip-AN585.c
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  07/08/2011 12:19:06 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  YOUR NAME (), 
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+
+// Register Files
+u8 IState1= 18h;		      //Serial In #1 State
+u8 First_RTCC_I1   =     19h             ;//Starting time for next #1 Input event
+u8 nbti1           =     1Ah             ;//Next Bit #1 In Time - variable time 
+u8 rcv_byte_1      =     1Bh             ;//Receive Serial #1 In byte
+u8 IState2         =     1Ch             ;//Serial In #2 State
+u8 First_RTCC_I2   =     1Dh             ;//Starting time for next #2 Input event
+u8 nbti2           =     1Eh             ;//Next Bit #2 In Time - variable time 
+u8 rcv_byte_2      =     1Fh             ;	//Receive Serial #2 In byte
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        list    p=16C54,t=ON,c=132
+;
+;******************************************************************************
+;
+; 'Reentrant Code Example' Designed by Myriad Development Co. - Jerry Farmer
+;       PIC16C54, 4MHz Crystal, WatchDog Timer OFF
+;
+;       Program:          APP_B.ASM 
+;       Revision Date:   
+;                         1-15-97      Compatibility with MPASMWIN 1.40
+;
+;******************************************************************************
+;
+; Register Files
+IState1         equ     18h             ;Serial In #1 State
+First_RTCC_I1   equ     19h             ;Starting time for next #1 Input event
+nbti1           equ     1Ah             ;Next Bit #1 In Time - variable time 
+rcv_byte_1      equ     1Bh             ;Receive Serial #1 In byte
+IState2         equ     1Ch             ;Serial In #2 State
+First_RTCC_I2   equ     1Dh             ;Starting time for next #2 Input event
+nbti2           equ     1Eh             ;Next Bit #2 In Time - variable time 
+rcv_byte_2      equ     1Fh             ;Receive Serial #2 In byte
+
+    INCLUDE    <P16C5X.INC>
+
+temp            equ     07h             ;Tempary holding register - PIC16C54/56
+IStateS         EQU     10H
+IStateS2        EQU     11H
+IState0_7       EQU     12H
+IStateE         EQU     13H
+IStateL         EQU     14H
+
+;******         ;Task 2,3 - Asynchronous 2400 Baud Serial Input (LOW=0)
+Do_IState                               
+		movf    INDF, F         ;if IState2 == 0 
+		btfsc   STATUS,Z        ;  then Do Start Bit 
+		goto    IStateS
+		movf    TMR0,W          ;Get current time 
+		movwf   temp
+		incf    FSR, F          ;Point to First_RTCC_I(1,2)
+		movf    INDF,W          ;Get elapsed time; Time Unit = 2 uS 
+		subwf   temp, F
+		incf    FSR, F          ;Point to nbti(1,2)
+		movf    INDF,W          ;Past time for next input bit ?  
+		subwf   temp,W
+		btfss   STATUS,0
+		goto    L1
+L0                
+		movlw   2               ;Point to IState(1,2)   
+		subwf   FSR, F
+		movf    INDF,W          ;Get (0-B) mode #
+		andlw   H'0F'           ;Get only mode #
+		addwf   PCL, F          ;jump to subroutine
+
+		goto    IStateS         ;Serial Start Bit
+		goto    IStateS2        ;1/2 of Start Bit - see if False Start
+		goto    IState0_7       ;Bit 0
+		goto    IState0_7       ;Bit 1
+		goto    IState0_7       ;Bit 2
+		goto    IState0_7       ;Bit 3
+		goto    IState0_7       ;Bit 4
+		goto    IState0_7       ;Bit 5
+		goto    IState0_7       ;Bit 6
+		goto    IState0_7       ;Bit 7
+		goto    IStateE         ;Serial Stop Bit
+		goto    IStateL         ;Last State
+L1
+		clrf    FSR             ;Clear the FSR register
+		retlw   0
+
+;*****
+Task_2          ;Task 2 - Asynchronous 2400 Baud Serial Input (LOW=0)
+		movlw   IState1         ;Point to IState1
+		movwf   FSR
+		call    Do_IState
+;*****
+Task_3          ;Task 3 - Asynchronous 2400 Baud Serial Input (LOW=0)
+		movlw   IState2         ;Point to IState2
+		movwf   FSR
+		call    Do_IState
+
+		END
+
+

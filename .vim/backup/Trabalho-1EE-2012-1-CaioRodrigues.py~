@@ -1,0 +1,440 @@
+# -*- coding: utf-8 -*-
+"""
+Trabalho 1EE Elementos de Maquinas 2
+#
+#   Austenita retida , curva ttt, tratamento subzero, grafico ....
+# 
+#
+
+Created on Sat Apr  7 11:51:02 2012
+
+@author: caio
+"""
+from numpy import *
+
+#  Chama a biblioteca engdef2 que esta neste mesmo diretorio
+# que tem as rotinas de sind, cosd, ...
+from engdef2 import *
+
+
+nth=0.97   # 97 % de rendimento para as correias
+f=0.25     # Coeficiente de atrito
+
+C1=350.0   # mm  Distância entre as correias 1 e 2
+C2=400.0   # mm  Distância entre as correias 2 e 3
+
+Lh=10000.0  # Numero de horas de duração dos rolamento
+
+# Motor  AC
+Pmotor= 7.46*1e3 # W
+nmotor=870.0 # RPM
+
+n1=nmotor           # rpm  -- rotação do eixo 1 - de entrada (motor)
+n2=750.0            # rpm  -- Rotação do eixo 2
+n3=550.0            # rpm  -- Rotação do eixo 3
+
+
+pi=3.1415
+
+"""
+# ----------- Tabela 23 ------------  
+# k1- Fator (D-d)/Ca
+k1=[0.00 , 0.10 , 0.20 , 0.30 , 0.40 , 0.50 ,0.60,0.70 , 0.80 , 0.90 , 1.00, 1.10 , 1.20 , 1.30, 1.40 , 1.50]
+k1=array(k1)
+# Arco de contato da polia menor (graus)
+angle=[180,174,169,163,157,151,145,139,133,127,120,113,106,99,91,83]
+angle=array(angle)
+# Fator fcac
+fcacc=[1.00,0.99,0.97 ,0.96, 0.94, 0.93 , 0.91, 0.89 ,0.87, 0.85, 0.82 , 0.80 , 0.77, 0.73, 0.70, 0.65]
+fcacc=array(fcacc)
+tab23=array([k1,angle,fcacc])
+"""
+
+##################################################################
+#                   Calculos
+#
+
+#   1.1  Calculos da primeira polia.
+#
+#
+
+print "-----------------------"
+print "Primeira polia"
+
+# Relação de transmissão  [Escolhida]
+i1=n1/n2   # (rpm eixo de entrada)/(rpm eixo de saida)
+print "i1= ",i1
+
+i2=n2/n3   # (rpm eixo de entrada)/(rpm eixo de saida)
+print "i2= ",i2
+
+
+print "Pmotor= ",Pmotor
+
+# ---Torque Transmitido
+Pm=Pmotor     # W
+nm=nmotor*2*pi/60    # rad/s
+Tm=Pm/nm
+print "Tm= ",Tm
+
+# (1)
+#  Fator de serviço  - Tabela 1 Pag 55
+#   Suposto -- Motor AC rotor de gaiola - Rotor de anéis  serviço normal 8-10h 
+# diárias
+#   Equipamento movido:  Eixo de transmissão
+fs= 1.2
+print "fs=",fs
+
+# (2)
+# Potência projetada
+Pp=fs*Pm     # W
+print "Pp=",Pp
+Ppcv=Pp/736.0 # Potência em Cv
+print "Ppcv=",Ppcv
+
+"""
+  (3)
+ Seleção do perfil da primeira correia entre a polia 1 e 2
+# Pelo gráfico 1 --pag 56 Usando-se Pp em cv e nmotor em rpm chega-se a
+#
+#  Correia Hi-Power2  -- perfil A
+"""
+
+"""
+ (4)
+ Diâmetro da polia do eixo mais rápido (motor)
+ 
+ Pela Tabela 3 pag 58 entrando-se com Ppcv  e Nmotor
+encontras-e
+"""
+d1=5.4 # in - inches  Polegadas
+d1=round(25.4*d1,0) ;  print "d1=",d1
+
+
+# Diâmetro da segunda polia
+d2=round(i1*d1,0) ; print "d2=",d2
+
+
+# Comprimento da correia
+d=d1; D=d2; C=C1;   
+ll=2*C+1.57*(D+d)+(D-d)**2/(4*C)
+print "ll",ll   #mm
+#
+#  Consultando a [tabela 19 - pag 82- Comprimento das Correias Hi Power2 ] 
+# escolhe-se o comprimento  mais proximo disponível
+lc=1175 # mm 
+print "lc",lc   #mm
+ref="A-45" ; print ref
+
+
+# Comprimento de ajuste da correia
+d=d1; D=d2; 
+la=lc-1.57*(D+d)
+print "la",la   #mm
+
+
+# Fator h de correção
+k=(D-d)/la
+print "(D-d)/la",k
+# pela tabela 20 pag 83 , entrando-se com (D-d)/h encontra-se h
+h=0.17
+
+print "h",h
+
+# Distância entre centros ajustadas
+Ca=(la-h*(D-d))/2
+print "Ca",Ca
+
+
+#  Capacidade de transmissão de potência por correia
+# Consultando-se a Tabela 7 - pag
+#   Ppc=(Pb+Pa).fcc.fcac
+#
+#   Pb-[Cv] Potência básica por correia
+#   Pa-[Cv] Potência adicional por correia
+#
+#  Consultando-se a Tabela 7 - pag 64
+# entrando-se com rpm=870 e d-pitch-menor= 137 valores mais proximos 
+Pb=3.23   # Cv/correia  -- Potência básica 
+#
+# #  Consultando-se a Tabela 7 - pag 64
+# entrando-se com rpm=870 e i=1.16>  valores mais proximos 
+Pa=0.12   # Cv/correia  -- Potência adicional
+#
+#
+#  Consultando a tabela 22- Fator de correção de comprimento de Correias 
+# Hi-Power II pag 85
+# Entrando-se com A-45
+fcc=0.89  # Fator de correção de comprimento
+#
+# Consultando a tabela 23- pag 86 Fator de correção do arco de contato
+D=d2;  d=d1;
+k2=(D-d)/Ca ;  print "(D-d)/Ca",k2
+#
+# Interpolação dos valores da tabela 23
+x1=0.00; x2=0.10;  angle1=180.0 ; angle2=174.0 ; fcac1=1.00 ; fcac2=0.99
+x=k2
+angle=(angle2-angle1)/(x2-x1)*(x-x1)+angle1   ;  print "angle",angle
+fcac=(fcac2-fcac1)/(x2-x1)*(x-x1)+fcac1       ;  print "fcac",fcac
+#
+#
+Ppc=(Pb+Pa)*fcc*fcac ; print "Ppc",Ppc
+alpha2=angle
+
+# Número de correias necessárias
+nc=round(Ppcv/Ppc); print "nc",nc
+
+
+# Velocidade periférica da correia
+Vp=pi*(d1/2)*n1/30.0*1e-3  # m/s
+print "Vp",Vp
+
+# Torque do motor
+Mt=30*Pmotor*1000/(pi*nmotor)   # N.m
+print "Mt",Mt
+
+# Forca tangêncial
+d=d1;  
+Ft=2*Mt/d   # N
+print "Ft",Ft
+
+
+#  Esforços F1 e F2
+angle_rad=pi/180*angle
+k=exp(angle_rad*f)
+F2=Ft/(k-1)  ;  
+F1=Ft+F2     ;  
+print "F1",F1
+print "F2",F2
+
+
+
+##################################################################
+#                   Calculos
+#
+
+#   1.2  Cálculos da segunda polia
+#
+#
+
+print "\n\nCalculos da segunda Polia"
+print "-------------------------"
+
+i2=n2/n3   # (rpm eixo de entrada)/(rpm eixo de saida)
+print "i2= ",i2
+
+
+Pmotor=Pmotor*nth
+print "Pmotor= ",Pmotor
+
+# ---Torque Transmitido
+Pm=Pmotor     # W
+nm=nmotor*2*pi/60    # rad/s
+Tm=Pm/nm
+print "Tm= ",Tm
+
+# (1)
+#  Fator de serviço  - Tabela 1 Pag 55
+#  Rotor de anéis  serviço normal 8-10h   diárias
+#   Máquina condutora
+#   Máquina conduzida:  Eixo de transmissão
+fs2= 1.2
+print "fs2",fs2
+
+# (2)
+# Potência projetada
+Pp=fs2*Pm     # W
+print "Pp=",Pp
+Ppcv=Pp/736.0  # Potência em Cv
+print "Ppcv=",Ppcv
+
+"""
+  (3)
+ Seleção do perfil da primeira correia entre a polia 1 e 2
+# Pelo gráfico 1 Usando-se Pp em cv e n2 em rpm chega-se a
+#  Ppcv=11.80 cv e n2=750 rmp
+#  Correia Hi-Power2  -- perfil A
+"""
+
+"""
+ (4)
+ Diâmetro da polia do eixo mais rápido (motor)
+ 
+ Pela Tabela 3 pag 58 entrando-se com Ppcvi=11.80 cv e n2=750 rpm
+encontras-e
+"""
+d1=5.4 # in - inches  Polegadas
+d1=round(25.4*d1,0) ;  print "d1=",d1
+
+
+# Diâmetro da segunda polia
+d2=round(i2*d1,0) ; print "d2=",d2
+
+
+# Comprimento da correia
+d=d1; D=d2; C=C2;   
+ll=2*C+1.57*(D+d)+(D-d)**2/(4*C)
+print "ll",ll   #mm
+#
+#  Consultando a [tabela 19 - pag 82- Comprimento das Correias Hi Power2 ] 
+# escolhe-se o comprimento  mais proximo disponível
+lc=1330 # mm 
+print "lc",lc   #mm
+ref="A-51" ; print ref
+
+
+# Comprimento de ajuste da correia
+d=d1; D=d2; 
+la=lc-1.57*(D+d)
+print "la",la   #mm
+
+
+# Fator h de correção
+k=(D-d)/la
+print "(D-d)/la",k
+# pela tabela 20 pag 83 , entrando-se com (D-d)/h encontra-se h
+h=0.03
+print "h",h
+
+
+# Distância entre centros ajustadas
+Ca=(la-h*(D-d))/2
+print "Ca",Ca
+
+
+#  Capacidade de transmissão de potência por correia
+# Consultando-se a Tabela 7 - pag
+#   Ppc=(Pb+Pa).fcc.fcac
+#
+#  Consultando-se a Tabela 7 - pag 64
+# entrando-se com rpm=750 e d-pitch-menor= 137 valores mais proximos 
+Pb=3.23   # Cv/correia  -- Potência básica 
+#
+# #  Consultando-se a Tabela 7 - pag 64
+# entrando-se com rpm=870 e i=1.16>  valores mais proximos 
+Pa=0.18   # Cv/correia  -- Potência adicional
+#
+#
+#  Consultando a tabela 22- Fator de correção de comprimento de Correias 
+# Hi-Power II pag 85
+# Entrando-se com A-51(A-53 mais proximo)
+fcc=0.93  # Fator de correção de comprimento
+#
+# Consultando a tabela 23- pag 86 Fator de correção do arco de contato
+D=d2;  d=d1;
+k2=(D-d)/Ca ;  print "(D-d)/Ca",k2
+#
+# Interpolação dos valores da tabela 23
+x1=0.10; x2=0.20;  angle1=174.0 ; angle2=169.0 ; fcac1=0.99 ; fcac2=0.97
+x=k2
+angle=(angle2-angle1)/(x2-x1)*(x-x1)+angle1   ;  print "angle",angle
+fcac=(fcac2-fcac1)/(x2-x1)*(x-x1)+fcac1       ;  print "fcac",fcac
+#
+#
+Ppc=(Pb+Pa)*fcc*fcac ; print "Ppc",Ppc
+alpha1=angle
+
+
+# Número de correias necessárias
+nc=round(Ppcv/Ppc); print "nc",nc
+
+# Velocidade periférica da correia
+Vp=pi*(d1/2)*n2/30.0*1e-3  # m/s
+print "Vp",Vp
+ 
+
+# Torque do motor
+Mt=30*Pmotor*1000/(pi*nmotor)   # N.m
+print "Mt",Mt
+
+# Forca tangêncial
+d=d1;  
+Ft=2*Mt/d   # N
+print "Ft",Ft
+
+
+#  Esforços F1 e F2
+angle_rad=pi/180*angle
+k=exp(angle_rad*f)
+F2=Ft/(k-1)  ;  
+F1=Ft+F2     ;  
+print "F1",F1
+print "F2",F2
+
+
+
+
+
+#########################################
+#	Esforcos nos eixos
+#
+
+print "\nEsforços nos eixos"
+print "-----------------------"
+
+print "Calculo dos esforcos no  eixo 2"
+# alpha2= ângulo de abraçamento 
+q1=-alpha2/2           # Ângulo de F1 em relação ao eixo x medido no sentido antihorário
+q2=-(180-alpha2/2)     # Ângulo de F2 em relação ao eixo x medido no sentido antihorário
+
+F1q=pol2rec([F1,q1])   # Obtem o valor da projeção da carga no eixo x e y
+F2q=pol2rec([F2,q2])
+
+F=F1q+F2q
+Fx=F[0]  ; Fy=F[1]
+
+zb=0.15+0.15 # m Posição do apoio B
+za=0	     # m Posição do apoio A
+zq=0.15      # m Posição da polia
+
+Fbx=-Fx*zq/zb	# Força no apoio B 
+Fby=-Fy*zq/zb
+Fb=array([Fbx,Fby])
+
+Fa=-F-Fb
+Fax=Fa[0]
+Fay=Fa[1]
+
+print "Fa",Fa
+print "Fb",Fb
+print "F",F
+
+# Momento fletor e esforco cortante no eixo x
+N=100.0    # Número de equidistantes a calcular o momento fletor no eixo)
+L=0.30 	   # Comprimento do eixo
+z=linspace(0,L,N)
+
+Zp=[0.0, 0.15,0.30] # posicao das cargas
+Py=[Fay,Fy,Fby]
+
+Vy=shears(Py,Zp,z)
+Mx=bending(Py,Zp,z)
+
+Vymax=abs(Vy).max()
+Mxmax=abs(Mx).max()
+
+
+# Momento fletor e esforco cortante no eixo y
+Px=[Fax,Fx,Fbx]
+
+Vx=shears(Px,Zp,z)
+My=bending(Px,Zp,z)
+
+Vxmax=abs(Vx).max()
+Mymax=abs(My).max()
+
+#-- Momento fletor e esforco cortante resultante --#
+
+V=sqrt(Vx**2+Vy**2)
+M=sqrt(Mx**2+My**2)
+
+plot(z,Vx,z,Vy,z,V)
+figure()
+plot(z,Mx,z,My,z,M)
+
+#plot(z,Vy)
+#figure()
+#plot(x,M)
+
+#print "Vmax=",Vmax
+#print "Mmax=",Mmax

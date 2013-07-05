@@ -1,0 +1,170 @@
+/*--------------------------------------------------------------
+                main.c
+  
+PIC16F877A 4MHZ Clock
+
+Caio Rodrigues Soares Silva
+
+
+	The circuit objective is control the led bright using a PWM, of
+20 KHZ frequency and a standard 50% duty cycle, by two buttons on the
+ports RB7(Increase PWM duty cycle) , RB6(Decrease PWM duty cycle is 
+possible achieve the objective
+
+
+                                                                 Vdd  |
+                                                   Increase Duty      |
+					   ---------------------|      Cycle              |
+                       ||1                  |           +---------+   |
+                       |                 RB7+------+----+    R1   +---+
+                       |                (40)|      |    +---------+   |
+                       |  PIC16F877A        |  	   |                  |
+                       |                    |        |== SW1          |
+                       |                    |      |                  |
+                       |                    +    --+-- GND            |
+                       |                    |                         |
+                +------+ RC2(17)            |                         |
+                |      | PWM OUTPUT         |                         |
+              -+++     |                    |      Decrease Duty      |
+               | |     |                    |      Cycle              |
+               | |     |                    |            +--------+   |
+               +++     +                RB6 +---+--------+   R2   +---+
+                |      |               (39) |   |        +--------+   |
+                v      |                    |   |                     |
+             ++---+    |                    |     |== SW2             |
+              +   +    +--------------------+   |                     |
+               + +							  ----- GND
+                *  LED
+                |
+                |
+          ------------ GND
+
+
+
+*/
+
+
+/* Processador de arquivo de cabeçalho */
+
+#define clock4mhz
+#define __16f877a
+
+#include "pic16f877a.h"
+#include "commdefs.h"
+//#include "delay.h"
+//#include "pwm.h"
+//#include "adc.h"
+
+
+typedef unsigned int config;
+
+
+config at 0x2007 __CONFIG= 
+_WDT_OFF &		// Sem Watch dog timer 
+_PWRTE_ON & 	// Com Power-On Reset
+_BODEN_OFF &	// Com
+_CP_OFF & 	    // Sem proteção do código
+_DEBUG_OFF & 	// Sem debugger
+_HS_OSC & 		// Oscilador cristal 4 MHZ
+_CPD_OFF & 		//
+_LVP_OFF; 		// Sem LVP:Low Voltage Programmming
+
+
+//#define debug1
+
+
+
+#define tmr2_1b1      0x00
+#define tmr2_1b4      0x01
+#define tmr2_1b16     0x02
+#define tmr2_on		  0x04
+
+#define PWM_ON		0x0C   //Turn On  PWM channel1
+#define PWM_OFF		0x00
+
+#define dcy_max		198		// Maximum duty cycle
+#define dcy_min		2
+
+#define ticks 49			// PWM value associated with the desired frequency
+#define dcy0 100
+
+
+
+
+
+void main(){
+
+		CMCON=7;		  // Disable all analog comparator
+		ADCON1=6;		  // Disable all DAC inputs
+		INTCON=0;		  // Disable interruptions
+
+		char DutyCycle;
+
+//		dcy=dcy0;	// Start using 50% PWM
+
+#ifndef debug1
+	
+    	/////////////Timer2 setup for PWM///////////
+		//
+		//
+		T2CON  = tmr2_on | tmr2_1b1 ; //Turn on TIMER2 on prescaler 4 and set timer2
+		
+
+		//////////// PWM frequency setting //////////
+		//
+		//		Tclock=4MHZ  Tpwm= 1KHZ
+		//	PR2=Tpwm/(4*Tosc*PRESC2)-1= 249
+		//
+		//	
+		TMR2=ticks;			 //PR2=TMR2
+		RC2=0;				 //Clean PORTC2 latch for safety
+    	TRISC2=0;            //Setting TRISC2 as output
+
+
+		
+		////////Duty Cicle de 50% Tensão de saída 2.5 V///
+		//
+		//
+//		CCPR1L=dcy>>2;						// Set MSB values tag1
+//		CCP1CON|=(dcy & 0x03)<<4 | PWM_ON;		// Set Duty cycle and start PWM mode bits tag2
+
+
+
+
+
+
+		TRISB=0;
+
+		while(1){/*Loop Para sempre*/
+		//Tudo aceso
+		PORTB=0xFF;
+				}
+#else
+//------------------------------------------------------------
+		// Código alternativo de teste
+
+		TRISB=0;
+		TRISA=0;
+
+aaa
+		while(1){
+		PORTB=0;
+		PORTA=0;
+		
+		};
+
+#endif // FIM do código alternativo de teste
+
+
+
+} //end of main
+
+/*----------------------------------------------------------*/
+
+
+
+
+
+/*------------------------------------------------------------------
+ ---------------------  END OF FILE --------------------------------
+ ------------------------------------------------------------------*/

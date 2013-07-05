@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Exec=feh --bg-scale  /home/caio/apps/figs/police_women_sexy_calendar2.jpg &
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=conky
+Name=conky
+Comment[en_US]=Daemon para melhor controle da tela
+Comment=Daemon para melhor controle da tela

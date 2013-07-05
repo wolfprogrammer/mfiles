@@ -1,0 +1,62 @@
+#!/usr/bin/perl
+#
+# create a series of directories
+#
+#if ($#ARGV < 2) {
+#    print "usage: mkdirs base start stop\n";
+#    exit;
+#}
+
+$fname= $ARGV[0];
+$fdist = $ARGV[1];	# Nome do projeto sem extensão
+
+#Cria diretório com nome do fname
+$DEST="/home/caio/chroot/var/www/books/";
+$DESTDIR="$DEST$fdist";
+print "Criado ",$DESTDIR;
+
+#system("rm -rf $DESTDIR");
+
+    $cmd = "mkdir -p $DESTDIR/";
+    print $cmd."\n";
+	system($cmd);
+
+	$cmd = "cp $fname $DESTDIR/";
+    print $cmd."\n";
+	system($cmd);
+
+$cmd = "convert -quality 80 $fname $DESTDIR/$fdist.png";
+system($cmd);
+
+####################################3
+#
+
+$base = "$DESTDIR";
+
+$num=`pdfinfo $fname | grep Pages`;
+$num=~ s/\D//g;	#Pega somente o número de paginas
+
+#aa
+    open(HTML, ">$base/$fdist.html");
+
+    print HTML "<html>\n<head>\n<title>$fdist</title>\n</head>\n<body>\n";
+
+	for ($i=0; $i < $num; $i++) {
+
+
+    if($i==$num) {
+	$next = 1;
+    } else {
+	$next = $i+1;
+    }
+
+	#print HTML "<a href=\"$base$next.html\"><img src=\"$fdist-$i.png\"></a>\n";
+	print HTML "<img src=\"$fdist-$i.png\">\n";
+
+}
+
+    print HTML "</body>\n</html>\n";
+    close(HTML);
+
+
+

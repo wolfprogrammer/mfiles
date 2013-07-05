@@ -1,0 +1,18 @@
+
+sudo apt-get update
+
+sudo apt-get install -y vim-gtk
+sudo apt-get install -y wine
+sudo apt-get install -y aria2c
+sudo apt-get install -y mplayer
+sudo apt-get install -y winetricks
+sudo apt-get install -y youtube-dl
+sudo apt-get install -y leafpad
+sudo apt-get install -y geany
+sudo apt-get install -y okular
+sudo apt-get install -y wxmaxima
+sudo apt-get install -y rxvt-unicode
+sudo apt-get install -y gparted
+sudo apt-get install -y gparted
+sudo apt-get install -y shutter
+sudo apt-get install -y clipt

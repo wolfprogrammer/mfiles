@@ -1,0 +1,22 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\makeatletter
+\newcommand\thefontsize[1]{{#1 The current font size is: \f@size pt\par}}
+\makeatother
+
+\begin{document}
+\thefontsize\tiny
+\thefontsize\scriptsize
+\thefontsize\footnotesize
+\thefontsize\small
+\thefontsize\normalsize
+\thefontsize\large
+\thefontsize\Large
+\thefontsize\LARGE
+\thefontsize\huge
+\thefontsize\Huge
+\end{document}

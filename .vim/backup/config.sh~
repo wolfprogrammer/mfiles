@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gedit ~/.config/openbox/autostart.sh ~/.config/openbox/autostart    ~/.xinitrc  /etc/fstab   /etc/X11/default-display-manager
+

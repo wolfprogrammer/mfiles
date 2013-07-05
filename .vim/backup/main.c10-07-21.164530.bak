@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+#ifndef Clock
+#define Clock 4000000
+#endif
+
+#define PRESC 1
+#define _PREconf(Fpwm)   Clock/(4*Fpwm*PRESC)-1
+
+
+#define _DutyCycleBits
+
+
+
+
+int main(){
+
+
+printf("%d",_PREconf(2000));
+
+	return 0;
+
+} //end of main
+
+

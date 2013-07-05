@@ -1,0 +1,46 @@
+clc
+
+
+
+#INFO_FILE = "/home/caio/.dummy"
+
+edit mode async
+#EDITOR   "leafpad"
+edit editor "lxterminal -e 'vim %s'"
+
+
+history_file          "~/.octave_hist"
+history_size=1024
+
+LOADPATH= ".:/home/caio/mfiles"
+
+#PS1("> ")
+PS1 ("\\[\\033[01;31m\\]> \\[\\033[0m")
+
+PS2("... ")
+PS4("+ ")
+
+more off
+
+format compact
+
+output_precision = 3;
+
+echo off
+
+addpath("/home/caio/mfiles")
+addpath("/home/caio/mfiles/pic")
+
+# mark_as_command stp;
+
+#ignore_function_time_stamp ("all")
+
+
+#shell_cmd("reset");
+
+setenv("JAVA_HOME","/usr/lib/jvm/java-6-openjdk")
+#units
+clc
+home
+
+

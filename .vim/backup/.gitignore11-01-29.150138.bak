@@ -1,0 +1,13 @@
+*.o
+*.p
+*.cod
+*.adb
+*.out
+*.pdf
+*.html
+html
+HTML
+.ignore
+.git
+*.vim
+*.dump*

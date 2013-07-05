@@ -1,0 +1,21 @@
+#!/usr/bin/python
+
+# import necessary modules (changed from libglade to gtk.glade)
+import gtk
+import gtk.glade
+#import gnome.ui
+
+# this function is called when the window gets destroyed
+def DestroyFunction(obj):
+	gtk.main_quit() 	# exit the gtk main loop
+
+widgetTree = gtk.glade.XML("glade1.glade")    # create a widget tree from a glade
+                                                # xml, also shows the window
+
+dic = { "on_window1_destroy" : DestroyFunction }    # maps signal handler to function
+                                                    # on line 10, DestroyFunction
+
+widgetTree.signal_autoconnect (dic)       # connects signal handlers defined in
+                                          # the glade file to actual Python functions
+
+gtk.main()

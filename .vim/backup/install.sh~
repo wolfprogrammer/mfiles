@@ -1,0 +1,6 @@
+./configure --prefix=/home/caio/usr --disable-mcs51-port   --disable-gbz80-port --disable-z80-port --disable-avr-port \
+	--disable-ds390-port   --disable-ds400-port   --disable-xa51-port   --disable-hc08-port  --disable-ucsim
+
+make -j4
+
+make install

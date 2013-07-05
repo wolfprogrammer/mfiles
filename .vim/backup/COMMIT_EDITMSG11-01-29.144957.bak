@@ -1,0 +1,25 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: caio <caio@crazy laptop.(none)>
+#
+# On branch experimental
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   Makefile
+#	modified:   ../pwm1/firmware.hex
+#	modified:   ../pwm1/main.asm
+#	modified:   ../pwm1/main.lst
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	../../Curso_pic/PIC18F/
+#	main.asm
+#	main.cof
+#	main.hex
+#	main.lst
+#	main.map
+#	../pwm1/simulation1.stc

@@ -1,0 +1,1 @@
+rm *.asm *.lib *.hex *.cod *.rel *.db  *.sym

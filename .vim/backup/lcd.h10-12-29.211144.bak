@@ -1,0 +1,260 @@
+/*					lcd.h
+
+	Caio Rodrigues Soares Silva
+
+	Code for hitachi HD477 LCD under SDCC compiler.
+
+
+
+
+==============	Cotrol and Operation ================
+
+	==> Register Select
+RS:  0  D0-D7 bits mean command
+	 1  D0-D7 bits mean data (Adress of character in DDRAM memory to be displayed) 
+
+	==> Read/Write
+RW: 0  D0-D7 Write data (from MCU to LCD)
+	1  D0-D7 Read data (from LCD to MCU)
+        
+	==> Enable
+E:  0		Acess LCD to disable
+	1   	Normal Operating
+from 1 to 0 Data/Command are transferred to LCD
+
+============= Data ===================================
+	
+D0-D7 : Data  , D0:LSB , D7:MSB
+
+
+============= LCD Memory ============================
+
+The LCD has three memory blocks:
+	
+ * DDRAM  - Display Data RAM
+ * CGTRAM - Character Generator RAM
+ * CGROM  - Character Generator ROM 
+
+
+DDRAM:
+	Stores the charactes that are displayed. Remember 1 char=8 bite=1 byte, 
+
+ CGROM: 
+ Default map with all characters that can be  displayed on the screen.
+Each character is assigned to one memory location.
+The adress of CGROM memory location is the same as ASCII.
+
+
+============ LCD Basic Commands ======================
+
+
+RS=1 ==> Bits D0-D7 are the adress of cahracter to be displayed
+RS=0 ==> Bits D0-D7 are command which control the display mode
+
+
+COMMAND						RS	RW	D7	D6	D5	D4	D3	D2	D1	D0	EXECUTION TIME
+Clear display				0	0	0	0	0	0	0	0	0	1	1.64mS
+Cursor home					0	0	0	0	0	0	0	0	1	x	1.64mS
+Entry mode set				0	0	0	0	0	0	0	1	I/D	S	40uS
+Display on/off control		0	0	0	0	0	0	1	D	U	B	40uS
+Cursor/Display Shift		0	0	0	0	0	1	D/C	R/L	x	x	40uS
+Function set				0	0	0	0	1	DL	N	F	x	x	40uS
+Set CGRAM address			0	0	0	1	CGRAM address	40uS
+Set DDRAM address			0	0	1	DDRAM address	40uS
+Read "BUSY" flag (BF)		0	1	BF	DDRAM address	-
+Write to CGRAM or DDRAM		1	0	D7	D6	D5	D4	D3	D2	D1	D0	40uS
+Read from CGRAM or DDRAM	1	1	D7	D6	D5	D4	D3	D2	D1	D0	40uS
+
+
+I/D 1 = Increment (by 1)         R/L 1 = Shift right
+    0 = Decrement (by 1)             0 = Shift left
+    
+S 1 = Display shift on           DL 1 = 8-bit interface
+  0 = Display shift off             0 = 4-bit interface
+  
+D 1 = Display on                 N 1 = Display in two lines
+  0 = Display off                  0 = Display in one line
+  
+U 1 = Cursor on                  F 1 = Character format 5x10 dots
+  0 = Cursor off                   0 = Character format 5x7 dots
+
+B 1 = Cursor blink on            D/C 1 = Display shift
+  0 = Cursor blink off               0 = Cursor shift
+
+
+What is Busy flag ?
+
+Compared to the microcontroller, the LCD is an extremely slow component. 
+Because of this, it was necessary to provide a signal which would, upon 
+command execution, indicate that the display is ready for the next piece of data. 
+That signal, called the busy flag, can be read from the line D7. 
+When the voltage on this line is 0V (BF=0), the display is ready to receive new data.
+
+
+LCD Connecting
+
+Depending on how many lines are used for connecting the LCD to the microcontroller, 
+there are 8-bit and 4-bit LCD modes. The appropriate mode is selected at 
+the beginning of the operation in this process called "initialization". 
+8-bit LCD mode uses outputs D0-D7 to transfer data as explained on the 
+previous page.
+
+The main purpose of 4-bit LED mode is to save valuable I/O pins of 
+the microcontroller. Only 4 higher bits (D4-D7) are used for communication, while others may be unconnected. Each piece of data is sent to the LCD in two steps- four higher bits are sent first (normally through the lines D4-D7) and four lower bits are sent afterwards. Initialization enables 
+the LCD to link and interpret received bits correctly.
+
+Data is rarely read from the LCD (it is mainly transferred from 
+the microcontroller to LCD) so it is often possible to save an 
+extra I/O pin by simple connecting R/W pin to the Ground. 
+Such saving has its price. Messages will be normally displayed, 
+but it will not be possible to read the busy flag since it is not 
+possible to read the display as well. 
+Fortunately, there is a simple solution. 
+After sending a character or a command it is important to give the 
+LCD enough time to do its job. Owing to the fact that the execution 
+of the slowest command lasts for approximately 1.64mS, it will be 
+sufficient to wait approximately 2mS for LCD.																		 
+
+=========================================================================|
+
+Diagrama de conexão do LCD
+
+		 +-------------------------------------------------+
+         |                                                 |
+		 |	 +-----------------------------------------+   |
+		 |   |    HITACHI HD4780 LCD                   |   |
+         |   +-----------------------------------------+   |
+		 |  1   2   3  	4  5  6  7  8  9  10 11 12 13 14   |
+		 |  Vss Vdd Vee RS RW E  D0 D1 D2 D3 D4 D5 D6 D7   |
+         +---+--+--------+-+--+---------------+--+--+-+----+
+             |  |        | |  |               |  |  | |
+    GND  ----+  |        | |  +-+  RA1        |  |  | +---- RD3
+ +5V Vcc -------+        | +--++++ RA2        |  |  +------ RD2
+                         +-+--++-+ RA3        |  +--------- RD1
+                                              +--+--------- RD0
+                                  
+
+
+*************************************************************************/
+
+
+
+
+
+
+#ifndef	_lcd_h_                                                 
+#define _lcd_h_                                                 
+
+
+
+#ifdef __16f877a		/** O código  apartir daqui é somente para o pic 16f877a*/
+
+#include "commdefs.h"
+#include "delay.h"
+
+
+			//////////////////////////////////////////////
+			//		Conexões do LCD
+			//
+			//		LCD_E : LCD Enable
+			//
+
+/// Comando do LCD
+#define _LCD_CLEAR_DISPLAY_  0x01;
+#define _
+
+
+
+
+///////////////////	LCD-Modo 4 bits////////////////////////////////////
+//																	 //
+//	Rotinas para manipular o LCD no modo 4 bits para o PIC16F877A	 //
+//																	 //
+//	O programador deve definir os pinos LCD_E,LCD_RS e LCD_RW		 //
+//																	 //
+//	Para usar a configuração deafult,padrão basta fazer:			 //
+//																	 //
+//	#define LCD_4BIT_MODE											 //
+//	#define LCD_DEFAULT e											 //
+//	#include "lcd.h"												 //
+//																	 //
+//	em main.c														 //
+//																	 //
+//////////////////////////////////////////////////////////////////////
+#ifdef LDC_4BIT_MODE
+
+
+	#ifdef LCD_DEFAULT
+#define LCD_data PORTD		//	Data output : Saída de dados
+#define LCD_E RA1			//	Clock bit 
+#define LCD_RS RA3			//	Register select bit : Bit de seleção de registro
+#define LCD_RW RA2			//
+
+	#endif	// End of LCD_DEFAULT
+
+void lcd_enable(){
+
+E=1;
+}
+
+
+// Inicia interface LCD
+void lcd_init(void){
+
+		RW=0; E=0;
+		lcd_cmd(INIT);
+
+	//--Modo de operação
+	lcd_cmd(0x06);
+
+}
+
+void lcd_clear();
+
+void lcd_return_home();
+
+// Lcd na linha 1 em certa posição 
+void lcd_line1(u8 offset);
+
+// Lcd na linha 1 em certa posição 
+void lcd_line1(u8 offset);
+
+
+
+void goto_lcd();
+
+// Envia comando ao LCD
+void lcd_cmd(u8 cmd){
+	
+	LCD_RS=0;
+	LCD_data=cmd;
+	lcd_enable();
+//	delay????
+	
+
+}
+
+// Escreve caracter no LCD, cursor é o caracter do caracter a se escrever
+void lcd_wirite(u8 cursor){
+	
+	LCD_RS=1;
+	LCD_DATA=cursor;
+	lcd_enable();
+	// delayxxx
+}
+
+
+
+
+#endif //End of LCD_4BIT_MODE
+///////////////////////////////////////////////////////////////////
+//				Fim da configuração para modo 4Bits				 //
+///////////////////////////////////////////////////////////////////
+
+
+
+
+#endif /* Fim do código para o pic16f877a*/
+/*******************************************************************************/
+
+#endif  // lcd_h

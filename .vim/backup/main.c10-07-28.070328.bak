@@ -1,0 +1,170 @@
+/*--------------------------------------------------------------
+                main.c
+  
+ADC training project
+
+PIC16F877A 4MHZ Clock
+
+Caio Rodrigues Soares Silva
+
+--------------------------------------------------------------*/
+
+
+/* Processador de arquivo de cabeçalho */
+#define __16f877a
+#include "pic/pic16f877a.h"
+#include "commdefs.h"
+
+
+
+typedef unsigned int config;
+
+
+config at 0x2007 __CONFIG= 
+_WDT_OFF &		// Sem Watch dog timer 
+_PWRTE_ON & 	// Com Power-On Reset
+_BODEN_OFF &	// Com
+_CP_OFF & 	    // Sem proteção do código
+_DEBUG_OFF & 	// Sem debugger
+_HS_OSC & 		// Oscilador cristal 4 MHZ
+_CPD_OFF & 		//
+_LVP_OFF; 		// Sem LVP:Low Voltage Programmming
+
+
+//mode: Modos de configurar o clock do ADC
+#define ADC_OFF             0x00
+#define ADC_CLOCK_DIV_2     0x01
+#define ADC_CLOCK_DIV_8     0x41
+#define ADC_CLOCK_DIV_32    0x81
+#define ADC_CLOCK_INTERNAL  0xC1
+
+//Macro para configurar o clock do ADC: conversor analógico digital
+#define setup_adc(mode) ADCON0=ADCON0 | (mode)
+
+//Configuração das portas do conversor analógico/digital (registro ADCON1)
+#define NO_ANALOGS                                          0x06
+#define ALL_ANALOG                                          0x00
+//#define AN0_AN1_AN2_AN4_AN5_AN6_AN7_VSS_VREF–VRefh=A3       0x01
+#define AN0_AN1_AN2_AN3_AN4                                 0x02
+//#define AN0_AN1_AN2_AN4_VSS_VREF–VRefh=A3                   0x03      
+#define AN0_AN1_AN3                                         0x04
+#define AN0_AN1_VSS_VREF–VRefh=A3                           0x05
+/* AN0_AN1_AN4_AN5_AN6_AN7_VREF_VREF – VRefh=A3 VRefl=A2 
+AN0_AN1_AN2_AN3_AN4_AN5 
+AN0_AN1_AN2_AN4_AN5_VSS_VREF – VRefh=A3 
+AN0_AN1_AN4_AN5_VREF_VREF – VRefh=A3 VRefl=A2 
+AN0_AN1_AN4_VREF_VREF – VRefh=A3 VRefl=A2 AN0_AN1_VREF_VREF – VRefh=A3 VRefl=A2 AN0 AN0_VREF_VREF – VRefh=A3 VRefl=A2
+*/
+
+
+// Seleciona as portas do conversor anaálogico digital
+#define setup_adc_ports(value)    ADCON1=ADCON1 | (value)
+
+
+// Seleciona o canal a ser lido
+#define set_adc_channel(chan)    ADCON0= ADCON0 | (chan)
+
+// Retorna valor lógico 1 se aconversão terminou
+#define adc_done()  GO==1
+
+#define ADC_START_AND_READ    // ::1  Default,se não especificado
+#define ADC_START_ONLY        //
+#define ADC_READ_ONLY         //
+
+
+
+//Canais ADC
+#define ADC_CHANNEL0  0
+#define ADC_CHANNEL1  1
+#define ADC_CHANNEL2  2
+#define ADC_CHANNEL3  3
+#define ADC_CHANNEL4  4
+#define ADC_CHANNEL5  5
+#define ADC_CHANNEL6  6
+#define ADC_CHANNEL7  7
+
+
+
+
+u16 read_adc(){
+
+    GO=1;
+
+        while(!GO); // Espera a conversão terminar
+
+        __asm
+            nop
+            nop
+            nop
+            nop
+        __endasm;
+    return ADRESH<<8+ADRESL;
+
+}
+
+
+
+// read = read_adc(ADC_READ_ONLY);  -->  Lê o resultado do ADC
+// read_adc(ADC_START_ONLY);        -->  Apenas inicia a conversão
+
+
+
+//static void isr(void) interrupt 0{
+//
+//		T0IF=0; // Limpa a flag do interrupt do Timer0
+//		PORTB++; //Incrementa PORTB
+//}
+
+
+
+void Delay1s(void);
+
+
+void main(){
+
+	CMCON=0x07;			// Desabilita comparadores analógicos
+aa  
+    ADFM=0;
+
+    setup_adc(ADC_CLOCK_DIV_2);
+    
+    setup_adc_ports(ALL_ANALOG);
+
+    set_adc_channel(0); //Canal 0 AN0/RA0
+
+    TRISA=0XFF;         //TRISA como porto de entrada
+
+    TRISB=0;			//TRISB é saída
+
+
+		while(1){/*Loop Para sempre*/
+ff
+            PORTB=read_adc() >>8;
+		
+	    
+
+				}
+
+
+
+} //end of main
+
+/*----------------------------------------------------------*/
+
+
+
+//Obs.: Para clock de 4MHZ
+void Delay1s(void){
+
+		u8 count1;
+		OPTION_REG=tmr0_1p32;	//Clock 1 por 32 , prescaler de 32 
+		TMR0=0;					//Inicia o TMR0
+
+		for(count1=0;count1<125;count1++) while(TMR0<250);	
+
+}
+
+
+/*------------------------------------------------------------------
+ ---------------------  END OF FILE --------------------------------
+ ------------------------------------------------------------------*/

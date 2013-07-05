@@ -1,0 +1,266 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+#sys.path.append("/home/caio/works/modules")
+
+
+from robotlib import *
+
+#############################################
+#    Fatores de conversao de unidades       #
+#############################################
+
+
+
+q1= 90 #323.130102354  # 90
+#q2= 00
+q2= 00 # 53.1301023542
+q3= 90
+q4= 00
+q5= 00
+q6= 00
+
+a2=1
+a3=1
+
+d2=1
+d4=1
+d6=1
+
+
+
+dhtable=[ \
+[q1, 90,  00, 00],  \
+[q2, 00, -d2, a2],  \
+[q3, 90,  00, a3],  \
+[q4,-90,  d4, 00],  \
+[q5, 90,  00, 00],  \
+[q6, 00,  d6, 00]]     
+
+
+
+#########################################
+
+dhtable2=matrix(dhtable)
+print"\ttheta\talpha\td\ta"
+prm(dhtable2);
+
+[HH,Htool]=DHH(dhtable,0)
+
+
+H1=HH[0]
+H2=HH[1]
+H3=HH[2]
+H4=HH[3]
+H5=HH[4]
+H6=HH[5]
+
+
+
+print "Cinematica Inversa"
+
+
+
+
+print "H0-tool="; prm(Htool)
+
+print "\nPrimeira junata\n---------------\n"
+n=Htool[:3,0] ;
+s=Htool[:3,1] ;
+a=Htool[:3,2] ;
+p=Htool[:3,3] ;
+print "n="; prm(n);
+print "s="; prm(s);  
+print "p="; prm(p);
+
+
+
+pc=p-d6*a  ;
+
+print "pc=p-d6*a=";prm(pc)
+
+pcc=pc.tolist()
+px=pcc[0][0]
+py=pcc[1][0]
+pz=pcc[2][0]
+
+print "px=",px
+print "py=",py
+print "pz=",pz
+
+
+R=sqrt(px**2+py**2)
+r=sqrt(R**2-d2**2)
+
+print"R=sqrt(px**2+py**2)=",R  
+print "r=sqrt(R**2-d2**2)=",r
+
+ARM=1
+print "ARM=",ARM
+
+phi=atan2(py,px)
+alpha=atan2(d2,r)
+#th1=180*(1-ARM)/2+phi-ARM*alpha
+qt1=180+phi+alpha
+
+print "phi=atan2(py,px)=",phi
+print "alpha=atan2(d2,r)=",alpha
+#print "th1=180*(1-ARM)/2+phi-ARM*alpha",th1
+print "qt1=180+phi+alpha=",qt1
+
+#xq1=(-ARM*px*r+py*d2)
+#yq1=(-ARM*py*r-px*d2)
+#qt1=atan2(yq1,xq1)
+#print "xq1=(-ARM*px*r+py*d2)=",xq1
+#print "yq1=(-ARM*py*r-px*d2)=",yq1
+#print "qt1=atan2(yq1,xq1)=",qt1
+
+
+alpha=atan2(d2,r)
+phi=atan2(py,px)
+qt1=phi-alpha
+
+
+print "\n\nsegunda junta\n------------------------\n"
+
+#  Theta2
+ELBOW=1
+K=ARM*ELBOW
+print "ELBOW=",ELBOW
+print "K=ARM*ELBOW=",K
+ 
+
+R=sqrt(px**2+py**2+pz**2-d2**2)
+print "R=sqrt(px**2+py**2+pz**2-d2**2)=",R
+
+#alpha=atan2(pz,-ARM*r)
+#print "alpha=atan2(pz,-ARM*r)",alpha
+
+Cb=(a2**2+R**2-(d4**2+a3**2))/(2*a2*R)
+Sb=sqrt(1-Cb**2)
+beta=atan2(Sb,Cb)
+
+print "Cb=(a2**2+R**2-(d4**2+a3**2))/(2*a2*R)=",Cb
+print "Sb=sqrt(1-Cb**2)=",Sb
+print "beta=atan2(Sb,Cb)=",beta
+
+Ca=r/R
+Sa=pz/R
+alpha=atan2(pz,r)
+print "Ca=r/R=",Ca
+print "Sa=pz/R=",Sa
+print "alpha=atan2(Sa,Ca)=",alpha
+ 
+print "qt2=alpha-beta=",alpha-beta
+print "qt2=alpha+beta=",alpha+beta
+
+#qt2=alpha+ELBOW*beta
+qt2=alpha-beta
+print "qt2=alpha+ELBOW*beta=",qt2
+
+
+
+print "\n\nTerceira junta\n--------------------\n"
+R=sqrt(px**2+py**2+pz**2-d2**2)
+Cphi=((a2**2+d4**2+a3**2)-R**2)/(2*a2*sqrt(d4**2+a3**2))
+Sphi=ARM*ELBOW*sqrt(1-Cphi**2)
+phi=atan2(Sphi,Cphi)
+
+Sbeta=d4/sqrt(d4**2+a3**2)
+Cbeta=a3/sqrt(d4**2+a3**2)
+beta=atan2(Sbeta,Cbeta)
+qt3=phi-beta
+
+print "qt3=phi-beta",qt3
+
+#################################
+
+q1=qt1
+q2=qt2
+q3=qt3
+
+dhtable3=[ \
+[q1,90.0,0,0],   \
+[q2,0,-d2,a2],  \
+[q3,90.0,0,a3]]
+
+[HH,H03]=DHH(dhtable3)
+
+
+R06=Htool[:3,:3]
+R03=H03[:3,:3]
+R36=R03.transpose()*R06
+
+X3=H03[:3,0] 
+Y3=H03[:3,1] 
+Z3=H03[:3,2] 
+
+
+
+print "H03=",prm(H03)
+print "X3=",prm(X3)
+print "Y3=",prm(Y3)
+print "Z3=",prm(Z3)
+
+Z4=norm(Z3,a)
+print "Z4=(Z3Xa)/||Z3Xa||=norm(Z3,Z4)=\n"
+prm(Z4)
+
+Y5=Z4
+k1=dotp(s,Y5)
+k2=dotp(n,Y5)
+
+if k1==0 :
+	omega=k5
+else:
+	omega=k1
+
+
+WRIST=-1 # Wrist UP
+M=WRIST*sign(omega)
+c4=M*dotp(Z4,X3)
+s4=-M*dotp(Z4,Y3)
+qt4=atan2(s4,c4)
+
+H34=DH(qt4,-90,d4,0)
+H04=H03*H34
+X4=H04[:3,0] 
+Y4=H04[:3,1] 
+Z4=H04[:3,2] 
+
+s5=dotp(a,X4)
+c5=-dotp(a,Y4)
+qt5=atan2(s5,c5)
+
+q5=qt5
+H45=DH(q5, 90,  00, 00)
+H05=H04*H45
+X5=H05[:3,0] 
+Y5=H05[:3,1] 
+Z5=H05[:3,2] 
+ 
+c6=dotp(n,Y5)
+s6=dotp(s,Y5)
+qt6=atan2(s6,c6)
+print "\n--------------\n"
+print "qt1=%3f" % qt1
+print "qt2=%3f" % qt2
+print "qt3=%3f" % qt3
+print "qt4=%3f" % qt4
+print "qt5=%3f" % qt5
+print "qt6=%3f" % qt6 
+
+dhtable=[ \
+		[q1, 90,  00, 00],  \
+		[q2, 00, -d2, a2],  \
+		[q3, 90,  00, a3],  \
+		[q4,-90,  d4, 00],  \
+		[q5, 90,  00, 00],  \
+		[q6, 00,  d6, 00]]     
+
+
+[HH,Htool2]=DHH(dhtable,verbose=0)
+
+print "Htool2=\n"
+prm(Htool2)
+

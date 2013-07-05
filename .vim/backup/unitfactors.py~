@@ -1,0 +1,130 @@
+"""Unit  Factors
+
+This module implements factos of SI units and physical constants
+the system works with standard units, example:
+when we are going to make the calculations using a pressure quantity
+we write  x= 3 # Mpa , in this module we can do   x=3*Mpa and then
+we get x= 3*1e6.
+
+
+"""
+
+def fnit(inputunit,outputunit):
+	unitdict={ 	\
+	#lenght" 
+	'm':1.0,        \
+	'um':1.0e-6,    \
+	'mm':1.0e-3,    \
+	'cm':1.0e-2,    \
+	'km':1.0e3 ,    \
+	'IN':0.0254,    \
+	'in':0.0254,    \
+	'ft':0.3048,    \
+	# Pressure
+	'Pa':1.0,         \
+	'KPa':1.0e3,      \
+	'Mpa':1.0e6,      \
+	'GPa':1.0e9,      \
+	'psi': 6.895*1e3, \
+	'kpsi':6.895*1e6,  \
+	'bar':1e5  ,      \
+	'torr':133.322,   \
+	'atm':1.01325*1e5,\
+	# Force
+	'N':1.0,          \
+	'kN':1e3,         \
+	'MN':1e6,         \
+	'GN':1e9,         \
+	'Lb':4.44822162,  \
+	'libras':Lb,      \
+	'pounfs':Lb,      \
+	'kgf':9.80665,    \
+	# Time
+	's':1.0,            \
+	'ms':1e-3,        \
+	'us':1e-6,        \
+	'min':60.0,       \
+	'h':3600	  
+	
+	}  
+
+	unit1=unitdict[inputunit]
+	unit2=unitdict[outputunit]
+	fact=unit1/unit2
+	return fact
+	 
+
+
+# Physical constants
+g0=9.80665 # m/s2 
+
+# Lenght factors
+m=1.0
+um=1.0e-6
+mm=1.0e-3
+cm=1.0e-2
+km=1.0e3
+IN=0.0254  # 1 in =0.0254 meters
+ft=0.3048  # 1ft =0.3048 meters
+
+
+#  Pressure factors  in terms of Pa
+KPa=1.0e3
+Mpa=1.0e6       
+GPa=1.0e9
+psi= 6.895*1e3
+kpsi= psi*1e3
+#mmHg=
+bar=1e5  
+torr=133.322
+atm=1.01325*1e5
+
+
+# Force factors
+kN=1e3
+MN=1e6
+GN=1e9
+Lb=4.44822162
+lb=Lb
+libras=Lb
+pounfs=Lb
+kgf=g0
+
+#Mass factor
+kg=1.0
+
+
+#Time factor
+s=1.0
+sec=s
+minn=60.0*sec
+h=60.0*minn
+day=24.0*h
+
+
+
+# Volume
+
+
+#  Temperature
+
+print """Basic Units:  m - s - kg - K 
+Usage:
+	All quantities are supposed to be in the metric system
+
+>> 23*ft 		# 
+7.0104                  # 23 feets= 7.0104 meters
+
+>> 450*psi
+3102750.0  		# Pa
+
+>> 450*KPa/psi		# 450 KPa into psi
+65.264			# psi
+
+>> a=20.0		# km/h
+>> a*(km/m)/(h/s)	# 
+5.5555 			# m/s
+
+
+"""
+       

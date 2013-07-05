@@ -1,0 +1,39 @@
+#MCCPAHT = $(WINEPREFIX)/MCC18/bin
+
+# mcc18 instalation directory
+MCCPATH= $(HOME)/drivec/MCC18/bin
+
+CC= wine $(MCCPATH)/mcc18.exe
+
+LD = wine $(MCCPATH)/mplink.exe
+AR = wine $(MCCPATH)/mplib.exe
+MP2HEX= wine $(MCCPATH)/mp2hex.exe
+
+CFLAGS =  -p=18f4550 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+CPU= 18f4550
+
+#INCP1 =  "C:\\users\\caio\\My Documents\\cdc2\\fastPICUSB_CDC\\Cdc" 
+INCP1 = /home/caio/cdc2/fastPICUSB_CDC/Cdc
+
+INCLUDES =  -I"C:\mcc18\h" -I"C:\MCHPFSUSB\fw\CDC"
+
+SRC=  $(shell find ./ -name "*.c") 		#  Find  all sources
+SRCC= $(shell echo $(SRC) | sed 's/\.\///g')    # cuts the ./  from SRC 
+
+OBJECTS1 = ${SRC:.c=.o}  
+OBJECTS = $(shell echo $(OBJECTS1) | sed 's/.*\///'  )
+
+
+COMMAND= $(CC) $(CFLAGS) /i$(INCP1) $(INCLUDES)
+
+
+MCHPUSB.cof:
+	$(foreach SRCC,$(SRCC), $(COMMAND)  $(SRCC)  ;) 
+	wine "C:\MCC18\bin\mplink.exe" /l"c:\mcc18\lib"   /k"C:\users\caio\My Documents\cdc2\fastPICUSB_CDC\Cdc" /k"C:\MCHPFSUSB\fw\CDC" "rm18f4550.lkr" "main.o" "usbmmap.o" "usbdrv.o" "usb9.o" "usbdsc.o" "usbctrltrf.o" "user.o" "cdc.o" "temperature.o" "Startup.o" /z__MPLAB_BUILD=1 /m"MCHPUSB.map" /o"MCHPUSB.cof"
+
+hex:
+	$(MP2HEX)   MCHPUSB.cof
+
+
+clean:
+	rm *.cod *.hex *.lst *.map *.out *.o *.cof

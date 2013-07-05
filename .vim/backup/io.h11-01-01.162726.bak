@@ -1,0 +1,91 @@
+/*--------------------------------------------------------------------
+          				io.h										 
+
+
+Caio Rodrigues Soares Silva
+
+
+ 	 Arquivo cabeçalho com de delays rotinas para microcontroladores 
+  PIC
+
+
+  
+  Para usar este header ponha em main.c #include "io.h" a rotina usada
+depende da frequência do clock usado, frequências mais comuns são:
+4 MHZ , 10 MHZ , 20 MHz.
+ 
+ 
+ 
+ 
+---------------------------------------------------------------------*/
+
+#ifndef _io.h_
+#define _io.h_
+#define __16f877a
+#include "pic/pic16f877a.h"
+#include "commdefs.h"
+#include "delay.h"
+
+
+
+
+
+
+
+        /***************************************************
+         *      Rotinas de delays específicas para clocks  *
+         *                                                 *
+         **************************************************/
+
+            /*--------------------------------
+             *         CLOCK 4MHZ            *
+             *                               *
+             *  Rotinas para clock 4 MHZ     *
+             *-------------------------------*/
+#ifdef clock4mhz
+#warning "Gravação para clock 4MHZ"
+
+
+#endif
+
+
+                /*--------------------------------
+                 *         CLOCK 10MHZ           *
+                 *                               *
+                 *  Rotinas para clock 10 MHZ    *
+                 *-------------------------------*/
+#ifdef clock10mhz
+
+
+#endif
+
+
+
+
+                /*--------------------------------
+                 *         CLOCK 20MHZ           *
+                 *                               *
+                 *  Rotinas para clock 20 MHZ    *
+                 *-------------------------------*/
+#ifdef clock20mhz
+
+
+#endif
+
+
+
+
+
+
+        
+
+
+
+
+#endif
+/*------------------------------------------------------------------
+ *===============  End of io.h ==================================
+ *----------------------------------------------------------------*/
+
+
+

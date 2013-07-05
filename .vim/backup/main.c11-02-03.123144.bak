@@ -1,0 +1,196 @@
+/*			main.c
+ *
+ *
+ *
+ **/
+
+
+#define pic16f877a
+#define clock4mhz 
+
+#include "pic16f877a.h"
+#include "default.h"
+#include "delay.h"
+#include "uart.h"
+
+#define __code rom
+
+/**
+ *@file main.c
+ *@brief Objetivo: desenvolver uma biblioteca UART para o PIC16F877A 
+ *
+ *
+ *@author Caio Rodrigues Soares Silva
+ *
+ *
+ *@warning It's still under development.Unstable.
+ *
+ */
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           CONFIGURATION BITS               |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+typedef unsigned int config;
+
+config __at 0x2007 __CONFIG= 
+_WDT_OFF &    // Sem Watch dog timer 
+_PWRTE_ON &   // Com Power-On Reset
+_BODEN_OFF &  // Com
+_CP_OFF &       // Sem proteção do código
+_DEBUG_OFF &  // Sem debugger
+_HS_OSC &     // Oscilador cristal 4 MHZ
+_CPD_OFF &    //
+_LVP_OFF;     
+
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |    DECLARAÇÃO DAS ROTINAS                  |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+
+
+void initUART(u8 ,u8);
+void delay_ms(u8 sec);
+void sendchar(char x);
+void prints(pchar msg);
+char mychar;
+
+
+
+u8 getchar(){
+
+		while(!RCIF); // Enquanto não recebeu caracter espera  !1=0
+		return RCREG;
+}
+
+// Imprime número na UART de zero a 255
+void print_num(u8 num){
+	
+		u8 alg0,alg1,alg2;				// Algarismos , number algarisms
+		
+				alg2=num/100+'0';  		//Mais significativo , most significative
+				alg1=num%100/10+'0';	//Second algarism
+				alg0=num%10+'0';
+
+				sendchar(alg2);
+				sendchar(alg1);
+				sendchar(alg0);
+}
+
+
+
+// u8 NUM[3]; // Variável global para guardar número de 8 bits em ascii
+
+u8 scanu8(){
+
+    u8 num;
+
+    num=0;
+    num+=(getchar()-'0')*100;    // First algarism - Most significative
+    num+=(getchar()-'0')*10;     // Second algarism
+    num+=(getchar()-'0');        // Third algarism - Least significative
+       
+    return num;
+
+}
+
+#define adcon00 *(volatile near unsigned char *) 0x1F   // Mesmo endereço de ADCON0
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           MAIN                             |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+void main(void){
+
+    u8 mynum;
+
+    
+
+	initUART(25,1);
+
+
+    TRISB=0X00; // Acende todos leds do Porto B
+    PORTB=0XFF; 
+
+	prints("Hello world! \n Version 1 \n"); // Diz hello! World
+
+	print_num(145);
+
+    newline();
+    prints("Sizeof int ");
+    print_num(sizeof(int));
+    newline();
+    prints("Sizeof short int ");
+    print_num(sizeof(short int));
+    newline();
+    prints("Sizeof long int ");
+    print_num(sizeof(long int ));
+    newline();
+    prints("Sizeof float ");
+    print_num(sizeof(float));
+
+
+    prints("\nEscreva um numero :");  // Teste de recepção de número
+    mynum=scanu8();
+    print_num(mynum);
+ 
+
+    adcon00=70;
+
+    newline();
+    prints("Endereco de PORTB:"); print_num((u8 )&PORTB);
+    newline();
+    prints("Endereco de ADCON0:"); print_num((u8 )&ADCON0);
+    prints("valor de ADCON0:"); print_num(adcon00);
+   	
+    
+    newline();
+    
+    
+    while(TRUE) {
+
+        // Se funcionar imprimirar caio continuamente no terminal
+//        sendchar('c');
+//        sendchar('a');
+//        sendchar('i');
+//        sendchar('o');
+
+
+//        mychar=getchar();    // Recebe caracter
+//        sendchar(mychar);    // Envia caracter
+//        PORTB=mychar;        // Muda estatus do porto B
+
+		newline();
+        prints("Ponha um char:");
+		PORTB=getchar();	   // Recebe caracter
+		prints("  ");
+        sendchar(PORTB);       // Envia  caracter recebido de volta a UART
+		print_num(PORTB);	   // Número para a UART
+
+        }//Endwhile
+
+		
+}//Endmain
+
+
+
+
+///////////////////////////////////////////////////////////
+//                      END OF FILE                      //
+///////////////////////////////////////////////////////////

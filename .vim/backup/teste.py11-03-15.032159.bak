@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+
+from custom_functions import *
+
+G=systf([1],[1,1])
+
+
+sysout(G)
+
+
+print tfeval(G,1+1j);
+
+bode(G,100)
+grid()

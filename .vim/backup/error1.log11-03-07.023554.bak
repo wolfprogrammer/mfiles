@@ -1,0 +1,1261 @@
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking how to create a ustar tar archive... gnutar
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+defining man1dir to be $(mandir)/man1
+defining man1ext to be .1
+defining doc_cache_file to be $(octetcdir)/doc-cache
+defining infofile to be $(infodir)/octave.info
+defining octincludedir to be $(includedir)/octave-$(version)/octave
+defining fcnfiledir to be $(datadir)/octave/$(version)/m
+defining localfcnfiledir to be $(datadir)/octave/site/m
+defining localapifcnfiledir to be $(datadir)/octave/site/$(api_version)/m
+defining localverfcnfiledir to be $(datadir)/octave/$(version)/site/m
+defining octetcdir to be $(datadir)/octave/$(version)/etc
+defining octlibdir to be $(libdir)/octave-$(version)
+defining archlibdir to be $(libexecdir)/octave/$(version)/exec/$(canonical_host_type)
+defining localarchlibdir to be $(libexecdir)/octave/site/exec/$(canonical_host_type)
+defining localapiarchlibdir to be $(libexecdir)/octave/$(api_version)/site/exec/$(canonical_host_type)
+defining localverarchlibdir to be $(libexecdir)/octave/$(version)/site/exec/$(canonical_host_type)
+defining octfiledir to be $(libexecdir)/octave/$(version)/oct/$(canonical_host_type)
+defining localoctfiledir to be $(libexecdir)/octave/site/oct/$(canonical_host_type)
+defining localapioctfiledir to be $(libexecdir)/octave/site/oct/$(api_version)/$(canonical_host_type)
+defining localveroctfiledir to be $(libexecdir)/octave/$(version)/site/oct/$(canonical_host_type)
+defining imagedir to be $(datadir)/octave/$(version)/imagelib
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+configure: defining __NO_MATH_INLINES avoids buggy GNU libc exp function
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking for C++ support for new friend template declaration... yes
+checking if C++ library is ISO compliant... yes
+checking for broken C++ reinterpret_cast... no
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking how to run the C preprocessor... gcc -E
+checking whether gcc needs -traditional... no
+checking for ranlib... ranlib
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for canonicalize_file_name... yes
+checking for getcwd... yes
+checking for readlink... yes
+checking for realpath... yes
+checking for chown... yes
+checking for fchown... yes
+checking for dup2... yes
+checking for fcntl... yes
+checking for fchdir... yes
+checking for fdopendir... yes
+checking for btowc... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for mbsrtowcs... yes
+checking for mempcpy... yes
+checking for wmemchr... yes
+checking for wmemcpy... yes
+checking for wmempcpy... yes
+checking for getdtablesize... yes
+checking for getlogin_r... yes
+checking for gettimeofday... yes
+checking for fstatat... yes
+checking for getpwnam_r... yes
+checking for lchmod... no
+checking for link... yes
+checking for lstat... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for mprotect... yes
+checking for memchr... yes
+checking for mkfifo... yes
+checking for mkstemp... yes
+checking for alarm... yes
+checking for pathconf... yes
+checking for sigaction... yes
+checking for sigaltstack... yes
+checking for siginterrupt... yes
+checking for sleep... yes
+checking for strdup... yes
+checking for tzset... yes
+checking for strptime... yes
+checking for symlink... yes
+checking for localtime_r... yes
+checking for times... yes
+checking for pipe... yes
+checking for vasnprintf... no
+checking for iswcntrl... yes
+checking for iswblank... yes
+checking whether // is distinct from /... no
+checking whether realpath works... yes
+checking for sys/param.h... yes
+checking for sys/socket.h... yes
+checking for dirent.h... yes
+checking for wctype.h... yes
+checking for netdb.h... yes
+checking for getopt.h... yes
+checking for sys/time.h... yes
+checking for sys/cdefs.h... yes
+checking for unistd.h... (cached) yes
+checking for math.h... yes
+checking for sys/mman.h... yes
+checking for sys/select.h... yes
+checking for stdint.h... (cached) yes
+checking for wchar.h... yes
+checking for strings.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/times.h... yes
+checking for features.h... yes
+checking for inline... inline
+checking for uid_t in sys/types.h... yes
+checking for unistd.h... (cached) yes
+checking for working chown... yes
+checking whether chown dereferences symlinks... yes
+checking whether chown honors trailing slash... yes
+checking whether chown always updates ctime... yes
+checking whether byte ordering is bigendian... no
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking whether system is Windows or MSDOS... no
+checking for complete errno.h... yes
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking whether fchdir is declared... yes
+checking for mode_t... yes
+checking for promoted mode_t type... mode_t
+checking for working fcntl.h... yes
+checking for st_dm_mode in struct stat... no
+checking whether strmode is declared... no
+checking for mbstate_t... yes
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking whether getcwd is declared... yes
+checking whether getlogin_r is declared... yes
+checking whether getlogin is declared... yes
+checking for getopt.h... (cached) yes
+checking for getopt_long_only... yes
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... no
+checking whether getenv is declared... yes
+checking for C/C++ restrict keyword... __restrict
+checking for struct timeval... yes
+checking whether gettimeofday is declared without a macro... yes
+checking for nl_langinfo and CODESET... yes
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library >= 2.1 or uClibc... yes
+checking whether lstat correctly handles trailing slash... yes
+checking whether malloc, realloc, calloc are POSIX compliant... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for long long int... yes
+checking for a traditional japanese locale... none
+checking for a transitional chinese locale... none
+checking for a french Unicode locale... none
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether memchr works... yes
+checking whether memrchr is declared... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking whether <sys/socket.h> is self-contained... yes
+checking for shutdown... yes
+checking whether <sys/socket.h> defines the SHUT_* macros... yes
+checking for struct sockaddr_storage... yes
+checking for sa_family_t... yes
+checking for struct sockaddr_storage.ss_family... yes
+checking whether socket is declared without a macro... yes
+checking whether connect is declared without a macro... yes
+checking whether accept is declared without a macro... yes
+checking whether bind is declared without a macro... yes
+checking whether getpeername is declared without a macro... yes
+checking whether getsockname is declared without a macro... yes
+checking whether getsockopt is declared without a macro... yes
+checking whether listen is declared without a macro... yes
+checking whether recv is declared without a macro... yes
+checking whether send is declared without a macro... yes
+checking whether recvfrom is declared without a macro... yes
+checking whether sendto is declared without a macro... yes
+checking whether setsockopt is declared without a macro... yes
+checking whether shutdown is declared without a macro... yes
+checking whether accept4 is declared without a macro... yes
+checking whether <sys/select.h> is self-contained... yes
+checking whether select is declared without a macro... yes
+checking for library containing setsockopt... none needed
+checking whether select supports a 0 argument... yes
+checking whether unlink honors trailing slashes... yes
+checking whether unlink of a parent directory fails as it should... guessing yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for wchar_t... yes
+checking for unsigned long long int... yes
+checking whether C symbols are prefixed with underscore at the linker level... no
+checking whether strdup is declared... yes
+checking for working strerror function... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for struct tm.tm_zone... yes
+checking for struct tm.tm_gmtoff... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... yes
+checking whether memrchr is declared without a macro... yes
+checking whether rawmemchr is declared without a macro... yes
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... yes
+checking whether strcasecmp is declared without a macro... yes
+checking whether strncasecmp is declared without a macro... yes
+checking whether stat file-mode macros are broken... no
+checking for struct timespec in <time.h>... yes
+checking whether localtime_r is declared... no
+checking for wint_t... yes
+checking for size_t... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for intmax_t... yes
+checking whether snprintf returns a byte count as in C99... yes
+checking for snprintf... yes
+checking for strnlen... yes
+checking for wcslen... yes
+checking for wcsnlen... yes
+checking for mbrtowc... (cached) yes
+checking for wcrtomb... yes
+checking whether _snprintf is declared... no
+checking whether vsnprintf is declared... yes
+checking whether <wchar.h> uses 'inline' correctly... yes
+checking whether iswblank is declared... no
+checking for alloca as a compiler built-in... yes
+checking whether this system has an arbitrary file name length limit... yes
+checking whether copysign can be used without linking with libm... yes
+checking for d_ino member in directory struct... yes
+checking for d_type member in directory struct... yes
+checking whether alphasort is declared without a macro... yes
+checking whether dirfd is declared without a macro... yes
+checking whether fdopendir is declared without a macro... yes
+checking whether scandir is declared without a macro... yes
+checking for dirfd... yes
+checking whether dirfd is declared... (cached) yes
+checking whether dirfd is a macro... no
+checking whether // is distinct from /... (cached) no
+checking whether dup2 works... yes
+checking for error_at_line... yes
+checking whether fcntl handles F_DUPFD correctly... yes
+checking whether fcntl understands F_DUPFD_CLOEXEC... needs runtime check
+checking whether fcntl is declared without a macro... yes
+checking whether openat is declared without a macro... yes
+checking whether fdopendir is declared... (cached) yes
+checking whether fdopendir works... yes
+checking for working POSIX fnmatch... yes
+checking whether getcwd handles long file names properly... no, but it is partly working
+checking for getpagesize... yes
+checking whether getcwd aborts when 4k < cwd_length < 16k... no
+checking for gethostname... yes
+checking for HOST_NAME_MAX... yes
+checking whether getlogin_r works with small buffers... yes
+checking whether gettimeofday clobbers localtime buffer... no
+checking for gettimeofday with POSIX signature... almost
+checking glob.h usability... yes
+checking glob.h presence... yes
+checking for glob.h... yes
+checking for GNU glob interface version 1... yes
+checking whether glob lists broken symlinks... no
+checking for lchown... yes
+checking whether link handles trailing slash correctly... yes
+checking whether NAN macro works... yes
+checking whether HUGE_VAL works... yes
+checking whether acosl is declared without a macro... yes
+checking whether asinl is declared without a macro... yes
+checking whether atanl is declared without a macro... yes
+checking whether ceilf is declared without a macro... yes
+checking whether ceill is declared without a macro... yes
+checking whether cosl is declared without a macro... yes
+checking whether expl is declared without a macro... yes
+checking whether floorf is declared without a macro... yes
+checking whether floorl is declared without a macro... yes
+checking whether frexpl is declared without a macro... yes
+checking whether ldexpl is declared without a macro... yes
+checking whether logb is declared without a macro... yes
+checking whether logl is declared without a macro... yes
+checking whether round is declared without a macro... yes
+checking whether roundf is declared without a macro... yes
+checking whether roundl is declared without a macro... yes
+checking whether sinl is declared without a macro... yes
+checking whether sqrtl is declared without a macro... yes
+checking whether tanl is declared without a macro... yes
+checking whether trunc is declared without a macro... yes
+checking whether truncf is declared without a macro... yes
+checking whether truncl is declared without a macro... yes
+checking whether mbrtowc handles incomplete characters... guessing yes
+checking whether mbrtowc works as well as mbtowc... guessing yes
+checking whether mbrtowc handles a NULL pwc argument... guessing yes
+checking whether mbrtowc handles a NULL string argument... guessing yes
+checking whether mbrtowc has a correct return value... guessing yes
+checking whether mbrtowc returns 0 when parsing a NUL character... guessing yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether mbsrtowcs works... guessing yes
+checking for mempcpy... (cached) yes
+checking for memrchr... yes
+checking whether mkdir handles trailing slash... yes
+checking whether mkdir handles trailing dot... yes
+checking whether mkfifo rejects trailing slashes... yes
+checking for working mkstemp... yes
+checking for working mktime... yes
+checking for library containing nanosleep... none required
+checking for working nanosleep... yes
+checking whether open recognizes a trailing slash... yes
+checking for fchmodat... yes
+checking for fstatat... (cached) yes
+checking for mkdirat... yes
+checking for openat... yes
+checking for unlinkat... yes
+checking for fchownat... yes
+checking whether fchownat works with AT_SYMLINK_NOFOLLOW... yes
+checking whether fchownat works with an empty file name... yes
+checking whether program_invocation_name is declared... yes
+checking whether program_invocation_short_name is declared... yes
+checking whether readlink signature is correct... yes
+checking whether readlink handles trailing slash correctly... yes
+checking whether rename honors trailing slash on destination... yes
+checking whether rename honors trailing slash on source... yes
+checking whether rename manages hard links correctly... yes
+checking whether rename manages existing destinations correctly... yes
+checking whether rmdir works... yes
+checking whether round is declared... (cached) yes
+checking whether round works... yes
+checking whether roundf is declared... (cached) yes
+checking whether roundf works... yes
+checking whether select supports a 0 argument... (cached) yes
+checking for struct sigaction.sa_sigaction... yes
+checking for volatile sig_atomic_t... yes
+checking whether sigaction is declared without a macro... yes
+checking whether sigaddset is declared without a macro... yes
+checking whether sigdelset is declared without a macro... yes
+checking whether sigemptyset is declared without a macro... yes
+checking whether sigfillset is declared without a macro... yes
+checking whether sigismember is declared without a macro... yes
+checking whether sigpending is declared without a macro... yes
+checking whether sigprocmask is declared without a macro... yes
+checking for sigprocmask... yes
+checking for stdint.h... (cached) yes
+checking for SIZE_MAX... yes
+checking whether sleep is declared... yes
+checking for working sleep... yes
+checking for library containing setsockopt... (cached) none needed
+checking for socklen_t... yes
+checking whether stat handles trailing slashes on directories... yes
+checking whether stat handles trailing slashes on files... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking whether stdint.h conforms to C99... yes
+checking whether dprintf is declared without a macro... yes
+checking whether fpurge is declared without a macro... no
+checking whether fseeko is declared without a macro... yes
+checking whether ftello is declared without a macro... yes
+checking whether getdelim is declared without a macro... yes
+checking whether getline is declared without a macro... yes
+checking whether popen is declared without a macro... yes
+checking whether renameat is declared without a macro... yes
+checking whether snprintf is declared without a macro... yes
+checking whether tmpfile is declared without a macro... yes
+checking whether vdprintf is declared without a macro... yes
+checking whether vsnprintf is declared without a macro... yes
+checking for random.h... no
+checking for struct random_data... yes
+checking whether _Exit is declared without a macro... yes
+checking whether atoll is declared without a macro... yes
+checking whether canonicalize_file_name is declared without a macro... yes
+checking whether getloadavg is declared without a macro... yes
+checking whether getsubopt is declared without a macro... yes
+checking whether grantpt is declared without a macro... yes
+checking whether mkdtemp is declared without a macro... yes
+checking whether mkostemp is declared without a macro... yes
+checking whether mkostemps is declared without a macro... yes
+checking whether mkstemp is declared without a macro... yes
+checking whether mkstemps is declared without a macro... yes
+checking whether ptsname is declared without a macro... yes
+checking whether random_r is declared without a macro... yes
+checking whether initstat_r is declared without a macro... no
+checking whether srandom_r is declared without a macro... yes
+checking whether setstate_r is declared without a macro... yes
+checking whether realpath is declared without a macro... yes
+checking whether rpmatch is declared without a macro... yes
+checking whether setenv is declared without a macro... yes
+checking whether strtod is declared without a macro... yes
+checking whether strtoll is declared without a macro... yes
+checking whether strtoull is declared without a macro... yes
+checking whether unlockpt is declared without a macro... yes
+checking whether unsetenv is declared without a macro... yes
+checking for strcasecmp... yes
+checking for strncasecmp... yes
+checking whether strncasecmp is declared... (cached) yes
+checking whether symlink handles trailing slash correctly... yes
+checking whether <sys/select.h> is self-contained... (cached) yes
+checking whether select is declared without a macro... (cached) yes
+checking whether <sys/socket.h> is self-contained... (cached) yes
+checking for shutdown... (cached) yes
+checking whether <sys/socket.h> defines the SHUT_* macros... (cached) yes
+checking for struct sockaddr_storage... (cached) yes
+checking for sa_family_t... (cached) yes
+checking for struct sockaddr_storage.ss_family... (cached) yes
+checking whether socket is declared without a macro... (cached) yes
+checking whether connect is declared without a macro... (cached) yes
+checking whether accept is declared without a macro... (cached) yes
+checking whether bind is declared without a macro... (cached) yes
+checking whether getpeername is declared without a macro... (cached) yes
+checking whether getsockname is declared without a macro... (cached) yes
+checking whether getsockopt is declared without a macro... (cached) yes
+checking whether listen is declared without a macro... (cached) yes
+checking whether recv is declared without a macro... (cached) yes
+checking whether send is declared without a macro... (cached) yes
+checking whether recvfrom is declared without a macro... (cached) yes
+checking whether sendto is declared without a macro... (cached) yes
+checking whether setsockopt is declared without a macro... (cached) yes
+checking whether shutdown is declared without a macro... (cached) yes
+checking whether accept4 is declared without a macro... (cached) yes
+checking for nlink_t... yes
+checking whether fchmodat is declared without a macro... yes
+checking whether fstatat is declared without a macro... yes
+checking whether futimens is declared without a macro... yes
+checking whether lchmod is declared without a macro... yes
+checking whether lstat is declared without a macro... yes
+checking whether mkdirat is declared without a macro... yes
+checking whether mkfifo is declared without a macro... yes
+checking whether mkfifoat is declared without a macro... yes
+checking whether mknod is declared without a macro... yes
+checking whether mknodat is declared without a macro... yes
+checking whether stat is declared without a macro... yes
+checking whether utimensat is declared without a macro... yes
+checking for struct tms... yes
+checking whether times is declared without a macro... yes
+checking whether localtime_r is compatible with its POSIX signature... yes
+checking whether trunc is declared... (cached) yes
+checking whether truncf is declared... (cached) yes
+checking whether chown is declared without a macro... yes
+checking whether dup2 is declared without a macro... yes
+checking whether dup3 is declared without a macro... yes
+checking whether environ is declared without a macro... yes
+checking whether euidaccess is declared without a macro... yes
+checking whether faccessat is declared without a macro... yes
+checking whether fchdir is declared without a macro... yes
+checking whether fchownat is declared without a macro... yes
+checking whether fsync is declared without a macro... yes
+checking whether ftruncate is declared without a macro... yes
+checking whether getcwd is declared without a macro... yes
+checking whether getdomainname is declared without a macro... yes
+checking whether getdtablesize is declared without a macro... yes
+checking whether getgroups is declared without a macro... yes
+checking whether gethostname is declared without a macro... yes
+checking whether getlogin is declared without a macro... yes
+checking whether getlogin_r is declared without a macro... yes
+checking whether getpagesize is declared without a macro... yes
+checking whether getusershell is declared without a macro... yes
+checking whether setusershell is declared without a macro... yes
+checking whether endusershell is declared without a macro... yes
+checking whether lchown is declared without a macro... yes
+checking whether link is declared without a macro... yes
+checking whether linkat is declared without a macro... yes
+checking whether lseek is declared without a macro... yes
+checking whether pipe is declared without a macro... yes
+checking whether pipe2 is declared without a macro... yes
+checking whether pread is declared without a macro... yes
+checking whether pwrite is declared without a macro... yes
+checking whether readlink is declared without a macro... yes
+checking whether readlinkat is declared without a macro... yes
+checking whether rmdir is declared without a macro... yes
+checking whether sleep is declared without a macro... yes
+checking whether symlink is declared without a macro... yes
+checking whether symlinkat is declared without a macro... yes
+checking whether ttyname_r is declared without a macro... yes
+checking whether unlink is declared without a macro... yes
+checking whether unlinkat is declared without a macro... yes
+checking whether usleep is declared without a macro... yes
+checking whether unlink honors trailing slashes... (cached) yes
+checking whether unlink of a parent directory fails as it should... (cached) guessing yes
+checking for ptrdiff_t... yes
+checking for vsnprintf... yes
+checking whether snprintf respects a size of 1... yes
+checking whether btowc is declared without a macro... yes
+checking whether wctob is declared without a macro... yes
+checking whether mbsinit is declared without a macro... yes
+checking whether mbrtowc is declared without a macro... yes
+checking whether mbrlen is declared without a macro... yes
+checking whether mbsrtowcs is declared without a macro... yes
+checking whether mbsnrtowcs is declared without a macro... yes
+checking whether wcrtomb is declared without a macro... yes
+checking whether wcsrtombs is declared without a macro... yes
+checking whether wcsnrtombs is declared without a macro... yes
+checking whether wcwidth is declared without a macro... yes
+checking whether wmemchr is declared without a macro... yes
+checking whether wmemcmp is declared without a macro... yes
+checking whether wmemcpy is declared without a macro... yes
+checking whether wmemmove is declared without a macro... yes
+checking whether wmemset is declared without a macro... yes
+checking whether wcslen is declared without a macro... yes
+checking whether wcsnlen is declared without a macro... yes
+checking whether wcscpy is declared without a macro... yes
+checking whether wcpcpy is declared without a macro... yes
+checking whether wcsncpy is declared without a macro... yes
+checking whether wcpncpy is declared without a macro... yes
+checking whether wcscat is declared without a macro... yes
+checking whether wcsncat is declared without a macro... yes
+checking whether wcscmp is declared without a macro... yes
+checking whether wcsncmp is declared without a macro... yes
+checking whether wcscasecmp is declared without a macro... yes
+checking whether wcsncasecmp is declared without a macro... yes
+checking whether wcscoll is declared without a macro... yes
+checking whether wcsxfrm is declared without a macro... yes
+checking whether wcsdup is declared without a macro... yes
+checking whether wcschr is declared without a macro... yes
+checking whether wcsrchr is declared without a macro... yes
+checking whether wcscspn is declared without a macro... yes
+checking whether wcsspn is declared without a macro... yes
+checking whether wcspbrk is declared without a macro... yes
+checking whether wcsstr is declared without a macro... yes
+checking whether wcstok is declared without a macro... yes
+checking whether wcswidth is declared without a macro... yes
+checking whether iswcntrl works... yes
+checking for stdint.h... (cached) yes
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for X... libraries , headers 
+checking for XrmInitialize in -lX11... yes
+checking whether ld accepts -framework Carbon... no
+checking whether gcc accepts -mieee-fp... yes
+configure: adding -mieee-fp to XTRA_CFLAGS
+checking whether g++ accepts -mieee-fp... yes
+configure: adding -mieee-fp to XTRA_CXXFLAGS
+checking for support of OpenMP... yes
+checking for sin in -lm... yes
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether gfortran accepts -g... yes
+checking how to get verbose linking output from gfortran... -v
+checking for Fortran 77 libraries of gfortran...  -L/usr/lib/gcc/i486-linux-gnu/4.4.3 -L/usr/lib/gcc/i486-linux-gnu/4.4.3/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/i486-linux-gnu/4.4.3/../../.. -L/usr/lib/i486-linux-gnu -lgfortranbegin -lgfortran -lm
+checking for dummy main to link with Fortran 77 libraries... none
+checking for Fortran 77 name-mangling scheme... lower case, underscore, no extra underscore
+checking whether gfortran accepts -mieee-fp... yes
+adding -mieee-fp to FFLAGS
+configure: defining FFLAGS to be -O -mieee-fp
+checking whether gfortran generates correct size integers... yes
+checking whether gfortran accepts -ffloat-store... yes
+setting F77_FLOAT_STORE_FLAG to -ffloat-store
+checking for IEEE 754 data format... yes
+checking whether complex class can set components independently... yes
+checking whether complex class can reference components independently... yes
+checking qhull/qhull_a.h usability... no
+checking qhull/qhull_a.h presence... no
+checking for qhull/qhull_a.h... no
+configure: WARNING: Qhull library not found -- this will result in loss of functionality of some geometry functions.
+checking for pcre-config... no
+checking whether pcre.h defines the macros we need... no
+configure: WARNING: PCRE library not found.  This will result in some loss of functionality for the regular expression matching functions.
+checking for regexec... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for gzclearerr in -lz... yes
+checking hdf5.h usability... yes
+checking hdf5.h presence... yes
+checking for hdf5.h... yes
+checking for H5Gget_num_objs in -lhdf5... yes
+checking whether HDF5 library has enforced version 1.6 API... yes
+checking fftw3.h usability... yes
+checking fftw3.h presence... yes
+checking for fftw3.h... yes
+checking for fftw_plan_dft_1d in -lfftw3... yes
+checking for fftw3.h... (cached) yes
+checking for fftwf_plan_dft_1d in -lfftw3f... yes
+checking glpk/glpk.h usability... no
+checking glpk/glpk.h presence... no
+checking for glpk/glpk.h... no
+checking glpk.h usability... no
+checking glpk.h presence... no
+checking for glpk.h... no
+configure: WARNING: GLPK library not found.  The glpk function for solving linear programs will be disabled.
+checking curl/curl.h usability... no
+checking curl/curl.h presence... no
+checking for curl/curl.h... no
+configure: WARNING: cURL library not found.  The ftp objects, urlread and urlwrite functions will be disabled.
+checking whether ld accepts -framework OpenGL... no
+checking for GL/gl.h... no
+checking for OpenGL/gl.h... no
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for dlfcn.h... yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether g++ accepts -g... (cached) yes
+checking dependency style of g++... (cached) gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking whether we are using the GNU Fortran 77 compiler... (cached) yes
+checking whether gfortran accepts -g... (cached) yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... yes
+checking whether a statically linked program can dlopen itself... no
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for ld used by g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for gfortran option to produce PIC... -fPIC
+checking if gfortran PIC flag -fPIC works... yes
+checking if gfortran static flag -static works... yes
+checking if gfortran supports -c -o file.o... yes
+checking if gfortran supports -c -o file.o... (cached) yes
+checking whether the gfortran linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking if sgemm_ is being linked in already... no
+checking for ATL_xerbla in -latlas... no
+checking for sgemm_ in -lblas... yes
+checking for dgemm_ in -ldgemm... no
+checking for sgemm_ in -lmkl... no
+checking for sgemm_ in -framework vecLib... no
+checking for sgemm_ in -lcxml... no
+checking for sgemm_ in -ldxml... no
+checking for sgemm_ in -lscs... no
+checking for sgemm_ in -lcomplib.sgimath... no
+checking for sgemm_ in -lblas... (cached) yes
+checking for sgemm_ in -lessl... no
+checking for sgemm_ in -lblas... (cached) yes
+checking whether LSAME is called correctly from Fortran... yes
+checking whether ISAMAX is called correctly from Fortran... yes
+checking whether SDOT is called correctly from Fortran... yes
+checking whether DDOT is called correctly from Fortran... yes
+checking whether CDOTU is called correctly from Fortran... yes
+checking whether ZDOTU is called correctly from Fortran... yes
+checking whether the integer size is correct... yes
+checking for cheev_... no
+checking for cheev_ in -llapack... yes
+checking for sqr1up in -lqrupdate... no
+configure: WARNING: qrupdate not found.  The QR & Cholesky updating functions will be slow.
+checking suitesparse/amd.h usability... no
+checking suitesparse/amd.h presence... no
+checking for suitesparse/amd.h... no
+checking ufsparse/amd.h usability... no
+checking ufsparse/amd.h presence... no
+checking for ufsparse/amd.h... no
+checking amd/amd.h usability... no
+checking amd/amd.h presence... no
+checking for amd/amd.h... no
+checking amd.h usability... no
+checking amd.h presence... no
+checking for amd.h... no
+configure: WARNING: AMD library not found.  This will result in some lack of functionality for sparse matrices.
+checking suitesparse/camd.h usability... no
+checking suitesparse/camd.h presence... no
+checking for suitesparse/camd.h... no
+checking ufsparse/camd.h usability... no
+checking ufsparse/camd.h presence... no
+checking for ufsparse/camd.h... no
+checking amd/camd.h usability... no
+checking amd/camd.h presence... no
+checking for amd/camd.h... no
+checking camd.h usability... no
+checking camd.h presence... no
+checking for camd.h... no
+configure: WARNING: CAMD library not found.  This will result in some lack of functionality for sparse matrices.
+checking suitesparse/colamd.h usability... no
+checking suitesparse/colamd.h presence... no
+checking for suitesparse/colamd.h... no
+checking ufsparse/colamd.h usability... no
+checking ufsparse/colamd.h presence... no
+checking for ufsparse/colamd.h... no
+checking amd/colamd.h usability... no
+checking amd/colamd.h presence... no
+checking for amd/colamd.h... no
+checking colamd.h usability... no
+checking colamd.h presence... no
+checking for colamd.h... no
+configure: WARNING: COLAMD library not found.  This will result in some lack of functionality for sparse matrices.
+checking suitesparse/ccolamd.h usability... no
+checking suitesparse/ccolamd.h presence... no
+checking for suitesparse/ccolamd.h... no
+checking ufsparse/ccolamd.h usability... no
+checking ufsparse/ccolamd.h presence... no
+checking for ufsparse/ccolamd.h... no
+checking amd/ccolamd.h usability... no
+checking amd/ccolamd.h presence... no
+checking for amd/ccolamd.h... no
+checking ccolamd.h usability... no
+checking ccolamd.h presence... no
+checking for ccolamd.h... no
+configure: WARNING: CCOLAMD library not found.  This will result in some lack of functionality for sparse matrices.
+checking suitesparse/cholmod.h usability... no
+checking suitesparse/cholmod.h presence... no
+checking for suitesparse/cholmod.h... no
+checking ufsparse/cholmod.h usability... no
+checking ufsparse/cholmod.h presence... no
+checking for ufsparse/cholmod.h... no
+checking cholmod/cholmod.h usability... no
+checking cholmod/cholmod.h presence... no
+checking for cholmod/cholmod.h... no
+checking cholmod.h usability... no
+checking cholmod.h presence... no
+checking for cholmod.h... no
+configure: WARNING: CHOLMOD library not found.  This will result in some lack of functionality for sparse matrices.
+checking suitesparse/cs.h usability... no
+checking suitesparse/cs.h presence... no
+checking for suitesparse/cs.h... no
+checking ufsparse/cs.h usability... no
+checking ufsparse/cs.h presence... no
+checking for ufsparse/cs.h... no
+checking amd/cs.h usability... no
+checking amd/cs.h presence... no
+checking for amd/cs.h... no
+checking cs.h usability... no
+checking cs.h presence... no
+checking for cs.h... no
+configure: WARNING: CXSparse library not found.  This will result in some lack of functionality for sparse matrices.
+checking suitesparse/umfpack.h usability... no
+checking suitesparse/umfpack.h presence... no
+checking for suitesparse/umfpack.h... no
+checking ufsparse/umfpack.h usability... no
+checking ufsparse/umfpack.h presence... no
+checking for ufsparse/umfpack.h... no
+checking umfpack/umfpack.h usability... no
+checking umfpack/umfpack.h presence... no
+checking for umfpack/umfpack.h... no
+checking umfpack.h usability... no
+checking umfpack.h presence... no
+checking for umfpack.h... no
+configure: WARNING: UMFPACK not found.  This will result in some lack of functionality for sparse matrices.
+checking for suitesparse/umfpack.h... (cached) no
+checking for ufsparse/umfpack.h... (cached) no
+checking for umfpack/umfpack.h... (cached) no
+checking for umfpack.h... (cached) no
+configure: WARNING: UMFPACK not found.  This will result in some lack of functionality for sparse matrices.
+configure: defining FPICFLAG to be -fPIC
+configure: defining CPICFLAG to be -fPIC
+configure: defining CXXPICFLAG to be -fPIC
+configure: defining SHLEXT to be so
+configure: defining SHLLIB to be $(SHLEXT)
+configure: defining SHLBIN to be 
+configure: defining SHLEXT_VER to be $(SHLEXT).$(version)
+configure: defining SHLLIB_VER to be $(SHLLIB).$(version)
+configure: defining SHLBIN_VER to be $(SHLBIN).$(version)
+configure: defining SHLLINKEXT to be 
+configure: defining LIBPRE to be lib
+configure: defining SHLPRE to be lib
+configure: defining SHLLIBPRE to be lib
+configure: defining SHLBINPRE to be lib
+configure: defining SH_LD to be $(CXX)
+configure: defining SH_LDFLAGS to be -shared
+configure: defining DL_LD to be $(SH_LD)
+configure: defining DL_LDFLAGS to be $(SH_LDFLAGS)
+configure: defining MKOCTFILE_DL_LDFLAGS to be -shared -Wl,-Bsymbolic
+configure: defining SONAME_FLAGS to be -Wl,-soname -Wl,$@
+configure: defining NO_OCT_FILE_STRIP to be false
+configure: defining RLD_FLAG to be -Wl,-rpath -Wl,$(octlibdir)
+configure: defining TEMPLATE_AR to be $(AR)
+configure: defining TEMPLATE_ARFLAGS to be rc
+configure: defining CRUFT_DLL_DEFS to be 
+configure: defining OCTAVE_DLL_DEFS to be 
+configure: defining OCTINTERP_DLL_DEFS to be 
+configure: defining OCTGRAPHICS_DLL_DEFS to be 
+configure: defining library_path_var to be LD_LIBRARY_PATH
+checking for getpwnam... yes
+checking for mode_t... (cached) yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for size_t... (cached) yes
+checking for uid_t in sys/types.h... (cached) yes
+checking for dev_t... yes
+checking for ino_t... yes
+checking for long long int... (cached) yes
+checking for unsigned long long int... (cached) yes
+checking size of short... 2
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking for working alloca.h... (cached) yes
+checking for alloca... (cached) yes
+checking whether <new> defines placement delete operator... yes
+checking whether C++ supports dynamic auto arrays... yes
+checking whether fast integer arithmetics is usable... yes
+checking size of long double... 12
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking curses.h usability... yes
+checking curses.h presence... yes
+checking for curses.h... yes
+checking direct.h usability... no
+checking direct.h presence... no
+checking for direct.h... no
+checking for dlfcn.h... (cached) yes
+checking floatingpoint.h usability... no
+checking floatingpoint.h presence... no
+checking for floatingpoint.h... no
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking for grp.h... yes
+checking ieeefp.h usability... no
+checking ieeefp.h presence... no
+checking for ieeefp.h... no
+checking for inttypes.h... (cached) yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for memory.h... (cached) yes
+checking ncurses.h usability... yes
+checking ncurses.h presence... yes
+checking for ncurses.h... yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking sunmath.h usability... no
+checking sunmath.h presence... no
+checking for sunmath.h... no
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking for sys/param.h... (cached) yes
+checking sys/poll.h usability... yes
+checking sys/poll.h presence... yes
+checking for sys/poll.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking for sys/select.h... (cached) yes
+checking sys/utsname.h usability... yes
+checking sys/utsname.h presence... yes
+checking for sys/utsname.h... yes
+checking termcap.h usability... yes
+checking termcap.h presence... yes
+checking for termcap.h... yes
+checking sstream usability... yes
+checking sstream presence... yes
+checking for sstream... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking sgtty.h usability... yes
+checking sgtty.h presence... yes
+checking for sgtty.h... yes
+checking fnmatch.h usability... yes
+checking fnmatch.h presence... yes
+checking for fnmatch.h... yes
+checking conio.h usability... no
+checking conio.h presence... no
+checking for conio.h... no
+checking for basename... yes
+checking for canonicalize_file_name... (cached) yes
+checking for chmod... yes
+checking for dup2... (cached) yes
+checking for endgrent... yes
+checking for endpwent... yes
+checking for execvp... yes
+checking for expm1... yes
+checking for expm1f... yes
+checking for fork... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getgrent... yes
+checking for getgrgid... yes
+checking for getgrnam... yes
+checking for getpgrp... yes
+checking for getpid... yes
+checking for getppid... yes
+checking for getpwent... yes
+checking for getpwuid... yes
+checking for getuid... yes
+checking for getwd... yes
+checking for _kbhit... no
+checking for kill... yes
+checking for lgamma... yes
+checking for lgammaf... yes
+checking for lgamma_r... yes
+checking for lgammaf_r... yes
+checking for localtime_r... (cached) yes
+checking for log1p... yes
+checking for log1pf... yes
+checking for mkstemp... (cached) yes
+checking for pipe... (cached) yes
+checking for putenv... yes
+checking for realpath... (cached) yes
+checking for resolvepath... no
+checking for rindex... yes
+checking for roundl... yes
+checking for select... yes
+checking for setgrent... yes
+checking for setlocale... yes
+checking for setpwent... yes
+checking for setvbuf... yes
+checking for siglongjmp... yes
+checking for strsignal... yes
+checking for tempnam... yes
+checking for tgammaf... yes
+checking for umask... yes
+checking for uname... yes
+checking for utime... yes
+checking for waitpid... yes
+checking for _chmod... no
+checking for x_utime... no
+checking for _utime32... no
+checking whether exp2 is declared... yes
+checking whether round is declared... (cached) yes
+checking whether tgamma is declared... yes
+checking for exp2... yes
+checking for round... yes
+checking for tgamma... yes
+checking whether putenv uses malloc... no
+checking whether g++ accepts -rdynamic... yes
+checking for std::isnan in <cmath>... yes
+checking for std::isnan (float variant) in <cmath>... yes
+checking for std::isinf in <cmath>... yes
+checking for std::isinf (float variant) in <cmath>... yes
+checking for std::isfinite in <cmath>... yes
+checking for std::isfinite (float variant) in <cmath>... yes
+checking for finite... yes
+checking for isnan... yes
+checking for isinf... yes
+checking for signbit... no
+checking for _finite... no
+checking for _isnan... no
+checking whether signbit is declared... yes
+checking for acosh... yes
+checking for acoshf... yes
+checking for asinh... yes
+checking for asinhf... yes
+checking for atanh... yes
+checking for atanhf... yes
+checking for erf... yes
+checking for erff... yes
+checking for erfc... yes
+checking for erfcf... yes
+checking for exp2f... yes
+checking for log2... yes
+checking for log2f... yes
+checking for hypotf... yes
+checking for _hypotf... no
+checking for cbrt... yes
+checking for cbrtf... yes
+checking for struct stat.st_blksize... yes
+checking for struct stat.st_blocks... yes
+checking for struct stat.st_rdev... yes
+checking for struct tm.tm_zone... (cached) yes
+checking whether closedir returns void... no
+checking for struct group.gr_passwd... no
+checking for tputs in -lncurses... yes
+checking for rl_set_keyboard_input_timeout in -lreadline... yes
+checking for struct exception in math.h... yes
+checking whether sys_siglist is declared... yes
+checking for getrusage... yes
+checking for gawk... (cached) gawk
+checking for gfind... no
+checking for find... find
+checking for a usable sed... /bin/sed
+checking for perl... perl
+checking for python... python
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+defining LFLAGS to be -I
+checking for bison... bison -y
+checking whether ln -s works... yes
+checking for desktop-file-install... desktop-file-install
+checking for gnuplot... gnuplot
+checking for less... less
+checking for gperf... no
+configure: WARNING: I didn't find gperf, but it's only a problem if you need to reconstruct oct-gperf.h
+checking for gs... gs
+checking for texi2dvi... texi2dvi
+checking for texi2pdf... texi2pdf
+configure: defining UGLY_DEFS to be -DPACKAGE_NAME=\\\\\"GNU\ Octave\\\\\" -DPACKAGE_TARNAME=\\\\\"octave\\\\\" -DPACKAGE_VERSION=\\\\\"3.4.0\\\\\" -DPACKAGE_STRING=\\\\\"GNU\ Octave\ 3.4.0\\\\\" -DPACKAGE_BUGREPORT=\\\\\"bug@octave.org\\\\\" -DPACKAGE_URL=\\\\\"http://www.gnu.org/software/octave/\\\\\" -DPACKAGE=\\\\\"octave\\\\\" -DVERSION=\\\\\"3.4.0\\\\\" -DOCTAVE_SOURCE=1 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -D__EXTENSIONS__=1 -D_ALL_SOURCE=1 -D_GNU_SOURCE=1 -D_POSIX_PTHREAD_SEMANTICS=1 -D_TANDEM_SOURCE=1 -DSEPCHAR=\':\' -DSEPCHAR_STR=\\\\\":\\\\\" -DOCTAVE_IDX_TYPE=int -D__NO_MATH_INLINES=1 -DCXX_NEW_FRIEND_TEMPLATE_DECL=1 -DCXX_ISO_COMPLIANT_LIBRARY=1 -DHAVE_ALLOCA_H=1 -DHAVE_ALLOCA=1 -DHAVE_CANONICALIZE_FILE_NAME=1 -DHAVE_GETCWD=1 -DHAVE_READLINK=1 -DHAVE_REALPATH=1 -DHAVE_CHOWN=1 -DHAVE_FCHOWN=1 -DHAVE_DUP2=1 -DHAVE_FCNTL=1 -DHAVE_FCHDIR=1 -DHAVE_FDOPENDIR=1 -DHAVE_BTOWC=1 -DHAVE_ISBLANK=1 -DHAVE_ISWCTYPE=1 -DHAVE_MBSRTOWCS=1 -DHAVE_MEMPCPY=1 -DHAVE_WMEMCHR=1 -DHAVE_WMEMCPY=1 -DHAVE_WMEMPCPY=1 -DHAVE_GETDTABLESIZE=1 -DHAVE_GETLOGIN_R=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_FSTATAT=1 -DHAVE_GETPWNAM_R=1 -DHAVE_LINK=1 -DHAVE_LSTAT=1 -DHAVE_MBSINIT=1 -DHAVE_MBRTOWC=1 -DHAVE_MPROTECT=1 -DHAVE_MEMCHR=1 -DHAVE_MKFIFO=1 -DHAVE_MKSTEMP=1 -DHAVE_ALARM=1 -DHAVE_PATHCONF=1 -DHAVE_SIGACTION=1 -DHAVE_SIGALTSTACK=1 -DHAVE_SIGINTERRUPT=1 -DHAVE_SLEEP=1 -DHAVE_STRDUP=1 -DHAVE_TZSET=1 -DHAVE_STRPTIME=1 -DHAVE_SYMLINK=1 -DHAVE_LOCALTIME_R=1 -DHAVE_TIMES=1 -DHAVE_PIPE=1 -DHAVE_ISWCNTRL=1 -DHAVE_ISWBLANK=1 -DFUNC_REALPATH_WORKS=1 -DHAVE_SYS_PARAM_H=1 -DHAVE_SYS_SOCKET_H=1 -DHAVE_DIRENT_H=1 -DHAVE_WCTYPE_H=1 -DHAVE_NETDB_H=1 -DHAVE_GETOPT_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_SYS_CDEFS_H=1 -DHAVE_UNISTD_H=1 -DHAVE_MATH_H=1 -DHAVE_SYS_MMAN_H=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_STDINT_H=1 -DHAVE_WCHAR_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TIMES_H=1 -DHAVE_FEATURES_H=1 -DHAVE_UNISTD_H=1 -DHAVE_CHOWN=1 -DFILE_SYSTEM_ACCEPTS_DRIVE_LETTER_PREFIX=0 -DFILE_SYSTEM_BACKSLASH_IS_FILE_NAME_SEPARATOR=0 -DFILE_SYSTEM_DRIVE_PREFIX_CAN_BE_RELATIVE=0 -DHAVE_DECL_STRERROR_R=1 -DHAVE_STRERROR_R=1 -DSTRERROR_R_CHAR_P=1 -DHAVE_DECL_FCHDIR=1 -DPROMOTED_MODE_T=mode_t -DHAVE_WORKING_O_NOATIME=1 -DHAVE_WORKING_O_NOFOLLOW=1 -DHAVE_DECL_STRMODE=0 -DHAVE_MBSTATE_T=1 -DHAVE_DECL_GETCWD=1 -DHAVE_DECL_GETLOGIN_R=1 -DHAVE_DECL_GETLOGIN=1 -DHAVE_GETOPT_H=1 -DHAVE_GETOPT_LONG_ONLY=1 -DHAVE_DECL_GETENV=1 -D__GETOPT_PREFIX=rpl_ -Drestrict=__restrict -DHAVE_RAW_DECL_GETTIMEOFDAY=1 -DHAVE_LANGINFO_CODESET=1 -DHAVE_DECL_GETC_UNLOCKED=1 -DLSTAT_FOLLOWS_SLASHED_SYMLINK=1 -DHAVE_STDLIB_H=1 -DMALLOC_0_IS_NONNULL=1 -DHAVE_LONG_LONG_INT=1 -DHAVE_MAP_ANONYMOUS=1 -DHAVE_DECL_MEMRCHR=1 -D_FILE_OFFSET_BITS=64 -DHAVE_SHUTDOWN=1 -DHAVE_STRUCT_SOCKADDR_STORAGE=1 -DHAVE_SA_FAMILY_T=1 -DHAVE_STRUCT_SOCKADDR_STORAGE_SS_FAMILY=1 -DHAVE_RAW_DECL_SOCKET=1 -DHAVE_RAW_DECL_CONNECT=1 -DHAVE_RAW_DECL_ACCEPT=1 -DHAVE_RAW_DECL_BIND=1 -DHAVE_RAW_DECL_GETPEERNAME=1 -DHAVE_RAW_DECL_GETSOCKNAME=1 -DHAVE_RAW_DECL_GETSOCKOPT=1 -DHAVE_RAW_DECL_LISTEN=1 -DHAVE_RAW_DECL_RECV=1 -DHAVE_RAW_DECL_SEND=1 -DHAVE_RAW_DECL_RECVFROM=1 -DHAVE_RAW_DECL_SENDTO=1 -DHAVE_RAW_DECL_SETSOCKOPT=1 -DHAVE_RAW_DECL_SHUTDOWN=1 -DHAVE_RAW_DECL_ACCEPT4=1 -DHAVE_RAW_DECL_SELECT=1 -DHAVE__BOOL=1 -DHAVE_WCHAR_T=1 -DHAVE_UNSIGNED_LONG_LONG_INT=1 -DUSER_LABEL_PREFIX= -DHAVE_DECL_STRDUP=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DHAVE_TM_GMTOFF=1 -DHAVE_RAW_DECL_MEMMEM=1 -DHAVE_RAW_DECL_MEMPCPY=1 -DHAVE_RAW_DECL_MEMRCHR=1 -DHAVE_RAW_DECL_RAWMEMCHR=1 -DHAVE_RAW_DECL_STPCPY=1 -DHAVE_RAW_DECL_STPNCPY=1 -DHAVE_RAW_DECL_STRCHRNUL=1 -DHAVE_RAW_DECL_STRDUP=1 -DHAVE_RAW_DECL_STRNCAT=1 -DHAVE_RAW_DECL_STRNDUP=1 -DHAVE_RAW_DECL_STRNLEN=1 -DHAVE_RAW_DECL_STRPBRK=1 -DHAVE_RAW_DECL_STRSEP=1 -DHAVE_RAW_DECL_STRCASESTR=1 -DHAVE_RAW_DECL_STRTOK_R=1 -DHAVE_RAW_DECL_STRERROR_R=1 -DHAVE_RAW_DECL_STRSIGNAL=1 -DHAVE_RAW_DECL_STRVERSCMP=1 -DHAVE_RAW_DECL_STRCASECMP=1 -DHAVE_RAW_DECL_STRNCASECMP=1 -DHAVE_DECL_LOCALTIME_R=0 -DHAVE_WINT_T=1 -DHAVE_INTTYPES_H_WITH_UINTMAX=1 -DHAVE_STDINT_H_WITH_UINTMAX=1 -DHAVE_INTMAX_T=1 -DHAVE_SNPRINTF=1 -DHAVE_STRNLEN=1 -DHAVE_WCSLEN=1 -DHAVE_WCSNLEN=1 -DHAVE_MBRTOWC=1 -DHAVE_WCRTOMB=1 -DHAVE_DECL__SNPRINTF=0 -DHAVE_SNPRINTF_RETVAL_C99=1 -DHAVE_DECL_VSNPRINTF=1 -DHAVE_DECL_ISWBLANK=0 -DHAVE_ALLOCA=1 -DGNULIB_CANONICALIZE_LGPL=1 -DGNULIB_TEST_CANONICALIZE_FILE_NAME=1 -DGNULIB_TEST_REALPATH=1 -DGNULIB_TEST_CHOWN=1 -DGNULIB_TEST_CLOEXEC=1 -DGNULIB_TEST_CLOSE=1 -DD_INO_IN_DIRENT=1 -DHAVE_STRUCT_DIRENT_D_TYPE=1 -DHAVE_RAW_DECL_ALPHASORT=1 -DHAVE_RAW_DECL_DIRFD=1 -DHAVE_RAW_DECL_FDOPENDIR=1 -DHAVE_RAW_DECL_SCANDIR=1 -DHAVE_DIRFD=1 -DHAVE_DECL_DIRFD=1 -DGNULIB_TEST_DIRFD=1 -DGNULIB_TEST_DUP2=1 -DGNULIB_TEST_FCHDIR=1 -DGNULIB_TEST_FCLOSE=1 -DGNULIB_TEST_FCNTL=1 -DHAVE_RAW_DECL_FCNTL=1 -DHAVE_RAW_DECL_OPENAT=1 -DHAVE_DECL_FDOPENDIR=1 -DGNULIB_TEST_FDOPENDIR=1 -DGNULIB_FDOPENDIR=1 -DGNULIB_TEST_FLOOR=1 -DHAVE_PARTLY_WORKING_GETCWD=1 -DHAVE_GETPAGESIZE=1 -DGNULIB_TEST_GETCWD=1 -DGNULIB_TEST_GETDTABLESIZE=1 -DHAVE_GETHOSTNAME=1 -DGNULIB_TEST_GETHOSTNAME=1 -DGNULIB_TEST_GETLOGIN_R=1 -DGNULIB_TEST_GETOPT_GNU=1 -D__GETOPT_PREFIX=rpl_ -DGETTIMEOFDAY_TIMEZONE=struct\ timezone -DGNULIB_TEST_GETTIMEOFDAY=1 -DHAVE_GLOB_H=1 -DHAVE_LCHOWN=1 -DGNULIB_TEST_LCHOWN=1 -DGNULIB_TEST_LINK=1 -DGNULIB_TEST_LSTAT=1 -DHAVE_MALLOC_POSIX=1 -DGNULIB_TEST_MALLOC_POSIX=1 -DHAVE_RAW_DECL_ACOSL=1 -DHAVE_RAW_DECL_ASINL=1 -DHAVE_RAW_DECL_ATANL=1 -DHAVE_RAW_DECL_CEILF=1 -DHAVE_RAW_DECL_CEILL=1 -DHAVE_RAW_DECL_COSL=1 -DHAVE_RAW_DECL_EXPL=1 -DHAVE_RAW_DECL_FLOORF=1 -DHAVE_RAW_DECL_FLOORL=1 -DHAVE_RAW_DECL_FREXPL=1 -DHAVE_RAW_DECL_LDEXPL=1 -DHAVE_RAW_DECL_LOGB=1 -DHAVE_RAW_DECL_LOGL=1 -DHAVE_RAW_DECL_ROUND=1 -DHAVE_RAW_DECL_ROUNDF=1 -DHAVE_RAW_DECL_ROUNDL=1 -DHAVE_RAW_DECL_SINL=1 -DHAVE_RAW_DECL_SQRTL=1 -DHAVE_RAW_DECL_TANL=1 -DHAVE_RAW_DECL_TRUNC=1 -DHAVE_RAW_DECL_TRUNCF=1 -DHAVE_RAW_DECL_TRUNCL=1 -DGNULIB_TEST_MBRTOWC=1 -DGNULIB_TEST_MBSINIT=1 -DGNULIB_TEST_MBSRTOWCS=1 -DGNULIB_TEST_MEMCHR=1 -DHAVE_MEMPCPY=1 -DGNULIB_TEST_MEMPCPY=1 -DHAVE_MEMRCHR=1 -DGNULIB_TEST_MEMRCHR=1 -DGNULIB_TEST_MKFIFO=1 -DGNULIB_TEST_MKSTEMP=1 -DGNULIB_TEST_MKTIME=1 -DGNULIB_TEST_NANOSLEEP=1 -DGNULIB_TEST_OPEN=1 -DHAVE_FCHMODAT=1 -DHAVE_FSTATAT=1 -DHAVE_MKDIRAT=1 -DHAVE_OPENAT=1 -DHAVE_UNLINKAT=1 -DHAVE_DECL_PROGRAM_INVOCATION_NAME=1 -DHAVE_DECL_PROGRAM_INVOCATION_SHORT_NAME=1 -DGNULIB_TEST_READLINK=1 -DHAVE_REALLOC_POSIX=1 -DGNULIB_TEST_REALLOC_POSIX=1 -DGNULIB_TEST_RENAME=1 -DGNULIB_TEST_RMDIR=1 -DHAVE_DECL_ROUND=1 -DGNULIB_TEST_ROUND=1 -DHAVE_DECL_ROUNDF=1 -DGNULIB_TEST_ROUNDF=1 -DGNULIB_TEST_SELECT=1 -DHAVE_STRUCT_SIGACTION_SA_SIGACTION=1 -DGNULIB_TEST_SIGACTION=1 -DHAVE_RAW_DECL_SIGACTION=1 -DHAVE_RAW_DECL_SIGADDSET=1 -DHAVE_RAW_DECL_SIGDELSET=1 -DHAVE_RAW_DECL_SIGEMPTYSET=1 -DHAVE_RAW_DECL_SIGFILLSET=1 -DHAVE_RAW_DECL_SIGISMEMBER=1 -DHAVE_RAW_DECL_SIGPENDING=1 -DHAVE_RAW_DECL_SIGPROCMASK=1 -DGNULIB_TEST_SIGPROCMASK=1 -DHAVE_STDINT_H=1 -DHAVE_DECL_SLEEP=1 -DGNULIB_TEST_SLEEP=1 -DGNULIB_TEST_STAT=1 -DHAVE_RAW_DECL_DPRINTF=1 -DHAVE_RAW_DECL_FSEEKO=1 -DHAVE_RAW_DECL_FTELLO=1 -DHAVE_RAW_DECL_GETDELIM=1 -DHAVE_RAW_DECL_GETLINE=1 -DHAVE_RAW_DECL_POPEN=1 -DHAVE_RAW_DECL_RENAMEAT=1 -DHAVE_RAW_DECL_SNPRINTF=1 -DHAVE_RAW_DECL_TMPFILE=1 -DHAVE_RAW_DECL_VDPRINTF=1 -DHAVE_RAW_DECL_VSNPRINTF=1 -DHAVE_STRUCT_RANDOM_DATA=1 -DHAVE_RAW_DECL__EXIT=1 -DHAVE_RAW_DECL_ATOLL=1 -DHAVE_RAW_DECL_CANONICALIZE_FILE_NAME=1 -DHAVE_RAW_DECL_GETLOADAVG=1 -DHAVE_RAW_DECL_GETSUBOPT=1 -DHAVE_RAW_DECL_GRANTPT=1 -DHAVE_RAW_DECL_MKDTEMP=1 -DHAVE_RAW_DECL_MKOSTEMP=1 -DHAVE_RAW_DECL_MKOSTEMPS=1 -DHAVE_RAW_DECL_MKSTEMP=1 -DHAVE_RAW_DECL_MKSTEMPS=1 -DHAVE_RAW_DECL_PTSNAME=1 -DHAVE_RAW_DECL_RANDOM_R=1 -DHAVE_RAW_DECL_SRANDOM_R=1 -DHAVE_RAW_DECL_SETSTATE_R=1 -DHAVE_RAW_DECL_REALPATH=1 -DHAVE_RAW_DECL_RPMATCH=1 -DHAVE_RAW_DECL_SETENV=1 -DHAVE_RAW_DECL_STRTOD=1 -DHAVE_RAW_DECL_STRTOLL=1 -DHAVE_RAW_DECL_STRTOULL=1 -DHAVE_RAW_DECL_UNLOCKPT=1 -DHAVE_RAW_DECL_UNSETENV=1 -DHAVE_STRCASECMP=1 -DHAVE_STRNCASECMP=1 -DHAVE_DECL_STRNCASECMP=1 -DGNULIB_TEST_STRDUP=1 -DGNULIB_TEST_STRERROR=1 -Dmy_strftime=nstrftime -DGNULIB_TEST_STRPTIME=1 -DGNULIB_TEST_SYMLINK=1 -DHAVE_RAW_DECL_SELECT=1 -DHAVE_SHUTDOWN=1 -DHAVE_STRUCT_SOCKADDR_STORAGE=1 -DHAVE_SA_FAMILY_T=1 -DHAVE_STRUCT_SOCKADDR_STORAGE_SS_FAMILY=1 -DHAVE_RAW_DECL_SOCKET=1 -DHAVE_RAW_DECL_CONNECT=1 -DHAVE_RAW_DECL_ACCEPT=1 -DHAVE_RAW_DECL_BIND=1 -DHAVE_RAW_DECL_GETPEERNAME=1 -DHAVE_RAW_DECL_GETSOCKNAME=1 -DHAVE_RAW_DECL_GETSOCKOPT=1 -DHAVE_RAW_DECL_LISTEN=1 -DHAVE_RAW_DECL_RECV=1 -DHAVE_RAW_DECL_SEND=1 -DHAVE_RAW_DECL_RECVFROM=1 -DHAVE_RAW_DECL_SENDTO=1 -DHAVE_RAW_DECL_SETSOCKOPT=1 -DHAVE_RAW_DECL_SHUTDOWN=1 -DHAVE_RAW_DECL_ACCEPT4=1 -DHAVE_RAW_DECL_FCHMODAT=1 -DHAVE_RAW_DECL_FSTATAT=1 -DHAVE_RAW_DECL_FUTIMENS=1 -DHAVE_RAW_DECL_LCHMOD=1 -DHAVE_RAW_DECL_LSTAT=1 -DHAVE_RAW_DECL_MKDIRAT=1 -DHAVE_RAW_DECL_MKFIFO=1 -DHAVE_RAW_DECL_MKFIFOAT=1 -DHAVE_RAW_DECL_MKNOD=1 -DHAVE_RAW_DECL_MKNODAT=1 -DHAVE_RAW_DECL_STAT=1 -DHAVE_RAW_DECL_UTIMENSAT=1 -DHAVE_STRUCT_TMS=1 -DHAVE_RAW_DECL_TIMES=1 -DGNULIB_TEST_TIME_R=1 -DHAVE_DECL_TRUNC=1 -DGNULIB_TEST_TRUNC=1 -DHAVE_DECL_TRUNCF=1 -DGNULIB_TEST_TRUNCF=1 -DHAVE_RAW_DECL_CHOWN=1 -DHAVE_RAW_DECL_DUP2=1 -DHAVE_RAW_DECL_DUP3=1 -DHAVE_RAW_DECL_ENVIRON=1 -DHAVE_RAW_DECL_EUIDACCESS=1 -DHAVE_RAW_DECL_FACCESSAT=1 -DHAVE_RAW_DECL_FCHDIR=1 -DHAVE_RAW_DECL_FCHOWNAT=1 -DHAVE_RAW_DECL_FSYNC=1 -DHAVE_RAW_DECL_FTRUNCATE=1 -DHAVE_RAW_DECL_GETCWD=1 -DHAVE_RAW_DECL_GETDOMAINNAME=1 -DHAVE_RAW_DECL_GETDTABLESIZE=1 -DHAVE_RAW_DECL_GETGROUPS=1 -DHAVE_RAW_DECL_GETHOSTNAME=1 -DHAVE_RAW_DECL_GETLOGIN=1 -DHAVE_RAW_DECL_GETLOGIN_R=1 -DHAVE_RAW_DECL_GETPAGESIZE=1 -DHAVE_RAW_DECL_GETUSERSHELL=1 -DHAVE_RAW_DECL_SETUSERSHELL=1 -DHAVE_RAW_DECL_ENDUSERSHELL=1 -DHAVE_RAW_DECL_LCHOWN=1 -DHAVE_RAW_DECL_LINK=1 -DHAVE_RAW_DECL_LINKAT=1 -DHAVE_RAW_DECL_LSEEK=1 -DHAVE_RAW_DECL_PIPE=1 -DHAVE_RAW_DECL_PIPE2=1 -DHAVE_RAW_DECL_PREAD=1 -DHAVE_RAW_DECL_PWRITE=1 -DHAVE_RAW_DECL_READLINK=1 -DHAVE_RAW_DECL_READLINKAT=1 -DHAVE_RAW_DECL_RMDIR=1 -DHAVE_RAW_DECL_SLEEP=1 -DHAVE_RAW_DECL_SYMLINK=1 -DHAVE_RAW_DECL_SYMLINKAT=1 -DHAVE_RAW_DECL_TTYNAME_R=1 -DHAVE_RAW_DECL_UNLINK=1 -DHAVE_RAW_DECL_UNLINKAT=1 -DHAVE_RAW_DECL_USLEEP=1 -DGNULIB_TEST_UNLINK=1 -DHAVE_VSNPRINTF=1 -DGNULIB_TEST_VSNPRINTF=1 -DHAVE_RAW_DECL_BTOWC=1 -DHAVE_RAW_DECL_WCTOB=1 -DHAVE_RAW_DECL_MBSINIT=1 -DHAVE_RAW_DECL_MBRTOWC=1 -DHAVE_RAW_DECL_MBRLEN=1 -DHAVE_RAW_DECL_MBSRTOWCS=1 -DHAVE_RAW_DECL_MBSNRTOWCS=1 -DHAVE_RAW_DECL_WCRTOMB=1 -DHAVE_RAW_DECL_WCSRTOMBS=1 -DHAVE_RAW_DECL_WCSNRTOMBS=1 -DHAVE_RAW_DECL_WCWIDTH=1 -DHAVE_RAW_DECL_WMEMCHR=1 -DHAVE_RAW_DECL_WMEMCMP=1 -DHAVE_RAW_DECL_WMEMCPY=1 -DHAVE_RAW_DECL_WMEMMOVE=1 -DHAVE_RAW_DECL_WMEMSET=1 -DHAVE_RAW_DECL_WCSLEN=1 -DHAVE_RAW_DECL_WCSNLEN=1 -DHAVE_RAW_DECL_WCSCPY=1 -DHAVE_RAW_DECL_WCPCPY=1 -DHAVE_RAW_DECL_WCSNCPY=1 -DHAVE_RAW_DECL_WCPNCPY=1 -DHAVE_RAW_DECL_WCSCAT=1 -DHAVE_RAW_DECL_WCSNCAT=1 -DHAVE_RAW_DECL_WCSCMP=1 -DHAVE_RAW_DECL_WCSNCMP=1 -DHAVE_RAW_DECL_WCSCASECMP=1 -DHAVE_RAW_DECL_WCSNCASECMP=1 -DHAVE_RAW_DECL_WCSCOLL=1 -DHAVE_RAW_DECL_WCSXFRM=1 -DHAVE_RAW_DECL_WCSDUP=1 -DHAVE_RAW_DECL_WCSCHR=1 -DHAVE_RAW_DECL_WCSRCHR=1 -DHAVE_RAW_DECL_WCSCSPN=1 -DHAVE_RAW_DECL_WCSSPN=1 -DHAVE_RAW_DECL_WCSPBRK=1 -DHAVE_RAW_DECL_WCSSTR=1 -DHAVE_RAW_DECL_WCSTOK=1 -DHAVE_RAW_DECL_WCSWIDTH=1 -DHAVE_STDINT_H=1 -DHAVE_PTHREAD=1 -DHAVE_X_WINDOWS=1 -DFLOAT_TRUNCATE= -DHAVE_OPENMP=1 -DHAVE_LIBM=1 -DF77_FUNC\(name,NAME\)=name\ \#\#\ _ -DF77_FUNC_\(name,NAME\)=name\ \#\#\ _ -DHAVE_IEEE754_DATA_FORMAT=1 -DHAVE_CXX_COMPLEX_SETTERS=1 -DHAVE_CXX_COMPLEX_REFERENCE_ACCESSORS=1 -DHAVE_REGEXEC=1 -DHAVE_REGEX=1 -DHAVE_ZLIB_H=1 -DHAVE_Z=1 -DHAVE_HDF5_H=1 -DHAVE_HDF5=1 -DHAVE_FFTW3_H=1 -DHAVE_FFTW3=1 -DHAVE_FFTW3_H=1 -DHAVE_FFTW3F=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\\\\\".libs/\\\\\" -DHAVE_GETPWNAM=1 -DHAVE_DEV_T=1 -DHAVE_INO_T=1 -DHAVE_LONG_LONG_INT=1 -DHAVE_UNSIGNED_LONG_LONG_INT=1 -DSIZEOF_SHORT=2 -DSIZEOF_INT=4 -DSIZEOF_LONG=4 -DSIZEOF_LONG_LONG=8 -DHAVE_ALLOCA_H=1 -DHAVE_ALLOCA=1 -DHAVE_PLACEMENT_DELETE=1 -DHAVE_DYNAMIC_AUTO_ARRAYS=1 -DHAVE_FAST_INT_OPS=1 -DSIZEOF_LONG_DOUBLE=12 -DHAVE_DIRENT_H=1 -DHAVE_SYS_WAIT_H=1 -DHAVE_CURSES_H=1 -DHAVE_DLFCN_H=1 -DHAVE_GRP_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_LOCALE_H=1 -DHAVE_MEMORY_H=1 -DHAVE_NCURSES_H=1 -DHAVE_POLL_H=1 -DHAVE_PTHREAD_H=1 -DHAVE_PWD_H=1 -DHAVE_SYS_IOCTL_H=1 -DHAVE_SYS_PARAM_H=1 -DHAVE_SYS_POLL_H=1 -DHAVE_SYS_RESOURCE_H=1 -DHAVE_SYS_SELECT_H=1 -DHAVE_SYS_UTSNAME_H=1 -DHAVE_TERMCAP_H=1 -DHAVE_SSTREAM=1 -DHAVE_TERMIOS_H=1 -DHAVE_TERMIO_H=1 -DHAVE_SGTTY_H=1 -DHAVE_FNMATCH_H=1 -DHAVE_BASENAME=1 -DHAVE_CANONICALIZE_FILE_NAME=1 -DHAVE_CHMOD=1 -DHAVE_DUP2=1 -DHAVE_ENDGRENT=1 -DHAVE_ENDPWENT=1 -DHAVE_EXECVP=1 -DHAVE_EXPM1=1 -DHAVE_EXPM1F=1 -DHAVE_FORK=1 -DHAVE_GETEGID=1 -DHAVE_GETEUID=1 -DHAVE_GETGID=1 -DHAVE_GETGRENT=1 -DHAVE_GETGRGID=1 -DHAVE_GETGRNAM=1 -DHAVE_GETPGRP=1 -DHAVE_GETPID=1 -DHAVE_GETPPID=1 -DHAVE_GETPWENT=1 -DHAVE_GETPWUID=1 -DHAVE_GETUID=1 -DHAVE_GETWD=1 -DHAVE_KILL=1 -DHAVE_LGAMMA=1 -DHAVE_LGAMMAF=1 -DHAVE_LGAMMA_R=1 -DHAVE_LGAMMAF_R=1 -DHAVE_LOCALTIME_R=1 -DHAVE_LOG1P=1 -DHAVE_LOG1PF=1 -DHAVE_MKSTEMP=1 -DHAVE_PIPE=1 -DHAVE_PUTENV=1 -DHAVE_REALPATH=1 -DHAVE_RINDEX=1 -DHAVE_ROUNDL=1 -DHAVE_SELECT=1 -DHAVE_SETGRENT=1 -DHAVE_SETLOCALE=1 -DHAVE_SETPWENT=1 -DHAVE_SETVBUF=1 -DHAVE_SIGLONGJMP=1 -DHAVE_STRSIGNAL=1 -DHAVE_TEMPNAM=1 -DHAVE_TGAMMAF=1 -DHAVE_UMASK=1 -DHAVE_UNAME=1 -DHAVE_UTIME=1 -DHAVE_WAITPID=1 -DHAVE_DECL_EXP2=1 -DHAVE_DECL_ROUND=1 -DHAVE_DECL_TGAMMA=1 -DHAVE_EXP2=1 -DHAVE_ROUND=1 -DHAVE_TGAMMA=1 -DHAVE_DLOPEN_API=1 -DENABLE_DYNAMIC_LINKING=1 -DHAVE_CMATH_ISNAN=1 -DHAVE_CMATH_ISNANF=1 -DHAVE_CMATH_ISINF=1 -DHAVE_CMATH_ISINFF=1 -DHAVE_CMATH_ISFINITE=1 -DHAVE_CMATH_ISFINITEF=1 -DHAVE_FINITE=1 -DHAVE_ISNAN=1 -DHAVE_ISINF=1 -DHAVE_DECL_SIGNBIT=1 -DHAVE_ACOSH=1 -DHAVE_ACOSHF=1 -DHAVE_ASINH=1 -DHAVE_ASINHF=1 -DHAVE_ATANH=1 -DHAVE_ATANHF=1 -DHAVE_ERF=1 -DHAVE_ERFF=1 -DHAVE_ERFC=1 -DHAVE_ERFCF=1 -DHAVE_EXP2F=1 -DHAVE_LOG2=1 -DHAVE_LOG2F=1 -DHAVE_HYPOTF=1 -DHAVE_CBRT=1 -DHAVE_CBRTF=1 -DHAVE_STRUCT_STAT_ST_BLKSIZE=1 -DHAVE_STRUCT_STAT_ST_BLOCKS=1 -DHAVE_STRUCT_STAT_ST_RDEV=1 -DHAVE_STRUCT_TM_TM_ZONE=1 -DHAVE_TM_ZONE=1 -DUSE_READLINE=1 -DEXCEPTION_IN_MATH=1 -DHAVE_DECL_SYS_SIGLIST=1 -DHAVE_GETRUSAGE=1 -DYYTEXT_POINTER=1
+checking whether gcc accepts -Wall... yes
+adding -Wall to WARN_CFLAGS
+checking whether gcc accepts -W... yes
+adding -W to WARN_CFLAGS
+checking whether gcc accepts -Wshadow... yes
+adding -Wshadow to WARN_CFLAGS
+checking whether gcc accepts -Wformat... yes
+adding -Wformat to WARN_CFLAGS
+checking whether gcc accepts -Wpointer-arith... yes
+adding -Wpointer-arith to WARN_CFLAGS
+checking whether gcc accepts -Wmissing-prototypes... yes
+adding -Wmissing-prototypes to WARN_CFLAGS
+checking whether gcc accepts -Wstrict-prototypes... yes
+adding -Wstrict-prototypes to WARN_CFLAGS
+checking whether gcc accepts -Wwrite-strings... yes
+adding -Wwrite-strings to WARN_CFLAGS
+checking whether gcc accepts -Wcast-align... yes
+adding -Wcast-align to WARN_CFLAGS
+checking whether gcc accepts -Wcast-qual... yes
+adding -Wcast-qual to WARN_CFLAGS
+checking whether g++ accepts -Wall... yes
+adding -Wall to WARN_CXXFLAGS
+checking whether g++ accepts -W... yes
+adding -W to WARN_CXXFLAGS
+checking whether g++ accepts -Wshadow... yes
+adding -Wshadow to WARN_CXXFLAGS
+checking whether g++ accepts -Wold-style-cast... yes
+adding -Wold-style-cast to WARN_CXXFLAGS
+checking whether g++ accepts -Wformat... yes
+adding -Wformat to WARN_CXXFLAGS
+checking whether g++ accepts -Wpointer-arith... yes
+adding -Wpointer-arith to WARN_CXXFLAGS
+checking whether g++ accepts -Wwrite-strings... yes
+adding -Wwrite-strings to WARN_CXXFLAGS
+checking whether g++ accepts -Wcast-align... yes
+adding -Wcast-align to WARN_CXXFLAGS
+checking whether g++ accepts -Wcast-qual... yes
+adding -Wcast-qual to WARN_CXXFLAGS
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/faq/Makefile
+config.status: creating doc/icons/Makefile
+config.status: creating doc/interpreter/Makefile
+config.status: creating doc/liboctave/Makefile
+config.status: creating doc/refcard/Makefile
+config.status: creating examples/Makefile
+config.status: creating libcruft/Makefile
+config.status: creating libcruft/mkf77def
+config.status: creating libgnu/Makefile
+config.status: creating liboctave/Makefile
+config.status: creating scripts/Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure:
+
+Octave is now configured for i686-pc-linux-gnu
+
+  Source directory:            .
+  Installation prefix:         /usr/local
+  C compiler:                  gcc  -mieee-fp  -Wall -W -Wshadow -Wformat -Wpointer-arith -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wcast-align -Wcast-qual -g -O2 -pthread -fopenmp
+  C++ compiler:                g++  -mieee-fp  -Wall -W -Wshadow -Wold-style-cast -Wformat -Wpointer-arith -Wwrite-strings -Wcast-align -Wcast-qual -g -O2 -fopenmp
+  Fortran compiler:            gfortran -O -mieee-fp
+  Fortran libraries:            -L/usr/lib/gcc/i486-linux-gnu/4.4.3 -L/usr/lib/gcc/i486-linux-gnu/4.4.3/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/i486-linux-gnu/4.4.3/../../.. -L/usr/lib/i486-linux-gnu -lgfortranbegin -lgfortran -lm
+  Lex libraries:               
+  LIBS:                        -lm  
+
+  AMD CPPFLAGS:                
+  AMD LDFLAGS:                 
+  AMD libraries:               
+  BLAS libraries:              -lblas
+  CAMD CPPFLAGS:               
+  CAMD LDFLAGS:                
+  CAMD libraries:              
+  CARBON libraries:            
+  CCOLAMD CPPFLAGS:            
+  CCOLAMD LDFLAGS:             
+  CCOLAMD libraries:           
+  CHOLMOD CPPFLAGS:            
+  CHOLMOD LDFLAGS:             
+  CHOLMOD libraries:           
+  COLAMD CPPFLAGS:             
+  COLAMD LDFLAGS:              
+  COLAMD libraries:            
+  CURL CPPFLAGS:               
+  CURL LDFLAGS:                
+  CURL libraries:              
+  CXSPARSE CPPFLAGS:           
+  CXSPARSE LDFLAGS:            
+  CXSPARSE libraries:          
+  DL libraries:                -ldl
+  FFTW3 CPPFLAGS:              
+  FFTW3 LDFLAGS:               
+  FFTW3 libraries:             -lfftw3
+  FFTW3F CPPFLAGS:             
+  FFTW3F LDFLAGS:              
+  FFTW3F libraries:            -lfftw3f
+  fontconfig CFLAGS:           
+  fontconfig LIBS:             
+  FT2_CFLAGS:                  
+  FT2_LIBS:                    
+  GLPK CPPFLAGS:               
+  GLPK LDFLAGS:                
+  GLPK libraries:              
+  graphics CFLAGS:             
+  graphics LIBS:               
+  Magick++ CPPFLAGS:           
+  Magick++ LDFLAGS:            
+  Magick++ libraries:          
+  HDF5 CPPFLAGS:               
+  HDF5 LDFLAGS:                
+  HDF5 libraries:              -lhdf5
+  LAPACK libraries:            -llapack
+  OPENGL libraries:            
+  PTHREAD flags:               -pthread
+  PTHREAD libraries:           
+  QHULL CPPFLAGS:              
+  QHULL LDFLAGS:               
+  QHULL libraries:             
+  QRUPDATE libraries:          
+  READLINE libraries:          -lreadline
+  REGEX libraries:             
+  TERM libraries:              -lncurses
+  UMFPACK libraries:           
+  X11 include flags:           
+  X11 libraries:               -lX11
+  Z CPPFLAGS:                  
+  Z LDFLAGS:                   
+  Z libraries:                 -lz
+
+  Default pager:               less
+  gnuplot:                     gnuplot
+
+  Do internal array bounds checking:  false
+  Build static libraries:             false
+  Build shared libraries:             true
+  Dynamic Linking:                    true (dlopen)
+  Include support for GNU readline:   true
+  64-bit array dims and indexing:     false
+
+configure: WARNING: I didn't find gperf, but it's only a problem if you need to reconstruct oct-gperf.h
+configure: WARNING: UMFPACK not found.  This will result in some lack of functionality for sparse matrices.
+configure: WARNING: qrupdate not found.  The QR & Cholesky updating functions will be slow.
+configure: WARNING: AMD library not found.  This will result in some lack of functionality for sparse matrices.
+configure: WARNING: COLAMD library not found.  This will result in some lack of functionality for sparse matrices.
+configure: WARNING: CCOLAMD library not found.  This will result in some lack of functionality for sparse matrices.
+configure: WARNING: CHOLMOD library not found.  This will result in some lack of functionality for sparse matrices.
+configure: WARNING: CXSparse library not found.  This will result in some lack of functionality for sparse matrices.
+configure: WARNING: cURL library not found.  The ftp objects, urlread and urlwrite functions will be disabled.
+configure: WARNING: GLPK library not found.  The glpk function for solving linear programs will be disabled.
+configure: WARNING: GraphicsMagick++ library not found.  The imread function for reading image files will not be fully functional.
+configure: WARNING: PCRE library not found.  This will result in some loss of functionality for the regular expression matching functions.
+configure: WARNING: Qhull library not found -- this will result in loss of functionality of some geometry functions.
+configure: WARNING: 
+configure: WARNING: You used the EXPERIMENTAL --enable-openmp option.
+configure: WARNING: Are you sure that is what you want to do?
+configure: WARNING: 
+configure: WARNING: This option enables experimental SMP multithreding
+configure: WARNING: code that has had very little testing. There is no
+configure: WARNING: certainity that the results returned by Octave with
+configure: WARNING: this option enabled will be correct.
+configure: WARNING: 
+configure: WARNING: OpenGL libs (GL and GLU) not found. Native graphics will be disabled.
+configure: WARNING: 
+configure: WARNING: I didn't find the necessary libraries to compile native
+configure: WARNING: graphics.  It isn't necessary to have native graphics,
+configure: WARNING: but you will need to have gnuplot installed or you won't
+configure: WARNING: be able to use any of Octave's plotting commands
+configure: WARNING: 
+configure: 
+configure: NOTE: libraries may be skipped if a library is not found OR
+configure: NOTE: if the library on your system is missing required features.

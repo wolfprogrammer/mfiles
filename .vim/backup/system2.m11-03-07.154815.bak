@@ -1,0 +1,27 @@
+function []=halt()
+    pause(inf);
+end
+% Fim da função halt
+% Congela o octave para exibir o resultado
+
+num=1	   		%  1     numerador
+den=[1 1] 		% s+1    denominador
+G=tf(num,den)   % Função de transferência 1/(s+1)
+
+[y,t]=step(G)
+
+#plot(t,y)
+
+toggle_plplot_use
+plot(t,y,'-r',"linewidth",3);
+
+title("Step response of 1/(s+1)",'FontName','Vera','FontSize',20);
+xlabel("t: time (s) ","fontsize",14);
+ylabel("y(t): response","fontsize",14);
+grid();
+text(5,0.5,"G(s)=1/(s+1)");			
+%
+
+[xx,yy,kk]=ginput(4)
+printf("Digite qualquer tecla para sair");
+halt()			% Congela o octave para poder ver os gráficos

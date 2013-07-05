@@ -1,0 +1,17 @@
+import curses
+
+
+
+screen=curses.initscr()
+#screen.noecho()
+screen.clear()
+
+screen.border(0);
+
+screen.addstr(12,25,"Mensagem 1!");
+screen.refresh()
+
+input=screen.getsr(10,10,60)
+screen.getch()
+
+curses.endwin()

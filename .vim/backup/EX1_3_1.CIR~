@@ -1,0 +1,22 @@
+DC SWEEP OF A LINEAR RESISTIVE CIRCUIT ;                                  (1)
+*PSpice file name  EX1_3_1.CIR         DC analysis                        (2)
+* by R. Ramshaw
+* for PSpice Simulation of Power Electronics Circuits (Chapman & Hall 1997)
+* This file is provided "as-is" for use with the above book and is intended solely as
+* an exercise and not for design. The authors and Chapman & Hall specifically disclaim
+* all warranties, express or implied including, but not limited to, implied warranties
+* of merchantability and fitness for a particular purpose. 
+* Do not rent, lease, sell or publish this material in whole or in part without the
+* express permission of the authors and Chapman & Hall.
+* PSpice is a registered trademark of MicroSim Corporation.
+
+*Determine the current response for a range of source-voltage values.     (3)   
+*SOURCES                                                                  (4)
+VS10 1 0 1.0V ;                                                           (5)
+*CIRCUIT ELEMENTS                                                         (6)
+R10 1 0 5.0OHMS ;                                                         (7)
+*ANALYSIS                                                                 (8)
+.STEP PARAM VS10 4V 12V 2V ; DC sweep.                                        (9)
+*OUTPUT                                                                  (10)
+.PRINT DC V(1) I(R10) ; Writes results to file EX1_3_1.OUT               (11)
+.END ; End of file.                                                      (12)

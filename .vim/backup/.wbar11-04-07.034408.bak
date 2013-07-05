@@ -1,0 +1,35 @@
+i: /usr/share/wbar/iconpack/wbar.osx/osxbarback.png
+c: wbar -bpress -above-desk -pos center -zoomf 1.3 -isize 72 -idist 4 -jumpf 1 -nanim 3 -balfa 25
+t: /usr/share/wbar/iconpack/wbar.osx/font/16
+
+i: /usr/share/pixmaps/other/Webbrowser.png
+c: xlinks
+t: XLinks
+
+i: /usr/share/pixmaps/other/XPDF.png
+c: xpdf
+t: XPDF
+
+i: /usr/share/pixmaps/other/OpenOffice.png
+c: ooffice
+t: OpenOffice.Org
+
+i: /usr/share/pixmaps/other/Sodipodi.png
+c: sodipodi
+t: Sodipodi
+
+i: /usr/share/pixmaps/other/GIMP.png
+c: gimp
+t: GIMP
+
+i: /usr/share/pixmaps/other/XMMS1.png
+c: xmms
+t: XMMS
+
+i: /usr/share/pixmaps/other/XCDRoast.png
+c: xcdroast
+t: XCDRoast
+
+i: /usr/share/pixmaps/other/Planet.png
+c: xplanet
+t: pcmanfm /home/caio

@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+
+#define setDuty(x)	((x)*Fosc/PRESC2)>>2
+						
+
+void StartPWM(u8 FreqBits){
+		
+		PR2= FreqBits;
+		CCP1CON |= 0b00001100;
+
+}
+					
+
+void setDutyCy1( u16 DutyBits){
+	
+		CCP1CON | =  ( (DutyBits & 0b00000011 ))<<4;
+		CP1RL =  DutyBits >> 2
+}
+
+
+
+
+
+
+int main(){
+
+
+printf("%d",_PREconf(2000));
+
+	return 0;
+
+} //end of main
+
+

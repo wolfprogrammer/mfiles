@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/etc/apache2'
+let g:netrw_dirhist_2='/home/caio/bin/bash_func'
+let g:netrw_dirhist_3='/home/caio/.wikipediafs'
+let g:netrw_dirhist_4='/tmp/teste'
+let g:netrw_dirhist_5='/home/caio/.vimperatorrc'
+let g:netrw_dirhist_6='/home/caio/control/control'
+let g:netrw_dirhist_7='/home/caio/.thunderbird'
+let g:netrw_dirhist_8='/home/caio/pic-sdcc/pic16f/adc-test'

@@ -1,0 +1,13 @@
+#!/bin/sh
+# the next line restarts using wish
+\ exec wish "$0" "$@"
+wm withdraw . destroy .splash
+set t [toplevel .splash]
+wm title $t "ANSYS Support"
+label $t.name1 -text "John Doe, 555-123-4567, john.doe@mycompany.com"
+pack $t.name1 -side top -padx 10 -pady 10
+label $t.name2 -text "Jane Doe, 555-987-6543, jane.doe@mycompany.com"
+label $t.name3 -text "Someone Else, 555-000-0000,someone.else@mycompany.com"
+pack $t.name2 $t.name3 -side top -padx 10 -pady 10
+button $t.btn -width 15 -text "OK" -command "destroy $t"
+pack $t.btn -side bottom -pady 20

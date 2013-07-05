@@ -1,0 +1,37 @@
+function bashhelp(){
+ 
+printf " 
+ Compilação de comandos e truques úteis para tirar todo poder 
+ e potência do linux
+ ----------------------------------------------------------------
+ 
+  Desligar o computador: @sudo shutdown -r now
+ 
+  Volta ao diretório anterio: @back
+ 
+  Editar o .bashrc : @bashrc
+ 
+ 
+ Obter IP: @ getIp
+ 
+ Tocar todas músicas aleatoriamente: @playall
+ 
+ 
+ Copiar e colar texto no terminal ou vi : SHIFT+INSERT
+ 
+ 
+ Exibir calendário do mês: @ cal
+ 
+ 
+ ------------------------------------------
+ Procurar por arquivo em certo diretório
+ @ find /home/blah -name file.txt
+ @ find / -name *blah*.txt
+ 
+
+-------------------------------------------
+Escanear redes wireless 
+@ sudo iwlist walan0 scan
+
+ " ## Fim do texto
+}

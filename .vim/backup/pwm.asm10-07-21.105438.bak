@@ -1,0 +1,152 @@
+;	pic16f877a
+;
+;	Caio Rodrigues Soares Silva
+
+
+
+LIST P=P16F877A
+#INCLUDE "p16f877a.inc"
+
+__config ( _WDT_OFF & _PWRTE_ON & _BODEN_OFF & _CP_OFF & _DEBUG_OFF & _HS_OSC & _CPD_OFF & _CP_OFF & _LVP_OFF )
+ 
+
+#define	pwm_off		b'00000000'
+#define pwm_mode	b'00001100'
+#define TRISCconf	0x00			;; TRISC sáida
+#define tmr2_presc1p4	b'00000101'
+
+
+;;		Iniciar módulo PWM
+;;   
+
+ORG 	0X00						;Endereço do vetor de reset
+goto 	MAIN
+
+
+ORG		0X04						;Endereço do vetor de interrupção
+goto	INT_HANDLING
+
+
+
+;
+;;; Liga módulo PWM
+PWM_on		macro
+			banksel CCP1CON
+			movlw pwm_mode
+			iorwf CCP1CON
+			endm
+;
+;;; Desliga módulo PWM
+;MACRO    	PWMoff
+;		 	banksel CCP1CON
+;			 clrf CCP1CON
+;			 ENDM
+;
+
+
+;*************************************************************************
+;			        			MAIN									 *
+;																		 *
+;	Rotina principal													 *
+;*************************************************************************
+MAIN		
+			
+
+		
+			call SETUP			;; Rotina de configuração inicial
+
+
+			
+
+
+			;;-------------------------------;;
+			;;		Configuração do PWM		 ;;
+			;;								 ;;
+			;;	Fosc=4MHZ , Tosc=4us		 ;;
+			;;  Fpwm= 2KHZ  Duty-Cycle= 50%  ;;
+			;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+			banksel TRISB
+			bcf TRISC,2			;; Configura RC2/CPP1 como sáida
+			
+			
+
+			;;Ativa o timer2 com o precaler de 1/4
+			banksel T2CON
+			movlw tmr2_presc1p4
+			movwf T2CON
+			
+			banksel CCPR1L			;;; Seta Duty Cycle em 50%
+			movlw	b'00111110'
+			movwf  CCPR1L
+			banksel CCP1CON
+			movlw  b'00010000'
+			movwf CCP1CON
+
+			movlw d'124'		;; Faz PR2= 124
+			banksel PR2
+			movwf PR2			
+			
+
+			PWM_on				;; Ativa o CCP em modo PWM
+
+			;;-------------------------------;;
+			;; Fim da configuração do PWM	 ;;
+			;;-------------------------------;;
+
+			banksel TRISB
+			clrf TRISB
+
+
+
+
+;;***************  Loop Principal *************************
+;;-----> Looop 
+
+MainLoop		
+			banksel PORTB
+			movlw 0XFF
+			movwf PORTB
+
+			goto MainLoop
+
+;																		 ;
+;	 Fim da Rotina principal											 ;
+;------------------------------------------------------------------------;
+
+
+
+;*************************************************************************
+;			      			 SETUP 		  						 		 *
+;																		 *
+;	Rotina de configuração inicial     									 *
+;*************************************************************************
+SETUP
+
+		banksel 	ADCON1			;; PORTA E/S digitais, por default 
+		movlw		0x06			;; são analógica	
+		movwf		ADCON1
+		banksel		CMCON			;; Desabilita comparadores analógicos
+		movlw		0x07
+		movwf		CMCON
+
+		RETURN
+
+;----------------------FIM DE SETUP--------------------------------------;
+
+
+
+;*************************************************************************
+;			      			 INT_HANDLING						 		 *
+;																		 *
+;	Rotina de tratamento de interrupção									 *
+;*************************************************************************
+INT_HANDLING 
+		
+
+		RETFIE
+;-------------------------FIM DE INT_HANDLING----------------------------;
+
+
+
+END

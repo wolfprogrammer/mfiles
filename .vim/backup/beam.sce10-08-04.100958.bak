@@ -1,0 +1,20 @@
+
+//  Script para calculo de vigas
+
+function [y]=STP(x)
+	
+	if x>0 then y=1
+	else 
+		y=0
+	end
+
+endfunction
+
+
+//--------------------------------//
+
+
+
+STP(-1)
+STP(4)
+

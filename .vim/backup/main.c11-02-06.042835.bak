@@ -1,0 +1,82 @@
+/*			main.c
+ *
+ *
+ *
+ **/
+
+
+#define pic16f877a
+#define clock4mhz 
+
+#include "pic16f877a.h"
+#include "default.h"
+#include "delay.h"
+#include "spi.h"
+
+/**
+ *@file main.c
+ *@brief Teste da interface serial UART entre o PIC e o terminal(PIC-KIT2)
+ *
+ *
+ *@author Caio Rodrigues Soares Silva
+ *
+ *
+ *@warning It's still under development.Unstable.
+ *
+ */
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           CONFIGURATION BITS               |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+typedef unsigned int config;
+
+config __at 0x2007 __CONFIG= 
+_WDT_OFF &    // Sem Watch dog timer 
+_PWRTE_ON &   // Com Power-On Reset
+_BODEN_OFF &  // Com
+_CP_OFF &       // Sem proteção do código
+_DEBUG_OFF &  // Sem debugger
+_HS_OSC &     // Oscilador cristal 4 MHZ
+_CPD_OFF &    //
+_LVP_OFF;     
+
+
+
+/*
+ *    |--------------------------------------------+
+ *    |    DECLARAÇÃO DAS ROTINAS                  |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+
+
+/*
+ *    |--------------------------------------------+
+ *    |           MAIN                             |
+ *    |                                            |
+ *    +--------------------------------------------+
+ */
+void main(void){
+
+	
+
+		while(TRUE){
+
+
+   	
+		} /* while */
+
+
+}	/*main */
+
+
+///////////////////////////////////////////////////////////
+//                      END OF FILE                      //
+///////////////////////////////////////////////////////////

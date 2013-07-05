@@ -1,0 +1,11 @@
+table Icon
+  Caption: 
+  ToolTip.Caption: Mendeley Desktop 
+  Command: /home/caio/apps/mendeley/bin/mendeleydesktop
+  Icon: /home/caio/.idesktop/mendeley.png
+  Width:  48
+  Height: 48
+  X: 149
+  Y: 89
+end
+

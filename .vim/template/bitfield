@@ -1,0 +1,23 @@
+// define the bitfield
+typedef union {
+	struct {
+		unsigned ALL:8;    // by calling something.ALL, you get the whole bitfield as 8-bit number
+	};
+	struct {
+		unsigned led1:1;   // by calling something.led1 you get one bit-state (1 or 0)
+		unsigned led2:1;
+		unsigned led3:1;	
+		unsigned led4:1;
+		unsigned free:4;
+	};
+} something_t;
+ 
+// declare var
+something_t something;
+ 
+// set bits
+something.led1 = 1;
+something.led3 = 0;
+ 
+// get number
+mynum = something.ALL;

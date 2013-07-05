@@ -1,0 +1,9 @@
+
+F(s) =% B(s)/A(s) =
+(b_0 + b_1 s + b_2 s^2 + \cdot \cdot \cdot + b_n s^n)/(a_0 + a_1 s + a_2 s^2 + \cdot \cdot \cdot + a_n s^n)
+
+%( b_0 + b_1 s + b_2 s^2 + \cdot \cdot \cdot + b_n s^n
+%)/(a_0 + a_1 s + a_2 s^2 + \cdot \cdot \cdot + a_m s^m )
+
+\\ B(s)=b_0 + b_1 s + b_2 s^2 + \cdot \cdot \cdot + b_n s^n
+\\ A(s)=a_0 + a_1 s + a_2 s^2 + \cdot \cdot \cdot + a_m s^m 

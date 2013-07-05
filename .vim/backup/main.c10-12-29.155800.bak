@@ -1,0 +1,186 @@
+/*--------------------------------------------------------------
+                main.c
+  
+PIC16F877A 4MHZ Clock
+
+Caio Rodrigues Soares Silva
+
+	Contador de números de vezes em que se aperta e solta o botão
+
+
+--------------------------------------------------------------*/
+
+
+/* Processador de arquivo de cabeçalho */
+
+#define clock4mhz
+#define __16f877a
+
+#include "pic/pic16f877a.h"
+#include "commdefs.h"
+#include "delay.h"
+//#include "adc.h"
+
+
+
+
+typedef unsigned int config;
+
+
+config at 0x2007 __CONFIG= 
+_WDT_OFF &		// Sem Watch dog timer 
+_PWRTE_ON & 	// Com Power-On Reset
+_BODEN_OFF &	// Com
+_CP_OFF & 	    // Sem proteção do código
+_DEBUG_OFF & 	// Sem debugger
+_HS_OSC & 		// Oscilador cristal 4 MHZ
+_CPD_OFF & 		//
+_LVP_OFF; 		// Sem LVP:Low Voltage Programmming
+
+
+#define counter PORTB
+#define tris_counter TRISB
+//#define debug1			//Se definido compila outra parte do cpódigo
+#define debug2
+
+
+//	Macro para processar o aperto e soltura do botão
+//	Para botão solto em 0
+//
+#define press_release(SW)	\
+		while(!(SW));			\
+		delay_ms(20);		\
+		while((SW));			\
+		delay_ms(20);
+
+
+
+
+#define SW1 RA0			
+#define tris_SW1 TRISA0
+							// Botão normalmente em nível 0 em RA0 ou PORTA0
+							//
+							//	Solto 			RA0/SW1=	0
+							//	Pressionado		RA0/SW1=	1
+							//
+							//	  +5V
+							//	  ----			__________
+							//		|		   
+							//		|		   |
+							// SW1 	|		   |
+							//	==|			   |
+							//		|----------|RA0
+							//	   ---		   |
+							//	   | |		   |_______
+							//	   | |
+							//     ---
+							//		|
+							//	 ------
+							//	   GND
+							//
+				
+void delay_ms(u8 time); 
+void delay_s(u8 time);
+void delay_1s(void);
+
+void main(){
+
+u8 count1=0;
+		CMCON=7;		  // Desabilita comparadores analógicos
+		ADCON0=0;		  // Modulo A/D desabilitado
+		ADCON1=6;		  // Todas entradas analógicas desabilitadas
+		INTCON=0;		  //Sem interrupção
+
+
+#ifndef debug1
+
+		//Inciar o contador , fazê-lo 0
+		counter=0;		// O contador inicia em 0
+		tris_counter=0;	//PORTB será saída
+	
+
+
+
+		RA1=0;
+		TRISA1=0;
+		
+		//Inicializa chave tactil
+		SW1=0;
+		tris_SW1=1;		//Entrada digital
+		
+		
+		TRISD=0;
+		PORTD=0;
+
+		PORTB=0;
+		TRISB=0;
+
+		TRISC=0;
+		PORTC=0;
+
+	
+		while(1){/*Loop Para sempre*/
+
+#ifndef debug2
+
+				#warning "Codigo normal compilado"
+				press_release(SW1); // O contador so é incrementado 
+				   					  // quando se aperta o botão 
+				   counter++;
+sss
+
+#else
+		#warning "Compilação para debugger2"
+				   RC4=1;
+				   RD2=1;
+				   RD3=0;
+				   PORTB=count1;
+				   RA1=0;
+				   while(!SW1);		//Enquanto solto permanece aqui
+				   delay_ms(30);
+				   RD3=1;
+				   RD2=0;
+				   while(SW1) RA1=1;		//Enquanto pressionado permanede aqui
+				   delay_ms(30);
+				   count1=count1+1;
+				   
+
+#endif	//debug2
+
+				}
+
+#else
+
+		#warning	"Compilação para debugger1"
+		TRISA=0;
+		TRISB=0;
+
+
+
+		while(1){
+				RA0=1;
+				PORTB=0x0F;
+				delay1s();
+				PORTB=0xF0;
+				RA0=0;
+				delay1s();
+
+		}
+
+
+#endif	//debug1
+
+
+
+
+} //end of main
+
+/*----------------------------------------------------------*/
+
+
+
+
+
+/*------------------------------------------------------------------
+ ---------------------  END OF FILE --------------------------------
+ ------------------------------------------------------------------*/

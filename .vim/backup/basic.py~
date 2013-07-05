@@ -1,0 +1,6 @@
+def sind(x):
+	return sin(pi/180*x)
+
+def cosd(x):
+	return cos(pi/180*x)
+  

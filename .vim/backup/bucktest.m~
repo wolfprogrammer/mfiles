@@ -1,0 +1,51 @@
+function []=bucktest(Vd,P)
+
+disp("Teste")
+Vd
+P
+load buckcalc.txt
+fs
+L
+C
+Vo
+diL_max
+dvo_max
+
+
+
+
+tol=0.01
+
+
+
+if(Vd < Vo)
+	Io=0
+else
+	Io=P/Vo % Corrente de saída
+	return
+end
+
+
+
+IL=Io
+D= Vo/Vd
+D1=1-D
+ 
+diL=Vo/L*(1-D)*Ts
+dvo=1/(8*C)*diL*Ts
+ILB=D*Ts/(2*L)*(Vd-Vo)
+
+% Testes
+"diL <= diL_max"
+tt1= diL_max >= diL
+
+"dvoL <dvo_max"
+tt2= dvo_max >= dvo
+
+" Io >= ILB"
+tt3=Io >= ILB
+
+
+ttt=tt1 & tt2 & tt3
+
+end

@@ -1,0 +1,39 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: caio <caio@crazyone.(none)>
+#
+# Not currently on any branch.
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   ../adc2/main.c
+#	modified:   ../usart4/firmware.hex
+#	modified:   ../usart4/main.asm
+#	modified:   ../usart4/main.c
+#	modified:   ../usart4/main.lst
+#	modified:   ../usart5/firmware.hex
+#	modified:   ../usart5/main.asm
+#	modified:   ../usart5/main.c
+#	modified:   ../usart5/main.lst
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	../../CMP Books - Practical Statecharts in C&C++ Quantum Programming for Embedded Systems.pdf.aria2
+#	../../Practical_Statecharts_in_C_C____Quantum_Programming_for_Embedded.4723989.TPB.torrent
+#	../UART1/firmware.hex
+#	../UART1/main.asm
+#	../UART1/main.lst
+#	../UART3numbers/Makefile2
+#	../UART3numbers/firmware.hex
+#	../UART3numbers/main.asm
+#	../adc-test/
+#	../one/
+#	../spi1/
+#	./
+#	../../pk2cmd/
+#	../../serial-training.c
+#	../../state-machine1.py
+#	../../templates/Makefile2

@@ -1,0 +1,24 @@
+#	Script para dimensionamento de conversor buck em OCTAVE
+#  	
+#
+clc
+
+# Módulo solar
+#
+
+
+Pvmax=13.3 # W		Potência máxima 
+Vpmax=21.5 # V		Tensão de potência máxima 
+Ipv=0.6	   # A		Corrente de potência máxima 
+Voc=26.2   # V		Tensão de circuito aberto 
+Isc=0.62   # A		Corrente de curto-circuito
+
+
+
+
+
+
+
+
+
+

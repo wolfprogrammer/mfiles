@@ -1,0 +1,11 @@
+table Icon
+  Caption: 
+  ToolTip.Caption: Run terminal emulator
+  Command: lxterminal
+  Icon: /home/caio/.idesktop/scilab.png
+  Width:  48
+  Height: 48
+  X: 29
+  Y: 139
+end
+

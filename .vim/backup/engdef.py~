@@ -1,0 +1,109 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from pylab import *
+
+
+
+def sind(x):
+	return sin(deg2rad(x))
+
+def cosd(x):
+	return cos(deg2rad(x))
+
+def tand(x):
+	return tan(deg2rad(x))
+ 
+
+
+
+def ptable(TITLE,labels,LST,formatt="%.3f"):
+	"""
+	ptable
+	
+	Imprime arrays do numpy em formato facil de ser lido:
+	
+	ptable(TITLE,labels,LST,formatt="%.3f")
+	
+	TITLE: Titulo do tabela
+	labels: Lista com nomes das variaveis
+	LST: Lista das variaveis
+	formmatt: default %.3f Imprime float com 3 casas decimais
+	-------------------------------------------------------------
+	
+							Exemplo
+	
+	
+	>>t=arange(0,pi,0.01)
+	>>y=sin(t)
+	>>ptable("Resultados",["x","y"],[t,y])
+	
+	saida:
+	
+	Resultados
+	x		y
+	0.000	0.000
+	0.010	0.010
+	...
+		
+	
+	"""
+	
+	print  "\t"+TITLE
+	L="" # string vazia
+	
+	# Imprime rotulos 
+	for la in labels:
+		L=L+"\t"+la
+	print L
+	
+	LL=array(LST)
+	LL=LL.transpose()
+	for L in LL:
+		S=""
+		for x in L:
+			k= formatt % x
+			S=S+"\t"+k
+		print S 
+	
+	
+
+
+#global var_dict 
+#global var_lst  # Lista de variaveis
+
+
+class HST:
+	var_dict={}
+	var_lst=[]
+	
+	def addvar(self,vrs):
+	for v in vrs:
+		vname=v[0]
+		unit=v[1]
+		comment=v[2]
+		var_dict[vname]=[unit,comment]
+		var_lst.append(vname)
+
+
+def wtch():
+	"""
+	wtch(vrs,notes)
+	
+	wtch: is watch for short
+	Keep tracks of the user variables , giving it's labels, values, and description.
+	
+	"""
+	print "\nName\tValue\tUnit\t\tComment"
+	for vname in var_lst:
+		v=var_dict[vname]
+		val=eval(vname)
+		unit=v[0]
+		comment=v[1]
+		typ=type(val)
+		
+		vals=str(val)
+		if(typ==numpy.ndarray):
+			vals="..."
+		
+		print vname+ "\t" + vals + "\t"+unit  +"\t\t" + comment
+	

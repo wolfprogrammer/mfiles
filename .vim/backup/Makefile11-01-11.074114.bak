@@ -1,0 +1,16 @@
+default: main
+
+main:
+	/home/caio/usr/bin/sdcc -mpic16 main.c --use-non-free -p18f4550 --debug --verbose --print-search-dirs -I /home/caio/pic-sdcc/include/pic16
+
+#	sdcc -c -mpic16 hd44780.c
+#	sdcc -mpic16 main.c hd44780.o
+
+clean:
+	rm *.asm *.cod *.cof *.hex *.lst *.o
+
+burn:
+	sudo pk2cmd -PPIC18F4550 -M -F/`pwd`/main.hex
+
+doc:
+	doxygen Doxyfile

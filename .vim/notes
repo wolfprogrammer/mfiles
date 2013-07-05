@@ -1,0 +1,90 @@
+ NOTAS DO VIM
+
+ Tips and Tricks
+
+ [1] - Comentar/Descomentar bloco de texto:
+ 	,c <space> : Commenta/decomenta bloco de texto
+
+ [2] - Cx-Co : Omniom completion system : Intelisense
+ 
+ [3]   cscope
+ cscope -Rbq
+:cs add /path/cscope.out
+ 
+cs find c|d|e|f|g|i|s|t name
+0 or s 	
+1 or g 	find definition
+2 or d 	find callee
+3 or c 	find caller
+4 or t 	find string
+6 or e 	egrep mode
+7 or f 	find this file
+8 or i 	find files that contain this file
+
+
+[4]
++	 go to the beginning of the next line
+-	 go to the beginning of the previus line
+i	 insert text (that is change to edit mode)
+a	 append text (go to edit mode but place the cursor behind the char)
+
+ [3] - Copy Paste- Buffers
+ In Vim, you will have to use yy to copy a line and p to paste it 
+ elsewhere in Command mode. To copy a line to buffer a, you can use 
+ "ayy. To copy a line to buffer b, you can use "byy. To paste the line 
+ copied into buffer a, you can "ap. Similarly, to paste the line copied 
+ into buffer b, "bp can be used and so on.
+
+
+
+
+[5] Listar caracteres ocultos
+:set list
+
+============================================================================
+	G I T - C O N T R O L E   D E   V E R S Ã O
+
+Iniciar repositorio:
+$ git init 
+$ git commit -a -m "Initial backup"
+
+Fazer commit da versão
+$ git commit -a -m "O que fiz nesta versão ..."
+
+Ver status e branch
+$ git status
+
+Ver log do histórico
+$ git log
+
+Voltar a uma versão anterior
+git log  # Pegue a hash do commit  commit 61cc5ec736c26a917a283b88a2e480eedeaac033
+git checkout 61cc5e
+
+Comparar com uma versão anterior
+git diff 61cc5e
+
+Resumo de todos branches e todas versões
+alias gg="git log  --oneline --abbrev-commit --all --graph --decorate --color"
+$ gg 
+
+Adcionar tags:
+git tag 1.0.0 1b2e1d63ff
+
+
+Crear branch
+git checkout -b NOME_BRANCH
+
+Adicionar tags para identificar uma versão específica
+git tag <tagname>
+git tag -a <tagname> -m '<message>'
+
+Adicionar notas ao commit:
+git notes add <commit-hash>
+
+Ver arquivo de versão específica:
+git show hash-commit: arquivo.c
+
+Obter copia do arquivo de commit específico
+git show hash-commit: arquivo.c  > aquivo.old.c
+

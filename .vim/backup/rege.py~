@@ -1,0 +1,40 @@
+
+import re  # importa regex
+
+
+def loadfile(filename):
+	fname=open(filename,"r")
+	lines=fname.readlines()
+	return lines
+
+
+expr1= "ac1= 22.45-34.5/23.4"
+print expr1
+
+patt1="[A-Za-z0-9]+=" 	# encontra expressao   "ab="
+patt2="[A-Za-z0-9]+"     # encontra ab
+patt1=re.compile(patt1)
+patt2=re.compile(patt2)
+
+
+if patt1.match(expr1)!=None:
+	#print "ok"
+	str1=patt1.findall(expr1)
+	#print str1
+	str1=str1[0]
+	varr=patt2.findall(str1)
+	varr=varr[0]
+	#print varr
+	exec(expr1)
+	exec("print %s" % varr)
+
+#		str1=re.findall(patt1)
+#		print str1
+
+
+#	Identifica bloco de funcao
+#
+patt3=re.compile('def\s+[A-Za-z0-9]+:')
+expr3="def fun(a,b):c=a*b/(a+b);d=a-b;return [c,d]"
+
+

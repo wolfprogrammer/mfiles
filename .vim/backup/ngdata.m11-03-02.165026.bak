@@ -1,0 +1,38 @@
+%function [data, labels] = ngdata(filename)
+
+% Function variables
+filename='sin1.out'
+numVars = 0
+numPoints = 0
+
+% Open file
+fid = fopen(filename, 'r')
+if fid == -1
+	error('Could not open file')
+end
+
+
+
+% Read headers
+headerPattern = '^(?<name>.*):\s*(?<value>.*)'
+while feof(fid) == 0
+	line = fgetl(fid)
+	h = regexp(line, headerPattern, 'names')
+	
+	% Break when we're done reading headers. 
+	if size(h) == 0
+		break
+	end
+
+	if strcmp(h(1).name, 'No. Variables') == 1
+		numVars = sscanf(h(1).value, '%f');
+	end
+	if strcmp(h(1).name, 'No. Points') == 1
+		numPoints = sscanf(h(1).value, '%f');
+	end
+end
+
+
+
+%Endfunction
+%end

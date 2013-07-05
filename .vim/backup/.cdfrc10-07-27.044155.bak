@@ -1,0 +1,11 @@
+#######################################################
+# 		Aquivo de favoritos para a função cdf		  #
+#													  #
+#	Uso:
+#
+#	nome,/caminho/diretório
+#   name./paht/dir
+#
+
+log,/var/log
+prj,$HOME/projetos

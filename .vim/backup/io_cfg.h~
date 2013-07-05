@@ -1,0 +1,74 @@
+/*********************************************************************
+ *                Microchip USB C18 Firmware Version 1.0
+ *********************************************************************
+ * FileName:        io_cfg.h
+ * Dependencies:    See INCLUDES section below
+ * Processor:       PIC18
+ * Compiler:        C18 2.30.01+
+ * Company:         Microchip Technology, Inc.
+ ********************************************************************/
+
+#ifndef IO_CFG_H
+#define IO_CFG_H
+
+/** I N C L U D E S *************************************************/
+#include "autofiles\usbcfg.h"
+
+/** T R I S *********************************************************/
+#define INPUT_PIN           1
+#define OUTPUT_PIN          0
+
+/** U S B ***********************************************************/
+#define tris_usb_bus_sense  TRISAbits.TRISA1    // Input
+
+#if defined(USE_USB_BUS_SENSE_IO)
+#define usb_bus_sense       PORTAbits.RA1
+#else
+#define usb_bus_sense       1
+#endif
+
+#define tris_self_power     TRISAbits.TRISA2    // Input
+
+#if defined(USE_SELF_POWER_SENSE_IO)
+#define self_power          PORTAbits.RA2
+#else
+#define self_power          1
+#endif
+
+/** L E D ***********************************************************/
+#define mInitAllLEDs()      LATB &= 0xFE; TRISB &= 0xFE;
+
+#define mLED_1              LATBbits.LATB0
+
+#define mLED_1_On()         mLED_1 = 1;
+
+#define mLED_1_Off()        mLED_1 = 0;
+
+#define mLED_1_Toggle()     mLED_1 = !mLED_1;
+
+/** S W I T C H *****************************************************/
+#define mInitAllSwitches()  TRISAbits.TRISA4=1;
+
+#define sw1                 PORTAbits.RA4
+
+/** P O T ***********************************************************/
+//#define mInitPOT()          TRISAbits.TRISA0=1;ADCON0=0x01;ADCON2=0x3C;
+
+/* buzzer */
+#define mInitBuzzer()		TRISB &= 0b11110111;   /* configure PORTB.3 for output */
+
+/** S P I : Chip Select Lines ***************************************/
+#define tris_cs_temp_sensor TRISBbits.TRISB2    // Output
+#define cs_temp_sensor      LATBbits.LATB2
+
+#define tris_cs_sdmmc       TRISBbits.TRISB3    // Output
+#define cs_sdmmc            LATBbits.LATB3
+
+/** S D M M C *******************************************************/
+#define TRIS_CARD_DETECT    TRISBbits.TRISB4    // Input
+#define CARD_DETECT         PORTBbits.RB4
+
+#define TRIS_WRITE_DETECT   TRISAbits.TRISA4    // Input
+#define WRITE_DETECT        PORTAbits.RA4
+
+#endif //IO_CFG_H

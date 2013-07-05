@@ -1,0 +1,1 @@
+KERNEL=="ttyUSB0" ,  SUBSYSTEM=="tty" ,ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001",  ATTRS{serial}=="A1017H8I" , GROUP="users", MODE="0666", SYMLINK+="buspirate"  , RUN+="/usr/bin/cutecom"

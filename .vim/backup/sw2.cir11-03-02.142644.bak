@@ -1,0 +1,11 @@
+#Resistive circuit
+
+
+R1 1 2 1k
+R2 2 3 3.3k
+R3 3 GND 1k
+*Vin 1 GND pulse(0 5 0 0 0 0.0005 .001)
+Vin 1 GND pulse(0 5 0 0 0 0.5m 1m)
+.tran 0.0001m 4m
+.plot tran v(2)
+.end

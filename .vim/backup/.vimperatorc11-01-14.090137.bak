@@ -1,0 +1,7 @@
+map a : tabprevious <CR>	"Aba anterior
+map s : tabnext <CR> 		"Proxima aba
+map <leader>a :q <CR> 		"Fecha aba
+map <leader>g :tabopen  	"Pesquisa no google
+map <leader>h :tabopen h	"Pesquisa 
+map <leader>r :tabopen d	"Pesquisa no Delicious
+

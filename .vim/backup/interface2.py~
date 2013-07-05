@@ -1,0 +1,85 @@
+import pygtk
+pygtk.require("2.0")
+import gtk
+import serial
+
+bauds=0
+port=0
+text_buffer=0
+s=0;
+
+
+def read_packet():
+	global s
+
+	p0=ord(s.read())
+
+	if p0 == 21 : # Pacote valido
+		p1=ord(s.read())
+		p2=ord(s.read())
+		p3=ord(s.read())
+	
+		if p3== 31 : # Fim do pacote de dados
+			print "p0 START  ="+str(p0)
+			print "p1(ADRESH)="+str(p1)
+			print "p2(ADRESL)="+str(p2)
+			print "p3 END    ="+str(p3)
+			adc=p1*256+p2
+			volt=adc/1024.*5.0
+			print "ADC value="+str(adc)
+			print "ADC voltage= %.2f" % volt
+			print "\n------------\n"
+ 
+
+
+
+
+class TutorialApp(object):       
+
+	
+	def __init__(self):
+	    builder = gtk.Builder()
+	    builder.add_from_file("demo22.glade")
+	    self.window = builder.get_object("window1")
+            self.txport=builder.get_object("entry_port");   # serial port entry text
+	    self.txbaud=builder.get_object("entry_baud");   # Baud rate entry text
+	    self.btnconnect=builder.get_object("btn_connect");
+	    self.btndisconnec=builder.get_object("btn_disconect");
+
+	    self.textview=builder.get_object("textview1");
+            self.texbuffer=builder.get_object("textbuffer1");
+
+
+	
+
+
+#	    builder.connect_signals({ "on_window_destroy" : gtk.main_quit })
+	    self.window.show()
+	    builder.connect_signals(self)
+
+        def btn_connect_clicked_cb(self,data=None):
+		global s
+		print "Clicou! au! "
+		port=self.txport.get_text()
+		bauds=int(self.txbaud.get_text())
+		print bauds
+		print port
+		s=serial.Serial(port,baudrate=bauds)
+		s.open()
+		s.write('q')
+		s.write('q')
+		while(1):
+			read_packet()
+
+
+		
+	
+	def btn_disconect_clicked_cb(self,data=None):
+		global s
+		print "Clicou vehiooo!!"
+		s.close()
+			
+
+if __name__ == "__main__":
+	app = TutorialApp()
+	gtk.main()

@@ -1,0 +1,119 @@
+//
+//  =====================================================================================
+//
+//       Filename:  default.h
+//
+//    Description:  Tipos de dados básicos para sistemas embarcados
+//
+//        Version:  1.0
+//        Created:  01/11/2011 05:49:41 AM
+//       Revision:  none
+//       Compiler:  gcc
+//
+//         Author:  Caio Rodrigues 
+//        Company:  
+//
+//   =====================================================================================
+//
+
+
+/**
+ *@file default.h
+ *@brief Definições comuns de tipos de dados , tamanhos e operações de bits
+ *
+ *In this header file is defined the basic bit operations and the common data types 8 bit,16 bit ,32 
+ *signed/unsigned integers.It can be used not only in pic mcus as 8051 and others microcontrollers.
+ *
+ *@author Caio Rodrigues Soares Silva
+ *
+ *
+ *@warning It's still under development.Unstable.
+ *@todo Improve the documentation.
+ *
+ */
+
+
+#ifndef	_default_h_
+#define _default_h_
+
+
+/* Data types*/
+
+
+/*!
+ *	\var typedef unsigned char u8
+ *	\brief 8 bit unsigned integer , range: 0 to 255
+ */
+typedef unsigned char u8;
+typedef unsigned char * pu8;
+
+typedef char *  pchar;  // Ponteiro para caracter
+
+
+/*!
+ *	\var typedef signed char i8
+ *	\brief 8 bit signed integer , range: -128 to 127
+ */
+typedef signed char i8;
+typedef signed char * pi8;
+
+typedef unsigned int u16;
+typedef signed int i16;
+typedef signed int * pi16;
+
+typedef unsigned long u32;
+typedef signed 	 long i32;
+
+#define eeprom __code
+
+/* Data types constants */
+
+#define MSB_8 	 7	// MSB position
+#define MSB_16	15
+#define MSB_32	31
+
+					// Max number for each data type
+#define MAX_u8		255
+#define	MAX_i8		127
+#define MAX_u16		65535
+
+
+/* Bolean constants*/
+
+#define HIGH 1
+#define LOW  0
+
+#define TRUE  1
+#define FALSE 0
+
+#define ON	1
+#define OFF 0
+
+
+				/* Bit mask operations */
+
+/**
+	A function that set the nth's varible bit 
+@param	var The variable that will be changed
+@param bitno  The order of the bit that is desired to be seted
+ 
+ 
+ */
+#define bit_set(var,bitno)	((var)=1<<(bitno))
+
+#define bit_clr(var,bitno)	(var)&=~(1<<(bitno))
+#define bit_test(var,bitno)	((var)>>(bitno)&0x01)
+
+
+#define bits_on(var,mask)	((var)|=(mask))
+#define bits_off(var,mask) 	((var)&=~0^(mask))
+
+#define lo_nibbles(x)	((x)&0x0F);
+#define hi_nibbles(x)	((x)>>4);
+
+
+
+
+#endif
+
+

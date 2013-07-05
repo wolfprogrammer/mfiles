@@ -1,0 +1,645 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+#Configura variavel path para /home/user/bin ou ~/
+PATH=$PATH:$HOME/bin:$HOME/usr/bin
+
+
+EDITOR=vim
+
+
+#Ten years of bash history 
+HISTFILESIZE=1000000000
+HISTSIZE=1000000
+
+#################################################
+#				MEUS ALIASES
+#################################################
+
+#Edita o arquivo /etc/apt/souces.list
+alias aptlist='sudo vi /etc/apt/sources.list'
+
+alias bashrc='vim $HOME/.bashrc'
+
+alias install='sudo aptitude install -y'
+
+alias achar='apt-cache search'
+
+#Compila programa e instala
+alias compile='./configure && make && sudo make install'
+
+#Baixa código de fonte de algum programa
+alias getso='cd $HOME/src && apt-get source'
+
+#Edita o vim
+alias vimrc='vim ~/.vimrc'
+
+#Volta ao diretório anterior
+alias back='cd $OLDPWD'
+
+
+#Sobe ao diretório pai(parent directory)
+alias up='cd ..'
+
+alias grep='grep --color=auto'
+
+#Adiciona o diretório atual na variavel path
+alias addpath='PATH=$PATH:.'
+
+
+#Salva no clipboard    $ ls | xclipc
+alias xclipc='xclip -selection c'
+alias xclipp='xclip -selection o'
+
+
+##para usar cat file.txt | share
+alias share='curl -F "sprunge=<-" http://sprunge.us | xclip ; xclip -o'
+
+#Autocorreção no bash
+shopt -s cdspell
+
+# enable bash completion in interactive shells
+if [ -f /etc/bash_completion ]; then
+. /etc/bash_completion
+fi
+
+
+
+
+
+
+export MANPAGER="/usr/bin/most -s"
+
+# Instalacao das Funcoes ZZ (www.funcoeszz.net)
+source $HOME/bin/funcoeszz
+export ZZPATH=$HOME/bin/funcoeszz
+
+
+
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+	eval "`dircolors -b`"
+	alias ls='ls --color=auto'
+	#alias dir='ls --color=auto --format=vertical'
+	#alias vdir='ls --color=auto --format=long'
+fi
+
+
+
+
+export boards=~/Documents/Boards
+
+export code=~/Documents/programing
+
+export sources=~/source_cd
+
+#PS1="\u > "
+
+#---------------------------------------------------------------
+#	Cria diretório temporário em /tmp com o nome /tmp/test_xxx , xxx 
+# xxx é um número 1,2,3 ... 4
+#
+#	Útil para testar códigos c,c++ , ... sem sujar o sitema
+#
+function temp_dir(){
+
+	local work_dir=/tmp/"work"$$
+	mkdir -p $work_dir 
+
+	cd $work_dir 
+
+}
+
+
+#Remove númeração do código de fonte no clipboard
+function clipboard (){
+	
+	echo "Arquivo de saída :$1"
+	-o | sed 's/^\b*[0-9]*//g' > "$1"
+
+}
+
+
+
+# Vê codigo tex do clipboard
+function viewtex (){
+
+file1="/tmp/file1"
+	parcellite -o > $file1".tex"
+
+	tex2im $file1".tex"
+	ristretto $file1".png"
+
+
+}
+
+
+
+
+# Executar comando do clipboard
+function execlipboard(){
+
+	tempf="/tmp/tempf"		#Arquivo/script temporário onde 
+							#ficará o comando a ser executado
+
+	str=$(parcellite -o)
+
+	echo $str				#Exibe o comando guardado no clipboard
+	echo "------------------------------------------"
+	echo $str > $tempf		#Guarda o comando em um arquivo temporário
+	sh $tempf				#Executa o comando
+
+
+}
+
+
+#Faz backup de dado arquivo
+function backup (){
+
+	echo "Backup com nome $1.back"
+	cp "$1" "$1.back"
+
+}
+
+
+#--------------------------------------------#
+# Faz download de videos do youtube em uma lista de arquivos
+function getvideo (){
+
+	youtube-dl -b -c -i -o "%(title)s" -a "$1"
+
+}
+
+
+
+#--------------------------------------------
+#		Faz o download de um arquivo 
+# dado por uma url com o wget
+function downloadnurl(){
+	
+	DEST="/tmp/download"
+	cd $DEST
+	parcellite -o | wget -i  
+
+}
+
+
+
+#--------------------------------------------#
+# Faz link simbólico de um arquivo ou programa para a pasta ~/bin
+#
+# $1 - Arquivo de qual será feito o link
+# $2 - Diretório onde está o link
+function syml(){
+
+sudo ln -s  `pwd`/$1 /bin/$1   
+
+}
+
+#-------------------------------------------#
+#Adiciona arquivo deb ao repositório local
+alias includedeb='sudo reprepro -b $HOME/repo --includedeb lenny'
+
+
+#------------------------------------------#
+#	Abre ultimo arquivo aberto pelo vim
+# 
+# lvim - last vim
+alias lvim="vim -c \"normal '0\""
+
+
+#------------------------------------------#
+# Monta imagem iso em /tmp com um nome iso-xxx
+#
+#	Uso:  argumento nome da image
+#
+function mntiso (){
+
+mkdir -p /tmp/iso1
+sudo mount -o loop $1 /tmp/iso1
+cd /tmp/iso1
+}
+
+
+#----------------------------------------#
+#		Calculadora no bash
+#
+#
+calc(){ awk "BEGIN{ print $* }" ;}
+
+
+
+#----------------------------------------#
+#		Converte arquivos flv (videos flash para mp3
+#
+function ToMp3(){
+
+for file1 in `ls`; do
+		
+		ffmpeg -i $file1 $file1".mp3"
+done
+}
+
+
+#--------------------------------------#
+#		Gera password/senha aleatório  #
+#									   #
+alias genpass="< /dev/urandom tr -dc A-Za-z0-9_ | head -c8"
+
+
+#--------------------------------------#
+#		Obtem um biscoito da sorte     #
+#  Get a random Futurama Quote		   #
+#
+alias getQuot="curl -Is slashdot.org | egrep '^X-(F|B)' | cut -d \- -f 2"
+
+
+#------------------------------------#
+#	Acessa o computador do quack	 #
+#------------------------------------#
+alias sshquack="ssh -X -C -p 5850 marcos@10.0.0.2"
+
+
+#------------------------------------#
+#
+#
+alias sshare="sshfs -p 5850 marcos@10.0.0.2:/home/marcos $HOME/shared"
+
+
+#-----------------------------------#
+#	Pesquisa por radios online que podem ser tocadas com o mplayer
+#
+#	mplayer <url da radio>
+#
+function getradio(){
+
+echo "Keyword?";read keyword;query="http://www.shoutcast.com/sbin/newxml.phtml?search="$keyword"";curl -s $query |awk -F '"' 'NR <= 4 {next}NR>15{exit}{sub(/SHOUTcast.com/,"http://yp.shoutcast.com/sbin/tunein-station.pls?id="$6)}{print i++" )"$2}'
+
+}
+
+
+#-----------------------------------#
+#
+#		Obtem IP externo
+#
+function getIp(){
+
+curl -s 'http://checkip.dyndns.org' | sed 's/.*Current IP Address: \([0-9\.]*\).*/\1/g'
+
+}
+
+
+#-----------------------------------#
+#
+#		Obtem ultimos comandos do
+# www.commandlinefu.com
+function commandfu(){
+
+wget -O - http://www.commandlinefu.com/commands/browse/rss 2>/dev/null | awk '/\s*<title/ {z=match($0, /CDATA\[([^\]]*)\]/, b);print b[1]} /\s*<description/ {c=match($0, /code>(.*)<\/code>/, d);print d[1]"\n"} '
+}
+
+
+#------------------------------------#
+#		Pronuncia palavras em ingles
+# precisa de conexão, muito util
+#
+pronounce(){ for a in $@; do wget -qO- $(wget -qO- "http://www.m-w.com/dictionary/$a" | grep 'return au' | sed -r "s|.*return au\('([^']*)', '([^'])[^']*'\).*|http://cougar.eb.com/soundc11/\2/\1|") | aplay -q; done }
+
+
+#----------------------------------#
+#		Tradutor do google
+#
+#
+translate(){ wget -qO- "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=$1&langpair=$2|${3:-en}" | sed 's/.*"translatedText":"\([^"]*\)".*}/\1\n/'; }
+
+
+#--------------------------------#
+#		webcam
+#
+#	Vê imagems da webacam no mplayer
+#
+function webcam(){
+mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0:fps=30:outfmt=yuy2
+}
+
+
+
+#-------------------------------#
+#	Google Spell Checker
+#
+#	Corretor gramatical do google
+#para palavras em inglês
+#
+spellcheck(){ typeset y=$@;curl -sd "<spellrequest><text>$y</text></spellrequest>" https://google.com/tbproxy/spell|sed -n '/s="[0-9]"/{s/<[^>]*>/ /g;s/\t/ /g;s/ *\(.*\)/Suggestions: \1\n/g;p}'|tee >(grep -Eq '.*'||echo -e "OK");}
+
+
+#-------------------------------
+#	Dicionário inglês/Inglês
+#
+#
+dict_eng(){ local y="$@";curl -sA"Opera" "http://www.google.com/search?q=define:${y// /+}"|grep -Eo '<li>[^<]+'|sed 's/^<li>//g'|nl|/usr/bin/perl -MHTML::Entities -pe 'decode_entities($_)';}
+
+
+#
+# Atalho:
+#
+function lsless() { ls "$@" | less; }
+
+
+alias QuickPar='wine "C:\\QuickPar\\QuickPar.exe"' 
+
+function prompt
+{
+local WHITE="\[\033[1;37m\]"
+local GREEN="\[\033[0;32m\]"
+local CYAN="\[\033[0;36m\]"
+local GRAY="\[\033[0;37m\]"
+local BLUE="\[\033[0;34m\]"
+local RED="\[\033[0;31m\]"
+export PS1="
+${RED}\u${CYAN}@${BLUE}\h ${CYAN}\w${GRAY}
+$ "
+}
+
+prompt
+
+
+toilet "Live Fast"
+toilet "Die Young"
+
+
+alias gcv="g++ `pkg-config --cflags --libs opencv`"
+
+## Confgura e compila um codigo de fonte
+alias makeall="./configure --prefix=$HOME/usr ; make ; make install"
+
+function  compp(){
+
+xclip -o > $1
+gcv $1
+}
+
+#fortune
+
+
+## Toca musicas *.mp3 e videos sem exibir os videos e 
+# e em ordem aleatóriado diretório /home/juan/Music 
+alias playall='mplayer -playlist <(find /home/caio/Music -type f) -shuffle -novideo'
+
+#Encriptação de arquivos
+GPG_TTY=`tty`
+export GPG_TTY
+
+
+alias version='lsb_release -a'
+
+# Variavel de ambiente SCIHOME
+
+alias CCSC="wine ~/.wine/drive_c/Program Files/PICC/Ccsc.exe"
+
+export SCIHOME="/home/caio/.Scilab/scilab-5.2.2"
+
+export TARGETT="/var/www/dokuwiki"
+function  diff2(){
+diff $1   $TARGET/$1
+}
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
+
+alias sdccsyntax="sudo vim /usr/share/vim/vim72/syntax/sdcc.vim"
+
+
+
+
+
+function cdf() {
+#
+# Pétur Ingi Egilsson ( petur <@> petur.eu )
+# http://www.petur.eu/blog/?p=175
+#
+# Stuart Rackham ( srackham <@> gmail.com )
+#
+# cdf (Change to favorites)
+
+local aliasfile fullpath
+aliasfile=~/.cdfrc
+
+if [ $# -eq 0 ]
+then
+		echo Usage: cdf FAVORITE
+		return 1
+fi
+
+fullpath=$(grep $1, $aliasfile|cut -d, -f2)
+fullpath=$(eval "echo -n $fullpath")
+
+if [ ${#fullpath} -ne 0 ]
+then
+		cd $fullpath
+else
+		echo "Error: '$1' has not been defined in $aliasfile"
+		echo -n "Do you want to edit the file? (y/n): "
+		read editFile
+
+		case $editFile in
+				[yY])
+						if [ ! -n "$EDITOR" ]
+						then
+								# Use the nano editor because
+								# the EDITOR env has not been set.
+								nano $aliasfile
+						else
+								$EDITOR $aliasfile
+						fi
+						;;
+				[nN])
+						;;
+				*)
+						echo "Please use y,Y,n or N."
+						exit 1
+		esac
+fi
+}
+
+
+source $HOME/bin/cdargs-bash.sh
+
+
+if [ -f ${HOME}/.termcap ]; then
+  TERMCAP=$(< ${HOME}/.termcap)
+  export TERMCAP
+fi
+
+alias urxvt= 'urxvt  -bg black -fg white -fn "xft:Bitstream Vera Sans Mono:pixelsize=15"'
+
+## Diretório onde estão as funcões do bash personalizadas
+func_dir=$HOME"/bin/bash_func"
+
+#Função de ajuda do bash:
+source $func_dir/bashhelp     #Ajuda geral
+source $func_dir/compilehelp  #Ajuda para compilar
+source $func_dir/vimhelp	  #Ajuda para o editor de texto VIM
+
+##Manda arquivo para o pastebin
+function pastebin(){
+	
+	cat $1 | curl -F "sprunge=<-" http://sprunge.us | xclip
+	xclip -o
+}
+
+
+function scilab-batch(){
+
+	echo "exec('""$1""'); quit" | scilab -nw  #>> $1".log" 2&1 > /dev/null 2&1 &
+#	echo "exec('""$1""'); quit" | scilab -nwg  > /dev/null 2&1
+}
+
+
+function makelinks_sdcc(){
+#Cria links simbólicos para o SDCC dos diretórios INCLUDES
+ln -s /home/caio/pic-sdcc/include/pic18f .
+ln -s $HOME/usr/share/sdcc/include/pic16 .
+ln -s $HOME/usr/share/sdcc/non-free/include/pic16/pic18f4450.h .
+ln -s $HOME/usr/share/sdcc/non-free/include/pic16/pic18f2455.h .
+
+}
+
+
+function remoteDiskmount(){
+	
+	sudo sshfs -o allow_other,default_permissions \ 
+	monkey@"$1":/home/monkey/www $HOME/remoteDisk
+
+	echo "Disco montado"
+}
+
+
+
+#		Acessar computador MONKEY
+# que esta na sala
+#
+function sshmonkey(){
+	ssh -C -l monkey 192.168.1.4
+
+}
+
+
+#		Copia arquivos na network deste PC para monkey
+#
+#
+function sendToMonkey(){
+ #
+ # $1 - Arquivo
+ # $destino em monkey
+
+ rsync -azvP -e  ssh "$1"  monkey@192.168.1.4:"/home/monkey/$2"
+
+
+}
+
+
+function mountMonkey(){
+	mkdir -p /tmp/monkey
+	sshfs monkey@monkey:/home/monkey  /tmp/monkey
+
+}
+
+
+clear

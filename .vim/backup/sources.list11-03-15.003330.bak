@@ -1,0 +1,4 @@
+
+#deb http://br.archive.ubuntu.com/ubuntu/ lucid universe
+deb http://monkey:3142/ubuntu  lucid universe
+ 

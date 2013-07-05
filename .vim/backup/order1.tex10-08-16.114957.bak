@@ -1,0 +1,35 @@
+\documentclass{article}
+%preamble
+
+\usepackage{html,makeidx}
+
+\pagestyle{empty}
+
+\begin{document}
+
+Sistemas de primeira ordem:
+$F(s)=\frac{C(s)}{R(s)}$
+
+Sistemas de segunda ordem:
+
+$F(s)=\frac{C(s)}{R(s)}=\frac{1}{s^2+2\omega\zeta s + \omega^2}$
+
+
+\newpage
+
+Testes em latex
+
+$
+\alpha
+\beta
+\gamma
+\delta
+\zeta
+\theta
+
+\int
+\partial
+$
+
+
+\end{document}

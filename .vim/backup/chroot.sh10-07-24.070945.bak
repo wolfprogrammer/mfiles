@@ -1,0 +1,52 @@
+#!/bin/bash
+
+############################################################################
+# variables                                                                #
+############################################################################
+
+# device name of the root partition
+ROOT="/dev/sda5"
+
+mkdir -p $HOME/Desktop/myroot
+
+# mount point of the new root partition
+MOUNT="$HOME/DESKTOP/myroot"
+
+# list of virtual filesystems and additional config files
+ARGS="dev dev/pts proc sys etc/resolv.conf"
+
+# list of additional devices and their mount pont. 
+# device names must be separated by the mount point with a colon (:)
+# e.g. /dev/sda2:/home or /dev/sda5:/boot
+ 
+AMOUNT=""
+
+# user name
+UNAME="sisco"
+
+############################################################################
+# start the chroot environment                                             #
+############################################################################
+
+# add user to the list of allowed users to make connections to the X server.
+sudo -u $USER xhost SI:localuser:$UNAME
+
+# create the mount point & mount the root partition
+mkdir -p $MOUNT
+mount $ROOT $MOUNT
+
+# mount the virtual filesystems & resolv.conf to enable the network
+for i in $ARGS; do
+  mount --bind /$i $MOUNT/$i
+done 
+
+# mount additional partitions:
+for i in $AMOUNT; do
+  mkdir -p ${MOUNT}${i//*:/}
+  mount ${i//:*/} ${MOUNT}${i//*:/}
+done
+
+# chroot into the linux installation
+chroot $MOUNT su - $UNAME
+
+

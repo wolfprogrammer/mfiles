@@ -1,0 +1,20 @@
+sudo aptitude install gfortran-4.4 libx11-dev bison flex liblapack-dev \
+
+
+configure: WARNING: OpenGL libs (GL and GLU) not found. Native graphics will be disabled.
+
+find gperf, but it's only a problem if you need to reconstruct oct-gperf.h
+UMFPACK not found.  This will result in some lack of functionality for sparse matrices.
+qrupdate not found.  The QR & Cholesky updating functions will be slow.
+AMD library not found.  This will result in some lack of functionality for sparse matrices.
+COLAMD library not found.  This will result in some lack of functionality for sparse matrices.
+CCOLAMD library not found.  This will result in some lack of functionality for sparse matrices.
+CHOLMOD library not found.  This will result in some lack of functionality for sparse matrices.
+: : CXSparse library not found.  This will result in some lack of functionality for sparse matrices.
+: cURL library not found.  The ftp objects, urlread and urlwrite functions will be disabled.
+: GLPK library not found.  The glpk function for solving linear programs will be disabled.
+: GraphicsMagick++ library not found.  The imread function for reading image files will not be fully functional.
+: PCRE library not found.  This will result in some loss of functionality for the regular expression matching functions.
+: Qhull library not found -- this will result in loss of functionality of some geometry functions.
+: 
+

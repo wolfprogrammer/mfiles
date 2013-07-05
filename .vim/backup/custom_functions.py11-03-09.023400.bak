@@ -1,0 +1,19 @@
+from scipy import *
+
+
+" Função seno com argumento em graus"
+def sind(theta_deg):
+		return sin(theta_deg*pi/180)
+
+
+" Função coseno com argumento de graus"
+def cosd(theta_deg):
+		return cos(theta_deg*pi/180)
+
+" Transforma um fasor rho<theta na forma retangular " 
+def	r2p(rho,theta_deg):
+		z=rho*(cosd(theta_deg)+1j*sind(theta_deg));
+		return z
+
+
+

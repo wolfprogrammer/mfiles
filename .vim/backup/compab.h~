@@ -1,0 +1,19 @@
+
+
+#ifndef __COMPAB_H__
+#define __COMPAB_H__
+
+#define  at __at
+#define  code __code
+#define  interrupt __interrupt
+#define  shadowregs __shadowregs
+
+
+#endif
+
+
+
+                             
+
+
+

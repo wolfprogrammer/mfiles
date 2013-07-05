@@ -1,0 +1,265 @@
+# Some GB18030 traditional Chinese mails are wrongly labelled GB2312.
+# The first charset is a superset of the second. Let's alias it, so
+# that Mutt displays such mails as if they were correctly labelled.
+charset-hook ^gb2312$ gb18030
+
+# Some mailers send EUC-JP-MS Japanese mails wrongly labelled EUC-JP.
+# The first charset is a superset of the second. Let's also alias it.
+charset-hook ^euc-jp$ euc-jp-ms
+
+# colors
+color normal	white black
+color attachment brightyellow black
+color hdrdefault cyan black
+color indicator black cyan
+color markers	brightred black
+color quoted	green black
+color signature cyan black
+color status	brightgreen blue
+color tilde	blue black
+color tree	red black
+color header	brightgreen black ^From:
+color header	brightcyan black ^To:
+color header	brightcyan black ^Reply-To:
+color header	brightcyan black ^Cc:
+color header	brightblue black ^Subject:
+color body	brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body	brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+subscribe piclistbr@googlegroups.com
+
+# Use folders which match on \\.gz$ or \\.bz2$ as [gb]zipped folders:
+open-hook	\\.gz$ "gzip -cd '%f' > '%t'"
+close-hook	\\.gz$ "gzip -c '%t' > '%f'"
+append-hook	\\.gz$ "gzip -c '%t' >> '%f'"
+open-hook	\\.bz2$ "bzip2 -cd '%f' > '%t'"
+close-hook	\\.bz2$ "bzip2 -c '%t' > '%f'"
+append-hook	\\.bz2$ "bzip2 -c '%t' >> '%f'"
+open-hook   \\.xz$ "xz -cd %f > %t"
+close-hook  \\.xz$ "xz -c %t > %f"
+append-hook \\.xz$ "xz -c %t >> %f"
+# GnuPG configuration
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg %?p?--passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons --list-secret-keys %r" 
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
+
+# Configuration for the sidebar patch.
+# See /usr/share/doc/mutt/README.Patches for documentation.
+
+ifdef sidebar_visible set sidebar_visible sidebar_width=20
+
+# -*-muttrc-*-
+## The following options are only available if you have
+## compiled in S/MIME support
+
+# If you compiled mutt with support for both PGP and S/MIME, PGP
+# will be the default method unless the following option is set
+#set smime_is_default
+
+# Uncoment this if you don't want to set labels for certificates you add.
+# unset smime_ask_cert_label
+
+# Passphrase expiration
+#set smime_timeout=300
+
+# Global crypto options -- these affect PGP operations as well.
+#set crypt_autosign = yes
+#set crypt_replyencrypt = yes
+#set crypt_replysign = yes
+#set crypt_replysignencrypted = yes
+#set crypt_verify_sig = yes
+
+# Section A: Key Management.
+
+# The (default) keyfile for signing/decrypting.  Uncomment the following
+# line and replace the keyid with your own.
+#set smime_default_key="12345678.0"
+
+# Uncommen to make mutt ask what key to use when trying to decrypt a message.
+# It will use the default key above (if that was set) else.
+# unset smime_decrypt_use_default_key
+
+# Path to a file or directory with trusted certificates
+#set smime_ca_location="~/.smime/ca-bundle.crt"
+set smime_ca_location=`for f in $HOME/.smime/ca-certificates.crt $HOME/.smime/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt ; do if [ -e $f ] ; then echo $f ; exit ; fi ; done`
+
+# Path to where all known certificates go. (must exist!)
+set smime_certificates="~/.smime/certificates"
+
+# Path to where all private keys go. (must exist!)
+set smime_keys="~/.smime/keys"
+
+# These are used to extract a certificate from a message.
+# First generate a PKCS#7 structure from the message.
+set smime_pk7out_command="openssl smime -verify -in %f -noverify -pk7out"
+
+# Extract the included certificate(s) from a PKCS#7 structure.
+set smime_get_cert_command="openssl pkcs7 -print_certs -in %f"
+
+# Extract the signer's certificate only from a S/MIME signature (sender verification)
+set smime_get_signer_cert_command="openssl smime -verify -in %f -noverify -signer %c -out /dev/null"
+
+# This is used to get the email address the certificate was issued to.
+set smime_get_cert_email_command="openssl x509 -in  %f -noout -email"
+
+# Add a certificate to the database using smime_keys.
+set smime_import_cert_command="smime_keys add_cert %f"
+
+
+
+# Sction B: Outgoing messages
+
+# Algorithm to use for encryption.
+# valid choices are rc2-40, rc2-64, rc2-128, des, des3
+set smime_encrypt_with="des3"
+
+# Encrypt a message. Input file is a MIME entity.
+set smime_encrypt_command="openssl smime -encrypt -%a -outform DER -in %f %c"
+
+# Sign.
+set smime_sign_command="openssl smime -sign -signer %c -inkey %k -passin stdin -in %f -certfile %i -outform DER"
+
+
+
+#Section C: Incoming messages
+
+# Decrypt a message. Output is a MIME entity.
+set smime_decrypt_command="openssl smime -decrypt  -passin stdin -inform DER -in %f -inkey %k -recip %c"
+
+# Verify a signature of type multipart/signed
+set smime_verify_command="openssl smime -verify -inform DER -in %s %C -content %f"
+
+# Verify a signature of type application/x-pkcs7-mime
+set smime_verify_opaque_command="\
+openssl smime -verify -inform DER -in %s %C || \
+openssl smime -verify -inform DER -in %s -noverify 2>/dev/null"
+
+
+
+
+
+
+# Section D: Alternatives
+
+# Sign.  If you wish to NOT include the certificate your CA used in signing
+# your public key, use this command instead.
+# set smime_sign_command="openssl smime -sign -signer %c -inkey %k -passin stdin -in %f -outform DER"
+#
+# In order to verify the signature only and skip checking the certificate  chain:
+#
+# set smime_verify_command="openssl smime -verify -inform DER -in %s -content %f -noverify"
+# set smime_verify_opaque_command="openssl smime -verify -inform DER -in %s -noverify"
+#
+#
+
+set imap_user = blackdog245@gmail.com
+set imap_pass=TH85Uzuc
+set folder = "imaps://imap.gmail.com:993"
+
+set smtp_url = "smtp://blackdog245@smtp.gmail.com:587/"
+set smtp_pass= ""
+
+set trash=+[Gmail]/Trash
+set record="+[Gmail]/Sent Mail"
+set postponed="+[Gmail]/Drafts"
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file=~/.mutt/certificates 
+# set up the sidebar, default not visible 
+# set sidebar_width=25 
+# set sidebar_visible=yes #no 
+# set sidebar_delim='|' 
+# # which mailboxes to list in the sidebar 
+# mailboxes =INBOX ='INBOX.Deleted Items' =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gma#il]/Spam 
+
+
+
+
+# directories and commands
+set alias_file          = ~/.mutt/alias                         # alias file
+set header_cache        = ~/.mutt/cache/headers                 # where to store headers        
+set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
+set certificate_file    = ~/.mutt/certificates                  # where to store certs
+set mailcap_path        = ~/.mutt/mailcap                       # entrys for filetypes
+set signature           = ~/.mutt/sig                           # my signature file
+set tmpdir              = ~/.mutt/temp                          # where to keep temp files
+set editor              = "/usr/bin/vim +/^$"                   # use vim and skip to first blank line
+
+# main options
+set mbox_type           = Mbox                               # mailbox type
+set folder              = ~/Mail                                # mailbox location
+set spoolfile           = "+GMail/INBOX"                        # GMail is default inbox
+set timeout             = 3                                     # idle time before scanning
+set mail_check          = 0                                     # minimum time between scans
+set sort_alias          = alias                                 # sort alias file by alias
+set reverse_alias                                               # show names from alias file in index
+unset move                                                      # gmail does that
+set delete                                                      # don't ask, just do
+unset confirmappend                                             # don't ask, just do!
+set quit                                                        # don't ask, just do!!
+unset mark_old                                                  # read/new is good enough for me
+set beep_new                                                    # bell on new mails
+set pipe_decode                                                 # strip headers and eval mimes when piping
+set thorough_search                                             # strip headers and eval mimes before searching
+
+# index options
+set sort                = threads                               # like gmail 
+set sort_aux            = reverse-last-date-received            # like gmail
+set uncollapse_jump                                             # don't collapse on an unread message 
+set sort_re                                                     # thread based on regex
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+set pager_index_lines   = 10                                    # number of index lines to show 
+set pager_context       = 5                                     # number of context lines to show
+set pager_stop                                                  # don't go to next message automatically
+set menu_scroll                                                 # scroll in menus 
+set smart_wrap                                                  # don't split words
+set tilde                                                       # show tildes like in vim
+unset markers                                                   # no ugly plus signs
+auto_view text/html                                             # view html automatically
+alternative_order text/plain text/enriched text/html            # save html for last
+set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+# formats
+set date_format         = "%m/%d/%y at %I:%M%P"
+set index_format        = "%3C [%Z] %D %-15.15F %s"
+set alias_format        = "%4n %t %-20a  %r"
+
+# composing mail
+set realname            = "Patrick Brisbin"                     # who am i?
+set envelope_from                                               # which from?
+set sig_dashes                                                  # dashes before my sig... sweet
+set edit_headers                                                # show headers when composing
+set fast_reply                                                  # skip to compose when replying
+set sendmail_wait       = -1                                    # don't wait for sending... to complete
+set askcc                                                       # ask for CC:
+set fcc_attach                                                  # save attachments with the body
+unset mime_forward                                              # forward attachments as part of body
+set forward_format      = "Fwd: %s"                             # format for subject when forwarding
+set forward_decode                                              # decode when forwarding
+set attribution         = "On %d, %n wrote:"                    # set the attribution
+set reply_to                                                    # reply to Reply to: field
+set reverse_name                                                # reply as whomever it was to
+set include                                                     # include message in replies
+set forward_quote                                               # include message in forwards
+
+# headers to show
+ignore *                                                        # ignore all headers
+unignore from: to: cc: date: subject:                           # show only these
+hdr_order from: to: cc: date: subject:                          # and in this order
+
+# boxes
+mailboxes +GMail/INBOX +GMail/archive +GMail/sent +GMail/drafts +GMail/spam +GMail/trash
+mailboxes +GMX/INBOX +GMX/Archive +GMX/Sent +GMX/Drafts +GMX/Spam +GMX/Trash
+

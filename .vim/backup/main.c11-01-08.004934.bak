@@ -1,0 +1,129 @@
+/*			main.c
+ *
+ * 	Breakthrough : I sucessfully compiled the __code, but I din't  set the configur__ations
+ * 	bits yet ,and din't run it yet.
+ *
+ *
+ * */
+
+
+/*! \mainpage Led Blink
+ *  
+ *  Objetivo: Configurar o PIC18F4550 para usar o oscilador interno a 8 MHZ.
+ *Pode servir para testar o SDCC
+ *
+ *  Library's:
+ * \li default.h
+ * \li timer.h
+ */
+
+#define pic18f4550
+#pragma stack 0x200 64
+
+#include "default.h"
+#include "timer.h"
+#include <pic18fregs.h>
+
+
+/**
+ *@file main.c
+ *@brief Arquivo principal, mais detalhes ver descrição do projeto
+ *
+ *
+ *@author Caio Rodrigues Soares Silva
+ *
+ *
+ *@warning It's still under development.Unstable.
+ *
+ */
+
+
+
+
+/*  						Bits de configuração  
+ *
+ *
+ */
+
+// __CONFIG1L Dont' care : não importa , já que se estar a usar o oscilador 
+// interno não é preciso se importar com esta parte
+eeprom i8 __at __CONFIG1L conf1= _USBPLL_CLOCK_SRC_FROM_OSC1_OSC2_1L ;/**< Don't care, não importa , já que se estar a usar o oscilador interno de 8MHZ */
+
+
+eeprom i8 __at __CONFIG1H conf2= _OSC_INTOSC__INTOSC_RA6__USB_EC_1H & \ /**< Usar oscilador interno de 8MHZ porto RA6 entrada digital */
+							   _FCMEN_OFF_1H  & \
+							   _IESO_OFF_10x;
+
+
+eeprom i8 __at __CONFIG2L conf3= _VREGEN_OFF_2L & \ 
+							   _PUT_ON_2L & \	  /**<  Com power up timer */
+							   _BODEN_ON_2L & \  /**<  Brown-out reset habilitado em hardware*/
+							   _BORV_3_2L;    /**< Brown-ou reset no mínimo */
+
+eeprom i8 __at __CONFIG2H conf4=_WDT_DISABLED_CONTROLLED_2H & \  /* W__atch dog timer des__ativado */
+							  _WDTPS_1_1_2H; 				/* Don't care */
+
+eeprom i8 __at __CONFIG3H conf5= _CCP2MUX_RC1_3H & \
+							   _PBADEN_PORTB_4_0__CONFIGURED_AS_DIGITAL_I_O_ON_RESET_3H & \  /* PortoB configurado como digital npo RESET  */
+							   _LPT1OSC_ON_3H & \
+							   _MCLRE_MCLR_ON_RE3_OFF_3H ; // Com botão de RESET 
+
+eeprom i8 __at __CONFIG4L conf6= _STVR_OFF_4L & \ /* Overflow da pilha não causa reset*/
+							   _LVP_OFF_4L & \ 
+							   _ENICPORT_OFF_4L & \
+							   _ENHCPU_OFF_4L & \
+							   _BACKBUG_OFF_4L ;
+
+
+eeprom i8 __at __CONFIG5L conf7=_CP_0_OFF_5L & \  /* Sem proteção de código */
+							  _CP_1_OFF_5L & \
+							  _CP_2_OFF_5L & \
+							  _CP_3_OFF_5L;
+
+eeprom i8 __at __CONFIG5H conf77= _CPD_OFF_5H & \
+								  _CPB_OFF_5H;
+								  
+
+
+eeprom i8 __at __CONFIG6L conf8= _WRT_0_OFF_6L & \
+							   _WRT_1_OFF_6L & \
+							   _WRT_2_OFF_6L & \
+							   _WRT_3_OFF_6L;
+
+eeprom i8 __at __CONFIG6H conf9= _WRTD_OFF_6H & \
+							   _WRTB_OFF_6H & \
+							   _WRTC_OFF_6H;
+
+eeprom i8 __at __CONFIG7L conf10= _EBTR_0_OFF_7L & \
+								_EBTR_1_OFF_7L & \ 
+								_EBTR_2_OFF_7L & \
+								_EBTR_3_OFF_7L;
+
+eeprom i8 __at __CONFIG7H conf11= _EBTRB_OFF_7H;
+
+
+
+void main(void){
+
+		/*  Obs.: Faltou a configuração do oscilador
+		 *	Oscilador interno modo 8MHZ ==> Instruções em 8/4=2MHZ 
+		 */
+		OSCCON=0X72;
+		
+
+		TRISB=0; 	// Configura como saída
+		
+
+
+	while(TRUE) {
+
+			LATB=0xFF;	// Todos leds acesos em no porto B
+			delay10KTCYx(200);
+
+			LATB=0x00;
+			delay10KTCYx(200);
+
+	}//Endwhile
+
+		
+}

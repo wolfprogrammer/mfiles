@@ -1,0 +1,77 @@
+
+H1	= Heading1 =
+H2	== Heading  222 ==
+
+
+Tables
+
+The table structure of each cell "| |" separated by the value represented by lining.
+
+ | | Years | | Temperature (low) | | Temperature (high) | |
+ | | 1900 | | -10 | | 25 | |
+ | | 1910 | | -15 | | 30 | |
+ | | 1920 | | -10 | | 32 | |
+ | | 1930 | | -20 | | 29 | |
+ | | 1940 | | -2 | | 40 | |
+  Years 	  Temperature (low) 	  Temperature (high) 
+  1900 	  -10 	  25 
+  1910 	  -15 	  30 
+  1920 	  -10 	  32 
+  1930 	  -20 	  29 
+  1940 	  -2 	  40 
+
+Among the cells in the table can handle links and bold. 
+Align left, right, center, the left and right edges of the cell, or if there is space to do both at the controls.
+
+ | | Sequence | | control in the cell | | text decoration link | |
+ | | 090518001 | | left-aligned | | * bold * | |
+ | | 090518002 | | right aligned | | _ italics _ | |
+ | | 090518003 | | centered | | http://nanasi.jp/ | |
+
+
+
+ * Bulleted list item 1
+ * Bulleted list item 2
+    * Bulleted list sub item 1
+    * Bulleted list sub item 2
+    * More ...
+      * And more ...
+      * ...
+    * Bulleted list sub item 3
+    * Etc.
+
+# Numbered list item 1
+ # Numbered list item 2
+     # Numbered list sub item 1
+     # Numbered list sub item 2
+     # More ...
+         # And more ...
+         # ...
+     # Numbered list sub item 3
+     # Etc.
+
+
+ <! - One way text links ->
+ http://nanasi.jp/var/articles/vim/vimwiki/vimwiki_vim.html
+
+ <! - 2 way text links ->
+ [Http://nanasi.jp/]
+
+ <! - Three ways to link text link text ->
+ [Http://nanasi.jp/ use vim unnamed]
+
+ <! - Four ways to link text link text.  Relative.  ->
+ [[. / Index.html | vim using unnamed]
+
+
+
+
+
+Primeiro link criado finalmente!!!!!!!!!!!!!!!!!!!!!!111
+
+ # [ ] TODO 1 list
+ # [] TODO 2 list
+ # [ ] TODO 3 List
+ # [] TODO 4 List
+ # [] More ...
+ # [] And more ...

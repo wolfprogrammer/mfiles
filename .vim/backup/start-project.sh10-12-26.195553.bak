@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# 		Inicia projeto com o SDCC
+# para o pic 16f877a , 
+#
+
+SRC=$HOME/include
+
+NAMEP=$1		# Nome do projeto
+mkdir $NAMEP	#
+CD $NAMEP
+
+cp $SRC/main.c	.
+cp $SRC/Makefile .
+

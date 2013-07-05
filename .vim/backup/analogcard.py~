@@ -1,0 +1,68 @@
+#	Objetivo simular o cartao analogico de um CLP
+# controlador logico programavel e realizar e determinar
+#
+#	--> Tensao de saida ou entrada
+#       -->
+#
+#
+
+#
+from numpy import *
+
+#	Valores maximos e minimos da saida do sensor  (tensao/corrente)
+minO=4.0
+maxO=20.0
+
+
+#       Valores minimos e maximos da grandeza mediada pelo  sensor
+#
+minIn= 100.0		 # grau celsius
+maxIn= 1000.0
+
+
+#	Valores inteiro no cartao analogico do CLP
+#
+minC=0.0
+maxC=32760.0
+
+
+#---------------------- calculos ---------------------------#
+
+# calculo dos spans(faixa do valor maximo-minimo)
+Ospan=maxO-minO
+Inspan=maxIn-minIn
+Cspan=maxC-minC
+
+
+# Coeficientes lineares do sensor
+#
+
+#-------------  Valor lido pelo sensor X Saida (tensao ou corrente)
+A1=Inspan/Ospan
+B1=-A1*minO+minIn
+
+#------------- Valor da saida  X valor do cartao de saida
+A2=Ospan/Cspan
+B2=-A2*minC+minO
+
+#--------------
+# Vetor com  % da escala
+psc=arange(0,105,1)
+Cval=psc*Cspan/100.0+minC
+Outval=A2*Cval+B2
+Inval=A1*Outval+B1
+pinsc=100.0*Inval/maxIn # percentagem do fundo de escala
+
+print "Escala de saida do sensor , corrente :\t\t%.1f - %.1f   A" % (minO,maxO)
+print "Escala de entrada, valor lido pelo sensor:\t%.2f - %.2f graus C" % (maxIn,minIn)
+print "Escala do cartao analogico do PLC:\t\t%.0f %.0f" % (minC,maxC)
+
+
+vals=[pinsc,Outval,Inval,Cval]
+vals=array(vals)
+vals=vals.transpose()
+
+
+print "\n\n%scale\tOutput[Amps]\tInput[Cdeg]\tCard"
+for v in vals:
+	print "%.1f\t%.2f\t\t%.2f\t%.0f" % (v[0],v[1],v[2],v[3])

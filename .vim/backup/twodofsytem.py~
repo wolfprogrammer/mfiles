@@ -1,0 +1,99 @@
+#	Analise de sistema de segunda ordem 
+#
+#
+from pylab import *
+from engdef2 import *
+ion()			# modo interactivo
+
+ 
+
+m1=20.0   	# kg
+m2=2*m1 	 # kg
+k1=1000.0 	 # N/m
+k2=2*k1		 # N/m
+
+
+
+# Matriz das massas
+M=[[m1,0],[0,m2]] ;  		
+M=matrix(M)
+print "M=",M
+
+# Matriz de rigidez
+K=[[k1+k2,-k2],[-k2,k2]];	
+K=matrix(K)
+print "K=",K
+
+
+
+def natfreq(K,M,opt=0):
+	"""
+	Determina frequencia natural do sistem e as amplitudes para cada modo de vibracao
+	dados as matrizes
+	
+	M: Matriz de massa
+	K: Matriz de rigidez
+
+ 	 K.X=w^2.M.X   		q:autovalor de T
+	 u=q.inv(K).M.u               u:autovetor de T
+	 u=q.T.u                      T=inv(k).M      
+	"""
+	T=inv(M)*K
+	[q,u]=eig(T)		
+	Wn=sqrt(q)
+	u=array(u)
+
+	if opt==1:
+		print "Mode\tWn[rad/s]\tX"
+		for i in range(0,2):
+			print "%d\t%f\t" % (i,Wn[i]),u[i]
+
+
+	return Wn,u
+	       
+
+
+def initcond(u,v,X,wn):
+	"""
+	Determina a resposta do sistema nao amortecida para
+	dados , 
+
+	X(t)=somatorio Ai*Xi*sin(wi*t+phi_i)
+
+	Entrada:
+	u=X(O)   	posicao inicial
+	v=XD(0)         velocidade inicial
+	X=		modos de vibracao
+	wn		frequencia natural de cada modo
+
+
+	Saida:
+	Ai
+	"""
+	phi=[]
+	A=[]
+	for i in range(0,2):
+		ku=dot(u,X[i])
+		kv=dot(v,X[i])
+		phi_=arctan2(wn[i]*ku,kv)
+	
+		A_=ku/sin(phi_)
+                print "A=",A_
+		print "phi=",phi_
+
+		A.append(A_)
+		phi.append(phi_)
+	
+	print A
+	print phi
+	return [A,phi]
+
+
+
+
+[Wn,X]=natfreq(K,M,1)
+
+u=[1,-1]; u=array(u);
+v=[0,0];  v=array(v)
+
+[A,phi]=initcond(u,v,X,Wn)

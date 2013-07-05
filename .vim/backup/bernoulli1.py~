@@ -1,0 +1,26 @@
+
+#	Escoamento em condutos forcados equacao de Bernoulli
+#
+#
+#
+
+from unitfactors import *
+
+# Incicio da tubulacao
+p1=0.2*MPa 	# Mpa pressao no incio
+L=100 		# metros comprimento da tubulacao
+dz=1.0 		# diferenca de nivel
+p2=0.15*Mpa 	# Mpa pressao no final da tubulacao
+v=1.5 		# m/s velocidade media do escoamento
+u=1000 		# kg/m3 densidade da agua
+Y=g0*u          # N/m3 peso especifico da agua
+
+v2=v		# Velocidades iguais no escoamento
+v1=v
+
+dp=p1-p2  	# diferencial de pressao
+dv2=v1**2-v2**2 # diferencial dos quadrados das velocidades
+
+
+dH=dp/Y+dz+dv2/g0 # Perda de carga no tubo em mca(metros de coluna de agua)
+

@@ -1,0 +1,49 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  fixedp.c
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  08/19/2012 12:03:57 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  YOUR NAME (), 
+ *        Company:  
+ *
+ * =====================================================================================
+ */
+
+
+typedef unsigned int U16
+
+#define frac    8  	// Fractional bits
+#define SCALE   256     // Fixed point scale 
+#define fix(a)  (long (a))*SCALE
+
+
+//-------------------------------//
+
+#define  reference   fix(8.456)
+
+
+
+#include <stdio.h>
+#include <math.h>
+
+
+
+
+
+void main(){
+
+	float a;
+
+
+
+	// printf("Teste");
+	a=3.697*890;
+}
+

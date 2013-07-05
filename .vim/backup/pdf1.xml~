@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<grammar>
+	<title> Digital Signal Processing Introdution</title>
+
+	<author> 
+		<a>El perro negro</a>
+		<a>Ramirez</a>
+		<a>El loco</a>
+	</author>
+	
+	<desc>
+		Introdution to digital signal processing and its applications ...
+	</desc>
+	
+	<tags> 
+		<t>DSP</t>
+		<t>firmware</t>
+		<t>programming</t>
+		<t>fft</t>
+		<t>digital</t>
+	</tags>
+</grammar>

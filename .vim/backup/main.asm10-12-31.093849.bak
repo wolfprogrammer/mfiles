@@ -1,0 +1,1413 @@
+;--------------------------------------------------------
+; File Created by SDCC : free open source ANSI-C Compiler
+; Version 2.9.7 #5893 (Jul 28 2010) (Linux)
+; This file was generated Fri Dec 31 10:17:05 2010
+;--------------------------------------------------------
+; PIC port for the 14-bit core
+;--------------------------------------------------------
+	.file	"main.c"
+	list	p=16f877a
+	radix dec
+	include "p16f877a.inc"
+;--------------------------------------------------------
+; config word 
+;--------------------------------------------------------
+	__config 0x3f32
+;--------------------------------------------------------
+; external declarations
+;--------------------------------------------------------
+	extern	_ADCON0_bits
+	extern	_ADCON1_bits
+	extern	_CCP1CON_bits
+	extern	_CCP2CON_bits
+	extern	_CMCON_bits
+	extern	_CVRCON_bits
+	extern	_EECON1_bits
+	extern	_INTCON_bits
+	extern	_OPTION_REG_bits
+	extern	_PCON_bits
+	extern	_PIE1_bits
+	extern	_PIE2_bits
+	extern	_PIR1_bits
+	extern	_PIR2_bits
+	extern	_PORTA_bits
+	extern	_PORTB_bits
+	extern	_PORTC_bits
+	extern	_PORTD_bits
+	extern	_PORTE_bits
+	extern	_RCSTA_bits
+	extern	_SSPCON_bits
+	extern	_SSPCON2_bits
+	extern	_SSPSTAT_bits
+	extern	_STATUS_bits
+	extern	_T1CON_bits
+	extern	_T2CON_bits
+	extern	_TRISA_bits
+	extern	_TRISB_bits
+	extern	_TRISC_bits
+	extern	_TRISD_bits
+	extern	_TRISE_bits
+	extern	_TXSTA_bits
+	extern	_INDF
+	extern	_TMR0
+	extern	_PCL
+	extern	_STATUS
+	extern	_FSR
+	extern	_PORTA
+	extern	_PORTB
+	extern	_PORTC
+	extern	_PORTD
+	extern	_PORTE
+	extern	_PCLATH
+	extern	_INTCON
+	extern	_PIR1
+	extern	_PIR2
+	extern	_TMR1L
+	extern	_TMR1H
+	extern	_T1CON
+	extern	_TMR2
+	extern	_T2CON
+	extern	_SSPBUF
+	extern	_SSPCON
+	extern	_CCPR1L
+	extern	_CCPR1H
+	extern	_CCP1CON
+	extern	_RCSTA
+	extern	_TXREG
+	extern	_RCREG
+	extern	_CCPR2L
+	extern	_CCPR2H
+	extern	_CCP2CON
+	extern	_ADRESH
+	extern	_ADCON0
+	extern	_OPTION_REG
+	extern	_TRISA
+	extern	_TRISB
+	extern	_TRISC
+	extern	_TRISD
+	extern	_TRISE
+	extern	_PIE1
+	extern	_PIE2
+	extern	_PCON
+	extern	_SSPCON2
+	extern	_PR2
+	extern	_SSPADD
+	extern	_SSPSTAT
+	extern	_TXSTA
+	extern	_SPBRG
+	extern	_CMCON
+	extern	_CVRCON
+	extern	_ADRESL
+	extern	_ADCON1
+	extern	_EEDATA
+	extern	_EEADR
+	extern	_EEDATH
+	extern	_EEADRH
+	extern	_EECON1
+	extern	_EECON2
+	extern	__sdcc_gsinit_startup
+;--------------------------------------------------------
+; global declarations
+;--------------------------------------------------------
+	global	_setup_tmr1
+	global	_delay_tmr1
+	global	_delay1s
+	global	_delay10s
+	global	_delay_s
+	global	_delay_us
+	global	_delay_ms
+	global	_main
+
+	global PSAVE
+	global SSAVE
+	global WSAVE
+	global STK12
+	global STK11
+	global STK10
+	global STK09
+	global STK08
+	global STK07
+	global STK06
+	global STK05
+	global STK04
+	global STK03
+	global STK02
+	global STK01
+	global STK00
+
+sharebank udata_ovr 0x0070
+PSAVE	res 1
+SSAVE	res 1
+WSAVE	res 1
+STK12	res 1
+STK11	res 1
+STK10	res 1
+STK09	res 1
+STK08	res 1
+STK07	res 1
+STK06	res 1
+STK05	res 1
+STK04	res 1
+STK03	res 1
+STK02	res 1
+STK01	res 1
+STK00	res 1
+
+;--------------------------------------------------------
+; global definitions
+;--------------------------------------------------------
+;--------------------------------------------------------
+; absolute symbol definitions
+;--------------------------------------------------------
+;--------------------------------------------------------
+; compiler-defined variables
+;--------------------------------------------------------
+UDL_main_0	udata
+r0x1013	res	1
+r0x1009	res	1
+r0x1008	res	1
+r0x100A	res	1
+r0x100B	res	1
+r0x100C	res	1
+r0x100D	res	1
+r0x100E	res	1
+r0x100F	res	1
+r0x1011	res	1
+r0x1004	res	1
+r0x1007	res	1
+r0x1005	res	1
+r0x1006	res	1
+r0x1002	res	1
+r0x1003	res	1
+r0x1000	res	1
+r0x1001	res	1
+;--------------------------------------------------------
+; initialized data
+;--------------------------------------------------------
+;--------------------------------------------------------
+; overlayable items in internal ram 
+;--------------------------------------------------------
+;	udata_ovr
+;--------------------------------------------------------
+; reset vector 
+;--------------------------------------------------------
+STARTUP	code 0x0000
+	nop
+	pagesel __sdcc_gsinit_startup
+	goto	__sdcc_gsinit_startup
+;--------------------------------------------------------
+; code
+;--------------------------------------------------------
+code_main	code
+;***
+;  pBlock Stats: dbName = M
+;***
+;entry:  _main	;Function start
+; 2 exit points
+;has an exit
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=60previous max_key=5 
+_main	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _CMCON, size = 1
+;; 	line = 6376 result AOP_DIR=_CMCON, size=1, left -=-, size=0, right AOP_LIT=0x07, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	76; "main.c"	CMCON=7;		  // Desabilita comparadores analógicos
+	MOVLW	0x07
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _CMCON   offset=0
+	BANKSEL	_CMCON
+	MOVWF	_CMCON
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _ADCON0, size = 1
+;; 	line = 6376 result AOP_DIR=_ADCON0, size=1, left -=-, size=0, right AOP_LIT=0x06, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	77; "main.c"	ADCON0=6;		  // Todas entradas analógicas desabilitadas
+	MOVLW	0x06
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _ADCON0   offset=0
+	BANKSEL	_ADCON0
+	MOVWF	_ADCON0
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _INTCON, size = 1
+;; 	line = 6376 result AOP_DIR=_INTCON, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1013
+;;	1027  _INTCON   offset=0 - had to alloc by reg name
+;; BANKOPT2 BANKSEL dropped; _INTCON present in same bank as _ADCON0
+	.line	78; "main.c"	INTCON=0;		  //Sem interrupção
+	CLRF	_INTCON
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _T2CON, size = 1
+;; 	line = 6376 result AOP_DIR=_T2CON, size=1, left -=-, size=0, right AOP_LIT=0x05, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	83; "main.c"	T2CON  =0x04 | tmr2_1b4 ; //Turn on TIMER2 on prescaler 4 and set timer2
+	MOVLW	0x05
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _T2CON   offset=0
+;; BANKOPT2 BANKSEL dropped; _T2CON present in same bank as _ADCON0
+	MOVWF	_T2CON
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR2, size = 1
+;; 	line = 6376 result AOP_DIR=_TMR2, size=1, left -=-, size=0, right AOP_LIT=0xf9, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	91; "main.c"	TMR2=ticks;			 //PR2=TMR2
+	MOVLW	0xf9
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _TMR2   offset=0
+;; BANKOPT2 BANKSEL dropped; _TMR2 present in same bank as _ADCON0
+	MOVWF	_TMR2
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6151:genPointerSet *{*
+;; ***	genPointerSet  6152
+;; gen.c:5979:genNearPointerSet *{*
+;; ***	genNearPointerSet  5980
+;;	641
+;;	aopForRemat 425
+;;	446: rname _PORTC_bits, val 0, const = 0
+;; ***	genNearPointerSet  5997
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_PORTC_bits
+;; 	line = 5999 result AOP_PCODE=_PORTC_bits, size=2, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; gen.c:5728:genPackBits *{*
+;; ***	genPackBits  5729
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_PORTC_bits
+; >>> gen.c:5754:genPackBits
+;; BANKOPT2 BANKSEL dropped; _PORTC_bits present in same bank as _ADCON0
+	.line	92; "main.c"	RC2=0;
+	BCF	_PORTC_bits,2
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6151:genPointerSet *{*
+;; ***	genPointerSet  6152
+;; gen.c:5979:genNearPointerSet *{*
+;; ***	genNearPointerSet  5980
+;;	641
+;;	aopForRemat 425
+;;	446: rname _TRISC_bits, val 0, const = 0
+;; ***	genNearPointerSet  5997
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_TRISC_bits
+;; 	line = 5999 result AOP_PCODE=_TRISC_bits, size=2, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; gen.c:5728:genPackBits *{*
+;; ***	genPackBits  5729
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_TRISC_bits
+; >>> gen.c:5754:genPackBits
+	.line	93; "main.c"	TRISC2=0;            //Configura TRISC2 como saída
+	BANKSEL	_TRISC_bits
+	BCF	_TRISC_bits,2
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _CCPR1L, size = 1
+;; 	line = 6376 result AOP_DIR=_CCPR1L, size=1, left -=-, size=0, right AOP_LIT=0x7d, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	100; "main.c"	CCPR1L=duty_cycle>>2;						// Set MSB values
+	MOVLW	0x7d
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _CCPR1L   offset=0
+	BANKSEL	_CCPR1L
+	MOVWF	_CCPR1L
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:4005:genOr *{*
+;; ***	genOr  4006
+;; ***	aopForSym 350
+;;	361 sym->rname = _CCP1CON, size = 1
+;;	606
+;; 	line = 4012 result AOP_DIR=_CCP1CON, size=1, left AOP_DIR=_CCP1CON, size=1, right AOP_LIT=0x0c, size=1
+;; 	line = 4037 result AOP_DIR=_CCP1CON, size=1, left AOP_DIR=_CCP1CON, size=1, right AOP_LIT=0x0c, size=1
+; >>> gen.c:4172:genOr
+	.line	101; "main.c"	CCP1CON|=(duty_cycle & 0x03)<<4 | PWM_ON;		// Set Duty cycle and start PWM mode bits
+	MOVLW	0x0c
+; >>> gen.c:4174:genOr
+;;	1013
+;;	1029  _CCP1CON   offset=0
+;; BANKOPT2 BANKSEL dropped; _CCP1CON present in same bank as _CCPR1L
+	IORWF	_CCP1CON,F
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _TRISB, size = 1
+;; 	line = 6376 result AOP_DIR=_TRISB, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1013
+;;	1029  _TRISB   offset=0
+	.line	107; "main.c"	TRISB=0;
+	BANKSEL	_TRISB
+	CLRF	_TRISB
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _PORTB, size = 1
+;; 	line = 6376 result AOP_DIR=_PORTB, size=1, left -=-, size=0, right AOP_LIT=0xff, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00171_DS_
+	.line	111; "main.c"	PORTB=0xFF;
+	MOVLW	0xff
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _PORTB   offset=0
+	BANKSEL	_PORTB
+	MOVWF	_PORTB
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2588:genGoto *{*
+; >>> gen.c:2590:genGoto
+;; ***	popGetLabel  key=2, label offset 69
+	GOTO	_00171_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+	RETURN	
+; exit point of _main
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _delay_us	;Function start
+; 2 exit points
+;has an exit
+;2 compiler assigned registers:
+;   r0x1000
+;   r0x1001
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=48previous max_key=8 
+_delay_us	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6773:genReceive *{*
+;; ***	genReceive  6774
+;;	721 register type nRegs=1
+;; gen.c:1840:assignResultValue *{*
+;; ***	assignResultValue  1842
+;; 	line = 1844 result -=-, size=0, left AOP_REG=r0x105B, size=1, right -=-, size=0
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x105B 
+	.line	189; "/home/caio/include/delay.h"	void delay_us(u8 N){
+	BANKSEL	r0x1000
+	MOVWF	r0x1000
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;;	721 register type nRegs=1
+;; 	line = 6376 result AOP_REG=r0x105C, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1109 rIdx = r0x105C 
+;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+	.line	192; "/home/caio/include/delay.h"	for(count1=0;count1<N;count1++);
+	CLRF	r0x1001
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:3381:genCmpLt *{*
+;; ***	genCmpLt  3382
+;;	721 register type nRegs=1
+;;	721 register type nRegs=1
+;; gen.c:3100:genCmp *{*
+; >>> gen.c:3075:pic14_mov2w_regOrLit
+;;	1109 rIdx = r0x105B 
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00161_DS_
+	BANKSEL	r0x1000
+	MOVF	r0x1000,W
+; >>> gen.c:3237:genCmp
+;;	1109 rIdx = r0x105C 
+;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+	SUBWF	r0x1001,W
+;; gen.c:3047:genSkipc *{*
+; >>> gen.c:3052:genSkipc
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x1000's banks
+	BTFSC	STATUS,0
+; >>> gen.c:3056:genSkipc
+;; ***	popGetLabel  key=5, label offset 60
+	GOTO	_00165_DS_
+;genSkipc:3057: created from rifx:0xbfb70db4
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; ***	genPlus  547
+;; genarith.c:548:genPlus *{*
+;;	721 register type nRegs=1
+;;	606
+;; 	line = 554 result AOP_REG=r0x105C, size=1, left AOP_REG=r0x105C, size=1, right AOP_LIT=0x01, size=1
+;; genarith.c:142:genPlusIncr *{*
+;; ***	genPlusIncr  144
+;; 	result AOP_REG, left AOP_REG, right AOP_LIT
+;; 	genPlusIncr  156
+; >>> genarith.c:168:genPlusIncr
+;;	1109 rIdx = r0x105C 
+;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+	INCF	r0x1001,F
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2588:genGoto *{*
+; >>> gen.c:2590:genGoto
+;; ***	popGetLabel  key=1, label offset 60
+	GOTO	_00161_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00165_DS_
+	RETURN	
+; exit point of _delay_us
+;; gen.c:6837:genpic14Code *{*
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _delay_ms	;Function start
+; 2 exit points
+;has an exit
+;2 compiler assigned registers:
+;   r0x1002
+;   r0x1003
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=39previous max_key=5 
+_delay_ms	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6773:genReceive *{*
+;; ***	genReceive  6774
+;;	721 register type nRegs=1
+;; gen.c:1840:assignResultValue *{*
+;; ***	assignResultValue  1842
+;; 	line = 1844 result -=-, size=0, left AOP_REG=r0x1059, size=1, right -=-, size=0
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x1059 
+	.line	177; "/home/caio/include/delay.h"	void delay_ms(u8 N){
+	BANKSEL	r0x1002
+	MOVWF	r0x1002
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _OPTION_REG, size = 1
+;; 	line = 6376 result AOP_DIR=_OPTION_REG, size=1, left -=-, size=0, right AOP_LIT=0x02, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	180; "/home/caio/include/delay.h"	OPTION_REG=tmr0_1b8;	//Clock 1 por 32 , prescaler de 32 
+	MOVLW	0x02
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _OPTION_REG   offset=0
+	BANKSEL	_OPTION_REG
+	MOVWF	_OPTION_REG
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR0, size = 1
+;; 	line = 6376 result AOP_DIR=_TMR0, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1013
+;;	1029  _TMR0   offset=0
+	.line	181; "/home/caio/include/delay.h"	TMR0=0;					//Inicia o TMR0
+	BANKSEL	_TMR0
+	CLRF	_TMR0
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;;	721 register type nRegs=1
+;; 	line = 6376 result AOP_REG=r0x105A, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1109 rIdx = r0x105A 
+	.line	183; "/home/caio/include/delay.h"	for(count1=0;count1<N;count1++) while(TMR0<125);	
+	BANKSEL	r0x1003
+	CLRF	r0x1003
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:3381:genCmpLt *{*
+;; ***	genCmpLt  3382
+;;	721 register type nRegs=1
+;;	721 register type nRegs=1
+;; gen.c:3100:genCmp *{*
+; >>> gen.c:3075:pic14_mov2w_regOrLit
+;;	1109 rIdx = r0x1059 
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00152_DS_
+	BANKSEL	r0x1002
+	MOVF	r0x1002,W
+; >>> gen.c:3237:genCmp
+;;	1109 rIdx = r0x105A 
+;; BANKOPT2 BANKSEL dropped; r0x1003 present in same bank as r0x1002
+	SUBWF	r0x1003,W
+;; gen.c:3047:genSkipc *{*
+; >>> gen.c:3052:genSkipc
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x1002's banks
+	BTFSC	STATUS,0
+; >>> gen.c:3056:genSkipc
+;; ***	popGetLabel  key=8, label offset 48
+	GOTO	_00156_DS_
+;genSkipc:3057: created from rifx:0xbfb70db4
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:3381:genCmpLt *{*
+;; ***	genCmpLt  3382
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR0, size = 1
+;; gen.c:3100:genCmp *{*
+;unsigned compare: left < lit(0x7D=125), size=1
+; >>> gen.c:3073:pic14_mov2w_regOrLit
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00149_DS_
+	MOVLW	0x7d
+; >>> gen.c:3237:genCmp
+;;	1013
+;;	1029  _TMR0   offset=0
+	BANKSEL	_TMR0
+	SUBWF	_TMR0,W
+;; gen.c:3047:genSkipc *{*
+; >>> gen.c:3054:genSkipc
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of _TMR0's banks
+	BTFSS	STATUS,0
+; >>> gen.c:3056:genSkipc
+;; ***	popGetLabel  key=1, label offset 48
+	GOTO	_00149_DS_
+;genSkipc:3057: created from rifx:0xbfb70db4
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; ***	genPlus  547
+;; genarith.c:548:genPlus *{*
+;;	721 register type nRegs=1
+;;	606
+;; 	line = 554 result AOP_REG=r0x105A, size=1, left AOP_REG=r0x105A, size=1, right AOP_LIT=0x01, size=1
+;; genarith.c:142:genPlusIncr *{*
+;; ***	genPlusIncr  144
+;; 	result AOP_REG, left AOP_REG, right AOP_LIT
+;; 	genPlusIncr  156
+; >>> genarith.c:168:genPlusIncr
+;;	1109 rIdx = r0x105A 
+	BANKSEL	r0x1003
+	INCF	r0x1003,F
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2588:genGoto *{*
+; >>> gen.c:2590:genGoto
+;; ***	popGetLabel  key=4, label offset 48
+	GOTO	_00152_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00156_DS_
+	RETURN	
+; exit point of _delay_ms
+;; gen.c:6837:genpic14Code *{*
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _delay_s	;Function start
+; 2 exit points
+;has an exit
+;functions called:
+;   _delay1s
+;   _delay1s
+;2 compiler assigned registers:
+;   r0x1005
+;   r0x1006
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=32previous max_key=3 
+_delay_s	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6773:genReceive *{*
+;; ***	genReceive  6774
+;;	721 register type nRegs=1
+;; gen.c:1840:assignResultValue *{*
+;; ***	assignResultValue  1842
+;; 	line = 1844 result -=-, size=0, left AOP_REG=r0x1057, size=1, right -=-, size=0
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x1057 
+	.line	169; "/home/caio/include/delay.h"	void delay_s(u8 countp){
+	BANKSEL	r0x1005
+	MOVWF	r0x1005
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;;	721 register type nRegs=1
+;; 	line = 6376 result AOP_REG=r0x1058, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1109 rIdx = r0x1058 
+;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1005
+	.line	171; "/home/caio/include/delay.h"	for(i=0;i<countp;i++) delay1s();
+	CLRF	r0x1006
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:3381:genCmpLt *{*
+;; ***	genCmpLt  3382
+;;	721 register type nRegs=1
+;;	721 register type nRegs=1
+;; gen.c:3100:genCmp *{*
+; >>> gen.c:3075:pic14_mov2w_regOrLit
+;;	1109 rIdx = r0x1057 
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00140_DS_
+	BANKSEL	r0x1005
+	MOVF	r0x1005,W
+; >>> gen.c:3237:genCmp
+;;	1109 rIdx = r0x1058 
+;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1005
+	SUBWF	r0x1006,W
+;; gen.c:3047:genSkipc *{*
+; >>> gen.c:3052:genSkipc
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x1005's banks
+	BTFSC	STATUS,0
+; >>> gen.c:3056:genSkipc
+;; ***	popGetLabel  key=5, label offset 39
+	GOTO	_00144_DS_
+;genSkipc:3057: created from rifx:0xbfb70db4
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2004:genCall *{*
+;; ***	genCall  2006
+;; gen.c:1739:saveRegisters *{*
+;; ***	saveRegisters  1741
+; >>> gen.c:2092:genCall
+;; BANKOPT3 drop assumptions: PCI with label or call found
+	CALL	_delay1s
+;; gen.c:1783:unsaveRegisters *{*
+;; ***	unsaveRegisters  1785
+;; gen.c:2235:resultRemat *{*
+;; ***	genPlus  547
+;; genarith.c:548:genPlus *{*
+;;	721 register type nRegs=1
+;;	606
+;; 	line = 554 result AOP_REG=r0x1058, size=1, left AOP_REG=r0x1058, size=1, right AOP_LIT=0x01, size=1
+;; genarith.c:142:genPlusIncr *{*
+;; ***	genPlusIncr  144
+;; 	result AOP_REG, left AOP_REG, right AOP_LIT
+;; 	genPlusIncr  156
+; >>> genarith.c:168:genPlusIncr
+;;	1109 rIdx = r0x1058 
+	BANKSEL	r0x1006
+	INCF	r0x1006,F
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2588:genGoto *{*
+; >>> gen.c:2590:genGoto
+;; ***	popGetLabel  key=1, label offset 39
+	GOTO	_00140_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00144_DS_
+	RETURN	
+; exit point of _delay_s
+;; gen.c:6837:genpic14Code *{*
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _delay10s	;Function start
+; 2 exit points
+;has an exit
+;functions called:
+;   _delay1s
+;   _delay1s
+;1 compiler assigned register :
+;   r0x1007
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=20previous max_key=8 
+_delay10s	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;;	721 register type nRegs=1
+;; 	line = 6376 result AOP_REG=r0x1056, size=1, left -=-, size=0, right AOP_LIT=0x0a, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	164; "/home/caio/include/delay.h"	for(countp=0;countp<10;countp++) delay1s();
+	MOVLW	0x0a
+; >>> gen.c:6475:genAssign
+;;	1109 rIdx = r0x1056 
+	BANKSEL	r0x1007
+	MOVWF	r0x1007
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2004:genCall *{*
+;; ***	genCall  2006
+;; gen.c:1739:saveRegisters *{*
+;; ***	saveRegisters  1741
+; >>> gen.c:2092:genCall
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00135_DS_
+	CALL	_delay1s
+;; gen.c:1783:unsaveRegisters *{*
+;; ***	unsaveRegisters  1785
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:6729:genDjnz *{*
+;; ***	genDjnz  6730
+;;	721 register type nRegs=1
+; >>> gen.c:6760:genDjnz
+;;	1109 rIdx = r0x1056 
+	BANKSEL	r0x1007
+	DECFSZ	r0x1007,F
+; >>> gen.c:6761:genDjnz
+;; ***	popGetLabel  key=3, label offset 32
+	GOTO	_00135_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+	RETURN	
+; exit point of _delay10s
+;; gen.c:6837:genpic14Code *{*
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _delay1s	;Function start
+; 2 exit points
+;has an exit
+;1 compiler assigned register :
+;   r0x1004
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=8previous max_key=8 
+_delay1s	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _OPTION_REG, size = 1
+;; 	line = 6376 result AOP_DIR=_OPTION_REG, size=1, left -=-, size=0, right AOP_LIT=0x04, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6473:genAssign
+	.line	154; "/home/caio/include/delay.h"	OPTION_REG=tmr0_1b32;	//Clock 1 por 32 , prescaler de 32 
+	MOVLW	0x04
+; >>> gen.c:6475:genAssign
+;;	1013
+;;	1029  _OPTION_REG   offset=0
+	BANKSEL	_OPTION_REG
+	MOVWF	_OPTION_REG
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR0, size = 1
+;; 	line = 6376 result AOP_DIR=_TMR0, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1013
+;;	1029  _TMR0   offset=0
+	.line	155; "/home/caio/include/delay.h"	TMR0=0;					//Inicia o TMR0
+	BANKSEL	_TMR0
+	CLRF	_TMR0
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;;	721 register type nRegs=1
+;; 	line = 6376 result AOP_REG=r0x1055, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1109 rIdx = r0x1055 
+	.line	157; "/home/caio/include/delay.h"	for(count1=0;count1<125;count1++) while(TMR0<250);	
+	BANKSEL	r0x1004
+	CLRF	r0x1004
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:3381:genCmpLt *{*
+;; ***	genCmpLt  3382
+;;	721 register type nRegs=1
+;; gen.c:3100:genCmp *{*
+;unsigned compare: left < lit(0x7D=125), size=1
+; >>> gen.c:3073:pic14_mov2w_regOrLit
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00124_DS_
+	MOVLW	0x7d
+; >>> gen.c:3237:genCmp
+;;	1109 rIdx = r0x1055 
+	BANKSEL	r0x1004
+	SUBWF	r0x1004,W
+;; gen.c:3047:genSkipc *{*
+; >>> gen.c:3052:genSkipc
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x1004's banks
+	BTFSC	STATUS,0
+; >>> gen.c:3056:genSkipc
+;; ***	popGetLabel  key=8, label offset 20
+	GOTO	_00128_DS_
+;genSkipc:3057: created from rifx:0xbfb70db4
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:3381:genCmpLt *{*
+;; ***	genCmpLt  3382
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR0, size = 1
+;; gen.c:3100:genCmp *{*
+;unsigned compare: left < lit(0xFA=250), size=1
+; >>> gen.c:3073:pic14_mov2w_regOrLit
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00121_DS_
+	MOVLW	0xfa
+; >>> gen.c:3237:genCmp
+;;	1013
+;;	1029  _TMR0   offset=0
+	BANKSEL	_TMR0
+	SUBWF	_TMR0,W
+;; gen.c:3047:genSkipc *{*
+; >>> gen.c:3054:genSkipc
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of _TMR0's banks
+	BTFSS	STATUS,0
+; >>> gen.c:3056:genSkipc
+;; ***	popGetLabel  key=1, label offset 20
+	GOTO	_00121_DS_
+;genSkipc:3057: created from rifx:0xbfb70db4
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; ***	genPlus  547
+;; genarith.c:548:genPlus *{*
+;;	721 register type nRegs=1
+;;	606
+;; 	line = 554 result AOP_REG=r0x1055, size=1, left AOP_REG=r0x1055, size=1, right AOP_LIT=0x01, size=1
+;; genarith.c:142:genPlusIncr *{*
+;; ***	genPlusIncr  144
+;; 	result AOP_REG, left AOP_REG, right AOP_LIT
+;; 	genPlusIncr  156
+; >>> genarith.c:168:genPlusIncr
+;;	1109 rIdx = r0x1055 
+	BANKSEL	r0x1004
+	INCF	r0x1004,F
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2588:genGoto *{*
+; >>> gen.c:2590:genGoto
+;; ***	popGetLabel  key=4, label offset 20
+	GOTO	_00124_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00128_DS_
+	RETURN	
+; exit point of _delay1s
+;; gen.c:6837:genpic14Code *{*
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _delay_tmr1	;Function start
+; 2 exit points
+;has an exit
+;12 compiler assigned registers:
+;   r0x1008
+;   STK00
+;   r0x1009
+;   r0x100A
+;   r0x100B
+;   r0x100C
+;   r0x100D
+;   r0x100E
+;   r0x100F
+;   r0x1010
+;   r0x1011
+;   r0x1012
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=4previous max_key=0 
+_delay_tmr1	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6773:genReceive *{*
+;; ***	genReceive  6774
+;;	721 register type nRegs=2
+;; gen.c:1840:assignResultValue *{*
+;; ***	assignResultValue  1842
+;; 	line = 1844 result -=-, size=0, left AOP_REG=r0x1049, size=2, right -=-, size=0
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x104A 
+	BANKSEL	r0x100A
+	MOVWF	r0x100A
+;; BANKOPT2 BANKSEL dropped; r0x1008 present in same bank as r0x100A
+	.line	112; "/home/caio/include/delay.h"	void delay_tmr1(u16 ticks){
+	MOVWF	r0x1008
+; >>> gen.c:1393:get_returnvalue
+;; ***	popRegFromIdx,1043  , rIdx=0x7f
+;; BANKOPT1 BANKSEL dropped; STK00 present in all of r0x100A's banks
+	MOVF	STK00,W
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x1049 
+;; BANKOPT2 BANKSEL dropped; r0x1009 present in same bank as r0x100A
+	MOVWF	r0x1009
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6366:genAssign *{*
+;; ***	genAssign  6367
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR1H, size = 1
+;; 	line = 6376 result AOP_DIR=_TMR1H, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; ***	genAssign  6468
+; >>> gen.c:6477:genAssign
+;;	1013
+;;	1029  _TMR1H   offset=0
+	.line	114; "/home/caio/include/delay.h"	TMR1H=0;
+	BANKSEL	_TMR1H
+	CLRF	_TMR1H
+;; gen.c:2235:resultRemat *{*
+;; gen.c:5012:genGenericShift *{*
+;; ***	genGenericShift  5016
+;;	721 register type nRegs=2
+;;	721 register type nRegs=2
+;; gen.c:4761:movLeft2Result *{*
+;; ***	movLeft2Result  4762
+; >>> gen.c:4766:movLeft2Result
+;;	1109 rIdx = r0x104A 
+;;99	MOVF	r0x1008,W
+; >>> gen.c:4767:movLeft2Result
+;;	1109 rIdx = r0x104B 
+;; ***	addSign  797
+;; genarith.c:798:addSign *{*
+; >>> genarith.c:817:addSign
+;;	1109 rIdx = r0x104C 
+	.line	117; "/home/caio/include/delay.h"	while((hbyte(ticks)!=TMR1L)|(lbyte(ticks)!=TMR1H)){}
+	BANKSEL	r0x100B
+	CLRF	r0x100B
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6555:genCast *{*
+;; ***	genCast  6556
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR1L, size = 1
+;;	721 register type nRegs=2
+;; 	line = 6564 result AOP_REG=r0x104D, size=2, left -=-, size=0, right AOP_DIR=_TMR1L, size=1
+; >>> gen.c:6710:genCast
+;;	1013
+;;	1027  _TMR1L   offset=0 - had to alloc by reg name
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00109_DS_
+	BANKSEL	_TMR1L
+	MOVF	_TMR1L,W
+; >>> gen.c:6711:genCast
+;;	1109 rIdx = r0x104D 
+	BANKSEL	r0x100C
+	MOVWF	r0x100C
+;; ***	addSign  797
+;; genarith.c:798:addSign *{*
+; >>> genarith.c:817:addSign
+;;	1109 rIdx = r0x104E 
+;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100C
+	CLRF	r0x100D
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; NULL :(	3550
+;; gen.c:3412:genCmpEq *{*
+;; ***	genCmpEq  3413
+;; ifx is null
+;;	721 register type nRegs=2
+;;	721 register type nRegs=1
+;; 	line = 3424 result AOP_REG=r0x104F, size=1, left AOP_REG=r0x104B, size=2, right AOP_REG=r0x104D, size=2
+; >>> gen.c:3449:genCmpEq
+;;	1109 rIdx = r0x104F 
+;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100C
+	CLRF	r0x100E
+;; ***	mov2w  1356  offset=0
+; >>> gen.c:1361:mov2w
+;;	1109 rIdx = r0x104D 
+;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100C
+	MOVF	r0x100C,W
+; >>> gen.c:3493:genCmpEq
+;;	1109 rIdx = r0x104B 
+;; BANKOPT2 BANKSEL dropped; r0x100A present in same bank as r0x100C
+	XORWF	r0x100A,W
+; >>> gen.c:3495:genCmpEq
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x100C's banks
+	BTFSS	STATUS,2
+; >>> gen.c:3497:genCmpEq
+;; ***	popGetLabel  key=7, label offset 8
+	GOTO	_00115_DS_
+;; ***	mov2w  1356  offset=1
+; >>> gen.c:1361:mov2w
+;;	1109 rIdx = r0x104E 
+;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100C
+	MOVF	r0x100D,W
+; >>> gen.c:3493:genCmpEq
+;;	1109 rIdx = r0x104C 
+;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100C
+	XORWF	r0x100B,W
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x100C's banks
+	BTFSC	STATUS,2
+;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100C
+	INCF	r0x100E,F
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00115_DS_
+	BANKSEL	r0x100E
+	MOVF	r0x100E,W
+	MOVLW	0x00
+; >>> gen.c:1536:genNot
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x100E's banks
+	BTFSC	STATUS,2
+; >>> gen.c:1537:genNot
+	MOVLW	0x01
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x104D 
+;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100E
+	MOVWF	r0x100C
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; NULL :(	3550
+;; gen.c:3412:genCmpEq *{*
+;; ***	genCmpEq  3413
+;; ifx is null
+;; ***	aopForSym 350
+;;	361 sym->rname = _TMR1H, size = 1
+;;	721 register type nRegs=1
+;; 	line = 3424 result AOP_REG=r0x104F, size=1, left AOP_LIT=0xff, size=1, right AOP_DIR=_TMR1H, size=1
+; >>> gen.c:3449:genCmpEq
+;;	1109 rIdx = r0x104F 
+;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100E
+	CLRF	r0x100E
+;; ***	mov2w  1356  offset=0
+; >>> gen.c:1361:mov2w
+;;	1013
+;;	1029  _TMR1H   offset=0
+	BANKSEL	_TMR1H
+	MOVF	_TMR1H,W
+; >>> gen.c:3476:genCmpEq
+	XORLW	0xff
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of _TMR1H's banks
+	BTFSS	STATUS,2
+	GOTO	_00001_DS_
+	BANKSEL	r0x100E
+	INCF	r0x100E,F
+;; BANKOPT3 drop assumptions: PCI with label or call found
+_00001_DS_
+	BANKSEL	r0x100E
+	MOVF	r0x100E,W
+	MOVLW	0x00
+; >>> gen.c:1536:genNot
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x100E's banks
+	BTFSC	STATUS,2
+; >>> gen.c:1537:genNot
+	MOVLW	0x01
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x1050 
+;; BANKOPT2 BANKSEL dropped; r0x100F present in same bank as r0x100E
+	MOVWF	r0x100F
+;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100E
+	MOVWF	r0x100E
+	ANDWF	r0x1009,W
+; >>> gen.c:3985:genAnd
+;;	1109 rIdx = r0x1050 
+;; BANKOPT2 BANKSEL dropped; r0x100F present in same bank as r0x100E
+	MOVWF	r0x100F
+; >>> gen.c:3983:genAnd
+;;	1109 rIdx = r0x1051 
+	MOVLW	0x00
+; >>> gen.c:3984:genAnd
+;;	1109 rIdx = r0x104A 
+;; BANKOPT2 BANKSEL dropped; r0x1008 present in same bank as r0x100E
+	ANDWF	r0x1008,W
+; >>> gen.c:3985:genAnd
+;;	1109 rIdx = r0x1052 
+;; BANKOPT2 BANKSEL dropped; r0x1011 present in same bank as r0x100E
+	MOVWF	r0x1011
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6555:genCast *{*
+;; ***	genCast  6556
+;;	721 register type nRegs=1
+;;	721 register type nRegs=2
+;; 	line = 6564 result AOP_REG=r0x104F, size=2, left -=-, size=0, right AOP_REG=r0x104D, size=1
+; >>> gen.c:6710:genCast
+;;	1109 rIdx = r0x104D 
+;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100E
+	MOVF	r0x100C,W
+; >>> gen.c:6711:genCast
+;;	1109 rIdx = r0x104F 
+;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100E
+	MOVWF	r0x100E
+;; BANKOPT2 BANKSEL dropped; r0x100F present in same bank as r0x100E
+	IORWF	r0x100F,W
+;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100E
+	MOVWF	r0x100C
+;; BANKOPT2 BANKSEL dropped; r0x1011 present in same bank as r0x100E
+	IORWF	r0x1011,W
+;; BANKOPT1 BANKSEL dropped; STATUS present in all of r0x100E's banks
+	BTFSS	STATUS,2
+; >>> gen.c:6268:genIfx
+;; ***	popGetLabel  key=1, label offset 8
+	GOTO	_00109_DS_
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+	RETURN	
+; exit point of _delay_tmr1
+;; gen.c:6837:genpic14Code *{*
+
+;***
+;  pBlock Stats: dbName = C
+;***
+;entry:  _setup_tmr1	;Function start
+; 2 exit points
+;has an exit
+;1 compiler assigned register :
+;   r0x1013
+;; Starting pCode block
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2257:genFunction *{*
+;; ***	genFunction  2259 curr label offset=0previous max_key=0 
+_setup_tmr1	;Function start
+; 2 exit points
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6773:genReceive *{*
+;; ***	genReceive  6774
+;;	721 register type nRegs=1
+;; gen.c:1840:assignResultValue *{*
+;; ***	assignResultValue  1842
+;; 	line = 1844 result -=-, size=0, left AOP_REG=r0x1048, size=1, right -=-, size=0
+; >>> gen.c:1367:movwf
+;;	1109 rIdx = r0x1048 
+	.line	85; "/home/caio/include/delay.h"	void setup_tmr1(u8 prescaler){
+	BANKSEL	r0x1013
+	MOVWF	r0x1013
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6151:genPointerSet *{*
+;; ***	genPointerSet  6152
+;; gen.c:5979:genNearPointerSet *{*
+;; ***	genNearPointerSet  5980
+;;	641
+;;	aopForRemat 425
+;;	446: rname _T1CON_bits, val 0, const = 0
+;; ***	genNearPointerSet  5997
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+;; 	line = 5999 result AOP_PCODE=_T1CON_bits, size=2, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; gen.c:5728:genPackBits *{*
+;; ***	genPackBits  5729
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+; >>> gen.c:5754:genPackBits
+	.line	87; "/home/caio/include/delay.h"	TMR1ON=0 ;          // Turn off TIMER1
+	BANKSEL	_T1CON_bits
+	BCF	_T1CON_bits,0
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6151:genPointerSet *{*
+;; ***	genPointerSet  6152
+;; gen.c:5979:genNearPointerSet *{*
+;; ***	genNearPointerSet  5980
+;;	641
+;;	aopForRemat 425
+;;	446: rname _T1CON_bits, val 0, const = 0
+;; ***	genNearPointerSet  5997
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+;; 	line = 5999 result AOP_PCODE=_T1CON_bits, size=2, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; gen.c:5728:genPackBits *{*
+;; ***	genPackBits  5729
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+; >>> gen.c:5754:genPackBits
+;; BANKOPT2 BANKSEL dropped; _T1CON_bits present in same bank as _T1CON_bits
+	.line	88; "/home/caio/include/delay.h"	T1OSCEN=0;          // Disable Internal RC oscillator
+	BCF	_T1CON_bits,3
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6151:genPointerSet *{*
+;; ***	genPointerSet  6152
+;; gen.c:5979:genNearPointerSet *{*
+;; ***	genNearPointerSet  5980
+;;	641
+;;	aopForRemat 425
+;;	446: rname _T1CON_bits, val 0, const = 0
+;; ***	genNearPointerSet  5997
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+;; 	line = 5999 result AOP_PCODE=_T1CON_bits, size=2, left -=-, size=0, right AOP_LIT=0x00, size=1
+;; gen.c:5728:genPackBits *{*
+;; ***	genPackBits  5729
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+; >>> gen.c:5754:genPackBits
+;; BANKOPT2 BANKSEL dropped; _T1CON_bits present in same bank as _T1CON_bits
+	.line	89; "/home/caio/include/delay.h"	TMR1CS=0;           // Use Fosc/4 , external clock
+	BCF	_T1CON_bits,1
+;; gen.c:2235:resultRemat *{*
+;; gen.c:3528:ifxForOp *{*
+;; ***	ifxForOp  3530
+;; gen.c:4005:genOr *{*
+;; ***	genOr  4006
+;; ***	aopForSym 350
+;;	361 sym->rname = _T1CON, size = 1
+;;	721 register type nRegs=1
+;;	606
+;; 	line = 4012 result AOP_DIR=_T1CON, size=1, left AOP_DIR=_T1CON, size=1, right AOP_REG=r0x1048, size=1
+;; 	line = 4037 result AOP_DIR=_T1CON, size=1, left AOP_DIR=_T1CON, size=1, right AOP_REG=r0x1048, size=1
+; >>> gen.c:4179:genOr
+;;	1109 rIdx = r0x1048 
+	.line	90; "/home/caio/include/delay.h"	T1CON|=prescaler;   //
+	BANKSEL	r0x1013
+	MOVF	r0x1013,W
+; >>> gen.c:4180:genOr
+;;	1013
+;;	1029  _T1CON   offset=0
+	BANKSEL	_T1CON
+	IORWF	_T1CON,F
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2235:resultRemat *{*
+;; gen.c:6151:genPointerSet *{*
+;; ***	genPointerSet  6152
+;; gen.c:5979:genNearPointerSet *{*
+;; ***	genNearPointerSet  5980
+;;	641
+;;	aopForRemat 425
+;;	446: rname _T1CON_bits, val 0, const = 0
+;; ***	genNearPointerSet  5997
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+;; 	line = 5999 result AOP_PCODE=_T1CON_bits, size=2, left -=-, size=0, right AOP_LIT=0x01, size=1
+;; gen.c:5728:genPackBits *{*
+;; ***	genPackBits  5729
+;;	858: aopGet AOP_PCODE type PO_IMMEDIATE
+;;	_T1CON_bits
+; >>> gen.c:5754:genPackBits
+;; BANKOPT2 BANKSEL dropped; _T1CON_bits present in same bank as _T1CON
+	.line	91; "/home/caio/include/delay.h"	TMR1ON=1;           // Start Timer1
+	BSF	_T1CON_bits,0
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2571:genLabel *{*
+;; ***	genLabel  2574
+;; gen.c:2235:resultRemat *{*
+;; gen.c:2409:genEndFunction *{*
+;; ***	genEndFunction  2411
+	RETURN	
+; exit point of _setup_tmr1
+;; gen.c:6837:genpic14Code *{*
+
+
+;	code size estimation:
+;	  132+   39 =   171 instructions (  420 byte)
+
+	end

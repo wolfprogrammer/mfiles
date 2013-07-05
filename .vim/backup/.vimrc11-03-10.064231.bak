@@ -1,0 +1,277 @@
+
+"-----------------------------------------------
+"					Geral "{{{
+"-----------------------------------------------
+
+" Tira a horrivel compatibilidade com o antigo vi
+set nocompatible
+
+"Entra no modo normal rapidamente, só tipando jj no insert mode
+imap jj <ESC>
+
+
+set number	" Linhas numeradas
+syntax on	" Reconhecimento de syntax automático
+se ai		" Identação automática
+set ts=4	" tab stop para de identar após 4 tabs
+set nowrap	" Sem quebra linha
+set hid		" Muda de buffer sem salvar
+
+" Associa automaticamente o plugin ao tipo de arquivo
+filetype plugin on
+
+set background=dark
+
+set ruler
+
+" Mostra comando a ser executado
+set showcmd	
+
+" Envia mais caracteres ao terminal melhorando o redraw
+set ttyfast	
+
+"Mostra o nome  arquivo que está sendo editado
+set title   
+
+"Quantas linhas o histórico lembrará
+set history=5000 
+
+set showmatch " Mostra parenteses e colchetes que 'casam' 
+
+set autoread   " Lê automaticamente o arquivo quando muda de fora
+
+
+let mapleader=","
+let g:mapleader=","
+
+" Salvar rapido
+nmap <leader>w :w!<CR>
+
+" Salvar e sair rapido 
+nmap <leader>wee :wqa!<CR>
+
+" Fechar buffer atual
+nmap <leader>mee :bd!<CR>
+
+" Usa as setas para algo útil
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+" Configuração dos tabs
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" Janelas de erros
+"
+nmap <leader>cc :botright cope<cr>
+nmap <leader>n :cn<cr>
+nmap <leader>p :cp<cr>
+"}}}
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Files/Backups"{{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" make backup file
+set backup
+
+" where to put backup file (don't forget to make a backup directory)
+set backupdir=~./vim/backup
+
+" directory is the directory for temp file
+set directory=/tmp
+
+" Name of the errorfile for the :make command
+set makeef=make.err
+
+"Grava os backups no diretório /home/caio/.vim/backup
+let &backupdir="/home/caio/.vim/backup"
+let &backupext=strftime("%y-%m-%d.%H%M%S.bak")
+"}}}
+
+"Fecha ou abre a NerdTree
+map <F2> :NERDTreeToggle <CR>
+
+
+" Abreviatura util
+ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
+
+
+"set cursorcolumn
+"set cursorline
+
+"Integra o clipboard e o vim basta digitar \v (lembrete) CTRL+V
+map \v : r! parcellite -o <CR>
+
+
+
+
+
+" Edita o arquivo y pelo arquivo x , basta selecionar o nome de y e apertar gf 'go to file
+"no modo visual
+" nmap gf :new %:p:h/<cfile><CR>
+
+
+
+"------------------------------------------
+"		 Configurações de busca"{{{
+"-----------------------------------------
+set incsearch		"Busca incremental
+set hlsearch		"Destaca texto
+set ignorecase		"Ignora maiusculas ou minusculas
+nmap n nzz
+nmap N Nzz
+
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+"}}}
+
+
+" ------------- Sai sem stress do vim
+cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
+
+
+
+" Guarda posição do cursor e histórico da linha de comando :
+" ----------------------------------------------------------------------------
+   set viminfo='100,\"1000,:40,%,n~/.viminfo
+   au BufReadPost * if line("'\"")|execute("normal `\"")|endif
+   autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+
+
+" Tipos de arquivos ignorados pelo gvim/vim
+"------------------------------------------
+set wildignore=*.o,*.obj,*.bak,*.exe,*.dll,*.com,*.class,*.au,*.wav,*.ps,\
+                 \*.avi,*.wmv,*.flv,*.djvu,*.pdf,*.chm,*.dvi,*.svn/,*~
+
+
+
+" Templates de arquivos( esqueletos de arquivos)
+"-----------------------------------------------
+		autocmd BufNewFile *.c  0r ~/.vim/templates/c.tlp
+
+
+  " autocmd BufNewFile *.sh Or ~/.vim/templates/sh.tlp
+
+
+" Man: Paginas de manual sao na verdade textos em NROFF
+"--------------------------------------------------
+au BufNewFile,BufRead *.man set ft=nroff
+
+
+
+
+" Configurações de Dobras (folders) {{{
+" ----------------------------------------------------------------------------
+" Ajuda:
+"   zf ................ operador para criar folders
+"   zfis .............. cria um folder da sentença atual
+"   zd ................ delete folder
+"   zo ................ abrir dobra sob o cursor
+"   zc ................ fechar dobra sob o cursor
+"   zv ................ visualizar linha sob o cursor
+"   zR ................ abre todos os folders    
+"   zM ................ fecha todos os folders
+"}}}
+
+" Dobras ,folders ----------------------
+set foldmethod=marker
+
+"abre dobras
+"map + zo
+
+"Fecha uma certa dobra
+"map - zc
+
+"abre todas dobras
+"map ++zR
+
+"fecha todas dobras
+"map -- zM
+
+
+
+"Barra de espaço abre e fecha folders:
+nnoremap <space> @=((foldclosed(line("."))<0)? 'zc' : 'zo' )<CR>
+
+"source ~/.vim/encrypt.vim
+
+
+
+
+
+"***************************************************
+"			LATEX
+"
+"
+
+"Latex suite plugin
+set runtimepath+=/usr/share/vim/addons
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+filetype indent on
+let g:tex_flavor="latex"
+
+
+
+" Prevents Vim 7.0 from setting filetype to 'plaintex'
+let g:tex_flavor='latex'
+
+
+
+"-----------------------------------------
+"		Função para setup do sdcc
+"
+"	Configura ambiente de trabalho para o SDCC
+"
+function SDCC()
+"		Follow SDCC coding style
+		set tabstop=4
+		set softtabstop=2
+		set expandtab
+		set cindent
+		set formatoptions=tcroq
+		set shiftwidth=4
+		set cinoptions=n-2,^-2,{2,l1,t0,(0
+		set ft=""
+		source /home/caio/pic-sdcc/c.vim
+		highlight Comment ctermfg=green  cterm=bold
+		highlight Number ctermfg=lightblue
+		highlight String ctermfg=red
+		highlight Constant ctermfg=darkblue cterm=bold
+		highlight Type	ctermfg=red cterm=bold
+
+		" Põe o diretório atual na variável path
+		set path=.,~/usr/share/sdcc/non-free/include/pic14,,~/usr/share/sdcc/non-free/include/pic16,~/pic-sdcc/include/pic16f/,~/pic-sdcc/include/pic18f/
+		
+		"Compila o código fonte
+		:map <F11> :make <CR>
+
+		"Abre janela com os erros de programação
+		:map <F12> :copen <CR> 
+		:map <F10> :TlistToggle <CR>
+
+		:map zi	:q <CR>
+endfunction
+
+
+" Função para octave
+function OCTA()
+	set ft=matlab
+	"Executa o código octave no vim
+	:map <F12> :!octave-3.2.3 '%:t' <CR>
+	
+	:nnoremap <F5> "=strftime("%c")<CR>P
+	:inoremap <F5> <C-R>=strftime("%c")<CR>
+endfunction
+
+		
+		

@@ -1,0 +1,1965 @@
+gplink-0.13.7 beta
+Copyright (c) 1998-2005 gputils project
+Listing File Generated: 2-5-2011  02:35:33
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 3.0.1 #6092 (Dec 31 2010) (Linux)
+                                           ; This file was generated Sat Feb  5 02:35:33 2011
+                                           ;--------------------------------------------------------
+                                           ; PIC port for the 14-bit core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"main.c"
+                                           	list	p=16f877a
+                                           	radix dec
+                                           	include "p16f877a.inc"
+                                                   LIST
+                                           ; P16F877A.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                           ;--------------------------------------------------------
+                                           ; config word 
+                                           ;--------------------------------------------------------
+                                           	__config 0x3f32
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	__mullong
+                                           	extern	__divulong
+                                           	extern	__modulong
+                                           	extern	_ADCON0_bits
+                                           	extern	_ADCON1_bits
+                                           	extern	_CCP1CON_bits
+                                           	extern	_CCP2CON_bits
+                                           	extern	_CMCON_bits
+                                           	extern	_CVRCON_bits
+                                           	extern	_EECON1_bits
+                                           	extern	_INTCON_bits
+                                           	extern	_OPTION_REG_bits
+                                           	extern	_PCON_bits
+                                           	extern	_PIE1_bits
+                                           	extern	_PIE2_bits
+                                           	extern	_PIR1_bits
+                                           	extern	_PIR2_bits
+                                           	extern	_PORTA_bits
+                                           	extern	_PORTB_bits
+                                           	extern	_PORTC_bits
+                                           	extern	_PORTD_bits
+                                           	extern	_PORTE_bits
+                                           	extern	_RCSTA_bits
+                                           	extern	_SSPCON_bits
+                                           	extern	_SSPCON2_bits
+                                           	extern	_SSPSTAT_bits
+                                           	extern	_STATUS_bits
+                                           	extern	_T1CON_bits
+                                           	extern	_T2CON_bits
+                                           	extern	_TRISA_bits
+                                           	extern	_TRISB_bits
+                                           	extern	_TRISC_bits
+                                           	extern	_TRISD_bits
+                                           	extern	_TRISE_bits
+                                           	extern	_TXSTA_bits
+                                           	extern	_INDF
+                                           	extern	_TMR0
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_FSR
+                                           	extern	_PORTA
+                                           	extern	_PORTB
+                                           	extern	_PORTC
+                                           	extern	_PORTD
+                                           	extern	_PORTE
+                                           	extern	_PCLATH
+                                           	extern	_INTCON
+                                           	extern	_PIR1
+                                           	extern	_PIR2
+                                           	extern	_TMR1L
+                                           	extern	_TMR1H
+                                           	extern	_T1CON
+                                           	extern	_TMR2
+                                           	extern	_T2CON
+                                           	extern	_SSPBUF
+                                           	extern	_SSPCON
+                                           	extern	_CCPR1L
+                                           	extern	_CCPR1H
+                                           	extern	_CCP1CON
+                                           	extern	_RCSTA
+                                           	extern	_TXREG
+                                           	extern	_RCREG
+                                           	extern	_CCPR2L
+                                           	extern	_CCPR2H
+                                           	extern	_CCP2CON
+                                           	extern	_ADRESH
+                                           	extern	_ADCON0
+                                           	extern	_OPTION_REG
+                                           	extern	_TRISA
+                                           	extern	_TRISB
+                                           	extern	_TRISC
+                                           	extern	_TRISD
+                                           	extern	_TRISE
+                                           	extern	_PIE1
+                                           	extern	_PIE2
+                                           	extern	_PCON
+                                           	extern	_SSPCON2
+                                           	extern	_PR2
+                                           	extern	_SSPADD
+                                           	extern	_SSPSTAT
+                                           	extern	_TXSTA
+                                           	extern	_SPBRG
+                                           	extern	_CMCON
+                                           	extern	_CVRCON
+                                           	extern	_ADRESL
+                                           	extern	_ADCON1
+                                           	extern	_EEDATA
+                                           	extern	_EEADR
+                                           	extern	_EEDATH
+                                           	extern	_EEADRH
+                                           	extern	_EECON1
+                                           	extern	_EECON2
+                                           	extern	__gptrget1
+                                           	extern	__divuchar
+                                           	extern	__moduchar
+                                           	extern	___sdcc_saved_fsr
+                                           	extern	__sdcc_gsinit_startup
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_delay1TCYx
+                                           	global	_delay10TCYx
+                                           	global	_delay100TCYx
+                                           	global	_delay1KTCYx
+                                           	global	_delay10KTCYx
+                                           	global	_timer0delay
+                                           	global	_setup_tmr1
+                                           	global	_delay_tmr1
+                                           	global	_delay1s
+                                           	global	_delay10s
+                                           	global	_delay_s
+                                           	global	_delay_us
+                                           	global	_initUART
+                                           	global	_delay_ms
+                                           	global	_sendchar
+                                           	global	_prints
+                                           	global	_getchar
+                                           	global	_print_num
+                                           	global	_print_numhex
+                                           	global	_isr
+                                           	global	_main
+                                           	global	_mychar
+                                           	global	_adc_done
+                                           	global	_ad_val
+                                           	global	_tlong
+                                           	global	_ch
+                                           	global	_ptr
+                                           
+                                           	global PSAVE
+                                           	global SSAVE
+                                           	global WSAVE
+                                           	global STK12
+                                           	global STK11
+                                           	global STK10
+                                           	global STK09
+                                           	global STK08
+                                           	global STK07
+                                           	global STK06
+                                           	global STK05
+                                           	global STK04
+                                           	global STK03
+                                           	global STK02
+                                           	global STK01
+                                           	global STK00
+                                           
+                                           sharebank udata_ovr 0x0070
+                                           PSAVE	res 1
+                                           SSAVE	res 1
+                                           WSAVE	res 1
+                                           STK12	res 1
+                                           STK11	res 1
+                                           STK10	res 1
+                                           STK09	res 1
+                                           STK08	res 1
+                                           STK07	res 1
+                                           STK06	res 1
+                                           STK05	res 1
+                                           STK04	res 1
+                                           STK03	res 1
+                                           STK02	res 1
+                                           STK01	res 1
+                                           STK00	res 1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           UD_main_0	udata
+                                           _mychar	res	1
+                                           
+                                           UD_main_1	udata
+                                           _adc_done	res	1
+                                           
+                                           UD_main_2	udata
+                                           _ad_val	res	2
+                                           
+                                           UD_main_3	udata
+                                           _tlong	res	4
+                                           
+                                           UD_main_4	udata
+                                           _ch	res	1
+                                           
+                                           UD_main_5	udata
+                                           _ptr	res	3
+                                           
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           UDL_main_0	udata
+                                           r0x1028	res	1
+                                           r0x1029	res	1
+                                           r0x102A	res	1
+                                           r0x102F	res	1
+                                           r0x1030	res	1
+                                           r0x102B	res	1
+                                           r0x102C	res	1
+                                           r0x102D	res	1
+                                           r0x102E	res	1
+                                           r0x1027	res	1
+                                           r0x101D	res	1
+                                           r0x101C	res	1
+                                           r0x101E	res	1
+                                           r0x101F	res	1
+                                           r0x1020	res	1
+                                           r0x1021	res	1
+                                           r0x1022	res	1
+                                           r0x1023	res	1
+                                           r0x1025	res	1
+                                           r0x1018	res	1
+                                           r0x101B	res	1
+                                           r0x1019	res	1
+                                           r0x101A	res	1
+                                           r0x100C	res	1
+                                           r0x100D	res	1
+                                           r0x1016	res	1
+                                           r0x1017	res	1
+                                           r0x100E	res	1
+                                           r0x100F	res	1
+                                           r0x1010	res	1
+                                           r0x1012	res	1
+                                           r0x1011	res	1
+                                           r0x1013	res	1
+                                           r0x1014	res	1
+                                           r0x1015	res	1
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ID_main_0	code
+                                           __str_0
+000677   3454     retlw	0x54               	retlw 0x54 ; 'T'
+000678   3465     retlw	0x65               	retlw 0x65 ; 'e'
+000679   3473     retlw	0x73               	retlw 0x73 ; 's'
+00067a   3474     retlw	0x74               	retlw 0x74 ; 't'
+00067b   3465     retlw	0x65               	retlw 0x65 ; 'e'
+00067c   3420     retlw	0x20               	retlw 0x20 ; ' '
+00067d   3464     retlw	0x64               	retlw 0x64 ; 'd'
+00067e   346f     retlw	0x6f               	retlw 0x6f ; 'o'
+00067f   3420     retlw	0x20               	retlw 0x20 ; ' '
+000680   3463     retlw	0x63               	retlw 0x63 ; 'c'
+000681   346f     retlw	0x6f               	retlw 0x6f ; 'o'
+000682   346e     retlw	0x6e               	retlw 0x6e ; 'n'
+000683   3476     retlw	0x76               	retlw 0x76 ; 'v'
+000684   3465     retlw	0x65               	retlw 0x65 ; 'e'
+000685   3472     retlw	0x72               	retlw 0x72 ; 'r'
+000686   3473     retlw	0x73               	retlw 0x73 ; 's'
+000687   346f     retlw	0x6f               	retlw 0x6f ; 'o'
+000688   3472     retlw	0x72               	retlw 0x72 ; 'r'
+000689   3420     retlw	0x20               	retlw 0x20 ; ' '
+00068a   3441     retlw	0x41               	retlw 0x41 ; 'A'
+00068b   342f     retlw	0x2f               	retlw 0x2f ; '/'
+00068c   3444     retlw	0x44               	retlw 0x44 ; 'D'
+00068d   3400     retlw	0                  	retlw 0x00 ; '.'
+                                           
+                                           ID_main_1	code
+                                           __str_1
+00068e   3441     retlw	0x41               	retlw 0x41 ; 'A'
+00068f   3444     retlw	0x44               	retlw 0x44 ; 'D'
+000690   3443     retlw	0x43               	retlw 0x43 ; 'C'
+000691   344f     retlw	0x4f               	retlw 0x4f ; 'O'
+000692   344e     retlw	0x4e               	retlw 0x4e ; 'N'
+000693   3430     retlw	0x30               	retlw 0x30 ; '0'
+000694   343d     retlw	0x3d               	retlw 0x3d ; '='
+000695   3400     retlw	0                  	retlw 0x00 ; '.'
+                                           
+                                           ID_main_2	code
+                                           __str_2
+000696   3441     retlw	0x41               	retlw 0x41 ; 'A'
+000697   3444     retlw	0x44               	retlw 0x44 ; 'D'
+000698   3443     retlw	0x43               	retlw 0x43 ; 'C'
+000699   344f     retlw	0x4f               	retlw 0x4f ; 'O'
+00069a   344e     retlw	0x4e               	retlw 0x4e ; 'N'
+00069b   3431     retlw	0x31               	retlw 0x31 ; '1'
+00069c   343d     retlw	0x3d               	retlw 0x3d ; '='
+00069d   3400     retlw	0                  	retlw 0x00 ; '.'
+                                           
+                                           ID_main_3	code
+                                           __str_3
+00069e   3449     retlw	0x49               	retlw 0x49 ; 'I'
+00069f   344e     retlw	0x4e               	retlw 0x4e ; 'N'
+0006a0   3454     retlw	0x54               	retlw 0x54 ; 'T'
+0006a1   3443     retlw	0x43               	retlw 0x43 ; 'C'
+0006a2   344f     retlw	0x4f               	retlw 0x4f ; 'O'
+0006a3   344e     retlw	0x4e               	retlw 0x4e ; 'N'
+0006a4   343d     retlw	0x3d               	retlw 0x3d ; '='
+0006a5   3400     retlw	0                  	retlw 0x00 ; '.'
+                                           
+                                           ID_main_4	code
+                                           __str_4
+0006ae   3420     retlw	0x20               	retlw 0x20 ; ' '
+0006af   3400     retlw	0                  	retlw 0x00 ; '.'
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; reset vector 
+                                           ;--------------------------------------------------------
+                                           STARTUP	code 0x0000
+000000   0000     nop                      	nop
+000001   118a     bcf	0xa, 0x3             	pagesel __sdcc_gsinit_startup
+000002   120a     bcf	0xa, 0x4             
+000003   2bd4     goto	0x3d4               	goto	__sdcc_gsinit_startup
+                                           ;--------------------------------------------------------
+                                           ; interrupt and initialization code
+                                           ;--------------------------------------------------------
+                                           c_interrupt	code	0x4
+                                           __sdcc_interrupt
+                                           ;***
+                                           ;  pBlock Stats: dbName = I
+                                           ;***
+                                           ;entry:  _isr	;Function start
+                                           ; 0 exit points
+                                           ;functions called:
+                                           ;   _sendchar
+                                           ;   _delay1TCYx
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _delay1TCYx
+                                           ;   _sendchar
+                                           ;; Starting pCode block
+                                           _isr	;Function start
+                                           ; 0 exit points
+                                           ;	.line	130; "main.c"	void isr  (void ) __interrupt 0 {
+000004   00f2     movwf	0x72               	MOVWF	WSAVE
+000005   0e03     swapf	0x3, w             	SWAPF	STATUS,W
+000006   0183     clrf	0x3                 	CLRF	STATUS
+000007   00f1     movwf	0x71               	MOVWF	SSAVE
+000008   080a     movf	0xa, w              	MOVF	PCLATH,W
+000009   018a     clrf	0xa                 	CLRF	PCLATH
+00000a   00f0     movwf	0x70               	MOVWF	PSAVE
+00000b   0804     movf	0x4, w              	MOVF	FSR,W
+00000c   1683     bsf	0x3, 0x5             	BANKSEL	___sdcc_saved_fsr
+00000d   1303     bcf	0x3, 0x6             
+00000e   00be     movwf	0x3e               	MOVWF	___sdcc_saved_fsr
+                                           ;	.line	133; "main.c"	if(ADIF){
+00000f   1283     bcf	0x3, 0x5             	BANKSEL	_PIR1_bits
+000010   1303     bcf	0x3, 0x6             
+000011   1f0c     btfss	0xc, 0x6           	BTFSS	_PIR1_bits,6
+000012   282e     goto	0x2e                	GOTO	_00251_DS_
+                                           ;	.line	134; "main.c"	ADIF=0;     // Clear interrupt flag
+000013   130c     bcf	0xc, 0x6             	BCF	_PIR1_bits,6
+                                           ;	.line	136; "main.c"	sendchar('m');
+000014   306d     movlw	0x6d               	MOVLW	0x6d
+000015   118a     bcf	0xa, 0x3             	PAGESEL	_sendchar
+000016   120a     bcf	0xa, 0x4             
+000017   2297     call	0x297               	CALL	_sendchar
+000018   118a     bcf	0xa, 0x3             	PAGESEL	$
+000019   120a     bcf	0xa, 0x4             
+                                           ;	.line	137; "main.c"	adc_done=1; // A/D conversion finished
+00001a   3001     movlw	0x1                	MOVLW	0x01
+00001b   1683     bsf	0x3, 0x5             	BANKSEL	_adc_done
+00001c   1303     bcf	0x3, 0x6             
+00001d   00bc     movwf	0x3c               	MOVWF	_adc_done
+                                           ;	.line	139; "main.c"	PORTB=ADRESH;
+00001e   1283     bcf	0x3, 0x5             	BANKSEL	_ADRESH
+00001f   1303     bcf	0x3, 0x6             
+000020   081e     movf	0x1e, w             	MOVF	_ADRESH,W
+000021   0086     movwf	0x6                	MOVWF	_PORTB
+                                           ;	.line	143; "main.c"	delay1TCYx(40);   // 40 us delay
+000022   3028     movlw	0x28               	MOVLW	0x28
+000023   118a     bcf	0xa, 0x3             	PAGESEL	_delay1TCYx
+000024   120a     bcf	0xa, 0x4             
+000025   23cc     call	0x3cc               	CALL	_delay1TCYx
+000026   118a     bcf	0xa, 0x3             	PAGESEL	$
+000027   120a     bcf	0xa, 0x4             
+                                           ;	.line	145; "main.c"	sendchar('y');
+000028   3079     movlw	0x79               	MOVLW	0x79
+000029   118a     bcf	0xa, 0x3             	PAGESEL	_sendchar
+00002a   120a     bcf	0xa, 0x4             
+00002b   2297     call	0x297               	CALL	_sendchar
+00002c   118a     bcf	0xa, 0x3             	PAGESEL	$
+00002d   120a     bcf	0xa, 0x4             
+                                           _00251_DS_
+00002e   1683     bsf	0x3, 0x5             	BANKSEL	___sdcc_saved_fsr
+00002f   1303     bcf	0x3, 0x6             
+000030   083e     movf	0x3e, w             	MOVF	___sdcc_saved_fsr,W
+000031   0084     movwf	0x4                	MOVWF	FSR
+000032   0870     movf	0x70, w             	MOVF	PSAVE,W
+000033   008a     movwf	0xa                	MOVWF	PCLATH
+000034   0183     clrf	0x3                 	CLRF	STATUS
+000035   0e71     swapf	0x71, w            	SWAPF	SSAVE,W
+000036   0083     movwf	0x3                	MOVWF	STATUS
+000037   0ef2     swapf	0x72, f            	SWAPF	WSAVE,F
+000038   0e72     swapf	0x72, w            	SWAPF	WSAVE,W
+                                           END_OF_INTERRUPT
+000039   0009     retfie                   	RETFIE	
+                                           
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_main	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = M
+                                           ;***
+                                           ;entry:  _main	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _initUART
+                                           ;   _prints
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   _print_numhex
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   _print_numhex
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   _print_numhex
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __mullong
+                                           ;   __divulong
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __divulong
+                                           ;   __modulong
+                                           ;   _sendchar
+                                           ;   __modulong
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   __gptrget1
+                                           ;   _print_num
+                                           ;   _prints
+                                           ;   __gptrget1
+                                           ;   _print_num
+                                           ;   _sendchar
+                                           ;   _initUART
+                                           ;   _prints
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   _print_numhex
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   _print_numhex
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   _print_numhex
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __mullong
+                                           ;   __divulong
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __divulong
+                                           ;   __modulong
+                                           ;   _sendchar
+                                           ;   __modulong
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _prints
+                                           ;   __gptrget1
+                                           ;   _print_num
+                                           ;   _prints
+                                           ;   __gptrget1
+                                           ;   _print_num
+                                           ;   _sendchar
+                                           ;12 compiler assigned registers:
+                                           ;   STK00
+                                           ;   r0x1011
+                                           ;   r0x1012
+                                           ;   r0x1013
+                                           ;   STK01
+                                           ;   r0x1014
+                                           ;   STK06
+                                           ;   STK05
+                                           ;   STK04
+                                           ;   STK03
+                                           ;   STK02
+                                           ;   r0x1015
+                                           ;; Starting pCode block
+                                           _main	;Function start
+                                           ; 2 exit points
+                                           ;	.line	166; "main.c"	initUART(25,1);
+00003a   3001     movlw	0x1                	MOVLW	0x01
+00003b   00ff     movwf	0x7f               	MOVWF	STK00
+00003c   3019     movlw	0x19               	MOVLW	0x19
+00003d   22a5     call	0x2a5               	CALL	_initUART
+                                           ;	.line	168; "main.c"	prints("Teste do conversor A/D");
+00003e   3006     movlw	0x6                	MOVLW	high (__str_0 + 0)
+00003f   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+000040   1303     bcf	0x3, 0x6             
+000041   00bf     movwf	0x3f               	MOVWF	r0x1011
+000042   3077     movlw	0x77               	MOVLW	(__str_0 + 0)
+000043   00be     movwf	0x3e               	MOVWF	r0x1012
+000044   3080     movlw	0x80               	MOVLW	0x80
+000045   00c0     movwf	0x40               	MOVWF	r0x1013
+000046   083e     movf	0x3e, w             	MOVF	r0x1012,W
+000047   00fe     movwf	0x7e               	MOVWF	STK01
+000048   083f     movf	0x3f, w             	MOVF	r0x1011,W
+000049   00ff     movwf	0x7f               	MOVWF	STK00
+00004a   0840     movf	0x40, w             	MOVF	r0x1013,W
+00004b   2273     call	0x273               	CALL	_prints
+                                           ;	.line	169; "main.c"	newline();
+00004c   300d     movlw	0xd                	MOVLW	0x0d
+00004d   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	172; "main.c"	TRISB=0x00;
+00004e   1683     bsf	0x3, 0x5             	BANKSEL	_TRISB
+00004f   1303     bcf	0x3, 0x6             
+000050   0186     clrf	0x6                 	CLRF	_TRISB
+                                           ;	.line	174; "main.c"	ADON=0;			// Shut down ADC
+000051   1283     bcf	0x3, 0x5             	BANKSEL	_ADCON0_bits
+000052   1303     bcf	0x3, 0x6             
+000053   101f     bcf	0x1f, 0              	BCF	_ADCON0_bits,0
+                                           ;	.line	176; "main.c"	ADCS0=1;		// Clock adc Fosc/8=> Tad= 2 us
+000054   171f     bsf	0x1f, 0x6            	BSF	_ADCON0_bits,6
+                                           ;	.line	177; "main.c"	ADCS1=0;
+000055   139f     bcf	0x1f, 0x7            	BCF	_ADCON0_bits,7
+                                           ;	.line	178; "main.c"	ADCS2=0;
+000056   1683     bsf	0x3, 0x5             	BANKSEL	_ADCON1_bits
+000057   1303     bcf	0x3, 0x6             
+000058   131f     bcf	0x1f, 0x6            	BCF	_ADCON1_bits,6
+                                           ;	.line	180; "main.c"	CHS2=0;			// Set Channel 0 ==> RA0
+000059   1283     bcf	0x3, 0x5             	BANKSEL	_ADCON0_bits
+00005a   1303     bcf	0x3, 0x6             
+00005b   129f     bcf	0x1f, 0x5            	BCF	_ADCON0_bits,5
+                                           ;	.line	181; "main.c"	CHS1=0;
+00005c   121f     bcf	0x1f, 0x4            	BCF	_ADCON0_bits,4
+                                           ;	.line	182; "main.c"	CHS0=0;
+00005d   119f     bcf	0x1f, 0x3            	BCF	_ADCON0_bits,3
+                                           ;	.line	185; "main.c"	TRISA0=1;       // Set PORTA as input
+00005e   1683     bsf	0x3, 0x5             	BANKSEL	_TRISA_bits
+00005f   1303     bcf	0x3, 0x6             
+000060   1405     bsf	0x5, 0               	BSF	_TRISA_bits,0
+                                           ;	.line	187; "main.c"	ADFM=0;         // Left justified
+000061   139f     bcf	0x1f, 0x7            	BCF	_ADCON1_bits,7
+                                           ;	.line	192; "main.c"	ADON=1;         // Turn on the A/D module                    
+000062   1283     bcf	0x3, 0x5             	BANKSEL	_ADCON0_bits
+000063   1303     bcf	0x3, 0x6             
+000064   141f     bsf	0x1f, 0              	BSF	_ADCON0_bits,0
+                                           ;	.line	196; "main.c"	ADIE=1;
+000065   1683     bsf	0x3, 0x5             	BANKSEL	_PIE1_bits
+000066   1303     bcf	0x3, 0x6             
+000067   170c     bsf	0xc, 0x6             	BSF	_PIE1_bits,6
+                                           ;	.line	197; "main.c"	PEIE=1;
+000068   1283     bcf	0x3, 0x5             	BANKSEL	_INTCON_bits
+000069   1303     bcf	0x3, 0x6             
+00006a   170b     bsf	0xb, 0x6             	BSF	_INTCON_bits,6
+                                           ;	.line	198; "main.c"	GIE=1;
+00006b   178b     bsf	0xb, 0x7             	BSF	_INTCON_bits,7
+                                           ;	.line	200; "main.c"	ADIF=0;        // Clear flag
+00006c   130c     bcf	0xc, 0x6             	BCF	_PIR1_bits,6
+                                           ;	.line	202; "main.c"	prints("ADCON0="); print_numhex(ADCON0); newline();
+00006d   3006     movlw	0x6                	MOVLW	high (__str_1 + 0)
+00006e   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+00006f   1303     bcf	0x3, 0x6             
+000070   00bf     movwf	0x3f               	MOVWF	r0x1011
+000071   308e     movlw	0x8e               	MOVLW	(__str_1 + 0)
+000072   00be     movwf	0x3e               	MOVWF	r0x1012
+000073   3080     movlw	0x80               	MOVLW	0x80
+000074   00c0     movwf	0x40               	MOVWF	r0x1013
+000075   083e     movf	0x3e, w             	MOVF	r0x1012,W
+000076   00fe     movwf	0x7e               	MOVWF	STK01
+000077   083f     movf	0x3f, w             	MOVF	r0x1011,W
+000078   00ff     movwf	0x7f               	MOVWF	STK00
+000079   0840     movf	0x40, w             	MOVF	r0x1013,W
+00007a   2273     call	0x273               	CALL	_prints
+00007b   1283     bcf	0x3, 0x5             	BANKSEL	_ADCON0
+00007c   1303     bcf	0x3, 0x6             
+00007d   081f     movf	0x1f, w             	MOVF	_ADCON0,W
+00007e   21e5     call	0x1e5               	CALL	_print_numhex
+00007f   300d     movlw	0xd                	MOVLW	0x0d
+000080   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	203; "main.c"	prints("ADCON1="); print_numhex(ADCON1); newline();
+000081   3006     movlw	0x6                	MOVLW	high (__str_2 + 0)
+000082   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+000083   1303     bcf	0x3, 0x6             
+000084   00bf     movwf	0x3f               	MOVWF	r0x1011
+000085   3096     movlw	0x96               	MOVLW	(__str_2 + 0)
+000086   00be     movwf	0x3e               	MOVWF	r0x1012
+000087   3080     movlw	0x80               	MOVLW	0x80
+000088   00c0     movwf	0x40               	MOVWF	r0x1013
+000089   083e     movf	0x3e, w             	MOVF	r0x1012,W
+00008a   00fe     movwf	0x7e               	MOVWF	STK01
+00008b   083f     movf	0x3f, w             	MOVF	r0x1011,W
+00008c   00ff     movwf	0x7f               	MOVWF	STK00
+00008d   0840     movf	0x40, w             	MOVF	r0x1013,W
+00008e   2273     call	0x273               	CALL	_prints
+00008f   1683     bsf	0x3, 0x5             	BANKSEL	_ADCON1
+000090   1303     bcf	0x3, 0x6             
+000091   081f     movf	0x1f, w             	MOVF	_ADCON1,W
+000092   21e5     call	0x1e5               	CALL	_print_numhex
+000093   300d     movlw	0xd                	MOVLW	0x0d
+000094   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	204; "main.c"	prints("INTCON="); print_numhex(INTCON); newline();
+000095   3006     movlw	0x6                	MOVLW	high (__str_3 + 0)
+000096   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+000097   1303     bcf	0x3, 0x6             
+000098   00bf     movwf	0x3f               	MOVWF	r0x1011
+000099   309e     movlw	0x9e               	MOVLW	(__str_3 + 0)
+00009a   00be     movwf	0x3e               	MOVWF	r0x1012
+00009b   3080     movlw	0x80               	MOVLW	0x80
+00009c   00c0     movwf	0x40               	MOVWF	r0x1013
+00009d   083e     movf	0x3e, w             	MOVF	r0x1012,W
+00009e   00fe     movwf	0x7e               	MOVWF	STK01
+00009f   083f     movf	0x3f, w             	MOVF	r0x1011,W
+0000a0   00ff     movwf	0x7f               	MOVWF	STK00
+0000a1   0840     movf	0x40, w             	MOVF	r0x1013,W
+0000a2   2273     call	0x273               	CALL	_prints
+0000a3   1283     bcf	0x3, 0x5             	BANKSEL	_INTCON
+0000a4   1303     bcf	0x3, 0x6             
+0000a5   080b     movf	0xb, w              	MOVF	_INTCON,W
+0000a6   21e5     call	0x1e5               	CALL	_print_numhex
+0000a7   300d     movlw	0xd                	MOVLW	0x0d
+0000a8   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	206; "main.c"	GO=1;           // Start the conversion
+0000a9   1283     bcf	0x3, 0x5             	BANKSEL	_ADCON0_bits
+0000aa   1303     bcf	0x3, 0x6             
+0000ab   151f     bsf	0x1f, 0x2            	BSF	_ADCON0_bits,2
+                                           ;	.line	207; "main.c"	adc_done=0;
+0000ac   1683     bsf	0x3, 0x5             	BANKSEL	_adc_done
+0000ad   1303     bcf	0x3, 0x6             
+0000ae   01bc     clrf	0x3c                	CLRF	_adc_done
+                                           _00259_DS_
+                                           ;	.line	231; "main.c"	sendchar('q');
+0000af   3071     movlw	0x71               	MOVLW	0x71
+0000b0   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	234; "main.c"	if(adc_done){
+0000b1   3000     movlw	0                  	MOVLW	0x00
+0000b2   1683     bsf	0x3, 0x5             	BANKSEL	_adc_done
+0000b3   1303     bcf	0x3, 0x6             
+0000b4   043c     iorwf	0x3c, w            	IORWF	_adc_done,W
+0000b5   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+0000b6   28af     goto	0xaf                	GOTO	_00259_DS_
+                                           ;	.line	236; "main.c"	adc_done=0;
+0000b7   01bc     clrf	0x3c                	CLRF	_adc_done
+                                           ;	.line	237; "main.c"	ADIE=0;     // Disable
+0000b8   1683     bsf	0x3, 0x5             	BANKSEL	_PIE1_bits
+0000b9   1303     bcf	0x3, 0x6             
+0000ba   130c     bcf	0xc, 0x6             	BCF	_PIE1_bits,6
+                                           ;	.line	241; "main.c"	ad_val=ADRESH;
+0000bb   1283     bcf	0x3, 0x5             	BANKSEL	_ADRESH
+0000bc   1303     bcf	0x3, 0x6             
+0000bd   081e     movf	0x1e, w             	MOVF	_ADRESH,W
+0000be   1683     bsf	0x3, 0x5             	BANKSEL	_ad_val
+0000bf   1303     bcf	0x3, 0x6             
+0000c0   00b9     movwf	0x39               	MOVWF	_ad_val
+0000c1   01ba     clrf	0x3a                	CLRF	(_ad_val + 1)
+                                           ;	.line	243; "main.c"	tlong=(u32) ad_val*5000;    // Converte em mv
+0000c2   0839     movf	0x39, w             	MOVF	_ad_val,W
+0000c3   1283     bcf	0x3, 0x5             	BANKSEL	r0x1012
+0000c4   1303     bcf	0x3, 0x6             
+0000c5   00be     movwf	0x3e               	MOVWF	r0x1012
+0000c6   1683     bsf	0x3, 0x5             	BANKSEL	_ad_val
+0000c7   1303     bcf	0x3, 0x6             
+0000c8   083a     movf	0x3a, w             	MOVF	(_ad_val + 1),W
+0000c9   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+0000ca   1303     bcf	0x3, 0x6             
+0000cb   00bf     movwf	0x3f               	MOVWF	r0x1011
+0000cc   01c0     clrf	0x40                	CLRF	r0x1013
+0000cd   01c1     clrf	0x41                	CLRF	r0x1014
+0000ce   083e     movf	0x3e, w             	MOVF	r0x1012,W
+0000cf   00f9     movwf	0x79               	MOVWF	STK06
+0000d0   083f     movf	0x3f, w             	MOVF	r0x1011,W
+0000d1   00fa     movwf	0x7a               	MOVWF	STK05
+0000d2   3000     movlw	0                  	MOVLW	0x00
+0000d3   00fb     movwf	0x7b               	MOVWF	STK04
+0000d4   3000     movlw	0                  	MOVLW	0x00
+0000d5   00fc     movwf	0x7c               	MOVWF	STK03
+0000d6   3088     movlw	0x88               	MOVLW	0x88
+0000d7   00fd     movwf	0x7d               	MOVWF	STK02
+0000d8   3013     movlw	0x13               	MOVLW	0x13
+0000d9   00fe     movwf	0x7e               	MOVWF	STK01
+0000da   3000     movlw	0                  	MOVLW	0x00
+0000db   00ff     movwf	0x7f               	MOVWF	STK00
+0000dc   3000     movlw	0                  	MOVLW	0x00
+0000dd   118a     bcf	0xa, 0x3             	PAGESEL	__mullong
+0000de   120a     bcf	0xa, 0x4             
+0000df   2468     call	0x468               	CALL	__mullong
+0000e0   118a     bcf	0xa, 0x3             	PAGESEL	$
+0000e1   120a     bcf	0xa, 0x4             
+0000e2   1683     bsf	0x3, 0x5             	BANKSEL	_tlong
+0000e3   1303     bcf	0x3, 0x6             
+0000e4   00b1     movwf	0x31               	MOVWF	(_tlong + 3)
+0000e5   087f     movf	0x7f, w             	MOVF	STK00,W
+0000e6   00b0     movwf	0x30               	MOVWF	(_tlong + 2)
+0000e7   087e     movf	0x7e, w             	MOVF	STK01,W
+0000e8   00af     movwf	0x2f               	MOVWF	(_tlong + 1)
+0000e9   087d     movf	0x7d, w             	MOVF	STK02,W
+0000ea   00ae     movwf	0x2e               	MOVWF	_tlong
+                                           ;	.line	245; "main.c"	ad_val=0xFFFF;
+0000eb   30ff     movlw	0xff               	MOVLW	0xff
+0000ec   1683     bsf	0x3, 0x5             	BANKSEL	_ad_val
+0000ed   1303     bcf	0x3, 0x6             
+0000ee   00b9     movwf	0x39               	MOVWF	_ad_val
+0000ef   00ba     movwf	0x3a               	MOVWF	(_ad_val + 1)
+                                           ;	.line	247; "main.c"	ch=tlong/1000+'0';       // Volts digit
+0000f0   30e8     movlw	0xe8               	MOVLW	0xe8
+0000f1   00f9     movwf	0x79               	MOVWF	STK06
+0000f2   3003     movlw	0x3                	MOVLW	0x03
+0000f3   00fa     movwf	0x7a               	MOVWF	STK05
+0000f4   3000     movlw	0                  	MOVLW	0x00
+0000f5   00fb     movwf	0x7b               	MOVWF	STK04
+0000f6   3000     movlw	0                  	MOVLW	0x00
+0000f7   00fc     movwf	0x7c               	MOVWF	STK03
+0000f8   1683     bsf	0x3, 0x5             	BANKSEL	_tlong
+0000f9   1303     bcf	0x3, 0x6             
+0000fa   082e     movf	0x2e, w             	MOVF	_tlong,W
+0000fb   00fd     movwf	0x7d               	MOVWF	STK02
+0000fc   082f     movf	0x2f, w             	MOVF	(_tlong + 1),W
+0000fd   00fe     movwf	0x7e               	MOVWF	STK01
+0000fe   0830     movf	0x30, w             	MOVF	(_tlong + 2),W
+0000ff   00ff     movwf	0x7f               	MOVWF	STK00
+000100   0831     movf	0x31, w             	MOVF	(_tlong + 3),W
+000101   118a     bcf	0xa, 0x3             	PAGESEL	__divulong
+000102   120a     bcf	0xa, 0x4             
+000103   24fa     call	0x4fa               	CALL	__divulong
+000104   118a     bcf	0xa, 0x3             	PAGESEL	$
+000105   120a     bcf	0xa, 0x4             
+000106   1283     bcf	0x3, 0x5             	BANKSEL	r0x1014
+000107   1303     bcf	0x3, 0x6             
+000108   00c1     movwf	0x41               	MOVWF	r0x1014
+000109   087f     movf	0x7f, w             	MOVF	STK00,W
+00010a   00c0     movwf	0x40               	MOVWF	r0x1013
+00010b   087e     movf	0x7e, w             	MOVF	STK01,W
+00010c   00bf     movwf	0x3f               	MOVWF	r0x1011
+00010d   087d     movf	0x7d, w             	MOVF	STK02,W
+00010e   00be     movwf	0x3e               	MOVWF	r0x1012
+00010f   00c2     movwf	0x42               	MOVWF	r0x1015
+000110   3030     movlw	0x30               	MOVLW	0x30
+000111   0742     addwf	0x42, w            	ADDWF	r0x1015,W
+000112   1683     bsf	0x3, 0x5             	BANKSEL	_ch
+000113   1303     bcf	0x3, 0x6             
+000114   00bd     movwf	0x3d               	MOVWF	_ch
+                                           ;	.line	248; "main.c"	sendchar(ch);
+000115   083d     movf	0x3d, w             	MOVF	_ch,W
+000116   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	249; "main.c"	sendchar('.');
+000117   302e     movlw	0x2e               	MOVLW	0x2e
+000118   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	250; "main.c"	ch=(tlong/100)%10+'0';   // 0.1 volts digit
+000119   3064     movlw	0x64               	MOVLW	0x64
+00011a   00f9     movwf	0x79               	MOVWF	STK06
+00011b   3000     movlw	0                  	MOVLW	0x00
+00011c   00fa     movwf	0x7a               	MOVWF	STK05
+00011d   3000     movlw	0                  	MOVLW	0x00
+00011e   00fb     movwf	0x7b               	MOVWF	STK04
+00011f   3000     movlw	0                  	MOVLW	0x00
+000120   00fc     movwf	0x7c               	MOVWF	STK03
+000121   1683     bsf	0x3, 0x5             	BANKSEL	_tlong
+000122   1303     bcf	0x3, 0x6             
+000123   082e     movf	0x2e, w             	MOVF	_tlong,W
+000124   00fd     movwf	0x7d               	MOVWF	STK02
+000125   082f     movf	0x2f, w             	MOVF	(_tlong + 1),W
+000126   00fe     movwf	0x7e               	MOVWF	STK01
+000127   0830     movf	0x30, w             	MOVF	(_tlong + 2),W
+000128   00ff     movwf	0x7f               	MOVWF	STK00
+000129   0831     movf	0x31, w             	MOVF	(_tlong + 3),W
+00012a   118a     bcf	0xa, 0x3             	PAGESEL	__divulong
+00012b   120a     bcf	0xa, 0x4             
+00012c   24fa     call	0x4fa               	CALL	__divulong
+00012d   118a     bcf	0xa, 0x3             	PAGESEL	$
+00012e   120a     bcf	0xa, 0x4             
+00012f   1283     bcf	0x3, 0x5             	BANKSEL	r0x1014
+000130   1303     bcf	0x3, 0x6             
+000131   00c1     movwf	0x41               	MOVWF	r0x1014
+000132   087f     movf	0x7f, w             	MOVF	STK00,W
+000133   00c0     movwf	0x40               	MOVWF	r0x1013
+000134   087e     movf	0x7e, w             	MOVF	STK01,W
+000135   00bf     movwf	0x3f               	MOVWF	r0x1011
+000136   087d     movf	0x7d, w             	MOVF	STK02,W
+000137   00be     movwf	0x3e               	MOVWF	r0x1012
+000138   300a     movlw	0xa                	MOVLW	0x0a
+000139   00f9     movwf	0x79               	MOVWF	STK06
+00013a   3000     movlw	0                  	MOVLW	0x00
+00013b   00fa     movwf	0x7a               	MOVWF	STK05
+00013c   3000     movlw	0                  	MOVLW	0x00
+00013d   00fb     movwf	0x7b               	MOVWF	STK04
+00013e   3000     movlw	0                  	MOVLW	0x00
+00013f   00fc     movwf	0x7c               	MOVWF	STK03
+000140   083e     movf	0x3e, w             	MOVF	r0x1012,W
+000141   00fd     movwf	0x7d               	MOVWF	STK02
+000142   083f     movf	0x3f, w             	MOVF	r0x1011,W
+000143   00fe     movwf	0x7e               	MOVWF	STK01
+000144   0840     movf	0x40, w             	MOVF	r0x1013,W
+000145   00ff     movwf	0x7f               	MOVWF	STK00
+000146   0841     movf	0x41, w             	MOVF	r0x1014,W
+000147   118a     bcf	0xa, 0x3             	PAGESEL	__modulong
+000148   120a     bcf	0xa, 0x4             
+000149   257e     call	0x57e               	CALL	__modulong
+00014a   118a     bcf	0xa, 0x3             	PAGESEL	$
+00014b   120a     bcf	0xa, 0x4             
+00014c   1283     bcf	0x3, 0x5             	BANKSEL	r0x1014
+00014d   1303     bcf	0x3, 0x6             
+00014e   00c1     movwf	0x41               	MOVWF	r0x1014
+00014f   087f     movf	0x7f, w             	MOVF	STK00,W
+000150   00c0     movwf	0x40               	MOVWF	r0x1013
+000151   087e     movf	0x7e, w             	MOVF	STK01,W
+000152   00bf     movwf	0x3f               	MOVWF	r0x1011
+000153   087d     movf	0x7d, w             	MOVF	STK02,W
+000154   00be     movwf	0x3e               	MOVWF	r0x1012
+000155   00c2     movwf	0x42               	MOVWF	r0x1015
+000156   3030     movlw	0x30               	MOVLW	0x30
+000157   0742     addwf	0x42, w            	ADDWF	r0x1015,W
+000158   1683     bsf	0x3, 0x5             	BANKSEL	_ch
+000159   1303     bcf	0x3, 0x6             
+00015a   00bd     movwf	0x3d               	MOVWF	_ch
+                                           ;	.line	251; "main.c"	sendchar(ch);
+00015b   083d     movf	0x3d, w             	MOVF	_ch,W
+00015c   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	252; "main.c"	ch=tlong%10+'0';         // 0.01 volts digit
+00015d   300a     movlw	0xa                	MOVLW	0x0a
+00015e   00f9     movwf	0x79               	MOVWF	STK06
+00015f   3000     movlw	0                  	MOVLW	0x00
+000160   00fa     movwf	0x7a               	MOVWF	STK05
+000161   3000     movlw	0                  	MOVLW	0x00
+000162   00fb     movwf	0x7b               	MOVWF	STK04
+000163   3000     movlw	0                  	MOVLW	0x00
+000164   00fc     movwf	0x7c               	MOVWF	STK03
+000165   1683     bsf	0x3, 0x5             	BANKSEL	_tlong
+000166   1303     bcf	0x3, 0x6             
+000167   082e     movf	0x2e, w             	MOVF	_tlong,W
+000168   00fd     movwf	0x7d               	MOVWF	STK02
+000169   082f     movf	0x2f, w             	MOVF	(_tlong + 1),W
+00016a   00fe     movwf	0x7e               	MOVWF	STK01
+00016b   0830     movf	0x30, w             	MOVF	(_tlong + 2),W
+00016c   00ff     movwf	0x7f               	MOVWF	STK00
+00016d   0831     movf	0x31, w             	MOVF	(_tlong + 3),W
+00016e   118a     bcf	0xa, 0x3             	PAGESEL	__modulong
+00016f   120a     bcf	0xa, 0x4             
+000170   257e     call	0x57e               	CALL	__modulong
+000171   118a     bcf	0xa, 0x3             	PAGESEL	$
+000172   120a     bcf	0xa, 0x4             
+000173   1283     bcf	0x3, 0x5             	BANKSEL	r0x1014
+000174   1303     bcf	0x3, 0x6             
+000175   00c1     movwf	0x41               	MOVWF	r0x1014
+000176   087f     movf	0x7f, w             	MOVF	STK00,W
+000177   00c0     movwf	0x40               	MOVWF	r0x1013
+000178   087e     movf	0x7e, w             	MOVF	STK01,W
+000179   00bf     movwf	0x3f               	MOVWF	r0x1011
+00017a   087d     movf	0x7d, w             	MOVF	STK02,W
+00017b   00be     movwf	0x3e               	MOVWF	r0x1012
+00017c   00c2     movwf	0x42               	MOVWF	r0x1015
+00017d   3030     movlw	0x30               	MOVLW	0x30
+00017e   0742     addwf	0x42, w            	ADDWF	r0x1015,W
+00017f   1683     bsf	0x3, 0x5             	BANKSEL	_ch
+000180   1303     bcf	0x3, 0x6             
+000181   00bd     movwf	0x3d               	MOVWF	_ch
+                                           ;	.line	253; "main.c"	sendchar(ch);
+000182   083d     movf	0x3d, w             	MOVF	_ch,W
+000183   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	254; "main.c"	sendchar('V');
+000184   3056     movlw	0x56               	MOVLW	0x56
+000185   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	256; "main.c"	prints(" ");
+000186   3006     movlw	0x6                	MOVLW	high (__str_4 + 0)
+000187   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+000188   1303     bcf	0x3, 0x6             
+000189   00bf     movwf	0x3f               	MOVWF	r0x1011
+00018a   30ae     movlw	0xae               	MOVLW	(__str_4 + 0)
+00018b   00be     movwf	0x3e               	MOVWF	r0x1012
+00018c   3080     movlw	0x80               	MOVLW	0x80
+00018d   00c0     movwf	0x40               	MOVWF	r0x1013
+00018e   083e     movf	0x3e, w             	MOVF	r0x1012,W
+00018f   00fe     movwf	0x7e               	MOVWF	STK01
+000190   083f     movf	0x3f, w             	MOVF	r0x1011,W
+000191   00ff     movwf	0x7f               	MOVWF	STK00
+000192   0840     movf	0x40, w             	MOVF	r0x1013,W
+000193   2273     call	0x273               	CALL	_prints
+                                           ;	.line	257; "main.c"	ptr=0x0039;                 // Endereço de adval_H
+000194   3039     movlw	0x39               	MOVLW	0x39
+000195   1683     bsf	0x3, 0x5             	BANKSEL	_ptr
+000196   1303     bcf	0x3, 0x6             
+000197   00b6     movwf	0x36               	MOVWF	_ptr
+000198   01b7     clrf	0x37                	CLRF	(_ptr + 1)
+000199   01b8     clrf	0x38                	CLRF	(_ptr + 2)
+                                           ;	.line	258; "main.c"	print_num(*ptr);
+00019a   3039     movlw	0x39               	MOVLW	0x39
+00019b   00fe     movwf	0x7e               	MOVWF	STK01
+00019c   3000     movlw	0                  	MOVLW	0x00
+00019d   00ff     movwf	0x7f               	MOVWF	STK00
+00019e   3000     movlw	0                  	MOVLW	0x00
+00019f   118a     bcf	0xa, 0x3             	PAGESEL	__gptrget1
+0001a0   120a     bcf	0xa, 0x4             
+0001a1   25e4     call	0x5e4               	CALL	__gptrget1
+0001a2   118a     bcf	0xa, 0x3             	PAGESEL	$
+0001a3   120a     bcf	0xa, 0x4             
+0001a4   1283     bcf	0x3, 0x5             	BANKSEL	r0x1012
+0001a5   1303     bcf	0x3, 0x6             
+0001a6   00be     movwf	0x3e               	MOVWF	r0x1012
+0001a7   222b     call	0x22b               	CALL	_print_num
+                                           ;	.line	260; "main.c"	prints(" ");
+0001a8   3006     movlw	0x6                	MOVLW	high (__str_4 + 0)
+0001a9   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+0001aa   1303     bcf	0x3, 0x6             
+0001ab   00bf     movwf	0x3f               	MOVWF	r0x1011
+0001ac   30ae     movlw	0xae               	MOVLW	(__str_4 + 0)
+0001ad   00be     movwf	0x3e               	MOVWF	r0x1012
+0001ae   3080     movlw	0x80               	MOVLW	0x80
+0001af   00c0     movwf	0x40               	MOVWF	r0x1013
+0001b0   083e     movf	0x3e, w             	MOVF	r0x1012,W
+0001b1   00fe     movwf	0x7e               	MOVWF	STK01
+0001b2   083f     movf	0x3f, w             	MOVF	r0x1011,W
+0001b3   00ff     movwf	0x7f               	MOVWF	STK00
+0001b4   0840     movf	0x40, w             	MOVF	r0x1013,W
+0001b5   2273     call	0x273               	CALL	_prints
+                                           ;	.line	261; "main.c"	ptr++;
+0001b6   1683     bsf	0x3, 0x5             	BANKSEL	_ptr
+0001b7   1303     bcf	0x3, 0x6             
+0001b8   0ab6     incf	0x36, f             	INCF	_ptr,F
+0001b9   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+0001ba   0ab7     incf	0x37, f             	INCF	(_ptr + 1),F
+0001bb   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+0001bc   0ab8     incf	0x38, f             	INCF	(_ptr + 2),F
+                                           ;	.line	262; "main.c"	print_num(*ptr);
+0001bd   0836     movf	0x36, w             	MOVF	_ptr,W
+0001be   1283     bcf	0x3, 0x5             	BANKSEL	r0x1012
+0001bf   1303     bcf	0x3, 0x6             
+0001c0   00be     movwf	0x3e               	MOVWF	r0x1012
+0001c1   1683     bsf	0x3, 0x5             	BANKSEL	_ptr
+0001c2   1303     bcf	0x3, 0x6             
+0001c3   0837     movf	0x37, w             	MOVF	(_ptr + 1),W
+0001c4   1283     bcf	0x3, 0x5             	BANKSEL	r0x1011
+0001c5   1303     bcf	0x3, 0x6             
+0001c6   00bf     movwf	0x3f               	MOVWF	r0x1011
+0001c7   1683     bsf	0x3, 0x5             	BANKSEL	_ptr
+0001c8   1303     bcf	0x3, 0x6             
+0001c9   0838     movf	0x38, w             	MOVF	(_ptr + 2),W
+0001ca   1283     bcf	0x3, 0x5             	BANKSEL	r0x1013
+0001cb   1303     bcf	0x3, 0x6             
+0001cc   00c0     movwf	0x40               	MOVWF	r0x1013
+0001cd   083e     movf	0x3e, w             	MOVF	r0x1012,W
+0001ce   00fe     movwf	0x7e               	MOVWF	STK01
+0001cf   083f     movf	0x3f, w             	MOVF	r0x1011,W
+0001d0   00ff     movwf	0x7f               	MOVWF	STK00
+0001d1   0840     movf	0x40, w             	MOVF	r0x1013,W
+0001d2   118a     bcf	0xa, 0x3             	PAGESEL	__gptrget1
+0001d3   120a     bcf	0xa, 0x4             
+0001d4   25e4     call	0x5e4               	CALL	__gptrget1
+0001d5   118a     bcf	0xa, 0x3             	PAGESEL	$
+0001d6   120a     bcf	0xa, 0x4             
+0001d7   1283     bcf	0x3, 0x5             	BANKSEL	r0x1014
+0001d8   1303     bcf	0x3, 0x6             
+0001d9   00c1     movwf	0x41               	MOVWF	r0x1014
+0001da   222b     call	0x22b               	CALL	_print_num
+                                           ;	.line	264; "main.c"	newline();
+0001db   300d     movlw	0xd                	MOVLW	0x0d
+0001dc   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	266; "main.c"	GO=1;
+0001dd   1283     bcf	0x3, 0x5             	BANKSEL	_ADCON0_bits
+0001de   1303     bcf	0x3, 0x6             
+0001df   151f     bsf	0x1f, 0x2            	BSF	_ADCON0_bits,2
+                                           ;	.line	267; "main.c"	ADIE=1;
+0001e0   1683     bsf	0x3, 0x5             	BANKSEL	_PIE1_bits
+0001e1   1303     bcf	0x3, 0x6             
+0001e2   170c     bsf	0xc, 0x6             	BSF	_PIE1_bits,6
+0001e3   28af     goto	0xaf                	GOTO	_00259_DS_
+0001e4   0008     return                   	RETURN	
+                                           ; exit point of _main
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _print_numhex	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __moduchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __moduchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __moduchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __moduchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;4 compiler assigned registers:
+                                           ;   r0x100D
+                                           ;   r0x100E
+                                           ;   r0x100F
+                                           ;   STK00
+                                           ;; Starting pCode block
+                                           _print_numhex	;Function start
+                                           ; 2 exit points
+                                           ;	.line	96; "main.c"	void print_numhex(u8 num){
+0001e5   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+0001e6   1303     bcf	0x3, 0x6             
+0001e7   00b8     movwf	0x38               	MOVWF	r0x100D
+                                           ;	.line	100; "main.c"	sendchar('0');
+0001e8   3030     movlw	0x30               	MOVLW	0x30
+0001e9   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	101; "main.c"	sendchar('x');
+0001ea   3078     movlw	0x78               	MOVLW	0x78
+0001eb   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	102; "main.c"	alg0=num&0x0F;  // Low nibble 
+0001ec   300f     movlw	0xf                	MOVLW	0x0f
+0001ed   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+0001ee   1303     bcf	0x3, 0x6             
+0001ef   0538     andwf	0x38, w            	ANDWF	r0x100D,W
+0001f0   00bb     movwf	0x3b               	MOVWF	r0x100E
+                                           ;	.line	103; "main.c"	alg1=num>>4;    // Hight nibble
+0001f1   0e38     swapf	0x38, w            	SWAPF	r0x100D,W
+0001f2   390f     andlw	0xf                	ANDLW	0x0f
+0001f3   00bc     movwf	0x3c               	MOVWF	r0x100F
+                                           ;swapping arguments (AOP_TYPEs 1/2)
+                                           ;unsigned compare: left >= lit(0xB=11), size=1
+                                           ;	.line	105; "main.c"	if(alg1>10){
+0001f4   300b     movlw	0xb                	MOVLW	0x0b
+0001f5   023c     subwf	0x3c, w            	SUBWF	r0x100F,W
+0001f6   1c03     btfss	0x3, 0             	BTFSS	STATUS,0
+0001f7   2a08     goto	0x208               	GOTO	_00239_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+                                           ;	.line	106; "main.c"	sendchar(alg1%10+'A');
+0001f8   300a     movlw	0xa                	MOVLW	0x0a
+0001f9   00ff     movwf	0x7f               	MOVWF	STK00
+0001fa   083c     movf	0x3c, w             	MOVF	r0x100F,W
+0001fb   118a     bcf	0xa, 0x3             	PAGESEL	__moduchar
+0001fc   120a     bcf	0xa, 0x4             
+0001fd   2649     call	0x649               	CALL	__moduchar
+0001fe   118a     bcf	0xa, 0x3             	PAGESEL	$
+0001ff   120a     bcf	0xa, 0x4             
+000200   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+000201   1303     bcf	0x3, 0x6             
+000202   00b8     movwf	0x38               	MOVWF	r0x100D
+000203   3041     movlw	0x41               	MOVLW	0x41
+000204   07b8     addwf	0x38, f            	ADDWF	r0x100D,F
+000205   0838     movf	0x38, w             	MOVF	r0x100D,W
+000206   2297     call	0x297               	CALL	_sendchar
+000207   2a0e     goto	0x20e               	GOTO	_00240_DS_
+                                           _00239_DS_
+                                           ;	.line	108; "main.c"	sendchar(alg1+'0');
+000208   3030     movlw	0x30               	MOVLW	0x30
+000209   1283     bcf	0x3, 0x5             	BANKSEL	r0x100F
+00020a   1303     bcf	0x3, 0x6             
+00020b   07bc     addwf	0x3c, f            	ADDWF	r0x100F,F
+00020c   083c     movf	0x3c, w             	MOVF	r0x100F,W
+00020d   2297     call	0x297               	CALL	_sendchar
+                                           ;swapping arguments (AOP_TYPEs 1/2)
+                                           ;unsigned compare: left >= lit(0xB=11), size=1
+                                           _00240_DS_
+                                           ;	.line	112; "main.c"	if(alg0>10){
+00020e   300b     movlw	0xb                	MOVLW	0x0b
+00020f   1283     bcf	0x3, 0x5             	BANKSEL	r0x100E
+000210   1303     bcf	0x3, 0x6             
+000211   023b     subwf	0x3b, w            	SUBWF	r0x100E,W
+000212   1c03     btfss	0x3, 0             	BTFSS	STATUS,0
+000213   2a24     goto	0x224               	GOTO	_00242_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+                                           ;	.line	113; "main.c"	sendchar(alg0%10+'A');
+000214   300a     movlw	0xa                	MOVLW	0x0a
+000215   00ff     movwf	0x7f               	MOVWF	STK00
+000216   083b     movf	0x3b, w             	MOVF	r0x100E,W
+000217   118a     bcf	0xa, 0x3             	PAGESEL	__moduchar
+000218   120a     bcf	0xa, 0x4             
+000219   2649     call	0x649               	CALL	__moduchar
+00021a   118a     bcf	0xa, 0x3             	PAGESEL	$
+00021b   120a     bcf	0xa, 0x4             
+00021c   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+00021d   1303     bcf	0x3, 0x6             
+00021e   00b8     movwf	0x38               	MOVWF	r0x100D
+00021f   3041     movlw	0x41               	MOVLW	0x41
+000220   07b8     addwf	0x38, f            	ADDWF	r0x100D,F
+000221   0838     movf	0x38, w             	MOVF	r0x100D,W
+000222   2297     call	0x297               	CALL	_sendchar
+000223   2a2a     goto	0x22a               	GOTO	_00244_DS_
+                                           _00242_DS_
+                                           ;	.line	115; "main.c"	sendchar(alg0+'0');
+000224   3030     movlw	0x30               	MOVLW	0x30
+000225   1283     bcf	0x3, 0x5             	BANKSEL	r0x100E
+000226   1303     bcf	0x3, 0x6             
+000227   07bb     addwf	0x3b, f            	ADDWF	r0x100E,F
+000228   083b     movf	0x3b, w             	MOVF	r0x100E,W
+000229   2297     call	0x297               	CALL	_sendchar
+                                           _00244_DS_
+00022a   0008     return                   	RETURN	
+                                           ; exit point of _print_numhex
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _print_num	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   __divuchar
+                                           ;   __moduchar
+                                           ;   __divuchar
+                                           ;   __moduchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   __divuchar
+                                           ;   __moduchar
+                                           ;   __divuchar
+                                           ;   __moduchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;   _sendchar
+                                           ;5 compiler assigned registers:
+                                           ;   r0x100D
+                                           ;   STK00
+                                           ;   r0x100E
+                                           ;   r0x100F
+                                           ;   r0x1010
+                                           ;; Starting pCode block
+                                           _print_num	;Function start
+                                           ; 2 exit points
+                                           ;	.line	80; "main.c"	void print_num(u8 num){
+00022b   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+00022c   1303     bcf	0x3, 0x6             
+00022d   00b8     movwf	0x38               	MOVWF	r0x100D
+                                           ;	.line	84; "main.c"	alg2=num/100+'0';  		//Mais significativo , most significative
+00022e   3064     movlw	0x64               	MOVLW	0x64
+00022f   00ff     movwf	0x7f               	MOVWF	STK00
+000230   0838     movf	0x38, w             	MOVF	r0x100D,W
+000231   118a     bcf	0xa, 0x3             	PAGESEL	__divuchar
+000232   120a     bcf	0xa, 0x4             
+000233   2618     call	0x618               	CALL	__divuchar
+000234   118a     bcf	0xa, 0x3             	PAGESEL	$
+000235   120a     bcf	0xa, 0x4             
+000236   1283     bcf	0x3, 0x5             	BANKSEL	r0x100E
+000237   1303     bcf	0x3, 0x6             
+000238   00bb     movwf	0x3b               	MOVWF	r0x100E
+000239   3030     movlw	0x30               	MOVLW	0x30
+00023a   07bb     addwf	0x3b, f            	ADDWF	r0x100E,F
+                                           ;	.line	85; "main.c"	alg1=num%100/10+'0';	//Second algarism
+00023b   3064     movlw	0x64               	MOVLW	0x64
+00023c   00ff     movwf	0x7f               	MOVWF	STK00
+00023d   0838     movf	0x38, w             	MOVF	r0x100D,W
+00023e   118a     bcf	0xa, 0x3             	PAGESEL	__moduchar
+00023f   120a     bcf	0xa, 0x4             
+000240   2649     call	0x649               	CALL	__moduchar
+000241   118a     bcf	0xa, 0x3             	PAGESEL	$
+000242   120a     bcf	0xa, 0x4             
+000243   1283     bcf	0x3, 0x5             	BANKSEL	r0x100F
+000244   1303     bcf	0x3, 0x6             
+000245   00bc     movwf	0x3c               	MOVWF	r0x100F
+000246   300a     movlw	0xa                	MOVLW	0x0a
+000247   00ff     movwf	0x7f               	MOVWF	STK00
+000248   083c     movf	0x3c, w             	MOVF	r0x100F,W
+000249   118a     bcf	0xa, 0x3             	PAGESEL	__divuchar
+00024a   120a     bcf	0xa, 0x4             
+00024b   2618     call	0x618               	CALL	__divuchar
+00024c   118a     bcf	0xa, 0x3             	PAGESEL	$
+00024d   120a     bcf	0xa, 0x4             
+00024e   1283     bcf	0x3, 0x5             	BANKSEL	r0x1010
+00024f   1303     bcf	0x3, 0x6             
+000250   00bd     movwf	0x3d               	MOVWF	r0x1010
+000251   3030     movlw	0x30               	MOVLW	0x30
+000252   073d     addwf	0x3d, w            	ADDWF	r0x1010,W
+000253   00bc     movwf	0x3c               	MOVWF	r0x100F
+                                           ;	.line	86; "main.c"	alg0=num%10+'0';
+000254   300a     movlw	0xa                	MOVLW	0x0a
+000255   00ff     movwf	0x7f               	MOVWF	STK00
+000256   0838     movf	0x38, w             	MOVF	r0x100D,W
+000257   118a     bcf	0xa, 0x3             	PAGESEL	__moduchar
+000258   120a     bcf	0xa, 0x4             
+000259   2649     call	0x649               	CALL	__moduchar
+00025a   118a     bcf	0xa, 0x3             	PAGESEL	$
+00025b   120a     bcf	0xa, 0x4             
+00025c   1283     bcf	0x3, 0x5             	BANKSEL	r0x1010
+00025d   1303     bcf	0x3, 0x6             
+00025e   00bd     movwf	0x3d               	MOVWF	r0x1010
+00025f   3030     movlw	0x30               	MOVLW	0x30
+000260   073d     addwf	0x3d, w            	ADDWF	r0x1010,W
+000261   00b8     movwf	0x38               	MOVWF	r0x100D
+                                           ;	.line	88; "main.c"	sendchar(alg2);
+000262   083b     movf	0x3b, w             	MOVF	r0x100E,W
+000263   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	89; "main.c"	sendchar(alg1);
+000264   1283     bcf	0x3, 0x5             	BANKSEL	r0x100F
+000265   1303     bcf	0x3, 0x6             
+000266   083c     movf	0x3c, w             	MOVF	r0x100F,W
+000267   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	90; "main.c"	sendchar(alg0);
+000268   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+000269   1303     bcf	0x3, 0x6             
+00026a   0838     movf	0x38, w             	MOVF	r0x100D,W
+00026b   2297     call	0x297               	CALL	_sendchar
+00026c   0008     return                   	RETURN	
+                                           ; exit point of _print_num
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _getchar	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           _getchar	;Function start
+                                           ; 2 exit points
+                                           _00229_DS_
+                                           ;	.line	75; "main.c"	while(!RCIF); // Enquanto não recebeu caracter espera  !1=0
+00026d   1283     bcf	0x3, 0x5             	BANKSEL	_PIR1_bits
+00026e   1303     bcf	0x3, 0x6             
+00026f   1e8c     btfss	0xc, 0x5           	BTFSS	_PIR1_bits,5
+000270   2a6d     goto	0x26d               	GOTO	_00229_DS_
+                                           ;	.line	76; "main.c"	return RCREG;
+000271   081a     movf	0x1a, w             	MOVF	_RCREG,W
+000272   0008     return                   	RETURN	
+                                           ; exit point of _getchar
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _prints	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   __gptrget1
+                                           ;   _sendchar
+                                           ;   __gptrget1
+                                           ;   _sendchar
+                                           ;6 compiler assigned registers:
+                                           ;   r0x100D
+                                           ;   STK00
+                                           ;   r0x100E
+                                           ;   STK01
+                                           ;   r0x100F
+                                           ;   r0x1010
+                                           ;; Starting pCode block
+                                           _prints	;Function start
+                                           ; 2 exit points
+                                           ;	.line	114; "/home/caio/pic-sdcc/include/pic16f/uart.h"	void prints(pchar msg ){
+000273   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+000274   1303     bcf	0x3, 0x6             
+000275   00b8     movwf	0x38               	MOVWF	r0x100D
+000276   087f     movf	0x7f, w             	MOVF	STK00,W
+000277   00bb     movwf	0x3b               	MOVWF	r0x100E
+000278   087e     movf	0x7e, w             	MOVF	STK01,W
+000279   00bc     movwf	0x3c               	MOVWF	r0x100F
+                                           _00221_DS_
+                                           ;	.line	116; "/home/caio/pic-sdcc/include/pic16f/uart.h"	while(*msg) {
+00027a   1283     bcf	0x3, 0x5             	BANKSEL	r0x100F
+00027b   1303     bcf	0x3, 0x6             
+00027c   083c     movf	0x3c, w             	MOVF	r0x100F,W
+00027d   00fe     movwf	0x7e               	MOVWF	STK01
+00027e   083b     movf	0x3b, w             	MOVF	r0x100E,W
+00027f   00ff     movwf	0x7f               	MOVWF	STK00
+000280   0838     movf	0x38, w             	MOVF	r0x100D,W
+000281   118a     bcf	0xa, 0x3             	PAGESEL	__gptrget1
+000282   120a     bcf	0xa, 0x4             
+000283   25e4     call	0x5e4               	CALL	__gptrget1
+000284   118a     bcf	0xa, 0x3             	PAGESEL	$
+000285   120a     bcf	0xa, 0x4             
+000286   1283     bcf	0x3, 0x5             	BANKSEL	r0x1010
+000287   1303     bcf	0x3, 0x6             
+000288   00bd     movwf	0x3d               	MOVWF	r0x1010
+000289   083d     movf	0x3d, w             	MOVF	r0x1010,W
+00028a   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+00028b   2a96     goto	0x296               	GOTO	_00224_DS_
+                                           ;	.line	117; "/home/caio/pic-sdcc/include/pic16f/uart.h"	sendchar(*msg); 	//	 Só saí do loop quando *msg=0
+00028c   083d     movf	0x3d, w             	MOVF	r0x1010,W
+00028d   2297     call	0x297               	CALL	_sendchar
+                                           ;	.line	119; "/home/caio/pic-sdcc/include/pic16f/uart.h"	msg++;				// Vaí ao próximo caracter
+00028e   1283     bcf	0x3, 0x5             	BANKSEL	r0x100F
+00028f   1303     bcf	0x3, 0x6             
+000290   0abc     incf	0x3c, f             	INCF	r0x100F,F
+000291   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+000292   0abb     incf	0x3b, f             	INCF	r0x100E,F
+000293   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+000294   0ab8     incf	0x38, f             	INCF	r0x100D,F
+000295   2a7a     goto	0x27a               	GOTO	_00221_DS_
+                                           _00224_DS_
+000296   0008     return                   	RETURN	
+                                           ; exit point of _prints
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _sendchar	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;1 compiler assigned register :
+                                           ;   r0x100C
+                                           ;; Starting pCode block
+                                           _sendchar	;Function start
+                                           ; 2 exit points
+                                           ;	.line	102; "/home/caio/pic-sdcc/include/pic16f/uart.h"	void sendchar(char x){
+000297   1283     bcf	0x3, 0x5             	BANKSEL	r0x100C
+000298   1303     bcf	0x3, 0x6             
+000299   00b7     movwf	0x37               	MOVWF	r0x100C
+                                           _00216_DS_
+                                           ;	.line	103; "/home/caio/pic-sdcc/include/pic16f/uart.h"	while(!TXIF); // Espera o buffer estar pronto(vazio) 
+00029a   1283     bcf	0x3, 0x5             	BANKSEL	_PIR1_bits
+00029b   1303     bcf	0x3, 0x6             
+00029c   1e0c     btfss	0xc, 0x4           	BTFSS	_PIR1_bits,4
+00029d   2a9a     goto	0x29a               	GOTO	_00216_DS_
+                                           ;	.line	106; "/home/caio/pic-sdcc/include/pic16f/uart.h"	TXREG=x;      // Transmite o caracter
+00029e   1283     bcf	0x3, 0x5             	BANKSEL	r0x100C
+00029f   1303     bcf	0x3, 0x6             
+0002a0   0837     movf	0x37, w             	MOVF	r0x100C,W
+0002a1   1283     bcf	0x3, 0x5             	BANKSEL	_TXREG
+0002a2   1303     bcf	0x3, 0x6             
+0002a3   0099     movwf	0x19               	MOVWF	_TXREG
+0002a4   0008     return                   	RETURN	
+                                           ; exit point of _sendchar
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _initUART	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay_ms
+                                           ;   _delay_ms
+                                           ;   _delay_ms
+                                           ;   _delay_ms
+                                           ;2 compiler assigned registers:
+                                           ;   STK00
+                                           ;   r0x100E
+                                           ;; Starting pCode block
+                                           _initUART	;Function start
+                                           ; 2 exit points
+                                           ;	.line	75; "/home/caio/pic-sdcc/include/pic16f/uart.h"	void initUART(u8 SBPRG_,u8 BRGH_){
+0002a5   1683     bsf	0x3, 0x5             	BANKSEL	_SPBRG
+0002a6   1303     bcf	0x3, 0x6             
+0002a7   0099     movwf	0x19               	MOVWF	_SPBRG
+0002a8   087f     movf	0x7f, w             	MOVF	STK00,W
+0002a9   1283     bcf	0x3, 0x5             	BANKSEL	r0x100E
+0002aa   1303     bcf	0x3, 0x6             
+0002ab   00bb     movwf	0x3b               	MOVWF	r0x100E
+                                           ;	.line	78; "/home/caio/pic-sdcc/include/pic16f/uart.h"	TRISC7=1; TRISC6=1;
+0002ac   1683     bsf	0x3, 0x5             	BANKSEL	_TRISC_bits
+0002ad   1303     bcf	0x3, 0x6             
+0002ae   1787     bsf	0x7, 0x7             	BSF	_TRISC_bits,7
+0002af   1707     bsf	0x7, 0x6             	BSF	_TRISC_bits,6
+                                           ;	.line	81; "/home/caio/pic-sdcc/include/pic16f/uart.h"	TX9=0;                      // Seleciona transmissão de 8 bits
+0002b0   1318     bcf	0x18, 0x6            	BCF	_TXSTA_bits,6
+                                           ;	.line	82; "/home/caio/pic-sdcc/include/pic16f/uart.h"	SYNC=0;                     // Modo Assíncrono de transmissão
+0002b1   1218     bcf	0x18, 0x4            	BCF	_TXSTA_bits,4
+                                           ;	.line	83; "/home/caio/pic-sdcc/include/pic16f/uart.h"	RX9=0;                      // Recepção de 8 bits
+0002b2   1283     bcf	0x3, 0x5             	BANKSEL	_RCSTA_bits
+0002b3   1303     bcf	0x3, 0x6             
+0002b4   1318     bcf	0x18, 0x6            	BCF	_RCSTA_bits,6
+                                           ;	.line	86; "/home/caio/pic-sdcc/include/pic16f/uart.h"	SPBRG=SBPRG_; BRGH=BRGH_;           // Configura em 9.6 Kbauds , em um oscilador de 4 MHZ
+0002b5   1283     bcf	0x3, 0x5             	BANKSEL	r0x100E
+0002b6   1303     bcf	0x3, 0x6             
+0002b7   0c3b     rrf	0x3b, w              	RRF	r0x100E,W
+0002b8   1803     btfsc	0x3, 0             	BTFSC	STATUS,0
+0002b9   2abd     goto	0x2bd               	GOTO	_00001_DS_
+0002ba   1683     bsf	0x3, 0x5             	BANKSEL	_TXSTA_bits
+0002bb   1303     bcf	0x3, 0x6             
+0002bc   1118     bcf	0x18, 0x2            	BCF	_TXSTA_bits,2
+                                           _00001_DS_
+0002bd   1c03     btfss	0x3, 0             	BTFSS	STATUS,0
+0002be   2ac2     goto	0x2c2               	GOTO	_00002_DS_
+0002bf   1683     bsf	0x3, 0x5             	BANKSEL	_TXSTA_bits
+0002c0   1303     bcf	0x3, 0x6             
+0002c1   1518     bsf	0x18, 0x2            	BSF	_TXSTA_bits,2
+                                           _00002_DS_
+                                           ;	.line	89; "/home/caio/pic-sdcc/include/pic16f/uart.h"	TXIE=0;                    // Interrupção de envio desativad
+0002c2   1683     bsf	0x3, 0x5             	BANKSEL	_PIE1_bits
+0002c3   1303     bcf	0x3, 0x6             
+0002c4   120c     bcf	0xc, 0x4             	BCF	_PIE1_bits,4
+                                           ;	.line	90; "/home/caio/pic-sdcc/include/pic16f/uart.h"	RCIE=0;                    // Interrupção de recepção desativada
+0002c5   128c     bcf	0xc, 0x5             	BCF	_PIE1_bits,5
+                                           ;	.line	91; "/home/caio/pic-sdcc/include/pic16f/uart.h"	TXREG=0x00;                 // Inicializa registro
+0002c6   1283     bcf	0x3, 0x5             	BANKSEL	_TXREG
+0002c7   1303     bcf	0x3, 0x6             
+0002c8   0199     clrf	0x19                	CLRF	_TXREG
+                                           ;	.line	92; "/home/caio/pic-sdcc/include/pic16f/uart.h"	TXEN=1;                     // Transmissão contínua habilitada 
+0002c9   1683     bsf	0x3, 0x5             	BANKSEL	_TXSTA_bits
+0002ca   1303     bcf	0x3, 0x6             
+0002cb   1698     bsf	0x18, 0x5            	BSF	_TXSTA_bits,5
+                                           ;	.line	93; "/home/caio/pic-sdcc/include/pic16f/uart.h"	CREN=1;                     // Transmissão contínua habilitada
+0002cc   1283     bcf	0x3, 0x5             	BANKSEL	_RCSTA_bits
+0002cd   1303     bcf	0x3, 0x6             
+0002ce   1618     bsf	0x18, 0x4            	BSF	_RCSTA_bits,4
+                                           ;	.line	94; "/home/caio/pic-sdcc/include/pic16f/uart.h"	SPEN=1;                     // Seta RC7/RX/DT e RC6/TX/CK como portas seriais
+0002cf   1798     bsf	0x18, 0x7            	BSF	_RCSTA_bits,7
+                                           ;	.line	96; "/home/caio/pic-sdcc/include/pic16f/uart.h"	delay_ms(250);              // Delay de 500 ms para estabilizar a UART
+0002d0   30fa     movlw	0xfa               	MOVLW	0xfa
+0002d1   22e2     call	0x2e2               	CALL	_delay_ms
+                                           ;	.line	97; "/home/caio/pic-sdcc/include/pic16f/uart.h"	delay_ms(250);
+0002d2   30fa     movlw	0xfa               	MOVLW	0xfa
+0002d3   22e2     call	0x2e2               	CALL	_delay_ms
+0002d4   0008     return                   	RETURN	
+                                           ; exit point of _initUART
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay_us	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;2 compiler assigned registers:
+                                           ;   r0x1016
+                                           ;   r0x1017
+                                           ;; Starting pCode block
+                                           _delay_us	;Function start
+                                           ; 2 exit points
+                                           ;	.line	268; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay_us(u8 N){
+0002d5   1283     bcf	0x3, 0x5             	BANKSEL	r0x1016
+0002d6   1303     bcf	0x3, 0x6             
+0002d7   00b9     movwf	0x39               	MOVWF	r0x1016
+                                           ;	.line	271; "/home/caio/pic-sdcc/include/pic16f/delay.h"	for(count1=0;count1<N;count1++);
+0002d8   01ba     clrf	0x3a                	CLRF	r0x1017
+                                           _00203_DS_
+0002d9   1283     bcf	0x3, 0x5             	BANKSEL	r0x1016
+0002da   1303     bcf	0x3, 0x6             
+0002db   0839     movf	0x39, w             	MOVF	r0x1016,W
+0002dc   023a     subwf	0x3a, w            	SUBWF	r0x1017,W
+0002dd   1803     btfsc	0x3, 0             	BTFSC	STATUS,0
+0002de   2ae1     goto	0x2e1               	GOTO	_00207_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+0002df   0aba     incf	0x3a, f             	INCF	r0x1017,F
+0002e0   2ad9     goto	0x2d9               	GOTO	_00203_DS_
+                                           _00207_DS_
+0002e1   0008     return                   	RETURN	
+                                           ; exit point of _delay_us
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay_ms	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;2 compiler assigned registers:
+                                           ;   r0x100C
+                                           ;   r0x100D
+                                           ;; Starting pCode block
+                                           _delay_ms	;Function start
+                                           ; 2 exit points
+                                           ;	.line	256; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay_ms(u8 N){
+0002e2   1283     bcf	0x3, 0x5             	BANKSEL	r0x100C
+0002e3   1303     bcf	0x3, 0x6             
+0002e4   00b7     movwf	0x37               	MOVWF	r0x100C
+                                           ;	.line	259; "/home/caio/pic-sdcc/include/pic16f/delay.h"	OPTION_REG=tmr0_1b8;	//Clock 1 por 32 , prescaler de 32 
+0002e5   3002     movlw	0x2                	MOVLW	0x02
+0002e6   1683     bsf	0x3, 0x5             	BANKSEL	_OPTION_REG
+0002e7   1303     bcf	0x3, 0x6             
+0002e8   0081     movwf	0x1                	MOVWF	_OPTION_REG
+                                           ;	.line	260; "/home/caio/pic-sdcc/include/pic16f/delay.h"	TMR0=0;					//Inicia o TMR0
+0002e9   1283     bcf	0x3, 0x5             	BANKSEL	_TMR0
+0002ea   1303     bcf	0x3, 0x6             
+0002eb   0181     clrf	0x1                 	CLRF	_TMR0
+                                           ;	.line	262; "/home/caio/pic-sdcc/include/pic16f/delay.h"	for(count1=0;count1<N;count1++) while(TMR0<125);	
+0002ec   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+0002ed   1303     bcf	0x3, 0x6             
+0002ee   01b8     clrf	0x38                	CLRF	r0x100D
+                                           _00194_DS_
+0002ef   1283     bcf	0x3, 0x5             	BANKSEL	r0x100C
+0002f0   1303     bcf	0x3, 0x6             
+0002f1   0837     movf	0x37, w             	MOVF	r0x100C,W
+0002f2   0238     subwf	0x38, w            	SUBWF	r0x100D,W
+0002f3   1803     btfsc	0x3, 0             	BTFSC	STATUS,0
+0002f4   2aff     goto	0x2ff               	GOTO	_00198_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+                                           ;unsigned compare: left < lit(0x7D=125), size=1
+                                           _00191_DS_
+0002f5   307d     movlw	0x7d               	MOVLW	0x7d
+0002f6   1283     bcf	0x3, 0x5             	BANKSEL	_TMR0
+0002f7   1303     bcf	0x3, 0x6             
+0002f8   0201     subwf	0x1, w             	SUBWF	_TMR0,W
+0002f9   1c03     btfss	0x3, 0             	BTFSS	STATUS,0
+0002fa   2af5     goto	0x2f5               	GOTO	_00191_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+0002fb   1283     bcf	0x3, 0x5             	BANKSEL	r0x100D
+0002fc   1303     bcf	0x3, 0x6             
+0002fd   0ab8     incf	0x38, f             	INCF	r0x100D,F
+0002fe   2aef     goto	0x2ef               	GOTO	_00194_DS_
+                                           _00198_DS_
+0002ff   0008     return                   	RETURN	
+                                           ; exit point of _delay_ms
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay_s	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay1s
+                                           ;   _delay1s
+                                           ;2 compiler assigned registers:
+                                           ;   r0x1019
+                                           ;   r0x101A
+                                           ;; Starting pCode block
+                                           _delay_s	;Function start
+                                           ; 2 exit points
+                                           ;	.line	248; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay_s(u8 countp){
+000300   1283     bcf	0x3, 0x5             	BANKSEL	r0x1019
+000301   1303     bcf	0x3, 0x6             
+000302   00b5     movwf	0x35               	MOVWF	r0x1019
+                                           ;	.line	250; "/home/caio/pic-sdcc/include/pic16f/delay.h"	for(i=0;i<countp;i++) delay1s();
+000303   01b6     clrf	0x36                	CLRF	r0x101A
+                                           _00182_DS_
+000304   1283     bcf	0x3, 0x5             	BANKSEL	r0x1019
+000305   1303     bcf	0x3, 0x6             
+000306   0835     movf	0x35, w             	MOVF	r0x1019,W
+000307   0236     subwf	0x36, w            	SUBWF	r0x101A,W
+000308   1803     btfsc	0x3, 0             	BTFSC	STATUS,0
+000309   2b0f     goto	0x30f               	GOTO	_00186_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+00030a   231a     call	0x31a               	CALL	_delay1s
+00030b   1283     bcf	0x3, 0x5             	BANKSEL	r0x101A
+00030c   1303     bcf	0x3, 0x6             
+00030d   0ab6     incf	0x36, f             	INCF	r0x101A,F
+00030e   2b04     goto	0x304               	GOTO	_00182_DS_
+                                           _00186_DS_
+00030f   0008     return                   	RETURN	
+                                           ; exit point of _delay_s
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay10s	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay1s
+                                           ;   _delay1s
+                                           ;1 compiler assigned register :
+                                           ;   r0x101B
+                                           ;; Starting pCode block
+                                           _delay10s	;Function start
+                                           ; 2 exit points
+                                           ;	.line	243; "/home/caio/pic-sdcc/include/pic16f/delay.h"	for(countp=0;countp<10;countp++) delay1s();
+000310   300a     movlw	0xa                	MOVLW	0x0a
+000311   1283     bcf	0x3, 0x5             	BANKSEL	r0x101B
+000312   1303     bcf	0x3, 0x6             
+000313   00b4     movwf	0x34               	MOVWF	r0x101B
+                                           _00177_DS_
+000314   231a     call	0x31a               	CALL	_delay1s
+000315   1283     bcf	0x3, 0x5             	BANKSEL	r0x101B
+000316   1303     bcf	0x3, 0x6             
+000317   0bb4     decfsz	0x34, f           	DECFSZ	r0x101B,F
+000318   2b14     goto	0x314               	GOTO	_00177_DS_
+000319   0008     return                   	RETURN	
+                                           ; exit point of _delay10s
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay1s	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;1 compiler assigned register :
+                                           ;   r0x1018
+                                           ;; Starting pCode block
+                                           _delay1s	;Function start
+                                           ; 2 exit points
+                                           ;	.line	233; "/home/caio/pic-sdcc/include/pic16f/delay.h"	OPTION_REG=tmr0_1b32;	//Clock 1 por 32 , prescaler de 32 
+00031a   3004     movlw	0x4                	MOVLW	0x04
+00031b   1683     bsf	0x3, 0x5             	BANKSEL	_OPTION_REG
+00031c   1303     bcf	0x3, 0x6             
+00031d   0081     movwf	0x1                	MOVWF	_OPTION_REG
+                                           ;	.line	234; "/home/caio/pic-sdcc/include/pic16f/delay.h"	TMR0=0;					//Inicia o TMR0
+00031e   1283     bcf	0x3, 0x5             	BANKSEL	_TMR0
+00031f   1303     bcf	0x3, 0x6             
+000320   0181     clrf	0x1                 	CLRF	_TMR0
+                                           ;	.line	236; "/home/caio/pic-sdcc/include/pic16f/delay.h"	for(count1=0;count1<125;count1++) while(TMR0<250);	
+000321   1283     bcf	0x3, 0x5             	BANKSEL	r0x1018
+000322   1303     bcf	0x3, 0x6             
+000323   01b3     clrf	0x33                	CLRF	r0x1018
+                                           ;unsigned compare: left < lit(0x7D=125), size=1
+                                           _00166_DS_
+000324   307d     movlw	0x7d               	MOVLW	0x7d
+000325   1283     bcf	0x3, 0x5             	BANKSEL	r0x1018
+000326   1303     bcf	0x3, 0x6             
+000327   0233     subwf	0x33, w            	SUBWF	r0x1018,W
+000328   1803     btfsc	0x3, 0             	BTFSC	STATUS,0
+000329   2b34     goto	0x334               	GOTO	_00170_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+                                           ;unsigned compare: left < lit(0xFA=250), size=1
+                                           _00163_DS_
+00032a   30fa     movlw	0xfa               	MOVLW	0xfa
+00032b   1283     bcf	0x3, 0x5             	BANKSEL	_TMR0
+00032c   1303     bcf	0x3, 0x6             
+00032d   0201     subwf	0x1, w             	SUBWF	_TMR0,W
+00032e   1c03     btfss	0x3, 0             	BTFSS	STATUS,0
+00032f   2b2a     goto	0x32a               	GOTO	_00163_DS_
+                                           ;genSkipc:3057: created from rifx:0xbff428a4
+000330   1283     bcf	0x3, 0x5             	BANKSEL	r0x1018
+000331   1303     bcf	0x3, 0x6             
+000332   0ab3     incf	0x33, f             	INCF	r0x1018,F
+000333   2b24     goto	0x324               	GOTO	_00166_DS_
+                                           _00170_DS_
+000334   0008     return                   	RETURN	
+                                           ; exit point of _delay1s
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay_tmr1	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;12 compiler assigned registers:
+                                           ;   r0x101C
+                                           ;   STK00
+                                           ;   r0x101D
+                                           ;   r0x101E
+                                           ;   r0x101F
+                                           ;   r0x1020
+                                           ;   r0x1021
+                                           ;   r0x1022
+                                           ;   r0x1023
+                                           ;   r0x1024
+                                           ;   r0x1025
+                                           ;   r0x1026
+                                           ;; Starting pCode block
+                                           _delay_tmr1	;Function start
+                                           ; 2 exit points
+000335   1283     bcf	0x3, 0x5             	BANKSEL	r0x101E
+000336   1303     bcf	0x3, 0x6             
+000337   00ac     movwf	0x2c               	MOVWF	r0x101E
+                                           ;	.line	191; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay_tmr1(u16 ticks){
+000338   00ab     movwf	0x2b               	MOVWF	r0x101C
+000339   087f     movf	0x7f, w             	MOVF	STK00,W
+00033a   00aa     movwf	0x2a               	MOVWF	r0x101D
+                                           ;	.line	193; "/home/caio/pic-sdcc/include/pic16f/delay.h"	TMR1H=0;
+00033b   1283     bcf	0x3, 0x5             	BANKSEL	_TMR1H
+00033c   1303     bcf	0x3, 0x6             
+00033d   018f     clrf	0xf                 	CLRF	_TMR1H
+                                           ;;99	MOVF	r0x101C,W
+                                           ;	.line	196; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while((hbyte(ticks)!=TMR1L)|(lbyte(ticks)!=TMR1H)){}
+00033e   1283     bcf	0x3, 0x5             	BANKSEL	r0x101F
+00033f   1303     bcf	0x3, 0x6             
+000340   01ad     clrf	0x2d                	CLRF	r0x101F
+                                           _00151_DS_
+000341   1283     bcf	0x3, 0x5             	BANKSEL	_TMR1L
+000342   1303     bcf	0x3, 0x6             
+000343   080e     movf	0xe, w              	MOVF	_TMR1L,W
+000344   1283     bcf	0x3, 0x5             	BANKSEL	r0x1020
+000345   1303     bcf	0x3, 0x6             
+000346   00ae     movwf	0x2e               	MOVWF	r0x1020
+000347   01af     clrf	0x2f                	CLRF	r0x1021
+000348   01b0     clrf	0x30                	CLRF	r0x1022
+000349   082e     movf	0x2e, w             	MOVF	r0x1020,W
+00034a   062c     xorwf	0x2c, w            	XORWF	r0x101E,W
+00034b   1d03     btfss	0x3, 0x2           	BTFSS	STATUS,2
+00034c   2b51     goto	0x351               	GOTO	_00157_DS_
+00034d   082f     movf	0x2f, w             	MOVF	r0x1021,W
+00034e   062d     xorwf	0x2d, w            	XORWF	r0x101F,W
+00034f   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+000350   0ab0     incf	0x30, f             	INCF	r0x1022,F
+                                           _00157_DS_
+000351   1283     bcf	0x3, 0x5             	BANKSEL	r0x1022
+000352   1303     bcf	0x3, 0x6             
+000353   0830     movf	0x30, w             	MOVF	r0x1022,W
+000354   3000     movlw	0                  	MOVLW	0x00
+000355   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+000356   3001     movlw	0x1                	MOVLW	0x01
+000357   00ae     movwf	0x2e               	MOVWF	r0x1020
+000358   01b0     clrf	0x30                	CLRF	r0x1022
+000359   1283     bcf	0x3, 0x5             	BANKSEL	_TMR1H
+00035a   1303     bcf	0x3, 0x6             
+00035b   080f     movf	0xf, w              	MOVF	_TMR1H,W
+00035c   3aff     xorlw	0xff               	XORLW	0xff
+00035d   1d03     btfss	0x3, 0x2           	BTFSS	STATUS,2
+00035e   2b62     goto	0x362               	GOTO	_00003_DS_
+00035f   1283     bcf	0x3, 0x5             	BANKSEL	r0x1022
+000360   1303     bcf	0x3, 0x6             
+000361   0ab0     incf	0x30, f             	INCF	r0x1022,F
+                                           _00003_DS_
+000362   1283     bcf	0x3, 0x5             	BANKSEL	r0x1022
+000363   1303     bcf	0x3, 0x6             
+000364   0830     movf	0x30, w             	MOVF	r0x1022,W
+000365   3000     movlw	0                  	MOVLW	0x00
+000366   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+000367   3001     movlw	0x1                	MOVLW	0x01
+000368   00b1     movwf	0x31               	MOVWF	r0x1023
+000369   00b0     movwf	0x30               	MOVWF	r0x1022
+00036a   052a     andwf	0x2a, w            	ANDWF	r0x101D,W
+00036b   00b1     movwf	0x31               	MOVWF	r0x1023
+00036c   3000     movlw	0                  	MOVLW	0x00
+00036d   052b     andwf	0x2b, w            	ANDWF	r0x101C,W
+00036e   00b2     movwf	0x32               	MOVWF	r0x1025
+00036f   082e     movf	0x2e, w             	MOVF	r0x1020,W
+000370   00b0     movwf	0x30               	MOVWF	r0x1022
+000371   0431     iorwf	0x31, w            	IORWF	r0x1023,W
+000372   00ae     movwf	0x2e               	MOVWF	r0x1020
+000373   0432     iorwf	0x32, w            	IORWF	r0x1025,W
+000374   1d03     btfss	0x3, 0x2           	BTFSS	STATUS,2
+000375   2b41     goto	0x341               	GOTO	_00151_DS_
+000376   0008     return                   	RETURN	
+                                           ; exit point of _delay_tmr1
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _setup_tmr1	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;1 compiler assigned register :
+                                           ;   r0x1027
+                                           ;; Starting pCode block
+                                           _setup_tmr1	;Function start
+                                           ; 2 exit points
+                                           ;	.line	164; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void setup_tmr1(u8 prescaler){
+000377   1283     bcf	0x3, 0x5             	BANKSEL	r0x1027
+000378   1303     bcf	0x3, 0x6             
+000379   00a9     movwf	0x29               	MOVWF	r0x1027
+                                           ;	.line	166; "/home/caio/pic-sdcc/include/pic16f/delay.h"	TMR1ON=0 ;          // Turn off TIMER1
+00037a   1283     bcf	0x3, 0x5             	BANKSEL	_T1CON_bits
+00037b   1303     bcf	0x3, 0x6             
+00037c   1010     bcf	0x10, 0              	BCF	_T1CON_bits,0
+                                           ;	.line	167; "/home/caio/pic-sdcc/include/pic16f/delay.h"	T1OSCEN=0;          // Disable Internal RC oscillator
+00037d   1190     bcf	0x10, 0x3            	BCF	_T1CON_bits,3
+                                           ;	.line	168; "/home/caio/pic-sdcc/include/pic16f/delay.h"	TMR1CS=0;           // Use Fosc/4 , external clock
+00037e   1090     bcf	0x10, 0x1            	BCF	_T1CON_bits,1
+                                           ;	.line	169; "/home/caio/pic-sdcc/include/pic16f/delay.h"	T1CON|=prescaler;   //
+00037f   1283     bcf	0x3, 0x5             	BANKSEL	r0x1027
+000380   1303     bcf	0x3, 0x6             
+000381   0829     movf	0x29, w             	MOVF	r0x1027,W
+000382   1283     bcf	0x3, 0x5             	BANKSEL	_T1CON
+000383   1303     bcf	0x3, 0x6             
+000384   0490     iorwf	0x10, f            	IORWF	_T1CON,F
+                                           ;	.line	170; "/home/caio/pic-sdcc/include/pic16f/delay.h"	TMR1ON=1;           // Start Timer1
+000385   1410     bsf	0x10, 0              	BSF	_T1CON_bits,0
+000386   0008     return                   	RETURN	
+                                           ; exit point of _setup_tmr1
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _timer0delay	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           _timer0delay	;Function start
+                                           ; 2 exit points
+                                           ;	.line	137; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void timer0delay(u8 t0ini){
+000387   1283     bcf	0x3, 0x5             	BANKSEL	_TMR0
+000388   1303     bcf	0x3, 0x6             
+000389   0081     movwf	0x1                	MOVWF	_TMR0
+                                           ;	.line	138; "/home/caio/pic-sdcc/include/pic16f/delay.h"	T0IF=0;
+00038a   110b     bcf	0xb, 0x2             	BCF	_INTCON_bits,2
+                                           _00142_DS_
+                                           ;	.line	140; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while(T0IF);		//Wait T0IF=0, timer0 overflow
+00038b   1283     bcf	0x3, 0x5             	BANKSEL	_INTCON_bits
+00038c   1303     bcf	0x3, 0x6             
+00038d   190b     btfsc	0xb, 0x2           	BTFSC	_INTCON_bits,2
+00038e   2b8b     goto	0x38b               	GOTO	_00142_DS_
+00038f   0008     return                   	RETURN	
+                                           ; exit point of _timer0delay
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay10KTCYx	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay1KTCYx
+                                           ;   _delay1KTCYx
+                                           ;2 compiler assigned registers:
+                                           ;   r0x102D
+                                           ;   r0x102E
+                                           ;; Starting pCode block
+                                           _delay10KTCYx	;Function start
+                                           ; 2 exit points
+                                           ;	.line	127; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay10KTCYx(u8 x){
+000390   1283     bcf	0x3, 0x5             	BANKSEL	r0x102D
+000391   1303     bcf	0x3, 0x6             
+000392   00a7     movwf	0x27               	MOVWF	r0x102D
+                                           ;	.line	129; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while(--i) delay1KTCYx(x); // Termina quando i for 0
+000393   300a     movlw	0xa                	MOVLW	0x0a
+000394   00a8     movwf	0x28               	MOVWF	r0x102E
+                                           _00134_DS_
+000395   1283     bcf	0x3, 0x5             	BANKSEL	r0x102E
+000396   1303     bcf	0x3, 0x6             
+000397   03a8     decf	0x28, f             	DECF	r0x102E,F
+000398   0828     movf	0x28, w             	MOVF	r0x102E,W
+000399   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+00039a   2b9e     goto	0x39e               	GOTO	_00137_DS_
+00039b   0827     movf	0x27, w             	MOVF	r0x102D,W
+00039c   239f     call	0x39f               	CALL	_delay1KTCYx
+00039d   2b95     goto	0x395               	GOTO	_00134_DS_
+                                           _00137_DS_
+00039e   0008     return                   	RETURN	
+                                           ; exit point of _delay10KTCYx
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay1KTCYx	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay10TCYx
+                                           ;   _delay10TCYx
+                                           ;2 compiler assigned registers:
+                                           ;   r0x102B
+                                           ;   r0x102C
+                                           ;; Starting pCode block
+                                           _delay1KTCYx	;Function start
+                                           ; 2 exit points
+                                           ;	.line	119; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay1KTCYx(u8 x){
+00039f   1283     bcf	0x3, 0x5             	BANKSEL	r0x102B
+0003a0   1303     bcf	0x3, 0x6             
+0003a1   00a5     movwf	0x25               	MOVWF	r0x102B
+                                           ;	.line	121; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while(--i) delay10TCYx(x); // Termina quando i for 0
+0003a2   3064     movlw	0x64               	MOVLW	0x64
+0003a3   00a6     movwf	0x26               	MOVWF	r0x102C
+                                           _00126_DS_
+0003a4   1283     bcf	0x3, 0x5             	BANKSEL	r0x102C
+0003a5   1303     bcf	0x3, 0x6             
+0003a6   03a6     decf	0x26, f             	DECF	r0x102C,F
+0003a7   0826     movf	0x26, w             	MOVF	r0x102C,W
+0003a8   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+0003a9   2bad     goto	0x3ad               	GOTO	_00129_DS_
+0003aa   0825     movf	0x25, w             	MOVF	r0x102B,W
+0003ab   23bd     call	0x3bd               	CALL	_delay10TCYx
+0003ac   2ba4     goto	0x3a4               	GOTO	_00126_DS_
+                                           _00129_DS_
+0003ad   0008     return                   	RETURN	
+                                           ; exit point of _delay1KTCYx
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay100TCYx	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay1TCYx
+                                           ;   _delay1TCYx
+                                           ;2 compiler assigned registers:
+                                           ;   r0x102F
+                                           ;   r0x1030
+                                           ;; Starting pCode block
+                                           _delay100TCYx	;Function start
+                                           ; 2 exit points
+                                           ;	.line	109; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay100TCYx(u8 x){
+0003ae   1283     bcf	0x3, 0x5             	BANKSEL	r0x102F
+0003af   1303     bcf	0x3, 0x6             
+0003b0   00a3     movwf	0x23               	MOVWF	r0x102F
+                                           ;	.line	111; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while(--i) delay1TCYx(x); // Termina quando i for 0
+0003b1   3064     movlw	0x64               	MOVLW	0x64
+0003b2   00a4     movwf	0x24               	MOVWF	r0x1030
+                                           _00118_DS_
+0003b3   1283     bcf	0x3, 0x5             	BANKSEL	r0x1030
+0003b4   1303     bcf	0x3, 0x6             
+0003b5   03a4     decf	0x24, f             	DECF	r0x1030,F
+0003b6   0824     movf	0x24, w             	MOVF	r0x1030,W
+0003b7   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+0003b8   2bbc     goto	0x3bc               	GOTO	_00121_DS_
+0003b9   0823     movf	0x23, w             	MOVF	r0x102F,W
+0003ba   23cc     call	0x3cc               	CALL	_delay1TCYx
+0003bb   2bb3     goto	0x3b3               	GOTO	_00118_DS_
+                                           _00121_DS_
+0003bc   0008     return                   	RETURN	
+                                           ; exit point of _delay100TCYx
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay10TCYx	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _delay1TCYx
+                                           ;   _delay1TCYx
+                                           ;2 compiler assigned registers:
+                                           ;   r0x1029
+                                           ;   r0x102A
+                                           ;; Starting pCode block
+                                           _delay10TCYx	;Function start
+                                           ; 2 exit points
+                                           ;	.line	100; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay10TCYx(u8 x){
+0003bd   1283     bcf	0x3, 0x5             	BANKSEL	r0x1029
+0003be   1303     bcf	0x3, 0x6             
+0003bf   00a1     movwf	0x21               	MOVWF	r0x1029
+                                           ;	.line	102; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while(--i) delay1TCYx(x);
+0003c0   300a     movlw	0xa                	MOVLW	0x0a
+0003c1   00a2     movwf	0x22               	MOVWF	r0x102A
+                                           _00110_DS_
+0003c2   1283     bcf	0x3, 0x5             	BANKSEL	r0x102A
+0003c3   1303     bcf	0x3, 0x6             
+0003c4   03a2     decf	0x22, f             	DECF	r0x102A,F
+0003c5   0822     movf	0x22, w             	MOVF	r0x102A,W
+0003c6   1903     btfsc	0x3, 0x2           	BTFSC	STATUS,2
+0003c7   2bcb     goto	0x3cb               	GOTO	_00113_DS_
+0003c8   0821     movf	0x21, w             	MOVF	r0x1029,W
+0003c9   23cc     call	0x3cc               	CALL	_delay1TCYx
+0003ca   2bc2     goto	0x3c2               	GOTO	_00110_DS_
+                                           _00113_DS_
+0003cb   0008     return                   	RETURN	
+                                           ; exit point of _delay10TCYx
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;entry:  _delay1TCYx	;Function start
+                                           ; 2 exit points
+                                           ;has an exit
+                                           ;1 compiler assigned register :
+                                           ;   r0x1028
+                                           ;; Starting pCode block
+                                           _delay1TCYx	;Function start
+                                           ; 2 exit points
+                                           ;	.line	92; "/home/caio/pic-sdcc/include/pic16f/delay.h"	void delay1TCYx(u8 x){	
+0003cc   1283     bcf	0x3, 0x5             	BANKSEL	r0x1028
+0003cd   1303     bcf	0x3, 0x6             
+0003ce   00a0     movwf	0x20               	MOVWF	r0x1028
+                                           _00105_DS_
+                                           ;	.line	93; "/home/caio/pic-sdcc/include/pic16f/delay.h"	while(--x);
+0003cf   1283     bcf	0x3, 0x5             	BANKSEL	r0x1028
+0003d0   1303     bcf	0x3, 0x6             
+0003d1   0ba0     decfsz	0x20, f           	DECFSZ	r0x1028,F
+0003d2   2bcf     goto	0x3cf               	GOTO	_00105_DS_
+0003d3   0008     return                   	RETURN	
+                                           ; exit point of _delay1TCYx
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	  642+  167 =   809 instructions ( 1952 byte)
+                                           
+                                           	end
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST
+                                                   LIST
+                                           ; P16F877A.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                                                   NOLIST

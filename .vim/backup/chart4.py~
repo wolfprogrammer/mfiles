@@ -1,0 +1,177 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*- 
+# 
+"""CHART MODULE
+
+CHART class provides methods to reverse engineering charts, like
+pump perfomance curves, gas turbines performance curves, any chart
+in png, jpg format.
+
+"""
+
+
+from pylab import *
+#from IPython import embed
+ion()
+
+
+def getchart(img="pump.jpg"):
+	im=imread(img)
+	imshow(im)
+
+
+
+def linterp(x,y):
+	"""
+	linterp(x,y)
+
+	Faz a interpolacao linear em um array 
+	x  y
+	2  3
+	5  8
+
+	x=[2,3]
+	y=[3,8]
+
+	Retorna os coeficientes de y=Ax+b
+	da interpolacao linear
+
+	"""
+
+	dx=x[1]-x[0]
+	dy=y[1]-y[0]
+	A=dy/dx
+	B=-A*x[0]+y[0]
+	return [A,B]
+ 
+def get_point():
+	point=ginput()
+	point=point[0]
+	point=array(point)
+	return point
+
+
+class CHART:
+	Ax=0
+	Ay=0
+	Bx=0
+	By=0
+	x0=0
+	y0=0
+	x1=0
+	y1=0
+	x=0
+	y=0
+	xx=0
+	yy=0
+	coefs=0
+	yfit=0
+
+
+	def set_scale(self,Ax,Bx,Ay,By):
+		self.Ax=Ax
+		self.Ay=Ay
+		self.Bx=Bx
+		self.By=By
+	
+	def getxy(self):
+		p=get_point()
+		xx=p[0] 
+		yy=p[1]
+		x=self.Ax*xx+self.Bx
+		y=self.Ay*yy+self.By
+		return x,y
+
+	def  c2g(self,xx,yy):
+		"""
+		Transforma coordenadas do computador para as do chart
+		Entradas:
+		xx,yy : Coordenas x e y do computador
+
+		Saidas:
+		x,y : Coordenadas do chart
+
+		mneumonico:
+		c2g (computer To graphic)
+                """
+                x=self.Ax*xx+self.Bx
+		y=self.Ay*yy+self.By
+		return [x,y] 
+
+
+	def getdata(self,N=10):
+		points=ginput(n=N,show_clicks=True)
+                P=array(points) # transforma em array do numpy
+		p=P.transpose()
+		xx=p[0]  ; self.xx=xx;
+		yy=p[1]  ; self.yy=yy;
+		
+		[x,y]=self.c2g(xx,yy)
+		self.x=x
+		self.y=y
+
+		
+
+
+
+	def get_axis(self):
+		print "Clique na origem das coordenadas"
+		Oxy= get_point()
+		print "Entre com o x0"
+		x0=input()
+		print "Entre com o y0"
+		y0=input()
+
+		print "Clique em um ponto conhecido do eixo x"
+		Ox= get_point()
+		print "Entre com o seu valor x1(escala da figura)"
+		x1=input()
+		
+		print "Clique em um ponto conhecido do eixo y"
+		Oy=get_point()
+		print "Entre com o seu valor y1(escala da figura)"
+		y1=input()
+
+		Ox0=Oxy[0] 
+		Oy0=Oxy[1]
+		Ox=Ox[0]
+		Oy=Oy[1]
+
+
+		[Ax,Bx]=linterp([Ox,Ox0],[x1,x0])
+		[Ay,By]=linterp([Oy,Oy0],[y1,y0])
+
+		print "Ax=",Ax
+		print "Bx=",Bx
+		print "Ay=",Ay
+		print "By=",By
+                self.Ax=Ax
+		self.Bx=Bx
+		self.Ay=Ay
+		self.By=By
+		self.x0=x0
+		self.y0=y0
+		self.x1=x1
+		self.y1=y1
+
+	
+	def datafit(self,NN=2):
+		coefs=polyfit(self.x,self.y,NN)
+		self.coefs=coefs
+		self.yfit=polyval(coefs,self.x)
+		return coefs
+
+	def testdata(self):
+		figure()
+		plot(self.x,self.y)
+		plot(self.x,self.yfit)
+		return max(self.yfit-self.y)
+
+	
+	def eval(self,x):
+		y=polyval(coefs,x)
+		return y
+
+
+chart=CHART()
+

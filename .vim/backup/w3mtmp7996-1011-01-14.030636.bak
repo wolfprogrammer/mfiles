@@ -1,0 +1,28 @@
+
+Finalmente encontrei um modo eficiente de editar o mediawiki. Usando 
+o editor de texto vim ,simplesmente perfeito e muito mais facil... só falta
+aprender a configurar.!
+
+Remove All Wine Programs
+1
+Open a terminal window. The terminal window is called "XTerm," "Konsole" or "Terminal," depending on which distribution you are using.
+2
+Type the command "rm -rf $HOME/.wine" to remove the Wine directory in your home directory.
+3
+Type the following lines to remove the programs from the system menu:
+
+
+<syntaxhighlight lang='bash'>
+rm -f $HOME/.config/menus/applications-merged/wine*
+
+rm -rf $HOME/.local/share/applications/wine
+
+rm -f $HOME/.local/share/desktop-directories/wine*
+
+rm -f $HOME/.local/share/icons/????_*.{xpm,png}
+
+rm -f $HOME/.local/share/icons/*-x-wine-*.{xpm,png}
+
+
+Read more: How to Delete Wine Programs | eHow.com http://www.ehow.com/how_7378611_delete-wine-programs.html#ixzz1AcHBcRhs
+</syntaxhighlight>

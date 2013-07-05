@@ -1,0 +1,6 @@
+#!/bin/bash
+
+touchrotate left
+killall  twofing
+twofing
+onboard
