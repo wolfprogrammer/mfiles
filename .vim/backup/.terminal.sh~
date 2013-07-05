@@ -1,2 +1,0 @@
-#!/bin/bash
-urxvtc  -sl 1000 -sr -bg black -fg white -fn "9x15,xft:Droid Serif:pixelsize=15" -e $1
