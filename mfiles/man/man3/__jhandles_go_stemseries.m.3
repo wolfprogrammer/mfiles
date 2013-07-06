@@ -1,0 +1,311 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_stemseries.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_stemseries.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (isempty(\fBz\fP)) \fBhb\fP = [\fBx\fP(:)'"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBaddprop\fP (\fBh\fP,'BaseLine','\fBhandle\fP', hb,'readonly')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'BaseValue','double', bv)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'Color','colorradio','', lc)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'LineStyle','linestyle', ls)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'LineWidth','double', 0\&.5)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'Marker','marker', ms)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'MarkerSize','double', 6)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'ShowBaseLine','radio','\fBon\fP|\fBoff\fP','\fBon\fP')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'XData','doublearray', x)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'YData','doublearray', y)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'ZData','doublearray', z)"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBh\fP,'LegendInclude', 1)"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBz\fP)) \fBset\fP(\fBh\fP"
+.br
+.ti -1c
+.RI "\fBx\fP (:)'"
+.br
+.ti -1c
+.RI "\fBNaN\fP (1, \fBn\fP)]"
+.br
+.ti -1c
+.RI "\fBy\fP (:)'"
+.br
+.ti -1c
+.RI "\fBz\fP (:)'"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBaddlistener\fP (\fBh\fP,'BaseValue',@updateBaseValue)"
+.br
+.ti -1c
+.RI "else \fBaddlistener\fP (\fBh\fP,{'XData','\fBYData\fP','ZData'},@updateStemData)"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBhb\fP)) \fBaddlistener\fP(\fBhb\fP"
+.br
+.ti -1c
+.RI "\fBaddlistener\fP (\fBhb\fP,'Visible',{@updateBaseLineVisible, \fBh\fP}, \fBh\fP)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBaddlistener\fP (\fBh\fP,'ShowBaseLine',@updateShowBaseLine)"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBupdateStemData\fP (\fBh\fP, evt) \fBx\fP"
+.br
+.ti -1c
+.RI "\fBx\fP (1:\fBn\fP)'"
+.br
+.ti -1c
+.RI "\fBy\fP (1:\fBn\fP)'"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBch\fP(1),'XData', xx(:)','YData', yy(:)')"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBch\fP(2),'XData', x(1:\fBn\fP),'YData', y(1:\fBn\fP))"
+.br
+.ti -1c
+.RI "\fBz\fP (1:\fBn\fP)'"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBch\fP(1),'XData', xx(:)','YData', yy(:)','ZData', zz(:)')"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBch\fP(2),'XData', x(:)','YData', y(:)','ZData', z(:)')"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBupdateBaseValue\fP (\fBh\fP, evt) \fBbv\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (ishandle(\fBhb\fP)) \fBset\fP(\fBhb\fP"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBupdateLineData\fP (\fBh\fP, evt, \fBhl\fP) hv"
+.br
+.ti -1c
+.RI "\fBset\fP (hv\&.children(1),\&.\&.\&.'Color', hv\&.color,\&.\&.\&.'LineStyle', hv\&.linestyle,\&.\&.\&.'LineWidth', hv\&.linewidth)"
+.br
+.ti -1c
+.RI "\fBset\fP (hv\&.children(2),\&.\&.\&.'Color', hv\&.color,\&.\&.\&.'Marker', hv\&.marker,\&.\&.\&.'MarkerSize', hv\&.markersize,\&.\&.\&.'LineWidth', hv\&.linewidth)"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBupdateBaseLineBaseValue\fP (\fBh\fP, evt, h2) \fBset\fP(h2"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBget\fP (\fBh\fP,'BaseValue'))"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBupdateShowBaseLine\fP (\fBh\fP, evt) \fBhb\fP"
+.br
+.ti -1c
+.RI "\fBget\fP (\fBh\fP,'ShowBaseLine'))"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBupdateBaseLineVisible\fP (\fBhb\fP, evt, \fBh\fP) \fBset\fP(\fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBget\fP (\fBhb\fP,'Visible'))"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBh\fP"
+.br
+.ti -1c
+.RI "\fBbv\fP = \fBget\fP (\fBhb\fP, 'BaseValue')"
+.br
+.ti -1c
+.RI "else \fBhb\fP = []"
+.br
+.ti -1c
+.RI "\fBZLimInclude\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBn\fP = \fBlength\fP (\fBx\fP)"
+.br
+.ti -1c
+.RI "\fByy\fP = [\fBbv\fP*ones(1,\fBn\fP)"
+.br
+.ti -1c
+.RI "\fBhl\fP = __line__ (\fBh\fP, \fBxx\fP(:)', \fByy\fP(:)', 'LineStyle', ls, 'Color', lc, 'LineWidth', 0\&.5)"
+.br
+.ti -1c
+.RI "\fBhm\fP"
+.br
+.ti -1c
+.RI "else \fBxx\fP = [\fBx\fP(:)'"
+.br
+.ti -1c
+.RI "\fBzz\fP = [\fBbv\fP*ones(1,\fBn\fP)"
+.br
+.ti -1c
+.RI "\fBupdateStemData\fP"
+.br
+.ti -1c
+.RI "\fBBaseValue\fP"
+.br
+.ti -1c
+.RI "\fBy\fP = \fBget\fP (\fBh\fP, 'YData')"
+.br
+.ti -1c
+.RI "\fBz\fP = \fBget\fP (\fBh\fP, 'ZData')"
+.br
+.ti -1c
+.RI "\fBch\fP = \fBget\fP (\fBh\fP, 'Children')"
+.br
+.ti -1c
+.RI "\fBx\fP = \fBx\fP(:)"
+.br
+.ti -1c
+.RI "\fBVisible\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBShowBaseLine\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBendif\fP \fBaddlistener\fP (\fBh\fP, 'BaseValue', @updateBaseValue)"
+.SS "\fBendif\fP \fBaddlistener\fP (\fBh\fP)"
+.SS "\fBaddlistener\fP (\fBhb\fP, 'Visible')"
+.SS "\fBendif\fP \fBaddlistener\fP (\fBh\fP, 'ShowBaseLine', @updateShowBaseLine)"
+.SS "\fBendif\fP \fBaddprop\fP (\fBh\fP, 'BaseLine', 'handle', \fBhb\fP, 'readonly')"
+.SS "\fBaddprop\fP (\fBh\fP, 'BaseValue', 'double', \fBbv\fP)"
+.SS "\fBaddprop\fP (\fBh\fP, 'Color', 'colorradio', '', \fBlc\fP)"
+.SS "\fBaddprop\fP (\fBh\fP, 'LineStyle', 'linestyle', \fBls\fP)"
+.SS "\fBaddprop\fP (\fBh\fP, 'LineWidth', 'double', 0\&.5)"
+.SS "\fBaddprop\fP (\fBh\fP, 'Marker', 'marker', \fBms\fP)"
+.SS "\fBaddprop\fP (\fBh\fP, 'MarkerSize', 'double', 6)"
+.SS "\fBaddprop\fP (\fBh\fP, 'ShowBaseLine', 'radio', 'on|\fBoff\fP', 'on')"
+.SS "\fBaddprop\fP (\fBh\fP, 'XData', 'doublearray', \fBx\fP)"
+.SS "\fBaddprop\fP (\fBh\fP, 'YData', 'doublearray', \fBy\fP)"
+.SS "\fBaddprop\fP (\fBh\fP, 'ZData', 'doublearray', \fBz\fP)"
+.SS "endfunction \fBfunction\fP \fBget\fP (\fBh\fP, 'BaseValue')"
+.SS "\fBget\fP (\fBh\fP, 'ShowBaseLine')"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBget\fP (\fBhb\fP, 'Visible')"
+.SS "\fBif\fP (isempty(\fBz\fP)) = [\fBx\fP(:)'"
+.SS "\fBif\fP (!isemptyz)"
+.SS "\fBif\fP (!isemptyhb)"
+.SS "\fBif\fP (ishandle(\fBhb\fP))"
+.SS "\fBNaN\fP (1, \fBn\fP)"
+.SS "\fBset\fP (\fBh\fP, 'LegendInclude', 1)"
+.SS "\fBset\fP (\fBch\fP(1), 'XData', \fBxx\fP(:)', 'YData', \fByy\fP(:)')"
+.SS "\fBset\fP (\fBch\fP(2), 'XData', \fBx\fP(1:\fBn\fP), 'YData', \fBy\fP(1:\fBn\fP))"
+.SS "\fBset\fP (\fBch\fP(1), 'XData', \fBxx\fP(:)', 'YData', \fByy\fP(:)', 'ZData', \fBzz\fP(:)')"
+.SS "\fBset\fP (\fBch\fP(2), 'XData', \fBx\fP(:)', 'YData', \fBy\fP(:)', 'ZData', \fBz\fP(:)')"
+.SS "\fBset\fP (hv\&.children1, \&.\&.\&.'Color', hv\&.color, \&.\&.\&.'LineStyle', hv\&.linestyle, \&.\&.\&.'LineWidth', hv\&.linewidth)"
+.SS "\fBset\fP (hv\&.children2, \&.\&.\&.'Color', hv\&.color, \&.\&.\&.'Marker', hv\&.marker, \&.\&.\&.'MarkerSize', hv\&.markersize, \&.\&.\&.'LineWidth', hv\&.linewidth)"
+.SS "endfunction \fBfunction\fP \fBupdateBaseLineBaseValue\fP (\fBh\fP, evt, h2)"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBupdateBaseLineVisible\fP (\fBhb\fP, evt, \fBh\fP)"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBupdateBaseValue\fP (\fBh\fP, evt)"
+.SS "endfunction \fBfunction\fP \fBupdateLineData\fP (\fBh\fP, evt, \fBhl\fP)"
+.SS "endfunction \fBfunction\fP \fBupdateShowBaseLine\fP (\fBh\fP, evt)"
+.SS "endfunction \fBfunction\fP \fBupdateStemData\fP (\fBh\fP, evt)"
+.SS "\fBx\fP (:)"
+.SS "\fBx\fP (1:\fBn\fP)"
+.SS "\fBy\fP (:)"
+.SS "\fBy\fP (1:\fBn\fP)"
+.SS "\fBz\fP (:)"
+.SS "\fBz\fP (1:\fBn\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "endfunction \fBfunction\fP \fBBaseValue\fP"
+.PP
+Definition at line 68 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBbv\fP = \fBget\fP (\fBhb\fP, 'BaseValue')"
+.PP
+Definition at line 22 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBch\fP = \fBget\fP (\fBh\fP, 'Children')"
+.PP
+Definition at line 79 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBh\fP"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_go_stemseries (ax, x, y, z, dofill, lc, ls, mc, ms)
+
+
+  h = hggroup (ax)
+.fi
+.PP
+Definition at line 16 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBhb\fP = []"
+.PP
+Definition at line 24 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBhl\fP = __line__ (\fBh\fP, \fBxx\fP(:)', \fByy\fP(:)', 'LineStyle', ls, 'Color', lc, 'LineWidth', 0\&.5)"
+.PP
+Definition at line 48 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBhm\fP"\fBInitial value:\fP
+.PP
+.nf
+ __line__ (h, x(:)', y(:)', 'LineStyle', 'none', 'Color', mc, \&.\&.\&.
+                      'Marker', ms, 'MarkerSize', 6, 'LineWidth', 0\&.5)
+.fi
+.PP
+Definition at line 49 of file __jhandles_go_stemseries\&.m\&.
+.SS "else \fBn\fP = \fBlength\fP (\fBx\fP)"
+.PP
+Definition at line 44 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBShowBaseLine\fP"
+.PP
+Definition at line 134 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBendif\fP \fBupdateStemData\fP"
+.PP
+Definition at line 62 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBVisible\fP"
+.PP
+Definition at line 129 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBx\fP = \fBx\fP(:)"
+.PP
+Definition at line 82 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBxx\fP = [\fBx\fP(:)'"
+.PP
+Definition at line 52 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBy\fP = \fBget\fP (\fBh\fP, 'YData')"
+.PP
+Definition at line 77 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fByy\fP = [\fBbv\fP*ones(1,\fBn\fP)"
+.PP
+Definition at line 47 of file __jhandles_go_stemseries\&.m\&.
+.SS "else \fBz\fP = \fBget\fP (\fBh\fP, 'ZData')"
+.PP
+Definition at line 78 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBZLimInclude\fP"
+.PP
+Definition at line 40 of file __jhandles_go_stemseries\&.m\&.
+.SS "\fBzz\fP = [\fBbv\fP*ones(1,\fBn\fP)"
+.PP
+Definition at line 54 of file __jhandles_go_stemseries\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

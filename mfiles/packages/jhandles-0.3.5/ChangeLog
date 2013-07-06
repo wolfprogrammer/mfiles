@@ -1,0 +1,3641 @@
+# Automatically generated file --- DO NOT EDIT
+2009-05-04 16:59  hauberg
+
+	* trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/Windows/DESCRIPTION,
+	  trunk/octave-forge/extra/ad/DESCRIPTION,
+	  trunk/octave-forge/extra/engine/DESCRIPTION,
+	  trunk/octave-forge/extra/integration/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  trunk/octave-forge/extra/soctcl/DESCRIPTION,
+	  trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/main/audio/DESCRIPTION,
+	  trunk/octave-forge/main/comm/DESCRIPTION,
+	  trunk/octave-forge/main/econometrics/DESCRIPTION,
+	  trunk/octave-forge/main/fixed/DESCRIPTION,
+	  trunk/octave-forge/main/gsl/DESCRIPTION,
+	  trunk/octave-forge/main/image/DESCRIPTION,
+	  trunk/octave-forge/main/info-theory/DESCRIPTION,
+	  trunk/octave-forge/main/linear-algebra/DESCRIPTION,
+	  trunk/octave-forge/main/miscellaneous/DESCRIPTION,
+	  trunk/octave-forge/main/optiminterp/DESCRIPTION,
+	  trunk/octave-forge/main/signal/DESCRIPTION,
+	  trunk/octave-forge/main/specfun/DESCRIPTION,
+	  trunk/octave-forge/main/statistics/DESCRIPTION,
+	  trunk/octave-forge/main/strings/DESCRIPTION,
+	  trunk/octave-forge/main/struct/DESCRIPTION,
+	  trunk/octave-forge/main/symbolic/DESCRIPTION,
+	  trunk/octave-forge/main/time/DESCRIPTION,
+	  trunk/octave-forge/main/video/DESCRIPTION,
+	  trunk/octave-forge/nonfree/arpack/DESCRIPTION,
+	  trunk/octave-forge/nonfree/spline-gsvspl/DESCRIPTION: Update
+	  version number
+
+2008-08-24 16:19  hauberg
+
+	* trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/Windows/DESCRIPTION,
+	  trunk/octave-forge/extra/ad/DESCRIPTION,
+	  trunk/octave-forge/extra/bim/DESCRIPTION,
+	  trunk/octave-forge/extra/civil/DESCRIPTION,
+	  trunk/octave-forge/extra/engine/DESCRIPTION,
+	  trunk/octave-forge/extra/fpl/DESCRIPTION,
+	  trunk/octave-forge/extra/graceplot/DESCRIPTION,
+	  trunk/octave-forge/extra/integration/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  trunk/octave-forge/extra/mapping/DESCRIPTION,
+	  trunk/octave-forge/extra/msh/DESCRIPTION,
+	  trunk/octave-forge/extra/multicore/DESCRIPTION,
+	  trunk/octave-forge/extra/nlwing2/INDEX,
+	  trunk/octave-forge/extra/ocs/DESCRIPTION,
+	  trunk/octave-forge/extra/pdb/DESCRIPTION,
+	  trunk/octave-forge/extra/secs1d/DESCRIPTION,
+	  trunk/octave-forge/extra/secs1d/INDEX,
+	  trunk/octave-forge/extra/secs2d/DESCRIPTION,
+	  trunk/octave-forge/extra/secs2d/INDEX,
+	  trunk/octave-forge/extra/soctcl/DESCRIPTION,
+	  trunk/octave-forge/extra/symband/DESCRIPTION,
+	  trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/extra/xraylib/DESCRIPTION: Bumped version
+	  number
+
+2008-07-18 15:07  goffioul
+
+	* PKG_ADD, PKG_DEL, inst/__jhandles_go_execute_callback.m: overload
+	  __go_execute_callback__
+
+2008-07-09 09:01  goffioul
+
+	* src/Makefile: Do not compile __jhandles__.oct (not needed)
+
+2008-04-29 17:52  hauberg
+
+	* trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/Windows/DESCRIPTION,
+	  trunk/octave-forge/extra/ad/DESCRIPTION,
+	  trunk/octave-forge/extra/bim/DESCRIPTION,
+	  trunk/octave-forge/extra/civil/DESCRIPTION,
+	  trunk/octave-forge/extra/engine/DESCRIPTION,
+	  trunk/octave-forge/extra/fpl/DESCRIPTION,
+	  trunk/octave-forge/extra/graceplot/DESCRIPTION,
+	  trunk/octave-forge/extra/integration/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  trunk/octave-forge/extra/mapping/DESCRIPTION,
+	  trunk/octave-forge/extra/msh/DESCRIPTION,
+	  trunk/octave-forge/extra/multicore/DESCRIPTION,
+	  trunk/octave-forge/extra/ocs/DESCRIPTION,
+	  trunk/octave-forge/extra/pdb/DESCRIPTION,
+	  trunk/octave-forge/extra/secs1d/DESCRIPTION,
+	  trunk/octave-forge/extra/secs2d/DESCRIPTION,
+	  trunk/octave-forge/extra/soctcl/DESCRIPTION,
+	  trunk/octave-forge/extra/symband/DESCRIPTION,
+	  trunk/octave-forge/extra/triangular/DESCRIPTION,
+	  trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/extra/xraylib/DESCRIPTION,
+	  trunk/octave-forge/language/pt_BR/DESCRIPTION,
+	  trunk/octave-forge/main/ann/DESCRIPTION,
+	  trunk/octave-forge/main/audio/DESCRIPTION,
+	  trunk/octave-forge/main/bioinfo/DESCRIPTION,
+	  trunk/octave-forge/main/combinatorics/DESCRIPTION,
+	  trunk/octave-forge/main/comm/DESCRIPTION,
+	  trunk/octave-forge/main/control/DESCRIPTION,
+	  trunk/octave-forge/main/data-smoothing/DESCRIPTION,
+	  trunk/octave-forge/main/database/DESCRIPTION,
+	  trunk/octave-forge/main/econometrics/DESCRIPTION,
+	  trunk/octave-forge/main/financial/DESCRIPTION,
+	  trunk/octave-forge/main/fixed/DESCRIPTION,
+	  trunk/octave-forge/main/ftp/DESCRIPTION,
+	  trunk/octave-forge/main/ga/DESCRIPTION,
+	  trunk/octave-forge/main/general/DESCRIPTION,
+	  trunk/octave-forge/main/ident/DESCRIPTION,
+	  trunk/octave-forge/main/image/DESCRIPTION,
+	  trunk/octave-forge/main/info-theory/DESCRIPTION,
+	  trunk/octave-forge/main/io/DESCRIPTION,
+	  trunk/octave-forge/main/irsa/DESCRIPTION,
+	  trunk/octave-forge/main/linear-algebra/DESCRIPTION,
+	  trunk/octave-forge/main/miscellaneous/DESCRIPTION,
+	  trunk/octave-forge/main/missing-functions/DESCRIPTION,
+	  trunk/octave-forge/main/nnet/DESCRIPTION,
+	  trunk/octave-forge/main/octcdf/DESCRIPTION,
+	  trunk/octave-forge/main/octgpr/DESCRIPTION,
+	  trunk/octave-forge/main/odebvp/DESCRIPTION,
+	  trunk/octave-forge/main/odepkg/DESCRIPTION,
+	  trunk/octave-forge/main/optim/DESCRIPTION,
+	  trunk/octave-forge/main/optiminterp/DESCRIPTION,
+	  trunk/octave-forge/main/outliers/DESCRIPTION,
+	  trunk/octave-forge/main/parallel/DESCRIPTION,
+	  trunk/octave-forge/main/physical-constants/DESCRIPTION,
+	  trunk/octave-forge/main/plot/DESCRIPTION,
+	  trunk/octave-forge/main/signal/DESCRIPTION,
+	  trunk/octave-forge/main/sockets/DESCRIPTION,
+	  trunk/octave-forge/main/specfun/DESCRIPTION,
+	  trunk/octave-forge/main/special-matrix/DESCRIPTION,
+	  trunk/octave-forge/main/splines/DESCRIPTION,
+	  trunk/octave-forge/main/statistics/DESCRIPTION,
+	  trunk/octave-forge/main/strings/DESCRIPTION,
+	  trunk/octave-forge/main/struct/DESCRIPTION,
+	  trunk/octave-forge/main/symbolic/DESCRIPTION,
+	  trunk/octave-forge/main/time/DESCRIPTION,
+	  trunk/octave-forge/main/video/DESCRIPTION,
+	  trunk/octave-forge/main/vrml/DESCRIPTION,
+	  trunk/octave-forge/main/zenity/DESCRIPTION,
+	  trunk/octave-forge/nonfree/arpack/DESCRIPTION,
+	  trunk/octave-forge/nonfree/spline-gsvspl/DESCRIPTION: Updated
+	  release dates
+
+2008-04-11 15:46  goffioul
+
+	* src/configure.base: fix java oct-directory finding
+
+2008-04-10 10:54  adb014
+
+	* src/configure.base: unset TERM before calling octave to avoid
+	  supurious output in strings
+
+2008-04-06 23:36  adb014
+
+	* trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/Windows/DESCRIPTION,
+	  trunk/octave-forge/extra/ad/DESCRIPTION,
+	  trunk/octave-forge/extra/bim/DESCRIPTION,
+	  trunk/octave-forge/extra/civil/DESCRIPTION,
+	  trunk/octave-forge/extra/engine/DESCRIPTION,
+	  trunk/octave-forge/extra/fpl/DESCRIPTION,
+	  trunk/octave-forge/extra/graceplot/DESCRIPTION,
+	  trunk/octave-forge/extra/integration/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  trunk/octave-forge/extra/mapping/DESCRIPTION,
+	  trunk/octave-forge/extra/msh/DESCRIPTION,
+	  trunk/octave-forge/extra/multicore/DESCRIPTION,
+	  trunk/octave-forge/extra/pdb/DESCRIPTION,
+	  trunk/octave-forge/extra/secs1d/DESCRIPTION,
+	  trunk/octave-forge/extra/secs2d/DESCRIPTION,
+	  trunk/octave-forge/extra/soctcl/DESCRIPTION,
+	  trunk/octave-forge/extra/symband/DESCRIPTION,
+	  trunk/octave-forge/extra/triangular/DESCRIPTION,
+	  trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/extra/xraylib/DESCRIPTION,
+	  trunk/octave-forge/language/pt_BR/DESCRIPTION,
+	  trunk/octave-forge/main/audio/DESCRIPTION,
+	  trunk/octave-forge/main/combinatorics/DESCRIPTION,
+	  trunk/octave-forge/main/comm/DESCRIPTION,
+	  trunk/octave-forge/main/control/DESCRIPTION,
+	  trunk/octave-forge/main/financial/DESCRIPTION,
+	  trunk/octave-forge/main/fixed/DESCRIPTION,
+	  trunk/octave-forge/main/fixed/src/configure.base,
+	  trunk/octave-forge/main/general/DESCRIPTION,
+	  trunk/octave-forge/main/gsl/DESCRIPTION,
+	  trunk/octave-forge/main/ident/DESCRIPTION,
+	  trunk/octave-forge/main/image/DESCRIPTION,
+	  trunk/octave-forge/main/info-theory/DESCRIPTION,
+	  trunk/octave-forge/main/io/DESCRIPTION,
+	  trunk/octave-forge/main/irsa/DESCRIPTION,
+	  trunk/octave-forge/main/linear-algebra/DESCRIPTION,
+	  trunk/octave-forge/main/miscellaneous/DESCRIPTION,
+	  trunk/octave-forge/main/nnet/DESCRIPTION,
+	  trunk/octave-forge/main/octcdf/DESCRIPTION,
+	  trunk/octave-forge/main/odebvp/DESCRIPTION,
+	  trunk/octave-forge/main/optiminterp/DESCRIPTION,
+	  trunk/octave-forge/main/outliers/DESCRIPTION,
+	  trunk/octave-forge/main/parallel/DESCRIPTION,
+	  trunk/octave-forge/main/physical-constants/DESCRIPTION,
+	  trunk/octave-forge/main/plot/DESCRIPTION,
+	  trunk/octave-forge/main/signal/DESCRIPTION,
+	  trunk/octave-forge/main/statistics/DESCRIPTION,
+	  trunk/octave-forge/main/strings/DESCRIPTION,
+	  trunk/octave-forge/main/struct/DESCRIPTION,
+	  trunk/octave-forge/main/symbolic/DESCRIPTION,
+	  trunk/octave-forge/main/time/DESCRIPTION,
+	  trunk/octave-forge/main/vrml/DESCRIPTION,
+	  trunk/octave-forge/main/zenity/DESCRIPTION,
+	  trunk/octave-forge/nonfree/arpack/DESCRIPTION,
+	  trunk/octave-forge/nonfree/spline-gsvspl/DESCRIPTION: Update
+	  version numbers, release dates, and news in preparation for
+	  release
+
+2008-02-18 15:11  goffioul
+
+	* inst/legend.m, src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/LegendObject.java: add more Matlab
+	  compatibility for legend objects
+
+2008-02-18 10:14  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: Add "zero" as possible
+	  value to [x|y]axislocation (only fix error when setting it, do
+	  not honor it)
+
+2008-02-16 08:38  hauberg
+
+	* INDEX: Added reset_property to the INDEX file
+
+2008-02-12 09:10  goffioul
+
+	* src/org/octave/graphics/LineObject.java: fix ZLimInclude value
+	  for 3D line objects
+
+2008-02-04 15:26  adb014
+
+	* trunk/octave-forge/admin/octlang,
+	  trunk/octave-forge/extra/bim/COPYING,
+	  trunk/octave-forge/extra/bim/inst/BIM2Aadvdiff.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Aboundarymass.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Areaction.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Arhs.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Cglobalflux.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Cmeshproperties.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Cpdegrad.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Cunknowncoord.m,
+	  trunk/octave-forge/extra/bim/inst/BIM2Cunknownsonside.m,
+	  trunk/octave-forge/extra/bim/inst/BIMUbern.m,
+	  trunk/octave-forge/extra/bim/inst/BIMUlogm.m,
+	  trunk/octave-forge/extra/fpl/COPYING,
+	  trunk/octave-forge/extra/fpl/inst/FPL2dxappenddata.m,
+	  trunk/octave-forge/extra/fpl/inst/FPL2dxoutputdata.m,
+	  trunk/octave-forge/extra/fpl/inst/FPL2dxoutputtimeseries.m,
+	  trunk/octave-forge/extra/fpl/inst/FPL2pdesurf.m,
+	  trunk/octave-forge/extra/fpl/inst/FPL2quiver.m,
+	  trunk/octave-forge/extra/fpl/inst/FPL2showmesh.m,
+	  trunk/octave-forge/extra/java/src/org/octave/ClassHelper.java,
+	  trunk/octave-forge/extra/java/src/org/octave/Matrix.java,
+	  trunk/octave-forge/extra/java/src/org/octave/OctClassLoader.java,
+	  trunk/octave-forge/extra/java/src/org/octave/Octave.java,
+	  trunk/octave-forge/extra/java/src/org/octave/OctaveReference.java,
+	  src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/BaseLineObject.java,
+	  src/org/octave/graphics/BooleanProperty.java,
+	  src/org/octave/graphics/Callback.java,
+	  src/org/octave/graphics/CallbackListener.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/CheckBoxControl.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/ColorbarObject.java,
+	  src/org/octave/graphics/DoubleProperty.java,
+	  src/org/octave/graphics/DoubleRadioProperty.java,
+	  src/org/octave/graphics/Edit2Control.java,
+	  src/org/octave/graphics/EditControl.java,
+	  src/org/octave/graphics/Factory.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/GroupObject.java,
+	  src/org/octave/graphics/HandleEvent.java,
+	  src/org/octave/graphics/HandleEventSink.java,
+	  src/org/octave/graphics/HandleEventSinkAdapter.java,
+	  src/org/octave/graphics/HandleEventSource.java,
+	  src/org/octave/graphics/HandleEventSourceHelper.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/J2DRenderCanvas.java,
+	  src/org/octave/graphics/J2DRenderer.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LightObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/ListBoxControl.java,
+	  src/org/octave/graphics/MarkerProperty.java,
+	  src/org/octave/graphics/Matrix3D.java,
+	  src/org/octave/graphics/NotImplProperty.java,
+	  src/org/octave/graphics/ObjectProperty.java,
+	  src/org/octave/graphics/OctaveCallback.java,
+	  src/org/octave/graphics/OctaveSink.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/Point3D.java,
+	  src/org/octave/graphics/PopupMenuControl.java,
+	  src/org/octave/graphics/PositionLayout.java,
+	  src/org/octave/graphics/Positionable.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/PropertyException.java,
+	  src/org/octave/graphics/PropertySet.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/RadioProperty.java,
+	  src/org/octave/graphics/RenderCanvas.java,
+	  src/org/octave/graphics/RenderEventListener.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/StringArrayProperty.java,
+	  src/org/octave/graphics/StringProperty.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextControl.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/TextProperty.java,
+	  src/org/octave/graphics/UIControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlEvent.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/UnwindHandleObject.java,
+	  src/org/octave/graphics/Utils.java,
+	  src/org/octave/graphics/Vector3D.java,
+	  src/org/octave/graphics/VectorProperty.java,
+	  trunk/octave-forge/extra/msh/COPYING,
+	  trunk/octave-forge/extra/msh/inst/MSH2Mgeomprop.m,
+	  trunk/octave-forge/extra/msh/inst/MSH2Mgmsh.m,
+	  trunk/octave-forge/extra/msh/inst/MSH2Mjoinstructm.m,
+	  trunk/octave-forge/extra/msh/inst/MSH2Mnodesonsides.m,
+	  trunk/octave-forge/extra/msh/inst/MSH2Mstructmesh.m,
+	  trunk/octave-forge/extra/msh/inst/MSH2Msubmesh.m,
+	  trunk/octave-forge/extra/msh/inst/MSH2Mtopprop.m,
+	  trunk/octave-forge/extra/secs1d/COPYING,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGelectron_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGgummelmap.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGhole_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGn2phin.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGnlpoisson.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGp2phip.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGphin2n.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGphip2p.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDG/DDGplotresults.m,
+	  trunk/octave-forge/extra/secs1d/inst/DDN/DDNnewtonmap.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Ubern.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Ubernoulli.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Ucompconst.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Ucomplap.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Ucompmass.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Udriftdiffusion.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Umediaarmonica.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/Uscharfettergummel.m,
+	  trunk/octave-forge/extra/secs1d/inst/Utilities/constants.m,
+	  trunk/octave-forge/extra/secs1d/src/Ubern.cc,
+	  trunk/octave-forge/extra/secs2d/COPYING,
+	  trunk/octave-forge/extra/secs2d/README,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOX/DDGOXddcurrent.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOX/DDGOXelectron_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOX/DDGOXgummelmap.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOX/DDGOXhole_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOX/DDGOXnlpoisson.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOX/DDGOXplotresults.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOXT/DDGOXTelectron_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOXT/DDGOXTgummelmap.m,
+	  trunk/octave-forge/extra/secs2d/inst/DDGOXT/DDGOXThole_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXddcurrent.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXelectron_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXhole_driftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXnlpoisson.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXupdateelectron_temp.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXupdatehole_temp.m,
+	  trunk/octave-forge/extra/secs2d/inst/ThDDGOX/ThDDGOXupdatelattice_temp.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/UDXoutput2Ddata.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/UDXoutput2Dtimeseries.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/URREcyclingpattern.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ubern.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ucolumns.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ucompconst.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ucomplap.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ucompmass2.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Udescaling.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Udopdepmob.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Udrawedge.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Udriftdepmob.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Udriftdiffusion.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Udriftdiffusion2.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ufielddepmob.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ufvsgcurrent.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ufvsgcurrent2.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ufvsgcurrent3.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Uinvfermidirac.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ujoinmeshes.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Umeshproperties.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Unodesonside.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Updegrad.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Updemesh.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Updesurf.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Urows.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Urrextrapolation.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Uscaling.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Uscharfettergummel2.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Uscharfettergummel3.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ustructmesh.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ustructmesh_left.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ustructmesh_random.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Ustructmesh_right.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Usubmesh.m,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/constants.m,
+	  trunk/octave-forge/extra/secs2d/src/Ubern.cc,
+	  trunk/octave-forge/extra/secs2d/src/Ucompconst.cc,
+	  trunk/octave-forge/extra/secs2d/src/Ucomplap.cc,
+	  trunk/octave-forge/extra/secs2d/src/Uscharfettergummel.cc,
+	  trunk/octave-forge/main/comm/inst/amdemod.m,
+	  trunk/octave-forge/main/comm/inst/ammod.m,
+	  trunk/octave-forge/main/comm/inst/bsc.m,
+	  trunk/octave-forge/main/comm/inst/fmdemod.m,
+	  trunk/octave-forge/main/comm/inst/fmmod.m,
+	  trunk/octave-forge/main/comm/inst/genqamdemod.m,
+	  trunk/octave-forge/main/comm/inst/intrlv.m,
+	  trunk/octave-forge/main/comm/inst/marcumq.m,
+	  trunk/octave-forge/main/comm/inst/oct2dec.m,
+	  trunk/octave-forge/main/comm/inst/qamdemod.m,
+	  trunk/octave-forge/main/comm/inst/qammod.m,
+	  trunk/octave-forge/main/comm/inst/qfunc.m,
+	  trunk/octave-forge/main/comm/inst/qfuncinv.m,
+	  trunk/octave-forge/main/outliers/inst/chisqouttest.m,
+	  trunk/octave-forge/main/outliers/inst/cochrancdf.m,
+	  trunk/octave-forge/main/outliers/inst/cochraninv.m,
+	  trunk/octave-forge/main/outliers/inst/cochrantest.m,
+	  trunk/octave-forge/main/outliers/inst/dixoncdf.m,
+	  trunk/octave-forge/main/outliers/inst/dixoninv.m,
+	  trunk/octave-forge/main/outliers/inst/dixontest.m,
+	  trunk/octave-forge/main/outliers/inst/grubbscdf.m,
+	  trunk/octave-forge/main/outliers/inst/grubbsinv.m,
+	  trunk/octave-forge/main/outliers/inst/grubbstest.m,
+	  trunk/octave-forge/main/outliers/inst/outlier.m,
+	  trunk/octave-forge/main/outliers/inst/qtable.m,
+	  trunk/octave-forge/main/outliers/inst/rmoutlier.m,
+	  trunk/octave-forge/main/signal/inst/barthannwin.m,
+	  trunk/octave-forge/main/signal/inst/bitrevorder.m,
+	  trunk/octave-forge/main/signal/inst/blackmanharris.m,
+	  trunk/octave-forge/main/signal/inst/blackmannuttall.m,
+	  trunk/octave-forge/main/signal/inst/bohmanwin.m,
+	  trunk/octave-forge/main/signal/inst/diric.m,
+	  trunk/octave-forge/main/signal/inst/filtfilt.m,
+	  trunk/octave-forge/main/signal/inst/gauspuls.m,
+	  trunk/octave-forge/main/signal/inst/gmonopuls.m,
+	  trunk/octave-forge/main/signal/inst/mexihat.m,
+	  trunk/octave-forge/main/signal/inst/meyeraux.m,
+	  trunk/octave-forge/main/signal/inst/morlet.m,
+	  trunk/octave-forge/main/signal/inst/nuttallwin.m,
+	  trunk/octave-forge/main/signal/inst/parzenwin.m,
+	  trunk/octave-forge/main/signal/inst/shanwavf.m,
+	  trunk/octave-forge/main/signal/inst/tukeywin.m,
+	  trunk/octave-forge/main/signal/inst/upfirdn.m,
+	  trunk/octave-forge/main/signal/inst/welchwin.m,
+	  trunk/octave-forge/main/sockets/COPYING,
+	  trunk/octave-forge/main/statistics/inst/nanvar.m: And again more
+	  copyright updates
+
+2008-02-04 13:47  adb014
+
+	* trunk/octave-forge/COPYING.GPL,
+	  trunk/octave-forge/admin/MacOSX/createapp/applicationstartup.sh.in,
+	  trunk/octave-forge/admin/MacOSX/createapp/makeoctaveapp.sh,
+	  trunk/octave-forge/admin/MacOSX/createapp/makeoctaveapp.sh.old,
+	  trunk/octave-forge/admin/MacOSX/createapp/mkoctfile.in,
+	  trunk/octave-forge/admin/MacOSX/createapp/octave.in,
+	  trunk/octave-forge/admin/MacOSX/createapp/selfupdate.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.12.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.13.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.14.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.15.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.16.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.17.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-2.9.18.sh,
+	  trunk/octave-forge/admin/MacOSX/solvedeps/solvedeps-3.0.0.sh,
+	  trunk/octave-forge/admin/Windows/msvc/ar-msvc,
+	  trunk/octave-forge/admin/Windows/msvc/build_atlas_dll,
+	  trunk/octave-forge/admin/Windows/msvc/cc-msvc.cc,
+	  trunk/octave-forge/admin/Windows/msvc/fc-msvc.cc,
+	  trunk/octave-forge/admin/Windows/msvc/ranlib-msvc,
+	  trunk/octave-forge/admin/make_index,
+	  trunk/octave-forge/admin/template.ndev,
+	  trunk/octave-forge/doc/coda/appendices/examples.sgml,
+	  trunk/octave-forge/doc/coda/coda.sgml,
+	  trunk/octave-forge/doc/coda/oct/advanced.sgml,
+	  trunk/octave-forge/doc/coda/oct/oct.sgml,
+	  trunk/octave-forge/doc/coda/oct/quickref.sgml,
+	  trunk/octave-forge/doc/coda/oct/tut-basic.sgml,
+	  trunk/octave-forge/doc/coda/oct/tut-interm.sgml,
+	  trunk/octave-forge/doc/coda/oct/tut-intro.sgml,
+	  trunk/octave-forge/doc/coda/oct/tutorial.sgml,
+	  trunk/octave-forge/doc/coda/standalone/standalone.sgml,
+	  trunk/octave-forge/extra/MacOSX/COPYING,
+	  trunk/octave-forge/extra/MacOSX/src/image.m.in,
+	  trunk/octave-forge/extra/NaN/COPYING,
+	  trunk/octave-forge/extra/NaN/doc/README.TXT,
+	  trunk/octave-forge/extra/NaN/inst/center.m,
+	  trunk/octave-forge/extra/NaN/inst/coefficient_of_variation.m,
+	  trunk/octave-forge/extra/NaN/inst/conv2nan.m,
+	  trunk/octave-forge/extra/NaN/inst/cor.m,
+	  trunk/octave-forge/extra/NaN/inst/corrcoef.m,
+	  trunk/octave-forge/extra/NaN/inst/cov.m,
+	  trunk/octave-forge/extra/NaN/inst/covm.m,
+	  trunk/octave-forge/extra/NaN/inst/detrend.m,
+	  trunk/octave-forge/extra/NaN/inst/flag_implicit_significance.m,
+	  trunk/octave-forge/extra/NaN/inst/geomean.m,
+	  trunk/octave-forge/extra/NaN/inst/harmmean.m,
+	  trunk/octave-forge/extra/NaN/inst/kurtosis.m,
+	  trunk/octave-forge/extra/NaN/inst/mad.m,
+	  trunk/octave-forge/extra/NaN/inst/mean.m,
+	  trunk/octave-forge/extra/NaN/inst/meandev.m,
+	  trunk/octave-forge/extra/NaN/inst/meansq.m,
+	  trunk/octave-forge/extra/NaN/inst/median.m,
+	  trunk/octave-forge/extra/NaN/inst/mod.m,
+	  trunk/octave-forge/extra/NaN/inst/moment.m,
+	  trunk/octave-forge/extra/NaN/inst/naninsttest.m,
+	  trunk/octave-forge/extra/NaN/inst/nanstd.m,
+	  trunk/octave-forge/extra/NaN/inst/nansum.m,
+	  trunk/octave-forge/extra/NaN/inst/nantest.m,
+	  trunk/octave-forge/extra/NaN/inst/normcdf.m,
+	  trunk/octave-forge/extra/NaN/inst/norminv.m,
+	  trunk/octave-forge/extra/NaN/inst/normpdf.m,
+	  trunk/octave-forge/extra/NaN/inst/percentile.m,
+	  trunk/octave-forge/extra/NaN/inst/quantile.m,
+	  trunk/octave-forge/extra/NaN/inst/rankcorr.m,
+	  trunk/octave-forge/extra/NaN/inst/ranks.m,
+	  trunk/octave-forge/extra/NaN/inst/rem.m,
+	  trunk/octave-forge/extra/NaN/inst/rms.m,
+	  trunk/octave-forge/extra/NaN/inst/sem.m,
+	  trunk/octave-forge/extra/NaN/inst/skewness.m,
+	  trunk/octave-forge/extra/NaN/inst/spearman.m,
+	  trunk/octave-forge/extra/NaN/inst/statistic.m,
+	  trunk/octave-forge/extra/NaN/inst/std.m,
+	  trunk/octave-forge/extra/NaN/inst/sumskipnan.m,
+	  trunk/octave-forge/extra/NaN/inst/tcdf.m,
+	  trunk/octave-forge/extra/NaN/inst/tinv.m,
+	  trunk/octave-forge/extra/NaN/inst/tpdf.m,
+	  trunk/octave-forge/extra/NaN/inst/trimean.m,
+	  trunk/octave-forge/extra/NaN/inst/var.m,
+	  trunk/octave-forge/extra/NaN/inst/xcovf.m,
+	  trunk/octave-forge/extra/NaN/inst/zscore.m,
+	  trunk/octave-forge/extra/NaN/src/sumskipnan.cc,
+	  trunk/octave-forge/extra/NaN/src/sumskipnan.cpp,
+	  trunk/octave-forge/extra/Windows/COPYING,
+	  trunk/octave-forge/extra/Windows/examples/mat2xls.m,
+	  trunk/octave-forge/extra/Windows/src/__COM__.cc,
+	  trunk/octave-forge/extra/Windows/src/image.m.in,
+	  trunk/octave-forge/extra/ad/COPYING,
+	  trunk/octave-forge/extra/ad/doc/ad.texi,
+	  trunk/octave-forge/extra/ad/inst/D.m,
+	  trunk/octave-forge/extra/ad/inst/__ga__.m,
+	  trunk/octave-forge/extra/ad/inst/gradabs.m,
+	  trunk/octave-forge/extra/ad/inst/gradacos.m,
+	  trunk/octave-forge/extra/ad/inst/gradacosh.m,
+	  trunk/octave-forge/extra/ad/inst/gradasin.m,
+	  trunk/octave-forge/extra/ad/inst/gradasinh.m,
+	  trunk/octave-forge/extra/ad/inst/gradatan.m,
+	  trunk/octave-forge/extra/ad/inst/gradatanh.m,
+	  trunk/octave-forge/extra/ad/inst/gradconj.m,
+	  trunk/octave-forge/extra/ad/inst/gradcos.m,
+	  trunk/octave-forge/extra/ad/inst/gradcosh.m,
+	  trunk/octave-forge/extra/ad/inst/gradcot.m,
+	  trunk/octave-forge/extra/ad/inst/gradcumprod.m,
+	  trunk/octave-forge/extra/ad/inst/gradcumsum.m,
+	  trunk/octave-forge/extra/ad/inst/gradexp.m,
+	  trunk/octave-forge/extra/ad/inst/gradfind.m,
+	  trunk/octave-forge/extra/ad/inst/gradimag.m,
+	  trunk/octave-forge/extra/ad/inst/gradlog.m,
+	  trunk/octave-forge/extra/ad/inst/gradlog10.m,
+	  trunk/octave-forge/extra/ad/inst/gradprod.m,
+	  trunk/octave-forge/extra/ad/inst/gradreal.m,
+	  trunk/octave-forge/extra/ad/inst/gradsin.m,
+	  trunk/octave-forge/extra/ad/inst/gradsinh.m,
+	  trunk/octave-forge/extra/ad/inst/gradsqrt.m,
+	  trunk/octave-forge/extra/ad/inst/gradsum.m,
+	  trunk/octave-forge/extra/ad/inst/gradtan.m,
+	  trunk/octave-forge/extra/ad/inst/gradtanh.m,
+	  trunk/octave-forge/extra/ad/src/grad-ops.cc,
+	  trunk/octave-forge/extra/ad/src/ov-grad.cc,
+	  trunk/octave-forge/extra/ad/src/ov-grad.h,
+	  trunk/octave-forge/extra/civil/COPYING,
+	  trunk/octave-forge/extra/civil/inst/__nlnewmark_fcn__.m,
+	  trunk/octave-forge/extra/civil/inst/newmark.m,
+	  trunk/octave-forge/extra/civil/inst/nlnewmark.m,
+	  trunk/octave-forge/extra/engine/COPYING,
+	  trunk/octave-forge/extra/graceplot/COPYING,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__errcomm__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__errplot__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__grpltfmt__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plr1__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plr2__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plr__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt1__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2mm__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2mv__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2ss__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2vm__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2vv__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__pltopt1__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__pltopt__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/axis.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/bar.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/cla.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/clf.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/errorbar.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/figure.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/hold.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/ishold.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/legend.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/mplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/multiplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/oneplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/plot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/polar.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/print.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogx.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogxerr.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogy.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogyerr.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/subplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/subtitle.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/subwindow.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/title.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/xlabel.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/ylabel.m,
+	  trunk/octave-forge/extra/graceplot/src/__grcmd__.cc,
+	  trunk/octave-forge/extra/integration/COPYING,
+	  trunk/octave-forge/extra/java/COPYING,
+	  trunk/octave-forge/extra/java/inst/javaArray.m,
+	  trunk/octave-forge/extra/java/inst/javaaddpath.m,
+	  trunk/octave-forge/extra/java/inst/javaclasspath.m,
+	  trunk/octave-forge/extra/java/src/__java__.cc,
+	  trunk/octave-forge/extra/java/src/__java__.h, COPYING,
+	  inst/__area__.m, inst/__axis_label__.m, inst/__bar3__.m,
+	  inst/__bars__.m, inst/__get_object__.m,
+	  inst/__get_parent_arg__.m, inst/__jhandles_add_listener.m,
+	  inst/__jhandles_add_property.m, inst/__jhandles_exit.m,
+	  inst/__jhandles_get.m, inst/__jhandles_get_baseline.m,
+	  inst/__jhandles_go_axes.m, inst/__jhandles_go_axes_init.m,
+	  inst/__jhandles_go_barseries.m, inst/__jhandles_go_colorbar.m,
+	  inst/__jhandles_go_delete.m, inst/__jhandles_go_figure.m,
+	  inst/__jhandles_go_hggroup.m, inst/__jhandles_go_image.m,
+	  inst/__jhandles_go_line.m, inst/__jhandles_go_patch.m,
+	  inst/__jhandles_go_stemseries.m, inst/__jhandles_go_surface.m,
+	  inst/__jhandles_go_text.m, inst/__jhandles_go_uicontrol.m,
+	  inst/__jhandles_go_uipanel.m, inst/__jhandles_ishandle.m,
+	  inst/__jhandles_set.m, inst/__jhandles_waitfor.m,
+	  inst/__parse_stem_args__.m, inst/addlistener.m, inst/addprop.m,
+	  inst/allchild.m, inst/bar3.m, inst/bar3h.m, inst/colorbar.m,
+	  inst/dialog.m, inst/drawnow.m, inst/gcbf.m, inst/gcbo.m,
+	  inst/hggroup.m, inst/isprop.m, inst/legend.m, inst/light.m,
+	  inst/mat2java.m, inst/reset_property.m, inst/stem.m,
+	  inst/stem3.m, inst/uicontrol.m, inst/uipanel.m, inst/uiresume.m,
+	  inst/uiwait.m, inst/waitfor.m, src/__jhandles__.cc,
+	  trunk/octave-forge/extra/mapping/COPYING,
+	  trunk/octave-forge/extra/mapping/inst/azimuth.m,
+	  trunk/octave-forge/extra/mapping/inst/deg2rad.m,
+	  trunk/octave-forge/extra/mapping/inst/distance.m,
+	  trunk/octave-forge/extra/mapping/inst/rad2deg.m,
+	  trunk/octave-forge/extra/multicore/COPYING,
+	  trunk/octave-forge/extra/ode/COPYING,
+	  trunk/octave-forge/extra/pdb/COPYING,
+	  trunk/octave-forge/extra/pdb/inst/plotpdb.m,
+	  trunk/octave-forge/extra/pdb/inst/read_pdb.m,
+	  trunk/octave-forge/extra/pdb/inst/strtoz.m,
+	  trunk/octave-forge/extra/pdb/inst/write_pdb.m,
+	  trunk/octave-forge/extra/pdb/src/creadpdb.cc,
+	  trunk/octave-forge/extra/secs2d/inst/Utilities/Uscharfettergummel.m,
+	  trunk/octave-forge/extra/symband/COPYING,
+	  trunk/octave-forge/extra/symband/src/SymBand.cc,
+	  trunk/octave-forge/extra/tk_octave/inst/rainbow.m,
+	  trunk/octave-forge/extra/triangular/COPYING,
+	  trunk/octave-forge/extra/triangular/inst/triangular.m,
+	  trunk/octave-forge/extra/tsa/COPYING,
+	  trunk/octave-forge/extra/tsa/doc/README.TXT,
+	  trunk/octave-forge/extra/tsa/inst/aar.m,
+	  trunk/octave-forge/extra/tsa/inst/aarmam.m,
+	  trunk/octave-forge/extra/tsa/inst/ac2poly.m,
+	  trunk/octave-forge/extra/tsa/inst/ac2rc.m,
+	  trunk/octave-forge/extra/tsa/inst/acorf.m,
+	  trunk/octave-forge/extra/tsa/inst/acovf.m,
+	  trunk/octave-forge/extra/tsa/inst/adim.m,
+	  trunk/octave-forge/extra/tsa/inst/ar2poly.m,
+	  trunk/octave-forge/extra/tsa/inst/ar2rc.m,
+	  trunk/octave-forge/extra/tsa/inst/ar_spa.m,
+	  trunk/octave-forge/extra/tsa/inst/arcext.m,
+	  trunk/octave-forge/extra/tsa/inst/biacovf.m,
+	  trunk/octave-forge/extra/tsa/inst/bisdemo.m,
+	  trunk/octave-forge/extra/tsa/inst/bispec.m,
+	  trunk/octave-forge/extra/tsa/inst/contents.m,
+	  trunk/octave-forge/extra/tsa/inst/detrend.m,
+	  trunk/octave-forge/extra/tsa/inst/durlev.m,
+	  trunk/octave-forge/extra/tsa/inst/flag_implicit_samplerate.m,
+	  trunk/octave-forge/extra/tsa/inst/flix.m,
+	  trunk/octave-forge/extra/tsa/inst/histo.m,
+	  trunk/octave-forge/extra/tsa/inst/histo2.m,
+	  trunk/octave-forge/extra/tsa/inst/histo3.m,
+	  trunk/octave-forge/extra/tsa/inst/histo4.m,
+	  trunk/octave-forge/extra/tsa/inst/hup.m,
+	  trunk/octave-forge/extra/tsa/inst/invest0.m,
+	  trunk/octave-forge/extra/tsa/inst/invest1.m,
+	  trunk/octave-forge/extra/tsa/inst/invfdemo.m,
+	  trunk/octave-forge/extra/tsa/inst/lattice.m,
+	  trunk/octave-forge/extra/tsa/inst/lpc.m,
+	  trunk/octave-forge/extra/tsa/inst/mvaar.m,
+	  trunk/octave-forge/extra/tsa/inst/mvar.m,
+	  trunk/octave-forge/extra/tsa/inst/mvfilter.m,
+	  trunk/octave-forge/extra/tsa/inst/mvfreqz.m,
+	  trunk/octave-forge/extra/tsa/inst/pacf.m,
+	  trunk/octave-forge/extra/tsa/inst/parcor.m,
+	  trunk/octave-forge/extra/tsa/inst/poly2ac.m,
+	  trunk/octave-forge/extra/tsa/inst/poly2ar.m,
+	  trunk/octave-forge/extra/tsa/inst/poly2rc.m,
+	  trunk/octave-forge/extra/tsa/inst/rc2ac.m,
+	  trunk/octave-forge/extra/tsa/inst/rc2ar.m,
+	  trunk/octave-forge/extra/tsa/inst/rc2poly.m,
+	  trunk/octave-forge/extra/tsa/inst/rmle.m,
+	  trunk/octave-forge/extra/tsa/inst/sbispec.m,
+	  trunk/octave-forge/extra/tsa/inst/selmo.m,
+	  trunk/octave-forge/extra/tsa/inst/sinvest1.m,
+	  trunk/octave-forge/extra/tsa/inst/tsademo.m,
+	  trunk/octave-forge/extra/tsa/inst/ucp.m,
+	  trunk/octave-forge/extra/tsa/inst/y2res.m,
+	  trunk/octave-forge/extra/xraylib/COPYING,
+	  trunk/octave-forge/language/base/src/help.icc,
+	  trunk/octave-forge/language/base/template/COPYING,
+	  trunk/octave-forge/language/base/template/src/help.cc,
+	  trunk/octave-forge/language/pt_BR/COPYING,
+	  trunk/octave-forge/language/pt_BR/src/ajuda.cc,
+	  trunk/octave-forge/main/audio/COPYING,
+	  trunk/octave-forge/main/audio/inst/au.m,
+	  trunk/octave-forge/main/audio/inst/auload.m,
+	  trunk/octave-forge/main/audio/inst/auplot.m,
+	  trunk/octave-forge/main/audio/inst/ausave.m,
+	  trunk/octave-forge/main/audio/inst/clip.m,
+	  trunk/octave-forge/main/audio/inst/sound.m,
+	  trunk/octave-forge/main/audio/inst/soundsc.m,
+	  trunk/octave-forge/main/combinatorics/COPYING,
+	  trunk/octave-forge/main/combinatorics/inst/combs.m,
+	  trunk/octave-forge/main/combinatorics/src/Makefile,
+	  trunk/octave-forge/main/combinatorics/src/partint.cc,
+	  trunk/octave-forge/main/combinatorics/src/partint.h,
+	  trunk/octave-forge/main/comm/COPYING,
+	  trunk/octave-forge/main/comm/inst/ademodce.m,
+	  trunk/octave-forge/main/comm/inst/amodce.m,
+	  trunk/octave-forge/main/comm/inst/apkconst.m,
+	  trunk/octave-forge/main/comm/inst/awgn.m,
+	  trunk/octave-forge/main/comm/inst/bchpoly.m,
+	  trunk/octave-forge/main/comm/inst/bi2de.m,
+	  trunk/octave-forge/main/comm/inst/biterr.m,
+	  trunk/octave-forge/main/comm/inst/comms.m,
+	  trunk/octave-forge/main/comm/inst/compand.m,
+	  trunk/octave-forge/main/comm/inst/cosets.m,
+	  trunk/octave-forge/main/comm/inst/de2bi.m,
+	  trunk/octave-forge/main/comm/inst/decode.m,
+	  trunk/octave-forge/main/comm/inst/demodmap.m,
+	  trunk/octave-forge/main/comm/inst/egolaydec.m,
+	  trunk/octave-forge/main/comm/inst/egolayenc.m,
+	  trunk/octave-forge/main/comm/inst/egolaygen.m,
+	  trunk/octave-forge/main/comm/inst/encode.m,
+	  trunk/octave-forge/main/comm/inst/eyediagram.m,
+	  trunk/octave-forge/main/comm/inst/fibodeco.m,
+	  trunk/octave-forge/main/comm/inst/fiboenco.m,
+	  trunk/octave-forge/main/comm/inst/fibosplitstream.m,
+	  trunk/octave-forge/main/comm/inst/gconv.m,
+	  trunk/octave-forge/main/comm/inst/gconvmtx.m,
+	  trunk/octave-forge/main/comm/inst/gdeconv.m,
+	  trunk/octave-forge/main/comm/inst/gdftmtx.m,
+	  trunk/octave-forge/main/comm/inst/gen2par.m,
+	  trunk/octave-forge/main/comm/inst/genqammod.m,
+	  trunk/octave-forge/main/comm/inst/gfft.m,
+	  trunk/octave-forge/main/comm/inst/gftable.m,
+	  trunk/octave-forge/main/comm/inst/gfweight.m,
+	  trunk/octave-forge/main/comm/inst/gifft.m,
+	  trunk/octave-forge/main/comm/inst/gisequal.m,
+	  trunk/octave-forge/main/comm/inst/golombdeco.m,
+	  trunk/octave-forge/main/comm/inst/golombenco.m,
+	  trunk/octave-forge/main/comm/inst/groots.m,
+	  trunk/octave-forge/main/comm/inst/hammgen.m,
+	  trunk/octave-forge/main/comm/inst/huffmandeco.m,
+	  trunk/octave-forge/main/comm/inst/huffmandict.m,
+	  trunk/octave-forge/main/comm/inst/huffmanenco.m,
+	  trunk/octave-forge/main/comm/inst/lloyds.m,
+	  trunk/octave-forge/main/comm/inst/lz77deco.m,
+	  trunk/octave-forge/main/comm/inst/lz77enco.m,
+	  trunk/octave-forge/main/comm/inst/minpol.m,
+	  trunk/octave-forge/main/comm/inst/modmap.m,
+	  trunk/octave-forge/main/comm/inst/pamdemod.m,
+	  trunk/octave-forge/main/comm/inst/pammod.m,
+	  trunk/octave-forge/main/comm/inst/pskdemod.m,
+	  trunk/octave-forge/main/comm/inst/pskmod.m,
+	  trunk/octave-forge/main/comm/inst/qaskdeco.m,
+	  trunk/octave-forge/main/comm/inst/qaskenco.m,
+	  trunk/octave-forge/main/comm/inst/quantiz.m,
+	  trunk/octave-forge/main/comm/inst/randerr.m,
+	  trunk/octave-forge/main/comm/inst/randint.m,
+	  trunk/octave-forge/main/comm/inst/randsrc.m,
+	  trunk/octave-forge/main/comm/inst/reedmullerdec.m,
+	  trunk/octave-forge/main/comm/inst/reedmullerenc.m,
+	  trunk/octave-forge/main/comm/inst/reedmullergen.m,
+	  trunk/octave-forge/main/comm/inst/ricedeco.m,
+	  trunk/octave-forge/main/comm/inst/riceenco.m,
+	  trunk/octave-forge/main/comm/inst/rledeco.m,
+	  trunk/octave-forge/main/comm/inst/rleenco.m,
+	  trunk/octave-forge/main/comm/inst/rsdecof.m,
+	  trunk/octave-forge/main/comm/inst/rsencof.m,
+	  trunk/octave-forge/main/comm/inst/rsgenpoly.m,
+	  trunk/octave-forge/main/comm/inst/scatterplot.m,
+	  trunk/octave-forge/main/comm/inst/shannonfanodeco.m,
+	  trunk/octave-forge/main/comm/inst/shannonfanodict.m,
+	  trunk/octave-forge/main/comm/inst/shannonfanoenco.m,
+	  trunk/octave-forge/main/comm/inst/symerr.m,
+	  trunk/octave-forge/main/comm/inst/systematize.m,
+	  trunk/octave-forge/main/comm/inst/vec2mat.m,
+	  trunk/octave-forge/main/comm/inst/wgn.m,
+	  trunk/octave-forge/main/comm/src/__errcore__.cc,
+	  trunk/octave-forge/main/comm/src/__gfweight__.cc,
+	  trunk/octave-forge/main/comm/src/cyclgen.cc,
+	  trunk/octave-forge/main/comm/src/cyclpoly.cc,
+	  trunk/octave-forge/main/comm/src/galois-def.cc,
+	  trunk/octave-forge/main/comm/src/galois-def.h,
+	  trunk/octave-forge/main/comm/src/galois-ops.h,
+	  trunk/octave-forge/main/comm/src/galois.cc,
+	  trunk/octave-forge/main/comm/src/galois.h,
+	  trunk/octave-forge/main/comm/src/galoisfield.cc,
+	  trunk/octave-forge/main/comm/src/galoisfield.h,
+	  trunk/octave-forge/main/comm/src/genqamdemod.cc,
+	  trunk/octave-forge/main/comm/src/gf.cc,
+	  trunk/octave-forge/main/comm/src/isprimitive.cc,
+	  trunk/octave-forge/main/comm/src/op-gm-gm.cc,
+	  trunk/octave-forge/main/comm/src/op-gm-m.cc,
+	  trunk/octave-forge/main/comm/src/op-gm-s.cc,
+	  trunk/octave-forge/main/comm/src/op-m-gm.cc,
+	  trunk/octave-forge/main/comm/src/op-s-gm.cc,
+	  trunk/octave-forge/main/comm/src/ov-galois.cc,
+	  trunk/octave-forge/main/comm/src/ov-galois.h,
+	  trunk/octave-forge/main/comm/src/primpoly.cc,
+	  trunk/octave-forge/main/comm/src/syndtable.cc,
+	  trunk/octave-forge/main/control/COPYING,
+	  trunk/octave-forge/main/econometrics/COPYING,
+	  trunk/octave-forge/main/econometrics/inst/__kernel_epanechnikov.m,
+	  trunk/octave-forge/main/econometrics/inst/__kernel_normal.m,
+	  trunk/octave-forge/main/econometrics/inst/__kernel_weights.m,
+	  trunk/octave-forge/main/econometrics/inst/average_moments.m,
+	  trunk/octave-forge/main/econometrics/inst/delta_method.m,
+	  trunk/octave-forge/main/econometrics/inst/gmm_estimate.m,
+	  trunk/octave-forge/main/econometrics/inst/gmm_example.m,
+	  trunk/octave-forge/main/econometrics/inst/gmm_obj.m,
+	  trunk/octave-forge/main/econometrics/inst/gmm_results.m,
+	  trunk/octave-forge/main/econometrics/inst/gmm_variance.m,
+	  trunk/octave-forge/main/econometrics/inst/gmm_variance_inefficient.m,
+	  trunk/octave-forge/main/econometrics/inst/kernel_density.m,
+	  trunk/octave-forge/main/econometrics/inst/kernel_density_nodes.m,
+	  trunk/octave-forge/main/econometrics/inst/kernel_example.m,
+	  trunk/octave-forge/main/econometrics/inst/kernel_optimal_bandwidth.m,
+	  trunk/octave-forge/main/econometrics/inst/kernel_regression.m,
+	  trunk/octave-forge/main/econometrics/inst/kernel_regression_nodes.m,
+	  trunk/octave-forge/main/econometrics/inst/mle_estimate.m,
+	  trunk/octave-forge/main/econometrics/inst/mle_example.m,
+	  trunk/octave-forge/main/econometrics/inst/mle_obj.m,
+	  trunk/octave-forge/main/econometrics/inst/mle_obj_nodes.m,
+	  trunk/octave-forge/main/econometrics/inst/mle_results.m,
+	  trunk/octave-forge/main/econometrics/inst/mle_variance.m,
+	  trunk/octave-forge/main/econometrics/inst/nls_estimate.m,
+	  trunk/octave-forge/main/econometrics/inst/nls_example.m,
+	  trunk/octave-forge/main/econometrics/inst/nls_obj.m,
+	  trunk/octave-forge/main/econometrics/inst/nls_obj_nodes.m,
+	  trunk/octave-forge/main/econometrics/inst/parameterize.m,
+	  trunk/octave-forge/main/econometrics/inst/poisson.m,
+	  trunk/octave-forge/main/econometrics/inst/poisson_moments.m,
+	  trunk/octave-forge/main/econometrics/inst/prettyprint.m,
+	  trunk/octave-forge/main/econometrics/inst/prettyprint_c.m,
+	  trunk/octave-forge/main/econometrics/inst/scale_data.m,
+	  trunk/octave-forge/main/econometrics/inst/sum_moments_nodes.m,
+	  trunk/octave-forge/main/econometrics/inst/unscale_parameters.m,
+	  trunk/octave-forge/main/econometrics/src/__kernel_weights.cc,
+	  trunk/octave-forge/main/fixed/COPYING,
+	  trunk/octave-forge/main/fixed/examples/ffft.cc,
+	  trunk/octave-forge/main/fixed/examples/ffft.h,
+	  trunk/octave-forge/main/fixed/examples/fixed_inc.cc,
+	  trunk/octave-forge/main/fixed/examples/testfixed.m,
+	  trunk/octave-forge/main/fixed/examples/testofdm.m,
+	  trunk/octave-forge/main/fixed/inst/concat.m,
+	  trunk/octave-forge/main/fixed/inst/create_lookup_table.m,
+	  trunk/octave-forge/main/fixed/inst/fixedpoint.m,
+	  trunk/octave-forge/main/fixed/inst/float.m,
+	  trunk/octave-forge/main/fixed/inst/fsort.m,
+	  trunk/octave-forge/main/fixed/inst/lookup_table.m,
+	  trunk/octave-forge/main/fixed/src/Array-f.cc,
+	  trunk/octave-forge/main/fixed/src/fixed-conv.cc,
+	  trunk/octave-forge/main/fixed/src/fixed-conv.h,
+	  trunk/octave-forge/main/fixed/src/fixed-def.h,
+	  trunk/octave-forge/main/fixed/src/fixed-var.cc,
+	  trunk/octave-forge/main/fixed/src/fixed-var.h,
+	  trunk/octave-forge/main/fixed/src/fixed.cc,
+	  trunk/octave-forge/main/fixed/src/fixed.h,
+	  trunk/octave-forge/main/fixed/src/fixedCColVector.cc,
+	  trunk/octave-forge/main/fixed/src/fixedCColVector.h,
+	  trunk/octave-forge/main/fixed/src/fixedCMatrix.cc,
+	  trunk/octave-forge/main/fixed/src/fixedCMatrix.h,
+	  trunk/octave-forge/main/fixed/src/fixedCNDArray.cc,
+	  trunk/octave-forge/main/fixed/src/fixedCNDArray.h,
+	  trunk/octave-forge/main/fixed/src/fixedCRowVector.cc,
+	  trunk/octave-forge/main/fixed/src/fixedCRowVector.h,
+	  trunk/octave-forge/main/fixed/src/fixedColVector.cc,
+	  trunk/octave-forge/main/fixed/src/fixedColVector.h,
+	  trunk/octave-forge/main/fixed/src/fixedComplex.cc,
+	  trunk/octave-forge/main/fixed/src/fixedComplex.h,
+	  trunk/octave-forge/main/fixed/src/fixedMatrix.cc,
+	  trunk/octave-forge/main/fixed/src/fixedMatrix.h,
+	  trunk/octave-forge/main/fixed/src/fixedNDArray.cc,
+	  trunk/octave-forge/main/fixed/src/fixedNDArray.h,
+	  trunk/octave-forge/main/fixed/src/fixedRowVector.cc,
+	  trunk/octave-forge/main/fixed/src/fixedRowVector.h,
+	  trunk/octave-forge/main/fixed/src/int/fixed.cc,
+	  trunk/octave-forge/main/fixed/src/int/fixed.h,
+	  trunk/octave-forge/main/fixed/src/op-fcm-fcm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcm-fcs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcm-fm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcm-fs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcs-fcm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcs-fcs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcs-fm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fcs-fs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fm-fcm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fm-fcs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fm-fm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fm-fs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fs-fcm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fs-fcs.cc,
+	  trunk/octave-forge/main/fixed/src/op-fs-fm.cc,
+	  trunk/octave-forge/main/fixed/src/op-fs-fs.cc,
+	  trunk/octave-forge/main/fixed/src/ov-base-fixed-mat.cc,
+	  trunk/octave-forge/main/fixed/src/ov-base-fixed-mat.h,
+	  trunk/octave-forge/main/fixed/src/ov-base-fixed.cc,
+	  trunk/octave-forge/main/fixed/src/ov-base-fixed.h,
+	  trunk/octave-forge/main/fixed/src/ov-fixed-complex.cc,
+	  trunk/octave-forge/main/fixed/src/ov-fixed-complex.h,
+	  trunk/octave-forge/main/fixed/src/ov-fixed-cx-mat.cc,
+	  trunk/octave-forge/main/fixed/src/ov-fixed-cx-mat.h,
+	  trunk/octave-forge/main/fixed/src/ov-fixed-mat.cc,
+	  trunk/octave-forge/main/fixed/src/ov-fixed-mat.h,
+	  trunk/octave-forge/main/fixed/src/ov-fixed.cc,
+	  trunk/octave-forge/main/fixed/src/ov-fixed.h,
+	  trunk/octave-forge/main/general/COPYING,
+	  trunk/octave-forge/main/general/inst/ctranspose.m,
+	  trunk/octave-forge/main/general/inst/issorted.m,
+	  trunk/octave-forge/main/general/inst/transpose.m,
+	  trunk/octave-forge/main/general/inst/unvech.m,
+	  trunk/octave-forge/main/general/src/deref.cc,
+	  trunk/octave-forge/main/gsl/COPYING,
+	  trunk/octave-forge/main/gsl/src/buildgsl_sf.sh,
+	  trunk/octave-forge/main/gsl/src/coupling_3j.cc,
+	  trunk/octave-forge/main/gsl/src/coupling_6j.cc,
+	  trunk/octave-forge/main/gsl/src/coupling_9j.cc,
+	  trunk/octave-forge/main/gsl/src/legendre_sphPlm_array.cc,
+	  trunk/octave-forge/main/gsl/src/precode.cc.template,
+	  trunk/octave-forge/main/ident/COPYING,
+	  trunk/octave-forge/main/ident/inst/idplot.m,
+	  trunk/octave-forge/main/ident/inst/idsim.m,
+	  trunk/octave-forge/main/ident/inst/mktheta.m,
+	  trunk/octave-forge/main/ident/inst/poly2th.m,
+	  trunk/octave-forge/main/image/COPYING,
+	  trunk/octave-forge/main/image/devel/__bridge_lut_fun__.m,
+	  trunk/octave-forge/main/image/devel/__conditional_mark_patterns_lut_fun__.m,
+	  trunk/octave-forge/main/image/devel/__diagonal_fill_lut_fun__.m,
+	  trunk/octave-forge/main/image/devel/__unconditional_mark_patterns_lut_fun__.m,
+	  trunk/octave-forge/main/image/inst/applylut.m,
+	  trunk/octave-forge/main/image/inst/bestblk.m,
+	  trunk/octave-forge/main/image/inst/blkproc.m,
+	  trunk/octave-forge/main/image/inst/bwarea.m,
+	  trunk/octave-forge/main/image/inst/bwborder.m,
+	  trunk/octave-forge/main/image/inst/bwdist.m,
+	  trunk/octave-forge/main/image/inst/bweuler.m,
+	  trunk/octave-forge/main/image/inst/bwlabel.m,
+	  trunk/octave-forge/main/image/inst/bwmorph.m,
+	  trunk/octave-forge/main/image/inst/bwperim.m,
+	  trunk/octave-forge/main/image/inst/cmpermute.m,
+	  trunk/octave-forge/main/image/inst/cmunique.m,
+	  trunk/octave-forge/main/image/inst/col2im.m,
+	  trunk/octave-forge/main/image/inst/conndef.m,
+	  trunk/octave-forge/main/image/inst/corr2.m,
+	  trunk/octave-forge/main/image/inst/deriche.m,
+	  trunk/octave-forge/main/image/inst/dilate.m,
+	  trunk/octave-forge/main/image/inst/erode.m,
+	  trunk/octave-forge/main/image/inst/fspecial.m,
+	  trunk/octave-forge/main/image/inst/grayslice.m,
+	  trunk/octave-forge/main/image/inst/histeq.m,
+	  trunk/octave-forge/main/image/inst/im2bw.m,
+	  trunk/octave-forge/main/image/inst/im2col.m,
+	  trunk/octave-forge/main/image/inst/im2double.m,
+	  trunk/octave-forge/main/image/inst/im2uint16.m,
+	  trunk/octave-forge/main/image/inst/im2uint8.m,
+	  trunk/octave-forge/main/image/inst/imadjust.m,
+	  trunk/octave-forge/main/image/inst/imhist.m,
+	  trunk/octave-forge/main/image/inst/imnoise.m,
+	  trunk/octave-forge/main/image/inst/impad.m,
+	  trunk/octave-forge/main/image/inst/imremap.m,
+	  trunk/octave-forge/main/image/inst/imresize.m,
+	  trunk/octave-forge/main/image/inst/imrotate.m,
+	  trunk/octave-forge/main/image/inst/imrotate_Fourier.m,
+	  trunk/octave-forge/main/image/inst/imshear.m,
+	  trunk/octave-forge/main/image/inst/imtranslate.m,
+	  trunk/octave-forge/main/image/inst/isbw.m,
+	  trunk/octave-forge/main/image/inst/isgray.m,
+	  trunk/octave-forge/main/image/inst/isind.m,
+	  trunk/octave-forge/main/image/inst/isrgb.m,
+	  trunk/octave-forge/main/image/inst/label2rgb.m,
+	  trunk/octave-forge/main/image/inst/makelut.m,
+	  trunk/octave-forge/main/image/inst/mat2gray.m,
+	  trunk/octave-forge/main/image/inst/mean2.m,
+	  trunk/octave-forge/main/image/inst/medfilt2.m,
+	  trunk/octave-forge/main/image/inst/nlfilter.m,
+	  trunk/octave-forge/main/image/inst/ordfilt2.m,
+	  trunk/octave-forge/main/image/inst/padarray.m,
+	  trunk/octave-forge/main/image/inst/poly2mask.m,
+	  trunk/octave-forge/main/image/inst/qtdecomp.m,
+	  trunk/octave-forge/main/image/inst/qtgetblk.m,
+	  trunk/octave-forge/main/image/inst/qtsetblk.m,
+	  trunk/octave-forge/main/image/inst/rgb2gray.m,
+	  trunk/octave-forge/main/image/inst/roicolor.m,
+	  trunk/octave-forge/main/image/inst/std2.m,
+	  trunk/octave-forge/main/image/inst/stretchlim.m,
+	  trunk/octave-forge/main/image/inst/uintlut.m,
+	  trunk/octave-forge/main/image/src/__bwdist.cc,
+	  trunk/octave-forge/main/image/src/cordflt2.cc,
+	  trunk/octave-forge/main/image/src/pngcanvas.h,
+	  trunk/octave-forge/main/image/src/pngread.cc,
+	  trunk/octave-forge/main/image/src/pngwrite.cc,
+	  trunk/octave-forge/main/info-theory/COPYING,
+	  trunk/octave-forge/main/info-theory/inst/arithmetic_decode.m,
+	  trunk/octave-forge/main/info-theory/inst/arithmetic_encode.m,
+	  trunk/octave-forge/main/info-theory/inst/bscchannel.m,
+	  trunk/octave-forge/main/info-theory/inst/condentr_seq.m,
+	  trunk/octave-forge/main/info-theory/inst/conditionalentropy_XY.m,
+	  trunk/octave-forge/main/info-theory/inst/conditionalentropy_YX.m,
+	  trunk/octave-forge/main/info-theory/inst/entropy.m,
+	  trunk/octave-forge/main/info-theory/inst/hartley_entropy.m,
+	  trunk/octave-forge/main/info-theory/inst/infoentr_seq.m,
+	  trunk/octave-forge/main/info-theory/inst/infogain_seq.m,
+	  trunk/octave-forge/main/info-theory/inst/jointentropy.m,
+	  trunk/octave-forge/main/info-theory/inst/kullback_leibler_distance.m,
+	  trunk/octave-forge/main/info-theory/inst/laverage.m,
+	  trunk/octave-forge/main/info-theory/inst/marginalc.m,
+	  trunk/octave-forge/main/info-theory/inst/marginalr.m,
+	  trunk/octave-forge/main/info-theory/inst/mutualinfo_seq.m,
+	  trunk/octave-forge/main/info-theory/inst/mutualinformation.m,
+	  trunk/octave-forge/main/info-theory/inst/narysource.m,
+	  trunk/octave-forge/main/info-theory/inst/redundancy.m,
+	  trunk/octave-forge/main/info-theory/inst/relativeentropy.m,
+	  trunk/octave-forge/main/info-theory/inst/renyi_entropy.m,
+	  trunk/octave-forge/main/info-theory/inst/shannon_entropy.m,
+	  trunk/octave-forge/main/info-theory/inst/tunstallcode.m,
+	  trunk/octave-forge/main/info-theory/inst/unarydec.m,
+	  trunk/octave-forge/main/info-theory/inst/unaryenc.m,
+	  trunk/octave-forge/main/io/COPYING,
+	  trunk/octave-forge/main/io/inst/append_save.m,
+	  trunk/octave-forge/main/io/inst/dlmread.m,
+	  trunk/octave-forge/main/io/inst/xlsread.m,
+	  trunk/octave-forge/main/io/src/dlmread.cc,
+	  trunk/octave-forge/main/io/src/dlmreadnew.cc,
+	  trunk/octave-forge/main/irsa/COPYING,
+	  trunk/octave-forge/main/irsa/inst/irsa_act.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_actcore.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_check.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_dft.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_dftfp.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_genreal.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_idft.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_isregular.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_jitsp.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_mdsp.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_normalize.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_plotdft.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_resample.m,
+	  trunk/octave-forge/main/irsa/inst/irsa_rgenreal.m,
+	  trunk/octave-forge/main/linear-algebra/COPYING,
+	  trunk/octave-forge/main/linear-algebra/inst/bicg.m,
+	  trunk/octave-forge/main/linear-algebra/inst/funm.m,
+	  trunk/octave-forge/main/linear-algebra/src/CmplxGSVD.cc,
+	  trunk/octave-forge/main/linear-algebra/src/CmplxGSVD.h,
+	  trunk/octave-forge/main/linear-algebra/src/GramSchmidt.cc,
+	  trunk/octave-forge/main/linear-algebra/src/dbleGSVD.cc,
+	  trunk/octave-forge/main/linear-algebra/src/dbleGSVD.h,
+	  trunk/octave-forge/main/linear-algebra/src/gsvd.cc,
+	  trunk/octave-forge/main/linear-algebra/src/outer.cc,
+	  trunk/octave-forge/main/miscellaneous/COPYING,
+	  trunk/octave-forge/main/miscellaneous/inst/apply.m,
+	  trunk/octave-forge/main/miscellaneous/inst/csv2latex.m,
+	  trunk/octave-forge/main/miscellaneous/inst/infoskeleton.m,
+	  trunk/octave-forge/main/miscellaneous/inst/map.m,
+	  trunk/octave-forge/main/miscellaneous/inst/match.m,
+	  trunk/octave-forge/main/miscellaneous/inst/reduce.m,
+	  trunk/octave-forge/main/miscellaneous/inst/units.m,
+	  trunk/octave-forge/main/miscellaneous/inst/xmlwrite.m,
+	  trunk/octave-forge/main/miscellaneous/inst/zagzig.m,
+	  trunk/octave-forge/main/miscellaneous/inst/zigzag.m,
+	  trunk/octave-forge/main/miscellaneous/src/cell2csv.cc,
+	  trunk/octave-forge/main/miscellaneous/src/csv2cell.cc,
+	  trunk/octave-forge/main/miscellaneous/src/csvconcat.cc,
+	  trunk/octave-forge/main/miscellaneous/src/csvexplode.cc,
+	  trunk/octave-forge/main/miscellaneous/src/waitbar.cc,
+	  trunk/octave-forge/main/miscellaneous/src/xmlread.cc,
+	  trunk/octave-forge/main/miscellaneous/src/xmltree.c,
+	  trunk/octave-forge/main/miscellaneous/src/xmltree.h,
+	  trunk/octave-forge/main/miscellaneous/src/xmltree_read.act,
+	  trunk/octave-forge/main/miscellaneous/src/xmltree_read.h,
+	  trunk/octave-forge/main/nnet/COPYING,
+	  trunk/octave-forge/main/nnet/doc/latex/users/examples/1/MLP9_1_1.m,
+	  trunk/octave-forge/main/nnet/inst/__calcjacobian.m,
+	  trunk/octave-forge/main/nnet/inst/__calcperf.m,
+	  trunk/octave-forge/main/nnet/inst/__checknetstruct.m,
+	  trunk/octave-forge/main/nnet/inst/__dlogsig.m,
+	  trunk/octave-forge/main/nnet/inst/__dpurelin.m,
+	  trunk/octave-forge/main/nnet/inst/__dtansig.m,
+	  trunk/octave-forge/main/nnet/inst/__getx.m,
+	  trunk/octave-forge/main/nnet/inst/__init.m,
+	  trunk/octave-forge/main/nnet/inst/__mse.m,
+	  trunk/octave-forge/main/nnet/inst/__newnetwork.m,
+	  trunk/octave-forge/main/nnet/inst/__printAdaptFcn.m,
+	  trunk/octave-forge/main/nnet/inst/__printAdaptParam.m,
+	  trunk/octave-forge/main/nnet/inst/__printB.m,
+	  trunk/octave-forge/main/nnet/inst/__printBiasConnect.m,
+	  trunk/octave-forge/main/nnet/inst/__printBiases.m,
+	  trunk/octave-forge/main/nnet/inst/__printIW.m,
+	  trunk/octave-forge/main/nnet/inst/__printInitFcn.m,
+	  trunk/octave-forge/main/nnet/inst/__printInitParam.m,
+	  trunk/octave-forge/main/nnet/inst/__printInputConnect.m,
+	  trunk/octave-forge/main/nnet/inst/__printInputWeights.m,
+	  trunk/octave-forge/main/nnet/inst/__printInputs.m,
+	  trunk/octave-forge/main/nnet/inst/__printLW.m,
+	  trunk/octave-forge/main/nnet/inst/__printLayerConnect.m,
+	  trunk/octave-forge/main/nnet/inst/__printLayerWeights.m,
+	  trunk/octave-forge/main/nnet/inst/__printLayers.m,
+	  trunk/octave-forge/main/nnet/inst/__printMLPHeader.m,
+	  trunk/octave-forge/main/nnet/inst/__printNetworkType.m,
+	  trunk/octave-forge/main/nnet/inst/__printNumInputDelays.m,
+	  trunk/octave-forge/main/nnet/inst/__printNumInputs.m,
+	  trunk/octave-forge/main/nnet/inst/__printNumLayerDelays.m,
+	  trunk/octave-forge/main/nnet/inst/__printNumLayers.m,
+	  trunk/octave-forge/main/nnet/inst/__printNumOutputs.m,
+	  trunk/octave-forge/main/nnet/inst/__printNumTargets.m,
+	  trunk/octave-forge/main/nnet/inst/__printOutputConnect.m,
+	  trunk/octave-forge/main/nnet/inst/__printOutputs.m,
+	  trunk/octave-forge/main/nnet/inst/__printPerformFcn.m,
+	  trunk/octave-forge/main/nnet/inst/__printPerformParam.m,
+	  trunk/octave-forge/main/nnet/inst/__printTargetConnect.m,
+	  trunk/octave-forge/main/nnet/inst/__printTargets.m,
+	  trunk/octave-forge/main/nnet/inst/__printTrainFcn.m,
+	  trunk/octave-forge/main/nnet/inst/__printTrainParam.m,
+	  trunk/octave-forge/main/nnet/inst/__setx.m,
+	  trunk/octave-forge/main/nnet/inst/__trainlm.m,
+	  trunk/octave-forge/main/nnet/inst/isposint.m,
+	  trunk/octave-forge/main/nnet/inst/logsig.m,
+	  trunk/octave-forge/main/nnet/inst/min_max.m,
+	  trunk/octave-forge/main/nnet/inst/newff.m,
+	  trunk/octave-forge/main/nnet/inst/poststd.m,
+	  trunk/octave-forge/main/nnet/inst/prestd.m,
+	  trunk/octave-forge/main/nnet/inst/purelin.m,
+	  trunk/octave-forge/main/nnet/inst/saveMLPStruct.m,
+	  trunk/octave-forge/main/nnet/inst/sim.m,
+	  trunk/octave-forge/main/nnet/inst/tansig.m,
+	  trunk/octave-forge/main/nnet/inst/train.m,
+	  trunk/octave-forge/main/nnet/inst/trastd.m,
+	  trunk/octave-forge/main/nnet/tests/MLP/MLP9_1_1.m,
+	  trunk/octave-forge/main/nnet/tests/MLP/MLP9_2_1.m,
+	  trunk/octave-forge/main/nnet/tests/MLP/MLP9_2_2.m,
+	  trunk/octave-forge/main/nnet/tests/MLP/MLP9_2_2_1.m,
+	  trunk/octave-forge/main/nnet/tests/MLP/MLP9_2_3.m,
+	  trunk/octave-forge/main/nnet/tests/MLP/MLP9_5_3.m,
+	  trunk/octave-forge/main/octcdf/COPYING,
+	  trunk/octave-forge/main/octcdf/inst/ncbyte.m,
+	  trunk/octave-forge/main/octcdf/inst/ncchar.m,
+	  trunk/octave-forge/main/octcdf/inst/ncdouble.m,
+	  trunk/octave-forge/main/octcdf/inst/ncdump.m,
+	  trunk/octave-forge/main/octcdf/inst/ncfloat.m,
+	  trunk/octave-forge/main/octcdf/inst/ncint.m,
+	  trunk/octave-forge/main/octcdf/inst/nclong.m,
+	  trunk/octave-forge/main/octcdf/inst/ncshort.m,
+	  trunk/octave-forge/main/octcdf/inst/nctest.m,
+	  trunk/octave-forge/main/octcdf/src/nctype.m4,
+	  trunk/octave-forge/main/octcdf/src/ov-ncatt.cc,
+	  trunk/octave-forge/main/octcdf/src/ov-ncatt.h,
+	  trunk/octave-forge/main/octcdf/src/ov-ncdim.cc,
+	  trunk/octave-forge/main/octcdf/src/ov-ncdim.h,
+	  trunk/octave-forge/main/octcdf/src/ov-ncfile.cc,
+	  trunk/octave-forge/main/octcdf/src/ov-ncfile.h,
+	  trunk/octave-forge/main/octcdf/src/ov-ncvar.cc,
+	  trunk/octave-forge/main/octcdf/src/ov-ncvar.h,
+	  trunk/octave-forge/main/octcdf/src/ov-netcdf.cc,
+	  trunk/octave-forge/main/octcdf/src/ov-netcdf.h,
+	  trunk/octave-forge/main/odebvp/COPYING,
+	  trunk/octave-forge/main/odebvp/inst/lfdif.m,
+	  trunk/octave-forge/main/odepkg/COPYING,
+	  trunk/octave-forge/main/odepkg/inst/ode23.m,
+	  trunk/octave-forge/main/odepkg/inst/ode45.m,
+	  trunk/octave-forge/main/odepkg/inst/ode54.m,
+	  trunk/octave-forge/main/odepkg/inst/ode78.m,
+	  trunk/octave-forge/main/odepkg/inst/odeget.m,
+	  trunk/octave-forge/main/odepkg/inst/odephas2.m,
+	  trunk/octave-forge/main/odepkg/inst/odephas3.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_equations_ilorenz.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_equations_lorenz.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_equations_pendulous.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_equations_roessler.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_equations_secondorderlag.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_equations_vanderpol.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_event_handle.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_structure_check.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_calcmescd.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_calcscd.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_chemakzo.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_hires.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_implakzo.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_implrober.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_oregonator.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_pollution.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_robertson.m,
+	  trunk/octave-forge/main/odepkg/inst/odepkg_testsuite_transistor.m,
+	  trunk/octave-forge/main/odepkg/inst/odeplot.m,
+	  trunk/octave-forge/main/odepkg/inst/odeprint.m,
+	  trunk/octave-forge/main/odepkg/inst/odeset.m,
+	  trunk/octave-forge/main/odepkg/src/odepkg_auxiliary_functions.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_auxiliary_functions.h,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_mebdfdae.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_mebdfi.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_radau.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_radau5.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_rodas.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_seulex.cc,
+	  trunk/octave-forge/main/optim/COPYING,
+	  trunk/octave-forge/main/optim/inst/LinearRegression.m,
+	  trunk/octave-forge/main/optim/inst/battery.m,
+	  trunk/octave-forge/main/optim/inst/bfgsmin.m,
+	  trunk/octave-forge/main/optim/inst/bfgsmin_example.m,
+	  trunk/octave-forge/main/optim/inst/dfdp.m,
+	  trunk/octave-forge/main/optim/inst/fmin.m,
+	  trunk/octave-forge/main/optim/inst/fmins.m,
+	  trunk/octave-forge/main/optim/inst/fminsearch.m,
+	  trunk/octave-forge/main/optim/inst/fzero.m,
+	  trunk/octave-forge/main/optim/inst/leasqr.m,
+	  trunk/octave-forge/main/optim/inst/leasqrdemo.m,
+	  trunk/octave-forge/main/optim/inst/rosenbrock.m,
+	  trunk/octave-forge/main/optim/inst/samin_example.m,
+	  trunk/octave-forge/main/optim/src/__bfgsmin.cc,
+	  trunk/octave-forge/main/optim/src/numgradient.cc,
+	  trunk/octave-forge/main/optim/src/numhessian.cc,
+	  trunk/octave-forge/main/optim/src/samin.cc,
+	  trunk/octave-forge/main/optiminterp/COPYING,
+	  trunk/octave-forge/main/optiminterp/inst/optiminterp1.m,
+	  trunk/octave-forge/main/optiminterp/inst/optiminterp2.m,
+	  trunk/octave-forge/main/optiminterp/inst/optiminterp3.m,
+	  trunk/octave-forge/main/optiminterp/inst/optiminterp4.m,
+	  trunk/octave-forge/main/optiminterp/src/example_optiminterp.F90,
+	  trunk/octave-forge/main/optiminterp/src/optimal_interpolation.F90,
+	  trunk/octave-forge/main/optiminterp/src/optiminterp.cc,
+	  trunk/octave-forge/main/optiminterp/src/optiminterp_wrapper.F90,
+	  trunk/octave-forge/main/outliers/COPYING,
+	  trunk/octave-forge/main/parallel/COPYING,
+	  trunk/octave-forge/main/parallel/inst/getid.m,
+	  trunk/octave-forge/main/parallel/inst/scloseall.m,
+	  trunk/octave-forge/main/parallel/inst/server.m,
+	  trunk/octave-forge/main/parallel/src/connect.cc,
+	  trunk/octave-forge/main/parallel/src/pserver.cc,
+	  trunk/octave-forge/main/parallel/src/recv.cc,
+	  trunk/octave-forge/main/parallel/src/reval.cc,
+	  trunk/octave-forge/main/parallel/src/sclose.cc,
+	  trunk/octave-forge/main/parallel/src/send.cc,
+	  trunk/octave-forge/main/physical-constants/COPYING,
+	  trunk/octave-forge/main/physical-constants/gen.py,
+	  trunk/octave-forge/main/physical-constants/inst/physical_constant.m,
+	  trunk/octave-forge/main/plot/COPYING,
+	  trunk/octave-forge/main/plot/inst/dxfwrite.m,
+	  trunk/octave-forge/main/plot/inst/gget.m,
+	  trunk/octave-forge/main/plot/inst/ginput.m,
+	  trunk/octave-forge/main/signal/COPYING,
+	  trunk/octave-forge/main/signal/inst/__ellip_ws.m,
+	  trunk/octave-forge/main/signal/inst/__ellip_ws_min.m,
+	  trunk/octave-forge/main/signal/inst/__power.m,
+	  trunk/octave-forge/main/signal/inst/ar_psd.m,
+	  trunk/octave-forge/main/signal/inst/arburg.m,
+	  trunk/octave-forge/main/signal/inst/aryule.m,
+	  trunk/octave-forge/main/signal/inst/bilinear.m,
+	  trunk/octave-forge/main/signal/inst/boxcar.m,
+	  trunk/octave-forge/main/signal/inst/butter.m,
+	  trunk/octave-forge/main/signal/inst/buttord.m,
+	  trunk/octave-forge/main/signal/inst/cceps.m,
+	  trunk/octave-forge/main/signal/inst/cheb.m,
+	  trunk/octave-forge/main/signal/inst/cheb1ord.m,
+	  trunk/octave-forge/main/signal/inst/cheb2ord.m,
+	  trunk/octave-forge/main/signal/inst/chebwin.m,
+	  trunk/octave-forge/main/signal/inst/cheby1.m,
+	  trunk/octave-forge/main/signal/inst/cheby2.m,
+	  trunk/octave-forge/main/signal/inst/chirp.m,
+	  trunk/octave-forge/main/signal/inst/cohere.m,
+	  trunk/octave-forge/main/signal/inst/convmtx.m,
+	  trunk/octave-forge/main/signal/inst/cplxreal.m,
+	  trunk/octave-forge/main/signal/inst/cpsd.m,
+	  trunk/octave-forge/main/signal/inst/csd.m,
+	  trunk/octave-forge/main/signal/inst/czt.m,
+	  trunk/octave-forge/main/signal/inst/dct.m,
+	  trunk/octave-forge/main/signal/inst/dct2.m,
+	  trunk/octave-forge/main/signal/inst/dctmtx.m,
+	  trunk/octave-forge/main/signal/inst/decimate.m,
+	  trunk/octave-forge/main/signal/inst/dftmtx.m,
+	  trunk/octave-forge/main/signal/inst/ellip.m,
+	  trunk/octave-forge/main/signal/inst/ellipdemo.m,
+	  trunk/octave-forge/main/signal/inst/ellipord.m,
+	  trunk/octave-forge/main/signal/inst/filtic.m,
+	  trunk/octave-forge/main/signal/inst/fir1.m,
+	  trunk/octave-forge/main/signal/inst/fir2.m,
+	  trunk/octave-forge/main/signal/inst/firls.m,
+	  trunk/octave-forge/main/signal/inst/freqs.m,
+	  trunk/octave-forge/main/signal/inst/freqs_plot.m,
+	  trunk/octave-forge/main/signal/inst/gaussian.m,
+	  trunk/octave-forge/main/signal/inst/gausswin.m,
+	  trunk/octave-forge/main/signal/inst/grpdelay.m,
+	  trunk/octave-forge/main/signal/inst/hilbert.m,
+	  trunk/octave-forge/main/signal/inst/idct.m,
+	  trunk/octave-forge/main/signal/inst/idct2.m,
+	  trunk/octave-forge/main/signal/inst/impz.m,
+	  trunk/octave-forge/main/signal/inst/interp.m,
+	  trunk/octave-forge/main/signal/inst/invfreq.m,
+	  trunk/octave-forge/main/signal/inst/invfreqs.m,
+	  trunk/octave-forge/main/signal/inst/invfreqz.m,
+	  trunk/octave-forge/main/signal/inst/kaiser.m,
+	  trunk/octave-forge/main/signal/inst/kaiserord.m,
+	  trunk/octave-forge/main/signal/inst/levinson.m,
+	  trunk/octave-forge/main/signal/inst/mscohere.m,
+	  trunk/octave-forge/main/signal/inst/ncauer.m,
+	  trunk/octave-forge/main/signal/inst/pburg.m,
+	  trunk/octave-forge/main/signal/inst/polystab.m,
+	  trunk/octave-forge/main/signal/inst/pulstran.m,
+	  trunk/octave-forge/main/signal/inst/pwelch.m,
+	  trunk/octave-forge/main/signal/inst/pyulear.m,
+	  trunk/octave-forge/main/signal/inst/qp_kaiser.m,
+	  trunk/octave-forge/main/signal/inst/rceps.m,
+	  trunk/octave-forge/main/signal/inst/rectpuls.m,
+	  trunk/octave-forge/main/signal/inst/rectwin.m,
+	  trunk/octave-forge/main/signal/inst/resample.m,
+	  trunk/octave-forge/main/signal/inst/residued.m,
+	  trunk/octave-forge/main/signal/inst/residuez.m,
+	  trunk/octave-forge/main/signal/inst/sawtooth.m,
+	  trunk/octave-forge/main/signal/inst/sftrans.m,
+	  trunk/octave-forge/main/signal/inst/sgolay.m,
+	  trunk/octave-forge/main/signal/inst/sgolayfilt.m,
+	  trunk/octave-forge/main/signal/inst/sos2tf.m,
+	  trunk/octave-forge/main/signal/inst/sos2zp.m,
+	  trunk/octave-forge/main/signal/inst/specgram.m,
+	  trunk/octave-forge/main/signal/inst/tf2sos.m,
+	  trunk/octave-forge/main/signal/inst/tfe.m,
+	  trunk/octave-forge/main/signal/inst/tfestimate.m,
+	  trunk/octave-forge/main/signal/inst/triang.m,
+	  trunk/octave-forge/main/signal/inst/tripuls.m,
+	  trunk/octave-forge/main/signal/inst/xcorr.m,
+	  trunk/octave-forge/main/signal/inst/xcorr2.m,
+	  trunk/octave-forge/main/signal/inst/xcov.m,
+	  trunk/octave-forge/main/signal/inst/zp2sos.m,
+	  trunk/octave-forge/main/signal/inst/zplane.m,
+	  trunk/octave-forge/main/signal/src/remez.cc,
+	  trunk/octave-forge/main/specfun/COPYING,
+	  trunk/octave-forge/main/specfun/inst/Ci.m,
+	  trunk/octave-forge/main/specfun/inst/Si.m,
+	  trunk/octave-forge/main/specfun/inst/cosint.m,
+	  trunk/octave-forge/main/specfun/inst/dirac.m,
+	  trunk/octave-forge/main/specfun/inst/ellipj.m,
+	  trunk/octave-forge/main/specfun/inst/ellipke.m,
+	  trunk/octave-forge/main/specfun/inst/erfcinv.m,
+	  trunk/octave-forge/main/specfun/inst/erfcx.m,
+	  trunk/octave-forge/main/specfun/inst/expint.m,
+	  trunk/octave-forge/main/specfun/inst/expint_E1.m,
+	  trunk/octave-forge/main/specfun/inst/expint_Ei.m,
+	  trunk/octave-forge/main/specfun/inst/heaviside.m,
+	  trunk/octave-forge/main/specfun/inst/lambertw.m,
+	  trunk/octave-forge/main/specfun/inst/psi.m,
+	  trunk/octave-forge/main/specfun/inst/sinint.m,
+	  trunk/octave-forge/main/specfun/inst/zeta.m,
+	  trunk/octave-forge/main/specfun/src/ellipj.cc,
+	  trunk/octave-forge/main/splines/COPYING,
+	  trunk/octave-forge/main/splines/inst/csape.m,
+	  trunk/octave-forge/main/splines/inst/csapi.m,
+	  trunk/octave-forge/main/splines/inst/fnder.m,
+	  trunk/octave-forge/main/splines/inst/fnplt.m,
+	  trunk/octave-forge/main/statistics/inst/anovan.m,
+	  trunk/octave-forge/main/statistics/inst/boxplot.m,
+	  trunk/octave-forge/main/statistics/inst/geomean.m,
+	  trunk/octave-forge/main/statistics/inst/harmmean.m,
+	  trunk/octave-forge/main/statistics/inst/histfit.m,
+	  trunk/octave-forge/main/statistics/inst/linkage.m,
+	  trunk/octave-forge/main/statistics/inst/mad.m,
+	  trunk/octave-forge/main/statistics/inst/mvnrnd.m,
+	  trunk/octave-forge/main/statistics/inst/nanmax.m,
+	  trunk/octave-forge/main/statistics/inst/nanmean.m,
+	  trunk/octave-forge/main/statistics/inst/nanmedian.m,
+	  trunk/octave-forge/main/statistics/inst/nanmin.m,
+	  trunk/octave-forge/main/statistics/inst/nanstd.m,
+	  trunk/octave-forge/main/statistics/inst/nansum.m,
+	  trunk/octave-forge/main/statistics/inst/pdist.m,
+	  trunk/octave-forge/main/statistics/inst/prctile.m,
+	  trunk/octave-forge/main/statistics/inst/regress.m,
+	  trunk/octave-forge/main/statistics/inst/squareform.m,
+	  trunk/octave-forge/main/statistics/inst/tabulate.m,
+	  trunk/octave-forge/main/statistics/inst/trimmean.m,
+	  trunk/octave-forge/main/statistics/inst/zscore.m,
+	  trunk/octave-forge/main/strings/inst/base64decode.m,
+	  trunk/octave-forge/main/strings/inst/cstrcmp.m,
+	  trunk/octave-forge/main/strings/inst/editdistance.m,
+	  trunk/octave-forge/main/strings/inst/strjoin.m,
+	  trunk/octave-forge/main/strings/inst/strtrim.m,
+	  trunk/octave-forge/main/struct/COPYING,
+	  trunk/octave-forge/main/struct/inst/getfields.m,
+	  trunk/octave-forge/main/struct/inst/setfields.m,
+	  trunk/octave-forge/main/symbolic/COPYING,
+	  trunk/octave-forge/main/symbolic/inst/findsym.m,
+	  trunk/octave-forge/main/symbolic/inst/poly2sym.m,
+	  trunk/octave-forge/main/symbolic/inst/splot.m,
+	  trunk/octave-forge/main/symbolic/inst/sym2poly.m,
+	  trunk/octave-forge/main/symbolic/inst/symfsolve.m,
+	  trunk/octave-forge/main/symbolic/src/differentiate.cc,
+	  trunk/octave-forge/main/symbolic/src/findsymbols.cc,
+	  trunk/octave-forge/main/symbolic/src/numden.cc,
+	  trunk/octave-forge/main/symbolic/src/op-ex-mat.cc,
+	  trunk/octave-forge/main/symbolic/src/op-ex.cc,
+	  trunk/octave-forge/main/symbolic/src/op-vpa.cc,
+	  trunk/octave-forge/main/symbolic/src/ov-ex-mat.cc,
+	  trunk/octave-forge/main/symbolic/src/ov-ex-mat.h,
+	  trunk/octave-forge/main/symbolic/src/ov-ex.cc,
+	  trunk/octave-forge/main/symbolic/src/ov-ex.h,
+	  trunk/octave-forge/main/symbolic/src/ov-relational.cc,
+	  trunk/octave-forge/main/symbolic/src/ov-relational.h,
+	  trunk/octave-forge/main/symbolic/src/ov-vpa.cc,
+	  trunk/octave-forge/main/symbolic/src/ov-vpa.h,
+	  trunk/octave-forge/main/symbolic/src/probably_prime.cc,
+	  trunk/octave-forge/main/symbolic/src/sumterms.cc,
+	  trunk/octave-forge/main/symbolic/src/sym-bool.cc,
+	  trunk/octave-forge/main/symbolic/src/sym-create.cc,
+	  trunk/octave-forge/main/symbolic/src/sym-ops.h,
+	  trunk/octave-forge/main/symbolic/src/symbols.cc,
+	  trunk/octave-forge/main/symbolic/src/syminfo.cc,
+	  trunk/octave-forge/main/symbolic/src/symlsolve.cc,
+	  trunk/octave-forge/main/time/COPYING,
+	  trunk/octave-forge/main/time/inst/datesplit.m,
+	  trunk/octave-forge/main/time/inst/daysact.m,
+	  trunk/octave-forge/main/vrml/COPYING,
+	  trunk/octave-forge/main/zenity/COPYING,
+	  trunk/octave-forge/main/zenity/inst/zenity_calendar.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_entry.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_file_selection.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_list.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_message.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_notification.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_progress.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_scale.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_text_info.m,
+	  trunk/octave-forge/nonfree/arpack/COPYING,
+	  trunk/octave-forge/nonfree/arpack/inst/svds.m,
+	  trunk/octave-forge/nonfree/arpack/src/eigs-base.cc,
+	  trunk/octave-forge/nonfree/arpack/src/eigs.cc,
+	  trunk/octave-forge/nonfree/gpc/COPYING,
+	  trunk/octave-forge/nonfree/gpc/inst/gpc_plot.m,
+	  trunk/octave-forge/nonfree/gpc/src/Makefile.am,
+	  trunk/octave-forge/nonfree/gpc/src/acinclude.m4,
+	  trunk/octave-forge/nonfree/gpc/src/configure.in,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_clip.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_create.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_get.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_is_polygon.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_read.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_tristrip.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_write.cc,
+	  trunk/octave-forge/nonfree/gpc/src/octave-gpc.cc,
+	  trunk/octave-forge/nonfree/gpc/src/octave-gpc.h,
+	  trunk/octave-forge/texinfo.tex: More copyright updates
+
+2008-02-04 05:51  adb014
+
+	* trunk/octave-forge/extra/NaN/inst/corrcoef.m,
+	  trunk/octave-forge/extra/NaN/inst/cov.m,
+	  trunk/octave-forge/extra/NaN/inst/ranks.m,
+	  trunk/octave-forge/extra/civil/inst/__nlnewmark_fcn__.m,
+	  trunk/octave-forge/extra/civil/inst/newmark.m,
+	  trunk/octave-forge/extra/civil/inst/nlnewmark.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__errcomm__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__errplot__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__grpltfmt__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plr1__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plr2__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plr__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt1__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2mm__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2mv__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2ss__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2vm__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt2vv__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__plt__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__pltopt1__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/__pltopt__.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/axis.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/bar.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/cla.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/clf.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/errorbar.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/figure.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/hold.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/ishold.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/mplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/multiplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/oneplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/plot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/polar.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogx.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogxerr.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogy.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/semilogyerr.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/subplot.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/subtitle.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/subwindow.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/title.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/xlabel.m,
+	  trunk/octave-forge/extra/graceplot/inst/alternatives/ylabel.m,
+	  inst/__parse_stem_args__.m, inst/stem.m, inst/stem3.m,
+	  trunk/octave-forge/extra/multicore/inst/multicoredemo_octave.m,
+	  trunk/octave-forge/extra/ode/inst/ode23.m,
+	  trunk/octave-forge/extra/ode/inst/ode45.m,
+	  trunk/octave-forge/extra/ode/inst/ode78.m,
+	  trunk/octave-forge/extra/ode/inst/penddot.m,
+	  trunk/octave-forge/extra/ode/inst/pendulum.m,
+	  trunk/octave-forge/extra/ode/inst/rk2fixed.m,
+	  trunk/octave-forge/extra/ode/inst/rk4fixed.m,
+	  trunk/octave-forge/extra/ode/inst/rk8fixed.m,
+	  trunk/octave-forge/extra/tsa/inst/histo2.m,
+	  trunk/octave-forge/extra/tsa/inst/histo3.m,
+	  trunk/octave-forge/extra/tsa/inst/histo4.m,
+	  trunk/octave-forge/language/base/template/src/help.cc,
+	  trunk/octave-forge/language/pt_BR/src/ajuda.cc,
+	  trunk/octave-forge/main/comm/src/__errcore__.cc,
+	  trunk/octave-forge/main/comm/src/__gfweight__.cc,
+	  trunk/octave-forge/main/comm/src/cyclgen.cc,
+	  trunk/octave-forge/main/comm/src/cyclpoly.cc,
+	  trunk/octave-forge/main/comm/src/gf.cc,
+	  trunk/octave-forge/main/comm/src/isprimitive.cc,
+	  trunk/octave-forge/main/comm/src/primpoly.cc,
+	  trunk/octave-forge/main/comm/src/syndtable.cc,
+	  trunk/octave-forge/main/linear-algebra/src/CmplxGSVD.cc,
+	  trunk/octave-forge/main/linear-algebra/src/CmplxGSVD.h,
+	  trunk/octave-forge/main/linear-algebra/src/dbleGSVD.cc,
+	  trunk/octave-forge/main/linear-algebra/src/dbleGSVD.h,
+	  trunk/octave-forge/main/linear-algebra/src/gsvd.cc,
+	  trunk/octave-forge/main/miscellaneous/inst/map.m,
+	  trunk/octave-forge/main/miscellaneous/inst/match.m,
+	  trunk/octave-forge/main/miscellaneous/src/waitbar.cc,
+	  trunk/octave-forge/main/nnet/inst/__printAdaptFcn.m,
+	  trunk/octave-forge/main/odepkg/inst/ode23.m,
+	  trunk/octave-forge/main/odepkg/inst/ode45.m,
+	  trunk/octave-forge/main/odepkg/inst/ode54.m,
+	  trunk/octave-forge/main/odepkg/inst/ode78.m,
+	  trunk/octave-forge/main/odepkg/src/odepkg_auxiliary_functions.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_auxiliary_functions.h,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_mebdfdae.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_mebdfi.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_radau.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_radau5.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_rodas.cc,
+	  trunk/octave-forge/main/odepkg/src/odepkg_octsolver_seulex.cc,
+	  trunk/octave-forge/main/physical-constants/inst/physical_constant.m,
+	  trunk/octave-forge/main/signal/inst/freqs.m,
+	  trunk/octave-forge/main/signal/inst/invfreq.m,
+	  trunk/octave-forge/main/signal/inst/invfreqs.m,
+	  trunk/octave-forge/main/signal/inst/invfreqz.m,
+	  trunk/octave-forge/main/specfun/inst/lambertw.m,
+	  trunk/octave-forge/main/statistics/inst/anovan.m,
+	  trunk/octave-forge/main/statistics/inst/boxplot.m,
+	  trunk/octave-forge/main/statistics/inst/jsucdf.m,
+	  trunk/octave-forge/main/statistics/inst/jsupdf.m,
+	  trunk/octave-forge/main/statistics/inst/regress.m,
+	  trunk/octave-forge/main/strings/inst/strtrim.m,
+	  trunk/octave-forge/main/symbolic/inst/findsym.m,
+	  trunk/octave-forge/main/symbolic/inst/poly2sym.m,
+	  trunk/octave-forge/main/symbolic/inst/sym2poly.m,
+	  trunk/octave-forge/nonfree/arpack/src/eigs-base.cc,
+	  trunk/octave-forge/nonfree/arpack/src/eigs.cc,
+	  trunk/octave-forge/nonfree/gpc/inst/gpc_plot.m,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_clip.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_create.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_get.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_is_polygon.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_read.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_tristrip.cc,
+	  trunk/octave-forge/nonfree/gpc/src/gpc_write.cc,
+	  trunk/octave-forge/nonfree/gpc/src/octave-gpc.cc,
+	  trunk/octave-forge/nonfree/gpc/src/octave-gpc.h: Remove
+	  references to Octave in the GPL copyright strings
+
+2008-01-31 19:45  hauberg
+
+	* trunk/octave-forge/extra/MacOSX/DESCRIPTION,
+	  trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/Windows/DESCRIPTION,
+	  trunk/octave-forge/extra/ad/DESCRIPTION,
+	  trunk/octave-forge/extra/bim/DESCRIPTION,
+	  trunk/octave-forge/extra/civil/DESCRIPTION,
+	  trunk/octave-forge/extra/engine/DESCRIPTION,
+	  trunk/octave-forge/extra/fpl/DESCRIPTION,
+	  trunk/octave-forge/extra/graceplot/DESCRIPTION,
+	  trunk/octave-forge/extra/integration/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  trunk/octave-forge/extra/mapping/DESCRIPTION,
+	  trunk/octave-forge/extra/msh/DESCRIPTION,
+	  trunk/octave-forge/extra/multicore/DESCRIPTION,
+	  trunk/octave-forge/extra/ode/DESCRIPTION,
+	  trunk/octave-forge/extra/pdb/DESCRIPTION,
+	  trunk/octave-forge/extra/secs1d/DESCRIPTION,
+	  trunk/octave-forge/extra/secs2d/DESCRIPTION,
+	  trunk/octave-forge/extra/soctcl/DESCRIPTION,
+	  trunk/octave-forge/extra/symband/DESCRIPTION,
+	  trunk/octave-forge/extra/tk_octave/DESCRIPTION,
+	  trunk/octave-forge/extra/triangular/DESCRIPTION,
+	  trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/extra/xraylib/DESCRIPTION: Update version
+	  numbers
+
+2008-01-29 21:05  hauberg
+
+	* trunk/octave-forge/extra/MacOSX/src/autogen.sh,
+	  trunk/octave-forge/extra/Windows/src/autogen.sh,
+	  trunk/octave-forge/extra/ad/src/autogen.sh,
+	  trunk/octave-forge/extra/engine/src/autogen.sh,
+	  trunk/octave-forge/extra/java/src/autogen.sh, src/autogen.sh,
+	  trunk/octave-forge/extra/tk_octave/src/autogen.sh,
+	  trunk/octave-forge/main/audio/src/autogen.sh,
+	  trunk/octave-forge/main/comm/src/autogen.sh,
+	  trunk/octave-forge/main/fixed/src/autogen.sh,
+	  trunk/octave-forge/main/gsl/src/autogen.sh,
+	  trunk/octave-forge/main/image/src/autogen.sh,
+	  trunk/octave-forge/main/linear-algebra/src/autogen.sh,
+	  trunk/octave-forge/main/miscellaneous/src/autogen.sh,
+	  trunk/octave-forge/main/octcdf/src/autogen.sh,
+	  trunk/octave-forge/main/odepkg/src/autogen.sh,
+	  trunk/octave-forge/main/optiminterp/src/autogen.sh,
+	  trunk/octave-forge/main/plot/src/autogen.sh,
+	  trunk/octave-forge/main/strings/src/autogen.sh,
+	  trunk/octave-forge/main/symbolic/src/autogen.sh,
+	  trunk/octave-forge/nonfree/arpack/src/autogen.sh,
+	  trunk/octave-forge/nonfree/gpc/src/autogen.sh,
+	  trunk/octave-forge/nonfree/splines/src/autogen.sh: Remove bashism
+	  from autogen.sh files
+
+2008-01-24 12:37  goffioul
+
+	* src/Makeconf.in, src/Makefile: include JNI header location in
+	  compile commands
+
+2008-01-22 15:03  goffioul
+
+	* inst/__jhandles_set.m: allow column vector of handles
+
+2007-12-28 16:32  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/Matrix3D.java,
+	  src/org/octave/graphics/Vector3D.java: add debug capabilities to
+	  transformation vectir/matrix + add transformation matrix
+	  properties to axes object
+
+2007-12-21 13:17  goffioul
+
+	* src/Makeconf.in, src/Makefile, src/__jhandles__.cc,
+	  src/configure.base: preliminary C++ code to create patch object
+	  (equivalent to __jhandles_go_patch)
+
+2007-12-19 20:00  goffioul
+
+	* src/org/octave/graphics/FigureObject.java: fix typo
+
+2007-12-19 16:01  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: add small gap between
+	  tick text and labels to avoid overlap
+
+2007-12-19 15:51  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: attempt for better
+	  scaling and ticking mechanism
+
+2007-12-19 15:50  goffioul
+
+	* src/org/octave/graphics/PatchObject.java: avoid computing things
+	  when it is not needed
+
+2007-12-19 15:50  goffioul
+
+	* inst/__bar3__.m: reverse Y-axis direction in both vertical and
+	  horizontal cases
+
+2007-12-18 20:55  goffioul
+
+	* inst/__bars__.m, inst/reset_property.m: add listeners to bind
+	  barseries properties to their child patch objects
+
+2007-12-18 20:54  goffioul
+
+	* TODO: update with latest developments
+
+2007-12-18 09:57  goffioul
+
+	* src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/SurfaceObject.java: implement markers for
+	  patch and surface objects
+
+2007-12-17 12:33  adb014
+
+	* trunk/octave-forge/doc/htdocs/NEWS.in,
+	  trunk/octave-forge/doc/htdocs/index.in,
+	  trunk/octave-forge/doc/htdocs/packages.in,
+	  trunk/octave-forge/extra/MacOSX/src/Makeconf.in,
+	  trunk/octave-forge/extra/Windows/src/Makeconf.in,
+	  trunk/octave-forge/extra/engine/src/Makeconf.in,
+	  trunk/octave-forge/extra/java/src/Makeconf.in, src/Makeconf.in,
+	  trunk/octave-forge/extra/tk_octave/src/Makeconf.in,
+	  trunk/octave-forge/main/audio/src/Makeconf.in,
+	  trunk/octave-forge/main/comm/src/Makeconf.in,
+	  trunk/octave-forge/main/fixed/src/Makeconf.in,
+	  trunk/octave-forge/main/gsl/src/Makeconf.in,
+	  trunk/octave-forge/main/image/src/Makeconf.in,
+	  trunk/octave-forge/main/linear-algebra/src/Makeconf.in,
+	  trunk/octave-forge/main/miscellaneous/src/Makeconf.in,
+	  trunk/octave-forge/main/octcdf/src/Makeconf.in,
+	  trunk/octave-forge/main/odepkg/src/Makeconf.in,
+	  trunk/octave-forge/main/optiminterp/src/Makeconf.in,
+	  trunk/octave-forge/main/plot/src/Makeconf.in,
+	  trunk/octave-forge/main/strings/src/Makeconf.in,
+	  trunk/octave-forge/main/symbolic/src/Makeconf.in,
+	  trunk/octave-forge/nonfree/arpack/src/Makeconf.in,
+	  trunk/octave-forge/nonfree/splines/src/Makeconf.in: Get rid of
+	  spurious warnings about --datarootdir. Small doc update
+
+2007-12-15 20:32  goffioul
+
+	* inst/__bars__.m, inst/__get_parent_arg__.m,
+	  inst/__jhandles_go_patch.m: use correct parent for barseries
+	  objects
+
+2007-12-15 20:31  goffioul
+
+	* src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/Utils.java: pre-compute and share hexa-
+	  and pentagram points
+
+2007-12-13 16:47  goffioul
+
+	* src/org/octave/graphics/PatchObject.java: add MarkerEdgeColor and
+	  MarkerFaceColor properties to patch objects (not use yet)
+
+2007-12-13 16:30  goffioul
+
+	* src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java: implement markers in
+	  plain OpenGL and PS (better looking and faster)
+
+2007-12-13 16:29  goffioul
+
+	* src/org/octave/graphics/LegendObject.java: add MarkerEdgeColor
+	  and MarkerFaceColor properties to line objects
+
+2007-12-13 16:27  goffioul
+
+	* src/org/octave/graphics/LineObject.java: add MarkerEdgeColor and
+	  MarkerFaceColor properties to line objects
+
+2007-12-13 16:26  goffioul
+
+	* src/org/octave/graphics/ColorProperty.java: fix color property
+	  "get" return value
+
+2007-12-12 16:16  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: add +-sized marker in
+	  OpenGL-mode
+
+2007-12-12 15:17  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/TextProperty.java,
+	  src/org/octave/graphics/Utils.java: use non-integer handles
+	  (except for figures)
+
+2007-12-10 14:34  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: add circle marker using
+	  OpenGL code
+
+2007-12-10 11:00  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/J2DRenderer.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java: better tick
+	  location in generated PS
+
+2007-12-10 11:00  goffioul
+
+	* inst/drawnow.m: restore printing
+
+2007-12-09 23:58  adb014
+
+	* INDEX, trunk/octave-forge/main/INDEX,
+	  trunk/octave-forge/main/comm/INDEX,
+	  trunk/octave-forge/main/control/DESCRIPTION: Update INDEX files
+	  for new functions
+
+2007-12-09 21:10  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: add font properties to
+	  axes object
+
+2007-12-09 21:09  goffioul
+
+	* src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/J2DRenderer.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: add font properties to
+	  axes object
+
+2007-12-07 16:14  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java: implement Visible
+	  property in figures
+
+2007-12-07 14:51  goffioul
+
+	* src/gl2ps.c, src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: complete PS generation
+	  of text objects (with TeX support)
+
+2007-12-06 21:04  goffioul
+
+	* src/gl2ps.c, src/gl2ps.h, src/gl2ps_java.c,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java: more PS text
+	  implementation (still unfinished)
+
+2007-12-06 16:30  goffioul
+
+	* src/gl2ps.c, src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: initial (and unfinished)
+	  PS support for text object
+
+2007-12-06 16:28  goffioul
+
+	* src/org/octave/graphics/Utils.java: extract utility function
+
+2007-12-06 10:09  goffioul
+
+	* inst/__jhandles_go_surface.m: surface object should be validated
+	  after initializing its properties
+
+2007-12-06 09:40  goffioul
+
+	* src/org/octave/graphics/PatchObject.java: support single-colored
+	  patch objects (#FaceVertexCData == 1)
+
+2007-12-05 16:24  adb014
+
+	* trunk/octave-forge/extra/MacOSX/DESCRIPTION,
+	  trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/Windows/DESCRIPTION,
+	  trunk/octave-forge/extra/bim/DESCRIPTION,
+	  trunk/octave-forge/extra/civil/DESCRIPTION,
+	  trunk/octave-forge/extra/engine/DESCRIPTION,
+	  trunk/octave-forge/extra/fpl/DESCRIPTION,
+	  trunk/octave-forge/extra/graceplot/DESCRIPTION,
+	  trunk/octave-forge/extra/integration/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  trunk/octave-forge/extra/mapping/DESCRIPTION,
+	  trunk/octave-forge/extra/msh/DESCRIPTION,
+	  trunk/octave-forge/extra/pdb/DESCRIPTION,
+	  trunk/octave-forge/extra/secs1d/DESCRIPTION,
+	  trunk/octave-forge/extra/secs2d/DESCRIPTION,
+	  trunk/octave-forge/extra/soctcl/DESCRIPTION,
+	  trunk/octave-forge/extra/symband/DESCRIPTION,
+	  trunk/octave-forge/extra/triangular/DESCRIPTION,
+	  trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/extra/xraylib/DESCRIPTION,
+	  trunk/octave-forge/language/pt_BR/DESCRIPTION,
+	  trunk/octave-forge/main/audio/DESCRIPTION,
+	  trunk/octave-forge/main/combinatorics/DESCRIPTION,
+	  trunk/octave-forge/main/comm/DESCRIPTION,
+	  trunk/octave-forge/main/control/DESCRIPTION,
+	  trunk/octave-forge/main/econometrics/DESCRIPTION,
+	  trunk/octave-forge/main/fixed/DESCRIPTION,
+	  trunk/octave-forge/main/fixed/doc/configure.add,
+	  trunk/octave-forge/main/fixed/src/configure.base,
+	  trunk/octave-forge/main/general/DESCRIPTION,
+	  trunk/octave-forge/main/gsl/DESCRIPTION,
+	  trunk/octave-forge/main/ident/DESCRIPTION,
+	  trunk/octave-forge/main/image/DESCRIPTION,
+	  trunk/octave-forge/main/info-theory/DESCRIPTION,
+	  trunk/octave-forge/main/io/DESCRIPTION,
+	  trunk/octave-forge/main/irsa/DESCRIPTION,
+	  trunk/octave-forge/main/linear-algebra/DESCRIPTION,
+	  trunk/octave-forge/main/nnet/DESCRIPTION,
+	  trunk/octave-forge/main/odebvp/DESCRIPTION,
+	  trunk/octave-forge/main/optiminterp/DESCRIPTION,
+	  trunk/octave-forge/main/outliers/DESCRIPTION,
+	  trunk/octave-forge/main/parallel/DESCRIPTION,
+	  trunk/octave-forge/main/physical-constants/DESCRIPTION,
+	  trunk/octave-forge/main/plot/DESCRIPTION,
+	  trunk/octave-forge/main/signal/DESCRIPTION,
+	  trunk/octave-forge/main/specfun/DESCRIPTION,
+	  trunk/octave-forge/main/special-matrix/DESCRIPTION,
+	  trunk/octave-forge/main/splines/DESCRIPTION,
+	  trunk/octave-forge/main/statistics/DESCRIPTION,
+	  trunk/octave-forge/main/strings/DESCRIPTION,
+	  trunk/octave-forge/main/struct/DESCRIPTION,
+	  trunk/octave-forge/main/symbolic/DESCRIPTION,
+	  trunk/octave-forge/main/time/DESCRIPTION,
+	  trunk/octave-forge/main/vrml/DESCRIPTION,
+	  trunk/octave-forge/main/zenity/DESCRIPTION,
+	  trunk/octave-forge/nonfree/arpack/DESCRIPTION,
+	  trunk/octave-forge/nonfree/splines/DESCRIPTION: Update the
+	  version numbers. All packages need new version numbers due to
+	  package differences in the CVS to SVN transition
+
+2007-12-05 11:32  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: use symbol font (better
+	  quality) under Windows
+
+2007-12-04 13:43  goffioul
+
+	* src/org/octave/graphics/SimpleTextEngine.java: complete TeX
+	  support for text objects
+
+2007-12-04 05:35  goffioul
+
+	* src/org/octave/graphics/SimpleTextEngine.java: add more symbols
+	  and combined sub/superscripts
+
+2007-12-03 16:03  goffioul
+
+	* src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: support multi-line text
+	  and TeX symbols (to be completed)
+
+2007-12-03 10:28  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/TextObject.java: fix text position
+
+2007-12-01 15:38  goffioul
+
+	* inst/bar3.m, inst/bar3h.m: fix 3D bar functions (call correct
+	  internal function)
+
+2007-12-01 15:35  goffioul
+
+	* inst/__jhandles_go_surface.m: comment unneccessary set commands
+
+2007-12-01 15:35  goffioul
+
+	* inst/__bars__.m: set correct color for bar objects
+
+2007-12-01 14:48  goffioul
+
+	* inst/__bar3__.m, inst/__bar__.m, inst/bar.m, inst/bar3.m,
+	  inst/bar3h.m, inst/barh.m, inst/contour3.m, inst/hidden.m,
+	  inst/shading.m, inst/surf.m: remove un-needed front-end
+	  functions, use octave ones
+
+2007-11-30 15:55  goffioul
+
+	* inst/sphere.m: remove sphere.m; now part of core octave
+
+2007-11-19 06:36  goffioul
+
+	* inst/__bars__.m: add bar creation function
+
+2007-11-14 10:34  goffioul
+
+	* src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/VectorProperty.java: add isEmpty method
+	  to VectorProperty class + autoset zliminclude according to zdata
+	  in line objects
+
+2007-11-14 10:13  goffioul
+
+	* inst/__area__.m, inst/__jhandles_go_areaseries.m, inst/area.m,
+	  src/org/octave/graphics/PatchObject.java: integrate with octave
+	  "area" front-end
+
+2007-11-12 14:04  goffioul
+
+	* PKG_DEL: integrate better with octave front-end for lines and
+	  patches
+
+2007-11-12 14:04  goffioul
+
+	* PKG_ADD: integrate better with octave front-end for lines and
+	  patches
+
+2007-11-12 13:53  goffioul
+
+	* inst/__jhandles_go_line.m, inst/__jhandles_go_patch.m,
+	  inst/__line__.m, inst/patch.m: integrate better with octave
+	  front-end for lines and patches
+
+2007-11-12 13:53  goffioul
+
+	* src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BaseLineObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/Point3D.java: - implement X/Y/Z data
+	  specification for patches
+	  - support patches given in 2D mode
+	  - allow to given scalar values for array properties
+
+2007-11-11 18:19  goffioul
+
+	* src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/PatchObject.java: add low-level support
+	  for X/Y/Z data specification in patch objects
+
+2007-10-22 23:26  adb014
+
+	* trunk/octave-forge/.cvsignore, trunk/octave-forge/.svnignore,
+	  trunk/octave-forge/admin/Windows/.cvsignore,
+	  trunk/octave-forge/admin/Windows/.svnignore,
+	  trunk/octave-forge/admin/Windows/msvc/.cvsignore,
+	  trunk/octave-forge/admin/Windows/msvc/.svnignore,
+	  trunk/octave-forge/doc/.cvsignore,
+	  trunk/octave-forge/doc/.svnignore,
+	  trunk/octave-forge/doc/coda/.cvsignore,
+	  trunk/octave-forge/doc/coda/.svnignore,
+	  trunk/octave-forge/doc/coda/out/.cvsignore,
+	  trunk/octave-forge/doc/coda/out/.svnignore,
+	  trunk/octave-forge/doc/htdocs/.cvsignore,
+	  trunk/octave-forge/doc/htdocs/.svnignore,
+	  trunk/octave-forge/extra/MacOSX/doc/.cvsignore,
+	  trunk/octave-forge/extra/MacOSX/doc/.svnignore,
+	  trunk/octave-forge/extra/MacOSX/src/.cvsignore,
+	  trunk/octave-forge/extra/MacOSX/src/.svnignore,
+	  trunk/octave-forge/extra/Windows/src/.cvsignore,
+	  trunk/octave-forge/extra/Windows/src/.svnignore,
+	  trunk/octave-forge/extra/engine/src/.cvsignore,
+	  trunk/octave-forge/extra/engine/src/.svnignore,
+	  trunk/octave-forge/extra/graceplot/inst/.cvsignore,
+	  trunk/octave-forge/extra/graceplot/inst/.svnignore,
+	  trunk/octave-forge/extra/java/src/.cvsignore,
+	  trunk/octave-forge/extra/java/src/.svnignore,
+	  trunk/octave-forge/extra/java/src/org/octave/.cvsignore,
+	  trunk/octave-forge/extra/java/src/org/octave/.svnignore,
+	  src/.cvsignore, src/.svnignore,
+	  src/org/octave/graphics/.cvsignore,
+	  src/org/octave/graphics/.svnignore,
+	  trunk/octave-forge/extra/symband/doc/.cvsignore,
+	  trunk/octave-forge/extra/symband/doc/.svnignore,
+	  trunk/octave-forge/extra/triangular/doc/.cvsignore,
+	  trunk/octave-forge/extra/triangular/doc/.svnignore,
+	  trunk/octave-forge/main/audio/src/.cvsignore,
+	  trunk/octave-forge/main/audio/src/.svnignore,
+	  trunk/octave-forge/main/comm/doc/.cvsignore,
+	  trunk/octave-forge/main/comm/doc/.svnignore,
+	  trunk/octave-forge/main/comm/inst/.cvsignore,
+	  trunk/octave-forge/main/comm/inst/.svnignore,
+	  trunk/octave-forge/main/comm/src/.cvsignore,
+	  trunk/octave-forge/main/comm/src/.svnignore,
+	  trunk/octave-forge/main/fixed/doc/.cvsignore,
+	  trunk/octave-forge/main/fixed/doc/.svnignore,
+	  trunk/octave-forge/main/fixed/examples/.cvsignore,
+	  trunk/octave-forge/main/fixed/examples/.svnignore,
+	  trunk/octave-forge/main/fixed/inst/.cvsignore,
+	  trunk/octave-forge/main/fixed/inst/.svnignore,
+	  trunk/octave-forge/main/fixed/src/.cvsignore,
+	  trunk/octave-forge/main/fixed/src/.svnignore,
+	  trunk/octave-forge/main/general/inst/.cvsignore,
+	  trunk/octave-forge/main/general/inst/.svnignore,
+	  trunk/octave-forge/main/general/src/.cvsignore,
+	  trunk/octave-forge/main/general/src/.svnignore,
+	  trunk/octave-forge/main/gsl/src/.cvsignore,
+	  trunk/octave-forge/main/gsl/src/.svnignore,
+	  trunk/octave-forge/main/image/inst/.cvsignore,
+	  trunk/octave-forge/main/image/inst/.svnignore,
+	  trunk/octave-forge/main/image/src/.cvsignore,
+	  trunk/octave-forge/main/image/src/.svnignore,
+	  trunk/octave-forge/main/io/.cvsignore,
+	  trunk/octave-forge/main/io/.svnignore,
+	  trunk/octave-forge/main/io/inst/.cvsignore,
+	  trunk/octave-forge/main/io/inst/.svnignore,
+	  trunk/octave-forge/main/io/src/.cvsignore,
+	  trunk/octave-forge/main/io/src/.svnignore,
+	  trunk/octave-forge/main/linear-algebra/inst/.cvsignore,
+	  trunk/octave-forge/main/linear-algebra/inst/.svnignore,
+	  trunk/octave-forge/main/linear-algebra/src/.cvsignore,
+	  trunk/octave-forge/main/linear-algebra/src/.svnignore,
+	  trunk/octave-forge/main/miscellaneous/inst/.cvsignore,
+	  trunk/octave-forge/main/miscellaneous/inst/.svnignore,
+	  trunk/octave-forge/main/miscellaneous/src/.cvsignore,
+	  trunk/octave-forge/main/miscellaneous/src/.svnignore,
+	  trunk/octave-forge/main/octcdf/inst/.cvsignore,
+	  trunk/octave-forge/main/octcdf/inst/.svnignore,
+	  trunk/octave-forge/main/octcdf/src/.cvsignore,
+	  trunk/octave-forge/main/octcdf/src/.svnignore,
+	  trunk/octave-forge/main/odepkg/doc/.cvsignore,
+	  trunk/octave-forge/main/odepkg/doc/.svnignore,
+	  trunk/octave-forge/main/odepkg/inst/.cvsignore,
+	  trunk/octave-forge/main/odepkg/inst/.svnignore,
+	  trunk/octave-forge/main/odepkg/src/.cvsignore,
+	  trunk/octave-forge/main/odepkg/src/.svnignore,
+	  trunk/octave-forge/main/optim/doc/.cvsignore,
+	  trunk/octave-forge/main/optim/doc/.svnignore,
+	  trunk/octave-forge/main/optim/inst/.cvsignore,
+	  trunk/octave-forge/main/optim/inst/.svnignore,
+	  trunk/octave-forge/main/optim/src/.cvsignore,
+	  trunk/octave-forge/main/optim/src/.svnignore,
+	  trunk/octave-forge/main/optiminterp/inst/.cvsignore,
+	  trunk/octave-forge/main/optiminterp/inst/.svnignore,
+	  trunk/octave-forge/main/optiminterp/src/.cvsignore,
+	  trunk/octave-forge/main/optiminterp/src/.svnignore,
+	  trunk/octave-forge/main/plot/inst/.cvsignore,
+	  trunk/octave-forge/main/plot/inst/.svnignore,
+	  trunk/octave-forge/main/plot/src/.cvsignore,
+	  trunk/octave-forge/main/plot/src/.svnignore,
+	  trunk/octave-forge/main/signal/inst/.cvsignore,
+	  trunk/octave-forge/main/signal/inst/.svnignore,
+	  trunk/octave-forge/main/signal/src/.cvsignore,
+	  trunk/octave-forge/main/signal/src/.svnignore,
+	  trunk/octave-forge/main/specfun/inst/.cvsignore,
+	  trunk/octave-forge/main/specfun/inst/.svnignore,
+	  trunk/octave-forge/main/specfun/src/.cvsignore,
+	  trunk/octave-forge/main/specfun/src/.svnignore,
+	  trunk/octave-forge/main/splines/inst/.cvsignore,
+	  trunk/octave-forge/main/splines/inst/.svnignore,
+	  trunk/octave-forge/main/strings/inst/.cvsignore,
+	  trunk/octave-forge/main/strings/inst/.svnignore,
+	  trunk/octave-forge/main/strings/src/.cvsignore,
+	  trunk/octave-forge/main/strings/src/.svnignore,
+	  trunk/octave-forge/main/struct/.cvsignore,
+	  trunk/octave-forge/main/struct/.svnignore,
+	  trunk/octave-forge/main/struct/inst/.cvsignore,
+	  trunk/octave-forge/main/struct/inst/.svnignore,
+	  trunk/octave-forge/main/symbolic/inst/.cvsignore,
+	  trunk/octave-forge/main/symbolic/inst/.svnignore,
+	  trunk/octave-forge/main/symbolic/src/.cvsignore,
+	  trunk/octave-forge/main/symbolic/src/.svnignore,
+	  trunk/octave-forge/main/vrml/doc/.cvsignore,
+	  trunk/octave-forge/main/vrml/doc/.svnignore,
+	  trunk/octave-forge/nonfree/arpack/src/.cvsignore,
+	  trunk/octave-forge/nonfree/arpack/src/.svnignore,
+	  trunk/octave-forge/nonfree/gpc/src/.cvsignore,
+	  trunk/octave-forge/nonfree/gpc/src/.svnignore,
+	  trunk/octave-forge/nonfree/splines/src/.cvsignore,
+	  trunk/octave-forge/nonfree/splines/src/.svnignore,
+	  trunk/octave-forge/packages/.cvsignore,
+	  trunk/octave-forge/packages/.svnignore: Move the cvsignore files
+	  to svnignore
+
+2007-10-14 11:24  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: set line color/width
+	  correctly for markers (disabled code)
+
+2007-10-06 12:40  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: add ColorOrder property
+	  to axes objects
+
+2007-10-06 12:39  goffioul
+
+	* PKG_ADD: adapt to new locations used by pkg manager
+
+2007-10-02 21:23  goffioul
+
+	* TODO, src/org/octave/graphics/StemseriesObject.java: add TODO
+	  file + code cleanup due to implementation of stemseries in m-code
+
+2007-10-02 21:07  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/MarkerProperty.java: small fix for o
+	  markers + experimental (disabled) code
+
+2007-09-27 12:50  adb014
+
+	* trunk/octave-forge/doc/htdocs/packages.in, inst/contour3.m,
+	  trunk/octave-forge/main/comm/inst/ammod.m,
+	  trunk/octave-forge/main/comm/inst/qfunc.m,
+	  trunk/octave-forge/main/comm/inst/qfuncinv.m,
+	  trunk/octave-forge/main/general/inst/issorted.m,
+	  trunk/octave-forge/main/image/inst/bwarea.m,
+	  trunk/octave-forge/main/image/inst/bwperim.m,
+	  trunk/octave-forge/main/image/inst/label2rgb.m,
+	  trunk/octave-forge/main/linear-algebra/inst/bicg.m,
+	  trunk/octave-forge/main/optim/inst/fminsearch.m,
+	  trunk/octave-forge/main/signal/inst/barthannwin.m,
+	  trunk/octave-forge/main/signal/inst/blackmanharris.m,
+	  trunk/octave-forge/main/signal/inst/bohmanwin.m,
+	  trunk/octave-forge/main/signal/inst/diric.m,
+	  trunk/octave-forge/main/signal/inst/gauspuls.m,
+	  trunk/octave-forge/main/signal/inst/gmonopuls.m,
+	  trunk/octave-forge/main/signal/inst/nuttallwin.m,
+	  trunk/octave-forge/main/signal/inst/sawtooth.m,
+	  trunk/octave-forge/main/specfun/inst/Ci.m,
+	  trunk/octave-forge/main/specfun/inst/Si.m,
+	  trunk/octave-forge/main/specfun/inst/cosint.m,
+	  trunk/octave-forge/main/specfun/inst/dirac.m,
+	  trunk/octave-forge/main/specfun/inst/erfcinv.m,
+	  trunk/octave-forge/main/specfun/inst/erfcx.m,
+	  trunk/octave-forge/main/specfun/inst/expint.m,
+	  trunk/octave-forge/main/specfun/inst/expint_E1.m,
+	  trunk/octave-forge/main/specfun/inst/expint_Ei.m,
+	  trunk/octave-forge/main/specfun/inst/heaviside.m,
+	  trunk/octave-forge/main/specfun/inst/psi.m,
+	  trunk/octave-forge/main/specfun/inst/sinint.m,
+	  trunk/octave-forge/main/specfun/inst/zeta.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_calendar.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_message.m,
+	  trunk/octave-forge/main/zenity/inst/zenity_progress.m: Fix some
+	  of the author strings in teh copyrights for a better AUTHORS file
+
+2007-09-27 12:49  adb014
+
+	* INDEX: INDEX new function
+
+2007-09-25 20:07  goffioul
+
+	* trunk/octave-forge/extra/java/src/Makefile, src/Makefile: make
+	  eclipse compiler happy
+
+2007-09-25 20:03  goffioul
+
+	* src/Makeconf.in, src/configure.base: check java version instead
+	  of javac version + remove unneeded link against -ljava
+
+2007-09-24 08:51  goffioul
+
+	* inst/__jhandles_go_stemseries.m: fix error in data updating when
+	  ZData is empty
+
+2007-09-21 14:26  goffioul
+
+	* inst/__jhandles_add_listener.m, inst/__jhandles_add_property.m,
+	  inst/__jhandles_get_baseline.m, inst/__jhandles_go_stemseries.m,
+	  inst/__parse_stem_args__.m, inst/addlistener.m, inst/isprop.m,
+	  inst/stem.m, inst/stem3.m,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/HandleEventSinkAdapter.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/OctaveSink.java: move stemseries object
+	  entirely in m-code + add stem3 implementation
+
+2007-09-20 10:34  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/Callback.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/OctaveCallback.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UnwindHandleObject.java: add unwind
+	  capability in callbacks + better support for buttondownfcn
+	  property
+
+2007-09-19 19:22  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/J2DRenderer.java,
+	  src/org/octave/graphics/MarkerProperty.java: recompute Position
+	  of axes (suboptimal) + draw line markers
+
+2007-09-19 13:57  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/J2DRenderer.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: implement tick text
+	  drawing in Java2D renderer + add hidden __antialias__ property to
+	  figure object
+
+2007-09-19 12:49  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/ColorbarObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/J2DRenderCanvas.java,
+	  src/org/octave/graphics/LegendObject.java: allow to switch
+	  between renderers
+
+2007-09-18 15:05  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/FigureObject.java: implement Renderer
+	  property in figure object and restore GL renderer by default
+
+2007-09-18 15:01  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/J2DRenderCanvas.java,
+	  src/org/octave/graphics/J2DRenderer.java,
+	  src/org/octave/graphics/Matrix3D.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/TextObject.java: provide (very) basic
+	  functionalities for the Java2D-based renderer
+
+2007-09-17 20:04  goffioul
+
+	* src/org/octave/graphics/J2DRenderCanvas.java,
+	  src/org/octave/graphics/J2DRenderer.java: unfinished
+	  implementation of a Java2D renderer
+
+2007-09-16 19:08  goffioul
+
+	* src/org/octave/graphics/CheckBoxControl.java,
+	  src/org/octave/graphics/Edit2Control.java,
+	  src/org/octave/graphics/EditControl.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/HandleEventSink.java,
+	  src/org/octave/graphics/HandleEventSinkAdapter.java,
+	  src/org/octave/graphics/HandleEventSource.java,
+	  src/org/octave/graphics/HandleEventSourceHelper.java,
+	  src/org/octave/graphics/HandleNotifier.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/ListBoxControl.java,
+	  src/org/octave/graphics/OctaveSink.java,
+	  src/org/octave/graphics/PopupMenuControl.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/TextControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java: switch to new event
+	  mechanism
+
+2007-09-15 16:04  adb014
+
+	* trunk/octave-forge/extra/bim/INDEX,
+	  trunk/octave-forge/extra/java/INDEX, INDEX,
+	  trunk/octave-forge/main/INDEX,
+	  trunk/octave-forge/main/signal/INDEX: Update INDEX files for
+	  newly added functions
+
+2007-09-15 15:48  adb014
+
+	* trunk/octave-forge/doc/htdocs/packages.in,
+	  trunk/octave-forge/extra/NaN/DESCRIPTION,
+	  trunk/octave-forge/extra/bim/DESCRIPTION,
+	  trunk/octave-forge/extra/java/DESCRIPTION, DESCRIPTION,
+	  src/configure.base, trunk/octave-forge/extra/tsa/DESCRIPTION,
+	  trunk/octave-forge/main/linear-algebra/DESCRIPTION,
+	  trunk/octave-forge/main/octcdf/DESCRIPTION,
+	  trunk/octave-forge/main/odebvp/DESCRIPTION,
+	  trunk/octave-forge/main/odepkg/DESCRIPTION,
+	  trunk/octave-forge/main/plot/DESCRIPTION,
+	  trunk/octave-forge/main/polynomial/DESCRIPTION,
+	  trunk/octave-forge/main/signal/DESCRIPTION,
+	  trunk/octave-forge/main/statistics/DESCRIPTION,
+	  trunk/octave-forge/nonfree/arpack/DESCRIPTION: Update version
+	  numbers of packages changed since last release
+
+2007-09-15 14:13  goffioul
+
+	* src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/Property.java: use more intuitive
+	  terminology
+
+2007-09-11 12:19  goffioul
+
+	* src/org/octave/graphics/GLRenderCanvas.java: try to avoid garbage
+	  drawing when resizing
+
+2007-09-10 15:03  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/RenderCanvas.java,
+	  src/org/octave/graphics/UIControlObject.java: implement
+	  ButtonDownFcn for uicontrol (partially)
+
+2007-09-10 12:15  goffioul
+
+	* inst/dialog.m, src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/HandleObject.java: add ButtonDownFcn
+	  property to figure objects (and use it dialog)
+
+2007-09-10 12:14  goffioul
+
+	* inst/allchild.m, inst/gcbf.m: add new functions: allchild and
+	  gcbf
+
+2007-09-10 10:49  goffioul
+
+	* inst/dialog.m, src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GraphicObject.java: add Resize property
+	  to figure objects
+
+2007-09-10 05:16  goffioul
+
+	* src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GraphicObject.java: add hidden __dirty__
+	  property to figure object
+
+2007-09-07 15:04  goffioul
+
+	* inst/dialog.m: add "dialog" function (not really functional yet)
+
+2007-09-07 15:03  goffioul
+
+	* src/org/octave/graphics/FigureObject.java: implement partially
+	  Toolbar property + add dummy KeyPressFcn callback property
+
+2007-09-07 15:02  goffioul
+
+	* src/org/octave/graphics/ListBoxControl.java,
+	  src/org/octave/graphics/PopupMenuControl.java: use default value
+	  at initialization of popupmenu and listbox controls
+
+2007-09-07 15:02  goffioul
+
+	* src/org/octave/graphics/RootObject.java: add MonitorPositions
+	  property to root object
+
+2007-09-07 11:04  goffioul
+
+	* inst/uiresume.m, inst/uiwait.m: add uiwait/uiresume functions
+
+2007-09-07 09:40  goffioul
+
+	* inst/__jhandles_waitfor.m,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/Property.java: implement 3rd form of
+	  "waitfor": waiting for a property to equal a given value
+
+2007-09-07 09:18  goffioul
+
+	* trunk/octave-forge/extra/java/src/Makefile,
+	  trunk/octave-forge/extra/java/src/org/octave/Octave.java,
+	  trunk/octave-forge/extra/java/src/org/octave/Waitable.java,
+	  inst/__jhandles_waitfor.m, inst/waitfor.m,
+	  src/org/octave/graphics/HandleObject.java: move part of waitFor
+	  implementation to JHandles
+
+2007-09-06 15:03  goffioul
+
+	* src/org/octave/graphics/HandleEventSink.java,
+	  src/org/octave/graphics/HandleEventSource.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/OctaveSink.java,
+	  src/org/octave/graphics/Property.java: allow to wait for property
+	  change
+
+2007-09-06 14:35  goffioul
+
+	* src/org/octave/graphics/HandleEventSource.java: fix bug in new
+	  event mechanism
+
+2007-09-06 13:33  goffioul
+
+	* inst/__jhandles_waitfor.m, inst/waitfor.m,
+	  src/org/octave/graphics/HandleObject.java: implement first form
+	  of "waitfor" (wait only for object deletion)
+
+2007-09-06 10:16  goffioul
+
+	* inst/__jhandles_go_areaseries.m,
+	  src/org/octave/graphics/HandleEvent.java,
+	  src/org/octave/graphics/HandleEventSink.java,
+	  src/org/octave/graphics/HandleEventSource.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/OctaveSink.java: implement new named
+	  event mechanism + add "ObjectDeleted" event + use it to keep
+	  areaseries objects in sync
+
+2007-09-06 10:14  goffioul
+
+	* inst/bar3.m, inst/bar3h.m: suppress output if not required
+
+2007-09-05 20:28  goffioul
+
+	* src/org/octave/graphics/SimpleTextEngine.java: avoid exception
+	  when using empty strings as tick label
+
+2007-09-05 14:08  goffioul
+
+	* src/Makeconf.in, src/Makefile, src/configure.base: fix
+	  compilation setup on Windows and Linux
+
+2007-09-05 13:32  goffioul
+
+	* src/Makeconf.in, src/Makefile, src/configure.base: fix JHandles
+	  compilation under Linux
+
+2007-09-03 15:01  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/SimpleTextEngine.java: reduce slightly
+	  margins around labels and ticks
+
+2007-09-03 14:37  goffioul
+
+	* src/org/octave/graphics/Factory.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java: change how font size is
+	  internally computed to match Matlab (use resY/72 factor)
+
+2007-09-03 14:36  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java: apply
+	  3d-rotation/zoom to the axes object below the mouse
+
+2007-09-03 13:05  goffioul
+
+	* src/org/octave/graphics/TextObject.java: add font information
+	  properties
+
+2007-09-03 12:23  goffioul
+
+	* src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextControl.java: compute min/max bounds
+	  correctly (was not the case for monotically decreasing data)
+
+2007-09-03 12:22  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: only include visible
+	  children when doing autoscale + perform autoscale when children
+	  visibility change
+
+2007-09-03 12:21  goffioul
+
+	* src/org/octave/graphics/EditControl.java: fire callback of edit
+	  control whe loosing focus and content has been changed
+
+2007-09-03 12:21  goffioul
+
+	* src/org/octave/graphics/Utils.java: add NaN/Inf test function
+
+2007-09-03 12:20  goffioul
+
+	* src/org/octave/graphics/MarkerProperty.java: point -> pixel
+	  conversion of the marker size
+
+2007-09-03 12:19  goffioul
+
+	* inst/uicontrol.m: do not miss parent property when specified last
+
+2007-09-02 19:51  goffioul
+
+	* inst/__jhandles_go_areaseries.m,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/PatchObject.java: use internal indexing
+	  of patch objects for correct 2D rendering
+
+2007-09-02 19:51  goffioul
+
+	* inst/__jhandles_add_property.m: use correct ColorProperty
+	  constructor
+
+2007-09-02 10:01  goffioul
+
+	* inst/ancestor.m: ancestor.m has been moved to octave
+
+2007-08-31 15:04  goffioul
+
+	* inst/__jhandles_go_axes.m,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/ListBoxControl.java,
+	  src/org/octave/graphics/MarkerProperty.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java: a lot of small fixes
+
+2007-08-30 19:58  goffioul
+
+	* src/org/octave/graphics/Factory.java,
+	  src/org/octave/graphics/UIControlObject.java: complete default
+	  property values for uicontrol objects
+
+2007-08-30 15:04  goffioul
+
+	* src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/BooleanProperty.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/DoubleProperty.java,
+	  src/org/octave/graphics/DoubleRadioProperty.java,
+	  src/org/octave/graphics/Factory.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LightObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/MarkerProperty.java,
+	  src/org/octave/graphics/NotImplProperty.java,
+	  src/org/octave/graphics/ObjectProperty.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/RadioProperty.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/StemseriesObject.java,
+	  src/org/octave/graphics/StringArrayProperty.java,
+	  src/org/octave/graphics/StringProperty.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/TextProperty.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java,
+	  src/org/octave/graphics/VectorProperty.java: add mechanism for
+	  default values of property, similar to Matlab
+
+2007-08-30 09:06  goffioul
+
+	* inst/ancestor.m: add help string for ancestor (thanks to David)
+
+2007-08-29 14:59  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java: add recursive
+	  redrawing in order to redraw correctly axes objects embedded in
+	  panels
+
+2007-08-29 14:21  goffioul
+
+	* src/org/octave/graphics/AxesContainer.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/UIPanelObject.java: add AxesContainer
+	  class and use it for figures and uipanels
+
+2007-08-28 14:37  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/RenderCanvas.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java: allow to embed axes
+	  objects into uipanel objects
+
+2007-08-28 14:37  goffioul
+
+	* src/org/octave/graphics/GLRenderCanvas.java: remove extra space
+
+2007-08-28 14:36  goffioul
+
+	* src/org/octave/graphics/PositionLayout.java: small code move
+
+2007-08-28 14:35  goffioul
+
+	* src/org/octave/graphics/StringProperty.java: convert null into
+	  the empty string
+
+2007-08-28 14:35  goffioul
+
+	* src/org/octave/graphics/ColorProperty.java: support long color
+	  names
+
+2007-08-28 14:34  goffioul
+
+	* inst/ancestor.m: returns given argument when the handle is of the
+	  type searched
+
+2007-08-28 14:34  goffioul
+
+	* inst/uicontrol.m: look for "Parent" property in uicontrol
+	  arguments
+
+2007-08-27 13:47  goffioul
+
+	* src/org/octave/graphics/CheckBoxControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java: add "checkbox"
+	  uicontrol object
+
+2007-08-27 13:29  goffioul
+
+	* src/org/octave/graphics/ListBoxControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java: add "listbox"
+	  uicontrol objects
+
+2007-08-27 10:36  goffioul
+
+	* src/org/octave/graphics/TextControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java: add "text"
+	  uicontrol objects
+
+2007-08-24 15:01  goffioul
+
+	* PKG_DEL, inst/__jhandles_exit.m,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/NotImplProperty.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java: add dummy not-implemented
+	  property class + support BorderType property in uipanel + close
+	  all jhandles windows on jhandles exit
+
+2007-08-24 10:06  goffioul
+
+	* inst/__jhandles_add_property.m, inst/__jhandles_go_areaseries.m,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/PatchObject.java: handle LineStyle and
+	  LineWidth property for patch and areaseries objects
+
+2007-08-24 09:25  goffioul
+
+	* inst/area.m: octave/java correcty conversion when adding
+	  properties + reset axes correctly in "area"
+
+2007-08-23 15:08  goffioul
+
+	* inst/__jhandles_add_property.m, inst/area.m: add "area" front-end
+
+2007-08-23 14:44  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: remove unnecessary
+	  comments
+
+2007-08-23 13:05  goffioul
+
+	* src/gl2ps.c, src/gl2ps.h, src/gl2ps_java.c,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: handle box around text
+	  in PS output
+
+2007-08-22 15:00  goffioul
+
+	* src/gl2ps.c: small fix
+
+2007-08-22 14:58  goffioul
+
+	* src/gl2ps.c, src/gl2ps.h, src/gl2ps_java.c,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: better text support in
+	  PS output
+
+2007-08-21 15:04  goffioul
+
+	* src/gl2ps.c, src/gl2ps.h, src/gl2ps_java.c,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/TextObject.java: more PS output features
+	  (text margin + title/labels)
+
+2007-08-20 13:59  goffioul
+
+	* PKG_ADD, PKG_DEL, src/gl2ps.c, src/gl2ps_java.c,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java: further PS output
+	  implementation: use 0.5 as default line width + initial text
+	  support + load JNI file from jhandles path
+
+2007-08-20 05:26  goffioul
+
+	* inst/drawnow.m, src/Makeconf.in, src/Makefile,
+	  src/configure.base, src/gl2ps.c, src/gl2ps.h, src/gl2ps_java.c,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GL2PS.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/RenderCanvas.java: add support for GL2PS
+	  and initial PS output
+
+2007-08-14 08:01  goffioul
+
+	* src/Makefile, src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/Utils.java,
+	  src/org/octave/graphics/images,
+	  src/org/octave/graphics/images/edit.png,
+	  src/org/octave/graphics/images/view-refresh.png,
+	  src/org/octave/graphics/images/zoom-original.png: add toolbar
+	  with basic actions (zoom and 3D-rotation)
+
+2007-08-10 13:38  goffioul
+
+	* src/org/octave/graphics/PopupMenuControl.java: handle Value
+	  property in popupmenu objects
+
+2007-08-09 12:29  goffioul
+
+	* inst/surf.m: make surf work with a single argument
+
+2007-08-05 18:49  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/PopupMenuControl.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/Utils.java: support more unit types for
+	  text objects + add popupmenu uicontrol
+
+2007-08-02 13:45  goffioul
+
+	* src/org/octave/graphics/FigureLayout.java,
+	  src/org/octave/graphics/UITooltipManager.java: remove unneeded
+	  old files
+
+2007-08-02 13:40  goffioul
+
+	* src/org/octave/graphics/FigureObject.java: delay figure creation
+	  until object validation
+
+2007-08-01 14:12  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/PropertySet.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java: implement "Position" property
+	  for figures + implement more units types
+
+2007-07-11 20:18  adb014
+
+	* INDEX, trunk/octave-forge/main/signal/INDEX: Indexing updates
+
+2007-07-11 18:33  adb014
+
+	* trunk/octave-forge/extra/java/INDEX, INDEX,
+	  trunk/octave-forge/extra/triangular/INDEX,
+	  trunk/octave-forge/main/INDEX,
+	  trunk/octave-forge/main/comm/INDEX,
+	  trunk/octave-forge/main/signal/INDEX: Index updates
+
+2007-07-10 15:03  goffioul
+
+	* src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/Utils.java: support "characters" unit
+
+2007-07-10 14:46  goffioul
+
+	* src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/OctaveCallback.java: better visualization
+	  of CallbackProperty values
+
+2007-07-10 14:38  goffioul
+
+	* inst/__jhandles_go_figure.m,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java: add IntegerHandle
+	  property (no real handles, but "non-integer" handle are < 0)
+
+2007-07-10 11:18  goffioul
+
+	* src/org/octave/graphics/UIPanelObject.java: fix re-position bug
+	  in uipanel
+
+2007-07-10 09:53  goffioul
+
+	* inst/ancestor.m, inst/gcbo.m: implement "ancestor" + add 2nd
+	  argument to "gcbo"
+
+2007-07-09 20:22  goffioul
+
+	* inst/gcbo.m, src/org/octave/graphics/Callback.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/OctaveCallback.java,
+	  src/org/octave/graphics/RootObject.java: implement CallbackObject
+	  property in root object + gcbo front-end function
+
+2007-07-09 15:26  goffioul
+
+	* inst/__jhandles_go_figure.m, inst/__jhandles_set.m,
+	  src/org/octave/graphics/HandleObject.java: keep making handle
+	  valid in object constructor
+
+2007-07-09 15:20  goffioul
+
+	* src/org/octave/graphics/CallbackProperty.java: remove garbage
+	  debug output
+
+2007-07-09 15:14  goffioul
+
+	* inst/__jhandles_go_figure.m, inst/drawnow.m,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/BaseLineObject.java,
+	  src/org/octave/graphics/Callback.java,
+	  src/org/octave/graphics/CallbackListener.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/ColorbarObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/OctaveCallback.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/StemseriesObject.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java: implement CreateFcn
+	  and DeleteFcn callbacks (still unstable)
+
+2007-07-08 14:03  goffioul
+
+	* src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/GLRenderCanvas.java: do not block the
+	  event queue thread when executing callbacks
+
+2007-07-05 10:09  goffioul
+
+	* src/org/octave/graphics/GLRenderCanvas.java: fix image capture:
+	  drop alpha channel and read from back buffer
+
+2007-07-05 09:13  goffioul
+
+	* doc/demo2.png, doc/demoUI.png: add 2 screenshots
+
+2007-07-05 08:28  goffioul
+
+	* src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java: hide figure window as soon as
+	  possible when deleting it (and avoid some race conditions) + use
+	  system colors
+
+2007-07-04 15:00  goffioul
+
+	* inst/__jhandles_go_uipanel.m, inst/uipanel.m,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/ColorbarObject.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/PositionLayout.java,
+	  src/org/octave/graphics/Positionable.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java,
+	  src/org/octave/graphics/Utils.java: factorize position conversion
+	  code + implements more generic position-based layout manager +
+	  schedule redraw in OpenGL thread + provide uipanel front-end
+
+2007-07-03 15:30  goffioul
+
+	* src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UIPanelObject.java: low-level support for
+	  uipanel objects
+
+2007-07-03 13:56  goffioul
+
+	* src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/Utils.java: factorize Font searching code
+	  + add support for FontUnits handling in uicontrol objects
+
+2007-07-03 13:12  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/StemseriesObject.java: make title/labels
+	  regular children of axes, but with no visibility
+
+2007-07-03 13:11  goffioul
+
+	* src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/RootObject.java: add ShowHiddenHandles
+	  property to root object
+
+2007-07-03 11:57  goffioul
+
+	* src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/RootObject.java: add HandleVisibility
+	  property
+
+2007-07-03 11:27  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/HandleObject.java: add Clipping property
+
+2007-07-03 10:23  goffioul
+
+	* src/org/octave/graphics/UIControlObject.java: use same callback
+	  arguments as Matlab (handle,event)
+
+2007-07-03 09:36  goffioul
+
+	* src/org/octave/graphics/Edit2Control.java,
+	  src/org/octave/graphics/EditControl.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/UIControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java: refactor the code
+	  by using property listeners as much as possible
+
+2007-07-02 14:54  goffioul
+
+	* src/org/octave/graphics/Edit2Control.java,
+	  src/org/octave/graphics/EditControl.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/UIControl.java,
+	  src/org/octave/graphics/UIControlAdapter.java,
+	  src/org/octave/graphics/UIControlObject.java: rewrite using Swing
+	  components (avoid re-inventing the wheel)
+
+2007-07-01 21:27  goffioul
+
+	* src/org/octave/graphics/Edit2Control.java,
+	  src/org/octave/graphics/EditControl.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/UIControl.java,
+	  src/org/octave/graphics/UIControlListener.java,
+	  src/org/octave/graphics/UIControlObject.java,
+	  src/org/octave/graphics/UITooltipManager.java: more uicontrol
+	  implementation ("edit" styled controls)
+
+2007-07-01 21:27  goffioul
+
+	* src/org/octave/graphics/SimpleTextEngine.java: small bug fix
+
+2007-06-29 15:03  goffioul
+
+	* inst/__jhandles_go_uicontrol.m, inst/uicontrol.m,
+	  src/org/octave/graphics/FigureLayout.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/PushButtonControl.java,
+	  src/org/octave/graphics/UIControl.java,
+	  src/org/octave/graphics/UIControlEvent.java,
+	  src/org/octave/graphics/UIControlListener.java,
+	  src/org/octave/graphics/UIControlObject.java: add skeleton for
+	  uicontrol support
+
+2007-06-28 20:08  goffioul
+
+	* src/org/octave/graphics/HandleObjectListProperty.java: allow to
+	  set HandleObjectListProperty with Matrix objects
+
+2007-06-28 20:07  goffioul
+
+	* src/org/octave/graphics/GroupObject.java: fix limits computation
+	  in group objects
+
+2007-06-28 20:07  goffioul
+
+	* src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/PatchObject.java: fix barseries problems
+	  (make it work with Matrix objects)
+
+2007-06-28 20:06  goffioul
+
+	* src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/VectorProperty.java: add some debug info
+	  (should make possible to disable it)
+
+2007-06-28 19:26  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: fix for surface drawing
+	  in texturemap mode
+
+2007-06-28 13:33  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: reset "Key" property
+
+2007-06-28 12:55  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/SurfaceObject.java: implement texture
+	  mapping for surface objects
+
+2007-06-28 12:54  goffioul
+
+	* src/org/octave/graphics/HandleObjectListProperty.java: fix
+	  problem with "clf" => allow to set HandleObjectListProperty to
+	  null
+
+2007-06-28 09:05  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: implement auto-legend to
+	  support key/keylabel mechanism of octave
+
+2007-06-27 21:06  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: provide compatibility
+	  with key/keylabel mechanism (does not work, but at least avoids
+	  errors)
+
+2007-06-27 20:25  goffioul
+
+	* src/org/octave/graphics/ColorbarObject.java,
+	  src/org/octave/graphics/Property.java: make colorbar object to
+	  listen the figure colormap (and avoid race condition)
+
+2007-06-27 17:05  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/ColorbarObject.java: add Layer property
+	  to axes and use it in colorbar
+
+2007-06-27 17:04  goffioul
+
+	* src/org/octave/graphics/Property.java: add some further
+	  synchronization gards
+
+2007-06-27 16:21  goffioul
+
+	* PKG_ADD, inst/__jhandles_go_colorbar.m, inst/colorbar.m,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/ColorbarObject.java: scale colorbar axes
+	  with CLim of target axes + show colorbar ticks + mark colorbar as
+	  command
+
+2007-06-26 21:49  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: reset axes position
+	  correctly
+
+2007-06-26 21:37  goffioul
+
+	* inst/__jhandles_go_colorbar.m,
+	  src/org/octave/graphics/ColorbarObject.java: correct location of
+	  ticks for colorbar + make colorbar unique per axes object
+
+2007-06-26 21:36  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: add XAxisLocation and
+	  YAxisLocation property to axes objects
+
+2007-06-24 10:26  goffioul
+
+	* inst/__jhandles_go_colorbar.m, inst/colorbar.m,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/ColorbarObject.java: add colorbar
+	  front-end functions
+
+2007-06-23 22:49  goffioul
+
+	* src/org/octave/graphics/ColorbarObject.java,
+	  src/org/octave/graphics/Property.java: add backend support for
+	  colorbar
+
+2007-06-23 21:13  goffioul
+
+	* inst/sphere.m: add sphere utility function
+
+2007-06-23 14:15  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/ImageObject.java: implement indexed color
+	  images
+
+2007-06-22 22:43  goffioul
+
+	* inst/__line__.m, src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/VectorProperty.java: generalize the use
+	  of Matrix class
+
+2007-06-22 22:15  goffioul
+
+	* inst/__jhandles_go_image.m, inst/image.m: use regular octave
+	  front-end for images
+
+2007-06-22 22:12  goffioul
+
+	* PKG_ADD, PKG_DEL, src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/DoubleMatrixProperty.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/MatrixProperty.java,
+	  src/org/octave/graphics/Utils.java: complete conversion from
+	  [Double]MatrixProperty to ArrayProperty
+
+2007-06-22 19:58  goffioul
+
+	* src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/DoubleArrayProperty.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLTextRenderer.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/LightObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/PropertyListener.java,
+	  src/org/octave/graphics/StemseriesObject.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/VectorProperty.java: complete conversion
+	  from DoubleArrayProperty to VectorProperty + remove obsolete
+	  files
+
+2007-06-22 09:05  goffioul
+
+	* src/org/octave/graphics/PatchObject.java: revert previous change
+	  to keep code mroe readble
+
+2007-06-21 22:29  goffioul
+
+	* inst/__jhandles_go_surface.m, inst/surf.m,
+	  src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/Utils.java,
+	  src/org/octave/graphics/VectorProperty.java: add VectorProperty +
+	  more conversion to new array/vector properties
+
+2007-06-21 21:57  goffioul
+
+	* src/org/octave/graphics/ArrayProperty.java: moved cache of
+	  converted java arrays to java package
+
+2007-06-20 21:41  goffioul
+
+	* inst/__jhandles_get.m, inst/__jhandles_set.m,
+	  src/org/octave/graphics/ArrayProperty.java,
+	  src/org/octave/graphics/DoubleArrayProperty.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/PatchObject.java: start using new
+	  ArrayProperty (+ some backward compatible bridge code). Expects
+	  bugs, though.
+
+2007-06-20 15:35  goffioul
+
+	* inst/__jhandles_get.m, inst/__jhandles_set.m,
+	  src/org/octave/graphics/ArrayProperty.java: new array property,
+	  based on the new java matrix wrapper
+
+2007-06-20 10:37  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/Renderer.java: complete render/front-end
+	  separation in axes drawing + remove old code
+
+2007-06-19 22:05  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/Renderer.java: further implementation for
+	  minor ticks/grid + more render/front-end separation in axes
+	  drawing
+
+2007-06-18 15:01  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: add initial (unfinished)
+	  support for minor grid
+
+2007-06-18 12:51  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/GLTextRenderer.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/SimpleTextEngine.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextObject.java: initial support for
+	  logarithmic scales + move text engine to a re-usable location
+	  (used now by ticks as well)
+
+2007-06-11 12:28  goffioul
+
+	* inst/__jhandles_go_areaseries.m: cleaner (portable)
+	  implementation + start using listeners to link areaseries object
+	  and the underlying patch object
+
+2007-06-11 12:27  goffioul
+
+	* inst/__jhandles_add_listener.m, inst/addlistener.m,
+	  src/org/octave/graphics/HandleNotifier.java,
+	  src/org/octave/graphics/OctaveSink.java: allow to link a listener
+	  to more than one properties (within the same object)
+
+2007-06-11 12:25  goffioul
+
+	* inst/__jhandles_add_property.m, inst/addprop.m: allow adding
+	  hidden/readonly properties + support for handle and colorradio
+	  properties
+
+2007-06-11 12:23  goffioul
+
+	* inst/__jhandles_go_hggroup.m, inst/hggroup.m,
+	  src/org/octave/graphics/GroupObject.java: add hggroup front-end +
+	  auto-scale a group objects according to its children
+
+2007-06-11 05:50  goffioul
+
+	* inst/__jhandles_go_areaseries.m: low-level support for area plots
+
+2007-06-11 05:49  goffioul
+
+	* inst/__jhandles_add_listener.m, inst/__jhandles_add_property.m,
+	  inst/addlistener.m, inst/addprop.m,
+	  src/org/octave/graphics/DoubleMatrixProperty.java,
+	  src/org/octave/graphics/Property.java: add front-end for property
+	  and listener creation
+
+2007-06-08 13:05  goffioul
+
+	* src/org/octave/graphics/LegendObject.java: avoid array
+	  out-of-bound exception when specifying less strings than the
+	  number of items in the axes
+
+2007-06-08 12:50  goffioul
+
+	* trunk/octave-forge/extra/java/src/__java__.cc,
+	  src/org/octave/graphics/OctaveSink.java: remove debug output
+
+2007-06-08 12:36  goffioul
+
+	* src/org/octave/graphics/LineStyleProperty.java: support "" as
+	  valid linestyle (although Matlab does not support it)
+
+2007-06-08 12:26  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: fix bug (array out of
+	  bound) when using non-equal X/Y grid
+
+2007-06-08 09:37  goffioul
+
+	* src/org/octave/graphics/OctaveSink.java: add some debug output
+	  (to be removed)
+
+2007-06-06 20:32  goffioul
+
+	* src/org/octave/graphics/OctaveSink.java: add initial support for
+	  graphics property listeners implemented in octave
+
+2007-06-04 20:34  adb014
+
+	* src/configure.base: Change search for octave.jar to allow for
+	  both global and local installs of both java and jhandles
+
+2007-06-04 04:38  goffioul
+
+	* src/org/octave/graphics/BooleanProperty.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/DoubleArrayProperty.java,
+	  src/org/octave/graphics/DoubleMatrixProperty.java,
+	  src/org/octave/graphics/DoubleProperty.java,
+	  src/org/octave/graphics/DoubleRadioProperty.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/MarkerProperty.java,
+	  src/org/octave/graphics/MatrixProperty.java,
+	  src/org/octave/graphics/ObjectProperty.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/RadioProperty.java,
+	  src/org/octave/graphics/StringArrayProperty.java,
+	  src/org/octave/graphics/StringProperty.java: add default
+	  constructor for (almost) all properties
+
+2007-05-31 19:07  goffioul
+
+	* inst/enable_jhandles.m: remove unused file
+
+2007-05-31 15:11  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: fix zlabel positioning
+
+2007-05-31 15:04  goffioul
+
+	* src/org/octave/graphics/AxesObject.java: add support for Z Label
+
+2007-05-31 14:44  adb014
+
+	* PKG_ADD, inst/__bar__.m, inst/__jhandles_exit.m,
+	  inst/__jhandles_get.m, inst/__jhandles_go_axes.m,
+	  inst/__jhandles_go_axes_init.m, inst/__jhandles_go_barseries.m,
+	  inst/__jhandles_go_delete.m, inst/__jhandles_go_figure.m,
+	  inst/__jhandles_go_surface.m, inst/__jhandles_go_text.m,
+	  inst/__jhandles_ishandle.m, inst/__jhandles_set.m,
+	  inst/enable_jhandles.m, inst/jhandles_exit.m,
+	  inst/jhandles_get.m, inst/jhandles_go_axes.m,
+	  inst/jhandles_go_axes_init.m, inst/jhandles_go_barseries.m,
+	  inst/jhandles_go_delete.m, inst/jhandles_go_figure.m,
+	  inst/jhandles_go_surface.m, inst/jhandles_go_text.m,
+	  inst/jhandles_ishandle.m, inst/jhandles_set.m: Modify all uses of
+	  function names jhandles_ to __jhandles_
+
+2007-05-31 14:44  adb014
+
+	* PKG_ADD, PKG_DEL, doc/README, inst/__bar__.m,
+	  inst/enable_jhandles.m, inst/enable_oplot.m,
+	  inst/jhandles_exit.m, inst/jhandles_get.m,
+	  inst/jhandles_go_axes.m, inst/jhandles_go_axes_init.m,
+	  inst/jhandles_go_barseries.m, inst/jhandles_go_delete.m,
+	  inst/jhandles_go_figure.m, inst/jhandles_go_surface.m,
+	  inst/jhandles_go_text.m, inst/jhandles_ishandle.m,
+	  inst/jhandles_set.m, inst/oplot_exit.m, inst/oplot_get.m,
+	  inst/oplot_go_axes.m, inst/oplot_go_axes_init.m,
+	  inst/oplot_go_barseries.m, inst/oplot_go_delete.m,
+	  inst/oplot_go_figure.m, inst/oplot_go_surface.m,
+	  inst/oplot_go_text.m, inst/oplot_ishandle.m, inst/oplot_set.m,
+	  src, src/.cvsignore, src/Makefile,
+	  src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/BaseLineObject.java,
+	  src/org/octave/graphics/BooleanProperty.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/DoubleArrayProperty.java,
+	  src/org/octave/graphics/DoubleMatrixProperty.java,
+	  src/org/octave/graphics/DoubleProperty.java,
+	  src/org/octave/graphics/DoubleRadioProperty.java,
+	  src/org/octave/graphics/FigureLayout.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/GLTextRenderer.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/GroupObject.java,
+	  src/org/octave/graphics/HandleNotifier.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LightObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/MarkerProperty.java,
+	  src/org/octave/graphics/Matrix3D.java,
+	  src/org/octave/graphics/MatrixProperty.java,
+	  src/org/octave/graphics/ObjectProperty.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/Point3D.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/PropertyException.java,
+	  src/org/octave/graphics/PropertyListener.java,
+	  src/org/octave/graphics/PropertySet.java,
+	  src/org/octave/graphics/RadioProperty.java,
+	  src/org/octave/graphics/RenderCanvas.java,
+	  src/org/octave/graphics/RenderEventListener.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/StemseriesObject.java,
+	  src/org/octave/graphics/StringArrayProperty.java,
+	  src/org/octave/graphics/StringProperty.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/TextProperty.java,
+	  src/org/octave/graphics/Utils.java,
+	  src/org/octave/graphics/Vector3D.java: Modify all uses of oplot
+	  and oplt-gl to jhandles
+
+2007-05-31 14:34  goffioul
+
+	* src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/LegendObject.java: full support for
+	  Location property of legends + various legend fixes
+
+2007-05-31 14:33  goffioul
+
+	* src/org/octave/graphics/GLRenderer.java: layer axes correctly on
+	  top of each other.
+
+2007-05-31 14:32  goffioul
+
+	* src/org/octave/graphics/HandleObject.java: try to avoid race
+	  conditions
+
+2007-05-31 14:31  goffioul
+
+	* src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/RootObject.java: auto-active figure
+	  windows + enable CurrentFigure tracking in RootObject
+
+2007-05-31 14:30  goffioul
+
+	* src, src/.cvsignore, src/org/octave/graphics,
+	  src/org/octave/graphics/.cvsignore: more files to ignore
+
+2007-05-30 08:36  goffioul
+
+	* src/Makeconf.in, src/Makefile, src/configure.base: make it
+	  compilable under MSVC/MSYS
+
+2007-05-30 07:28  adb014
+
+	* trunk/octave-forge/doc/htdocs,
+	  trunk/octave-forge/doc/htdocs/.cvsignore, src, src/.cvsignore:
+	  ignore a few more files
+
+2007-05-29 20:47  adb014
+
+	* ., COPYING, DESCRIPTION, PKG_ADD, PKG_DEL, doc, doc/README,
+	  doc/demo.png, doc/testX.m, inst, inst/__axis_label__.m,
+	  inst/__bar__.m, inst/__get_object__.m, inst/__line__.m,
+	  inst/bar.m, inst/bar3.m, inst/bar3h.m, inst/barh.m,
+	  inst/contour3.m, inst/drawnow.m, inst/enable_oplot.m,
+	  inst/hidden.m, inst/image.m, inst/legend.m, inst/light.m,
+	  inst/mat2java.m, inst/oplot_exit.m, inst/oplot_get.m,
+	  inst/oplot_go_axes.m, inst/oplot_go_axes_init.m,
+	  inst/oplot_go_barseries.m, inst/oplot_go_delete.m,
+	  inst/oplot_go_figure.m, inst/oplot_go_surface.m,
+	  inst/oplot_go_text.m, inst/oplot_ishandle.m, inst/oplot_set.m,
+	  inst/patch.m, inst/shading.m, inst/stem.m, inst/surf.m, src,
+	  src/Makeconf.in, src/Makefile, src/autogen.sh,
+	  src/configure.base, src/org, src/org/octave,
+	  src/org/octave/graphics, src/org/octave/graphics/AxesObject.java,
+	  src/org/octave/graphics/BarseriesObject.java,
+	  src/org/octave/graphics/BaseLineObject.java,
+	  src/org/octave/graphics/BooleanProperty.java,
+	  src/org/octave/graphics/CallbackProperty.java,
+	  src/org/octave/graphics/ColorProperty.java,
+	  src/org/octave/graphics/DoubleArrayProperty.java,
+	  src/org/octave/graphics/DoubleMatrixProperty.java,
+	  src/org/octave/graphics/DoubleProperty.java,
+	  src/org/octave/graphics/DoubleRadioProperty.java,
+	  src/org/octave/graphics/FigureLayout.java,
+	  src/org/octave/graphics/FigureObject.java,
+	  src/org/octave/graphics/GLRenderCanvas.java,
+	  src/org/octave/graphics/GLRenderer.java,
+	  src/org/octave/graphics/GLTextRenderer.java,
+	  src/org/octave/graphics/GraphicObject.java,
+	  src/org/octave/graphics/GroupObject.java,
+	  src/org/octave/graphics/HandleNotifier.java,
+	  src/org/octave/graphics/HandleObject.java,
+	  src/org/octave/graphics/HandleObjectListProperty.java,
+	  src/org/octave/graphics/ImageObject.java,
+	  src/org/octave/graphics/LegendObject.java,
+	  src/org/octave/graphics/LightObject.java,
+	  src/org/octave/graphics/LineObject.java,
+	  src/org/octave/graphics/LineStyleProperty.java,
+	  src/org/octave/graphics/MarkerProperty.java,
+	  src/org/octave/graphics/Matrix3D.java,
+	  src/org/octave/graphics/MatrixProperty.java,
+	  src/org/octave/graphics/ObjectProperty.java,
+	  src/org/octave/graphics/PatchObject.java,
+	  src/org/octave/graphics/Point3D.java,
+	  src/org/octave/graphics/Property.java,
+	  src/org/octave/graphics/PropertyException.java,
+	  src/org/octave/graphics/PropertyListener.java,
+	  src/org/octave/graphics/PropertySet.java,
+	  src/org/octave/graphics/RadioProperty.java,
+	  src/org/octave/graphics/RenderCanvas.java,
+	  src/org/octave/graphics/RenderEventListener.java,
+	  src/org/octave/graphics/Renderer.java,
+	  src/org/octave/graphics/RootObject.java,
+	  src/org/octave/graphics/StemseriesObject.java,
+	  src/org/octave/graphics/StringArrayProperty.java,
+	  src/org/octave/graphics/StringProperty.java,
+	  src/org/octave/graphics/SurfaceObject.java,
+	  src/org/octave/graphics/TextObject.java,
+	  src/org/octave/graphics/TextProperty.java,
+	  src/org/octave/graphics/Utils.java,
+	  src/org/octave/graphics/Vector3D.java: First commit of JHandles
+	  packages for Michael Goffioul
+

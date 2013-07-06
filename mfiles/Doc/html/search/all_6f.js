@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['graphics',['graphics',['../namespaceorg_1_1octave_1_1graphics.html',1,'org::octave']]],
+  ['objectproperty',['ObjectProperty',['../classorg_1_1octave_1_1graphics_1_1_object_property.html#ab43a63229fa781ed38ae586d50b78264',1,'org::octave::graphics::ObjectProperty.ObjectProperty(ObjectProperty p)'],['../classorg_1_1octave_1_1graphics_1_1_object_property.html#a1b73ff406219c725cf3567e078a51c46',1,'org::octave::graphics::ObjectProperty.ObjectProperty(PropertySet parent, String name)'],['../classorg_1_1octave_1_1graphics_1_1_object_property.html#a211413f9fc7c394e29226a9248dccc7e',1,'org::octave::graphics::ObjectProperty.ObjectProperty(PropertySet parent, String name, Object value)']]],
+  ['objectproperty',['ObjectProperty',['../classorg_1_1octave_1_1graphics_1_1_object_property.html',1,'org::octave::graphics']]],
+  ['objectproperty_2ejava',['ObjectProperty.java',['../_object_property_8java.html',1,'']]],
+  ['objects_5fstack',['objects_stack',['../struct_g_l2_p_scontext.html#af8ddb5063d3c2fe41fc01389cffaaf43',1,'GL2PScontext']]],
+  ['octave',['octave',['../namespaceorg_1_1octave.html',1,'org']]],
+  ['octavecallback',['OctaveCallback',['../classorg_1_1octave_1_1graphics_1_1_octave_callback.html',1,'org::octave::graphics']]],
+  ['octavecallback',['OctaveCallback',['../classorg_1_1octave_1_1graphics_1_1_octave_callback.html#a815e13f74d00cf2fa91363729fbc95e5',1,'org::octave::graphics::OctaveCallback.OctaveCallback(OctaveReference ref)'],['../classorg_1_1octave_1_1graphics_1_1_octave_callback.html#aef55a43fe2550f975207ddabfb915db3',1,'org::octave::graphics::OctaveCallback.OctaveCallback(String cmd)']]],
+  ['octavecallback_2ejava',['OctaveCallback.java',['../_octave_callback_8java.html',1,'']]],
+  ['octavesink',['OctaveSink',['../classorg_1_1octave_1_1graphics_1_1_octave_sink.html',1,'org::octave::graphics']]],
+  ['octavesink',['OctaveSink',['../classorg_1_1octave_1_1graphics_1_1_octave_sink.html#a2541f4d15fa1dd5809fd69ab4f3dd5a6',1,'org::octave::graphics::OctaveSink']]],
+  ['octavesink_2ejava',['OctaveSink.java',['../_octave_sink_8java.html',1,'']]],
+  ['offset',['offset',['../struct_g_l2_p_sprimitive.html#ae9546e9403a0b44d4baff57bee597ad1',1,'GL2PSprimitive::offset()'],['../struct_g_l2_p_scontext.html#ad2a235a9f23fa48fdbf4efd1cadb0d2c',1,'GL2PScontext::offset()']]],
+  ['offsetmargin',['offsetmargin',['../struct_g_l2_p_sstring.html#a1a2744ffb93b331ee3b78762f61a65b5',1,'GL2PSstring']]],
+  ['op_5fnone',['OP_NONE',['../classorg_1_1octave_1_1graphics_1_1_axes_container.html#a5d5acc9661e38185292924bf14ed9a9e',1,'org::octave::graphics::AxesContainer']]],
+  ['op_5frotate',['OP_ROTATE',['../classorg_1_1octave_1_1graphics_1_1_axes_container.html#a4319b70263501102b4ea2779f38ae726',1,'org::octave::graphics::AxesContainer']]],
+  ['op_5fzoom',['OP_ZOOM',['../classorg_1_1octave_1_1graphics_1_1_axes_container.html#aa072c4e9f3d11dc8a98734b2934245b6',1,'org::octave::graphics::AxesContainer']]],
+  ['operation',['operation',['../classorg_1_1octave_1_1graphics_1_1_axes_object.html#ac29509de916c1b873d9ad704ffde9391',1,'org::octave::graphics::AxesObject']]],
+  ['options',['options',['../struct_g_l2_p_scontext.html#aff5ce15c40c915041a6cfe9bc653d2c5',1,'GL2PScontext']]],
+  ['org',['org',['../namespaceorg.html',1,'']]],
+  ['orientation',['Orientation',['../classorg_1_1octave_1_1graphics_1_1_base_line_object.html#a4316733eb74298ba7c509bf8f0134462',1,'org::octave::graphics::BaseLineObject.Orientation()'],['../classorg_1_1octave_1_1graphics_1_1_legend_object.html#a4316733eb74298ba7c509bf8f0134462',1,'org::octave::graphics::LegendObject.Orientation()']]],
+  ['outerposition',['OuterPosition',['../classorg_1_1octave_1_1graphics_1_1_axes_object.html#aecd33e5398b766d29dbf47359630fd93',1,'org::octave::graphics::AxesObject']]]
+];

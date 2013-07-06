@@ -1,0 +1,105 @@
+.TH "GLRenderer.TextureData" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLRenderer.TextureData \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRenderer\&.CachedData\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTextureData\fP (int ID, int \fBtexW\fP, int \fBtexH\fP, int \fBw\fP, int \fBh\fP)"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBtexID\fP"
+.br
+.ti -1c
+.RI "int \fBtexW\fP"
+.br
+.ti -1c
+.RI "int \fBtexH\fP"
+.br
+.ti -1c
+.RI "int \fBw\fP"
+.br
+.ti -1c
+.RI "int \fBh\fP"
+.br
+.ti -1c
+.RI "double \fBtCoordX\fP"
+.br
+.ti -1c
+.RI "double \fBtCoordY\fP"
+.br
+.ti -1c
+.RI "GLContext \fBcontext\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBTextureData\fP (intID, inttexW, inttexH, intw, inth)\fC [inline]\fP"
+.PP
+.nf
+                {
+                        this\&.texID = ID;
+                        this\&.texW = texW;
+                        this\&.texH = texH;
+                        this\&.w = w;
+                        this\&.h = h;
+                        this\&.context = GLContext\&.getCurrent();
+                        this\&.tCoordX = ((double)w)/texW;
+                        this\&.tCoordY = ((double)h)/texH;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderer\&.CachedData\fP\&.
+.PP
+.nf
+                {
+                        boolean isCurrent = (GLContext\&.getCurrent() == context);
+
+                        if (!isCurrent)
+                                context\&.makeCurrent();
+                        context\&.getGL()\&.glDeleteTextures(1, new int[] {texID}, 0);
+                        if (!isCurrent)
+                                context\&.release();
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "GLContext \fBcontext\fP\fC [package]\fP"
+.SS "int \fBh\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.SS "double \fBtCoordX\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.SS "double \fBtCoordY\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.SS "int \fBtexH\fP\fC [package]\fP"
+.SS "int \fBtexID\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.SS "int \fBtexW\fP\fC [package]\fP"
+.SS "int \fBw\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,53 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_uicontrol.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_uicontrol.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBvarargin\fP) > 0) \fBset\fP(\fBh\fP"
+.br
+.ti -1c
+.RI "else \fB__request_drawnow__\fP ()"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBobj\fP \fBvalidate\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBh\fP = obj\&.getHandle ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "else \fB__request_drawnow__\fP ()"
+.SS "\fBif\fP (\fBlength\fP(\fBvarargin\fP), 0)"
+.SS "\fBendif\fP \fBobj\fP \fBvalidate\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_go_uicontrol (parent, varargin)
+
+  obj = java_new ('org\&.octave\&.graphics\&.UIControlObject', __get_object__ (parent))
+.fi
+.PP
+Definition at line 16 of file __jhandles_go_uicontrol\&.m\&.
+.SS "\fBh\fP = obj\&.getHandle ()"
+.PP
+Definition at line 19 of file __jhandles_go_uicontrol\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

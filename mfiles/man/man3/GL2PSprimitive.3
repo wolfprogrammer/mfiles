@@ -1,0 +1,118 @@
+.TH "GL2PSprimitive" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GL2PSprimitive \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "GLshort \fBtype\fP"
+.br
+.ti -1c
+.RI "GLshort \fBnumverts\fP"
+.br
+.ti -1c
+.RI "GLushort \fBpattern\fP"
+.br
+.ti -1c
+.RI "char \fBboundary\fP"
+.br
+.ti -1c
+.RI "char \fBoffset\fP"
+.br
+.ti -1c
+.RI "char \fBculled\fP"
+.br
+.ti -1c
+.RI "GLint \fBfactor\fP"
+.br
+.ti -1c
+.RI "GLfloat \fBwidth\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSvertex\fP * \fBverts\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fBGL2PSstring\fP * \fBtext\fP"
+.br
+.ti -1c
+.RI "   \fBGL2PSimage\fP * \fBimage\fP"
+.br
+.ti -1c
+.RI "} \fBdata\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 211 of file gl2ps\&.c\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char \fBGL2PSprimitive::boundary\fP"
+.PP
+Definition at line 214 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psBuildPolygonBoundary(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), and gl2psParseFeedbackBuffer()\&.
+.SS "char \fBGL2PSprimitive::culled\fP"
+.PP
+Definition at line 214 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddInImageTree(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), gl2psParseFeedbackBuffer(), gl2psPrintPDFPrimitive(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "union { \&.\&.\&. }   \fBGL2PSprimitive::data\fP"
+.PP
+Referenced by gl2psAddInImageTree(), gl2psAddText(), gl2psBuildBspTree(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDrawPixels(), gl2psFreePrimitive(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListWriteMainStream(), gl2psPDFgroupListWriteObjects(), gl2psPDFgroupListWriteXObjectResources(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), gl2psPrintSVGPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "GLint \fBGL2PSprimitive::factor\fP"
+.PP
+Definition at line 215 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteMainStream(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "\fBGL2PSimage\fP* \fBGL2PSprimitive::image\fP"
+.PP
+Definition at line 220 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddInImageTree(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDrawPixels(), gl2psFreePrimitive(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListWriteMainStream(), gl2psPDFgroupListWriteObjects(), gl2psPDFgroupListWriteXObjectResources(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "GLshort \fBGL2PSprimitive::numverts\fP"
+.PP
+Definition at line 212 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddPlanesInBspTreeImage(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCheckPrimitive(), gl2psCompareDepth(), gl2psComputeTightBoundingBox(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDrawPixels(), gl2psParseFeedbackBuffer(), gl2psPrintSVGPrimitive(), gl2psRescaleAndOffset(), gl2psSplitPrimitive(), gl2psSplitPrimitive2D(), gl2psTestSplitPrimitive(), and gl2psVertsSameColor()\&.
+.SS "char \fBGL2PSprimitive::offset\fP"
+.PP
+Definition at line 214 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), gl2psParseFeedbackBuffer(), and gl2psRescaleAndOffset()\&.
+.SS "GLushort \fBGL2PSprimitive::pattern\fP"
+.PP
+Definition at line 213 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteMainStream(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "\fBGL2PSstring\fP* \fBGL2PSprimitive::text\fP"
+.PP
+Definition at line 219 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddText(), gl2psBuildBspTree(), gl2psCopyPrimitive(), gl2psFreePrimitive(), gl2psPDFgroupListWriteMainStream(), gl2psPDFgroupListWriteObjects(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), gl2psPrintSVGPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "GLshort \fBGL2PSprimitive::type\fP"
+.PP
+Definition at line 212 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddInBspImageTree(), gl2psAddInImageTree(), gl2psAddPolyPrimitive(), gl2psAddPrimitiveInList(), gl2psAddText(), gl2psBuildBspTree(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDrawPixels(), gl2psFreePrimitive(), gl2psGetPlane(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteMainStream(), gl2psPDFgroupListWriteObjects(), gl2psPDFgroupListWriteXObjectResources(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), gl2psPrintSVGPrimitive(), gl2psPrintTeXPrimitive(), gl2psRescaleAndOffset(), gl2psSortOutTrianglePDFgroup(), gl2psSplitPrimitive(), and gl2psTrianglesFirst()\&.
+.SS "\fBGL2PSvertex\fP* \fBGL2PSprimitive::verts\fP"
+.PP
+Definition at line 217 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddInBspImageTree(), gl2psAddPlanesInBspTreeImage(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCheckPrimitive(), gl2psCompareDepth(), gl2psComputeTightBoundingBox(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), gl2psFillTriangleFromPrimitive(), gl2psFreePrimitive(), gl2psGetPlane(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteMainStream(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), gl2psPrintSVGPrimitive(), gl2psPrintTeXPrimitive(), gl2psRescaleAndOffset(), gl2psSplitPrimitive(), gl2psSplitPrimitive2D(), gl2psTestSplitPrimitive(), and gl2psVertsSameColor()\&.
+.SS "GLfloat \fBGL2PSprimitive::width\fP"
+.PP
+Definition at line 216 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), gl2psAddPolyPrimitive(), gl2psAddText(), gl2psCopyPrimitive(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDivideQuad(), gl2psDrawPixels(), gl2psParseFeedbackBuffer(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteMainStream(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

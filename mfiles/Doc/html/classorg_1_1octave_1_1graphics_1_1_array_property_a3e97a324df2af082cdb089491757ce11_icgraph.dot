@@ -1,0 +1,18 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getClassName",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="org.octave.graphics.SurfaceObject.getAlphaData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_surface_object.html#a0b1d1ce6440cde504eb75fde1792ee29"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="org.octave.graphics.GLRenderer.draw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_g_l_renderer.html#a6ef28eab55557f67fb8c8cfa296cace8"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="isType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_array_property.html#aef261dc2711b72f55539e49e7f633e21"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="org.octave.graphics.GLRenderer.makeTextureFromCData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_g_l_renderer.html#acf11256538e00afd77d357f886db9133"];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="org.octave.graphics.Utils.getAlphaData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_utils.html#a214bf68137741d069527b8f8a322d1da"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

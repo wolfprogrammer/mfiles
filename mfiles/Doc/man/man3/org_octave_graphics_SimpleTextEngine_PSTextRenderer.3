@@ -1,0 +1,353 @@
+.TH "SimpleTextEngine.PSTextRenderer" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.PSTextRenderer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBPSState\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrender\fP (\fBContent\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBLineElement\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBElement\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBSubscriptElement\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBSuperscriptElement\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBScriptElement\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTeXElement\fP e)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTeXFontCommand\fP e)"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPSTextRenderer\fP (StringBuffer buffer, String fname, float fsize, int fstyle, Color fcolor)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPSState\fP \fBcurrentState\fP ()"
+.br
+.ti -1c
+.RI "void \fBpushState\fP (String fontName, float fontSize, int fontStyle, Color fontColor, float yOffset)"
+.br
+.ti -1c
+.RI "void \fBpushState\fP ()"
+.br
+.ti -1c
+.RI "void \fBpopState\fP ()"
+.br
+.ti -1c
+.RI "String \fBfontModifier\fP (int style)"
+.br
+.ti -1c
+.RI "String \fBquote\fP (String s)"
+.br
+.ti -1c
+.RI "float \fBround\fP (float d)"
+.br
+.ti -1c
+.RI "String \fBcolorCmd\fP (Color c)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "StringBuffer \fBbuf\fP"
+.br
+.ti -1c
+.RI "LinkedList \fBstateList\fP"
+.br
+.ti -1c
+.RI "float \fBf\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPSTextRenderer\fP (StringBufferbuffer, Stringfname, floatfsize, intfstyle, Colorfcolor)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.PSTextRenderer\&.f, Utils\&.getScreenResolution(), SimpleTextEngine\&.PSTextRenderer\&.pushState(), and SimpleTextEngine\&.PSTextRenderer\&.stateList\&.
+.PP
+.nf
+                {
+                        buf = buffer;
+                        stateList = new LinkedList();
+                        f = 72\&.0f / Utils\&.getScreenResolution();
+                        pushState(fname, fsize, fstyle, fcolor, 0);
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "String \fBcolorCmd\fP (Colorc)\fC [inline, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        float[] cv = c\&.getRGBColorComponents(null);
+                        return (cv[0] + ' ' + cv[1] + ' ' + cv[2] + ' C');
+                }
+.fi
+.SS "\fBPSState\fP \fBcurrentState\fP ()\fC [inline, private]\fP"
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.stateList\&.
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.pushState(), and SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        return (PSState)stateList\&.get(0);
+                }
+.fi
+.SS "String \fBfontModifier\fP (intstyle)\fC [inline, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        if ((style & Font\&.ITALIC) != 0 && (style & Font\&.BOLD) != 0)
+                                return '-BoldOblique';
+                        else if ((style & Font\&.ITALIC) != 0)
+                                return '-Oblique';
+                        else if ((style & Font\&.BOLD) != 0)
+                                return '-Bold';
+                        else return '';
+                }
+.fi
+.SS "void \fBpopState\fP ()\fC [inline, private]\fP"
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.stateList\&.
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        stateList\&.remove(0);
+                }
+.fi
+.SS "void \fBpushState\fP (StringfontName, floatfontSize, intfontStyle, ColorfontColor, floatyOffset)\fC [inline, private]\fP"
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.stateList\&.
+.PP
+.nf
+                {
+                        stateList\&.add(0, new PSState(fontName, fontSize, fontStyle, fontColor, yOffset));
+                }
+.fi
+.SS "void \fBpushState\fP ()\fC [inline, private]\fP"
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontColor, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontName, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontSize, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontStyle, and SimpleTextEngine\&.PSTextRenderer\&.PSState\&.yOffset\&.
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.PSTextRenderer(), and SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        PSState st = currentState();
+                        pushState(st\&.fontName, st\&.fontSize, st\&.fontStyle, st\&.fontColor, st\&.yOffset);
+                }
+.fi
+.SS "String \fBquote\fP (Strings)\fC [inline, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        return s\&.replaceAll('([()])', '\\\\$1');
+                }
+.fi
+.SS "void \fBrender\fP (\fBContent\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.Content\&.align, SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.PSTextRenderer\&.colorCmd(), SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.f, SimpleTextEngine\&.Content\&.lines, SimpleTextEngine\&.Element\&.rect, SimpleTextEngine\&.LineElement\&.render(), and SimpleTextEngine\&.PSTextRenderer\&.round()\&.
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        buf\&.append(colorCmd(currentState()\&.fontColor) + '\n');
+                        for (int i=0; i<e\&.lines\&.length; i++)
+                        {
+                                if (i > 0)
+                                        buf\&.append('0 ' + round(f*(e\&.lines[i-1]\&.rect\&.y-(e\&.lines[i]\&.rect\&.height+e\&.lines[i]\&.rect\&.y))) + ' rmoveto\n');
+                                buf\&.append('[');
+                                e\&.lines[i]\&.render(this);
+                                buf\&.append('] ' + (e\&.align == 0 ? 'LLshow' : (e\&.align == 1 ? 'LCshow' : 'LRshow')) + '\n');
+                        }
+                }
+.fi
+.SS "void \fBrender\fP (\fBLineElement\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.PSTextRenderer\&.colorCmd(), SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontColor, SimpleTextEngine\&.LineElement\&.iterator(), SimpleTextEngine\&.PSTextRenderer\&.popState(), SimpleTextEngine\&.PSTextRenderer\&.pushState(), and SimpleTextEngine\&.Element\&.render()\&.
+.PP
+.nf
+                {
+                        Iterator it = e\&.iterator();
+                        Color c = currentState()\&.fontColor;
+
+                        pushState();
+                        while (it\&.hasNext())
+                        {
+                                Element elem = (Element)it\&.next();
+                                elem\&.render(this);
+                        }
+                        if (!currentState()\&.fontColor\&.equals(c))
+                                buf\&.append('{' + colorCmd(c) + '}\n');
+                        popState();
+                }
+.fi
+.SS "void \fBrender\fP (\fBElement\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.fontModifier(), SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontName, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontSize, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontStyle, SimpleTextEngine\&.PSTextRenderer\&.quote(), SimpleTextEngine\&.PSTextRenderer\&.round(), SimpleTextEngine\&.Element\&.text, and SimpleTextEngine\&.PSTextRenderer\&.PSState\&.yOffset\&.
+.PP
+.nf
+                {
+                        PSState st = currentState();
+                        buf\&.append('[/' + st\&.fontName + fontModifier(st\&.fontStyle) + ' ' + round(st\&.fontSize) +
+                                        ' ' + round(st\&.yOffset) + ' (' + quote(e\&.text) + ')]\n');
+                }
+.fi
+.SS "void \fBrender\fP (\fBSubscriptElement\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.f, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontColor, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontName, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontSize, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontStyle, SimpleTextEngine\&.PSTextRenderer\&.popState(), SimpleTextEngine\&.PSTextRenderer\&.pushState(), SimpleTextEngine\&.Element\&.rect, SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.PSTextRenderer\&.PSState\&.yOffset\&.
+.PP
+.nf
+                {
+                        PSState st = currentState();
+                        pushState(st\&.fontName, st\&.fontSize-2, st\&.fontStyle,
+                                st\&.fontColor, st\&.yOffset-f*(e\&.rect\&.height+e\&.rect\&.y));
+                        this\&.render((LineElement)e);
+                        popState();
+                }
+.fi
+.SS "void \fBrender\fP (\fBSuperscriptElement\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontColor, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontName, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontSize, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontStyle, SimpleTextEngine\&.PSTextRenderer\&.popState(), SimpleTextEngine\&.PSTextRenderer\&.pushState(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.PSTextRenderer\&.PSState\&.yOffset\&.
+.PP
+.nf
+                {
+                        PSState st = currentState();
+                        pushState(st\&.fontName, st\&.fontSize-2, st\&.fontStyle,
+                                st\&.fontColor, st\&.yOffset+st\&.fontSize/2\&.0f);
+                        this\&.render((LineElement)e);
+                        popState();
+                }
+.fi
+.SS "void \fBrender\fP (\fBScriptElement\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.ScriptElement\&.elems, and SimpleTextEngine\&.Element\&.render()\&.
+.PP
+.nf
+                {
+                        buf\&.append('{[');
+                        e\&.elems[0]\&.render(this);
+                        e\&.elems[1]\&.render(this);
+                        buf\&.append('] PTshow}\n');
+                }
+.fi
+.SS "void \fBrender\fP (\fBTeXElement\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.fontModifier(), SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontSize, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontStyle, SimpleTextEngine\&.TeXElement\&.getSymbolCode(), SimpleTextEngine\&.PSTextRenderer\&.round(), SimpleTextEngine\&.TeXElement\&.symbol, and SimpleTextEngine\&.PSTextRenderer\&.PSState\&.yOffset\&.
+.PP
+.nf
+                {
+                        int code = TeXElement\&.getSymbolCode(e\&.symbol, 1);
+                        PSState st = currentState();
+
+                        if (code > 0)
+                        {
+                                String hx = Integer\&.toHexString(code&0xFF);
+                                if (hx\&.length() == 1)
+                                        hx = '0' + hx;
+                                buf\&.append('[/Symbol' + fontModifier(st\&.fontStyle) + ' ' + round(st\&.fontSize) +
+                                                ' ' + round(st\&.yOffset) + ' <' + hx + '>]\n');
+                        }
+                }
+.fi
+.SS "void \fBrender\fP (\fBTeXFontCommand\fPe)\fC [inline]\fP"
+.PP
+Implements \fBSimpleTextEngine\&.TextRenderer\fP\&.
+.PP
+References SimpleTextEngine\&.PSTextRenderer\&.buf, SimpleTextEngine\&.PSTextRenderer\&.colorCmd(), SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontColor, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontName, SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontSize, and SimpleTextEngine\&.PSTextRenderer\&.PSState\&.fontStyle\&.
+.PP
+.nf
+                {
+                        if (e instanceof TeXFontColorCommand)
+                        {
+                                Color c = ((TeXFontColorCommand)e)\&.newColor;
+                                buf\&.append('{' + colorCmd(c) + '}\n');
+                                currentState()\&.fontColor = c;
+                        }
+                        else if (e instanceof TeXFontSwitchCommand)
+                                currentState()\&.fontStyle = ((TeXFontSwitchCommand)e)\&.newStyle;
+                        else if (e instanceof TeXFontSizeCommand)
+                                currentState()\&.fontSize = ((TeXFontSizeCommand)e)\&.newSize;
+                        else if (e instanceof TeXFontNameCommand)
+                                currentState()\&.fontName = ((TeXFontNameCommand)e)\&.newName;
+                }
+.fi
+.SS "float \fBround\fP (floatd)\fC [inline, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        return Math\&.round(d*100)/100\&.0f;
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "StringBuffer \fBbuf\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.PSTextRenderer(), and SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.SS "float \fBf\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.PSTextRenderer(), and SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.SS "LinkedList \fBstateList\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.currentState(), SimpleTextEngine\&.PSTextRenderer\&.popState(), SimpleTextEngine\&.PSTextRenderer\&.PSTextRenderer(), and SimpleTextEngine\&.PSTextRenderer\&.pushState()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

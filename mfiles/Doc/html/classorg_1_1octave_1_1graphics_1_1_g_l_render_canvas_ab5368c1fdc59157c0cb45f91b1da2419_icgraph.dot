@@ -1,0 +1,13 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="display",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="redraw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_g_l_render_canvas.html#ab396718daaebb64c60262944a5e28755"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="toImage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_g_l_render_canvas.html#ac95edf67470edc086e71dd0c997e3fb7"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="toPostScript",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_g_l_render_canvas.html#af4cc7230d2c2d2c597d942cc2f9b3451"];
+}

@@ -1,0 +1,2056 @@
+.TH "FigureObject" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FigureObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAxesContainer\fP, \fBWindowListener\fP, \fBComponentListener\fP, and \fBActionListener\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBFigurePanel\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFigureObject\fP (int fignum)"
+.br
+.ti -1c
+.RI "void \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveChild\fP (\fBHandleObject\fP child)"
+.br
+.ti -1c
+.RI "void \fBupdateToolbars\fP ()"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.ti -1c
+.RI "void \fBactivate\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint\fP (String format, String filename)  throws java\&.io\&.IOException 	"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "Component \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "Object \fBget\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "int \fBgetMouseOp\fP ()"
+.br
+.ti -1c
+.RI "void \fBwindowClosing\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBwindowActivated\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBwindowDeactivated\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBwindowClosed\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBwindowIconified\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBwindowDeiconified\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBwindowOpened\fP (WindowEvent e)"
+.br
+.ti -1c
+.RI "void \fBcomponentHidden\fP (ComponentEvent e)"
+.br
+.ti -1c
+.RI "void \fBcomponentMoved\fP (ComponentEvent e)"
+.br
+.ti -1c
+.RI "void \fBcomponentResized\fP (ComponentEvent e)"
+.br
+.ti -1c
+.RI "void \fBcomponentShown\fP (ComponentEvent e)"
+.br
+.ti -1c
+.RI "void \fBactionPerformed\fP (ActionEvent e)"
+.br
+.ti -1c
+.RI "\fBHandleObject\fP \fBgetObjectForPoint\fP (Point pt, int margin)"
+.br
+.ti -1c
+.RI "\fBAxesObject\fP \fBgetAxesForPoint\fP (Point pt)"
+.br
+.ti -1c
+.RI "void \fBredraw\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasMouseOperation\fP ()"
+.br
+.ti -1c
+.RI "void \fBcancelMouseOperation\fP ()"
+.br
+.ti -1c
+.RI "void \fBreshape\fP (\fBRenderCanvas\fP c, int x, int y, int width, int height)"
+.br
+.ti -1c
+.RI "void \fBdisplay\fP (\fBRenderCanvas\fP c)"
+.br
+.ti -1c
+.RI "void \fBmouseClicked\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBmouseEntered\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBmouseExited\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBmousePressed\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBmouseReleased\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBmouseMoved\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBmouseDragged\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "\fBRenderCanvas\fP \fBgetCanvas\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetHandle\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetDefaultProperty\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBdeleteChildren\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisLegendable\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddChild\fP (\fBHandleObject\fP child)"
+.br
+.ti -1c
+.RI "void \fBaddProperty\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "boolean \fBisValid\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCachedData\fP (Renderer\&.CachedData d)"
+.br
+.ti -1c
+.RI "Renderer\&.CachedData \fBgetCachedData\fP ()"
+.br
+.ti -1c
+.RI "\fBHandleObject\fP \fBgetAncestor\fP (String type)"
+.br
+.ti -1c
+.RI "Object \fBget\fP (String name)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (String name, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (\fBProperty\fP p, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBwaitFor\fP ()"
+.br
+.ti -1c
+.RI "void \fBwaitFor\fP (String pname)"
+.br
+.ti -1c
+.RI "void \fBwaitFor\fP (String pname, Object value)"
+.br
+.ti -1c
+.RI "void \fBdoButtonDownFcn\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBaddHandleEventSink\fP (String name, \fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "boolean \fBhasHandleEvent\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBeventOccured\fP (\fBHandleEvent\fP evt)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBsourceDeleted\fP (Object source)"
+.br
+.ti -1c
+.RI "boolean \fBexecuteOnce\fP ()"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetProperty\fP (String name)"
+.br
+.ti -1c
+.RI "boolean \fBhasProperty\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBshow\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetNames\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBredrawRecursive\fP (\fBHandleObject\fP obj)"
+.br
+.ti -1c
+.RI "static boolean \fBisHandle\fP (double \fBhandle\fP)"
+.br
+.ti -1c
+.RI "static \fBHandleObject\fP \fBgetHandleObject\fP (double \fBhandle\fP)  throws Exception 	"
+.br
+.ti -1c
+.RI "static void \fBremoveHandleObject\fP (double \fBhandle\fP)"
+.br
+.ti -1c
+.RI "static void \fBaddHandleObject\fP (double \fBhandle\fP, \fBHandleObject\fP obj)"
+.br
+.ti -1c
+.RI "static void \fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "static void \fBlistObjects\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBOP_NONE\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBOP_ZOOM\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBOP_ROTATE\fP = 2"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "Color \fBgetBackgroundColor\fP ()"
+.br
+.ti -1c
+.RI "Container \fBgetEmbeddingComponent\fP ()"
+.br
+.ti -1c
+.RI "Point \fBgetMouseLocation\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBupdateCanvas\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitProperties\fP (\fBHandleObject\fP parent, String type)"
+.br
+.ti -1c
+.RI "void \fBsetHandle\fP (double \fBhandle\fP)"
+.br
+.ti -1c
+.RI "void \fBlisten\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "void \fBchildValidated\fP (\fBHandleObject\fP child)"
+.br
+.ti -1c
+.RI "void \fBautoSet\fP (\fBProperty\fP p, Object value)"
+.br
+.ti -1c
+.RI "boolean \fBisAutoMode\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBnewHandle\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBRenderCanvas\fP \fBcanvas\fP = null"
+.br
+.ti -1c
+.RI "int \fBautoMode\fP = 0"
+.br
+.ti -1c
+.RI "\fBPropertySet\fP \fBdefaultSet\fP = new \fBPropertySet\fP()"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBVectorProperty\fP \fBAlphamap\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBCloseRequestFcn\fP"
+.br
+.ti -1c
+.RI "\fBColorProperty\fP \fBFigColor\fP"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP \fBColormap\fP"
+.br
+.ti -1c
+.RI "\fBHandleObjectListProperty\fP \fBCurrentAxes\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBIntegerHandle\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBKeyPressFcn\fP"
+.br
+.ti -1c
+.RI "\fBStringProperty\fP \fBName\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBNextPlot\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBNumberTitle\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBPaperOrientation\fP"
+.br
+.ti -1c
+.RI "\fBVectorProperty\fP \fBPosition\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBRenderer\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBRendererMode\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBResize\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBResizeFcn\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBSelectionType\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBToolbar\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBUnits\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fB__Dirty__\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fB__Antialias__\fP"
+.br
+.ti -1c
+.RI "JToolBar \fBfigureTB\fP"
+.br
+.ti -1c
+.RI "JToggleButton \fBeditBtn\fP"
+.br
+.ti -1c
+.RI "JToggleButton \fBzoomBtn\fP"
+.br
+.ti -1c
+.RI "JToggleButton \fBrotateBtn\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBBeingDeleted\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBButtonDownFcn\fP"
+.br
+.ti -1c
+.RI "\fBHandleObjectListProperty\fP \fBChildren\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBClipping\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBCreateFcn\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBDeleteFcn\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBHandleVisibility\fP"
+.br
+.ti -1c
+.RI "\fBHandleObjectListProperty\fP \fBParent\fP"
+.br
+.ti -1c
+.RI "\fBStringProperty\fP \fBTag\fP"
+.br
+.ti -1c
+.RI "\fBStringProperty\fP \fBType\fP"
+.br
+.ti -1c
+.RI "\fBObjectProperty\fP \fBUserData\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBVisible\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcreateFigure\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateHandle\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdatePosition\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateFramePosition\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateTitle\fP ()"
+.br
+.ti -1c
+.RI "Buffer \fBmakeColormapTextureData\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetBestRenderer\fP ()"
+.br
+.ti -1c
+.RI "int \fBcommandToOp\fP (String cmd)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Frame \fBframe\fP"
+.br
+.ti -1c
+.RI "Panel \fBtbPanel\fP"
+.br
+.ti -1c
+.RI "Panel \fBaxPanel\fP"
+.br
+.ti -1c
+.RI "int \fBdefaultMouseOp\fP = \fBOP_NONE\fP"
+.br
+.ti -1c
+.RI "String \fBcurrentUnits\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBFigureObject\fP (intfignum)\fC [inline]\fP"
+.PP
+References FigureObject\&.__Antialias__, FigureObject\&.__Dirty__, FigureObject\&.Alphamap, FigureObject\&.CloseRequestFcn, FigureObject\&.Colormap, FigureObject\&.CurrentAxes, FigureObject\&.currentUnits, RootObject\&.defaultColorMap(), FigureObject\&.FigColor, Utils\&.getBackgroundColor(), RootObject\&.getInstance(), Utils\&.getScreenSize(), RadioProperty\&.getValue(), FigureObject\&.IntegerHandle, FigureObject\&.KeyPressFcn, HandleObject\&.listen(), FigureObject\&.Name, FigureObject\&.NextPlot, FigureObject\&.NumberTitle, FigureObject\&.PaperOrientation, FigureObject\&.Position, FigureObject\&.RendererMode, FigureObject\&.Resize, FigureObject\&.ResizeFcn, FigureObject\&.SelectionType, Property\&.setVisible(), FigureObject\&.Toolbar, FigureObject\&.Units, and HandleObject\&.Visible\&.
+.PP
+.nf
+        {
+                super(RootObject\&.getInstance(), 'figure', fignum);
+
+                CurrentAxes = new HandleObjectListProperty(this, 'CurrentAxes', 1);
+                Name = new StringProperty(this, 'Name', '');
+                NumberTitle = new BooleanProperty(this, 'NumberTitle', true);
+                NextPlot = new RadioProperty(this, 'NextPlot', new String[] {'new', 'add', 'replace', 'replacechildren'}, 'add');
+                FigColor = new ColorProperty(this, 'Color', Utils\&.getBackgroundColor());
+                Colormap = new ArrayProperty(this, 'Colormap', new String[] {'double'}, 2,
+                        new Matrix(RootObject\&.getInstance()\&.defaultColorMap()));
+                ResizeFcn = new CallbackProperty(this, 'ResizeFcn', (String)null);
+                CloseRequestFcn = new CallbackProperty(this, 'CloseRequestFcn', 'closereq');
+                double[] amap = new double[64];
+                for (int i=0; i<amap\&.length; i++)
+                        amap[i] = ((double)i)/(amap\&.length-1);
+                Alphamap = new VectorProperty(this, 'Alphamap', -1, amap);
+                PaperOrientation = new RadioProperty(this, 'PaperOrientation', new String[] {'portrait', 'landscape'}, 'portrait');
+                IntegerHandle = new BooleanProperty(this, 'IntegerHandle', true);
+                Units = new RadioProperty(this, 'Units', new String[] {'pixels', 'normalized', 'inches', 'centimeters',
+                        'points', 'characters'}, 'pixels');
+                currentUnits = Units\&.getValue();
+                Dimension d = Utils\&.getScreenSize();
+                Position = new VectorProperty(this, 'Position', 4, new double[] {10, d\&.height-500, 600, 430});
+                Renderer = new RadioProperty(this, 'Renderer', new String[] {'OpenGL', 'Java2D'}, 'OpenGL');
+                RendererMode = new RadioProperty(this, 'RendererMode', new String[] {'auto', 'manual'}, 'auto');
+                Toolbar = new RadioProperty(this, 'Toolbar', new String[] {'none', 'auto', 'figure'}, 'auto');
+                SelectionType = new RadioProperty(this, 'SelectionType', new String[] {'normal', 'extend', 'alt', 'open'}, 'normal');
+                KeyPressFcn = new CallbackProperty(this, 'KeyPressFcn', (String)null);
+                __Dirty__ = new BooleanProperty(this, '__Dirty__', false);
+                __Dirty__\&.setVisible(false);
+                Resize = new BooleanProperty(this, 'Resize', true);
+                __Antialias__ = new BooleanProperty(this, '__Antialias__', true);
+                __Antialias__\&.setVisible(false);
+
+                listen(Name);
+                listen(NumberTitle);
+                listen(IntegerHandle);
+                listen(Position);
+                listen(Units);
+                listen(Toolbar);
+                listen(Resize);
+                listen(Renderer);
+                listen(RendererMode);
+                listen(Visible);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBactionPerformed\fP (ActionEvente)\fC [inline]\fP"
+.PP
+References FigureObject\&.commandToOp(), FigureObject\&.defaultMouseOp, FigureObject\&.editBtn, AxesContainer\&.OP_NONE, FigureObject\&.rotateBtn, and FigureObject\&.zoomBtn\&.
+.PP
+.nf
+        {
+                //System\&.out\&.println('action');
+                if (e\&.getSource() == editBtn || e\&.getSource() == zoomBtn || e\&.getSource() == rotateBtn)
+                {
+                        if (e\&.getSource() != editBtn)
+                                editBtn\&.setSelected(false);
+                        if (e\&.getSource() != zoomBtn)
+                                zoomBtn\&.setSelected(false);
+                        if (e\&.getSource() != rotateBtn)
+                                rotateBtn\&.setSelected(false);
+                        if (((JToggleButton)e\&.getSource())\&.isSelected())
+                                defaultMouseOp = commandToOp(e\&.getActionCommand());
+                        else
+                                defaultMouseOp = OP_NONE;
+                }
+        }
+.fi
+.SS "void \fBactivate\fP ()\fC [inline]\fP"
+.PP
+References FigureObject\&.frame\&.
+.PP
+Referenced by FigureObject\&.validate()\&.
+.PP
+.nf
+        {
+                frame\&.toFront();
+        }
+.fi
+.SS "void \fBaddChild\fP (\fBHandleObject\fPchild)\fC [inline, inherited]\fP"
+.PP
+References HandleObjectListProperty\&.addElement(), and HandleObject\&.Children\&.
+.PP
+Referenced by HandleObject\&.initProperties()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        Children\&.addElement(child);
+                }
+        }
+.fi
+.SS "void \fBaddHandleEventSink\fP (Stringname, \fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleEventSourceHelper\&.addHandleEventSink(), and HandleObject\&.eventSource\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSource\&.addHandleEventSink(name, sink);
+        }
+.fi
+.SS "static void \fBaddHandleObject\fP (doublehandle, \fBHandleObject\fPobj)\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+Referenced by HandleObject\&.HandleObject(), and HandleObject\&.setHandle()\&.
+.PP
+.nf
+        {
+                handleMap\&.put(new Double(handle), new WeakReference(obj));
+        }
+.fi
+.SS "void \fBaddProperty\fP (\fBProperty\fPp)\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References HandleObject\&.isValid(), and Property\&.unLock()\&.
+.PP
+.nf
+        {
+                super\&.addProperty(p);
+                if (isValid())
+                        p\&.unLock();
+        }
+.fi
+.SS "void \fBautoSet\fP (\fBProperty\fPp, Objectvalue)\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.autoMode, and Property\&.set()\&.
+.PP
+Referenced by AxesObject\&.autoAspectRatio(), AxesObject\&.autoAxis(), AxesObject\&.autoScaleC(), AxesObject\&.computeAutoTickLabels(), FigureObject\&.propertyChanged(), AxesObject\&.propertyChanged(), AxesObject\&.setInternalPosition(), PatchObject\&.updateCData(), PatchObject\&.updateFVCData(), PatchObject\&.updateFVData(), AxesObject\&.updateOuterPosition(), FigureObject\&.updatePosition(), AxesObject\&.updatePosition(), AxesObject\&.updateXFormMatrices(), and PatchObject\&.updateXYZData()\&.
+.PP
+.nf
+        {
+                autoMode++;
+                p\&.set(value, true);
+                autoMode--;
+        }
+.fi
+.SS "void \fBcancelMouseOperation\fP ()\fC [inline, inherited]\fP"
+.PP
+References AxesObject\&.cancelOperation(), AxesContainer\&.hasMouseOperation(), AxesContainer\&.mouseAxes, AxesContainer\&.mouseOp, and AxesContainer\&.OP_NONE\&.
+.PP
+Referenced by FigureObject\&.windowDeactivated()\&.
+.PP
+.nf
+        {
+                if (hasMouseOperation())
+                {
+                        mouseAxes\&.cancelOperation(mouseOp);
+                        mouseAxes = null;
+                        mouseOp = OP_NONE;
+                }
+        }
+.fi
+.SS "void \fBchildValidated\fP (\fBHandleObject\fPchild)\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP, and \fBGroupObject\fP\&.
+.PP
+Referenced by HandleObject\&.validate()\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "int \fBcommandToOp\fP (Stringcmd)\fC [inline, private]\fP"
+.PP
+References AxesContainer\&.OP_NONE, AxesContainer\&.OP_ROTATE, and AxesContainer\&.OP_ZOOM\&.
+.PP
+Referenced by FigureObject\&.actionPerformed()\&.
+.PP
+.nf
+        {
+                if (cmd\&.equals('edit')) return OP_NONE;
+                else if (cmd\&.equals('zoom')) return OP_ZOOM;
+                else if (cmd\&.equals('rotate')) return OP_ROTATE;
+                else return OP_NONE;
+        }
+.fi
+.SS "void \fBcomponentHidden\fP (ComponentEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBcomponentMoved\fP (ComponentEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBcomponentResized\fP (ComponentEvente)\fC [inline]\fP"
+.PP
+References CallbackProperty\&.execute(), HandleObject\&.getHandle(), and FigureObject\&.ResizeFcn\&.
+.PP
+.nf
+        {
+                //System\&.out\&.println('resized');
+                ResizeFcn\&.execute(new Object[] {
+                        new Double(getHandle()),
+                        null});
+        }
+.fi
+.SS "void \fBcomponentShown\fP (ComponentEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBcreateFigure\fP ()\fC [inline, private]\fP"
+.PP
+References FigureObject\&.axPanel, FigureObject\&.editBtn, FigureObject\&.FigColor, FigureObject\&.figureTB, FigureObject\&.frame, AxesContainer\&.getCanvas(), ColorProperty\&.getColor(), FigureObject\&.getComponent(), BooleanProperty\&.isSet(), Utils\&.loadIcon(), FigureObject\&.Resize, FigureObject\&.rotateBtn, FigureObject\&.tbPanel, FigureObject\&.updateFramePosition(), FigureObject\&.updateTitle(), FigureObject\&.updateToolbars(), HandleObject\&.Visible, and FigureObject\&.zoomBtn\&.
+.PP
+Referenced by FigureObject\&.validate()\&.
+.PP
+.nf
+        {
+                // setup window frame
+                frame = new Frame();
+                frame\&.setBackground(FigColor\&.getColor());
+                frame\&.addWindowListener(this);
+                frame\&.addComponentListener(this);
+                frame\&.setResizable(Resize\&.isSet());
+
+                // setup toolbar panel
+                tbPanel = new Panel(new GridLayout(1, 1));
+                frame\&.add(tbPanel, BorderLayout\&.NORTH);
+
+                // dummy toolbar
+                figureTB = new JToolBar();
+                figureTB\&.setRollover(true);
+                figureTB\&.setFloatable(false);
+                editBtn = new JToggleButton(Utils\&.loadIcon('edit'));
+                editBtn\&.setActionCommand('edit');
+                editBtn\&.setEnabled(false);
+                editBtn\&.setToolTipText('Edit plot');
+                editBtn\&.addActionListener(this);
+                zoomBtn = new JToggleButton(Utils\&.loadIcon('zoom-original'));
+                zoomBtn\&.setActionCommand('zoom');
+                zoomBtn\&.setToolTipText('Zoom');
+                zoomBtn\&.addActionListener(this);
+                rotateBtn = new JToggleButton(Utils\&.loadIcon('view-refresh'));
+                rotateBtn\&.setActionCommand('rotate');
+                rotateBtn\&.setToolTipText('3D rotation');
+                rotateBtn\&.addActionListener(this);
+                figureTB\&.add(editBtn);
+                figureTB\&.add(zoomBtn);
+                figureTB\&.add(rotateBtn);
+
+                updateToolbars();
+
+                // setup axes panel
+                axPanel = new Panel(new PositionLayout());
+                frame\&.add(axPanel, BorderLayout\&.CENTER);
+
+                // setup RenderCanvas
+                axPanel\&.add(getCanvas()\&.getComponent());
+
+                updateTitle();
+                if (Visible\&.isSet())
+                        frame\&.setVisible(true);
+                updateFramePosition();
+                if (!Visible\&.isSet())
+                {
+                        frame\&.layout();
+                        axPanel\&.layout();
+                }
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References FigureObject\&.frame\&.
+.PP
+.nf
+        {
+                if (frame != null && frame\&.isVisible())
+                        frame\&.setVisible(false);
+                super\&.delete();
+                //frame\&.dispose();
+                //frame\&.setVisible(false);
+                if (frame != null)
+                        EventQueue\&.invokeLater(new Runnable() { public void run() { frame\&.dispose(); } });
+        }
+.fi
+.SS "void \fBdeleteChildren\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP\&.
+.PP
+References HandleObject\&.Children, HandleObject\&.delete(), HandleObjectListProperty\&.elementAt(), HandleObjectListProperty\&.size(), StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+Referenced by HandleObject\&.delete()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        while (Children\&.size() > 0)
+                        {
+                                int len = Children\&.size();
+                                HandleObject obj = Children\&.elementAt(0);
+
+                                obj\&.delete();
+                                if (Children\&.size() == len)
+                                {
+                                        System\&.out\&.println('ERROR: wrong parentship in graphic object of class `' + Type\&.toString() + '' with child of class `' + 
+                                                        obj\&.Type\&.toString() + ''');
+                                        break;
+                                }
+                        }
+                }
+        }
+.fi
+.SS "void \fBdisplay\fP (\fBRenderCanvas\fPc)\fC [inline, inherited]\fP"
+.PP
+Implements \fBRenderEventListener\fP\&.
+.PP
+References HandleObject\&.Children, Renderer\&.clear(), AxesContainer\&.getBackgroundColor(), RenderCanvas\&.getRenderer(), HandleObject\&.HandleObject(), HandleObject\&.isValid(), and HandleObjectListProperty\&.iterator()\&.
+.PP
+.nf
+        {
+                Renderer r = c\&.getRenderer();
+
+                // clear background
+                r\&.clear(getBackgroundColor());
+                // iterate over axes objects
+                synchronized (Children)
+                {
+                        Iterator it = Children\&.iterator();
+                        while (it\&.hasNext())
+                        {
+                                HandleObject hObj = (HandleObject)it\&.next();
+                                if (hObj instanceof AxesObject && hObj\&.isValid())
+                                        ((AxesObject)hObj)\&.draw(r);
+                        }
+                }
+        }
+.fi
+.SS "void \fBdoButtonDownFcn\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.ButtonDownFcn, CallbackProperty\&.execute(), HandleObject\&.getAncestor(), HandleObject\&.getHandle(), and CallbackProperty\&.unwind()\&.
+.PP
+Referenced by UIControlAdapter\&.mousePressed(), and AxesContainer\&.mousePressed()\&.
+.PP
+.nf
+        {
+                String selType = 'normal';
+
+                switch (e\&.getButton())
+                {
+                        case MouseEvent\&.BUTTON2:
+                                selType = 'extend';
+                                break;
+                        case MouseEvent\&.BUTTON3:
+                                selType = 'alt';
+                                break;
+                }
+
+                switch (e\&.getModifiers() & (MouseEvent\&.SHIFT_MASK|MouseEvent\&.CTRL_MASK))
+                {
+                        case MouseEvent\&.CTRL_MASK:
+                                selType = 'alt';
+                                break;
+                        case MouseEvent\&.SHIFT_MASK:
+                                selType = 'extend';
+                                break;
+                        case 0:
+                                if (e\&.getClickCount() == 2)
+                                        selType = 'open';
+                                break;
+                }
+
+                ButtonDownFcn\&.unwind(((FigureObject)getAncestor('figure'))\&.SelectionType, selType);
+                ButtonDownFcn\&.execute(new Object[] {
+                        new Double(getHandle()),
+                        null});
+        }
+.fi
+.SS "void \fBeventOccured\fP (\fBHandleEvent\fPevt)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+References HandleObject\&.propertyChanged()\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                if (evt\&.getName()\&.equals('PropertyChanged'))
+                        propertyChanged(evt\&.getProperty());
+        }
+.fi
+.SS "boolean \fBexecuteOnce\fP ()\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return false;
+        }
+.fi
+.SS "Object \fBget\fP (Stringname)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References Property\&.get(), and HandleObject\&.getDefaultProperty()\&.
+.PP
+Referenced by AxesObject\&.autoScaleC(), and LegendObject\&.makeItemFromLine()\&.
+.PP
+.nf
+        {
+                if (name\&.toLowerCase()\&.startsWith('default'))
+                {
+                        Property p = getDefaultProperty(name);
+                        if (p != null)
+                                return p\&.get();
+                        throw new PropertyException('invalid default property - ' + name\&.toLowerCase());
+                }
+                else
+                        return super\&.get(name);
+        }
+.fi
+.SS "Object \fBget\fP (\fBProperty\fPp)\fC [inline]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References FigureObject\&.Position, and FigureObject\&.updatePosition()\&.
+.PP
+.nf
+        {
+                if (p == Position)
+                        updatePosition();
+                return super\&.get(p);
+        }
+.fi
+.SS "\fBHandleObject\fP \fBgetAncestor\fP (Stringtype)\fC [inline, inherited]\fP"
+.PP
+References HandleObjectListProperty\&.elementAt(), HandleObject\&.Parent, HandleObjectListProperty\&.size(), StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+Referenced by AxesContainer\&.createCanvas(), HandleObject\&.doButtonDownFcn(), AxesContainer\&.getDefaultMouseOp(), AxesObject\&.getFigure(), and GraphicObject\&.set()\&.
+.PP
+.nf
+        {
+                HandleObject curr = this;
+
+                while (true)
+                {
+                        if (curr\&.Type\&.toString()\&.equalsIgnoreCase(type))
+                                return curr;
+                        else if (curr\&.Parent\&.size() <= 0)
+                                return null;
+                        else
+                                curr = curr\&.Parent\&.elementAt(0);
+                }
+        }
+.fi
+.SS "\fBAxesObject\fP \fBgetAxesForPoint\fP (Pointpt)\fC [inline, inherited]\fP"
+.PP
+References AxesContainer\&.getObjectForPoint()\&.
+.PP
+Referenced by AxesContainer\&.mouseClicked(), and AxesContainer\&.mousePressed()\&.
+.PP
+.nf
+        {
+                HandleObject obj = getObjectForPoint(pt, 0);
+                if (obj instanceof AxesObject)
+                        return (AxesObject)obj;
+                return null;
+        }
+.fi
+.SS "Color \fBgetBackgroundColor\fP ()\fC [inline, protected, virtual]\fP"
+.PP
+Implements \fBAxesContainer\fP\&.
+.PP
+References FigureObject\&.FigColor, and ColorProperty\&.getColor()\&.
+.PP
+.nf
+        {
+                return FigColor\&.getColor();
+        }
+.fi
+.SS "String \fBgetBestRenderer\fP ()\fC [inline, private]\fP"
+.PP
+Referenced by FigureObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                return 'OpenGL';
+        }
+.fi
+.SS "Renderer\&.CachedData \fBgetCachedData\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.cachedData\&.
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                return cachedData;
+        }
+.fi
+.SS "\fBRenderCanvas\fP \fBgetCanvas\fP ()\fC [inline, inherited]\fP"
+.PP
+Implements \fBRenderCanvas\&.Container\fP\&.
+.PP
+References AxesContainer\&.canvas, and AxesContainer\&.createCanvas()\&.
+.PP
+Referenced by FigureObject\&.createFigure()\&.
+.PP
+.nf
+        {
+                if (canvas == null)
+                        createCanvas();
+
+                return canvas;
+        }
+.fi
+.SS "Component \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References FigureObject\&.axPanel\&.
+.PP
+Referenced by FigureObject\&.createFigure()\&.
+.PP
+.nf
+        {
+                return axPanel;
+        }
+.fi
+.SS "\fBProperty\fP \fBgetDefaultProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.defaultSet, HandleObjectListProperty\&.elementAt(), Factory\&.getDefaultProperty(), HandleObject\&.getDefaultProperty(), PropertySet\&.getProperty(), HandleObject\&.Parent, and HandleObjectListProperty\&.size()\&.
+.PP
+Referenced by HandleObject\&.get(), HandleObject\&.getDefaultProperty(), Property\&.initDefault(), and HandleObject\&.set()\&.
+.PP
+.nf
+        {
+                Property p = defaultSet\&.getProperty(name);
+                if (p != null)
+                        return p;
+                else if (Parent\&.size() > 0)
+                        return Parent\&.elementAt(0)\&.getDefaultProperty(name);
+                else
+                        return Factory\&.getDefaultProperty(name);
+        }
+.fi
+.SS "Container \fBgetEmbeddingComponent\fP ()\fC [inline, protected, virtual]\fP"
+.PP
+Implements \fBAxesContainer\fP\&.
+.PP
+References FigureObject\&.axPanel\&.
+.PP
+.nf
+        {
+                return axPanel;
+        }
+.fi
+.SS "double \fBgetHandle\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.handle\&.
+.PP
+Referenced by UIPanelObject\&.componentResized(), FigureObject\&.componentResized(), UIControlObject\&.controlActivated(), HandleObject\&.delete(), HandleObject\&.doButtonDownFcn(), OctaveSink\&.doInvoke(), RootObject\&.findFigure(), HandleObjectListProperty\&.getHandleArray(), HandleObject\&.HandleObject(), AxesObject\&.reset(), HandleObject\&.setHandle(), HandleObjectListProperty\&.toString(), FigureObject\&.updateHandle(), FigureObject\&.updateTitle(), HandleObject\&.validate(), and FigureObject\&.windowClosing()\&.
+.PP
+.nf
+        {
+                return handle;
+        }
+.fi
+.SS "static \fBHandleObject\fP \fBgetHandleObject\fP (doublehandle)  throws \fBException\fP 	\fC [inline, static, inherited]\fP"
+.PP
+References RootObject\&.getInstance(), HandleObject\&.handle, and HandleObject\&.handleMap\&.
+.PP
+Referenced by TextProperty\&.convertValue(), HandleObjectListProperty\&.convertValue(), and RootObject\&.createNewFigure()\&.
+.PP
+.nf
+        {
+                WeakReference ref = (WeakReference)handleMap\&.get(new Double(handle));
+                if (ref != null && ref\&.get() != null)
+                {
+                        return (HandleObject)ref\&.get();
+                }
+                if (handle == 0)
+                        return RootObject\&.getInstance();
+                throw new Exception('invalid handle - ' + handle);
+        }
+.fi
+.SS "Point \fBgetMouseLocation\fP (MouseEvente)\fC [inline, protected, inherited]\fP"
+.PP
+References AxesContainer\&.canvas, RenderCanvas\&.getX(), and RenderCanvas\&.getY()\&.
+.PP
+Referenced by AxesContainer\&.mouseClicked(), and AxesContainer\&.mousePressed()\&.
+.PP
+.nf
+        {
+                Point pt = new Point(e\&.getPoint());
+                if (e\&.getSource() == canvas)
+                        pt\&.translate(canvas\&.getX(), canvas\&.getY());
+                return pt;
+        }
+.fi
+.SS "int \fBgetMouseOp\fP ()\fC [inline]\fP"
+.PP
+References FigureObject\&.defaultMouseOp\&.
+.PP
+Referenced by AxesContainer\&.getDefaultMouseOp()\&.
+.PP
+.nf
+        {
+                return defaultMouseOp;
+        }
+.fi
+.SS "String [] \fBgetNames\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                List names = new ArrayList();
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                                names\&.add(p\&.getName());
+                }
+                return (String[])names\&.toArray(new String[names\&.size()]);
+        }
+.fi
+.SS "\fBHandleObject\fP \fBgetObjectForPoint\fP (Pointpt, intmargin)\fC [inline, inherited]\fP"
+.PP
+References AxesContainer\&.canvas, HandleObject\&.Children, AxesContainer\&.getEmbeddingComponent(), RenderCanvas\&.getHeight(), RenderCanvas\&.getX(), RenderCanvas\&.getY(), HandleObject\&.HandleObject(), HandleObject\&.isValid(), and HandleObjectListProperty\&.iterator()\&.
+.PP
+Referenced by AxesContainer\&.getAxesForPoint(), and AxesContainer\&.mousePressed()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        Iterator it = Children\&.iterator();
+                        Insets insets = getEmbeddingComponent()\&.getInsets();
+
+                        while (it\&.hasNext())
+                        {
+                                HandleObject hObj = (HandleObject)it\&.next();
+                                if (!hObj\&.isValid())
+                                        continue;
+                                if (hObj instanceof UIControlObject)
+                                {
+                                        Rectangle r = ((UIControlObject)hObj)\&.getBounds();
+                                        r\&.setRect(r\&.x-margin, r\&.y-margin, r\&.width+2*margin, r\&.height+2*margin);
+                                        if (r\&.contains(pt))
+                                                return hObj;
+                                }
+                                else if (hObj instanceof AxesObject)
+                                {
+                                        Rectangle r = ((AxesObject)hObj)\&.getBoundingBox();
+                                        if (r\&.contains(pt\&.x-canvas\&.getX(), canvas\&.getHeight()-pt\&.y+canvas\&.getY()))
+                                                return hObj;
+                                }
+                        }
+                }
+                return null;
+        }
+.fi
+.SS "\fBProperty\fP \fBgetProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Referenced by AxesObject\&.childValidated(), AxesObject\&.draw(), PropertySet\&.get(), AxesObject\&.getChildrenLimits(), HandleObject\&.getDefaultProperty(), OctaveSink\&.OctaveSink(), PropertySet\&.set(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return (Property)get((Object)name\&.toLowerCase());
+        }
+.fi
+.SS "String \fBgetType\fP ()\fC [inline, inherited]\fP"
+.PP
+References StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+Referenced by Property\&.initDefault()\&.
+.PP
+.nf
+        {
+                return (Type != null ? Type\&.toString() : '');
+        }
+.fi
+.SS "boolean \fBhasHandleEvent\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleObject\&.eventSource, and HandleEventSourceHelper\&.hasHandleEvent()\&.
+.PP
+Referenced by OctaveSink\&.OctaveSink()\&.
+.PP
+.nf
+        {
+                return eventSource\&.hasHandleEvent(name);
+        }
+.fi
+.SS "boolean \fBhasMouseOperation\fP ()\fC [inline, inherited]\fP"
+.PP
+References AxesContainer\&.mouseAxes, AxesContainer\&.mouseOp, and AxesContainer\&.OP_NONE\&.
+.PP
+Referenced by AxesContainer\&.cancelMouseOperation()\&.
+.PP
+.nf
+        {
+                return (mouseOp != OP_NONE && mouseAxes != null);
+        }
+.fi
+.SS "boolean \fBhasProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Referenced by AxesObject\&.draw()\&.
+.PP
+.nf
+        {
+                return containsKey(name\&.toLowerCase());
+        }
+.fi
+.SS "void \fBinitProperties\fP (\fBHandleObject\fPparent, Stringtype)\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.addChild(), HandleObjectListProperty\&.addElement(), HandleObject\&.BeingDeleted, HandleObject\&.ButtonDownFcn, HandleObject\&.Children, HandleObject\&.Clipping, HandleObject\&.CreateFcn, HandleObject\&.DeleteFcn, HandleObject\&.HandleVisibility, HandleObject\&.Parent, HandleObject\&.Tag, HandleObject\&.Type, HandleObject\&.UserData, and HandleObject\&.Visible\&.
+.PP
+Referenced by HandleObject\&.HandleObject()\&.
+.PP
+.nf
+        {
+                // These properties must be created first, in order to
+                // get correct behavior when looking for default values
+                // of properties
+                Type = new StringProperty(this, 'Type', type);
+                Parent = new HandleObjectListProperty(this, 'Parent', -1);
+                if (parent != null)
+                        Parent\&.addElement(parent);
+
+                // Create other properties
+                BeingDeleted = new BooleanProperty(this, 'BeingDeleted', false);
+                ButtonDownFcn = new CallbackProperty(this, 'ButtonDownFcn', (String)null);
+                Children = new HandleObjectListProperty(this, 'Children', -1);
+                Clipping = new BooleanProperty(this, 'Clipping', true);
+                CreateFcn = new CallbackProperty(this, 'CreateFcn', (String)null);
+                DeleteFcn = new CallbackProperty(this, 'DeleteFcn', (String)null);
+                HandleVisibility = new RadioProperty(this, 'HandleVisibility', new String[] {'on', 'callback', 'off'}, 'on');
+                Tag = new StringProperty(this, 'Tag', '');
+                UserData = new ObjectProperty(this, 'UserData', null);
+                Visible = new BooleanProperty(this, 'Visible', true);
+
+                // TODO: move this to validate() ??
+                if (parent != null)
+                        parent\&.addChild(this);
+        }
+.fi
+.SS "boolean \fBisAutoMode\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.autoMode\&.
+.PP
+Referenced by ColorbarObject\&.propertyChanged(), FigureObject\&.propertyChanged(), LegendObject\&.propertyChanged(), and PatchObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                return (autoMode > 0);
+        }
+.fi
+.SS "static boolean \fBisHandle\fP (doublehandle)\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+Referenced by TextProperty\&.convertValue(), RootObject\&.createNewFigure(), and RootObject\&.getUnusedFigureNumber()\&.
+.PP
+.nf
+        {
+                WeakReference ref = (WeakReference)handleMap\&.get(new Double(handle));
+                if (ref != null && ref\&.get() != null)
+                        return true;
+                return false;
+        }
+.fi
+.SS "boolean \fBisLegendable\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBGraphicObject\fP, and \fBBaseLineObject\fP\&.
+.PP
+Referenced by AxesObject\&.autoLegend(), and LegendObject\&.buildLegend()\&.
+.PP
+.nf
+        {
+                return false;
+        }
+.fi
+.SS "boolean \fBisValid\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.valid\&.
+.PP
+Referenced by HandleObject\&.addProperty(), AxesObject\&.childValidated(), UIControlObject\&.controlActivated(), AxesContainer\&.display(), AxesContainer\&.getObjectForPoint(), and AxesContainer\&.reshape()\&.
+.PP
+.nf
+        {
+                return valid;
+        }
+.fi
+.SS "void \fBlisten\fP (\fBProperty\fPp)\fC [inline, protected, inherited]\fP"
+.PP
+References Property\&.addHandleEventSink(), HandleObject\&.eventSourceSet, and Property\&.getParent()\&.
+.PP
+Referenced by AxesObject\&.AxesObject(), BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), GroupObject\&.childValidated(), AxesObject\&.childValidated(), ColorbarObject\&.ColorbarObject(), FigureObject\&.FigureObject(), ImageObject\&.ImageObject(), LegendObject\&.LegendObject(), LineObject\&.LineObject(), PatchObject\&.PatchObject(), RootObject\&.RootObject(), SurfaceObject\&.SurfaceObject(), TextObject\&.TextObject(), UIControlObject\&.UIControlObject(), and UIPanelObject\&.UIPanelObject()\&.
+.PP
+.nf
+        {
+                p\&.addHandleEventSink('PropertyChanged', this);
+                if (p\&.getParent() != this)
+                        eventSourceSet\&.add(p);
+        }
+.fi
+.SS "static void \fBlistObjects\fP ()\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap, and HandleObject\&.HandleObject()\&.
+.PP
+.nf
+        {
+                Iterator it = handleMap\&.entrySet()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Map\&.Entry entry = (Map\&.Entry)it\&.next();
+                        HandleObject hObj = (HandleObject)((WeakReference)entry\&.getValue())\&.get();
+                        System\&.out\&.println(entry\&.getKey() + ' = ' + hObj\&.getClass());
+                }
+        }
+.fi
+.SS "Buffer \fBmakeColormapTextureData\fP ()\fC [inline, private]\fP"
+.PP
+References ArrayProperty\&.asDoubleMatrix(), and FigureObject\&.Colormap\&.
+.PP
+.nf
+        {
+                double[][] cmap = Colormap\&.asDoubleMatrix();
+                float[] buf = new float[cmap\&.length*4];
+
+                for (int i=0; i<cmap\&.length; i++)
+                {
+                        buf[4*i]   = (float)cmap[i][0];
+                        buf[4*i+1] = (float)cmap[i][1];
+                        buf[4*i+2] = (float)cmap[i][2];
+                        buf[4*i+3] = 1;
+                }
+
+                return FloatBuffer\&.wrap(buf);
+        }
+.fi
+.SS "void \fBmouseClicked\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+References AxesContainer\&.getAxesForPoint(), AxesContainer\&.getDefaultMouseOp(), AxesContainer\&.getMouseLocation(), AxesContainer\&.mouseOp, AxesContainer\&.OP_NONE, AxesContainer\&.OP_ZOOM, and AxesObject\&.unZoom()\&.
+.PP
+.nf
+        {
+                if (e\&.getButton() == MouseEvent\&.BUTTON3 && mouseOp == OP_NONE && getDefaultMouseOp() == OP_ZOOM)
+                {
+                        AxesObject ax = getAxesForPoint(getMouseLocation(e));
+                        if (ax != null)
+                                ax\&.unZoom();
+                }
+        }
+.fi
+.SS "void \fBmouseDragged\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+References AxesContainer\&.mouseAxes, AxesContainer\&.mouseOp, AxesContainer\&.OP_NONE, and AxesObject\&.operation()\&.
+.PP
+.nf
+        {
+                if (mouseAxes != null && mouseOp != OP_NONE)
+                        mouseAxes\&.operation(mouseOp, e);
+        }
+.fi
+.SS "void \fBmouseEntered\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBmouseExited\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBmouseMoved\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBmousePressed\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.doButtonDownFcn(), AxesContainer\&.getAxesForPoint(), AxesContainer\&.getDefaultMouseOp(), AxesContainer\&.getMouseLocation(), AxesContainer\&.getObjectForPoint(), AxesContainer\&.mouseAxes, AxesContainer\&.mouseOp, AxesContainer\&.OP_NONE, and AxesObject\&.startOperation()\&.
+.PP
+.nf
+        {
+                if (mouseOp == OP_NONE)
+                {
+                        // Only do something if no operation pending
+                        Point pt = getMouseLocation(e);
+                        AxesObject ax = getAxesForPoint(pt);
+                        HandleObject hObj = getObjectForPoint(pt, 5);
+
+                        if (hObj != null)
+                        {
+                                boolean doCB = false;
+
+                                if (hObj instanceof AxesObject)
+                                {
+                                        if (getDefaultMouseOp() == OP_NONE)
+                                                doCB = true;
+                                        else if (e\&.getButton() == MouseEvent\&.BUTTON1)
+                                        {
+                                                mouseAxes = (AxesObject)hObj;
+                                                mouseOp = getDefaultMouseOp();
+                                                mouseAxes\&.startOperation(mouseOp, e);
+                                        }
+                                }
+                                else
+                                        doCB = true;
+
+                                if (doCB)
+                                        hObj\&.doButtonDownFcn(e);
+                        }
+                        else
+                                doButtonDownFcn(e);
+                }
+        }
+.fi
+.SS "void \fBmouseReleased\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+References AxesObject\&.endOperation(), AxesContainer\&.mouseAxes, AxesContainer\&.mouseOp, and AxesContainer\&.OP_NONE\&.
+.PP
+.nf
+        {
+                if (mouseOp != OP_NONE)
+                {
+                        if (e\&.getButton() == MouseEvent\&.BUTTON1)
+                        {
+                                if (mouseAxes != null)
+                                        mouseAxes\&.endOperation(mouseOp, e);
+                                mouseAxes = null;
+                                mouseOp = OP_NONE;
+                        }
+                }
+        }
+.fi
+.SS "static double \fBnewHandle\fP ()\fC [inline, static, protected, inherited]\fP"
+.PP
+References HandleObject\&.handleSeed\&.
+.PP
+Referenced by HandleObject\&.HandleObject(), UIPanelObject\&.UIPanelObject(), and FigureObject\&.updateHandle()\&.
+.PP
+.nf
+        {
+                double h = handleSeed;
+                handleSeed = Math\&.ceil(handleSeed) - 1 - Math\&.random();
+                return h;
+        }
+.fi
+.SS "void \fBprint\fP (Stringformat, Stringfilename)  throws java\&.io\&.IOException 	\fC [inline]\fP"
+.PP
+References AxesContainer\&.canvas, FigureObject\&.FigColor, ColorProperty\&.getColor(), RenderCanvas\&.redraw(), Property\&.reset(), RenderCanvas\&.toImage(), and RenderCanvas\&.toPostScript()\&.
+.PP
+.nf
+        {
+                Color fcolor = FigColor\&.getColor();
+                FigColor\&.reset(Color\&.white);
+                try
+                {
+                        if (format \&.equals('postscript'))
+                        {
+                                canvas\&.toPostScript(filename);
+                        }
+                        else
+                        {
+                                BufferedImage img = canvas\&.toImage();
+                                javax\&.imageio\&.ImageIO\&.write(img, format, new java\&.io\&.File(filename));
+                        }
+                }
+                finally
+                {
+                        FigColor\&.reset(fcolor);
+                        canvas\&.redraw();
+                }
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References HandleObject\&.autoSet(), FigureObject\&.currentUnits, FigureObject\&.frame, FigureObject\&.getBestRenderer(), RadioProperty\&.getValue(), FigureObject\&.IntegerHandle, RadioProperty\&.is(), HandleObject\&.isAutoMode(), BooleanProperty\&.isSet(), FigureObject\&.Name, FigureObject\&.NumberTitle, FigureObject\&.Position, FigureObject\&.RendererMode, FigureObject\&.Resize, FigureObject\&.Toolbar, FigureObject\&.Units, AxesContainer\&.updateCanvas(), FigureObject\&.updateFramePosition(), FigureObject\&.updateHandle(), FigureObject\&.updatePosition(), FigureObject\&.updateTitle(), FigureObject\&.updateToolbars(), and HandleObject\&.Visible\&.
+.PP
+.nf
+        {
+                super\&.propertyChanged(p);
+
+                if (p == Name || p == NumberTitle)
+                        updateTitle();
+                else if (p == IntegerHandle)
+                {
+                        updateHandle();
+                        updateTitle();
+                }
+                else if (p == Visible)
+                {
+                        frame\&.setVisible(Visible\&.isSet());
+                        updateFramePosition();
+                }
+                else if (p == Position && !isAutoMode())
+                {
+                        updateFramePosition();
+                }
+                else if (p == Units)
+                {
+                        updatePosition();
+                        currentUnits = Units\&.getValue();
+                }
+                else if (p == Toolbar)
+                        updateToolbars();
+                else if (p == Resize)
+                        frame\&.setResizable(Resize\&.isSet());
+                else if (p == Renderer && !isAutoMode())
+                {
+                        autoSet(RendererMode, 'manual');
+                        updateCanvas();
+                }
+                else if (p == RendererMode && !isAutoMode())
+                {
+                        if (RendererMode\&.is('auto'))
+                        {
+                                String r = getBestRenderer();
+                                if (!Renderer\&.is(r))
+                                {
+                                        autoSet(Renderer, getBestRenderer());
+                                        updateCanvas();
+                                }
+                        }
+                }
+        }
+.fi
+.SS "void \fBredraw\fP ()\fC [inline, inherited]\fP"
+.PP
+References AxesContainer\&.redrawRecursive()\&.
+.PP
+.nf
+        {
+                redrawRecursive(this);
+        }
+.fi
+.SS "static void \fBredrawRecursive\fP (\fBHandleObject\fPobj)\fC [inline, static, inherited]\fP"
+.PP
+Referenced by AxesContainer\&.redraw()\&.
+.PP
+.nf
+        {
+                if (obj instanceof RenderCanvas\&.Container)
+                        ((RenderCanvas\&.Container)obj)\&.getCanvas()\&.redraw();
+
+                synchronized (obj\&.Children)
+                {
+                        Iterator it = obj\&.Children\&.iterator();
+                        while (it\&.hasNext())
+                                redrawRecursive((HandleObject)it\&.next());
+                }
+        }
+.fi
+.SS "void \fBremoveChild\fP (\fBHandleObject\fPchild)\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References FigureObject\&.CurrentAxes, HandleObjectListProperty\&.elementAt(), HandleObjectListProperty\&.removeAllElements(), and HandleObjectListProperty\&.size()\&.
+.PP
+.nf
+        {
+                if (CurrentAxes\&.size() > 0 && child == CurrentAxes\&.elementAt(0))
+                        CurrentAxes\&.removeAllElements();
+                super\&.removeChild(child);
+        }
+.fi
+.SS "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleObject\&.eventSource, and HandleEventSourceHelper\&.removeHandleEventSink()\&.
+.PP
+Referenced by HandleObject\&.delete()\&.
+.PP
+.nf
+        {
+                eventSource\&.removeHandleEventSink(sink);
+        }
+.fi
+.SS "static void \fBremoveHandleObject\fP (doublehandle)\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+Referenced by HandleObject\&.delete(), and HandleObject\&.setHandle()\&.
+.PP
+.nf
+        {
+                handleMap\&.remove(new Double(handle));
+        }
+.fi
+.SS "void \fBreshape\fP (\fBRenderCanvas\fPc, intx, inty, intwidth, intheight)\fC [inline, inherited]\fP"
+.PP
+Implements \fBRenderEventListener\fP\&.
+.PP
+References HandleObject\&.Children, HandleObject\&.HandleObject(), HandleObject\&.isValid(), and HandleObjectListProperty\&.iterator()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        Iterator it = Children\&.iterator();
+                        while (it\&.hasNext())
+                        {
+                                HandleObject hObj = (HandleObject)it\&.next();
+                                if (hObj instanceof AxesObject && hObj\&.isValid())
+                                        ((AxesObject)hObj)\&.updateActivePosition();
+                        }
+                }
+        }
+.fi
+.SS "void \fBset\fP (\fBProperty\fPp, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBUIControlObject\fP, and \fBGraphicObject\fP\&.
+.PP
+.nf
+        {
+                p\&.set(value);
+        }
+.fi
+.SS "void \fBset\fP (Stringname, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References PropertySet\&.addProperty(), Property\&.cloneProperty(), HandleObject\&.defaultSet, HandleObject\&.getDefaultProperty(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                if (name\&.toLowerCase()\&.startsWith('default'))
+                {
+                        Property p = getDefaultProperty(name);
+                        if (p != null)
+                        {
+                                Property new_p = p\&.cloneProperty();
+                                new_p\&.set(value);
+                                defaultSet\&.addProperty(new_p);
+                        }
+                        else
+                                throw new PropertyException('invalid default property - ' + name\&.toLowerCase());
+                }
+                else
+                        super\&.set(name, value);
+        }
+.fi
+.SS "void \fBsetCachedData\fP (Renderer\&.CachedDatad)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.cachedData\&.
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if (cachedData != null)
+                        cachedData\&.dispose();
+                cachedData = d;
+        }
+.fi
+.SS "void \fBsetHandle\fP (doublehandle)\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.addHandleObject(), HandleObject\&.getHandle(), HandleObject\&.handle, and HandleObject\&.removeHandleObject()\&.
+.PP
+Referenced by FigureObject\&.updateHandle()\&.
+.PP
+.nf
+        {
+                removeHandleObject(getHandle());
+                this\&.handle = handle;
+                addHandleObject(getHandle(), this);
+        }
+.fi
+.SS "void \fBshow\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                        {
+                                get(p); /* force any getter to execute */
+                                System\&.out\&.println('  ' + p\&.getName() + ' = ' + p);
+                        }
+                }
+        }
+.fi
+.SS "static void \fBshutdown\fP ()\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+.nf
+        {
+                LinkedList figList = new LinkedList();
+                Iterator it = handleMap\&.values()\&.iterator();
+
+                while (it\&.hasNext())
+                {
+                        WeakReference ref = (WeakReference)it\&.next();
+                        if (ref != null && ref\&.get() != null && ref\&.get() instanceof FigureObject)
+                                figList\&.add(ref\&.get());
+                }
+
+                it = figList\&.iterator();
+                while (it\&.hasNext())
+                        ((HandleObject)it\&.next())\&.delete();
+        }
+.fi
+.SS "void \fBsourceDeleted\fP (Objectsource)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+References HandleObject\&.eventSourceSet\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSourceSet\&.remove(source);
+        }
+.fi
+.SS "void \fBupdateCanvas\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+References AxesContainer\&.canvas, AxesContainer\&.createCanvas(), RenderCanvas\&.getComponent(), AxesContainer\&.getEmbeddingComponent(), RenderCanvas\&.removeMouseListener(), RenderCanvas\&.removeMouseMotionListener(), and RenderCanvas\&.removeRenderEventListener()\&.
+.PP
+Referenced by FigureObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if (canvas != null)
+                {
+                        canvas\&.removeMouseListener(this);
+                        canvas\&.removeMouseMotionListener(this);
+                        canvas\&.removeRenderEventListener(this);
+                        getEmbeddingComponent()\&.remove(canvas\&.getComponent());
+                        getEmbeddingComponent()\&.validate();
+                        canvas = null;
+                }
+                createCanvas();
+        }
+.fi
+.SS "void \fBupdateFramePosition\fP ()\fC [inline, private]\fP"
+.PP
+References Utils\&.convertPosition(), FigureObject\&.frame, Utils\&.getScreenSize(), RadioProperty\&.getValue(), VectorProperty\&.getVector(), FigureObject\&.Position, FigureObject\&.tbPanel, and FigureObject\&.Units\&.
+.PP
+Referenced by FigureObject\&.createFigure(), and FigureObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                double[] pos = Utils\&.convertPosition(Position\&.getVector(), Units\&.getValue(), 'pixels', null);
+                Dimension d = Utils\&.getScreenSize();
+                Insets insets = frame\&.getInsets();
+                pos[0]--;
+                pos[1] = d\&.height-pos[1]-pos[3]+1;
+                frame\&.setBounds((int)pos[0]-insets\&.left, (int)pos[1]-insets\&.top-tbPanel\&.getHeight(),
+                                (int)pos[2]+insets\&.left+insets\&.right, (int)pos[3]+insets\&.top+insets\&.bottom+tbPanel\&.getHeight());
+        }
+.fi
+.SS "void \fBupdateHandle\fP ()\fC [inline, private]\fP"
+.PP
+References HandleObject\&.getHandle(), RootObject\&.getInstance(), RootObject\&.getUnusedFigureNumber(), HandleObject\&.handle, FigureObject\&.IntegerHandle, BooleanProperty\&.isSet(), HandleObject\&.newHandle(), and HandleObject\&.setHandle()\&.
+.PP
+Referenced by FigureObject\&.propertyChanged(), and FigureObject\&.validate()\&.
+.PP
+.nf
+        {
+                double handle = getHandle();
+                if (IntegerHandle\&.isSet() && handle < 0)
+                        setHandle(RootObject\&.getInstance()\&.getUnusedFigureNumber());
+                else if (!IntegerHandle\&.isSet() && handle > 0)
+                        setHandle(newHandle());
+        }
+.fi
+.SS "void \fBupdatePosition\fP ()\fC [inline, private]\fP"
+.PP
+References HandleObject\&.autoSet(), FigureObject\&.axPanel, Utils\&.convertPosition(), Utils\&.getScreenSize(), RadioProperty\&.getValue(), FigureObject\&.Position, and FigureObject\&.Units\&.
+.PP
+Referenced by FigureObject\&.get(), and FigureObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                Dimension d = Utils\&.getScreenSize();
+                Point pt = axPanel\&.getLocationOnScreen();
+                double[] pos = new double[] {pt\&.getX()+1, d\&.height-pt\&.getY()-axPanel\&.getHeight()+1,
+                        axPanel\&.getWidth(), axPanel\&.getHeight()};
+                autoSet(Position, Utils\&.convertPosition(pos, 'pixels', Units\&.getValue(), null));
+        }
+.fi
+.SS "void \fBupdateTitle\fP ()\fC [inline, private]\fP"
+.PP
+References FigureObject\&.frame, HandleObject\&.getHandle(), BooleanProperty\&.isSet(), FigureObject\&.Name, FigureObject\&.NumberTitle, and StringProperty\&.toString()\&.
+.PP
+Referenced by FigureObject\&.createFigure(), and FigureObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                String title = (NumberTitle\&.isSet() ? 'Figure ' + getHandle() : ''), name = Name\&.toString();
+                if (name\&.length() > 0)
+                {
+                        if (title\&.length() > 0)
+                                title += ': ' + name;
+                        else
+                                title = name;
+                }
+                frame\&.setTitle(title);
+        }
+.fi
+.SS "void \fBupdateToolbars\fP ()\fC [inline]\fP"
+.PP
+References FigureObject\&.figureTB, FigureObject\&.frame, RadioProperty\&.is(), FigureObject\&.tbPanel, and FigureObject\&.Toolbar\&.
+.PP
+Referenced by FigureObject\&.createFigure(), and FigureObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if (Toolbar\&.is('none'))
+                        tbPanel\&.remove(figureTB);
+                else
+                        tbPanel\&.add(figureTB);
+                frame\&.validate();
+        }
+.fi
+.SS "void \fBvalidate\fP ()\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References FigureObject\&.activate(), FigureObject\&.createFigure(), and FigureObject\&.updateHandle()\&.
+.PP
+.nf
+        {
+                updateHandle();
+                createFigure();
+                super\&.validate();
+                activate();
+        }
+.fi
+.SS "void \fBwaitFor\fP ()\fC [inline, inherited]\fP"
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                waitFor(null, null, false);
+        }
+.fi
+.SS "void \fBwaitFor\fP (Stringpname)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                waitFor(pname, null, false);
+        }
+.fi
+.SS "void \fBwaitFor\fP (Stringpname, Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                waitFor(pname, value, true);
+        }
+.fi
+.SS "void \fBwindowActivated\fP (WindowEvente)\fC [inline]\fP"
+.PP
+References HandleObjectListProperty\&.addElement(), RootObject\&.CurrentFigure, and RootObject\&.getInstance()\&.
+.PP
+.nf
+        {
+                RootObject\&.getInstance()\&.CurrentFigure\&.addElement(this);
+        }
+.fi
+.SS "void \fBwindowClosed\fP (WindowEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBwindowClosing\fP (WindowEvente)\fC [inline]\fP"
+.PP
+References FigureObject\&.CloseRequestFcn, CallbackProperty\&.execute(), and HandleObject\&.getHandle()\&.
+.PP
+.nf
+        {
+                //this\&.delete();
+                CloseRequestFcn\&.execute(new Object[] {
+                        new Double(getHandle()),
+                        null});
+        }
+.fi
+.SS "void \fBwindowDeactivated\fP (WindowEvente)\fC [inline]\fP"
+.PP
+References AxesContainer\&.cancelMouseOperation()\&.
+.PP
+.nf
+        {
+                cancelMouseOperation();
+        }
+.fi
+.SS "void \fBwindowDeiconified\fP (WindowEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBwindowIconified\fP (WindowEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBwindowOpened\fP (WindowEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBBooleanProperty\fP \fB__Antialias__\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), and J2DRenderer\&.setXForm()\&.
+.SS "\fBBooleanProperty\fP \fB__Dirty__\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), and GraphicObject\&.set()\&.
+.SS "\fBVectorProperty\fP \fBAlphamap\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), Utils\&.getAlphaData(), SurfaceObject\&.getAlphaData(), and PatchObject\&.getAlphaData()\&.
+.SS "int \fBautoMode\fP = 0\fC [protected, inherited]\fP"
+.PP
+Referenced by HandleObject\&.autoSet(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.doZoom(), AxesObject\&.draw(), HandleObject\&.isAutoMode(), ColorbarObject\&.propertyChanged(), LegendObject\&.propertyChanged(), AxesObject\&.propertyChanged(), and AxesObject\&.unZoom()\&.
+.SS "Panel \fBaxPanel\fP\fC [private]\fP"
+.PP
+Referenced by FigureObject\&.createFigure(), FigureObject\&.getComponent(), FigureObject\&.getEmbeddingComponent(), and FigureObject\&.updatePosition()\&.
+.SS "\fBBooleanProperty\fP \fBBeingDeleted\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.delete(), HandleObject\&.initProperties(), and AxesObject\&.removeChild()\&.
+.SS "\fBCallbackProperty\fP \fBButtonDownFcn\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.doButtonDownFcn(), and HandleObject\&.initProperties()\&.
+.SS "\fBRenderCanvas\fP \fBcanvas\fP = null\fC [protected, inherited]\fP"
+.PP
+Referenced by AxesContainer\&.createCanvas(), AxesContainer\&.getCanvas(), AxesContainer\&.getMouseLocation(), AxesContainer\&.getObjectForPoint(), FigureObject\&.print(), and AxesContainer\&.updateCanvas()\&.
+.SS "\fBHandleObjectListProperty\fP \fBChildren\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.addChild(), AxesObject\&.autoLegend(), AxesObject\&.autoScaleC(), LegendObject\&.buildLegend(), HandleObject\&.deleteChildren(), AxesContainer\&.display(), ColorbarObject\&.doClear(), LegendObject\&.doClear(), GroupObject\&.draw(), AxesObject\&.draw(), RootObject\&.findFigure(), AxesObject\&.getChildrenLimits(), AxesContainer\&.getObjectForPoint(), BarseriesObject\&.getPatch(), HandleObject\&.initProperties(), RootObject\&.removeChild(), HandleObject\&.removeChild(), AxesContainer\&.reshape(), ColorbarObject\&.updateImageFromColormap(), GroupObject\&.updateLimits(), GroupObject\&.validate(), and HandleObject\&.validate()\&.
+.SS "\fBBooleanProperty\fP \fBClipping\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), AxesObject\&.draw(), HandleObject\&.initProperties(), and TextObject\&.TextObject()\&.
+.SS "\fBCallbackProperty\fP \fBCloseRequestFcn\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), and FigureObject\&.windowClosing()\&.
+.SS "\fBArrayProperty\fP \fBColormap\fP\fC [package]\fP"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), AxesObject\&.convertCData(), AxesObject\&.convertCDataToIndex(), FigureObject\&.FigureObject(), FigureObject\&.makeColormapTextureData(), and ColorbarObject\&.propertyChanged()\&.
+.SS "\fBCallbackProperty\fP \fBCreateFcn\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.initProperties(), and HandleObject\&.validate()\&.
+.SS "\fBHandleObjectListProperty\fP \fBCurrentAxes\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), and FigureObject\&.removeChild()\&.
+.SS "String \fBcurrentUnits\fP\fC [private]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), and FigureObject\&.propertyChanged()\&.
+.SS "int \fBdefaultMouseOp\fP = \fBOP_NONE\fP\fC [private]\fP"
+.PP
+Referenced by FigureObject\&.actionPerformed(), and FigureObject\&.getMouseOp()\&.
+.SS "\fBPropertySet\fP \fBdefaultSet\fP = new \fBPropertySet\fP()\fC [protected, inherited]\fP"
+.PP
+Referenced by HandleObject\&.getDefaultProperty(), and HandleObject\&.set()\&.
+.SS "\fBCallbackProperty\fP \fBDeleteFcn\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.delete(), and HandleObject\&.initProperties()\&.
+.SS "JToggleButton \fBeditBtn\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.actionPerformed(), and FigureObject\&.createFigure()\&.
+.SS "\fBColorProperty\fP \fBFigColor\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.createFigure(), FigureObject\&.FigureObject(), FigureObject\&.getBackgroundColor(), and FigureObject\&.print()\&.
+.SS "JToolBar \fBfigureTB\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.createFigure(), and FigureObject\&.updateToolbars()\&.
+.SS "Frame \fBframe\fP\fC [private]\fP"
+.PP
+Referenced by FigureObject\&.activate(), FigureObject\&.createFigure(), FigureObject\&.delete(), FigureObject\&.propertyChanged(), FigureObject\&.updateFramePosition(), FigureObject\&.updateTitle(), and FigureObject\&.updateToolbars()\&.
+.SS "\fBRadioProperty\fP \fBHandleVisibility\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObjectListProperty\&.getVisibleObjects(), HandleObject\&.initProperties(), and AxesObject\&.makeTextObject()\&.
+.SS "\fBBooleanProperty\fP \fBIntegerHandle\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), FigureObject\&.propertyChanged(), and FigureObject\&.updateHandle()\&.
+.SS "\fBCallbackProperty\fP \fBKeyPressFcn\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject()\&.
+.SS "\fBStringProperty\fP \fBName\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), FigureObject\&.propertyChanged(), and FigureObject\&.updateTitle()\&.
+.SS "\fBRadioProperty\fP \fBNextPlot\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject()\&.
+.SS "\fBBooleanProperty\fP \fBNumberTitle\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), FigureObject\&.propertyChanged(), and FigureObject\&.updateTitle()\&.
+.SS "final int \fBOP_NONE\fP = 0\fC [static, inherited]\fP"
+.PP
+Referenced by FigureObject\&.actionPerformed(), AxesContainer\&.cancelMouseOperation(), FigureObject\&.commandToOp(), AxesContainer\&.hasMouseOperation(), AxesContainer\&.mouseClicked(), AxesContainer\&.mouseDragged(), AxesContainer\&.mousePressed(), and AxesContainer\&.mouseReleased()\&.
+.SS "final int \fBOP_ROTATE\fP = 2\fC [static, inherited]\fP"
+.PP
+Referenced by AxesObject\&.cancelOperation(), FigureObject\&.commandToOp(), AxesObject\&.endOperation(), AxesObject\&.operation(), and AxesObject\&.startOperation()\&.
+.SS "final int \fBOP_ZOOM\fP = 1\fC [static, inherited]\fP"
+.PP
+Referenced by AxesObject\&.cancelOperation(), FigureObject\&.commandToOp(), AxesObject\&.endOperation(), AxesContainer\&.mouseClicked(), AxesObject\&.operation(), and AxesObject\&.startOperation()\&.
+.SS "\fBRadioProperty\fP \fBPaperOrientation\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject()\&.
+.SS "\fBHandleObjectListProperty\fP \fBParent\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.delete(), HandleObject\&.getAncestor(), GraphicObject\&.getAxes(), AxesObject\&.getAxesContainer(), AxesObject\&.getCanvas(), HandleObject\&.getDefaultProperty(), UIControlObject\&.getParentComponent(), UIPanelObject\&.getParentComponent(), HandleObject\&.initProperties(), LegendObject\&.LegendObject(), and HandleObject\&.validate()\&.
+.SS "\fBVectorProperty\fP \fBPosition\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), FigureObject\&.get(), FigureObject\&.propertyChanged(), FigureObject\&.updateFramePosition(), and FigureObject\&.updatePosition()\&.
+.SS "\fBRadioProperty\fP \fBRenderer\fP\fC [package]\fP"
+.SS "\fBRadioProperty\fP \fBRendererMode\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), and FigureObject\&.propertyChanged()\&.
+.SS "\fBBooleanProperty\fP \fBResize\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.createFigure(), FigureObject\&.FigureObject(), and FigureObject\&.propertyChanged()\&.
+.SS "\fBCallbackProperty\fP \fBResizeFcn\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.componentResized(), and FigureObject\&.FigureObject()\&.
+.SS "JToggleButton \fBrotateBtn\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.actionPerformed(), and FigureObject\&.createFigure()\&.
+.SS "\fBRadioProperty\fP \fBSelectionType\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject()\&.
+.SS "\fBStringProperty\fP \fBTag\fP\fC [package, inherited]\fP"
+.PP
+Referenced by ColorbarObject\&.ColorbarObject(), HandleObject\&.initProperties(), and LegendObject\&.LegendObject()\&.
+.SS "Panel \fBtbPanel\fP\fC [private]\fP"
+.PP
+Referenced by FigureObject\&.createFigure(), FigureObject\&.updateFramePosition(), and FigureObject\&.updateToolbars()\&.
+.SS "\fBRadioProperty\fP \fBToolbar\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), FigureObject\&.propertyChanged(), and FigureObject\&.updateToolbars()\&.
+.SS "\fBStringProperty\fP \fBType\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.deleteChildren(), HandleObject\&.getAncestor(), HandleObject\&.getType(), HandleObject\&.initProperties(), and OctaveSink\&.OctaveSink()\&.
+.SS "\fBRadioProperty\fP \fBUnits\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), FigureObject\&.propertyChanged(), FigureObject\&.updateFramePosition(), and FigureObject\&.updatePosition()\&.
+.SS "\fBObjectProperty\fP \fBUserData\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.initProperties()\&.
+.SS "\fBBooleanProperty\fP \fBVisible\fP\fC [package, inherited]\fP"
+.PP
+Referenced by AxesObject\&.childValidated(), FigureObject\&.createFigure(), AxesObject\&.draw(), FigureObject\&.FigureObject(), AxesObject\&.getChildrenLimits(), HandleObject\&.initProperties(), FigureObject\&.propertyChanged(), and AxesObject\&.reset()\&.
+.SS "JToggleButton \fBzoomBtn\fP\fC [package]\fP"
+.PP
+Referenced by FigureObject\&.actionPerformed(), and FigureObject\&.createFigure()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

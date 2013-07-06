@@ -1,0 +1,101 @@
+.TH "PositionLayout" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PositionLayout \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLayoutManager\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPositionLayout\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddLayoutComponent\fP (String name, Component comp)"
+.br
+.ti -1c
+.RI "void \fBlayoutContainer\fP (Container parent)"
+.br
+.ti -1c
+.RI "Dimension \fBminimumLayoutSize\fP (Container parent)"
+.br
+.ti -1c
+.RI "Dimension \fBpreferredLayoutSize\fP (Container parent)"
+.br
+.ti -1c
+.RI "void \fBremoveLayoutComponent\fP (Component comp)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPositionLayout\fP ()\fC [inline]\fP"
+.PP
+.nf
+        {
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddLayoutComponent\fP (Stringname, Componentcomp)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBlayoutContainer\fP (Containerparent)\fC [inline]\fP"
+.PP
+.nf
+        {
+                Insets ir = parent\&.getInsets();
+                Rectangle r = parent\&.getBounds();
+                int nComp = parent\&.getComponentCount();
+
+                for (int i=0; i<nComp; i++)
+                {
+                        Component comp = parent\&.getComponent(i);
+
+                        if (comp instanceof Positionable)
+                        {
+                                /* use Position property of the object */
+                                double[] pos = ((Positionable)comp)\&.getPosition();
+                                pos[0]--;
+                                pos[1] = (r\&.height-ir\&.top-ir\&.bottom-pos[1]-pos[3]+1);
+                                comp\&.setBounds(ir\&.left+(int)pos[0], ir\&.top+(int)pos[1], (int)pos[2], (int)pos[3]);
+                        }
+                        else if (comp instanceof RenderCanvas)
+                        {
+                                /* the render canvas takes up all the available space */
+                                comp\&.setBounds(ir\&.left, ir\&.top, r\&.width-ir\&.left-ir\&.right, r\&.height-ir\&.top-ir\&.bottom);
+                        }
+                        else
+                                System\&.out\&.println('Warning: skipping layout component ' + comp\&.toString());
+                }
+        }
+.fi
+.SS "Dimension \fBminimumLayoutSize\fP (Containerparent)\fC [inline]\fP"
+.PP
+.nf
+        {
+                return new Dimension(100, 100);
+        }
+.fi
+.SS "Dimension \fBpreferredLayoutSize\fP (Containerparent)\fC [inline]\fP"
+.PP
+.nf
+        {
+                return new Dimension(500, 400);
+        }
+.fi
+.SS "void \fBremoveLayoutComponent\fP (Componentcomp)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

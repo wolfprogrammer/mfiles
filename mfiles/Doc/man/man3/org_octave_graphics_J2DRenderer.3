@@ -1,0 +1,742 @@
+.TH "J2DRenderer" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+J2DRenderer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRenderer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBJ2DRenderer\fP (\fBJ2DRenderCanvas\fP c)"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetClipping\fP (boolean flag)"
+.br
+.ti -1c
+.RI "boolean \fBhasClipping\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetClipBox\fP (double xmin, double xmax, double ymin, double ymax, double zmin, double zmax)"
+.br
+.ti -1c
+.RI "void \fBsetCamera\fP (double[] pos, double[] target)"
+.br
+.ti -1c
+.RI "void \fBsetColor\fP (Color c)"
+.br
+.ti -1c
+.RI "void \fBsetFont\fP (Font f)"
+.br
+.ti -1c
+.RI "void \fBsetLineStyle\fP (String s, boolean forceStippling)"
+.br
+.ti -1c
+.RI "void \fBsetLineWidth\fP (float w)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBLineObject\fP line)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBLightObject\fP \fBlight\fP)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (ByteBuffer data, int w, int h, double[] pos, int xOffset, int yOffset, boolean useClipping, boolean useZBuffer)"
+.br
+.ti -1c
+.RI "void \fBdrawBitmap\fP (BufferedImage img, double[] pos, int xOffset, int yOffset)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBPatchObject\fP patch)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBSurfaceObject\fP surf)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBImageObject\fP image)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBTextObject\fP text)"
+.br
+.ti -1c
+.RI "Rectangle \fBdrawText\fP (String txt, double[] pos, int halign, int valign)"
+.br
+.ti -1c
+.RI "void \fBsetXForm\fP (\fBAxesObject\fP ax)"
+.br
+.ti -1c
+.RI "void \fBsetViewport\fP (int width, int height)"
+.br
+.ti -1c
+.RI "void \fBclear\fP (Color c)"
+.br
+.ti -1c
+.RI "void \fBdrawRubberBox\fP (int[][] b)"
+.br
+.ti -1c
+.RI "void \fBdrawSegments\fP (java\&.util\&.List pts)"
+.br
+.ti -1c
+.RI "void \fBdrawQuads\fP (java\&.util\&.List pts, double zoffset)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBLS_SOLID\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBLS_DOTTED\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBLS_DASHED\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBLS_DASHDOT\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBLS_NONE\fP = 4"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetGraphics\fP (Graphics \fBg\fP)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "AxesObject\&.Scaler \fBsy\fP"
+.br
+.ti -1c
+.RI "AxesObject\&.Scaler \fBsz\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateStroke\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Graphics2D \fBg\fP"
+.br
+.ti -1c
+.RI "boolean \fBclipping\fP"
+.br
+.ti -1c
+.RI "\fBMatrix3D\fP \fBxForm\fP"
+.br
+.ti -1c
+.RI "AxesObject\&.Scaler \fBsx\fP"
+.br
+.ti -1c
+.RI "\fBJ2DRenderCanvas\fP \fBcanvas\fP"
+.br
+.ti -1c
+.RI "float \fBlineWidth\fP"
+.br
+.ti -1c
+.RI "float[] \fBlinePattern\fP"
+.br
+.ti -1c
+.RI "Rectangle \fBclipRect\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBJ2DRenderer\fP (\fBJ2DRenderCanvas\fPc)\fC [inline]\fP"
+.PP
+References J2DRenderer\&.canvas, J2DRenderer\&.clipping, J2DRenderer\&.g, J2DRenderer\&.linePattern, and J2DRenderer\&.lineWidth\&.
+.PP
+.nf
+        {
+                g = null;
+                clipping = false;
+                canvas = c;
+                lineWidth = 0\&.0f;
+                linePattern = null;
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBclear\fP (Colorc)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.canvas, J2DRenderer\&.g, RenderCanvas\&.getHeight(), and RenderCanvas\&.getWidth()\&.
+.PP
+.nf
+        {
+                if (g != null)
+                        g\&.clearRect(0, 0, canvas\&.getWidth(), canvas\&.getHeight());
+        }
+.fi
+.SS "void \fBdraw\fP (\fBLineObject\fPline)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References DoubleProperty\&.doubleValue(), MarkerProperty\&.drawMarker(), DoubleProperty\&.floatValue(), J2DRenderer\&.g, VectorProperty\&.getArray(), ColorProperty\&.getColor(), RadioProperty\&.getValue(), RadioProperty\&.is(), Utils\&.isNaNorInf(), LineStyleProperty\&.isSet(), LineObject\&.LineColor, LineObject\&.LineStyle, LineObject\&.LineWidth, LineObject\&.Marker, LineObject\&.MarkerSize, J2DRenderer\&.setColor(), J2DRenderer\&.setLineStyle(), J2DRenderer\&.setLineWidth(), J2DRenderer\&.sx, J2DRenderer\&.sy, J2DRenderer\&.sz, Matrix3D\&.transform(), plt\&.x, LineObject\&.XData, J2DRenderer\&.xForm, plt\&.y, LineObject\&.YData, and LineObject\&.ZData\&.
+.PP
+.nf
+        {
+                if (g != null)
+                {
+                        double[] x = sx\&.scale(line\&.XData\&.getArray());
+                        double[] y = sy\&.scale(line\&.YData\&.getArray());
+                        double[] z = sz\&.scale(line\&.ZData\&.getArray());
+                        int n = Math\&.min(Math\&.min(x\&.length, y\&.length), (z\&.length == 0 ? Integer\&.MAX_VALUE : z\&.length));
+
+                        double[] tx = new double[n];
+                        double[] ty = new double[n];
+                        double[] tz = new double[n];
+
+                        if (z\&.length == 0)
+                                xForm\&.transform(x, y, new double[n], n, tx, ty, tz);
+                        else
+                                xForm\&.transform(x, y, z, n, tx, ty, tz);
+
+                        int[] xp = new int[n], yp = new int[n];
+
+                        for (int i=0; i<n; i++)
+                        {
+                                xp[i] = (int)Math\&.round(tx[i]);
+                                yp[i] = (int)Math\&.round(ty[i]);
+                        }
+
+                        if (line\&.LineStyle\&.isSet())
+                        {
+                                setColor(line\&.LineColor\&.getColor());
+                                setLineStyle(line\&.LineStyle\&.getValue(), false);
+                                setLineWidth(line\&.LineWidth\&.floatValue());
+
+                                int index = 0;
+
+                                for (int i=0; i<n; i++)
+                                {
+                                        if (!Utils\&.isNaNorInf(tx[i], ty[i], 0))
+                                        {
+                                                xp[index] = (int)Math\&.round(tx[i]);
+                                                yp[index] = (int)Math\&.round(ty[i]);
+                                                index++;
+                                        }
+                                        else if (index > 1)
+                                        {
+                                                g\&.drawPolyline(xp, yp, index);
+                                                index = 0;
+                                        }
+                                }
+
+                                if (index > 1)
+                                        g\&.drawPolyline(xp, yp, index);
+                        }
+
+                        if (!line\&.Marker\&.is('none'))
+                        {
+                                setColor(line\&.LineColor\&.getColor());
+                                setLineStyle(line\&.LineStyle\&.getValue(), false);
+                                setLineWidth(line\&.LineWidth\&.floatValue());
+
+                                for (int i=0; i<n; i++)
+                                        if (!Utils\&.isNaNorInf(tx[i], ty[i], 0))
+                                                line\&.Marker\&.drawMarker(g,
+                                                        (int)Math\&.round(tx[i]),
+                                                        (int)Math\&.round(ty[i]),
+                                                        line\&.MarkerSize\&.doubleValue());
+                        }
+                }
+        }
+.fi
+.SS "void \fBdraw\fP (\fBLightObject\fPlight)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+                System\&.out\&.println('WARNING: lighting not supported under Java2D renderer');
+        }
+.fi
+.SS "void \fBdraw\fP (ByteBufferdata, intw, inth, double[]pos, intxOffset, intyOffset, booleanuseClipping, booleanuseZBuffer)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBdraw\fP (\fBPatchObject\fPpatch)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBdraw\fP (\fBSurfaceObject\fPsurf)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBdraw\fP (\fBImageObject\fPimage)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBdraw\fP (\fBTextObject\fPtext)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.canvas, AxesObject\&.convertUnits(), DoubleProperty\&.doubleValue(), TextObject\&.FontAngle, TextObject\&.FontName, TextObject\&.FontSize, TextObject\&.FontUnits, TextObject\&.FontWeight, J2DRenderer\&.g, VectorProperty\&.getArray(), GraphicObject\&.getAxes(), ColorProperty\&.getColor(), TextObject\&.getExtent(), Utils\&.getFont(), RenderCanvas\&.getHeight(), RadioProperty\&.getValue(), TextObject\&.HAlign, RadioProperty\&.is(), TextObject\&.Position, TextObject\&.render(), TextObject\&.Rotation, J2DRenderer\&.setColor(), TextObject\&.TextColor, Matrix3D\&.transform(), TextObject\&.Units, TextObject\&.VAlign, and J2DRenderer\&.xForm\&.
+.PP
+.nf
+        {
+                if (g != null)
+                {
+                        AxesObject ax = text\&.getAxes();
+                        double[] pos = ax\&.convertUnits(text\&.Position\&.getArray(), text\&.Units\&.getValue());
+                        double[] tpos = new double[4];
+                        AffineTransform af = g\&.getTransform();
+                        Rectangle r = text\&.getExtent();
+
+                        xForm\&.transform(pos[0], pos[1], pos[2], tpos, 0);
+                        g\&.translate((int)Math\&.round(tpos[0]), (int)Math\&.round(tpos[1]));
+                        g\&.rotate(-text\&.Rotation\&.doubleValue()*Math\&.PI/180\&.0);
+                        g\&.setFont(Utils\&.getFont(text\&.FontName, text\&.FontSize, text\&.FontUnits,
+                                        text\&.FontAngle, text\&.FontWeight, canvas\&.getHeight()));
+                        setColor(text\&.TextColor\&.getColor());
+
+                        int xoff = 0, yoff = 0;
+
+                        if (text\&.HAlign\&.is('right'))
+                                xoff = -r\&.width;
+                        else if (text\&.HAlign\&.is('center'))
+                                xoff = -r\&.width/2;
+                        if (text\&.VAlign\&.is('bottom'))
+                                yoff = -r\&.height;
+                        else if (text\&.VAlign\&.is('middle'))
+                                yoff = -r\&.height/2;
+                        else if (text\&.VAlign\&.is('baseline'))
+                                yoff = -(r\&.height+r\&.y);
+                        g\&.translate(xoff, yoff);
+
+                        text\&.render(g);
+                        g\&.setTransform(af);
+                }
+        }
+.fi
+.SS "void \fBdrawBitmap\fP (BufferedImageimg, double[]pos, intxOffset, intyOffset)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBdrawQuads\fP (java\&.util\&.Listpts, doublezoffset)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.g, Matrix3D\&.transform(), plt\&.x, Point3D\&.x, J2DRenderer\&.xForm, plt\&.y, Point3D\&.y, and Point3D\&.z\&.
+.PP
+.nf
+        {
+                if (g != null)
+                {
+                        Iterator it = pts\&.iterator();
+                        int count = 0;
+                        int[] x = new int[4], y = new int[4];
+                        double[] tmp = new double[4];
+
+                        while (it\&.hasNext())
+                        {
+                                Point3D pt = (Point3D)it\&.next();
+                                xForm\&.transform(pt\&.x, pt\&.y, pt\&.z, tmp, 0);
+                                x[count] = (int)Math\&.round(tmp[0]);
+                                y[count] = (int)Math\&.round(tmp[1]);
+                                if (++count == 4)
+                                {
+                                        count = 0;
+                                        g\&.fillPolygon(x, y, 4);
+                                }
+                        }
+                }
+        }
+.fi
+.SS "void \fBdrawRubberBox\fP (intb[][])\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.canvas, J2DRenderer\&.g, plt\&.x, and plt\&.y\&.
+.PP
+.nf
+        {
+                Graphics GC;
+
+                if (g != null)
+                        GC = g;
+                else
+                        GC = canvas\&.getGraphics();
+                GC\&.setColor(Color\&.lightGray);
+                GC\&.setXORMode(Color\&.white);
+                for (int i=0; i<b\&.length; i++)
+                {
+                        int x = Math\&.min(b[i][0], b[i][2]), y = Math\&.min(b[i][1], b[i][3]);
+                        int w = Math\&.abs(b[i][2]-b[i][0]), h = Math\&.abs(b[i][3]-b[i][1]);
+                        GC\&.drawRect(x, y, w, h);
+                }
+                GC\&.setPaintMode();
+
+                if (g == null)
+                        GC\&.dispose();
+        }
+.fi
+.SS "void \fBdrawSegments\fP (java\&.util\&.Listpts)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.g, Matrix3D\&.transform(), Point3D\&.x, J2DRenderer\&.xForm, Point3D\&.y, and Point3D\&.z\&.
+.PP
+.nf
+        {
+                if (g != null)
+                {
+                        Iterator it = pts\&.iterator();
+                        int count = 0, x1 = 0, y1 = 0;
+                        double[] tmp = new double[4];
+
+                        while (it\&.hasNext())
+                        {
+                                Point3D pt = (Point3D)it\&.next();
+                                xForm\&.transform(pt\&.x, pt\&.y, pt\&.z, tmp, 0);
+                                if (count == 0)
+                                {
+                                        count = 1;
+                                        x1 = (int)Math\&.round(tmp[0]);
+                                        y1 = (int)Math\&.round(tmp[1]);
+                                }
+                                else
+                                {
+                                        count = 0;
+                                        g\&.drawLine(x1, y1, (int)Math\&.round(tmp[0]), (int)Math\&.round(tmp[1]));
+                                }
+                        }
+                }
+        }
+.fi
+.SS "Rectangle \fBdrawText\fP (Stringtxt, double[]pos, inthalign, intvalign)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.canvas, J2DRenderer\&.g, RenderCanvas\&.getFont(), Matrix3D\&.transform(), and J2DRenderer\&.xForm\&.
+.PP
+.nf
+        {
+                if (g != null)
+                {
+                        SimpleTextEngine\&.Content content = new SimpleTextEngine\&.Content(txt);
+                        Rectangle r = (Rectangle)content\&.layout(canvas, canvas\&.getFont())\&.clone();
+                        double[] tpos = new double[4];
+
+                        if (r\&.width > 0 && r\&.height > 0)
+                        {
+                                int xoff = 0, yoff = 0;
+
+                                switch (halign)
+                                {
+                                        case 1: xoff = -r\&.width/2; break;
+                                        case 2: xoff = -r\&.width; break;
+                                }
+                                switch (valign)
+                                {
+                                        case 1: yoff = -r\&.height/2; break;
+                                        case 0: yoff = -r\&.height; break;
+                                }
+
+                                xForm\&.transform(pos[0], pos[1], pos[2], tpos, 0);
+                                xoff = (int)Math\&.round(tpos[0])+xoff;
+                                yoff = (int)Math\&.round(tpos[1])+yoff;
+                                g\&.translate(xoff, yoff);
+                                content\&.render(g);
+                                g\&.translate(-xoff, -yoff);
+
+                                return r;
+                        }
+                }
+
+                return new Rectangle();
+        }
+.fi
+.SS "void \fBend\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "boolean \fBhasClipping\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.clipping\&.
+.PP
+.nf
+        {
+                return clipping;
+        }
+.fi
+.SS "void \fBsetCamera\fP (double[]pos, double[]target)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBsetClipBox\fP (doublexmin, doublexmax, doubleymin, doubleymax, doublezmin, doublezmax)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.clipRect, Matrix3D\&.transform(), plt\&.x, J2DRenderer\&.xForm, and plt\&.y\&.
+.PP
+.nf
+        {
+                double[] x = new double[] {xmin, xmin, xmin, xmin, xmax, xmax, xmax, xmax};
+                double[] y = new double[] {ymin, ymin, ymax, ymax, ymin, ymin, ymax, ymax};
+                double[] z = new double[] {zmin, zmax, zmin, zmax, zmin, zmax, zmin, zmax};
+                double[] tx = new double[8];
+                double[] ty = new double[8];
+                double[] tz = new double[8];
+                double _xmin, _xmax, _ymin, _ymax;
+
+                xForm\&.transform(x, y, z, 8, tx, ty, tz);
+                _xmin = _xmax = tx[0];
+                _ymin = _ymax = ty[0];
+                for (int i=1; i<8; i++)
+                {
+                        if (tx[i] < _xmin) _xmin = tx[i];
+                        if (tx[i] > _xmax) _xmax = tx[i];
+                        if (ty[i] < _ymin) _ymin = ty[i];
+                        if (ty[i] > _ymax) _ymax = ty[i];
+                }
+
+                clipRect = new Rectangle((int)Math\&.round(_xmin)+1, (int)Math\&.round(_ymin)+1,
+                                (int)Math\&.round(_xmax)-(int)Math\&.round(_xmin)-1, (int)Math\&.round(_ymax)-(int)Math\&.round(_ymin)-1);
+        }
+.fi
+.SS "void \fBsetClipping\fP (booleanflag)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.clipping, J2DRenderer\&.clipRect, and J2DRenderer\&.g\&.
+.PP
+.nf
+        {
+                clipping = flag;
+                if (flag && g != null)
+                        g\&.setClip(clipRect);
+                else
+                        g\&.setClip(null);
+        }
+.fi
+.SS "void \fBsetColor\fP (Colorc)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.g\&.
+.PP
+Referenced by J2DRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                if (g != null)
+                        g\&.setColor(c);
+        }
+.fi
+.SS "void \fBsetFont\fP (Fontf)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.g\&.
+.PP
+.nf
+        {
+                if (g != null)
+                        g\&.setFont(f);
+        }
+.fi
+.SS "void \fBsetGraphics\fP (Graphicsg)\fC [inline, package]\fP"
+.PP
+Referenced by J2DRenderCanvas\&.paint()\&.
+.PP
+.nf
+        {
+                this\&.g = (Graphics2D)g;
+                if (g != null)
+                {
+                        //this\&.g\&.setRenderingHint(RenderingHints\&.KEY_ANTIALIASING, RenderingHints\&.VALUE_ANTIALIAS_ON);
+                        //this\&.g\&.setRenderingHint(RenderingHints\&.KEY_TEXT_ANTIALIASING, RenderingHints\&.VALUE_TEXT_ANTIALIAS_OFF);
+                }
+        }
+.fi
+.SS "void \fBsetLineStyle\fP (Strings, booleanforceStippling)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.linePattern, and J2DRenderer\&.updateStroke()\&.
+.PP
+Referenced by J2DRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                if (s\&.equals('-'))
+                        linePattern = null;
+                else if (s\&.equals(':'))
+                        linePattern = new float[] {2\&.0f, 4\&.0f};
+                else if (s\&.equals('--'))
+                        linePattern = new float[] {10\&.0f, 5\&.0f};
+                else if (s\&.equals('-\&.'))
+                        linePattern = new float[] {5\&.0f, 5\&.0f, 1\&.0f, 5\&.0f};
+                else
+                        linePattern = null;
+                updateStroke();
+        }
+.fi
+.SS "void \fBsetLineWidth\fP (floatw)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References J2DRenderer\&.lineWidth, and J2DRenderer\&.updateStroke()\&.
+.PP
+Referenced by J2DRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                lineWidth = w;
+                updateStroke();
+        }
+.fi
+.SS "void \fBsetViewport\fP (intwidth, intheight)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBsetXForm\fP (\fBAxesObject\fPax)\fC [inline]\fP"
+.PP
+Implements \fBRenderer\fP\&.
+.PP
+References FigureObject\&.__Antialias__, J2DRenderer\&.g, AxesObject\&.getFigure(), BooleanProperty\&.isSet(), J2DRenderer\&.sx, AxesObject\&.sx, J2DRenderer\&.sy, AxesObject\&.sy, J2DRenderer\&.sz, AxesObject\&.sz, AxesObject\&.x_render, and J2DRenderer\&.xForm\&.
+.PP
+.nf
+        {
+                xForm = ax\&.x_render;
+                sx = ax\&.sx;
+                sy = ax\&.sy;
+                sz = ax\&.sz;
+
+                if (g != null)
+                {
+                        boolean use_antialias = ax\&.getFigure()\&.__Antialias__\&.isSet();
+                        if (use_antialias)
+                        {
+                                g\&.setRenderingHint(RenderingHints\&.KEY_ANTIALIASING, RenderingHints\&.VALUE_ANTIALIAS_ON);
+                                g\&.setRenderingHint(RenderingHints\&.KEY_TEXT_ANTIALIASING, RenderingHints\&.VALUE_TEXT_ANTIALIAS_OFF);
+                        }
+                        else
+                        {
+                                g\&.setRenderingHint(RenderingHints\&.KEY_ANTIALIASING, RenderingHints\&.VALUE_ANTIALIAS_OFF);
+                        }
+                }
+        }
+.fi
+.SS "void \fBupdateStroke\fP ()\fC [inline, private]\fP"
+.PP
+References J2DRenderer\&.g, J2DRenderer\&.linePattern, and J2DRenderer\&.lineWidth\&.
+.PP
+Referenced by J2DRenderer\&.setLineStyle(), and J2DRenderer\&.setLineWidth()\&.
+.PP
+.nf
+        {
+                if (g != null)
+                        if (linePattern == null)
+                                g\&.setStroke(new BasicStroke(lineWidth));
+                        else
+                                g\&.setStroke(new BasicStroke(lineWidth, BasicStroke\&.CAP_BUTT,
+                                                        BasicStroke\&.JOIN_BEVEL, 1\&.0f, linePattern, 0\&.0f));
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBJ2DRenderCanvas\fP \fBcanvas\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.clear(), J2DRenderer\&.draw(), J2DRenderer\&.drawRubberBox(), J2DRenderer\&.drawText(), and J2DRenderer\&.J2DRenderer()\&.
+.SS "boolean \fBclipping\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.hasClipping(), J2DRenderer\&.J2DRenderer(), and J2DRenderer\&.setClipping()\&.
+.SS "Rectangle \fBclipRect\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.setClipBox(), and J2DRenderer\&.setClipping()\&.
+.SS "Graphics2D \fBg\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.clear(), J2DRenderer\&.draw(), J2DRenderer\&.drawQuads(), J2DRenderer\&.drawRubberBox(), J2DRenderer\&.drawSegments(), J2DRenderer\&.drawText(), J2DRenderer\&.J2DRenderer(), J2DRenderer\&.setClipping(), J2DRenderer\&.setColor(), J2DRenderer\&.setFont(), J2DRenderer\&.setXForm(), and J2DRenderer\&.updateStroke()\&.
+.SS "float [] \fBlinePattern\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.J2DRenderer(), J2DRenderer\&.setLineStyle(), and J2DRenderer\&.updateStroke()\&.
+.SS "float \fBlineWidth\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.J2DRenderer(), J2DRenderer\&.setLineWidth(), and J2DRenderer\&.updateStroke()\&.
+.SS "final int \fBLS_DASHDOT\fP = 3\fC [static, inherited]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_DASHED\fP = 2\fC [static, inherited]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_DOTTED\fP = 1\fC [static, inherited]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_NONE\fP = 4\fC [static, inherited]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_SOLID\fP = 0\fC [static, inherited]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "AxesObject\&.Scaler \fBsx\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.draw(), and J2DRenderer\&.setXForm()\&.
+.SS "AxesObject\&.Scaler \fBsy\fP\fC [package]\fP"
+.PP
+Referenced by J2DRenderer\&.draw(), and J2DRenderer\&.setXForm()\&.
+.SS "AxesObject\&.Scaler \fBsz\fP\fC [package]\fP"
+.PP
+Referenced by J2DRenderer\&.draw(), and J2DRenderer\&.setXForm()\&.
+.SS "\fBMatrix3D\fP \fBxForm\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderer\&.draw(), J2DRenderer\&.drawQuads(), J2DRenderer\&.drawSegments(), J2DRenderer\&.drawText(), J2DRenderer\&.setClipBox(), and J2DRenderer\&.setXForm()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

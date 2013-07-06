@@ -1,0 +1,58 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/reset_property.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/reset_property.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBreset_property\fP (\fBh\fP, \fBvarargin\fP) h_obj"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBp\fP)) \fBp\&.reset\fP(\fBvarargin\fP"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('unknown property: %\fBs\fP', varargin{\fBn\fP})"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBn\fP = \fBlength\fP (\fBvarargin\fP)"
+.br
+.ti -1c
+.RI "for \fBi\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "else \fBerror\fP ('unknown property: %\fBs\fP')"
+.SS "\fBif\fP (!isemptyp)"
+.PP
+Definition at line 22 of file reset_property\&.m\&.
+.PP
+.nf
+                       {i+1});
+.fi
+.SS "\fBfunction\fP \fBreset_property\fP (\fBh\fP, \fBvarargin\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "for \fBi\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:2:n
+    p = h_obj\&.getProperty (varargin{i})
+.fi
+.PP
+Definition at line 20 of file reset_property\&.m\&.
+.SS "\fBn\fP = \fBlength\fP (\fBvarargin\fP)"
+.PP
+Definition at line 19 of file reset_property\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

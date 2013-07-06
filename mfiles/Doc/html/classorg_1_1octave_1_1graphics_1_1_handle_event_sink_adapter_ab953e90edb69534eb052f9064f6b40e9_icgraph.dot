@@ -1,0 +1,36 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="dispose",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="org.octave.graphics.PushButtonControl.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_push_button_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="org.octave.graphics.OctaveSink.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_octave_sink.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="org.octave.graphics.OctaveSink.OctaveSink",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_octave_sink.html#a2541f4d15fa1dd5809fd69ab4f3dd5a6"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="org.octave.graphics.CheckBoxControl.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_check_box_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="org.octave.graphics.EditControl.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_edit_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="org.octave.graphics.PopupMenuControl.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_popup_menu_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="org.octave.graphics.UIControlAdapter.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_adapter.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="org.octave.graphics.UIControlObject.deleteComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a56aa1ece56c4b8b0ef8d22259c19b394"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="org.octave.graphics.UIControlObject.delete",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a7a4721d0a51e952c211e9b0fea4d8090"];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="org.octave.graphics.UIControlObject.validate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a41d45236c37b75848f4b1667a11fb50e"];
+  Node9 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="org.octave.graphics.UIControlObject.makeControl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a4fd5ea43256d29c0ffc1ef7394193304"];
+  Node12 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node13 [label="org.octave.graphics.Edit2Control.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_edit2_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node14 [label="org.octave.graphics.TextControl.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_text_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node15 [label="org.octave.graphics.ListBoxControl.dispose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_list_box_control.html#ab953e90edb69534eb052f9064f6b40e9"];
+}

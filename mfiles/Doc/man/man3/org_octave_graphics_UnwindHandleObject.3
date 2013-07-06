@@ -1,0 +1,114 @@
+.TH "UnwindHandleObject" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnwindHandleObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBUnwindHandleObject\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "synchronized void \fBunwind\fP (\fBProperty\fP p, Object value)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "synchronized void \fBswapValues\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Map \fBunwindMap\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBUnwindHandleObject\fP ()\fC [inline]\fP"
+.PP
+References UnwindHandleObject\&.unwindMap\&.
+.PP
+.nf
+        {
+                unwindMap = new HashMap();
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBend\fP ()\fC [inline]\fP"
+.PP
+References UnwindHandleObject\&.swapValues(), and UnwindHandleObject\&.unwindMap\&.
+.PP
+Referenced by OctaveCallback\&.execute()\&.
+.PP
+.nf
+        {
+                swapValues();
+                unwindMap\&.clear();
+        }
+.fi
+.SS "void \fBstart\fP ()\fC [inline]\fP"
+.PP
+References UnwindHandleObject\&.swapValues()\&.
+.PP
+Referenced by OctaveCallback\&.execute()\&.
+.PP
+.nf
+        {
+                swapValues();
+        }
+.fi
+.SS "synchronized void \fBswapValues\fP ()\fC [inline, private]\fP"
+.PP
+References Property\&.get(), Property\&.reset(), and UnwindHandleObject\&.unwindMap\&.
+.PP
+Referenced by UnwindHandleObject\&.end(), and UnwindHandleObject\&.start()\&.
+.PP
+.nf
+        {
+                Iterator it = unwindMap\&.entrySet()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Map\&.Entry entry = (Map\&.Entry)it\&.next();
+                        Property p = (Property)entry\&.getKey();
+                        Object value = p\&.get();
+
+                        p\&.reset(entry\&.getValue());
+                        entry\&.setValue(value);
+                }
+        }
+.fi
+.SS "synchronized void \fBunwind\fP (\fBProperty\fPp, Objectvalue)\fC [inline]\fP"
+.PP
+References UnwindHandleObject\&.unwindMap\&.
+.PP
+Referenced by Callback\&.unwind()\&.
+.PP
+.nf
+        {
+                unwindMap\&.put(p, value);
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "Map \fBunwindMap\fP\fC [private]\fP"
+.PP
+Referenced by UnwindHandleObject\&.end(), UnwindHandleObject\&.swapValues(), UnwindHandleObject\&.unwind(), and UnwindHandleObject\&.UnwindHandleObject()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

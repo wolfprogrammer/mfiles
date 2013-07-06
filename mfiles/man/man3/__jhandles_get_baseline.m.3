@@ -1,0 +1,91 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_get_baseline.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_get_baseline.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBendif\fP endfor \fBif\fP (isempty(\fBh\fP)) \fBh\fP"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBh\fP,'BaseValue','double', bv)"
+.br
+.ti -1c
+.RI "\fBaddlistener\fP (\fBax\fP,'XLim',{@updateXLim, \fBh\fP}, \fBh\fP)"
+.br
+.ti -1c
+.RI "\fBaddlistener\fP (\fBh\fP,'BaseValue',@updateBaseValue)"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBupdateXLim\fP (\fBax\fP, evt, \fBh\fP) \fBset\fP(\fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBget\fP (\fBax\fP,'XLim'))"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBupdateBaseValue\fP (\fBh\fP, evt) \fBbv\fP"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBh\fP,'YData',[bv \fBbv\fP])"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBh\fP"
+.br
+.ti -1c
+.RI "for \fBhh\fP"
+.br
+.ti -1c
+.RI "\fBbreak\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBXData\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBaddlistener\fP (\fBax\fP, 'XLim')"
+.SS "\fBaddlistener\fP (\fBh\fP, 'BaseValue', @updateBaseValue)"
+.SS "\fBaddprop\fP (\fBh\fP, 'BaseValue', 'double', \fBbv\fP)"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBget\fP (\fBax\fP, 'XLim')"
+.SS "\fBendif\fP endfor \fBif\fP (isempty(\fBh\fP))"
+.SS "\fBset\fP (\fBh\fP, 'YData')"
+.SS "endfunction \fBfunction\fP \fBupdateBaseValue\fP (\fBh\fP, evt)"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBupdateXLim\fP (\fBax\fP, evt, \fBh\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBbreak\fP"
+.PP
+Definition at line 22 of file __jhandles_get_baseline\&.m\&.
+.SS "\fBfunction\fP \fBh\fP"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_get_baseline (ax, bv)
+
+  h = []
+.fi
+.PP
+Definition at line 16 of file __jhandles_get_baseline\&.m\&.
+.SS "for \fBhh\fP"\fBInitial value:\fP
+.PP
+.nf
+ get (ax, 'children')
+    if (strcmp (get (hh, 'type'), 'line') && isprop (hh, 'BaseValue'))
+      h = hh
+.fi
+.PP
+Definition at line 19 of file __jhandles_get_baseline\&.m\&.
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBXData\fP"
+.PP
+Definition at line 36 of file __jhandles_get_baseline\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

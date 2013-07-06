@@ -1,0 +1,1089 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/src/gl2ps.h" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/src/gl2ps.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <GL/gl\&.h>\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGL2PSDLL_API\fP"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_MAJOR_VERSION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_MINOR_VERSION\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_PATCH_VERSION\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_EXTRA_VERSION\fP   ''"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_VERSION\fP"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_COPYRIGHT\fP   '(C) 1999-2006 Christophe Geuzaine (geuz@geuz\&.org)'"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_PS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_EPS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEX\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_PDF\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_SVG\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_PGF\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NO_SORT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_SIMPLE_SORT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_BSP_SORT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_SUCCESS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_INFO\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_WARNING\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_ERROR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NO_FEEDBACK\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_OVERFLOW\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_UNINITIALIZED\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_DRAW_BACKGROUND\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_SIMPLE_LINE_OFFSET\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_SILENT\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_BEST_ROOT\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_OCCLUSION_CULL\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NO_TEXT\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_LANDSCAPE\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NO_PS3_SHADING\fP   (1<<7)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NO_PIXMAP\fP   (1<<8)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_USE_CURRENT_VIEWPORT\fP   (1<<9)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_COMPRESS\fP   (1<<10)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_NO_BLENDING\fP   (1<<11)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TIGHT_BOUNDING_BOX\fP   (1<<12)"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_POLYGON_OFFSET_FILL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_POLYGON_BOUNDARY\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_LINE_STIPPLE\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_BLEND\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_C\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_CL\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_CR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_B\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_BL\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_BR\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_T\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_TL\fP   8"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_TR\fP   9"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_L\fP   10"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_LL\fP   11"
+.br
+.ti -1c
+.RI "#define \fBGL2PS_TEXT_LR\fP   12"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef GLfloat \fBGL2PSrgba\fP [4]"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psBeginPage\fP (const char *title, const char *producer, GLint viewport[4], GLint format, GLint sort, GLint options, GLint colormode, GLint colorsize, \fBGL2PSrgba\fP *colormap, GLint \fBnr\fP, GLint ng, GLint nb, GLint buffersize, FILE *\fBstream\fP, const char *filename)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psEndPage\fP (void)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psSetOptions\fP (GLint options)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psBeginViewport\fP (GLint viewport[4])"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psEndViewport\fP (void)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psText\fP (const char *str, const char *fontname, GLshort fontsize)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psTextOpt\fP (const char *str, const char *fontname, GLshort fontsize, GLint align, GLfloat \fBangle\fP, GLfloat margin, GLboolean offsetmargin, GLfloat linewidth, \fBGL2PSrgba\fP linecolor, GLushort linepattern, GLint linefactor, \fBGL2PSrgba\fP fillcolor)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psSpecial\fP (GLint format, const char *str, int moveTo)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psDrawPixels\fP (GLsizei \fBwidth\fP, GLsizei height, GLint xorig, GLint yorig, GLenum format, GLenum \fBtype\fP, const void *pixels)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psEnable\fP (GLint \fBmode\fP)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psDisable\fP (GLint \fBmode\fP)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psPointSize\fP (GLfloat value)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psLineWidth\fP (GLfloat value)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psBlendFunc\fP (GLenum sfactor, GLenum dfactor)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP GLint \fBgl2psDrawImageMap\fP (GLsizei \fBwidth\fP, GLsizei height, const GLfloat \fBposition\fP[3], const unsigned char *imagemap)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP const char * \fBgl2psGetFileExtension\fP (GLint format)"
+.br
+.ti -1c
+.RI "\fBGL2PSDLL_API\fP const char * \fBgl2psGetFormatDescription\fP (GLint format)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define \fBGL2PS_BEST_ROOT\fP   (1<<3)"
+.PP
+Definition at line 121 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psFindRoot()\&.
+.SS "#define \fBGL2PS_BLEND\fP   4"
+.PP
+Definition at line 137 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psDisable(), and gl2psEnable()\&.
+.SS "#define \fBGL2PS_BSP_SORT\fP   3"
+.PP
+Definition at line 103 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBeginPage(), and gl2psPrintPrimitives()\&.
+.SS "#define \fBGL2PS_COMPRESS\fP   (1<<10)"
+.PP
+Definition at line 128 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psClosePDFDataStream(), gl2psPrintf(), gl2psPrintGzipFooter(), gl2psPrintGzipHeader(), gl2psPrintPDFCompressorType(), gl2psPrintPDFFooter(), gl2psPrintPDFHeader(), gl2psPrintPDFPixmap(), and gl2psPrintPDFShader()\&.
+.SS "#define \fBGL2PS_COPYRIGHT\fP   '(C) 1999-2006 Christophe Geuzaine (geuz@geuz\&.org)'"
+.PP
+Definition at line 88 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "#define \fBGL2PS_DRAW_BACKGROUND\fP   (1<<0)"
+.PP
+Definition at line 118 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psOpenPDFDataStreamWritePreface(), gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPGFHeader(), gl2psPrintPostScriptBeginViewport(), gl2psPrintPostScriptHeader(), gl2psPrintSVGBeginViewport(), and gl2psPrintSVGHeader()\&.
+.SS "#define \fBGL2PS_EPS\fP   1"
+.PP
+Definition at line 93 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPostScriptPrimitive()\&.
+.SS "#define \fBGL2PS_ERROR\fP   3"
+.PP
+Definition at line 110 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psClosePDFDataStream(), gl2psCopyPrimitive(), gl2psDrawImageMap(), gl2psDrawPixels(), gl2psFindRoot(), gl2psGetPlane(), gl2psListAdd(), gl2psListPointer(), gl2psListRealloc(), gl2psMalloc(), gl2psMsg(), gl2psParseFeedbackBuffer(), gl2psPrintGzipFooter(), gl2psRealloc(), and Java_org_octave_graphics_GL2PS_gl2psBeginPage()\&.
+.SS "#define \fBGL2PS_EXTRA_VERSION\fP   ''"
+.PP
+Definition at line 82 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "#define \fBGL2PS_INFO\fP   1"
+.PP
+Definition at line 108 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psMsg(), and gl2psPrintPrimitives()\&.
+.SS "#define \fBGL2PS_LANDSCAPE\fP   (1<<6)"
+.PP
+Definition at line 124 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFOpenPage(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), gl2psPrintTeXFooter(), and gl2psPrintTeXHeader()\&.
+.SS "#define \fBGL2PS_LINE_STIPPLE\fP   3"
+.PP
+Definition at line 136 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psDisable(), and gl2psEnable()\&.
+.SS "#define \fBGL2PS_MAJOR_VERSION\fP   1"
+.PP
+Definition at line 79 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "#define \fBGL2PS_MINOR_VERSION\fP   3"
+.PP
+Definition at line 80 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "#define \fBGL2PS_NO_BLENDING\fP   (1<<11)"
+.PP
+Definition at line 129 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psAdaptVertexForBlending(), and gl2psDrawPixels()\&.
+.SS "#define \fBGL2PS_NO_FEEDBACK\fP   4"
+.PP
+Definition at line 111 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+.SS "#define \fBGL2PS_NO_PIXMAP\fP   (1<<8)"
+.PP
+Definition at line 126 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psDrawPixels()\&.
+.SS "#define \fBGL2PS_NO_PS3_SHADING\fP   (1<<7)"
+.PP
+Definition at line 125 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPostScriptHeader()\&.
+.SS "#define \fBGL2PS_NO_SORT\fP   1"
+.PP
+Definition at line 101 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBeginPage(), and gl2psPrintPrimitives()\&.
+.SS "#define \fBGL2PS_NO_TEXT\fP   (1<<5)"
+.PP
+Definition at line 123 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psAddText()\&.
+.SS "#define \fBGL2PS_NONE\fP   0"
+.PP
+Definition at line 117 of file gl2ps\&.h\&.
+.SS "#define \fBGL2PS_OCCLUSION_CULL\fP   (1<<4)"
+.PP
+Definition at line 122 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFPrimitive(), gl2psPrintPostScriptPrimitive(), gl2psPrintPrimitives(), and gl2psPrintSVGPrimitive()\&.
+.SS "#define \fBGL2PS_OVERFLOW\fP   5"
+.PP
+Definition at line 112 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psEndPage(), and gl2psPrintPrimitives()\&.
+.SS "#define \fBGL2PS_PATCH_VERSION\fP   2"
+.PP
+Definition at line 81 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "#define \fBGL2PS_PDF\fP   3"
+.PP
+Definition at line 95 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPDFgroupListWriteObjects()\&.
+.SS "#define \fBGL2PS_PGF\fP   5"
+.PP
+Definition at line 97 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPGFPrimitive()\&.
+.SS "#define \fBGL2PS_POLYGON_BOUNDARY\fP   2"
+.PP
+Definition at line 135 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psDisable(), and gl2psEnable()\&.
+.SS "#define \fBGL2PS_POLYGON_OFFSET_FILL\fP   1"
+.PP
+Definition at line 134 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psDisable(), and gl2psEnable()\&.
+.SS "#define \fBGL2PS_PS\fP   0"
+.PP
+Definition at line 92 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPostScriptHeader(), and gl2psPrintPostScriptPrimitive()\&.
+.SS "#define \fBGL2PS_SILENT\fP   (1<<2)"
+.PP
+Definition at line 120 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psMsg()\&.
+.SS "#define \fBGL2PS_SIMPLE_LINE_OFFSET\fP   (1<<1)"
+.PP
+Definition at line 119 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psRescaleAndOffset()\&.
+.SS "#define \fBGL2PS_SIMPLE_SORT\fP   2"
+.PP
+Definition at line 102 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPrimitives(), and gl2psRescaleAndOffset()\&.
+.SS "#define \fBGL2PS_SUCCESS\fP   0"
+.PP
+Definition at line 107 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psAddText(), gl2psBeginPage(), gl2psBeginViewport(), gl2psBlendFunc(), gl2psDisable(), gl2psDrawImageMap(), gl2psDrawPixels(), gl2psEnable(), gl2psLineWidth(), gl2psPointSize(), gl2psPrintPrimitives(), and gl2psSetOptions()\&.
+.SS "#define \fBGL2PS_SVG\fP   4"
+.PP
+Definition at line 96 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBeginPage(), and gl2psPrintSVGPrimitive()\&.
+.SS "#define \fBGL2PS_TEX\fP   2"
+.PP
+Definition at line 94 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_B\fP   4"
+.PP
+Definition at line 148 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_BL\fP   5"
+.PP
+Definition at line 149 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), gl2psPrintTeXPrimitive(), and gl2psText()\&.
+.SS "#define \fBGL2PS_TEXT_BR\fP   6"
+.PP
+Definition at line 150 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_C\fP   1"
+.PP
+Definition at line 145 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_CL\fP   2"
+.PP
+Definition at line 146 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_CR\fP   3"
+.PP
+Definition at line 147 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_L\fP   10"
+.PP
+Definition at line 155 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPostScriptPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_LL\fP   11"
+.PP
+Definition at line 156 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPostScriptPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_LR\fP   12"
+.PP
+Definition at line 157 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPostScriptPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_T\fP   7"
+.PP
+Definition at line 151 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_TL\fP   8"
+.PP
+Definition at line 152 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TEXT_TR\fP   9"
+.PP
+Definition at line 153 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPGFTextAlignment(), gl2psPrintPostScriptPrimitive(), and gl2psPrintTeXPrimitive()\&.
+.SS "#define \fBGL2PS_TIGHT_BOUNDING_BOX\fP   (1<<12)"
+.PP
+Definition at line 130 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+.SS "#define \fBGL2PS_UNINITIALIZED\fP   6"
+.PP
+Definition at line 113 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psAddText(), gl2psBeginViewport(), gl2psBlendFunc(), gl2psDisable(), gl2psDrawImageMap(), gl2psDrawPixels(), gl2psEnable(), gl2psEndPage(), gl2psEndViewport(), gl2psLineWidth(), gl2psPointSize(), gl2psSetOptions(), and Java_org_octave_graphics_GL2PS_gl2psEndPage()\&.
+.SS "#define \fBGL2PS_USE_CURRENT_VIEWPORT\fP   (1<<9)"
+.PP
+Definition at line 127 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBeginPage()\&.
+.SS "#define \fBGL2PS_VERSION\fP"\fBValue:\fP
+.PP
+.nf
+(GL2PS_MAJOR_VERSION + \
+                       0\&.01 * GL2PS_MINOR_VERSION + \
+                       0\&.0001 * GL2PS_PATCH_VERSION)
+.fi
+.PP
+Definition at line 84 of file gl2ps\&.h\&.
+.SS "#define \fBGL2PS_WARNING\fP   2"
+.PP
+Definition at line 109 of file gl2ps\&.h\&.
+.PP
+Referenced by gl2psBlendFunc(), gl2psCreateSplitPrimitive(), gl2psDisable(), gl2psEnable(), gl2psMsg(), gl2psParseFeedbackBuffer(), gl2psPrintPostScriptPrimitive(), gl2psPrintSVGPixmap(), and gl2psPrintSVGPrimitive()\&.
+.SS "#define \fBGL2PSDLL_API\fP"
+.PP
+Definition at line 58 of file gl2ps\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef GLfloat \fBGL2PSrgba\fP[4]"
+.PP
+Definition at line 159 of file gl2ps\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psBeginPage\fP (const char *title, const char *producer, GLintviewport[4], GLintformat, GLintsort, GLintoptions, GLintcolormode, GLintcolorsize, \fBGL2PSrgba\fP *colormap, GLintnr, GLintng, GLintnb, GLintbuffersize, FILE *stream, const char *filename)"
+.PP
+Definition at line 5664 of file gl2ps\&.c\&.
+.PP
+References GL2PScontext::auxprimitives, GL2PScontext::bgcolor, GL2PScontext::blendfunc, GL2PScontext::blending, GL2PScontext::buffersize, GL2PScontext::colormap, GL2PScontext::colormode, GL2PScontext::colorsize, GL2PScontext::compress, GL2PScontext::feedback, GL2PScontext::filename, GL2PScontext::format, GL2PS_BSP_SORT, GL2PS_ERROR, GL2PS_NO_SORT, GL2PS_SIMPLE_SORT, GL2PS_SUCCESS, GL2PS_SVG, GL2PS_USE_CURRENT_VIEWPORT, gl2psbackends, gl2psFree(), gl2psListCreate(), gl2psMalloc(), gl2psMsg(), GL2PScontext::header, i, GL2PScontext::imagemap_head, GL2PScontext::imagemap_tail, GL2PScontext::imagetree, GL2PScontext::lastfactor, GL2PScontext::lastlinewidth, GL2PScontext::lastpattern, GL2PScontext::lastrgba, GL2PScontext::lastvertex, GL2PScontext::maxbestroot, GL2PScontext::options, GL2PScontext::pdfgrouplist, GL2PScontext::pdfprimlist, GL2PScontext::primitives, GL2PScontext::primitivetoadd, GL2PScontext::producer, GL2PSvertex::rgba, GL2PScontext::sort, stream, GL2PScontext::stream, GL2PScontext::threshold, GL2PScontext::title, GL2PScontext::viewport, GL2PScontext::xreflist, GL2PSvertex::xyz, and GL2PScontext::zerosurfacearea\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psBeginPage()\&.
+.PP
+.nf
+{
+  GLint index;
+  int i;
+
+  if(gl2ps){
+    gl2psMsg(GL2PS_ERROR, 'gl2psBeginPage called in wrong program state');
+    return GL2PS_ERROR;
+  }
+
+  gl2ps = (GL2PScontext*)gl2psMalloc(sizeof(GL2PScontext));
+
+  if(format >= 0 && format < (GLint)(sizeof(gl2psbackends)/sizeof(gl2psbackends[0]))){
+    gl2ps->format = format;
+  }
+  else {
+    gl2psMsg(GL2PS_ERROR, 'Unknown output format: %d', format);
+    gl2psFree(gl2ps);
+    gl2ps = NULL;
+    return GL2PS_ERROR;
+  }
+
+  switch(sort){
+  case GL2PS_NO_SORT :
+  case GL2PS_SIMPLE_SORT :
+  case GL2PS_BSP_SORT :
+    gl2ps->sort = sort;
+    break;
+  default :
+    gl2psMsg(GL2PS_ERROR, 'Unknown sorting algorithm: %d', sort);
+    gl2psFree(gl2ps);
+    gl2ps = NULL;
+    return GL2PS_ERROR;
+  }
+
+  if(stream){
+    gl2ps->stream = stream;
+  }
+  else{
+    gl2psMsg(GL2PS_ERROR, 'Bad file pointer');
+    gl2psFree(gl2ps);
+    gl2ps = NULL;
+    return GL2PS_ERROR;
+  }
+
+  gl2ps->header = GL_TRUE;
+  gl2ps->maxbestroot = 10;
+  gl2ps->options = options;
+  gl2ps->compress = NULL;
+  gl2ps->imagemap_head = NULL;
+  gl2ps->imagemap_tail = NULL;
+
+  if(gl2ps->options & GL2PS_USE_CURRENT_VIEWPORT){
+    glGetIntegerv(GL_VIEWPORT, gl2ps->viewport);
+  }
+  else{
+    for(i = 0; i < 4; i++){
+      gl2ps->viewport[i] = viewport[i];
+    }
+  }
+
+  if(!gl2ps->viewport[2] || !gl2ps->viewport[3]){
+    gl2psMsg(GL2PS_ERROR, 'Incorrect viewport (x=%d, y=%d, width=%d, height=%d)',
+             gl2ps->viewport[0], gl2ps->viewport[1], 
+             gl2ps->viewport[2], gl2ps->viewport[3]);
+    gl2psFree(gl2ps);
+    gl2ps = NULL;
+    return GL2PS_ERROR;
+  }
+
+  gl2ps->threshold[0] = nr ? 1\&.0F/(GLfloat)nr : 0\&.064F;
+  gl2ps->threshold[1] = ng ? 1\&.0F/(GLfloat)ng : 0\&.034F;
+  gl2ps->threshold[2] = nb ? 1\&.0F/(GLfloat)nb : 0\&.100F;
+  gl2ps->colormode = colormode;
+  gl2ps->buffersize = buffersize > 0 ? buffersize : 2048 * 2048;
+  for(i = 0; i < 3; i++){
+    gl2ps->lastvertex\&.xyz[i] = -1\&.0F;
+  }
+  for(i = 0; i < 4; i++){
+    gl2ps->lastvertex\&.rgba[i] = -1\&.0F;
+    gl2ps->lastrgba[i] = -1\&.0F;
+  }
+  gl2ps->lastlinewidth = -1\&.0F;
+  gl2ps->lastpattern = 0;
+  gl2ps->lastfactor = 0;
+  gl2ps->imagetree = NULL;
+  gl2ps->primitivetoadd = NULL;
+  gl2ps->zerosurfacearea = GL_FALSE;  
+  gl2ps->pdfprimlist = NULL;
+  gl2ps->pdfgrouplist = NULL;
+  gl2ps->xreflist = NULL;
+  
+  /* get default blending mode from current OpenGL state (enabled by
+     default for SVG) */
+  gl2ps->blending = (gl2ps->format == GL2PS_SVG) ? GL_TRUE : glIsEnabled(GL_BLEND);
+  glGetIntegerv(GL_BLEND_SRC, &gl2ps->blendfunc[0]);
+  glGetIntegerv(GL_BLEND_DST, &gl2ps->blendfunc[1]);
+
+  if(gl2ps->colormode == GL_RGBA){
+    gl2ps->colorsize = 0;
+    gl2ps->colormap = NULL;
+    glGetFloatv(GL_COLOR_CLEAR_VALUE, gl2ps->bgcolor);
+  }
+  else if(gl2ps->colormode == GL_COLOR_INDEX){
+    if(!colorsize || !colormap){
+      gl2psMsg(GL2PS_ERROR, 'Missing colormap for GL_COLOR_INDEX rendering');
+      gl2psFree(gl2ps);
+      gl2ps = NULL;
+      return GL2PS_ERROR;
+    }
+    gl2ps->colorsize = colorsize;
+    gl2ps->colormap = (GL2PSrgba*)gl2psMalloc(gl2ps->colorsize * sizeof(GL2PSrgba));
+    memcpy(gl2ps->colormap, colormap, gl2ps->colorsize * sizeof(GL2PSrgba));
+    glGetIntegerv(GL_INDEX_CLEAR_VALUE, &index);
+    gl2ps->bgcolor[0] = gl2ps->colormap[index][0];
+    gl2ps->bgcolor[1] = gl2ps->colormap[index][1];
+    gl2ps->bgcolor[2] = gl2ps->colormap[index][2];
+    gl2ps->bgcolor[3] = 1\&.0F;
+  }
+  else{
+    gl2psMsg(GL2PS_ERROR, 'Unknown color mode in gl2psBeginPage');
+    gl2psFree(gl2ps);
+    gl2ps = NULL;
+    return GL2PS_ERROR;
+  }
+
+  if(!title){
+    gl2ps->title = (char*)gl2psMalloc(sizeof(char));
+    gl2ps->title[0] = '\0';
+  }
+  else{
+    gl2ps->title = (char*)gl2psMalloc((strlen(title)+1)*sizeof(char));
+    strcpy(gl2ps->title, title);
+  }
+    
+  if(!producer){
+    gl2ps->producer = (char*)gl2psMalloc(sizeof(char));
+    gl2ps->producer[0] = '\0';
+  }
+  else{
+    gl2ps->producer = (char*)gl2psMalloc((strlen(producer)+1)*sizeof(char));
+    strcpy(gl2ps->producer, producer);
+  }
+  
+  if(!filename){
+    gl2ps->filename = (char*)gl2psMalloc(sizeof(char));
+    gl2ps->filename[0] = '\0';
+  }
+  else{
+    gl2ps->filename = (char*)gl2psMalloc((strlen(filename)+1)*sizeof(char));
+    strcpy(gl2ps->filename, filename);
+  }
+
+  gl2ps->primitives = gl2psListCreate(500, 500, sizeof(GL2PSprimitive*));
+  gl2ps->auxprimitives = gl2psListCreate(100, 100, sizeof(GL2PSprimitive*));
+  gl2ps->feedback = (GLfloat*)gl2psMalloc(gl2ps->buffersize * sizeof(GLfloat));
+  glFeedbackBuffer(gl2ps->buffersize, GL_3D_COLOR, gl2ps->feedback);
+  glRenderMode(GL_FEEDBACK);  
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psBeginViewport\fP (GLintviewport[4])"
+.PP
+Definition at line 5858 of file gl2ps\&.c\&.
+.PP
+References GL2PSbackend::beginViewport, GL2PScontext::format, GL2PS_SUCCESS, and GL2PS_UNINITIALIZED\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psBeginViewport()\&.
+.PP
+.nf
+{
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  (gl2psbackends[gl2ps->format]->beginViewport)(viewport);
+  
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psBlendFunc\fP (GLenumsfactor, GLenumdfactor)"
+.PP
+Definition at line 6086 of file gl2ps\&.c\&.
+.PP
+References GL2PS_DST_BLEND_TOKEN, GL2PS_SRC_BLEND_TOKEN, GL2PS_SUCCESS, GL2PS_UNINITIALIZED, GL2PS_WARNING, and gl2psSupportedBlendMode()\&.
+.PP
+.nf
+{
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  if(GL_FALSE == gl2psSupportedBlendMode(sfactor, dfactor))
+    return GL2PS_WARNING;
+
+  glPassThrough(GL2PS_SRC_BLEND_TOKEN);
+  glPassThrough((GLfloat)sfactor);
+  glPassThrough(GL2PS_DST_BLEND_TOKEN);
+  glPassThrough((GLfloat)dfactor);
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psDisable\fP (GLintmode)"
+.PP
+Definition at line 6041 of file gl2ps\&.c\&.
+.PP
+References GL2PS_BLEND, GL2PS_END_BLEND_TOKEN, GL2PS_END_BOUNDARY_TOKEN, GL2PS_END_OFFSET_TOKEN, GL2PS_END_STIPPLE_TOKEN, GL2PS_LINE_STIPPLE, GL2PS_POLYGON_BOUNDARY, GL2PS_POLYGON_OFFSET_FILL, GL2PS_SUCCESS, GL2PS_UNINITIALIZED, GL2PS_WARNING, and gl2psMsg()\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psDisable()\&.
+.PP
+.nf
+{
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  switch(mode){
+  case GL2PS_POLYGON_OFFSET_FILL :
+    glPassThrough(GL2PS_END_OFFSET_TOKEN);
+    break;
+  case GL2PS_POLYGON_BOUNDARY :
+    glPassThrough(GL2PS_END_BOUNDARY_TOKEN);
+    break;
+  case GL2PS_LINE_STIPPLE :
+    glPassThrough(GL2PS_END_STIPPLE_TOKEN);
+    break;
+  case GL2PS_BLEND :
+    glPassThrough(GL2PS_END_BLEND_TOKEN);
+    break;
+  default :
+    gl2psMsg(GL2PS_WARNING, 'Unknown mode in gl2psDisable: %d', mode);
+    return GL2PS_WARNING;
+  }
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psDrawImageMap\fP (GLsizeiwidth, GLsizeiheight, const GLfloatposition[3], const unsigned char *imagemap)"
+.PP
+Definition at line 5983 of file gl2ps\&.c\&.
+.PP
+References GL2PS_ERROR, GL2PS_IMAGEMAP_TOKEN, GL2PS_SUCCESS, GL2PS_UNINITIALIZED, and i\&.
+.PP
+.nf
+                                                                   {
+  int size, i;
+  int sizeoffloat = sizeof(GLfloat);
+  
+  if(!gl2ps || !imagemap) return GL2PS_UNINITIALIZED;
+
+  if((width <= 0) || (height <= 0)) return GL2PS_ERROR;
+  
+  size = height + height * ((width-1)/8);
+  glPassThrough(GL2PS_IMAGEMAP_TOKEN);
+  glBegin(GL_POINTS);
+  glVertex3f(position[0], position[1],position[2]);
+  glEnd();
+  glPassThrough((GLfloat)width);
+  glPassThrough((GLfloat)height);
+  for(i = 0; i < size; i += sizeoffloat){
+    float *value = (float*)imagemap;
+    glPassThrough(*value);
+    imagemap += sizeoffloat;
+  }
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psDrawPixels\fP (GLsizeiwidth, GLsizeiheight, GLintxorig, GLintyorig, GLenumformat, GLenumtype, const void *pixels)"
+.PP
+Definition at line 5902 of file gl2ps\&.c\&.
+.PP
+References GL2PScontext::auxprimitives, GL2PScontext::blending, GL2PSprimitive::boundary, GL2PSprimitive::culled, GL2PSprimitive::data, GL2PSprimitive::factor, GL2PSimage::format, GL2PS_DRAW_PIXELS_TOKEN, GL2PS_ERROR, GL2PS_NO_BLENDING, GL2PS_NO_PIXMAP, GL2PS_PIXMAP, GL2PS_SUCCESS, GL2PS_UNINITIALIZED, gl2psListAdd(), gl2psMalloc(), gl2psMsg(), GL2PSimage::height, i, GL2PSprimitive::image, GL2PSprimitive::numverts, GL2PSprimitive::offset, GL2PScontext::options, GL2PSprimitive::pattern, GL2PSimage::pixels, GL2PSvertex::rgba, type, GL2PSimage::type, GL2PSprimitive::type, GL2PSprimitive::verts, width, GL2PSimage::width, GL2PSprimitive::width, and GL2PSvertex::xyz\&.
+.PP
+.nf
+{
+  int size, i;
+  GLfloat pos[4], *piv;
+  GL2PSprimitive *prim;
+  GLboolean valid;
+
+  if(!gl2ps || !pixels) return GL2PS_UNINITIALIZED;
+
+  if((width <= 0) || (height <= 0)) return GL2PS_ERROR;
+
+  if(gl2ps->options & GL2PS_NO_PIXMAP) return GL2PS_SUCCESS;
+
+  if((format != GL_RGB && format != GL_RGBA) || type != GL_FLOAT){
+    gl2psMsg(GL2PS_ERROR, 'gl2psDrawPixels only implemented for '
+             'GL_RGB/GL_RGBA, GL_FLOAT pixels');
+    return GL2PS_ERROR;
+  }
+
+  glGetBooleanv(GL_CURRENT_RASTER_POSITION_VALID, &valid);
+  if(GL_FALSE == valid) return GL2PS_SUCCESS; /* the primitive is culled */
+
+  glGetFloatv(GL_CURRENT_RASTER_POSITION, pos);
+
+  prim = (GL2PSprimitive*)gl2psMalloc(sizeof(GL2PSprimitive));
+  prim->type = GL2PS_PIXMAP;
+  prim->boundary = 0;
+  prim->numverts = 1;
+  prim->verts = (GL2PSvertex*)gl2psMalloc(sizeof(GL2PSvertex));
+  prim->verts[0]\&.xyz[0] = pos[0] + xorig;
+  prim->verts[0]\&.xyz[1] = pos[1] + yorig;
+  prim->verts[0]\&.xyz[2] = pos[2];
+  prim->culled = 0;
+  prim->offset = 0;
+  prim->pattern = 0;
+  prim->factor = 0;
+  prim->width = 1;
+  glGetFloatv(GL_CURRENT_RASTER_COLOR, prim->verts[0]\&.rgba);
+  prim->data\&.image = (GL2PSimage*)gl2psMalloc(sizeof(GL2PSimage));
+  prim->data\&.image->width = width;
+  prim->data\&.image->height = height;
+  prim->data\&.image->format = format;
+  prim->data\&.image->type = type;
+
+  switch(format){
+  case GL_RGBA:
+    if(gl2ps->options & GL2PS_NO_BLENDING || !gl2ps->blending){
+      /* special case: blending turned off */
+      prim->data\&.image->format = GL_RGB;
+      size = height * width * 3;
+      prim->data\&.image->pixels = (GLfloat*)gl2psMalloc(size * sizeof(GLfloat));
+      piv = (GLfloat*)pixels;
+      for(i = 0; i < size; ++i, ++piv){
+        prim->data\&.image->pixels[i] = *piv;
+        if(!((i+1)%3))
+          ++piv;
+      }   
+    }
+    else{
+      size = height * width * 4;
+      prim->data\&.image->pixels = (GLfloat*)gl2psMalloc(size * sizeof(GLfloat));
+      memcpy(prim->data\&.image->pixels, pixels, size * sizeof(GLfloat));
+    }
+    break;
+  case GL_RGB:
+  default:
+    size = height * width * 3;
+    prim->data\&.image->pixels = (GLfloat*)gl2psMalloc(size * sizeof(GLfloat));
+    memcpy(prim->data\&.image->pixels, pixels, size * sizeof(GLfloat));
+    break;
+  }
+
+  gl2psListAdd(gl2ps->auxprimitives, &prim);
+  glPassThrough(GL2PS_DRAW_PIXELS_TOKEN);
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psEnable\fP (GLintmode)"
+.PP
+Definition at line 6008 of file gl2ps\&.c\&.
+.PP
+References GL2PS_BEGIN_BLEND_TOKEN, GL2PS_BEGIN_BOUNDARY_TOKEN, GL2PS_BEGIN_OFFSET_TOKEN, GL2PS_BEGIN_STIPPLE_TOKEN, GL2PS_BLEND, GL2PS_LINE_STIPPLE, GL2PS_POLYGON_BOUNDARY, GL2PS_POLYGON_OFFSET_FILL, GL2PS_SUCCESS, GL2PS_UNINITIALIZED, GL2PS_WARNING, gl2psMsg(), GL2PScontext::offset, and tmp\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psEnable()\&.
+.PP
+.nf
+{
+  GLint tmp;
+
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  switch(mode){
+  case GL2PS_POLYGON_OFFSET_FILL :
+    glPassThrough(GL2PS_BEGIN_OFFSET_TOKEN);
+    glGetFloatv(GL_POLYGON_OFFSET_FACTOR, &gl2ps->offset[0]);
+    glGetFloatv(GL_POLYGON_OFFSET_UNITS, &gl2ps->offset[1]);
+    break;
+  case GL2PS_POLYGON_BOUNDARY :
+    glPassThrough(GL2PS_BEGIN_BOUNDARY_TOKEN);
+    break;
+  case GL2PS_LINE_STIPPLE :
+    glPassThrough(GL2PS_BEGIN_STIPPLE_TOKEN);
+    glGetIntegerv(GL_LINE_STIPPLE_PATTERN, &tmp);
+    glPassThrough((GLfloat)tmp);
+    glGetIntegerv(GL_LINE_STIPPLE_REPEAT, &tmp);
+    glPassThrough((GLfloat)tmp);
+    break;
+  case GL2PS_BLEND :
+    glPassThrough(GL2PS_BEGIN_BLEND_TOKEN);
+    break;
+  default :
+    gl2psMsg(GL2PS_WARNING, 'Unknown mode in gl2psEnable: %d', mode);
+    return GL2PS_WARNING;
+  }
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psEndPage\fP (void)"
+.PP
+Definition at line 5831 of file gl2ps\&.c\&.
+.PP
+References GL2PScontext::auxprimitives, GL2PScontext::colormap, GL2PScontext::feedback, GL2PScontext::filename, GL2PScontext::format, GL2PS_OVERFLOW, GL2PS_UNINITIALIZED, gl2psFree(), gl2psFreeImagemap(), gl2psListDelete(), gl2psPrintPrimitives(), GL2PScontext::imagemap_head, GL2PScontext::primitives, GL2PSbackend::printFooter, GL2PScontext::producer, GL2PScontext::stream, and GL2PScontext::title\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psEndPage()\&.
+.PP
+.nf
+{
+  GLint res;
+
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  res = gl2psPrintPrimitives();
+
+  if(res != GL2PS_OVERFLOW)
+    (gl2psbackends[gl2ps->format]->printFooter)();
+  
+  fflush(gl2ps->stream);
+
+  gl2psListDelete(gl2ps->primitives);
+  gl2psListDelete(gl2ps->auxprimitives);
+  gl2psFreeImagemap(gl2ps->imagemap_head);
+  gl2psFree(gl2ps->colormap);
+  gl2psFree(gl2ps->title);
+  gl2psFree(gl2ps->producer);
+  gl2psFree(gl2ps->filename);
+  gl2psFree(gl2ps->feedback);
+  gl2psFree(gl2ps);
+  gl2ps = NULL;
+
+  return res;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psEndViewport\fP (void)"
+.PP
+Definition at line 5867 of file gl2ps\&.c\&.
+.PP
+References GL2PSbackend::endViewport, GL2PScontext::format, GL2PS_UNINITIALIZED, and GL2PScontext::lastlinewidth\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psEndViewport()\&.
+.PP
+.nf
+{
+  GLint res;
+
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  res = (gl2psbackends[gl2ps->format]->endViewport)();
+
+  /* reset last used line width */
+  gl2ps->lastlinewidth = -1\&.0F;
+
+  return res;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP const char* \fBgl2psGetFileExtension\fP (GLintformat)"
+.PP
+Definition at line 6110 of file gl2ps\&.c\&.
+.PP
+References GL2PSbackend::file_extension\&.
+.PP
+.nf
+{
+  if(format >= 0 && format < (GLint)(sizeof(gl2psbackends)/sizeof(gl2psbackends[0])))
+    return gl2psbackends[format]->file_extension;
+  else
+    return 'Unknown format';
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP const char* \fBgl2psGetFormatDescription\fP (GLintformat)"
+.PP
+Definition at line 6118 of file gl2ps\&.c\&.
+.PP
+References GL2PSbackend::description\&.
+.PP
+.nf
+{
+  if(format >= 0 && format < (GLint)(sizeof(gl2psbackends)/sizeof(gl2psbackends[0])))
+    return gl2psbackends[format]->description;
+  else
+    return 'Unknown format';
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psLineWidth\fP (GLfloatvalue)"
+.PP
+Definition at line 6076 of file gl2ps\&.c\&.
+.PP
+References GL2PS_LINE_WIDTH_TOKEN, GL2PS_SUCCESS, and GL2PS_UNINITIALIZED\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psLineWidth()\&.
+.PP
+.nf
+{
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  glPassThrough(GL2PS_LINE_WIDTH_TOKEN);
+  glPassThrough(value);
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psPointSize\fP (GLfloatvalue)"
+.PP
+Definition at line 6066 of file gl2ps\&.c\&.
+.PP
+References GL2PS_POINT_SIZE_TOKEN, GL2PS_SUCCESS, and GL2PS_UNINITIALIZED\&.
+.PP
+.nf
+{
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  glPassThrough(GL2PS_POINT_SIZE_TOKEN);
+  glPassThrough(value);
+  
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psSetOptions\fP (GLintoptions)"
+.PP
+Definition at line 6101 of file gl2ps\&.c\&.
+.PP
+References GL2PS_SUCCESS, GL2PS_UNINITIALIZED, and GL2PScontext::options\&.
+.PP
+.nf
+{
+  if(!gl2ps) return GL2PS_UNINITIALIZED;
+
+  gl2ps->options = options;
+
+  return GL2PS_SUCCESS;
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psSpecial\fP (GLintformat, const char *str, intmoveTo)"
+.PP
+Definition at line 5896 of file gl2ps\&.c\&.
+.PP
+References GL2PS_SPECIAL, and gl2psAddText()\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psSpecial()\&.
+.PP
+.nf
+{
+  return gl2psAddText(GL2PS_SPECIAL, str, '', (moveTo ? 1 : 0), format, 0\&.0F, 0\&.0F, GL_FALSE,
+      0, NULL, 0, 0, NULL);
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psText\fP (const char *str, const char *fontname, GLshortfontsize)"
+.PP
+Definition at line 5890 of file gl2ps\&.c\&.
+.PP
+References GL2PS_TEXT, GL2PS_TEXT_BL, and gl2psAddText()\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psText()\&.
+.PP
+.nf
+{
+  return gl2psAddText(GL2PS_TEXT, str, fontname, fontsize, GL2PS_TEXT_BL, 0\&.0F, 0\&.0F, GL_FALSE,
+      0, NULL, 0, 0, NULL);
+}
+.fi
+.SS "\fBGL2PSDLL_API\fP GLint \fBgl2psTextOpt\fP (const char *str, const char *fontname, GLshortfontsize, GLintalign, GLfloatangle, GLfloatmargin, GLbooleanoffsetmargin, GLfloatlinewidth, \fBGL2PSrgba\fPlinecolor, GLushortlinepattern, GLintlinefactor, \fBGL2PSrgba\fPfillcolor)"
+.PP
+Definition at line 5881 of file gl2ps\&.c\&.
+.PP
+References GL2PS_TEXT, and gl2psAddText()\&.
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psTextOpt()\&.
+.PP
+.nf
+{
+  return gl2psAddText(GL2PS_TEXT, str, fontname, fontsize, alignment, angle, margin, offsetmargin,
+      lwidth, lc, lpattern, lfactor, fc);
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

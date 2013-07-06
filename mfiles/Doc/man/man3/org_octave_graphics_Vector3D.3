@@ -1,0 +1,273 @@
+.TH "Vector3D" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vector3D \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVector3D\fP ()"
+.br
+.ti -1c
+.RI "\fBVector3D\fP (double[] \fBv\fP)"
+.br
+.ti -1c
+.RI "\fBVector3D\fP (double[] \fBv\fP, boolean copy)"
+.br
+.ti -1c
+.RI "\fBVector3D\fP (\fBVector3D\fP V)"
+.br
+.ti -1c
+.RI "void \fBscale\fP (double x, double y, double z)"
+.br
+.ti -1c
+.RI "void \fBtransform\fP (\fBMatrix3D\fP m)"
+.br
+.ti -1c
+.RI "double \fBget\fP (int idx)"
+.br
+.ti -1c
+.RI "double[] \fBgetData\fP ()"
+.br
+.ti -1c
+.RI "void \fBnormalize\fP ()"
+.br
+.ti -1c
+.RI "void \fBsub\fP (\fBVector3D\fP V)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBVector3D\fP V)"
+.br
+.ti -1c
+.RI "double \fBnorm\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint\fP (String name)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBdot\fP (\fBVector3D\fP v1, \fBVector3D\fP v2)"
+.br
+.ti -1c
+.RI "static \fBVector3D\fP \fBcross\fP (\fBVector3D\fP v1, \fBVector3D\fP v2)"
+.br
+.ti -1c
+.RI "static \fBVector3D\fP \fBnormalize\fP (\fBVector3D\fP V)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "double[] \fBv\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBVector3D\fP ()\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+Referenced by Vector3D\&.cross(), and Vector3D\&.normalize()\&.
+.PP
+.nf
+        {
+                v = new double[] {0, 0, 0};
+        }
+.fi
+.SS "\fBVector3D\fP (double[]v)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+.nf
+        {
+                this(v, true);
+        }
+.fi
+.SS "\fBVector3D\fP (double[]v, booleancopy)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+.nf
+        {
+                if (copy)
+                        this\&.v = (double[])v\&.clone();
+                else
+                        this\&.v = v;
+        }
+.fi
+.SS "\fBVector3D\fP (\fBVector3D\fPV)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+.nf
+        {
+                this(V\&.v, true);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBadd\fP (\fBVector3D\fPV)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                for (int i=0; i<3; i++)
+                                v[i] += V\&.v[i];
+        }
+.fi
+.SS "static \fBVector3D\fP \fBcross\fP (\fBVector3D\fPv1, \fBVector3D\fPv2)\fC [inline, static]\fP"
+.PP
+References Vector3D\&.v, and Vector3D\&.Vector3D()\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return new Vector3D(
+                        new double[] {
+                                v1\&.v[1]*v2\&.v[2]-v1\&.v[2]*v2\&.v[1],
+                                v1\&.v[2]*v2\&.v[0]-v1\&.v[0]*v2\&.v[2],
+                                v1\&.v[0]*v2\&.v[1]-v1\&.v[1]*v2\&.v[0]
+                        },
+                        false);
+        }
+.fi
+.SS "static double \fBdot\fP (\fBVector3D\fPv1, \fBVector3D\fPv2)\fC [inline, static]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+Referenced by Vector3D\&.norm(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return (v1\&.v[0]*v2\&.v[0]+v1\&.v[1]*v2\&.v[1]+v1\&.v[2]*v2\&.v[2]);
+        }
+.fi
+.SS "double \fBget\fP (intidx)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return v[idx];
+        }
+.fi
+.SS "double [] \fBgetData\fP ()\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return v;
+        }
+.fi
+.SS "double \fBnorm\fP ()\fC [inline]\fP"
+.PP
+References Vector3D\&.dot()\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return Math\&.sqrt(dot(this, this));
+        }
+.fi
+.SS "void \fBnormalize\fP ()\fC [inline]\fP"
+.PP
+References Vector3D\&.scale(), and Vector3D\&.v\&.
+.PP
+Referenced by Vector3D\&.normalize(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                double f = 1/Math\&.sqrt(v[0]*v[0]+v[1]*v[1]+v[2]*v[2]);
+                scale(f, f, f);
+        }
+.fi
+.SS "static \fBVector3D\fP \fBnormalize\fP (\fBVector3D\fPV)\fC [inline, static]\fP"
+.PP
+References Vector3D\&.normalize(), and Vector3D\&.Vector3D()\&.
+.PP
+.nf
+        {
+                Vector3D newV = new Vector3D(V);
+                newV\&.normalize();
+                return newV;
+        }
+.fi
+.SS "void \fBprint\fP (Stringname)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+.nf
+        {
+                System\&.out\&.println(name);
+                for (int i=0; i<3; i++)
+                        System\&.out\&.print(v[i] + ' ');
+                System\&.out\&.println('');
+        }
+.fi
+.SS "void \fBscale\fP (doublex, doubley, doublez)\fC [inline]\fP"
+.PP
+References Vector3D\&.v, plt\&.x, and plt\&.y\&.
+.PP
+Referenced by Vector3D\&.normalize(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                v[0] *= x;
+                v[1] *= y;
+                v[2] *= z;
+        }
+.fi
+.SS "void \fBsub\fP (\fBVector3D\fPV)\fC [inline]\fP"
+.PP
+References Vector3D\&.v\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                for (int i=0; i<3; i++)
+                                v[i] -= V\&.v[i];
+        }
+.fi
+.SS "void \fBtransform\fP (\fBMatrix3D\fPm)\fC [inline]\fP"
+.PP
+References Matrix3D\&.getData(), and Vector3D\&.v\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                double[] dm = m\&.getData();
+                double[] vv = new double[3];
+                for (int i=0; i<3; i++)
+                        vv[i] = dm[i+0]*v[0]+dm[i+4]*v[1]+dm[i+8]*v[2]+dm[i+12]*1;
+                v = vv;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "double [] \fBv\fP\fC [private]\fP"
+.PP
+Referenced by Vector3D\&.add(), Vector3D\&.cross(), Vector3D\&.dot(), Vector3D\&.get(), Vector3D\&.getData(), Vector3D\&.normalize(), Vector3D\&.print(), Vector3D\&.scale(), Vector3D\&.sub(), Vector3D\&.transform(), and Vector3D\&.Vector3D()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

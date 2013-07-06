@@ -1,0 +1,33 @@
+if (file_in_path (EXEC_PATH, "jogl.jar"))
+  if (file_in_path (EXEC_PATH, "gluegen-rt.jar"))
+    javaaddpath (file_in_path (EXEC_PATH, "gluegen-rt.jar"));
+  endif
+  javaaddpath (file_in_path (EXEC_PATH, "jogl.jar"));
+  javaaddpath (file_in_loadpath ("jhandles.jar"));
+
+  dispatch ("get", "__jhandles_get", "any");
+  dispatch ("set", "__jhandles_set", "any");
+  dispatch ("ishandle", "__jhandles_ishandle", "any");
+  dispatch ("__go_figure__", "__jhandles_go_figure", "any");
+  dispatch ("__go_delete__", "__jhandles_go_delete", "any");
+  dispatch ("__go_axes__", "__jhandles_go_axes", "any");
+  dispatch ("__go_axes_init__", "__jhandles_go_axes_init", "any");
+  dispatch ("__go_text__", "__jhandles_go_text", "any");
+  dispatch ("__go_surface__", "__jhandles_go_surface", "any");
+  dispatch ("__go_image__", "__jhandles_go_image", "any");
+  dispatch ("__go_patch__", "__jhandles_go_patch", "any");
+  dispatch ("__go_line__", "__jhandles_go_line", "any");
+  dispatch ("__go_execute_callback__", "__jhandles_go_execute_callback", "any");
+
+  atexit ("__jhandles_exit");
+
+  mark_as_command shading;
+  mark_as_command legend;
+  mark_as_command hidden;
+  mark_as_command colorbar;
+
+  java_invoke ("java.lang.System", "setProperty", "octave.jhandles.path", ...
+    fileparts (mfilename ("fullpath")));
+else
+  warning ("JOGL could not be found, jhandles is not loaded");
+endif

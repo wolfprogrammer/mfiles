@@ -1,0 +1,36 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_ishandle.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_ishandle.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBret\fP]"
+.br
+.ti -1c
+.RI "else \fBret\fP = 0"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBret\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_ishandle (handle)
+
+  if (isnumeric (handle) && isscalar (handle))
+    ret = java_invoke ('org\&.octave\&.graphics\&.HandleObject', 'isHandle', handle)
+.fi
+.PP
+Definition at line 16 of file __jhandles_ishandle\&.m\&.
+.SS "else \fBret\fP = 0"
+.PP
+Definition at line 21 of file __jhandles_ishandle\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

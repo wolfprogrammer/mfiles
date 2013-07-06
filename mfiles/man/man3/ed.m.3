@@ -1,0 +1,92 @@
+.TH "/home/caio/mfiles/ed.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/ed.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsystem\fP (\fBcmd\fP)"
+.br
+.ti -1c
+.RI "while \fB~feof\fP (\fBfid\fP) \fBline\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (flag) \fBdisp\fP(\fBline\fP)"
+.br
+.ti -1c
+.RI "end \fBeval\fP (\fBline\fP)"
+.br
+.ti -1c
+.RI "end endwhile \fBfclose\fP (\fBfid\fP)"
+.br
+.ti -1c
+.RI "\fBunlink\fP (\fBfname\fP)"
+.br
+.ti -1c
+.RI "\fBsave\fP (\fBfname2\fP)"
+.br
+.ti -1c
+.RI "\fBunlink\fP (\fBfname2\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBVARS\fP"
+.br
+.ti -1c
+.RI "\fBfname2\fP = '/tmp/vars'"
+.br
+.ti -1c
+.RI "\fBcmd\fP = sprintf('leafpad %\fBs\fP',fname)"
+.br
+.ti -1c
+.RI "\fBfid\fP = fopen(\fBfname\fP,'r')"
+.br
+.ti -1c
+.RI "clear \fBline\fP \fBfid\fP \fBfname\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "end \fBeval\fP (\fBline\fP)"
+.SS "end endwhile \fBfclose\fP (\fBfid\fP)"
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psEndPage()\&.
+.SS "\fBif\fP (flag)"
+.SS "\fBsave\fP (\fBfname2\fP)"
+.SS "\fBsystem\fP (\fBcmd\fP)"
+.SS "\fBunlink\fP (\fBfname\fP)"
+.SS "\fBunlink\fP (\fBfname2\fP)"
+.SS "while ~feof (\fBfid\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBcmd\fP = sprintf('leafpad %\fBs\fP',fname)"
+.PP
+Definition at line 21 of file ed\&.m\&.
+.SS "\fBfid\fP = fopen(\fBfname\fP,'r')"
+.PP
+Definition at line 24 of file ed\&.m\&.
+.SS "clear \fBline\fP \fBfid\fP \fBfname\fP"
+.PP
+Definition at line 43 of file ed\&.m\&.
+.SS "\fBfname2\fP = '/tmp/vars'"
+.PP
+Definition at line 19 of file ed\&.m\&.
+.SS "\fBVARS\fP"\fBInitial value:\fP
+.PP
+.nf
+'/tmp/tmpoctave'
+fname=tmpnam()
+.fi
+.PP
+Definition at line 1 of file ed\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

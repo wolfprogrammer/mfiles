@@ -1,0 +1,15 @@
+
+x=linspace(0,10,80)'
+y=x.^2
+xy=[x y]
+
+
+
+% Cria arquivo temporário em TMP
+%fname=tmpnam()  
+fname="/tmp/plot.txt"        
+save("-ascii",fname,"xy")    
+cmd="python plt.py &"          
+system(cmd)                  
+
+%end

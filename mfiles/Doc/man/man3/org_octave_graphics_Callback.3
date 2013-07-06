@@ -1,0 +1,174 @@
+.TH "Callback" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Callback \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBOctaveCallback\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCallback\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddCallbackListener\fP (\fBCallbackListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveCallbackListener\fP (\fBCallbackListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBunwind\fP (\fBProperty\fP p, Object value)"
+.br
+.ti -1c
+.RI "abstract void \fBexecute\fP (\fBHandleObject\fP parent, Object[] args)"
+.br
+.ti -1c
+.RI "void \fBexecute\fP (\fBHandleObject\fP parent)"
+.br
+.ti -1c
+.RI "abstract Object \fBget\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBCallback\fP \fBmakeCallback\fP (Object obj)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfireCallbackExecuted\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUnwindHandleObject\fP \fBunwinder\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "LinkedList \fBlistenerList\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBCallback\fP ()\fC [inline]\fP"
+.PP
+References Callback\&.listenerList, and Callback\&.unwinder\&.
+.PP
+.nf
+        {
+                listenerList = new LinkedList();
+                unwinder = null;
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddCallbackListener\fP (\fBCallbackListener\fPl)\fC [inline]\fP"
+.PP
+References Callback\&.listenerList\&.
+.PP
+.nf
+        {
+                synchronized(listenerList)
+                {
+                        listenerList\&.add(l);
+                }
+        }
+.fi
+.SS "abstract void \fBexecute\fP (\fBHandleObject\fPparent, Object[]args)\fC [pure virtual]\fP"
+.PP
+Implemented in \fBOctaveCallback\fP\&.
+.PP
+Referenced by UIControlObject\&.controlActivated(), Callback\&.execute(), and CallbackProperty\&.execute()\&.
+.SS "void \fBexecute\fP (\fBHandleObject\fPparent)\fC [inline]\fP"
+.PP
+References Callback\&.execute()\&.
+.PP
+.nf
+        {
+                execute(parent, new Object[0]);
+        }
+.fi
+.SS "void \fBfireCallbackExecuted\fP ()\fC [inline, protected]\fP"
+.PP
+References Callback\&.listenerList\&.
+.PP
+Referenced by OctaveCallback\&.execute()\&.
+.PP
+.nf
+        {
+                synchronized(listenerList)
+                {
+                        Iterator it = listenerList\&.iterator();
+                        while (it\&.hasNext())
+                                ((CallbackListener)it\&.next())\&.callbackExecuted(this);
+                }
+        }
+.fi
+.SS "abstract Object \fBget\fP ()\fC [pure virtual]\fP"
+.PP
+Implemented in \fBOctaveCallback\fP\&.
+.PP
+Referenced by CallbackProperty\&.getInternal()\&.
+.SS "static \fBCallback\fP \fBmakeCallback\fP (Objectobj)\fC [inline, static]\fP"
+.PP
+Referenced by CallbackProperty\&.CallbackProperty(), and CallbackProperty\&.convertValue()\&.
+.PP
+.nf
+        {
+                if (obj instanceof OctaveReference)
+                        return new OctaveCallback((OctaveReference)obj);
+                else if (obj instanceof String)
+                        return new OctaveCallback((String)obj);
+                return null;
+        }
+.fi
+.SS "void \fBremoveCallbackListener\fP (\fBCallbackListener\fPl)\fC [inline]\fP"
+.PP
+References Callback\&.listenerList\&.
+.PP
+.nf
+        {
+                synchronized(listenerList)
+                {
+                        listenerList\&.remove(l);
+                }
+        }
+.fi
+.SS "void \fBunwind\fP (\fBProperty\fPp, Objectvalue)\fC [inline]\fP"
+.PP
+References UnwindHandleObject\&.unwind(), and Callback\&.unwinder\&.
+.PP
+Referenced by OctaveCallback\&.execute(), and CallbackProperty\&.unwind()\&.
+.PP
+.nf
+        {
+                if (unwinder == null)
+                        unwinder = new UnwindHandleObject();
+                unwinder\&.unwind(p, value);
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "LinkedList \fBlistenerList\fP\fC [private]\fP"
+.PP
+Referenced by Callback\&.addCallbackListener(), Callback\&.Callback(), Callback\&.fireCallbackExecuted(), and Callback\&.removeCallbackListener()\&.
+.SS "\fBUnwindHandleObject\fP \fBunwinder\fP\fC [protected]\fP"
+.PP
+Referenced by Callback\&.Callback(), OctaveCallback\&.execute(), and Callback\&.unwind()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

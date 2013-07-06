@@ -1,0 +1,21 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="gl2psAddText",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="gl2psListAdd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ac6854212b14c712b8866abe23ff3e329"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="gl2psMsg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ab2b05dc9c0ad9b295309ef903218908c"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="gl2psListRealloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ad60529307a4f9f99386e892d4a0879ed"];
+  Node4 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="gl2psMalloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ae8687abe691957a70d1b0456015e2a4f"];
+  Node5 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="gl2psRealloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ad97a3884fd09ae984f539e0ebc59b9ed"];
+  Node6 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

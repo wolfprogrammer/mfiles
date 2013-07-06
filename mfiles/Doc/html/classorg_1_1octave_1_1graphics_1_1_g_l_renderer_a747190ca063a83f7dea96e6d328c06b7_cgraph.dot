@@ -1,0 +1,36 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="drawText",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="org.octave.graphics.SimpleTextEngine.drawAsImage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine.html#a74e6a8471c23aec0aca46b26dd60a2f1"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="org.octave.graphics.SimpleTextEngine.Content.layout",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_content.html#a82d7980d95e1bce533c6abc843e9d22a"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="org.octave.graphics.SimpleTextEngine.LineElement.layout",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_line_element.html#a82d7980d95e1bce533c6abc843e9d22a"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="org.octave.graphics.SimpleTextEngine.Layouter.getFontMetrics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_layouter.html#ae187d221ac33578f8edfa122aa7e78a8"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="org.octave.graphics.RenderCanvas.getFontMetrics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceorg_1_1octave_1_1graphics_1_1_render_canvas.html#ab9ef3aa572da248f604d696be42258d3"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="org.octave.graphics.SimpleTextEngine.Element.Element",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_element.html#a56c725fd11d4fddcb48e065e1df09943"];
+  Node4 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="org.octave.graphics.SimpleTextEngine.Element.layout",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_element.html#a31ad062611c4ceadd92e4ff45635a466"];
+  Node2 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="org.octave.graphics.SimpleTextEngine.Content.render",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_content.html#a308ff97439a63f16886a40822a4fbf9f"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="org.octave.graphics.SimpleTextEngine.LineElement.render",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_line_element.html#a308ff97439a63f16886a40822a4fbf9f"];
+  Node10 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="org.octave.graphics.SimpleTextEngine.Element.render",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_element.html#a308ff97439a63f16886a40822a4fbf9f"];
+  Node2 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="org.octave.graphics.RenderCanvas.getRenderer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceorg_1_1octave_1_1graphics_1_1_render_canvas.html#aba3a21ace01d4c69f1c740b3abab362d"];
+  Node2 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node13 [label="org.octave.graphics.Renderer.drawBitmap",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceorg_1_1octave_1_1graphics_1_1_renderer.html#a980f5c2311d5803a19f32007abf04130"];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node14 [label="org.octave.graphics.Utils.getScreenResolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_utils.html#afb64bea165add980f858fbbb9664ffcd"];
+  Node1 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node15 [label="org.octave.graphics.GL2PS.gl2psSpecial",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_g_l2_p_s.html#a6a514b45c56942e689eb2e395f2f27fb"];
+}

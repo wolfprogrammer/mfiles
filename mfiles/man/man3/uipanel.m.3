@@ -1,0 +1,97 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/uipanel.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/uipanel.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (\fBn\fP > 0) \fBif\fP(ishandle(\fBvarargin\fP"
+.br
+.ti -1c
+.RI "\fBvarargin\fP (1)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (mod(\fBn\fP, 2)==0) \fBif\fP(\fBn\fP > 0) \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBidx\fP)) \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBvarargin\fP ([\fBidx\fP, \fBidx\fP+1])"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP else \fBprint_usage\fP ()"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBif\fP (isempty(\fBparent\fP)) \fBparent\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (ishandle(\fBparent\fP)) \fBtype\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (nargout > 0) \fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP otherwise \fBerror\fP ('invalid \fBparent\fP specified, it must be \fBa\fP figure, uipanel or uibuttongroup object')"
+.br
+.ti -1c
+.RI "endswitch else \fBerror\fP ('invalid \fBparent\fP specified, it must be \fBa\fP valid \fBhandle\fP object')"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBn\fP = nargin"
+.br
+.ti -1c
+.RI "\fBparent\fP = \fBvarargin\fP{1}"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBendif\fP otherwise \fBerror\fP ('invalid \fBparent\fPspecified, it must be \fBa\fPfigure, uipanel or uibuttongroup object')"
+.SS "endswitch else \fBerror\fP ('invalid \fBparent\fPspecified, it must be \fBa\fP valid \fBhandle\fP object')"
+.SS "\fBif\fP (\fBn\fP, 0)"
+.PP
+Definition at line 21 of file uipanel\&.m\&.
+.PP
+.nf
+                          {1}))
+.fi
+.SS "\fBendif\fP \fBif\fP (mod(\fBn\fP, 2) = \fC=0\fP)"
+.SS "\fBif\fP (!isemptyidx)"
+.SS "\fBendif\fP \fBendif\fP \fBif\fP (isempty(\fBparent\fP))"
+.SS "\fBendif\fP \fBif\fP (ishandle(\fBparent\fP))"
+.SS "\fBif\fP (nargout, 0)"
+.SS "\fBendif\fP \fBendif\fP else \fBprint_usage\fP ()"
+.SS "\fBvarargin\fP (1)"
+.SS "\fBvarargin\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ uipanel (varargin)
+
+  parent = []
+.fi
+.PP
+Definition at line 16 of file uipanel\&.m\&.
+.SS "\fBn\fP = nargin"
+.PP
+Definition at line 19 of file uipanel\&.m\&.
+.SS "\fBparent\fP = \fBvarargin\fP{1}"
+.PP
+Definition at line 23 of file uipanel\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

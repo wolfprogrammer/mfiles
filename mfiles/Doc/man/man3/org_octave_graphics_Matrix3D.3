@@ -1,0 +1,322 @@
+.TH "Matrix3D" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Matrix3D \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMatrix3D\fP ()"
+.br
+.ti -1c
+.RI "\fBMatrix3D\fP (double[] \fBdata\fP)"
+.br
+.ti -1c
+.RI "void \fBtranslate\fP (double x, double y, double z)"
+.br
+.ti -1c
+.RI "void \fBscale\fP (double sx, double sy, double sz)"
+.br
+.ti -1c
+.RI "void \fBrotate\fP (double a, int ax)"
+.br
+.ti -1c
+.RI "void \fBmult\fP (double[] m)"
+.br
+.ti -1c
+.RI "void \fBmult\fP (\fBMatrix3D\fP m)"
+.br
+.ti -1c
+.RI "void \fBeye\fP ()"
+.br
+.ti -1c
+.RI "void \fBtransform\fP (double[] in, double[] out, int n, int offi, int offo)"
+.br
+.ti -1c
+.RI "void \fBtransform\fP (double[][] in, double[][] out, int n, int offi, int offo)"
+.br
+.ti -1c
+.RI "void \fBtransform\fP (double x, double y, double z, double[] out, int offo)"
+.br
+.ti -1c
+.RI "void \fBtransform\fP (double[] x, double[] y, double[] z, int n, double[] tx, double[] ty, double[] tz)"
+.br
+.ti -1c
+.RI "double[] \fBgetData\fP ()"
+.br
+.ti -1c
+.RI "\fBMatrix3D\fP \fBinv\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint\fP (String name)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "double[] \fBdata\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBMatrix3D\fP ()\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+Referenced by Matrix3D\&.inv()\&.
+.PP
+.nf
+        {
+                        this\&.data = new double[] {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
+        }
+.fi
+.SS "\fBMatrix3D\fP (double[]data)\fC [inline]\fP"
+.PP
+.nf
+        {
+                        this\&.data = (double[])data\&.clone();
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBeye\fP ()\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                        data = new double[] {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
+        }
+.fi
+.SS "double [] \fBgetData\fP ()\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+Referenced by GLRenderer\&.setXForm(), Vector3D\&.transform(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return data;
+        }
+.fi
+.SS "\fBMatrix3D\fP \fBinv\fP ()\fC [inline]\fP"
+.PP
+References Matrix3D\&.data, and Matrix3D\&.Matrix3D()\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                Matrix3D ret = new Matrix3D();
+                double[] d1 = (double[])data\&.clone();
+                double[] d2 = ret\&.data;
+
+                int i, j, k, swap;
+                double p;
+
+                for (i=0; i<4; i++)
+                {
+                        swap = i;
+                        for (j=i+1; j<4; j++)
+                                if (Math\&.abs(d1[j+i*4]) > Math\&.abs(d1[i+i*4]))
+                                        swap = j;
+
+                        if (swap != i)
+                                for (k=0; k<4; k++)
+                                {
+                                        p = d1[i+k*4];
+                                        d1[i+k*4] = d1[swap+k*4];
+                                        d1[swap+k*4] = p;
+
+                                        p = d2[i+k*4];
+                                        d2[i+k*4] = d2[swap+k*4];
+                                        d2[swap+k*4] = p;
+                                }
+
+                        if (d1[i+i*4] == 0)
+                        {
+                                System\&.out\&.println('WARNING: singular matrix, cannot invert');
+                                break;
+                        }
+
+                        p = d1[i+i*4];
+                        for (k=0; k<4; k++)
+                        {
+                                d1[i+k*4] /= p;
+                                d2[i+k*4] /= p;
+                        }
+                        for (j=0; j<4; j++)
+                                if (i != j)
+                                {
+                                        p = d1[j+i*4];
+                                        for (k=0; k<4; k++)
+                                        {
+                                                d1[j+k*4] -= (d1[i+k*4]*p);
+                                                d2[j+k*4] -= (d2[i+k*4]*p);
+                                        }
+                                }
+                }
+
+                return ret;
+        }
+.fi
+.SS "void \fBmult\fP (double[]m)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data, and Matrix3D\&.transform()\&.
+.PP
+Referenced by Matrix3D\&.mult(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                double[] dd = new double[16];
+                transform(m, dd, 4, 0, 0);
+                data = dd;
+        }
+.fi
+.SS "void \fBmult\fP (\fBMatrix3D\fPm)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data, and Matrix3D\&.mult()\&.
+.PP
+.nf
+        {
+                mult(m\&.data);
+        }
+.fi
+.SS "void \fBprint\fP (Stringname)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+.nf
+        {
+          System\&.out\&.println(name);
+          for (int i=0; i<4; i++)
+          {
+            for (int j=0; j<4; j++)
+              System\&.out\&.print(data[j*4+i] + ' ');
+            System\&.out\&.println('');
+          }
+        }
+.fi
+.SS "void \fBrotate\fP (doublea, intax)\fC [inline]\fP"
+.PP
+.nf
+        {
+                        /* not really needed actually */
+        }
+.fi
+.SS "void \fBscale\fP (doublesx, doublesy, doublesz)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                        data[0] *= sx; data[1] *= sx; data[2] *= sx; data[3] *= sx;
+                        data[4] *= sy; data[5] *= sy; data[6] *= sy; data[7] *= sy;
+                        data[8] *= sz; data[9] *= sz; data[10] *= sz; data[11] *= sz;
+        }
+.fi
+.SS "void \fBtransform\fP (double[]in, double[]out, intn, intoffi, intoffo)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+Referenced by GLRenderer\&.GLMarkerDrawer\&.draw(), J2DRenderer\&.draw(), AxesObject\&.draw(), J2DRenderer\&.drawQuads(), J2DRenderer\&.drawSegments(), J2DRenderer\&.drawText(), Matrix3D\&.mult(), J2DRenderer\&.setClipBox(), AxesObject\&.transform(), AxesObject\&.unTransform(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                        for (int i=0; i<n; i++, offi+=4, offo+=4)
+                        {
+                                        for (int k=0; k<4; k++)
+                                        {
+                                                        out[offo+k] =
+                                                                data[k+0]*in[offi+0]+
+                                                                data[k+4]*in[offi+1]+
+                                                                data[k+8]*in[offi+2]+
+                                                                data[k+12]*in[offi+3];
+                                        }
+                        }
+        }
+.fi
+.SS "void \fBtransform\fP (doublein[][], doubleout[][], intn, intoffi, intoffo)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+.nf
+        {
+                        for (int i=0; i<n; i++)
+                        {
+                                        for (int k=0; k<4; k++)
+                                        {
+                                                        out[offo+i][k] =
+                                                                data[k+0]*in[offi+i][0]+
+                                                                data[k+4]*in[offi+i][1]+
+                                                                data[k+8]*in[offi+i][2]+
+                                                                data[k+12]*in[offi+i][3];
+                                        }
+                        }
+        }
+.fi
+.SS "void \fBtransform\fP (doublex, doubley, doublez, double[]out, intoffo)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+.nf
+        {
+                for (int k=0; k<3; k++)
+                {
+                        out[offo+k] =
+                                data[k+0]*x+
+                                data[k+4]*y+
+                                data[k+8]*z+
+                                data[k+12]*1;
+                }
+        }
+.fi
+.SS "void \fBtransform\fP (double[]x, double[]y, double[]z, intn, double[]tx, double[]ty, double[]tz)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+.nf
+        {
+                double a;
+
+                for (int i=0; i<n; i++)
+                {
+                        a     = data[3]*x[i]+data[7]*y[i]+data[11]*z[i]+data[15];
+                        tx[i] = (data[0]*x[i]+data[4]*y[i]+data[8] *z[i]+data[12])/a;
+                        ty[i] = (data[1]*x[i]+data[5]*y[i]+data[9] *z[i]+data[13])/a;
+                        tz[i] = (data[2]*x[i]+data[6]*y[i]+data[10]*z[i]+data[14])/a;
+                }
+        }
+.fi
+.SS "void \fBtranslate\fP (doublex, doubley, doublez)\fC [inline]\fP"
+.PP
+References Matrix3D\&.data\&.
+.PP
+Referenced by AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                        data[12] += data[0]*x+data[4]*y+data[8]*z;
+                        data[13] += data[1]*x+data[5]*y+data[9]*z;
+                        data[14] += data[2]*x+data[6]*y+data[10]*z;
+                        data[15] += data[3]*x+data[7]*y+data[11]*z;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "double [] \fBdata\fP\fC [private]\fP"
+.PP
+Referenced by Matrix3D\&.eye(), Matrix3D\&.getData(), Matrix3D\&.inv(), Matrix3D\&.Matrix3D(), Matrix3D\&.mult(), Matrix3D\&.print(), Matrix3D\&.scale(), Matrix3D\&.transform(), and Matrix3D\&.translate()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

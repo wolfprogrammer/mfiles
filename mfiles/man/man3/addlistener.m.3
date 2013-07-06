@@ -1,0 +1,69 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/addlistener.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/addlistener.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBaddlistener\fP (\fBh\fP, \fBpname\fP, \fBfun\fP, \fBhh\fP) \fBif\fP(nargin< 4) \fBhh\fP"
+.br
+.ti -1c
+.RI "\fBelseif\fP (!ishandle(\fBhh\fP)) \fBerror\fP('invalid \fBparent\fP \fBhandle\fP')"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (ishandle(\fBh\fP)) \fBif\fP(ischar(\fBpname\fP)||iscellstr(\fBpname\fP)) \fBif\fP(ischar(\fBpname\fP)) \fBpname\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (ischar(\fBfun\fP)||isa(\fBfun\fP,'function_handle')||(iscell(\fBfun\fP)&&\fBlength\fP(\fBfun\fP) > 0 &&isa(\fBfun\fP{1},'function_handle'))) __jhandles_add_listener(\fBh\fP"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('invalid listener \fBtype\fP, must be \fBa\fP string or \fBfunction\fP \fBhandle\fP')"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('invalid property name')"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('invalid \fBhandle\fP')"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBendif\fP \fBpname\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBfun\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBhh\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBfunction\fP \fBaddlistener\fP (\fBh\fP, \fBpname\fP, \fBfun\fP, \fBhh\fP)"
+.SS "\fBelseif\fP (!ishandlehh)"
+.SS "else \fBerror\fP ('invalid listenertype, must be \fBa\fP string or \fBfunction\fP \fBhandle\fP')"
+.SS "\fBendif\fP else \fBerror\fP ('invalid property name')"
+.SS "\fBendif\fP else \fBerror\fP ('invalid \fBhandle\fP')"
+.SS "\fBendif\fP \fBif\fP (ishandle(\fBh\fP))"
+.SS "\fBendif\fP \fBif\fP (ischar(\fBfun\fP)||isa(\fBfun\fP,'function_handle')||(iscell(\fBfun\fP)&&\fBlength\fP(\fBfun\fP) > 0 &&isa(\fBfun\fP{1},'function_handle')))"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBendif\fP \fBfun\fP"
+.PP
+Definition at line 31 of file addlistener\&.m\&.
+.SS "\fBendif\fP \fBhh\fP"
+.PP
+Definition at line 31 of file addlistener\&.m\&.
+.SS "\fBendif\fP \fBpname\fP"
+.PP
+Definition at line 31 of file addlistener\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

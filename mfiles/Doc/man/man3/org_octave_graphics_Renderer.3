@@ -1,0 +1,239 @@
+.TH "Renderer" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Renderer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "interface \fBCachedData\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetClipping\fP (boolean flag)"
+.br
+.ti -1c
+.RI "boolean \fBhasClipping\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetClipBox\fP (double xmin, double xmax, double ymin, double ymax, double zmin, double zmax)"
+.br
+.ti -1c
+.RI "void \fBsetCamera\fP (double[] pos, double[] target)"
+.br
+.ti -1c
+.RI "void \fBsetColor\fP (Color c)"
+.br
+.ti -1c
+.RI "void \fBsetLineStyle\fP (String s, boolean forceStippling)"
+.br
+.ti -1c
+.RI "void \fBsetLineWidth\fP (float w)"
+.br
+.ti -1c
+.RI "void \fBsetFont\fP (Font f)"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBLineObject\fP line)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBLightObject\fP \fBlight\fP)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (ByteBuffer data, int w, int h, double[] pos, int xOffset, int yOffset, boolean useClipping, boolean useZBuffer)"
+.br
+.ti -1c
+.RI "void \fBdrawBitmap\fP (BufferedImage img, double[] pos, int xOffset, int yOffset)"
+.br
+.ti -1c
+.RI "Rectangle \fBdrawText\fP (String txt, double[] pos, int halign, int valign)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBPatchObject\fP patch)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBSurfaceObject\fP surf)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBImageObject\fP image)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBTextObject\fP text)"
+.br
+.ti -1c
+.RI "void \fBsetXForm\fP (\fBAxesObject\fP ax)"
+.br
+.ti -1c
+.RI "void \fBsetViewport\fP (int width, int height)"
+.br
+.ti -1c
+.RI "void \fBclear\fP (Color c)"
+.br
+.ti -1c
+.RI "void \fBdrawRubberBox\fP (int[][] b)"
+.br
+.ti -1c
+.RI "void \fBdrawSegments\fP (java\&.util\&.List pts)"
+.br
+.ti -1c
+.RI "void \fBdrawQuads\fP (java\&.util\&.List pts, double zoffset)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBLS_SOLID\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBLS_DOTTED\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBLS_DASHED\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBLS_DASHDOT\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBLS_NONE\fP = 4"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBclear\fP (Colorc)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesContainer\&.display()\&.
+.SS "void \fBdraw\fP (\fBLineObject\fPline)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by LightObject\&.draw(), ImageObject\&.draw(), LineObject\&.draw(), TextObject\&.draw(), SurfaceObject\&.draw(), PatchObject\&.draw(), and TextObject\&.drawAsImage()\&.
+.SS "void \fBdraw\fP (\fBLightObject\fPlight)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBdraw\fP (ByteBufferdata, intw, inth, double[]pos, intxOffset, intyOffset, booleanuseClipping, booleanuseZBuffer)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBdraw\fP (\fBPatchObject\fPpatch)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBdraw\fP (\fBSurfaceObject\fPsurf)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBdraw\fP (\fBImageObject\fPimage)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBdraw\fP (\fBTextObject\fPtext)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBdrawBitmap\fP (BufferedImageimg, double[]pos, intxOffset, intyOffset)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by SimpleTextEngine\&.drawAsImage()\&.
+.SS "void \fBdrawQuads\fP (java\&.util\&.Listpts, doublezoffset)"
+.PP
+Implemented in \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBdrawRubberBox\fP (intb[][])"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.drawZoomBox()\&.
+.SS "void \fBdrawSegments\fP (java\&.util\&.Listpts)"
+.PP
+Implemented in \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "Rectangle \fBdrawText\fP (Stringtxt, double[]pos, inthalign, intvalign)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBend\fP ()"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "boolean \fBhasClipping\fP ()"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBsetCamera\fP (double[]pos, double[]target)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetClipBox\fP (doublexmin, doublexmax, doubleymin, doubleymax, doublezmin, doublezmax)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetClipping\fP (booleanflag)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetColor\fP (Colorc)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetFont\fP (Fontf)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetLineStyle\fP (Strings, booleanforceStippling)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetLineWidth\fP (floatw)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SS "void \fBsetViewport\fP (intwidth, intheight)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.SS "void \fBsetXForm\fP (\fBAxesObject\fPax)"
+.PP
+Implemented in \fBGLRenderer\fP, and \fBJ2DRenderer\fP\&.
+.PP
+Referenced by AxesObject\&.draw()\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "final int \fBLS_DASHDOT\fP = 3\fC [static]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_DASHED\fP = 2\fC [static]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_DOTTED\fP = 1\fC [static]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_NONE\fP = 4\fC [static]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+.SS "final int \fBLS_SOLID\fP = 0\fC [static]\fP"
+.PP
+Referenced by LineStyleProperty\&.getStyle()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

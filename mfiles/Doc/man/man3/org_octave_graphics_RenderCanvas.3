@@ -1,0 +1,143 @@
+.TH "RenderCanvas" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RenderCanvas \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "interface \fBContainer\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddRenderEventListener\fP (\fBRenderEventListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveRenderEventListener\fP (\fBRenderEventListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBaddMouseListener\fP (\fBMouseListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveMouseListener\fP (\fBMouseListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBaddMouseMotionListener\fP (\fBMouseMotionListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveMouseMotionListener\fP (\fBMouseMotionListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBredraw\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetWidth\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetHeight\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetX\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetY\fP ()"
+.br
+.ti -1c
+.RI "\fBRenderer\fP \fBgetRenderer\fP ()"
+.br
+.ti -1c
+.RI "Component \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "BufferedImage \fBtoImage\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoPostScript\fP (String filename)"
+.br
+.ti -1c
+.RI "Font \fBgetFont\fP ()"
+.br
+.ti -1c
+.RI "FontMetrics \fBgetFontMetrics\fP (Font fnt)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddMouseListener\fP (\fBMouseListener\fPl)"
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "void \fBaddMouseMotionListener\fP (\fBMouseMotionListener\fPl)"
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "void \fBaddRenderEventListener\fP (\fBRenderEventListener\fPl)"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "Component \fBgetComponent\fP ()"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by AxesContainer\&.createCanvas(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.getBoundingBox(), AxesObject\&.getOuterBoundingBox(), AxesObject\&.propertyChanged(), ColorbarObject\&.updateActivePosition(), LegendObject\&.updateActivePosition(), AxesContainer\&.updateCanvas(), AxesObject\&.updateOuterPosition(), and AxesObject\&.updatePosition()\&.
+.SS "Font \fBgetFont\fP ()"
+.PP
+Referenced by LegendObject\&.doLayout(), and J2DRenderer\&.drawText()\&.
+.SS "FontMetrics \fBgetFontMetrics\fP (Fontfnt)"
+.PP
+Referenced by LegendObject\&.doLayout(), SimpleTextEngine\&.Layouter\&.getFontMetrics(), AxesObject\&.updateOuterPosition(), and AxesObject\&.updatePosition()\&.
+.SS "int \fBgetHeight\fP ()"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), J2DRenderer\&.clear(), AxesObject\&.convertUnits(), LegendObject\&.doLayout(), J2DRenderer\&.draw(), TextObject\&.getExtent(), AxesContainer\&.getObjectForPoint(), GLRenderCanvas\&.toImage(), TextObject\&.updateData(), and AxesObject\&.updateXFormMatrices()\&.
+.SS "\fBRenderer\fP \fBgetRenderer\fP ()"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by AxesContainer\&.display(), SimpleTextEngine\&.drawAsImage(), and AxesObject\&.drawZoomBox()\&.
+.SS "int \fBgetWidth\fP ()"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), J2DRenderer\&.clear(), LegendObject\&.doLayout(), and GLRenderCanvas\&.toImage()\&.
+.SS "int \fBgetX\fP ()"
+.PP
+Referenced by AxesContainer\&.getMouseLocation(), and AxesContainer\&.getObjectForPoint()\&.
+.SS "int \fBgetY\fP ()"
+.PP
+Referenced by AxesContainer\&.getMouseLocation(), and AxesContainer\&.getObjectForPoint()\&.
+.SS "void \fBredraw\fP ()"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by AxesObject\&.doZoom(), AxesObject\&.operation(), FigureObject\&.print(), and AxesObject\&.unZoom()\&.
+.SS "void \fBremoveMouseListener\fP (\fBMouseListener\fPl)"
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "void \fBremoveMouseMotionListener\fP (\fBMouseMotionListener\fPl)"
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "void \fBremoveRenderEventListener\fP (\fBRenderEventListener\fPl)"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "BufferedImage \fBtoImage\fP ()"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by FigureObject\&.print()\&.
+.SS "void \fBtoPostScript\fP (Stringfilename)"
+.PP
+Implemented in \fBGLRenderCanvas\fP, and \fBJ2DRenderCanvas\fP\&.
+.PP
+Referenced by FigureObject\&.print()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

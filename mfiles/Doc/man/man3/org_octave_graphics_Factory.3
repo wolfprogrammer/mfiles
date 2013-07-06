@@ -1,0 +1,340 @@
+.TH "Factory" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Factory \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBPropertySet\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddProperty\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetProperty\fP (String name)"
+.br
+.ti -1c
+.RI "boolean \fBhasProperty\fP (String name)"
+.br
+.ti -1c
+.RI "Object \fBget\fP (String name)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "Object \fBget\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "void \fBset\fP (String name, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (\fBProperty\fP p, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBshow\fP ()"
+.br
+.ti -1c
+.RI "void \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetNames\fP ()"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBProperty\fP \fBgetDefaultProperty\fP (String name)"
+.br
+.in -1c
+.SS "Static Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB[static initializer]\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFactory\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitLineProperties\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitUIControlProperties\fP ()"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fBFactory\fP \fBself\fP = new \fBFactory\fP()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBFactory\fP ()\fC [inline, private]\fP"
+.PP
+References Factory\&.initLineProperties(), and Factory\&.initUIControlProperties()\&.
+.PP
+.nf
+        {
+                initLineProperties();
+                initUIControlProperties();
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "[static initializer] ()\fC [inline, static, package]\fP"
+.SS "void \fBaddProperty\fP (\fBProperty\fPp)\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBHandleObject\fP\&.
+.PP
+References Property\&.getName()\&.
+.PP
+Referenced by Property\&.Property(), and HandleObject\&.set()\&.
+.PP
+.nf
+        {
+                put(p\&.getName()\&.toLowerCase(), p);
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBFigureObject\fP, \fBHandleObject\fP, \fBUIPanelObject\fP, \fBUIControlObject\fP, \fBBarseriesObject\fP, and \fBColorbarObject\fP\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                        ((Property)it\&.next())\&.delete();
+        }
+.fi
+.SS "Object \fBget\fP (Stringname)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBHandleObject\fP\&.
+.PP
+References PropertySet\&.getProperty()\&.
+.PP
+.nf
+        {
+                Property p = getProperty(name);
+                if (p != null)
+                        return get(p);
+                throw new PropertyException('property not found - ' + name);
+        }
+.fi
+.SS "Object \fBget\fP (\fBProperty\fPp)\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBFigureObject\fP, and \fBUIControlObject\fP\&.
+.PP
+.nf
+        {
+                return p\&.get();
+        }
+.fi
+.SS "static \fBProperty\fP \fBgetDefaultProperty\fP (Stringname)\fC [inline, static]\fP"
+.PP
+Referenced by HandleObject\&.getDefaultProperty()\&.
+.PP
+.nf
+        {
+                return self\&.getProperty(name);
+        }
+.fi
+.SS "String [] \fBgetNames\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                List names = new ArrayList();
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                                names\&.add(p\&.getName());
+                }
+                return (String[])names\&.toArray(new String[names\&.size()]);
+        }
+.fi
+.SS "\fBProperty\fP \fBgetProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Referenced by AxesObject\&.childValidated(), AxesObject\&.draw(), PropertySet\&.get(), AxesObject\&.getChildrenLimits(), HandleObject\&.getDefaultProperty(), OctaveSink\&.OctaveSink(), PropertySet\&.set(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return (Property)get((Object)name\&.toLowerCase());
+        }
+.fi
+.SS "boolean \fBhasProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Referenced by AxesObject\&.draw()\&.
+.PP
+.nf
+        {
+                return containsKey(name\&.toLowerCase());
+        }
+.fi
+.SS "void \fBinitLineProperties\fP ()\fC [inline, private]\fP"
+.PP
+Referenced by Factory\&.Factory()\&.
+.PP
+.nf
+        {
+                // BeingDeleted
+                new RadioProperty(this, 'DefaultLineBusyAction', new String[] {'cancel', 'queue'}, 'queue');
+                new CallbackProperty(this, 'DefaultLineButtonDownFcn', (String)null);
+                // Children
+                new BooleanProperty(this, 'DefaultLineClipping', true);
+                new ColorProperty(this, 'DefaultLineColor', Color\&.black);
+                new CallbackProperty(this, 'DefaultLineCreateFcn', (String)null);
+                new CallbackProperty(this, 'DefaultLineDeleteFcn', (String)null);
+                new RadioProperty(this, 'DefaultLineEraseMode', new String[] {'normal', 'none', 'xor', 'background'}, 'normal');
+                new RadioProperty(this, 'DefaultLineHandleVisibility', new String[] {'on', 'callback', 'off'}, 'on');
+                new BooleanProperty(this, 'DefaultLineHitTest', true);
+                new BooleanProperty(this, 'DefaultLineInterruptible', true);
+                new LineStyleProperty(this, 'DefaultLineLineStyle', '-');
+                new DoubleProperty(this, 'DefaultLineLineWidth', 0\&.5);
+                new MarkerProperty(this, 'DefaultLineMarker', 'none');
+                new ColorProperty(this, 'DefaultLineMarkerEdgeColor', new String[] {'none', 'auto'}, 'auto');
+                new ColorProperty(this, 'DefaultLineMarkerFaceColor', new String[] {'none', 'auto'}, 'none');
+                new DoubleProperty(this, 'DefaultLineMarkerSize', 6);
+                // Parent
+                // Selected
+                new BooleanProperty(this, 'DefaultLineSelectionHighlight', true);
+                new StringProperty(this, 'DefaultLineTag', '');
+                // Type
+                // UIContextMenu
+                new ObjectProperty(this, 'DefaultLineUserData', null);
+                new BooleanProperty(this, 'DefaultLineVisible', true);
+                new VectorProperty(this, 'DefaultLineXData', -1, new double[] {0, 1});
+                new VectorProperty(this, 'DefaultLineYData', -1, new double[] {0, 1});
+                new VectorProperty(this, 'DefaultLineZData', -1, new Matrix());
+        }
+.fi
+.SS "void \fBinitUIControlProperties\fP ()\fC [inline, private]\fP"
+.PP
+References Utils\&.getBackgroundColor()\&.
+.PP
+Referenced by Factory\&.Factory()\&.
+.PP
+.nf
+        {
+                // BeingDeleted
+                new ColorProperty(this, 'DefaultUIControlBackgroundColor', (Color)Utils\&.getBackgroundColor());
+                new RadioProperty(this, 'DefaultUIControlBusyAction', new String[] {'cancel', 'queue'}, 'queue');
+                new CallbackProperty(this, 'DefaultUIControlButtonDownFcn', (String)null);
+                // Callback
+                new ArrayProperty(this, 'DefaultUIControlCData', new String[] {'double'}, 3, new Matrix());
+                // Children
+                new BooleanProperty(this, 'DefaultUIControlClipping', true);
+                new CallbackProperty(this, 'DefaultUIControlCreateFcn', (String)null);
+                new CallbackProperty(this, 'DefaultUIControlDeleteFcn', (String)null);
+                new RadioProperty(this, 'DefaultUIControlEnable', new String[] {'on', 'inactive', 'off'}, 'on');
+                // Extent
+                new RadioProperty(this, 'DefaultUIControlFontAngle', new String[] {'normal', 'italic', 'oblique'}, 'normal');
+                new StringProperty(this, 'DefaultUIControlFontName', 'Helvetica');
+                new DoubleProperty(this, 'DefaultUIControlFontSize', 8);
+                new RadioProperty(this, 'DefaultUIControlFontUnits',
+                        new String[] {'points', 'normalized', 'inches', 'centimeters', 'pixels'}, 'points');
+                new RadioProperty(this, 'DefaultUIControlFontWeight', new String[] {'light', 'normal', 'demi', 'bold'}, 'normal');
+                new ColorProperty(this, 'DefaultUIControlForegroundColor', Color\&.black);
+                new RadioProperty(this, 'DefaultUIControlHandleVisibility', new String[] {'on', 'callback', 'off'}, 'on');
+                new BooleanProperty(this, 'DefaultUIControlHitTest', true);
+                new RadioProperty(this, 'DefaultUIControlHorizontalAlignment', new String[] {'left', 'center', 'right'}, 'center');
+                new BooleanProperty(this, 'DefaultUIControlInterruptible', true);
+                new CallbackProperty(this, 'DefaultUIControlKeyPressFcn', (String)null);
+                // ListboxTop
+                new DoubleProperty(this, 'DefaultUIControlMax', 1\&.0);
+                new DoubleProperty(this, 'DefaultUIControlMin', 0\&.0);
+                // Parent
+                new VectorProperty(this, 'DefaultUIControlPosition', 4, new double[] {10, 10, 80, 24});
+                // Selected
+                new BooleanProperty(this, 'DefaultUIControlSelectionHighlight', true);
+                new VectorProperty(this, 'DefaultUIControlSliderStep', 2, new double[] {0\&.01, 0\&.10});
+                new StringProperty(this, 'DefaultUIControlString', '');
+                new RadioProperty(this, 'DefaultUIControlStyle', new String[] {'pushbutton', 'togglebutton', 'radiobutton',
+                        'checkbox', 'text', 'edit', 'slider', 'frame', 'listbox', 'popupmenu'}, 'pushbutton');
+                new StringProperty(this, 'DefaultUIControlTag', '');
+                new StringProperty(this, 'DefaultUIControlTooltipString', '');
+                new RadioProperty(this, 'DefaultUIControlUnits',
+                        new String[] {'pixels', 'normalized', 'inches', 'centimeters', 'points', 'characters'}, 'pixels');
+                new ObjectProperty(this, 'DefaultUIControlUserData', null);
+                new BooleanProperty(this, 'DefaultUIControlVisible', true);
+        }
+.fi
+.SS "void \fBset\fP (Stringname, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBHandleObject\fP\&.
+.PP
+References PropertySet\&.getProperty()\&.
+.PP
+.nf
+        {
+                Property p = getProperty(name);
+                if (p != null)
+                        set(p, value);
+                else
+                        throw new PropertyException('property not found - ' + name);
+        }
+.fi
+.SS "void \fBset\fP (\fBProperty\fPp, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBUIControlObject\fP, and \fBGraphicObject\fP\&.
+.PP
+.nf
+        {
+                p\&.set(value);
+        }
+.fi
+.SS "void \fBshow\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                        {
+                                get(p); /* force any getter to execute */
+                                System\&.out\&.println('  ' + p\&.getName() + ' = ' + p);
+                        }
+                }
+        }
+.fi
+.SS "void \fBvalidate\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP, \fBHandleObject\fP, \fBFigureObject\fP, \fBUIPanelObject\fP, \fBGroupObject\fP, \fBUIControlObject\fP, \fBPatchObject\fP, \fBTextObject\fP, \fBSurfaceObject\fP, \fBImageObject\fP, \fBBarseriesObject\fP, \fBLineObject\fP, and \fBLightObject\fP\&.
+.PP
+References Property\&.unLock()\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        p\&.unLock();
+                }
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBFactory\fP \fBself\fP = new \fBFactory\fP()\fC [static, private]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

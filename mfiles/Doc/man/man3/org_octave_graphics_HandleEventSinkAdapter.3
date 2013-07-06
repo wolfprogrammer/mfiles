@@ -1,0 +1,121 @@
+.TH "HandleEventSinkAdapter" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HandleEventSinkAdapter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHandleEventSink\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP ()"
+.br
+.ti -1c
+.RI "void \fBlisten\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "void \fBlisten\fP (\fBHandleEventSource\fP source, String name)"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBeventOccured\fP (\fBHandleEvent\fP evt)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBsourceDeleted\fP (Object source)"
+.br
+.ti -1c
+.RI "boolean \fBexecuteOnce\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Set \fBsourceSet\fP = new HashSet()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBHandleEventSinkAdapter\fP ()\fC [inline]\fP"
+.PP
+.nf
+        {
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+References HandleEventSinkAdapter\&.sourceSet\&.
+.PP
+Referenced by PushButtonControl\&.dispose(), OctaveSink\&.dispose(), CheckBoxControl\&.dispose(), EditControl\&.dispose(), PopupMenuControl\&.dispose(), UIControlAdapter\&.dispose(), Edit2Control\&.dispose(), TextControl\&.dispose(), and ListBoxControl\&.dispose()\&.
+.PP
+.nf
+        {
+                Iterator it = sourceSet\&.iterator();
+                while (it\&.hasNext())
+                        ((HandleEventSource)it\&.next())\&.removeHandleEventSink(this);
+        }
+.fi
+.SS "void \fBeventOccured\fP (\fBHandleEvent\fPevt)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "boolean \fBexecuteOnce\fP ()\fC [inline]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+.nf
+        {
+                return false;
+        }
+.fi
+.SS "void \fBlisten\fP (\fBProperty\fPp)\fC [inline]\fP"
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), OctaveSink\&.OctaveSink(), PopupMenuControl\&.PopupMenuControl(), TextControl\&.TextControl(), and UIControlAdapter\&.UIControlAdapter()\&.
+.PP
+.nf
+        {
+                listen(p, 'PropertyChanged');
+        }
+.fi
+.SS "void \fBlisten\fP (\fBHandleEventSource\fPsource, Stringname)\fC [inline]\fP"
+.PP
+References HandleEventSource\&.addHandleEventSink(), and HandleEventSinkAdapter\&.sourceSet\&.
+.PP
+.nf
+        {
+                source\&.addHandleEventSink(name, this);
+                sourceSet\&.add(source);
+        }
+.fi
+.SS "void \fBsourceDeleted\fP (Objectsource)\fC [inline]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+References HandleEventSinkAdapter\&.sourceSet\&.
+.PP
+.nf
+        {
+                sourceSet\&.remove(source);
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "Set \fBsourceSet\fP = new HashSet()\fC [protected]\fP"
+.PP
+Referenced by HandleEventSinkAdapter\&.dispose(), HandleEventSinkAdapter\&.listen(), and HandleEventSinkAdapter\&.sourceDeleted()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

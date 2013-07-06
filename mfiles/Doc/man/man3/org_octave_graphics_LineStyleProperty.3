@@ -1,0 +1,658 @@
+.TH "LineStyleProperty" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LineStyleProperty \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBRadioProperty\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLineStyleProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP)"
+.br
+.ti -1c
+.RI "\fBLineStyleProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String style)"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBcloneProperty\fP ()"
+.br
+.ti -1c
+.RI "Stroke \fBgetStroke\fP (float width)"
+.br
+.ti -1c
+.RI "void \fBsetStyle\fP (String s)"
+.br
+.ti -1c
+.RI "int \fBgetStyle\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSet\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoPostScript\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetValue\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBis\fP (String val)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBPropertySet\fP \fBgetParent\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisReadOnly\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetReadOnly\fP (boolean flag)"
+.br
+.ti -1c
+.RI "boolean \fBisVisible\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetVisible\fP (boolean flag)"
+.br
+.ti -1c
+.RI "Object \fBget\fP ()"
+.br
+.ti -1c
+.RI "void \fBset\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (Object value, boolean warn_on_exception)"
+.br
+.ti -1c
+.RI "void \fBreset\fP (Object value)"
+.br
+.ti -1c
+.RI "void \fBlock\fP ()"
+.br
+.ti -1c
+.RI "void \fBunLock\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSameValue\fP (Object value)"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddHandleEventSink\fP (String \fBname\fP, \fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "boolean \fBhasHandleEvent\fP (String \fBname\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String type)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String type, Object arg)  throws PropertyException 	"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLineStyleProperty\fP (\fBLineStyleProperty\fP p)"
+.br
+.ti -1c
+.RI "Object \fBconvertValue\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBinitDefault\fP ()"
+.br
+.ti -1c
+.RI "Object \fBgetInternal\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetInternal\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "boolean \fBisEqual\fP (Object value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Object \fBpvalue\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBLineStyleProperty\fP (\fBLineStyleProperty\fPp)\fC [inline, protected]\fP"
+.PP
+Referenced by LineStyleProperty\&.cloneProperty()\&.
+.PP
+.nf
+        {
+                super(p);
+        }
+.fi
+.SS "\fBLineStyleProperty\fP (\fBPropertySet\fPparent, Stringname)\fC [inline]\fP"
+.PP
+.nf
+        {
+                super(parent, name, new String[] {'-', ':', '--', '-\&.', 'none', ''});
+        }
+.fi
+.SS "\fBLineStyleProperty\fP (\fBPropertySet\fPparent, Stringname, Stringstyle)\fC [inline]\fP"
+.PP
+References Property\&.name, Property\&.parent, and Property\&.pvalue\&.
+.PP
+.nf
+        {
+                this(parent, name);
+                this\&.pvalue = style;
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddHandleEventSink\fP (Stringname, \fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleEventSourceHelper\&.addHandleEventSink(), and Property\&.eventSource\&.
+.PP
+Referenced by HandleObject\&.listen(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSource\&.addHandleEventSink(name, sink);
+        }
+.fi
+.SS "\fBProperty\fP \fBcloneProperty\fP ()\fC [inline, virtual]\fP"
+.PP
+Reimplemented from \fBRadioProperty\fP\&.
+.PP
+References LineStyleProperty\&.LineStyleProperty()\&.
+.PP
+.nf
+        {
+                return new LineStyleProperty(this);
+        }
+.fi
+.SS "Object \fBconvertValue\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented from \fBProperty\fP\&.
+.PP
+References RadioProperty\&.valueSet\&.
+.PP
+.nf
+        {
+                if (value instanceof String && valueSet\&.containsKey(value))
+                        return valueSet\&.get(value);
+                else
+                        throw new PropertyException('invalid property value - ' + value\&.toString());
+        }
+.fi
+.SS "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fPparent, Stringname, Stringtype)  throws \fBPropertyException\fP 	\fC [inline, static, inherited]\fP"
+.PP
+References Property\&.name, and Property\&.parent\&.
+.PP
+Referenced by Property\&.createProperty()\&.
+.PP
+.nf
+        {
+                if (type\&.equals('double'))
+                        return new DoubleProperty(parent, name);
+                else if (type\&.equals('string'))
+                        return new StringProperty(parent, name);
+                return null;
+        }
+.fi
+.SS "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fPparent, Stringname, Stringtype, Objectarg)  throws \fBPropertyException\fP 	\fC [inline, static, inherited]\fP"
+.PP
+References Property\&.createProperty(), Property\&.name, Property\&.parent, and Property\&.set()\&.
+.PP
+.nf
+        {
+                if (type\&.equals('radio'))
+                {
+                        String[] values = ((String)arg)\&.split('|');
+                        return new RadioProperty(parent, name, values, '');
+                }
+                else
+                {
+                        Property p = createProperty(parent, name, type);
+                        if (p != null)
+                                p\&.set(arg);
+                        return p;
+                }
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleEventSourceHelper\&.delete(), and Property\&.eventSource\&.
+.PP
+.nf
+        {
+                eventSource\&.delete();
+        }
+.fi
+.SS "Object \fBget\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBNotImplProperty\fP\&.
+.PP
+References Property\&.getInternal()\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BarseriesObject\&.doLayout(), AxesObject\&.doZoom(), HandleObject\&.get(), LegendObject\&.LegendObject(), LegendObject\&.makeItemFromLine(), LegendObject\&.propertyChanged(), UnwindHandleObject\&.swapValues(), and CheckBoxControl\&.update()\&.
+.PP
+.nf
+        {
+                /* TODO: needed?
+                if (!lockNotify)
+                {
+                        Iterator it = listenerList\&.iterator();
+                        while (it\&.hasNext())
+                                ((PropertyListener)it\&.next())\&.propertyGetting(this);
+                }
+                */
+                return getInternal();
+        }
+.fi
+.SS "Object \fBgetInternal\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBColorProperty\fP, \fBCallbackProperty\fP, \fBHandleObjectListProperty\fP, and \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.get()\&.
+.PP
+.nf
+        {
+                return pvalue;
+        }
+.fi
+.SS "String \fBgetName\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.name\&.
+.PP
+Referenced by PropertySet\&.addProperty(), AxesObject\&.autoAxis(), NotImplProperty\&.get(), PropertySet\&.getNames(), NotImplProperty\&.set(), Property\&.set(), and PropertySet\&.show()\&.
+.PP
+.nf
+        {
+                return name;
+        }
+.fi
+.SS "\fBPropertySet\fP \fBgetParent\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.parent\&.
+.PP
+Referenced by CallbackProperty\&.execute(), NotImplProperty\&.get(), Property\&.initDefault(), HandleObject\&.listen(), NotImplProperty\&.set(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                return parent;
+        }
+.fi
+.SS "Stroke \fBgetStroke\fP (floatwidth)\fC [inline]\fP"
+.PP
+References RadioProperty\&.getValue()\&.
+.PP
+Referenced by TextObject\&.updateData()\&.
+.PP
+.nf
+        {
+                String ls = getValue();
+                if (ls\&.equals(':'))
+                        return new BasicStroke(width, BasicStroke\&.CAP_BUTT, BasicStroke\&.JOIN_BEVEL, 1\&.0f,
+                                        new float[] {2\&.0f, 3\&.0f}, 0\&.0f);
+                else if (ls\&.equals('-'))
+                        return new BasicStroke(width);
+                else if (ls\&.equals('--'))
+                        return new BasicStroke(width, BasicStroke\&.CAP_BUTT, BasicStroke\&.JOIN_BEVEL, 1\&.0f,
+                                        new float[] {10\&.0f, 5\&.0f}, 0\&.0f);
+                else if (ls\&.equals('-\&.'))
+                        return new BasicStroke(width, BasicStroke\&.CAP_BUTT, BasicStroke\&.JOIN_BEVEL, 1\&.0f,
+                                        new float[] {5\&.0f, 5\&.0f, 1\&.0f, 5\&.0f}, 0\&.0f);
+                else
+                        return null;
+        }
+.fi
+.SS "int \fBgetStyle\fP ()\fC [inline]\fP"
+.PP
+References Renderer\&.LS_DASHDOT, Renderer\&.LS_DASHED, Renderer\&.LS_DOTTED, Renderer\&.LS_NONE, and Renderer\&.LS_SOLID\&.
+.PP
+.nf
+        {
+                String ls = getValue();
+                if (ls\&.equals('-'))
+                        return Renderer\&.LS_SOLID;
+                else if (ls\&.equals(':'))
+                        return Renderer\&.LS_DOTTED;
+                else if (ls\&.equals('--'))
+                        return Renderer\&.LS_DASHED;
+                else if (ls\&.equals('-\&.'))
+                        return Renderer\&.LS_DASHDOT;
+                return Renderer\&.LS_NONE;
+        }
+.fi
+.SS "String \fBgetValue\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), J2DRenderer\&.draw(), GLRenderer\&.draw(), AxesObject\&.draw(), TextObject\&.drawAsImage(), MarkerProperty\&.drawMarker(), FigureObject\&.FigureObject(), BooleanProperty\&.getBoolean(), AxesObject\&.getBoundingBox(), SurfaceObject\&.getCData(), PatchObject\&.getCData(), Utils\&.getFontSize(), AxesObject\&.getOuterBoundingBox(), UIControlObject\&.getPosition(), UIPanelObject\&.getPosition(), LineStyleProperty\&.getStroke(), RadioProperty\&.is(), LegendObject\&.LegendObject(), MarkerProperty\&.makeMarker(), GLRenderer\&.makeMarkerList(), GL2PS\&.makeMarkerPSString(), UIPanelObject\&.makePanel(), GLRenderer\&.makeTextureFromCData(), UIControlObject\&.propertyChanged(), UIPanelObject\&.propertyChanged(), TextObject\&.propertyChanged(), FigureObject\&.propertyChanged(), AxesObject\&.propertyChanged(), TextControl\&.stringToHTML(), ColorbarObject\&.updateActivePosition(), LegendObject\&.updateActivePosition(), FigureObject\&.updateFramePosition(), TextObject\&.updateMinMax(), AxesObject\&.updateOuterPosition(), FigureObject\&.updatePosition(), AxesObject\&.updatePosition(), TextObject\&.validate(), UIControlObject\&.validate(), and UIPanelObject\&.validate()\&.
+.PP
+.nf
+        {
+                return (String)pvalue;
+        }
+.fi
+.SS "boolean \fBhasHandleEvent\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References Property\&.eventSource, and HandleEventSourceHelper\&.hasHandleEvent()\&.
+.PP
+.nf
+        {
+                return eventSource\&.hasHandleEvent(name);
+        }
+.fi
+.SS "void \fBinitDefault\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.getDefaultProperty(), Property\&.getParent(), HandleObject\&.getType(), Property\&.name, Property\&.parent, and Property\&.pvalue\&.
+.PP
+Referenced by Property\&.Property()\&.
+.PP
+.nf
+        {
+                HandleObject parent = (HandleObject)getParent();
+                String defname = 'default' + parent\&.getType() + name;
+                Property p = parent\&.getDefaultProperty(defname);
+
+                if (p != null)
+                        pvalue = p\&.pvalue;
+        }
+.fi
+.SS "boolean \fBis\fP (Stringval)\fC [inline, inherited]\fP"
+.PP
+References RadioProperty\&.getValue()\&.
+.PP
+Referenced by AxesObject\&.autoAspectRatio(), AxesObject\&.autoAxis(), AxesObject\&.autoScaleC(), AxesObject\&.autoScaleX(), AxesObject\&.autoScaleY(), AxesObject\&.autoScaleZ(), AxesObject\&.autoTickLabelX(), AxesObject\&.autoTickLabelY(), AxesObject\&.autoTickLabelZ(), GL2PS\&.GL2PSMarkerDrawer\&.begin(), AxesObject\&.computeAutoTickLabels(), AxesObject\&.computeMinorTicks(), UIControlObject\&.controlActivated(), AxesContainer\&.createCanvas(), BarseriesObject\&.doLayout(), LegendObject\&.doLayout(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), J2DRenderer\&.draw(), GLRenderer\&.draw(), AxesObject\&.draw(), TextObject\&.drawAsImage(), UIControlObject\&.get(), TextControl\&.getAlignment(), Utils\&.getAlphaData(), SurfaceObject\&.getAlphaData(), PatchObject\&.getAlphaData(), Utils\&.getFont(), Utils\&.getFontSize(), HandleObjectListProperty\&.getVisibleObjects(), UIControlAdapter\&.init(), MarkerProperty\&.isSet(), UIPanelObject\&.makeBorder(), UIControlAdapter\&.mousePressed(), BaseLineObject\&.propertyChanged(), UIControlAdapter\&.propertyChanged(), TextObject\&.propertyChanged(), FigureObject\&.propertyChanged(), AxesObject\&.propertyChanged(), UIControlObject\&.set(), Edit2Control\&.setAlignment(), EditControl\&.setAlignment(), TextObject\&.toPostScript(), AxesObject\&.updateActivePosition(), TextObject\&.updateContent(), TextObject\&.updateData(), BaseLineObject\&.updateLine(), ImageObject\&.updateMinMax(), PatchObject\&.updateMinMax(), TextObject\&.updateMinMax(), AxesObject\&.updateScalers(), FigureObject\&.updateToolbars(), and AxesObject\&.updateXFormMatrices()\&.
+.PP
+.nf
+        {
+                return getValue()\&.equalsIgnoreCase(val);
+        }
+.fi
+.SS "boolean \fBisEqual\fP (Objectvalue)\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.isSameValue(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                /*Object v = getInternal();*/
+                Object v = pvalue;
+                return (value == null ? v == null : value\&.equals(v));
+        }
+.fi
+.SS "boolean \fBisReadOnly\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.readOnly\&.
+.PP
+.nf
+        {
+                return readOnly;
+        }
+.fi
+.SS "boolean \fBisSameValue\fP (Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References Property\&.convertValue(), and Property\&.isEqual()\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                try
+                {
+                        value = convertValue(value);
+                        return isEqual(value);
+                }
+                catch (PropertyException e)
+                {
+                        return false;
+                }
+        }
+.fi
+.SS "boolean \fBisSet\fP ()\fC [inline]\fP"
+.PP
+Referenced by J2DRenderer\&.draw(), and GLRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                return !(is('none') || is(''));
+        }
+.fi
+.SS "boolean \fBisVisible\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.visible\&.
+.PP
+Referenced by PropertySet\&.getNames(), and PropertySet\&.show()\&.
+.PP
+.nf
+        {
+                return visible;
+        }
+.fi
+.SS "void \fBlock\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+.nf
+        {
+                lockNotify = true;
+        }
+.fi
+.SS "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References Property\&.eventSource, and HandleEventSourceHelper\&.removeHandleEventSink()\&.
+.PP
+.nf
+        {
+                eventSource\&.removeHandleEventSink(sink);
+        }
+.fi
+.SS "void \fBreset\fP (Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), ColorbarObject\&.buildColorbar(), LegendObject\&.buildLegend(), ColorbarObject\&.ColorbarObject(), HandleObject\&.delete(), LegendObject\&.doLayout(), AxesObject\&.draw(), AxesObject\&.getBaseLine(), ImageObject\&.ImageObject(), LegendObject\&.LegendObject(), LineObject\&.LineObject(), LegendObject\&.makeItemFromLine(), AxesObject\&.makeTextObject(), PatchObject\&.PatchObject(), FigureObject\&.print(), LineObject\&.propertyChanged(), BarseriesObject\&.propertyChanged(), TextObject\&.propertyChanged(), SurfaceObject\&.propertyChanged(), AxesObject\&.propertyChanged(), AxesObject\&.reset(), GraphicObject\&.set(), SurfaceObject\&.SurfaceObject(), UnwindHandleObject\&.swapValues(), TextObject\&.TextObject(), CheckBoxControl\&.update(), EditControl\&.update(), PopupMenuControl\&.update(), Edit2Control\&.update(), ListBoxControl\&.update(), AxesObject\&.updateXFormMatrices(), LineObject\&.validate(), SurfaceObject\&.validate(), and PatchObject\&.validate()\&.
+.PP
+.nf
+        {
+                boolean oldLockNotify = lockNotify;
+
+                lockNotify = true;
+                try { set(value); }
+                catch (PropertyException e)
+                {
+                        System\&.err\&.println('WARNING: exception during property reset: ' + e);
+                }
+                lockNotify = oldLockNotify;
+        }
+.fi
+.SS "void \fBset\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBBooleanProperty\fP, and \fBNotImplProperty\fP\&.
+.PP
+References Property\&.convertValue(), Property\&.eventSource, HandleEventSourceHelper\&.fireEvent(), Property\&.getName(), Property\&.getParent(), Property\&.isEqual(), Property\&.lockNotify, Property\&.readOnly, Property\&.setFlag, and Property\&.setInternal()\&.
+.PP
+Referenced by HandleObject\&.autoSet(), BarseriesObject\&.BarseriesObject(), ColorbarObject\&.buildColorbar(), Property\&.createProperty(), BarseriesObject\&.doLayout(), LegendObject\&.doLayout(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.doZoom(), AxesObject\&.draw(), UIControlObject\&.propertyChanged(), UIPanelObject\&.propertyChanged(), BarseriesObject\&.propertyChanged(), LegendObject\&.propertyChanged(), PatchObject\&.propertyChanged(), AxesObject\&.propertyChanged(), HandleObject\&.set(), AxesObject\&.unZoom(), ColorbarObject\&.updateActivePosition(), LegendObject\&.updateActivePosition(), SurfaceObject\&.updateColorMinMax(), ColorbarObject\&.updateImageFromColormap(), GroupObject\&.updateLimits(), BaseLineObject\&.updateLine(), ImageObject\&.updateMinMax(), LineObject\&.updateMinMax(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and TextObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                if (readOnly)
+                        throw new PropertyException('read-only property - ' + getName());
+
+                value = convertValue(value);
+                if (isEqual(value))
+                {
+                        //System\&.out\&.println(getName() + ': identical value, not setting - ' + value\&.toString());
+                        return;
+                }
+
+                if (setFlag)
+                {
+                        System\&.out\&.println('WARNING: ' + getName() + '\&.set (' + ((HandleObject)getParent())\&.getHandle() + '): recursive behavior detected, not setting');
+                        Thread\&.dumpStack();
+                        return;
+                }
+
+                setFlag = true;
+                try
+                {
+                        /* TODO: needed?
+                        if (!lockNotify)
+                        {
+                                Iterator it = listenerList\&.iterator();
+                                while (it\&.hasNext())
+                                        ((PropertyListener)it\&.next())\&.propertySetting(this, value);
+                        }
+                        */
+                        setInternal(value);
+                        if (!lockNotify)
+                        {
+                                eventSource\&.fireEvent('PropertyChanged');
+                        }
+                        setFlag = false;
+                }
+                catch (Exception e)
+                {
+                        setFlag = false;
+                        if (e instanceof PropertyException)
+                                throw (PropertyException)e;
+                        else
+                                throw new PropertyException(e);
+                }
+        }
+.fi
+.SS "void \fBset\fP (Objectvalue, booleanwarn_on_exception)\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName()\&.
+.PP
+.nf
+        {
+                try { set(value); }
+                catch (PropertyException e)
+                {
+                        if (warn_on_exception)
+                        {
+                                System\&.out\&.println('WARNING: ' + getName() + '\&.set: exception occured');
+                                e\&.printStackTrace();
+                        }
+                }
+        }
+.fi
+.SS "void \fBsetInternal\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBArrayProperty\fP, and \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.set()\&.
+.PP
+.nf
+        {
+                pvalue = value;
+        }
+.fi
+.SS "void \fBsetReadOnly\fP (booleanflag)\fC [inline, inherited]\fP"
+.PP
+References Property\&.readOnly\&.
+.PP
+.nf
+        {
+                readOnly = flag;
+        }
+.fi
+.SS "void \fBsetStyle\fP (Strings)\fC [inline]\fP"
+.PP
+.nf
+        {
+                try { set(s); }
+                catch (PropertyException e) { }
+        }
+.fi
+.SS "void \fBsetVisible\fP (booleanflag)\fC [inline, inherited]\fP"
+.PP
+References Property\&.visible\&.
+.PP
+Referenced by AxesObject\&.AxesObject(), BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), FigureObject\&.FigureObject(), GraphicObject\&.GraphicObject(), and PatchObject\&.PatchObject()\&.
+.PP
+.nf
+        {
+                visible = flag;
+        }
+.fi
+.SS "String \fBtoPostScript\fP ()\fC [inline]\fP"
+.PP
+Referenced by TextObject\&.toPostScript()\&.
+.PP
+.nf
+        {
+                if (is(':'))
+                        return '[0 3 1 3 1 3 1 3 1 0] 0 setdash';
+                else if (is('-'))
+                        return '[] 0 setdash';
+                else if (is('--'))
+                        return '[11 5] 0 setdash';
+                else if (is('-\&.'))
+                        return '[4 5 1 6] 0 setdash';
+                else
+                        return '[0 16] 0 setdash';
+        }
+.fi
+.SS "String \fBtoString\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+.nf
+        {
+                return (String)pvalue;
+        }
+.fi
+.SS "void \fBunLock\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+Referenced by HandleObject\&.addProperty(), and PropertySet\&.validate()\&.
+.PP
+.nf
+        {
+                lockNotify = false;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "Object \fBpvalue\fP\fC [protected, inherited]\fP"
+.PP
+Referenced by HandleObjectListProperty\&.addElement(), ArrayProperty\&.ArrayProperty(), BooleanProperty\&.BooleanProperty(), CallbackProperty\&.CallbackProperty(), ColorProperty\&.ColorProperty(), HandleObjectListProperty\&.contains(), DoubleProperty\&.DoubleProperty(), DoubleRadioProperty\&.DoubleRadioProperty(), DoubleProperty\&.doubleValue(), DoubleRadioProperty\&.doubleValue(), HandleObjectListProperty\&.elementAt(), DoubleProperty\&.floatValue(), StringArrayProperty\&.getArray(), CallbackProperty\&.getCallback(), ArrayProperty\&.getClassName(), ColorProperty\&.getColor(), ArrayProperty\&.getDim(), TextProperty\&.getInternal(), Property\&.getInternal(), ColorProperty\&.getInternal(), ArrayProperty\&.getMatrix(), ArrayProperty\&.getNDims(), ObjectProperty\&.getObject(), TextProperty\&.getText(), RadioProperty\&.getValue(), VectorProperty\&.getVector(), HandleObjectListProperty\&.getVisibleObjects(), HandleObjectListProperty\&.HandleObjectListProperty(), Property\&.initDefault(), DoubleProperty\&.intValue(), DoubleRadioProperty\&.is(), ColorProperty\&.is(), DoubleRadioProperty\&.isDouble(), ArrayProperty\&.isEmpty(), TextProperty\&.isEqual(), Property\&.isEqual(), ColorProperty\&.isSet(), HandleObjectListProperty\&.iterator(), LineStyleProperty\&.LineStyleProperty(), MarkerProperty\&.MarkerProperty(), ObjectProperty\&.ObjectProperty(), Property\&.Property(), RadioProperty\&.RadioProperty(), HandleObjectListProperty\&.removeAllElements(), HandleObjectListProperty\&.removeElement(), TextProperty\&.setInternal(), Property\&.setInternal(), HandleObjectListProperty\&.size(), StringArrayProperty\&.StringArrayProperty(), StringProperty\&.StringProperty(), TextProperty\&.TextProperty(), StringProperty\&.toString(), ObjectProperty\&.toString(), RadioProperty\&.toString(), DoubleRadioProperty\&.toString(), VectorProperty\&.toString(), ArrayProperty\&.toString(), ColorProperty\&.toString(), and VectorProperty\&.VectorProperty()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

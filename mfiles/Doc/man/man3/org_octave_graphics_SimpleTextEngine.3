@@ -1,0 +1,126 @@
+.TH "SimpleTextEngine" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBContent\fP"
+.br
+.ti -1c
+.RI "class \fBElement\fP"
+.br
+.ti -1c
+.RI "class \fBLayouter\fP"
+.br
+.ti -1c
+.RI "class \fBLineElement\fP"
+.br
+.ti -1c
+.RI "class \fBPSTextRenderer\fP"
+.br
+.ti -1c
+.RI "class \fBScriptElement\fP"
+.br
+.ti -1c
+.RI "class \fBSimpleFactory\fP"
+.br
+.ti -1c
+.RI "class \fBSubscriptElement\fP"
+.br
+.ti -1c
+.RI "class \fBSuperscriptElement\fP"
+.br
+.ti -1c
+.RI "class \fBTeXElement\fP"
+.br
+.ti -1c
+.RI "class \fBTeXFontColorCommand\fP"
+.br
+.ti -1c
+.RI "class \fBTeXFontCommand\fP"
+.br
+.ti -1c
+.RI "class \fBTeXFontNameCommand\fP"
+.br
+.ti -1c
+.RI "class \fBTeXFontSizeCommand\fP"
+.br
+.ti -1c
+.RI "class \fBTeXFontSwitchCommand\fP"
+.br
+.ti -1c
+.RI "interface \fBTextRenderer\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static Rectangle \fBdrawAsImage\fP (\fBRenderCanvas\fP comp, Font f, String txt, double[] pos, int halign, int valign)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "static Rectangle \fBdrawAsImage\fP (\fBRenderCanvas\fPcomp, Fontf, Stringtxt, double[]pos, inthalign, intvalign)\fC [inline, static]\fP"
+.PP
+References Renderer\&.drawBitmap(), RenderCanvas\&.getRenderer(), SimpleTextEngine\&.Content\&.layout(), and SimpleTextEngine\&.Content\&.render()\&.
+.PP
+Referenced by GLRenderer\&.drawText()\&.
+.PP
+.nf
+        {
+                // create internal image
+                int margin = 0;
+                Content content = new Content(txt);
+                Rectangle r = (Rectangle)content\&.layout(comp, f)\&.clone();
+
+                if (r\&.width <=0 || r\&.height <= 0)
+                        return new Rectangle();
+
+                r\&.width += 2*margin;
+                r\&.height += 2*margin;
+                BufferedImage img = new BufferedImage(r\&.width, r\&.height, BufferedImage\&.TYPE_BYTE_BINARY);
+
+                // draw string
+                Graphics g = img\&.getGraphics();
+                g\&.setFont(f);
+                g\&.translate(margin, margin);
+                content\&.render((Graphics2D)g);
+                g\&.dispose();
+                com\&.sun\&.opengl\&.util\&.ImageUtil\&.flipImageVertically(img);
+
+                // compute offsets
+                int xoff, yoff;
+                switch (halign)
+                {
+                default:
+                case 0: xoff = 0; break;
+                case 1: xoff = -r\&.width/2; break;
+                case 2: xoff = -r\&.width; break;
+                }
+                switch (valign)
+                {
+                default:
+                case 0: yoff = 0; break;
+                case 1: yoff = -r\&.height/2; break;
+                case 2: yoff = -r\&.height; break;
+                }
+
+                // render to canvas
+                comp\&.getRenderer()\&.drawBitmap(img, pos, xoff, yoff);
+
+                // return value
+                return r;
+        }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

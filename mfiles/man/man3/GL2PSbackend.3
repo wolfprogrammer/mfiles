@@ -1,0 +1,85 @@
+.TH "GL2PSbackend" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GL2PSbackend \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBprintHeader\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBprintFooter\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBbeginViewport\fP )(GLint viewport[4])"
+.br
+.ti -1c
+.RI "GLint(* \fBendViewport\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBprintPrimitive\fP )(void *data)"
+.br
+.ti -1c
+.RI "void(* \fBprintFinalPrimitive\fP )(void)"
+.br
+.ti -1c
+.RI "const char * \fBfile_extension\fP"
+.br
+.ti -1c
+.RI "const char * \fBdescription\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 279 of file gl2ps\&.c\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "void(* \fBGL2PSbackend::beginViewport\fP)(GLint viewport[4])"
+.PP
+Definition at line 282 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginViewport()\&.
+.SS "const char* \fBGL2PSbackend::description\fP"
+.PP
+Definition at line 287 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psGetFormatDescription()\&.
+.SS "GLint(* \fBGL2PSbackend::endViewport\fP)(void)"
+.PP
+Definition at line 283 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psEndViewport()\&.
+.SS "const char* \fBGL2PSbackend::file_extension\fP"
+.PP
+Definition at line 286 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psGetFileExtension()\&.
+.SS "void(* \fBGL2PSbackend::printFinalPrimitive\fP)(void)"
+.PP
+Definition at line 285 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+.SS "void(* \fBGL2PSbackend::printFooter\fP)(void)"
+.PP
+Definition at line 281 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psEndPage()\&.
+.SS "void(* \fBGL2PSbackend::printHeader\fP)(void)"
+.PP
+Definition at line 280 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+.SS "void(* \fBGL2PSbackend::printPrimitive\fP)(void *data)"
+.PP
+Definition at line 284 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

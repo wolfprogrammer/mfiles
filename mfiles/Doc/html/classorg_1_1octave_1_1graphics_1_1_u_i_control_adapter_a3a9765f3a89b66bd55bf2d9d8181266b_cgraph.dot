@@ -1,0 +1,29 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getPosition",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="org.octave.graphics.UIControlObject.getPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a3a9765f3a89b66bd55bf2d9d8181266b"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="org.octave.graphics.UIControlObject.getParentComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a78885ee3d42361e72678b38ba8978203"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="org.octave.graphics.HandleObjectListProperty.size",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_handle_object_list_property.html#af4b57d21919c42d55af03391f91a1c08"];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="org.octave.graphics.HandleObjectListProperty.elementAt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_handle_object_list_property.html#ad4f83b73289f32a66f2d7c611f830616"];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="org.octave.graphics.HandleObject.getComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_handle_object.html#a285ebf58250175e51f041cbf55278a49"];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="org.octave.graphics.Utils.convertPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_utils.html#abc92528a969cc7b9b28c0a491e61a7a6"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="org.octave.graphics.Utils.getScreenRectangle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_utils.html#a5dde55be7ef2d050d9cd4694def3b101"];
+  Node7 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="org.octave.graphics.Utils.getScreenResolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_utils.html#afb64bea165add980f858fbbb9664ffcd"];
+  Node2 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="org.octave.graphics.VectorProperty.getArray",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_vector_property.html#ac9573ab949db7e86c1b0bd502d50e9f1"];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="org.octave.graphics.VectorProperty.getVector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_vector_property.html#a4ee8a1258ab4c3158a01e1442835be2a"];
+  Node2 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="org.octave.graphics.RadioProperty.getValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_radio_property.html#a574b29843fb09dff2bf8edd82341f051"];
+}

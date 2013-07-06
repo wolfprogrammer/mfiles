@@ -1,0 +1,51 @@
+jhandles is a graphics package for octave that provides a handle-based
+graphics system similar to Matlab. This package is based on Java for
+the windowing environment and OpenGL for 3D rendering.
+
+Requirements
+------------
+
+  * Java Runtime Environment >= 1.2
+
+  * Java interface package for Octave: available as an octave-forge
+    package
+
+  * JOGL: OpenGL interface library for Java (https://jogl.dev.java.net)
+
+
+
+Installation
+------------
+
+This package as well as the java interface package should be installed
+as regular octave-forge package.
+
+JOGL should be installed in such a way that it is accessible to the
+Java runtime engine and this package. Under Windows, the easiest is to
+copy the jogl.jar file into the installation directory of this package
+(where jhandles.jar is located) and to copy the .dll files into the
+octave binary directory. A similar procedure should be used for UNIX
+systems (although it has not been tested under such system), with the
+difference that shared libs should be copied into a location accessible
+from the LD_LIBRARY_PATH variable (like the location of the shared libs
+of octave).
+
+
+
+Problems
+--------
+
+This package is in alpha stage, so don't expect too much from it; but
+you can expect mnay bugs...
+
+Testing has only been done under Windows; there's a high probability
+that it does not work under UNIX systems.
+
+Under Windows, switching between windows using ALT+Tab keys produces
+a problem when closing a figure with the 'x' top-right button (the
+problem actually lies in the readline library). It's safe to close
+a window at octave prompt with "close" command.
+
+Octave does not close figure windows automatically when exiting. You
+have to close manually all windows before exiting, otherwise octave
+might hang.

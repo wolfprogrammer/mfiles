@@ -1,0 +1,18 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="gl2psCopyPrimitive",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="gl2psCopyPixmap",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a89e40d0eb0bcb4dc7b3497838af5eef2"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="gl2psMalloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ae8687abe691957a70d1b0456015e2a4f"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="gl2psMsg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ab2b05dc9c0ad9b295309ef903218908c"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="gl2psCopyText",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a933f7519e26e36351e1012977cedde1e"];
+  Node5 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

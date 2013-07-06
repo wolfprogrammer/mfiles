@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['l_5fobj',['l_obj',['../light_8m.html#a91c1c5e7c4edb45e71e0ac6107c05cbf',1,'light.m']]],
+  ['labelyz',['labelyz',['../____bar3_____8m.html#a8d68d12f0846db378d1661bb5cd34d58',1,'__bar3__.m']]],
+  ['lastfactor',['lastfactor',['../structGL2PScontext.html#a937de827c12eef3277d291071461c6ba',1,'GL2PScontext']]],
+  ['lastlinewidth',['lastlinewidth',['../structGL2PScontext.html#aeacbba2cabb4cbb2dbeecd6b8eb2ae6b',1,'GL2PScontext']]],
+  ['lastpattern',['lastpattern',['../structGL2PScontext.html#a453e553f46eff8c9ca48b134f15d43bc',1,'GL2PScontext']]],
+  ['lastrgba',['lastrgba',['../structGL2PScontext.html#aa8a3f3056669e972e640fcc4b3b51138',1,'GL2PScontext']]],
+  ['lastvertex',['lastvertex',['../structGL2PScontext.html#a6f1db432d22f2fc5a3d8c7668fca1a29',1,'GL2PScontext']]],
+  ['layout',['layout',['../____bars_____8m.html#abfe2110f7b67fc2487210217c7c7f27b',1,'__bars__.m']]],
+  ['lc',['lc',['../____parse__stem__args_____8m.html#a5464b5a157393e536813e91e28df4fab',1,'__parse_stem_args__.m']]],
+  ['legend_5fobj',['legend_obj',['../legend_8m.html#a64d764755962f97915617ea1e4c325fe',1,'legend.m']]],
+  ['line',['line',['../help2_8m.html#a4fa05b1f00fcde100685cc887554b93b',1,'help2.m']]],
+  ['linecolor',['linecolor',['../structGL2PSstring.html#a5e652ad4c8e8e44c8573d2d2ac549c69',1,'GL2PSstring']]],
+  ['linefactor',['linefactor',['../structGL2PSstring.html#a71ff50f7ec79aaa8c052f956138b94f4',1,'GL2PSstring']]],
+  ['linepattern',['linepattern',['../structGL2PSstring.html#a06070a1d3856c4d4691f6b2aadaa7847',1,'GL2PSstring']]],
+  ['linewidth',['linewidth',['../structGL2PSstring.html#a93da34407e64a256f27852a112ccf689',1,'GL2PSstring']]],
+  ['lista',['lista',['../vars_8m.html#a64955a695f95d34cf7cb476c9e56569e',1,'vars.m']]],
+  ['ls',['ls',['../____parse__stem__args_____8m.html#aac1113e50f7f1460beeaeeba69f63701',1,'__parse_stem_args__.m']]]
+];

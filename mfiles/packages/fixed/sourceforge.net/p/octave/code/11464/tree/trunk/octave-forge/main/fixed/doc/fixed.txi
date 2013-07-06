@@ -1,0 +1,3581 @@
+<!DOCTYPE html>
+<!-- Server: sfn-web-1 -->
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>
+  Octave Forge / Code /
+  [r11464]
+  /trunk/octave-forge/main/fixed/doc/fixed.txi
+</title>
+    
+
+<script src="http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/js/sftheme/modernizr.custom.90514.js"></script>
+
+<script src="http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/js/sftheme/jquery-1.8.0.min.js"></script>
+
+<script src="http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/js/sftheme/header.js"></script>
+<!--[if lt IE 7 ]>
+  <script src="http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/js/sftheme/dd_belatedpng.js"></script>
+  <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+<![endif]-->
+<link href='//fonts.googleapis.com/css?family=Ubuntu:regular' rel='stylesheet' type='text/css'>
+<style type="text/css">
+    @font-face {
+        font-family: "Pictos";
+        src: url('http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/css/fonts/sftheme/pictos-web.eot');
+        src: local("☺"), url('http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/css/fonts/sftheme/pictos-web.woff') format('woff'), url('http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/css/fonts/sftheme/pictos-web.ttf') format('truetype'), url('http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/css/fonts/sftheme/pictos-web.svg') format('svg');
+    }
+</style>
+    <script type="text/javascript">
+            /*jslint onevar: false, nomen: false, evil: true, css: true, plusplus: false, white: false, forin: true, on: true, immed: false */
+            /*global confirm, alert, unescape, window, jQuery, $, net, COMSCORE */
+    </script>
+    
+      <!-- ew:head_css -->
+
+    
+      <link rel="stylesheet"
+                type="text/css"
+                href="http://a.fsdn.com/allura/nf/1354307686/_ew_/_slim/css?href=allura%2Fcss%2Fforge%2Fhilite.css"
+                >
+    
+      <link rel="stylesheet"
+                type="text/css"
+                href="http://a.fsdn.com/allura/nf/1354307686/_ew_/theme/sftheme/css/forge.css"
+                >
+    
+      
+<!-- /ew:head_css -->
+
+    
+    
+    
+      <!-- ew:head_js -->
+
+    
+      
+<!-- /ew:head_js -->
+
+    
+    
+
+    
+      <style type="text/css">
+        #page-body.project---init-- #top_nav { display: none; }
+#page-body.project---init-- #nav_menu_holder { display: none; margin-bottom: 0; }
+#page-body.project---init-- #content_base {margin-top: 0; }
+      </style>
+    
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/p/octave/code/feed.rss"/>
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/p/octave/code/feed.atom"/>
+
+      <style>.XZaDoWRMqIJUMOweqLNM { display:none }</style>
+
+    
+    
+    
+    
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+
+    function _add_tracking(prefix, tracking_id, send_user) {
+        _gaq.push([prefix+'._setAccount', tracking_id]);
+        _gaq.push([prefix+'._setCustomVar', 1, 'Page Type', 'SVN', 3]);_gaq.push([prefix+'._trackPageview']);
+    }
+      _add_tracking('sfnt1', 'UA-32013-6', true);
+      _add_tracking('sfnt2', 'UA-36130941-1', true);
+    
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+  </head>
+
+  <body id="forge">
+    
+      <!-- ew:body_top_js -->
+
+    
+      
+<!-- /ew:body_top_js -->
+
+    
+    
+<header id="site-header">
+    <div class="wrapper">
+        <a href="/" class="logo">
+            <span>SourceForge</span>
+        </a>
+        
+        <form method="get" action="/directory/">
+            <input type="text" id="words" name="q" placeholder="Search">
+        </form>
+        
+        <!--Switch to {language}-->
+        <nav id="nav-site">
+            <a href="/directory/" title="Browse our software.">Browse</a>
+            <a href="/blog/" title="Read the latest news from the SF HQ.">Blog</a>
+            <a href="/support" title="Contact us for help and feedback.">Help</a>
+        </nav>
+        <nav id="nav-account">
+            
+              <div class="logged_out">
+                <a href="/account/login.php">Log In</a>
+                <span>or</span>
+                <a href="https://sourceforge.net/user/registration/">Join</a>
+              </div>
+            
+        </nav>
+        
+    </div>
+</header>
+<header id="site-sec-header">
+    <div class="wrapper">
+        <nav id="nav-hubs">
+            <h4>Solution Centers</h4>
+            <a href="http://ibmsmartercommerce.sourceforge.net/">Smarter Commerce</a>
+            <a href="http://goparallel.sourceforge.net/">Go Parallel</a>
+            <a href="http://html5center.sourceforge.net/">HTML5</a>
+            <a href="http://ibmsmarteritservices.sourceforge.net/">Smarter IT</a>
+        </nav>
+        <nav id="nav-collateral">
+            <a href="http://library.geeknetmedia.com">Resources</a>
+            
+            <a href="">Newsletters</a>
+            
+        </nav>
+    </div>
+</header>
+    
+    <section id="page-body" class=" neighborhood-Projects project-octave mountpoint-code">
+	  <div class="grid-24" id="nav_menu_holder">
+            
+            
+
+
+  
+  <a href="/p/octave/">
+    
+      <img src="/p/octave//icon?2012-09-22 21:52:49+00:00" class="project_icon" alt="Project Logo">
+    
+	<h1 class="project_title">
+      
+        Octave Forge
+      
+	</h1>
+	</a>
+
+            
+      </div>
+      <div id="top_nav" class="">
+        
+        
+  
+    <a href="/projects/octave/" class="ui-icon-tool-summary">
+      Summary
+      
+        
+      
+    </a>
+	
+    <a href="/projects/octave/files/" class="ui-icon-tool-files">
+      Files
+      
+        
+      
+    </a>
+	
+    <a href="/p/octave/mailman/" class="ui-icon-tool-mailman">
+      Mailing Lists
+      
+        
+      
+    </a>
+	
+    <a href="/p/octave/code/" class="ui-icon-tool-svn">
+      Code
+      
+        
+          <span class="diamond"></span>
+        
+      
+    </a>
+	
+    <a href="/p/octave/package-releases/" class="ui-icon-tool-tickets">
+      Package Releases
+      
+        
+      
+    </a>
+	
+    <a href="/p/octave/feature-requests/" class="ui-icon-tool-tickets">
+      Feature Requests
+      
+        
+      
+    </a>
+	
+    <a href="/p/octave/bugs/" class="ui-icon-tool-tickets">
+      Bugs
+      
+        
+      
+    </a>
+	
+    <a href="/p/octave/discussion/" class="ui-icon-tool-discussion">
+      Discussion
+      
+        
+      
+    </a>
+	
+	<div style="clear:both"></div>
+
+        
+      </div>
+      <div id="content_base">
+			  
+			    
+          
+
+
+<div id="sidebar">
+  
+    <div>&nbsp;</div>
+  
+    
+    
+      
+        
+    
+      <ul class="sidebarmenu">
+      
+    
+    <li>
+      <a href="/p/octave/code/commit_browser"><b data-icon="o" class="ico ico-folder"></b> <span>Browse Commits</span></a>
+    </li>
+  
+      
+    
+    
+      </ul>
+      
+    
+    
+</div>
+          
+          
+			  
+			  
+          
+        
+        <div class="grid-20 pad">
+          <h2 class="dark title">
+<a href="/p/octave/code/11464/">[r11464]</a>:
+
+  
+  
+    <a href="./../../../../">trunk</a> /
+    
+  
+    <a href="./../../../">octave-forge</a> /
+    
+  
+    <a href="./../../">main</a> /
+    
+  
+    <a href="./../">fixed</a> /
+    
+  
+    <a href="./">doc</a> /
+    
+  
+ fixed.txi
+
+            <!-- actions -->
+            <small>
+            
+<a href="/p/octave/code/11464/log/">
+  <b data-icon="N" class="ico ico-history" title="History"> </b> History
+</a>
+
+            </small>
+            <!-- /actions -->
+          </h2>
+		
+          <div>
+            
+  
+
+            
+  
+
+  
+
+  
+    <p><a href="?format=raw">Download this file</a></p>
+    <div class="clip grid-19">
+      <h3>
+        <span class="ico-l"><b data-icon="n" class="ico ico-table"></b> fixed.txi</span>
+        &nbsp;&nbsp;
+        3071 lines (2561 with data), 146.9 kB
+      </h3>
+      
+        <pre>\input texinfo
+
+@c Include the file with the version number 
+@include fixedversion.txi
+
+@setfilename fixed.info
+
+@settitle Fixed Point Toolbox for Octave
+
+@titlepage
+@title  Fixed Point Toolbox for Octave
+@subtitle Version @value{VERSION}
+@subtitle January 2004
+@author David Bateman
+@author Laurent Mazet
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 2004 Motorola Inc
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the same conditions as for modified versions.
+@end titlepage
+
+@contents
+
+@ifinfo
+@node Top, Basics
+@top
+@end ifinfo
+
+@menu
+* Basics:: The basics of the fixed point types
+* Programming:: Using the fixed-point type in C++ and oct-files
+* Example:: Fixed point type applied to real signal processing example
+* Function Reference:: Documentation from the fixed point specific functions
+@end menu
+
+@node Basics, Programming, Top, Top
+@chapter The Basics of the Fixed Point Types
+
+When implementing algorithms in hardware, it is common to reduce the accuracy
+of the representation of numbers to a smaller number of bits. This allows 
+much lower complexity in the hardware, at the cost of accuracy and potential
+overflow problems. Such representations are known as fixed point.
+
+This toolbox supplies a fixed point type that allows Octave to model the
+effects of such a reduction in accuracy of the representation of numbers.
+The major advantage of this toolbox is that with correctly written Octave
+scripts, the same code can be used to test both fixed and floating point
+representations of numbers.
+
+The authors have tried to take all care to ensure the correct functionality
+of this package. However, as this code is relatively recent we expect
+that there will be a certain number of problems. We welcome all reports
+of bugs, etc or even success stories. The authors can be contacted at
+the e-mail address @email{David.Bateman@@motorola.com}.
+
+@menu
+* License:: The License used with this Package
+* Representation:: Representation of fixed point numbers
+* Creation:: Creation of fixed point numbers
+* Overflow:: Overflow Behavior of Fixed Point Numbers
+* Built-in Variables:: Fixed Point Built-in Variables
+* Accessing Internal Fields:: The properties of fixed point numbers
+* Function Overloading:: Fixed point numbers with existing Octave functions
+* Together:: Putting it all together
+* Precision:: Problems of precision in calculations
+* Lookup Tables:: The use of Lookup tables with fixed point values;
+* Known Problems:: Read this before reporting a bug
+@end menu
+
+@node License, Representation, Basics, Basics
+@section The License used with this Package
+
+The license used with this package is the GNU General Public License, a
+copy of which is distributed with this package in the file @file{COPYING}.
+Some commercial users have seemed quite concerned about the use of software
+licensed under the GPL in their development. To ease these concerns, the
+authors state in clear English the terms of the GPL allow that
+
+@enumerate 
+@item Any algorithm developed with this package remains the sole property
+of the party developing the algorithm.
+@item Changes can be made to the fixed point package, with the 
+constraint that if you supply a version of the fixed point package to
+another party it must equally be covered by the terms of the GPL. 
+@end enumerate
+
+We believe that there is little reason to make proprietary changes to
+the fixed point package itself. So this clear distinction between the
+fixed point code itself and algorithms developed with it means that 
+there should be little concern for a use of this package in the
+development of a proprietary algorithms. 
+
+Proprietary changes to the fixed point package itself are possible. The
+GPL only comes into play in if you distribute the fixed point package
+with these changes. The algorithms developed on these modified versions
+of the fixed point package remain proprietary in all cases.
+
+@node Representation, Creation, License, Basics
+@section Fixed Point Representation
+
+Fixed point numbers can be represented digitally in several manners, including
+@emph{sign-magnitude}, @emph{ones-complement} and @emph{twos-complement}.
+The most commonly used technique is @emph{twos-complement} due to the 
+easier implementation of certain operations in this representation. As such
+this toolbox uses the @emph{twos-complement} representation of numbers
+
+All fixed point objects in this toolbox are represented by an @emph{int}
+that is used in the following manner
+
+@table @asis
+@item 1 bit representing the sign,
+@item @var{is} bits representing the integer part of the number, and
+@item @var{ds} bits representing the decimal part of the number.
+@end table
+
+The numbers that can then be represented are then given by
+
+@iftex
+@tex
+$$
+- 2 ^ {is} \leq x \leq 2 ^ {is} - 2 ^ {-ds}
+$$
+@end tex
+@end iftex
+@ifinfo
+@example
+- 2 ^ @var{is} &lt;= @var{x} &lt;= 2 ^@var{is} -1
+@end example
+@end ifinfo
+
+and the distance between two values of @var{x} that are not represented by
+the same fixed point value is 
+@iftex
+@tex
+$$
+2 ^ {-ds}
+$$
+@end tex
+@end iftex
+@ifinfo
+2 ^ (-@var{ds})
+@end ifinfo
+.
+
+The number of bits that can be used in the representation of the fixed point
+objects is determined by the number of bits in an @emph{int} on the
+platform. Valid values include 32- and 64-bits. To avoid issues with 
+overflows in additions, one of these bits can not be used. Therefore
+valid values of @var{is} and @var{ds} are given by 
+
+@iftex
+@tex
+$$
+0 &lt; \left( is + ds \right) \leq n - 2 
+$$
+@end tex
+@end iftex
+@ifinfo
+@example
+0 &lt; ( @var{is} + @var{ds} ) &lt; @var{n} - 2
+@end example
+@end ifinfo
+
+where @var{n} is either 32 or 64, depending on the number of bits in
+an @emph{int}. It should be noted that given the above criteria it
+is possible to create a fixed point representation that lacks a 
+representation of the number 1. This makes the implementation of 
+certain operators difficult, and so the valid representations are
+further limited to
+
+@iftex
+@tex
+$$
+0 &lt; \left( is , ds , is + ds \right) \leq n - 2 
+$$
+@end tex
+@end iftex
+@ifinfo
+@example
+0 &lt; ( @var{is}, @var{ds}, @var{is} + @var{ds} ) &lt; @var{n} - 2
+@end example
+@end ifinfo
+
+This does not mean that other numbers can not be represented by this toolbox,
+but rather that the numbers must be scaled prior to their being represented.
+
+This toolbox allows both fixed point real and complex scalars to be
+represented, as well as fixed point real and complex matrices. The real and
+imaginary parts of the fixed point number and each element of a fixed point
+matrix has its own fixed point representation.
+
+@node Creation, Overflow, Representation, Basics
+@section Creating Fixed Point Numbers
+
+Before using a fixed point type, some variables must be created that use this
+type. This is done with the function @dfn{fixed}. The function @dfn{fixed}
+can be used in several manners, depending on the number and type of the
+arguments that are given. It can be used to create scalar, complex, matrix
+and complex matrix values of the fixed type.
+
+The generic call to @dfn{fixed} is @code{fixed(@var{is},@var{ds},@var{f})},
+where the variables are
+
+@table @asis
+@item @var{is}
+The number of bits to use in the representation of the integer part of the
+fixed point value. This can be either a real or complex value, and can be
+either a scalar or a matrix. As the fixed point representation of complex
+values uses separate representations for the real and imaginary parts, a
+complex value of @var{is} gives the representation of the real and imaginary
+parts separately. @var{is} must contain only integer or complex integer
+values greater than zero, and less than 30 or 62 as discussed in the
+previous section.
+@item @var{ds}
+Similarly to @var{is}, @var{ds} represents the number of bits in the 
+decimal part of the fixed point representation. The same conditions as for
+@var{is} apply to @var{ds}
+@item @var{f}
+This variable can be either a scalar, complex, matrix or complex matrix 
+of values that will be converted to a fixed point representation. It can
+equally be another fixed point value, in which case @dfn{fixed} has the
+effect of changing the representation of @var{f} to another representation
+given by @var{is} and @var{ds}.
+@end table
+
+If matrices are used for @var{is}, @var{ds}, or @var{f}, then the dimensions
+of all of the matrices must match. However, it is valid to have @var{is} or
+@var{ds} as scalar values, which will be expanded to the same dimension 
+as the other matrices, before use in the conversion to a fixed point value.
+The variable @var{f} however, must be a matrix if either @var{is} or @var{ds}
+is a matrix.
+
+The most basic use of the function @dfn{fixed} can be seen in the example
+
+@example
+octave:1&gt; a = fixed(7,2,1)
+ans = 1
+octave:2&gt; isfixed(a)
+ans = 1 
+octave:3&gt; whos a
+*** local user variables:
+
+prot  type                       rows   cols  name
+====  ====                       ====   ====  ====
+ rwd  fixed scalar                  1      1  a
+@end example
+
+which demonstrates the creation of a real scalar fixed point value
+with 7 bits of precision in the integer part, 2 bits in the decimal
+part and the value 1. The function @dfn{isfixed} can be used to
+identify whether a variable is of the fixed point type or
+not. Equally, using the @dfn{whos} function allows the variable to be
+identified as "fixed scalar".
+
+Other examples of valid uses of @dfn{fixed} are
+
+@example
+octave:1&gt; a = fixed(7, 2, 1);
+octave:2&gt; b = fixed(7, 2+1i, 1+1i);
+octave:3&gt; c = fixed(7, 2, 255*rand(10,10) - 128);
+octave:4&gt; is = 3*ones(10,10) + 4*eye(10); 
+octave:5&gt; d = fixed(is, 1, eye(10));
+octave:6&gt; e = fixed(7, 2, 255*rand(10,10)-128 + 
+&gt;			1i*(255*rand(10,10)-128));
+octave:7&gt; whos
+
+*** local user variables:
+
+prot  type                       rows   cols  name
+====  ====                       ====   ====  ====
+ rwd  fixed scalar                  1      1  a
+ rwd  fixed complex                 1      1  b
+ rwd  fixed matrix                 10     10  c
+ rwd  fixed matrix                 10     10  d
+ rwd  fixed complex matrix         10     10  e
+@end example
+
+With two arguments given to @dfn{fixed}, it is assumed that @var{f} is
+zero or a matrix of zeros, and so @dfn{fixed} called with two
+arguments is equivalent to calling with three arguments with the third
+arguments being zero. For example
+
+@example
+octave:1&gt; a = fixed([7,7], [2,2], zeros(1,2));
+octave:2&gt; b = fixed([7,7], [2,2]);
+octave:3&gt; assert(a == b);
+@end example
+
+Called with a single argument @dfn{fixed}, and a fixed point argument,
+@code{b = fixed(@var{a})} is equivalent to @code{b = a}. If @var{a} is 
+not itself fixed point, then the integer part of @var{a} is used to create
+a fixed point value, with the minimum number of bits needed to represent
+it. For example
+
+@example
+octave:1&gt; b = fixed(1:4);
+@end example
+
+creates a fixed point row vector with 4 values. Each of these values
+has the minimum number of bits needed to represent it. That is b(1)
+uses 1 bit to represent the integer part, b(2:3) use 2 bits and b(4)
+uses 3 bits. The single argument used with @dfn{fixed} can equally be
+a complex value, in which case the real and imaginary parts are
+treated separately to create a composite fixed point value.
+
+@node Overflow, Built-in Variables, Creation, Basics
+@section Overflow Behavior of Fixed Point Numbers
+
+When converting a floating point number to a fixed point number the
+overflow behavior of the fixed point type is such that it implements
+clipping of the data to the maximum or minimum value that is
+representable in the fixed point type. This effectively simulates the
+behavior of an analog to digital conversion. For example
+
+@example
+octave:1&gt; a = fixed(7,2,200)
+a = 127.75
+octave:2&gt; a = fixed(7,2,-200)
+a = -128
+@end example
+
+However, the overflow behavior of the fixed point type is distinctly
+different if the overflow occurs within a fixed point operation itself.
+In this case the excess bits generated by the overflow are dropped.
+For example
+
+@example
+octave:1&gt; a = fixed(7,2,127) + fixed(7,2,2)
+a = -127
+octave:2&gt; a = fixed(7,2,-127) + fixed(7,2,-2)
+a = 127
+@end example
+
+The case where the representation of the fixed point object changes is
+different again. In this case the sign is maintained, while the
+most-significant bits of the representation are dropped. For example
+
+@example
+octave:1&gt; a = fixed(6, 2, fixed(7, 2, -127.25))
+a = -63.25
+octave:2&gt; a = fixed(6, 2, fixed(7, 2, 127.25))
+a = 63.25
+octave:3&gt; a = fixed(7, 1, fixed(7, 2, -127.25))
+a = -127.5
+octave:4&gt; a = fixed(7, 1, fixed(7, 2, 127.25))
+a = 127
+@end example
+
+In addition to the overflow issue discussed above, it is important to
+take into account what happens when an operator is used on two fixed 
+point values with different representations. For example
+
+@example
+octave:1&gt; a = fixed(7,2,1);
+octave:2&gt; b = fixed(6,3,1);
+octave:3&gt; c = a + b;
+octave:4&gt; fprintf("%d integer, and %d decimal bits\n", c.int, c.dec);
+7 integer, and 3 decimal bits
+@end example
+
+as can be seen the fixed point value is promoted to have an output 
+fixed point representation such that @code{c.int = max(a.int,b.int)}
+and @code{c.dec = max(a.dec,b.dec)}. If this promotion causes the 
+maximum number of bits in a fixed point representation to be exceeded,
+then an error will occur.
+
+@node Built-in Variables, Accessing Internal Fields, Overflow, Basics
+@section Fixed Point Built-in Variables
+
+After the fixed point type is first used, four variables are initialized. 
+These are
+
+@table @asis
+@item fixed_point_version
+The version number of the fixed point code
+@item fixed_point_warn_overflow
+If non-zero warn of fixed point overflows. The default is 0.
+@item fixed_point_count_operations
+If non-zero count number of fixed point operations, for later complexity
+analysis
+@item fixed_point_debug 
+If non-zero keep a copy of fixed point value to allow easier debugging
+with gdb
+@end table
+
+and they can be accessed as normal Octave built-in variables. The variable
+@code{fixed_point_version} can be used to create tests in the users code,
+to work-around any eventual problems in the fixed point type. For example
+
+@example
+if (strcmp(fixed_point_version, "0.6.0")) 
+  a = fixed([a.int, b.int], [a.dec, b.dec], 
+           [a.x, b.x]);
+else
+  a = concat(a, b);
+endif
+@end example
+
+although this is not a real example, since both versions of the above code
+work with the released version of the fixed point type.
+
+When optimizing the number of bits in a fixed point type, it is normal
+to expect overflows to occur, causing errors in the calculations which
+due to the implementation have little effect on the end result of the
+system.  However, it is sometimes useful to know exactly where
+overflows are happening or not. A non-zero value of variable
+@code{fixed_point_warn_overflow} permits the errors conditions in fixed
+point operations to cause a warning message to be printed by
+octave. The default behavior is to have @code{fixed_point_warn_overflow}
+be 0.
+
+The octave fixed point type can keep track of all of the fixed point 
+operations and their type. This is very useful for a simple complexity 
+analysis of the algorithms. To allow the fixed point type to track
+operations the variable @code{fixed_point_count_operations} must be
+non-zero. The count of operations can then be reset with the 
+@dfn{reset_fixed_operations}, and the number of operations since the
+last reset can be given by the  @dfn{display_fixed_operations}
+function.
+
+The final in-built variable of the fixed point type is
+@code{fixed_point_debug}.  In normal operation this variable is of no
+use. However setting it to a non-zero value causes a copy of the 
+floating point representation of a fixed point value to be stored
+internally. This makes debugging code using the fixed point type
+significantly easier using gdb.
+
+@node Accessing Internal Fields, Function Overloading, Built-in Variables, Basics
+@section Accessing Internal Fields
+
+Once a variable has been defined as a fixed point object, the parameters of the
+field of this structure can be obtained by adding a suffix to the variable.
+Valid suffixes are '.x', '.i', '.sign', '.int' and '.dec', which return
+
+@table @asis
+@item .x
+The floating point representation of the fixed point number
+@item .i
+The internal integer representation of the fixed point number
+@item .sign
+The sign of the fixed point number
+@item .int
+The number of bits representing the integer part of the fixed point number
+@item .dec
+The number of bits representing the decimal part of the fixed point number
+@end table
+
+As each fixed point value in a matrix can have a different number of bits 
+in its representation, these suffixes return objects of the same size as
+the original fixed point object. For example
+
+@example
+octave:1&gt; a = [-3:3];
+octave:2&gt; b = fixed(7,2,a);
+octave:3&gt; b.sign
+ans =
+
+  -1  -1  -1   0   1   1   1
+octave:4&gt; b.int
+ans =
+
+  7  7  7  7  7  7  7
+octave:5&gt; b.dec
+ans =
+
+  2  2  2  2  2  2  2
+octave:5&gt; c = b.x;
+octave:6&gt; whos
+ 
+*** local user variables:
+
+prot  type                       rows   cols  name
+====  ====                       ====   ====  ====
+ rwd  matrix                        1      7  a
+ rwd  fixed matrix                  1      7  b
+ rwd  matrix                        1      7  c
+@end example
+
+The suffixes '.int' and '.dec' can also be used to change the internal
+representation of a fixed point value. This can result in a loss of
+precision in the representation of the fixed point value, which models
+the same process as occurs in hardware. For example
+
+@example
+octave:1&gt; b = fixed(7,2,[3.25, 3.25]);
+octave:2&gt; b(1).dec = [0, 2];
+b =
+
+     3  3.25
+@end example
+
+However, the value itself should not be changed using the suffix '.x'. 
+For instance
+
+@example
+octave:3&gt; b.x = [3, 3];
+error: can not directly change the value of a fixed structure
+error: assignment failed, or no method for `fixed matrix = matrix'
+error: evaluating assignment expression near line 3, column 6
+@end example
+
+@node Function Overloading, Together, Accessing Internal Fields, Basics
+@section Function Overloading
+
+An important consideration in the use of the fixed point toolbox is
+that many of the internal functions of Octave, such as @dfn{diag}, can
+not accept fixed point objects as an input. This package therefore uses the
+@dfn{dispatch} function of Octave-Forge to @emph{overload} the internal
+Octave functions with equivalent functions that work with fixed point objects,
+so that the standard function names can be used. However, at any time the
+fixed point specific version  of the function can be used by explicitly
+calling its function name. The correspondence between the internal
+function names and the fixed point versions is as follows
+
+@iftex
+@tex
+\vskip 2ex
+\hfil\vbox{
+\offinterlineskip
+\tabskip=0pt
+\halign{ 
+\vrule height1.75ex depth1.25ex width 0.6pt #\tabskip=1em &amp;
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # width 0.6pt \tabskip=0pt\cr
+\noalign{\hrule height 0.6pt}
+&amp; Normal   &amp;&amp;Specific&amp;&amp;Normal  &amp;&amp;Specific&amp;&amp;Normal  &amp;&amp;Specific&amp;\cr 
+\noalign{\hrule} 
+&amp; abs      &amp;&amp;fabs    &amp;&amp;atan2   &amp;&amp;fatan2  &amp;&amp;ceil    &amp;&amp;fceil   &amp;\cr
+&amp; conj     &amp;&amp;fconj   &amp;&amp;cos     &amp;&amp;fcos    &amp;&amp;cosh    &amp;&amp;fcosh   &amp;\cr
+&amp; cumprod  &amp;&amp;fcumprod&amp;&amp;cumsum  &amp;&amp;fcumsum &amp;&amp;diag    &amp;&amp;fdiag   &amp;\cr
+&amp; exp      &amp;&amp;fexp    &amp;&amp;floor   &amp;&amp;ffloor  &amp;&amp;imag    &amp;&amp;fimag   &amp;\cr
+&amp; log10    &amp;&amp;flog10  &amp;&amp;log     &amp;&amp;flog    &amp;&amp;prod    &amp;&amp;fprod   &amp;\cr
+&amp; real     &amp;&amp;freal   &amp;&amp;reshape &amp;&amp;freshape&amp;&amp;round   &amp;&amp;fround  &amp;\cr
+&amp; sin      &amp;&amp;fsin    &amp;&amp;sinh    &amp;&amp;fsinh   &amp;&amp;sqrt    &amp;&amp;fsqrt   &amp;\cr
+&amp; sum      &amp;&amp;fsum    &amp;&amp;sumsq   &amp;&amp;fsumsq  &amp;&amp;tan     &amp;&amp;ftan    &amp;\cr
+&amp; tanh     &amp;&amp;ftanh   &amp;&amp;        &amp;&amp;        &amp;&amp;        &amp;&amp;        &amp;\cr
+\noalign{\hrule height 0.6pt}
+}}\hfil
+\vskip 1ex
+@end tex
+@end iftex
+@ifinfo
+@multitable @columnfractions .11 .036 .17 .122 .036 .17 .122 .036 .17
+@item @code{abs} @tab - @tab @code{fabs},
+@tab  @code{atan2} @tab - @tab @code{fatan2},
+@tab  @code{ceil} @tab - @tab @code{fceil},
+@item @code{conj} @tab - @tab @code{fconj},
+@tab  @code{cos} @tab - @tab @code{fcos},
+@tab  @code{cosh} @tab - @tab @code{fcosh},
+@item @code{cumprod} @tab - @tab @code{fcumprod},
+@tab  @code{cumsum} @tab - @tab @code{fcumsum},
+@tab  @code{diag} @tab - @tab @code{fdiag},
+@item @code{exp} @tab - @tab @code{fexp},
+@tab  @code{floor} @tab - @tab @code{ffloor},
+@tab  @code{imag} @tab - @tab @code{fimag},
+@item @code{log10} @tab - @tab @code{flog10},
+@tab  @code{log} @tab - @tab @code{flog},
+@tab  @code{prod} @tab - @tab @code{fprod},
+@item @code{real} @tab - @tab @code{freal},
+@tab  @code{reshape} @tab - @tab @code{freshape},
+@tab  @code{round} @tab - @tab @code{fround},
+@item @code{sin} @tab - @tab @code{fsin},
+@tab  @code{sinh} @tab - @tab @code{fsinh},
+@tab  @code{sort} @tab - @tab @code{fsort},
+@item  @code{sqrt} @tab - @tab @code{fsqrt},
+@tab @code{sum} @tab - @tab @code{fsum},
+@tab  @code{sumsq} @tab - @tab @code{fsumsq},
+@item  @code{tan} @tab - @tab @code{ftan},
+@tab @code{tanh} @tab - @tab @code{ftanh}.
+@end multitable
+@end ifinfo
+
+The version of the function that is chosen is determined by the first 
+argument of the function. So, considering the @dfn{atan2} function,
+if the first argument is a @emph{Matrix}, then the normal version of
+the function is called regardless of whether the other argument of the
+function is a fixed point objects or not.
+
+Many other Octave functions work correctly with fixed point objects and so
+overloaded versions are not necessary. This includes such functions as 
+@dfn{size} and @dfn{any}.
+
+It is also useful to use the '.x' option discussed in the previous section,
+to extract a floating point representation of the fixed point object for
+use with some functions. 
+
+@node Together, Precision, Function Overloading, Basics
+@section Putting it all Together
+
+Now that the basic functioning of the fixed point type has been discussed,
+it is time to consider how to put all of it together. 
+@iftex
+For the list of functions and operators available for the fixed point type 
+@pxref{Function Reference}
+@end iftex
+@ifinfo
+The list of functions available for the fixed point type can be found in a 
+later section of this document (@pxref{Function Reference})
+@end ifinfo
+
+The main advantage of this fixed point type over an implementation of
+specific fixed point code, is the ability to define a function once and
+use as either fixed or floating point. Consider the example
+
+@example
+function [b, bf] = testfixed(is,ds,n)
+a = randn(n,n);
+af = fixed(is,ds,a);
+b = myfunc(a,a);
+bf = myfunc(af,af);
+endfunction
+
+function y = myfunc(a,b)
+y = a + b;
+endfunction
+@end example
+
+In this case @code{b} and @code{bf} will be returned from the function
+@dfn{testfixed} as floating and fixed point types respectively, while
+the underlying function @dfn{myfunc} does not explicitly define that it
+uses a fixed point type. This is a major advantage, as it is critical to
+understand the loss of precision in an algorithm when converting from
+floating to fixed point types for an optimal hardware implementation.
+This mixing of functions that treat both floating and fixed point types
+can even apply to Oct-files (@pxref{Oct-files}).
+
+The main limitation to the above is the use of the concatenation
+operator, such as @code{[a,b]}, that is hard-coded in versions of
+Octave prior to 2.1.58 and is thus not aware of the fixed-point
+type. Therefore, such code should be avoided in earlier versions of
+Octave and the function @dfn{concat} supplied with this package used
+instead.
+
+@node Precision, Lookup Tables, Together, Basics
+@section Problems of Precision in Calculations
+
+When dimensioning the fixed point variables, care must be taken so that
+all intermediate operations don't cause a loss in the precision. This 
+can occur with any operator or function that takes a large argument and
+gives a small result. Minor variations in the initial argument can result
+in large changes in the final result.
+
+For instance, consider the @dfn{log} operator, in the example
+
+@example
+octave:1&gt; a = fixed(7,2,5.25);
+octave:2&gt; b = exp(log(a))
+b = 4.25
+@end example
+
+The logarithm @code{log(a)} is 1.65, which is rounded to 1.5. The exponential
+@code{exp(log(a))} is then 4.48 which is rounded to 4.25.
+
+A particular case in point is the power operator for complex number, which
+is implemented by the standard C++ class as
+
+@iftex
+@tex
+$$
+x ^ y = \exp ( y  \log (x))
+$$
+@end tex
+@end iftex
+@ifinfo
+@example
+@var{x} ^ @var{y} = exp ( @var{y} * log(@var{x}) )
+@end example
+@end ifinfo
+
+Unless a large decimal precision is specified for this operator, the results
+will be wildly different than expected. For example
+
+@example
+octave:1&gt; fixed(7,2,4*1i) ^ fixed(7,2,1)
+ans = 0.000 + 2.250i
+octave:2&gt; fixed(7,5,4*1i) ^ fixed(7,5,1)
+ans = 0.000000 + 3.812500i
+@end example
+
+If the user chooses to use certain functions and operators, it is
+their responsibility to understand the implementation of the these
+operators, as used by their compilers to ensure the desired
+behavior. Alternatively, the user is recommended to implement certain
+operations as lookup tables, rather than use the built-in operator or
+function. This is how such general functions are implemented in
+hardware and so this is not a significant problem.
+
+@node Lookup Tables, Known Problems, Precision, Basics
+@section Lookup Tables
+
+It is common to implement complex functions in hardware by an equivalent
+lookup table. This has the advantage of speed, saving on the complexity 
+of a full implementation of certain functions, and avoiding rounding
+errors if the complex function is implemented as a combination of 
+sub-functions. The disadvantage is that the lookup requires the use of
+a read-only memory in hardware. Due to size limitations on this memory it
+might not be possible to represent all possible values of a function.
+
+This section discusses the use of lookup tables with the fixed point type.
+It is assumed that the function @dfn{lookup} of Octave-forge is installed.
+The easiest way to explain the use of a fixed point lookup table is to
+discuss an example. Consider a fixed point value in the range 
+@code{-pi:pi}, and we wish to represent the sine function in this range.
+The creation of the lookup table can then be performed as follows.
+
+@example
+octave:1&gt; is = 2; ds = 6;
+octave:2&gt; x = [-3.125:0.125:3.125];  % 3.125 ~ pi
+octave:3&gt; y = sin(x);
+octave:4&gt; table_float = create_lookup_table(x, y);
+octave:5&gt; table_fixed = create_lookup_table(fixed(is,ds,x), 
+&gt;                          fixed(is,ds,y));
+@end example
+
+A real implementation of this function in hardware might use to the
+symmetry of the sine function to only require the lookup table for
+@code{[0:pi/2]} to be stored. However, for simulation there is little
+reason to introduce this complication.
+
+To evaluate the value of the function use the lookup table created by
+@dfn{create_lookup_table}, the function @dfn{lookup_table} is then 
+used. This function can either be used to give the closest evalued 
+value below the desired value, or it can be used to interpolate the
+table as might be done in hardware. For example
+
+@example
+octave:6&gt; x0 = [-pi:0.01:pi];
+octave:7&gt; y0 = sin(x);
+octave:8&gt; y1 = lookup_table(table_float, x0, "linear");
+octave:9&gt; y2 = lookup_table(table_fixed, fixed(is,ds,x0), "linear");
+@end example
+
+@node Known Problems, , Lookup Tables, Basics
+@section Known Problems
+
+Before reporting a bug compare it to this list of known problems
+
+@table @asis
+@item Concatenation
+For versions of Octave prior to 2.1.58, the concatenation of fixed point 
+objects returns a Matrix type. That is @code{[fixed(7,2,[1, 2]), fixed(7,2,3)]}
+returns a matrix when it should return another fixed point matrix. This 
+problem is due to the implementation of matrix concatenation in earlier
+versions of Octave being hard-coded for the basic types it knows rather than 
+being expandable.
+
+The workaround is to explicitly convert the returned value back to the 
+correct fixed point object. For instance
+
+@example
+octave:1&gt; a = fixed(7,2,[1,2]);
+octave:2&gt; b = fixed(7,2,3);
+octave:3&gt; c = fixed([a.int, b.int], [a.dec, b.dec], 
+&gt;           [a.x, b.x]);
+@end example
+
+Alternatively, use the supplied function @dfn{concat} that explicitly
+performs the above above, but can also be used for normal matrices.
+
+Since Octave version 2.1.58, @code{[fixed(7,2,[1,2]),fixed(7,2,3)]}
+returns another fixed point object as expected.
+
+@item Saving fixed point objects
+
+Saving of fixed point variables is only implemented in versions of Octave
+later than 2.1.53. If you are using a recent version of Octave then 
+saving a fixed point variable is as simple as
+
+@example
+octave:2&gt; save a.mat a
+@end example
+
+where @var{a} is a fixed point variable. To reload the variable within
+octave, the fixed point types must be installed prior to a call to 
+@dfn{load}. That is
+
+@example
+octave:1&gt; dummy = fixed(1,1);
+octave:2&gt; load a.mat
+@end example
+
+With versions of octave later than 2.1.53, fixed point variables can
+be saved in the octave binary and ascii formats, as well as the HDF5
+format. If you are using an earlier version of octave, you can not
+directly save a fixed point variable. You can however save the
+information it contains and reconstruct the data afterwards by doing
+something like
+
+@example
+octave:2&gt; x = a.x; is = a.int; ds = a.dec;
+octave:3&gt; save a.mat x is ds;
+@end example  
+
+where @var{a} is a fixed point object.
+
+@item Some functions and operators return very poor results
+Please read the previous section. Also if the problem manifests when using
+complex arguments, try to understand your compilers constructor of complex
+operators and functions from the base fixed point operators and functions.
+The relevant file for the gcc 3.x versions of the compiler can be found in
+@file{/usr/include/g++-v3/bits/std_complex.h}.
+
+@item Function @dfn{foo} returns fixed point types while @dfn{bar}
+does not?  If the existing functions, written as m-files, respect the
+use (or rather non-use) of the concatentaion operator, then these
+functions will operate correctly. However, many functions don't and
+thus will return a floating type for a fixed point input, when run on
+versions of Octave earlier than 2.1.58. All functions should be
+checked by the user for their correct operation before using them.
+
+Additionally, existing oct-files will not operate correctly with fixed
+point inputs, as they are not aware of the fixed point type and will
+just extract the floating point value to operate on.
+
+A third class of function are the inbuilt functions like @dfn{any},
+@dfn{size}, etc. As the fixed point type includes the underlying functions
+for these to work correctly, they give the correct result even though there
+is no corresponding fixed point specific version of these functions.
+
+@item Why is my code so slow when using fixed point
+This is due to several reasons, firstly the normal functions in octave use 
+optimized libraries to accelerate their operation. This is not possible
+when using fixed point. 
+
+Also there is no fixed point type native to the machines Octave runs
+on. This naturally makes the fixed point type slow, due to the fact
+that the fixed point operators check for overflows, etc at all steps
+in the operation and act accordingly. This is particularly true in the
+case of matrix multiplication where each multiplication and addition
+can be subject to overflows. Thus
+
+@example
+octave:1&gt; x = randn(100,100);
+octave:2&gt; y0 = fixed(7,6,x*x);
+octave:3&gt; y1 = fixed(7,6,x)*fixed(7,6,x);
+@end example
+
+does not give equivalent operations for @var{y0} and @var{y1}. With all
+this additionally checking, you can not expect your code to run as fast
+when using the fixed point type.
+
+@item When running under cygwin I get a dlopen error.
+
+The build under cygwin is slightly different, in that most of the fixed point
+functions are compiled as a shared library that is linked to the main oct-file.
+This is to allow other oct-files to use the fixed-point type which is not 
+possible under cygwin otherwise, since compilation under cygwin requires that
+all symbols are resolved at compile time. 
+
+If the shared libraries are not installed somewhere that can be found when 
+running octave, then you will get an error like
+
+@example
+octave:1&gt; a = fixed(7,2,1)
+error: dlopen: Win32 error 126
+error: `fixed' undefined near line 1 column 5
+error: evaluating assignment expression near line 1, column 3
+@end example
+@end table
+
+There are two files @file{liboctave_fixed.dll} and @file{liboctave_fixed.dll.a}
+that must be installed. Typically, these should be installed in the same
+directory that you can @file{liboctave.dll} and @file{liboctave.dll.a}
+respectively. If you use the same @code{--prefix} option to configure
+both octave and octave-forge then this should happen automatically.
+
+@node Programming, Example, Basics, Top
+@chapter Using the fixed-point type in C++ and oct-files
+
+Octave supplies a matrix template library to create matrix and vector objects
+from basic types. All of the properties of these Octave classes will not
+be described here. However the base classes and the particularly of the
+classes created using the Octave matrix templates will be discussed.
+
+There are two basic fixed point types: @code{FixedPoint} and 
+@code{FixedPointComplex} representing the fixed point representation of
+real and complex numbers respectively. The Octave matrix templates are
+used to created the classes @code{FixedMatrix}, @code{FixedRowVector} and
+@code{FixedColumnVector} from the base class @code{FixedPoint}. Similar
+the complex fixed point types @code{FixedComplexMatrix}, 
+@code{FixedComplexRowVector} and @code{FixedComplexColumnVectors} are
+constructed from the base class @code{FixedPointComplex}
+
+This section discusses the definitions of the base classes, their
+extension with the Octave matrix templates, the upper level Octave
+classes and the use of all of these when writing oct-files.
+
+@menu
+* FixedPoint:: The @code{FixedPoint} base class
+* FixedPointComplex:: The @code{FixedPointComplex} base class
+* Derived:: The derived classes using the Octave template classes
+* Upper:: The upper level Octave classes
+* Oct-files:: Writing oct-files with the fixed point type
+@end menu
+
+@node  FixedPoint, FixedPointComplex, Programming, Programming
+@section The @code{FixedPoint} Base Class
+
+@menu
+* FPConstructors:: @code{FixedPoint} constructors
+* FPSpecific:: @code{FixedPoint} specific methods
+* FPOperators:: @code{FixedPoint} operators
+* FPFunctions:: @code{FixedPoint} functions
+@end menu
+
+@node FPConstructors, FPSpecific, FixedPoint, FixedPoint
+@subsection @code{FixedPoint} Constructors
+
+@table @code
+@item FixedPoint::FixedPoint () 
+Create a fixed point object with only a sign bit
+
+@item FixedPoint::FixedPoint (unsigned int is, unsigned int ds) 
+Create a fixed point object with @code{is} bits for the integer part and
+@code{ds} bits for the decimal part. The fixed point object will be 
+initialized to be zero
+
+@item FixedPoint::FixedPoint (unsigned int is, unsigned int ds, FixedPoint &amp;x) 
+Create a fixed point object with @code{is} bits for the integer part and
+@code{ds} bits for the decimal part, loaded with the fixed point value
+@code{x}. If @code{is + ds} is greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedPoint::FixedPoint (unsigned int is, unsigned int ds, const double x) 
+Create a fixed point object with @code{is} bits for the integer part and
+@code{ds} bits for the decimal part, loaded with the value @code{x}. If
+@code{is + ds} is greater than @code{sizeof(int)*8 - 2}, the error
+handler is called.
+
+@item FixedPoint::FixedPoint (unsigned int is, unsigned int ds, unsigned int i, unsigned int d) 
+Create a fixed point object with @code{is} bits for the integer part and
+@code{ds} bits for the decimal part, loading the integer part with @code{i}
+and the decimal part with @code{d}. It should be noted that @code{i} and
+@code{d} are both unsigned and are the strict representation of the bits
+of the fixed point value.
+
+@item FixedPoint::FixedPoint (const int x)
+Create a fixed point object with the minimum number of bits for the integer
+part @code{is} needed to represent @code{x}. If @code{is} is greater than
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint::FixedPoint (const double x)
+Create a fixed point object with the minimum number of bits for the integer
+part @code{is} needed to represent the integer part of @code{x}. If @code{is} 
+is greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint::FixedPoint (const FixedPoint &amp;x)
+Create a copy of the fixed point object @code{x}
+@end table
+
+@node FPSpecific, FPOperators, FPConstructors, FixedPoint
+@subsection @code{FixedPoint} Specific Methods
+
+@table @code
+@item double FixedPoint::fixedpoint()
+Method to create a @code{double} from the current fixed point object
+
+@item double fixedpoint (const FixedPoint &amp;x)
+Create a @code{double} from the fixed point object @code{x}
+
+@item int FixedPoint::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the current fixed point object is zero.
+
+@item int sign (FixedPoint &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point object @code{x} is zero.
+
+@item char FixedPoint::signbit ()
+Return the sign bit of the current fixed point number (@code{0} for positive 
+number, @code{1} for negative number).
+
+@item char signbit (FixedPoint &amp;x)
+Return the sign bit of the fixed point number @code{x} (@code{0} for positive 
+number, @code{1} for negative number).
+
+@item int FixedPoint::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of the
+current fixed point object.
+
+@item int getintsize (FixedPoint &amp;x)
+Return the number of bit @code{is} used to represent the integer part of the
+fixed point object @code{x}.
+
+@item int FixedPoint::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of the
+current fixed point object.
+
+@item int getdecsize (FixedPoint &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of the
+fixed point object @code{x}.
+
+@item unsigned int FixedPoint::getnumber ()
+Return the integer representation of the fixed point value of the current 
+fixed point object.
+
+@item unsigned int getnumber (FixedPoint &amp;x)
+Return the integer representation of the fixed point value of the fixed point 
+object @code{x}.
+
+@item FixedPoint FixedPoint::chintsize (const int n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} changed to
+@code{n}. If the result of this operation causes @code{is + ds} to be greater
+than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint FixedPoint::chdecsize (const int n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} changed to
+@code{n}. If the result of this operation causes @code{is + ds} to be greater
+than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint FixedPoint::incintsize (const int n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint FixedPoint::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint FixedPoint::incdecsize (const int n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint FixedPoint::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node FPOperators, FPFunctions, FPSpecific, FixedPoint
+@subsection @code{FixedPoint} Operators
+
+@table @code
+@item FixedPoint operator +
+Unary @code{+} of a fixed point object
+
+@item FixedPoint operator -
+Unary @code{-} of a fixed point object
+
+@item FixedPoint operator !
+Unary @code{!} operator of the fixedpoint object, with the the sign bit. 
+This is not the same operator as @code{-} and is not the same operator as
+the octave @code{!} operator.
+
+@item FixedPoint operator ++
+Unary increment operator (pre and postfix). Uses the smallest representable
+value to increment (ie 
+@iftex 
+@tex 
+$2^{-ds}$ 
+@end tex 
+@end iftex 
+@ifinfo 
+@code{2 ^ (- ds)} 
+@end ifinfo
+)
+
+@item FixedPoint operator --
+Unary decrement operator (pre and postfix). Uses the smallest representable
+value to decrement (ie 
+@iftex
+@tex
+$2^{-ds}$
+@end tex
+@end iftex
+@ifinfo
+@code{2 ^ (- ds)}
+@end ifinfo
+)
+
+@item FixedPoint operator = (const FixedPoint &amp;x)
+Assignment operators. Copies fixed point object @code{x}
+
+@item FixedPoint operator += (const FixedPoint &amp;x)
+@itemx FixedPoint operator -= (const FixedPoint &amp;x)
+@itemx FixedPoint operator *= (const FixedPoint &amp;x)
+@itemx FixedPoint operator /= (const FixedPoint &amp;x)
+Assignment operators, working on both the input and output objects. The 
+output object's fixed point representation is promoted such that the 
+largest values of @code{is} and @code{ds} are taken from the input and
+output objects. If the result of this operation causes @code{is + ds} to be 
+greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPoint operator &lt;&lt;= (const int s)
+@itemx FixedPoint operator &lt;&lt; (const FixedPoint &amp;x, const int s)
+Perform a left-shift of a fixed point object. This is equivalent to a
+multiplication by a power of 2. The sign-bit is preserved.  This differs 
+from the @code{rshift} function discussed below in the @code{is} and 
+@code{ds} are unchanged.
+
+@item FixedPoint operator &gt;&gt;= (const int s)
+@itemx FixedPoint operator &gt;&gt; (const FixedPoint &amp;x, const int s)
+Perform a right-shift of the fixed point object. This is  equivalent to a 
+division by a power of 2. Note that the sign-bit is preserved. This differs 
+from the @code{rshift} function discussed below in the @code{is} and 
+@code{ds} are unchanged.
+
+@item FixedPoint operator + (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx FixedPoint operator - (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx FixedPoint operator * (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx FixedPoint operator / (const FixedPoint &amp;x, const FixedPoint &amp;y)
+Two argument operators. The output objects fixed point representation is
+promoted such that the largest values of @code{is} and @code{ds} are taken
+from the two arguments. If the result of this operation causes @code{is + ds}
+to be greater than  @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item bool operator == (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx bool operator != (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx bool operator &lt; (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx bool operator &lt;= (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx bool operator &gt; (const FixedPoint &amp;x, const FixedPoint &amp;y)
+@itemx bool operator &gt;= (const FixedPoint &amp;x, const FixedPoint &amp;y)
+Fixed point comparison operators. The fixed point object @code{x} and
+@code{y} can have different representations (values of @code{is} and
+@code{ds}).
+
+@item std::istream &amp;operator &gt;&gt; (std::istream &amp;s, FixedPoint &amp;x)
+Read a fixed point object from @code{s} stream and store it into @code{x} 
+keeping the fixed point representation in @code{x}. If the value read is 
+not a fixed  point object, the error handler is invoked.
+
+@item std::ostream &amp;operator &lt;&lt; (std::ostream &amp;s, const FixedPoint &amp;x)
+Send into the stream @code{s}, a formatted fixed point value @code{x}
+@end table
+
+@node FPFunctions,  , FPOperators, FixedPoint
+@subsection @code{FixedPoint} Functions
+
+@table @code
+@item FixedPoint rshift (const FixedPoint &amp;x, int s)
+Do a right shift of @code{s} bits of a fixed precision number (equivalent 
+to a division by a power of 2). The representation of the fixed point object
+is adjusted to suit the new fixed point object (i.e. @code{ds++} and
+@code{is = is == 0 ? 0 : is-1})
+
+@item FixedPoint lshift (const FixedPoint &amp;x, int s)
+Do a left shift of @code{s} bits of a fixed precision number (equivalent 
+to a multiplication by a power of 2). The representation of the fixed point
+object is adjusted to suit the new fixed point object (i.e. @code{is++} and
+@code{ds = ds == 0 ? 0 : ds-1})
+
+@item FixedPoint abs (const FixedPoint &amp;x)
+Returns the modulus of @code{x}
+
+@item FixedPoint cos (const FixedPoint &amp;x)
+Returns the cosine of @code{x}
+
+@item FixedPoint cosh (const FixedPoint &amp;x)
+Returns the hyperbolic cosine of @code{x}
+
+@item FixedPoint sin (const FixedPoint &amp;x)
+Returns the sine of @code{x}
+
+@item FixedPoint sinh (const FixedPoint &amp;x)
+Returns the hyperbolic sine of @code{x}
+
+@item FixedPoint tan (const FixedPoint &amp;x)
+Returns the tangent of @code{x}
+
+@item FixedPoint tanh (const FixedPoint &amp;x)
+Returns the hyperbolic tangent of @code{x}
+
+@item FixedPoint sqrt (const FixedPoint &amp;x)
+Returns the square root of @code{x}
+
+@item FixedPoint pow (const FixedPoint &amp;x, int y)
+@itemx FixedPoint pow (const FixedPoint &amp;x, double y)
+@itemx FixedPoint pow (const FixedPoint &amp;x, const FixedPoint &amp;y)
+Returns the @code{x} raised to the power @code{y}
+
+@item FixedPoint exp (const FixedPoint &amp;x)
+Returns the exponential of @code{x}
+
+@item FixedPoint log (const FixedPoint &amp;x)
+Returns the logarithm of @code{x}
+
+@item FixedPoint log10 (const FixedPoint &amp;x)
+Returns the base 10 logarithm of @code{x}
+
+@item FixedPoint atan2 (const FixedPoint &amp;y, const FixedPoint &amp;x)
+Returns the arc tangent of @code{x} and @code{y}
+
+@item FixedPoint floor (const FixedPoint &amp;x)
+Returns the rounded value of @code{x} downwards to the nearest integer
+
+@item FixedPoint ceil (const FixedPoint &amp;x)
+Returns the rounded value of @code{x} upwards to the nearest integer
+
+@item FixedPoint rint (const FixedPoint &amp;x)
+Returns the rounded value of @code{x} to the nearest integer
+
+@item FixedPoint round (const FixedPoint &amp;x)
+Returns the rounded value of @code{x} to the nearest integer. The difference
+with @code{rint} is that @code{0.5} is rounded to @code{1} and not @code{0}.
+This conforms to the behavior of the octave @code{round} function. 
+
+@item std::string getbitstring (const FixedPoint &amp;x)
+Return a string containing the bits of @code{x}
+@end table
+
+@node  FixedPointComplex, Derived, FixedPoint, Programming
+@section The @code{FixedPointComplex} Base Class
+
+The @code{FixedPointComplex} class is derived using the C++ compilers 
+inbuilt @code{complex} class and is instantiated as 
+@code{std::complex&lt;FixedPoint&gt;}. Therefore the exact behavior of the 
+complex fixed point type is determined by the complex class used by the 
+C++ compiler. The user is advised to understand their C++ compilers
+implementation of the complex functions that they use, and particularly 
+the effects that they will have on the precision of fixed point
+operations.
+
+@menu
+* FPCConstructors:: @code{FixedPointComplex} constructors
+* FPCSpecific:: @code{FixedPointComplex} specific methods
+* FPCOperators:: @code{FixedPointComplex} operators
+* FPCFunctions:: @code{FixedPointComplex} functions
+@end menu
+
+@node FPCConstructors, FPCSpecific, FixedPointComplex, FixedPointComplex
+@subsection @code{FixedPointComplex} Constructors
+
+@table @code
+@item FixedPointComplex::FixedPointComplex () 
+Create a complex fixed point object with only a sign bit
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds) 
+Create a complex fixed point object with @code{is} bits for the integer part
+and @code{ds} bits for the decimal part. The fixed point object will be 
+initialized to zero.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, FixedPoint &amp;x) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{x} in the real part and zero in
+the imaginary. If @code{is + ds} is greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, FixedPoint &amp;r, FixedPoint &amp;i) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{r} in the real part and @code{i}
+the imaginary part. If @code{is + ds} is greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, FixedPointComplex &amp;x) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the complex fixed point value @code{x}. If @code{is + ds} is 
+greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, const double x) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{x} in the real part and zero in
+the imaginary. If @code{is + ds} is greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, const double r, const double i) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{r} in the real part and @code{i}
+in the imaginary part. If @code{is + ds} is greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, const Complex c) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{c} in the real and imaginary parts. 
+If @code{is + ds} is greater than @code{sizeof(int)*8 - 2}, the error 
+handler is called.
+
+@item FixedPointComplex::FixedPointComplex (unsigned int is, unsigned int ds, const Complex a, const Complex b) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{a} in the integer parts of the of 
+the value and @code{b} in the decimal part. It should be noted that @code{a}
+and @code{b} are both unsigned and are the strict representation of the bits
+of the fixed point value and considered as integers. If @code{is + ds} is 
+greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (const Complex&amp; is, const Complex&amp; ds)
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with zero in the real and imaginary parts. The real part of @code{is} 
+is used for the real part of the complex fixed point object, while the 
+imaginary part of @code{is} is used for the imaginary part. If either the 
+sum of the real or imaginary parts of @code{is + ds} is greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (const Complex&amp; is, const Complex&amp; ds, const Complex&amp; c)
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the complex fixed point value @code{c} in the real and imaginary
+parts. The real part of @code{is} is used for the real part of the
+complex fixed point object, while the imaginary part of @code{is} is used
+for the imaginary part. If either the sum of the real or imaginary parts
+of @code{is + ds} is greater than @code{sizeof(int)*8 - 2}, the error 
+handler is called.
+
+@item FixedPointComplex::FixedPointComplex (const Complex&amp; is, const Complex&amp; ds, const FixedPointComplex&amp; c) 
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the complex fixed point value @code{c} in the real and imaginary
+parts. The real part of @code{is} is used for the real part of the
+complex fixed point object, while the imaginary part of @code{is} is used
+for the imaginary part. If either the sum of the real or imaginary parts
+of @code{is + ds} is greater than @code{sizeof(int)*8 - 2}, the error 
+handler is called.
+
+@item FixedPointComplex::FixedPointComplex (const Complex&amp; is, const Complex&amp; ds, const Complex&amp; a, const Complex&amp; b)
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the fixed point value @code{a} in the integer parts of the of 
+the value and @code{b} in the decimal part. It should be noted that @code{a}
+and @code{b} are both unsigned and are the strict representation of the bits
+of the fixed point value and considered as integers. If either the sum of the 
+real or imaginary parts of @code{is + ds} is greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called. 
+
+@item FixedPointComplex::FixedPointComplex (const std::complex&lt;FixedPoint&gt; &amp;c)
+Create a complex fixed point object with the minimum number of bits for the 
+integer part @code{is} needed to represent the real and imaginary integer 
+parts of @code{x}. If @code{is} is greater than @code{sizeof(int)*8 - 2},
+the error handler is called. The real and imaginary parts are treated 
+separately.
+
+@item FixedPointComplex::FixedPointComplex (const FixedPointComplex &amp;x)
+Create a copy of the complex fixed point object @code{x}
+
+@item FixedPointComplex::FixedPointComplex (const FixedPoint &amp;x)
+Create a copy of the fixed point object @code{x}, into a complex fixed point
+object leaving the imaginary part at zero.
+
+@item FixedPointComplex::FixedPointComplex (const FixedPoint &amp;r, const FixedPoint &amp;i)
+Create a copy of the fixed point objects @code{r} and @code{i}, into a 
+the real and imaginary parts of a complex fixed point object respectively
+
+@item FixedPointComplex::FixedPointComplex (const int x)
+Create a fixed point object with the minimum number of bits for the integer
+part @code{is} needed to represent @code{x}. If @code{is} is greater than
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex::FixedPointComplex (const double x)
+Create a fixed point object with the minimum number of bits for the integer
+part @code{is} needed to represent the integer part of @code{x}. If 
+@code{is} is greater than @code{sizeof(int)*8 - 2}, the error handler is 
+called.
+
+@item FixedPointComplex (const Complex&amp; is, const Complex&amp; ds, const double&amp; d)
+Create a complex fixed point object with @code{is} bits for the integer part 
+and @code{ds} bits for the decimal part of both real and imaginary parts, 
+loaded with the double value @code{d} in the real and zero in the imaginary
+parts. The real part of @code{is} is used for the real part of the
+complex fixed point object, while the imaginary part of @code{is} is used
+for the imaginary part. If either the sum of the real or imaginary parts
+of @code{is + ds} is greater than @code{sizeof(int)*8 - 2}, the error 
+handler is called.
+@end table
+
+@node FPCSpecific, FPCOperators, FPCConstructors, FixedPointComplex
+@subsection @code{FixedPointComplex} Specific Methods
+
+@table @code
+@item Complex FixedPointComplex::fixedpoint()
+Method to create a @code{Complex} from the current fixed point object
+
+@item Complex fixedpoint (const FixedPointComplex &amp;x)
+Create a @code{Complex} from the fixed point object @code{x}
+
+@item Complex FixedPointComplex::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the current fixed point object is zero. Real and imaginary parts treated
+separately and returned in the real and imaginary parts of the return object.
+
+@item Complex sign (FixedPointComplex &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point object @code{x} is zero. Real and imaginary parts treated
+separately and returned in the real and imaginary parts of the return object.
+
+@item Complex FixedPointComplex::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of the
+current fixed point object. Real and imaginary parts treated separately and 
+returned in the real and imaginary parts of the return object.
+
+@item Complex getintsize (FixedPointComplex &amp;x)
+Return the number of bit @code{is} used to represent the integer part of the
+fixed point object @code{x}. Real and imaginary parts treated separately and 
+returned in the real and imaginary parts of the return object.
+
+@item Complex FixedPointComplex::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of the
+current fixed point object.  Real and imaginary parts treated separately and 
+returned in the real and imaginary parts of the return object.
+
+@item Complex getdecsize (FixedPointComplex &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of the
+fixed point object @code{x}. Real and imaginary parts treated separately and 
+returned in the real and imaginary parts of the return object.
+
+@item Complex FixedPointComplex::getnumber ()
+Return the integer representation of the fixed point value of the current 
+fixed point object. Real and imaginary parts treated separately and 
+returned in the real and imaginary parts of the return object.
+
+@item Complex getnumber (FixedPointComplex &amp;x)
+Return the integer representation of the fixed point value of the fixed point 
+object @code{x}. Real and imaginary parts treated separately and 
+returned in the real and imaginary parts of the return object.
+
+@item FixedPointComplex FixedPointComplex::chintsize (const Complex n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} changed
+to @code{n}. If the result of this operation causes @code{is + ds} to be 
+greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+Real and imaginary parts treated separately and returned in the real and 
+imaginary parts of the return object.
+
+@item FixedPointComplex FixedPointComplex::chdecsize (const Complex n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} changed
+to @code{n}. If the result of this operation causes @code{is + ds} to be 
+greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+Real and imaginary parts treated separately and returned in the real and 
+imaginary parts of the return object.
+
+@item FixedPointComplex FixedPointComplex::incintsize (const Complex n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called. Real and 
+imaginary parts treated separately and returned in the real and imaginary 
+parts of the return object.
+
+@item FixedPointComplex FixedPointComplex::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called. Real and 
+imaginary parts treated separately and returned in the real and imaginary 
+parts of the return object.
+
+@item FixedPointComplex FixedPointComplex::incdecsize (const Complex n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called. Real and 
+imaginary parts treated separately and returned in the real and imaginary 
+parts of the return object.
+
+@item FixedPointComplex FixedPointComplex::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called. Real and 
+imaginary parts treated separately and returned in the real and imaginary 
+parts of the return object.
+@end table
+
+@node FPCOperators, FPCFunctions, FPCSpecific, FixedPointComplex
+@subsection @code{FixedPointComplex} Operators
+
+@table @code
+@item FixedPointComplex operator +
+Unary @code{+} of a complex fixed point object
+
+@item FixedPointComplex operator -
+Unary @code{-} of a complex fixed point object
+
+@item FixedPointComplex operator = (const FixedPointComplex &amp;x)
+Assignment operators. Copies complex fixed point object @code{x}
+
+@item FixedPointComplex operator += (const FixedPointComplex &amp;x)
+@itemx FixedPointComplex operator -= (const FixedPointComplex &amp;x)
+@itemx FixedPointComplex operator *= (const FixedPointComplex &amp;x)
+@itemx FixedPointComplex operator /= (const FixedPointComplex &amp;x)
+Assignment operators, working on both the input and output objects. The 
+output object's fixed point representation is promoted such that the 
+largest values of @code{is} and @code{ds} are taken from the input and
+output objects. If the result of this operation causes @code{is + ds} to be 
+greater than @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedPointComplex operator + (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+@itemx FixedPointComplex operator - (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+@itemx FixedPointComplex operator * (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+@itemx FixedPointComplex operator / (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+Two argument operators. The output objects complex fixed point representation 
+is promoted such that the largest values of @code{is} and @code{ds} are taken
+from the two arguments. If the result of this operation causes @code{is + ds}
+to be greater than  @code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item bool operator == (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+@itemx bool operator != (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+Complex fixed point comparison operators. The complex fixed point object 
+@code{x} and @code{y} can have different representations (values of @code{is} 
+and @code{ds}).
+
+@item std::istream &amp;operator &gt;&gt; (std::istream &amp;s, FixedPointComplex &amp;x)
+Read a fixed point object from @code{s} stream and store it into @code{x} 
+keeping the fixed point representation in @code{x}. If the value read is 
+not a fixed  point object, the error handler is invoked.
+
+@item std::ostream &amp;operator &lt;&lt; (std::ostream &amp;s, const FixedPointComplex &amp;x)
+Send into the stream @code{s}, a formatted fixed point value @code{x}
+@end table
+
+@node FPCFunctions,  , FPCOperators, FixedPointComplex
+@subsection @code{FixedPointComplex} Functions
+
+@table @code
+@item FixedPoint abs (const FixedPointComplex &amp;x)
+Returns the modulus of @code{x}
+
+@item FixedPoint norm (const FixedPointComplex &amp;x)
+Returns the squared magnitude of @code{x}
+
+@item FixedPoint arg (const FixedPointComplex &amp;x)
+Returns the arc-tangent of @code{x}
+
+@item FixedPointComplex std::polar (const FixedPoint &amp;r, const FixedPoint &amp;p)
+Convert from polar fixed point to a complex fixed point object
+
+@item FixedPoint real (const FixedPointComplex &amp;x)
+Returns the real part of @code{x}
+
+@item FixedPoint imag (const FixedPointComplex &amp;x)
+Returns the imaginary part of @code{x}
+
+@item FixedPointComplex conj (const FixedPointComplex &amp;x)
+Returns the conjugate of @code{x}
+
+@item FixedPointComplex cos (const FixedPointComplex &amp;x)
+Returns the transcendental cosine of @code{x}
+
+@item FixedPointComplex cosh (const FixedPointComplex &amp;x)
+Returns the transcendental hyperbolic cosine of @code{x}
+
+@item FixedPointComplex sin (const FixedPointComplex &amp;x)
+Returns the transcendental sine of @code{x}
+
+@item FixedPointComplex sinh (const FixedPointComplex &amp;x)
+Returns the transcendental hyperbolic sine of @code{x}
+
+@item FixedPointComplex tan (const FixedPointComplex &amp;x)
+Returns the transcendental tangent of @code{x}
+
+@item FixedPointComplex tanh (const FixedPointComplex &amp;x)
+Returns the transcendental hyperbolic tangent of @code{x}
+
+@item FixedPointComplex sqrt (const FixedPointComplex &amp;x)
+Returns the square root of @code{x}
+
+@item FixedPointComplex pow (const FixedPointComplex &amp;x, int y)
+@itemx FixedPointComplex pow (const FixedPointComplex &amp;x, const FixedPoint &amp;y)
+@itemx FixedPointComplex pow (const FixedPointComplex &amp;x, const FixedPointComplex &amp;y)
+@itemx FixedPointComplex pow (const FixedPoint &amp;x, const FixedPointComplex &amp;y)
+Returns the @code{x} raised to the power @code{y}. Be careful of precision
+errors associated with the implementation of this function as a complex type
+
+@item FixedPointComplex exp (const FixedPointComplex &amp;x)
+Returns the exponential of @code{x}.  Be careful of precision
+errors associated with the implementation of this function as a complex type
+
+@item FixedPointComplex log (const FixedPointComplex &amp;x)
+Returns the transcendental logarithm of @code{x}.  Be careful of precision
+errors associated with the implementation of this function as a complex type
+
+@item FixedPointComplex log10 (const FixedPointComplex &amp;x)
+Returns the transcendental base 10 logarithm of @code{x}. Be careful of 
+precision errors associated with the implementation of this function as a 
+complex type
+
+@item FixedPointComplex floor (const FixedPointComplex &amp;x)
+Returns the rounded value of @code{x} downwards to the nearest integer,
+treating the real and imaginary parts separately
+
+@item FixedPointComplex ceil (const FixedPointComplex &amp;x)
+Returns the rounded value of @code{x} upwards to the nearest integer,
+treating the real and imaginary parts separately
+
+@item FixedPointComplex rint (const FixedPointComplex &amp;x)
+Returns the rounded value of @code{x} to the nearest integer, treating 
+the real and imaginary parts separately
+
+@item FixedPointComplex round (const FixedPointComplex &amp;x)
+Returns the rounded value of @code{x} to the nearest integer. The difference
+with @code{rint} is that @code{0.5} is rounded to @code{1} and not @code{0}.
+This conforms to the behavior of the octave @code{round} function. Treats
+the real and imaginary parts separately
+@end table
+
+@node  Derived, Upper, FixedPointComplex, Programming
+@section The Derived Classes using the Octave Template Classes
+
+It is not the purpose of this section to discuss the use of the Octave
+template classes, but rather only the additions to the fixed point
+classes that are based on these. For instance the basic constructors
+and operations that are available in the normal floating point Octave
+classes are available within the fixed point classes. 
+
+The notable exceptions are operations involving matrix decompositions,
+including inversion, left division, etc. The reason for this is that
+the precision of these operators and functions will be highly
+implementation dependent. As additional these operators and functions
+are used rarely with a fixed point type, there is no point in
+implementing these operators and function within the fixed point
+classes.
+
+In addition the the functions and operators previously described for
+the @code{FixedPoint} and the @code{FixedPointComplex} types are all
+available, in the same from as previously. So these functions are
+not documented below. Only the constructors and methods that vary
+from the previously described versions are described.
+
+To fully understand these classes, the user is advised to examine the
+header files @file{fixedMatrix.h}, @file{fixedRowVector.h} and 
+@file{fixedColVector.h} for the real fixed point objects and 
+@file{fixedCMatrix.h}, @file{fixedCRowVector.h} and @file{fixedCColVector.h} 
+for the complex fixed point objects. In addition the files @file{MArray.h} 
+and @file{MArray2.h} from Octave should also be examined.
+
+@menu
+* FixedMatrix:: @code{FixedMatrix} class
+* FixedRowVector:: @code{FixedRowVector} class
+* FixedColumnVector:: @code{FixedColumnVector} class
+* FixedComplexMatrix:: @code{FixedComplexMatrix} class
+* FixedComplexRowVector:: @code{FixedComplexRowVector} class
+* FixedComplexColumnVector:: @code{FixedComplexColumnVector} class
+@end menu
+
+@node FixedMatrix, FixedRowVector, Derived, Derived
+@subsection @code{FixedMatrix} class
+
+@table @code
+@item FixedMatrix::FixedMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds)
+@itemx FixedMatrix::FixedMatrix (const Matrix &amp;is, const Matrix &amp;ds)
+Create a fixed point matrix with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+zero.
+
+@item FixedMatrix::FixedMatrix (unsigned int is, unsigned int ds, const FixedMatrix&amp; a)
+@itemx FixedMatrix::FixedMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const FixedMatrix&amp; a)
+@itemx FixedMatrix::FixedMatrix (const Matrix &amp;is, const Matrix &amp;ds, const FixedMatrix&amp; a)
+Create a fixed point matrix with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+the fixed point matrix @code{a}
+
+@item FixedMatrix::FixedMatrix (unsigned int is, unsigned int ds, const Matrix&amp; a)
+@itemx FixedMatrix::FixedMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const Matrix&amp; a)
+@itemx FixedMatrix::FixedMatrix (const Matrix &amp;is, const Matrix &amp;ds, const Matrix&amp; a)
+Create a fixed point matrix with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+the matrix @code{a}
+
+@item FixedMatrix::FixedMatrix (unsigned int is, unsigned int ds, const Matrix&amp; a, const Matrix&amp; b)
+@itemx FixedMatrix::FixedMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const Matrix&amp; a, const Matrix&amp; b)
+@itemx FixedMatrix::FixedMatrix (const Matrix &amp;is, const Matrix &amp;ds, const Matrix&amp; a, const Matrix&amp; b)
+Create a fixed point matrix with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will have the integer
+parts loaded by the matrix @code{a} and the decimal part by the matrix
+@code{b}. It should be noted that @code{a} and @code{b} are both considered 
+as unsigned integers and are the strict  representation of the bits of the 
+fixed point value.
+
+@item Matrix FixedMatrix::fixedpoint ()
+Method to create a @code{Matrix} from a fixed point matrix @code{x}
+
+@item Matrix fixedpoint (const FixedMatrix &amp;x)
+Create a @code{Matrix} from a fixed point matrix @code{x}
+
+@item Matrix FixedMatrix::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point element is zero, for every element of the current 
+fixed point object.
+
+@item Matrix sign (const FixedMatrix &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if zero, for every element of the fixed point object @code{x}.
+
+@item Matrix FixedMatrix::signbit ()
+Return the sign bit for every element of the current fixed point matrix 
+(@code{0} for positive number, @code{1} for negative number).
+
+@item Matrix signbit (const FixedMatrix &amp;x)
+Return the sign bit for every element of the fixed point matrix @code{x}
+(@code{0} for positive number, @code{1} for negative number).
+ 
+@item Matrix FixedMatrix::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of each
+element of the current fixed point object.
+
+@item Matrix getintsize (const FixedMatrix &amp;x)
+Return the number of bit @code{is} used to represent the integer part of each
+element of the fixed point object @code{x}.
+
+@item Matrix FixedMatrix::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the current fixed point object.
+
+@item Matrix getdecsize (const FixedMatrix &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item Matrix FixedMatrix::getnumber ()
+Return the integer representation of the fixed point value of the each
+eleement of the current fixed point object.
+
+@item Matrix getnumber (const FixedMatrix &amp;x)
+Return the integer representation of the fixed point value of the each
+eleement of the fixed point object @code{x}.
+
+@item FixedMatrix FixedMatrix::chintsize (const Matrix &amp;n)
+@itemx FixedMatrix FixedMatrix::chintsize (const double n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the integer part @code{is} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedMatrix FixedMatrix::chdecsize (const double n)
+@itemx FixedMatrix FixedMatrix::chdecsize (const Matrix &amp;n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the decimal part @code{ds} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedMatrix FixedMatrix::incintsize (const double n)
+@itemx FixedMatrix FixedMatrix::incintsize (const Matrix &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedMatrix FixedMatrix::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedMatrix FixedMatrix::incdecsize (const double n)
+@itemx FixedMatrix FixedMatrix::incdecsize (const Matrix &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedMatrix FixedMatrix::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node FixedRowVector, FixedColumnVector, FixedMatrix, Derived
+@subsection @code{FixedRowVector} class
+
+@table @code
+@item FixedRowVector::FixedRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds)
+@itemx FixedRowVector::FixedRowVector (const RowVector &amp;is, const RowVector &amp;ds)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+zero.
+
+@item FixedRowVector::FixedRowVector (unsigned int is, unsigned int ds, const FixedRowVector&amp; a)
+@itemx FixedRowVector::FixedRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const FixedRowVector&amp; a)
+@itemx FixedRowVector::FixedRowVector (const RowVector &amp;is, const RowVector &amp;ds, const FixedRowVector&amp; a)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+the fixed point row rector @code{a}
+
+@item FixedRowVector::FixedRowVector (unsigned int is, unsigned int ds, const RowVector&amp; a)
+@itemx FixedRowVector::FixedRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const RowVector&amp; a)
+@itemx FixedRowVector::FixedRowVector (const RowVector &amp;is, const RowVector &amp;ds, const RowVector&amp; a)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+the row vector @code{a}
+
+@item FixedRowVector::FixedRowVector (unsigned int is, unsigned int ds, const RowVector&amp; a, const RowVector&amp; b)
+@itemx FixedRowVector::FixedRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const RowVector&amp; a, const RowVector&amp; b)
+@itemx FixedRowVector::FixedRowVector (const RowVector &amp;is, const RowVector &amp;ds, const RowVector&amp; a, const RowVector&amp; b)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will have the integer
+parts loaded by the row vector @code{a} and the decimal part by the row vector
+@code{b}. It should be noted that @code{a} and @code{b} are both considered 
+as unsigned integers and are the strict  representation of the bits of the 
+fixed point value.
+
+@item RowVector FixedRowVector::fixedpoint ()
+Method to create a @code{RowVector} from a fixed point row vector @code{x}
+
+@item RowVector fixedpoint (const FixedRowVector &amp;x)
+Create a @code{RowVector} from a fixed point row vector @code{x}
+
+@item RowVector FixedRowVector::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point element is zero, for every element of the current 
+fixed point object.
+
+@item RowVector sign (const FixedRowVector &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if zero, for every element of the fixed point object @code{x}.
+
+@item RowVector FixedRowVector::signbit ()
+Return the sign bit for every element of the current fixed point row vector 
+(@code{0} for positive number, @code{1} for negative number).
+
+@item RowVector signbit (const FixedRowVector &amp;x)
+Return the sign bit for every element of the fixed point row vector @code{x}
+(@code{0} for positive number, @code{1} for negative number).
+ 
+@item RowVector FixedRowVector::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of each
+element of the current fixed point object.
+
+@item RowVector getintsize (const FixedRowVector &amp;x)
+Return the number of bit @code{is} used to represent the integer part of each
+element of the fixed point object @code{x}.
+
+@item RowVector FixedRowVector::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the current fixed point object.
+
+@item RowVector getdecsize (const FixedRowVector &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item RowVector FixedRowVector::getnumber ()
+Return the integer representation of the fixed point value of the each
+eleement of the current fixed point object.
+
+@item RowVector getnumber (const FixedRowVector &amp;x)
+Return the integer representation of the fixed point value of the each
+eleement of the fixed point object @code{x}.
+
+@item FixedRowVector FixedRowVector::chintsize (const RowVector n)
+@itemx FixedRowVector FixedRowVector::chintsize (const double n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the integer part @code{is} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedRowVector FixedRowVector::chdecsize (const double n)
+@itemx FixedRowVector FixedRowVector::chdecsize (const RowVector n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the decimal part @code{ds} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedRowVector FixedRowVector::incintsize (const double n)
+@itemx FixedRowVector FixedRowVector::incintsize (const RowVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedRowVector FixedRowVector::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedRowVector FixedRowVector::incdecsize (const double n)
+@itemx FixedRowVector FixedRowVector::incdecsize (const RowVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedRowVector FixedRowVector::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node FixedColumnVector, FixedComplexMatrix, FixedRowVector, Derived
+@subsection @code{FixedColumnVector} class
+
+@table @code
+@item FixedColumnVector::FixedColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds)
+@itemx FixedColumnVector::FixedColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+zero.
+
+@item FixedColumnVector::FixedColumnVector (unsigned int is, unsigned int ds, const FixedColumnVector&amp; a)
+@itemx FixedColumnVector::FixedColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const FixedColumnVector&amp; a)
+@itemx FixedColumnVector::FixedColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds, const FixedColumnVector&amp; a)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+the fixed point column vector @code{a}
+
+@item FixedColumnVector::FixedColumnVector (unsigned int is, unsigned int ds, const ColumnVector&amp; a)
+@itemx FixedColumnVector::FixedColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ColumnVector&amp; a)
+@itemx FixedColumnVector::FixedColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds, const ColumnVector&amp; a)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will be initialized to
+the column vector @code{a}
+
+@item FixedColumnVector::FixedColumnVector (unsigned int is, unsigned int ds, const ColumnVector&amp; a, const ColumnVector&amp; b)
+@itemx FixedColumnVector::FixedColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ColumnVector&amp; a, const ColumnVector&amp; b)
+@itemx FixedColumnVector::FixedColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds, const ColumnVector&amp; a, const ColumnVector&amp; b)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will have the integer
+parts loaded by the column vector @code{a} and the decimal part by the column
+vector @code{b}. It should be noted that @code{a} and @code{b} are both 
+considered  as unsigned integers and are the strict  representation 
+of the bits of the fixed point value.
+
+@item ColumnVector FixedColumnVector::fixedpoint ()
+Method to create a @code{ColumnVector} from a fixed point column vector @code{x}
+
+@item ColumnVector fixedpoint (const FixedColumnVector &amp;x)
+Create a @code{ColumnVector} from a fixed point column vector @code{x}
+
+@item ColumnVector FixedColumnVector::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point element is zero, for every element of the current 
+fixed point object.
+
+@item ColumnVector sign (const FixedColumnVector &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if zero, for every element of the fixed point object @code{x}.
+
+@item ColumnVector FixedColumnVector::signbit ()
+Return the sign bit for every element of the current fixed point column vector 
+(@code{0} for positive number, @code{1} for negative number).
+
+@item ColumnVector signbit (const FixedColumnVector &amp;x)
+Return the sign bit for every element of the fixed point column vector @code{x}
+(@code{0} for positive number, @code{1} for negative number).
+ 
+@item ColumnVector FixedColumnVector::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of each
+element of the current fixed point object.
+
+@item ColumnVector getintsize (const FixedColumnVector &amp;x)
+Return the number of bit @code{is} used to represent the integer part of each
+element of the fixed point object @code{x}.
+
+@item ColumnVector FixedColumnVector::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the current fixed point object.
+
+@item ColumnVector getdecsize (const FixedColumnVector &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item ColumnVector FixedColumnVector::getnumber ()
+Return the integer representation of the fixed point value of the each
+eleement of the current fixed point object.
+
+@item ColumnVector getnumber (const FixedColumnVector &amp;x)
+Return the integer representation of the fixed point value of the each
+eleement of the fixed point object @code{x}.
+
+@item FixedColumnVector FixedColumnVector::chintsize (const ColumnVector n)
+@itemx FixedColumnVector FixedColumnVector::chintsize (const double n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the integer part @code{is} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedColumnVector FixedColumnVector::chdecsize (const double n)
+@itemx FixedColumnVector FixedColumnVector::chdecsize (const ColumnVector n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the decimal part @code{ds} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedColumnVector FixedColumnVector::incintsize (const double n)
+@itemx FixedColumnVector FixedColumnVector::incintsize (const ColumnVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedColumnVector FixedColumnVector::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedColumnVector FixedColumnVector::incdecsize (const double n)
+@itemx FixedColumnVector FixedColumnVector::incdecsize (const ColumnVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedColumnVector FixedColumnVector::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node FixedComplexMatrix, FixedComplexRowVector, FixedColumnVector, Derived
+@subsection @code{FixedComplexMatrix} class
+
+@table @code
+@item FixedComplexMatrix::FixedComplexMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const Matrix &amp;is, const Matrix &amp;ds)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is}
+and the number in the decimal part by @code{ds}. The fixed point elements 
+themselves will be initialized to zero.
+
+@item FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to zero.
+
+@item FixedComplexMatrix::FixedComplexMatrix (unsigned int is, unsigned int ds, const FixedComplexMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (Complex is, Complex ds, const FixedComplexMatrix&amp; a)
+@item FixedComplexMatrix::FixedComplexMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const FixedComplexMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const Matrix &amp;is, const Matrix &amp;ds, const FixedComplexMatrix&amp; a)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is}
+and the number in the decimal part by @code{ds}. The fixed point elements
+themselves will be initialized to the complex fixed point matrix @code{a}
+
+@item FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const FixedComplexMatrix &amp;x)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const FixedMatrix &amp;r, const FixedMatrix &amp;i)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the complex fixed point matrix @code{a}, or the real part by @code{r} and 
+the imaginary by @code{i}.
+
+@item FixedComplexMatrix::FixedComplexMatrix (unsigned int is, unsigned int ds, const FixedMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (Complex is, Complex ds, const FixedMatrix&amp; a)
+@item FixedComplexMatrix::FixedComplexMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const FixedMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const Matrix &amp;is, const Matrix &amp;ds, const FixedMatrix&amp; a)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is}
+and the number in the decimal part by @code{ds}. The fixed point elements
+themselves will be initialized to the fixed point matrix @code{a}
+
+@item FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const FixedMatrix &amp;x)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the fixed point matrix @code{a}.
+
+@item FixedComplexMatrix::FixedComplexMatrix (unsigned int is, unsigned int ds, const ComplexMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (Complex is, Complex ds, const ComplexMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const ComplexMatrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const ComplexMatrix&amp; a)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is} 
+and the number in the decimal part by @code{ds}. The fixed point elements 
+themselves will be initialized to the complex matrix @code{a}
+
+@item FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const ComplexMatrix &amp;x)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const Matrix &amp;r, const Matrix &amp;i)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the complex matrix @code{a}, or the real part by @code{r} and the imaginary
+by @code{i}.
+
+@item FixedComplexMatrix::FixedComplexMatrix (unsigned int is, unsigned int ds, const Matrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (Complex is, Complex ds, const Matrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const Matrix&amp; a)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const Matrix&amp; a)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is} 
+and the number in the decimal part by @code{ds}. The fixed point elements 
+themselves will be initialized to the matrix @code{a}
+
+@item FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const Matrix &amp;x)
+Create a complex fixed point matrix with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the matrix @code{a}.
+
+@item FixedComplexMatrix::FixedComplexMatrix (unsigned int is, unsigned int ds, const ComplexMatrix&amp; a, const ComplexMatrix&amp; b)
+@itemx FixedComplexMatrix::FixedComplexMatrix (Complex is, Complex ds, const ComplexMatrix&amp; a, const ComplexMatrix&amp; b)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const MArray2&lt;int&gt; &amp;is, const MArray2&lt;int&gt; &amp;ds, const ComplexMatrix&amp; a, const ComplexMatrix&amp; b)
+@item FixedComplexMatrix::FixedComplexMatrix (const Matrix &amp;is, const Matrix &amp;ds, const ComplexMatrix&amp; a, const ComplexMatrix&amp; b)
+@itemx FixedComplexMatrix::FixedComplexMatrix (const ComplexMatrix &amp;is, const ComplexMatrix &amp;ds, const ComplexMatrix&amp; a, const ComplexMatrix&amp; b)
+Create a fixed point matrix with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}.The fixed point elements themselves will have the integer
+parts loaded by the complex matrix @code{a} and the decimal part by the 
+complex matrix @code{b}. It should be noted that @code{a} and @code{b} are 
+both considered as unsigned complex integers and are the strict 
+representation of the bits of the fixed point value.
+
+@item ComplexMatrix FixedComplexMatrix::fixedpoint ()
+Method to create a @code{Matrix} from a fixed point matrix @code{x}
+
+@item ComplexMatrix fixedpoint (const FixedComplexMatrix &amp;x)
+Create a @code{Matrix} from a fixed point matrix @code{x}
+
+@item ComplexMatrix FixedComplexMatrix::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point element is zero, for every element of the current 
+fixed point object.
+
+@item ComplexMatrix sign (const FixedComplexMatrix &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if zero, for every element of the fixed point object @code{x}.
+
+@item ComplexMatrix FixedComplexMatrix::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of each
+element of the current fixed point object.
+
+@item ComplexMatrix getintsize (const FixedComplexMatrix &amp;x)
+Return the number of bit @code{is} used to represent the integer part of each
+element of the fixed point object @code{x}.
+
+@item ComplexMatrix FixedComplexMatrix::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the current fixed point object.
+
+@item ComplexMatrix getdecsize (const FixedComplexMatrix &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item ComplexMatrix FixedComplexMatrix::getnumber ()
+Return the integer representation of the fixed point value of the each
+eleement of the current fixed point object.
+
+@item ComplexMatrix getnumber (const FixedComplexMatrix &amp;x)
+Return the integer representation of the fixed point value of the each
+eleement of the fixed point object @code{x}.
+
+@item FixedComplexMatrix FixedComplexMatrix::chintsize (const ComplexMatrix &amp;n)
+@itemx FixedComplexMatrix FixedComplexMatrix::chintsize (const double n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the integer part @code{is} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedComplexMatrix FixedComplexMatrix::chdecsize (const double n)
+@itemx FixedComplexMatrix FixedComplexMatrix::chdecsize (const ComplexMatrix &amp;n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the decimal part @code{ds} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedComplexMatrix FixedComplexMatrix::incintsize (const double n)
+@itemx FixedComplexMatrix FixedComplexMatrix::incintsize (const ComplexMatrix &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexMatrix FixedComplexMatrix::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexMatrix FixedComplexMatrix::incdecsize (const double n)
+@itemx FixedComplexMatrix FixedComplexMatrix::incdecsize (const ComplexMatrix &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexMatrix FixedComplex::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node FixedComplexRowVector, FixedComplexColumnVector, FixedComplexMatrix, Derived
+@subsection @code{FixedComplexRowVector} class
+
+@table @code
+@item FixedComplexRowVector::FixedComplexRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const RowVector &amp;is, const RowVector &amp;ds)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is}
+and the number in the decimal part by @code{ds}. The fixed point elements 
+themselves will be initialized to zero.
+
+@item FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to zero.
+
+@item FixedComplexRowVector::FixedComplexRowVector (unsigned int is, unsigned int ds, const FixedComplexRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (Complex is, Complex ds, const FixedComplexRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const FixedComplexRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const RowVector &amp;is, const RowVector &amp;ds, const FixedComplexRowVector&amp; a)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is}
+and the number in the decimal part by @code{ds}. The fixed point elements
+themselves will be initialized to the complex fixed point row vector @code{a}
+
+@item FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const FixedComplexRowVector &amp;x)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const FixedRowVector &amp;r, const FixedRowVector &amp;i)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the complex fixed point row vector @code{a}, or the real part by @code{r} 
+and the imaginary by @code{i}.
+
+@item FixedComplexRowVector::FixedComplexRowVector (unsigned int is, unsigned int ds, const FixedRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (Complex is, Complex ds, const FixedRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const FixedRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const RowVector &amp;is, const RowVector &amp;ds, const FixedRowVector&amp; a)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is}
+and the number in the decimal part by @code{ds}. The fixed point elements
+themselves will be initialized to the fixed point row vector @code{a}
+
+@item FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const FixedRowVector &amp;x)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the fixed point row vector @code{a}.
+
+@item FixedComplexRowVector::FixedComplexRowVector (unsigned int is, unsigned int ds, const ComplexRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (Complex is, Complex ds, const ComplexRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ComplexRowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const ComplexRowVector&amp; a)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is} 
+and the number in the decimal part by @code{ds}. The fixed point elements 
+themselves will be initialized to the complex row vector @code{a}
+
+@item FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const ComplexRowVector &amp;x)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const RowVector &amp;r, const RowVector &amp;i)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the complex row vector @code{a}, or the real part by @code{r} and the 
+imaginary by @code{i}.
+
+@item FixedComplexRowVector::FixedComplexRowVector (unsigned int is, unsigned int ds, const RowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (Complex is, Complex ds, const RowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const RowVector&amp; a)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const RowVector&amp; a)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of the real and imaginary part of each element represented by @code{is} 
+and the number in the decimal part by @code{ds}. The fixed point elements 
+themselves will be initialized to the row vector @code{a}
+
+@item FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const RowVector &amp;x)
+Create a complex fixed point row vector with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal 
+part by @code{ds}. The fixed point elements themselves will be initialized 
+to the row vector @code{a}.
+
+@item FixedComplexRowVector::FixedComplexRowVector (unsigned int is, unsigned int ds, const ComplexRowVector&amp; a, const ComplexRowVector&amp; b)
+@itemx FixedComplexRowVector::FixedComplexRowVector (Complex is, Complex ds, const ComplexRowVector&amp; a, const ComplexRowVector&amp; b)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ComplexRowVector&amp; a, const ComplexRowVector&amp; b)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const RowVector &amp;is, const RowVector &amp;ds, const ComplexRowVector&amp; a, const ComplexRowVector&amp; b)
+@itemx FixedComplexRowVector::FixedComplexRowVector (const ComplexRowVector &amp;is, const ComplexRowVector &amp;ds, const ComplexRowVector&amp; a, const ComplexRowVector&amp; b)
+Create a fixed point row vector with the number of bits in the integer part of
+each element represented by @code{is} and the number in the decimal part
+by @code{ds}. The fixed point elements themselves will have the integer
+parts loaded by the complex row vector @code{a} and the decimal part by the
+complex row vector @code{b}. It should be noted that @code{a} and @code{b} 
+are both considered as unsigned complex integers and are the strict 
+representation of the bits of the fixed point value.
+
+@item ComplexRowVector FixedComplexRowVector::fixedpoint ()
+Method to create a @code{RowVector} from a fixed point row vector @code{x}
+
+@item ComplexRowVector fixedpoint (const FixedComplexRowVector &amp;x)
+Create a @code{RowVector} from a fixed point row vector @code{x}
+
+@item ComplexRowVector FixedComplexRowVector::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point element is zero, for every element of the current 
+fixed point object.
+
+@item ComplexRowVector sign (const FixedComplexRowVector &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if zero, for every element of the fixed point object @code{x}.
+
+@item ComplexRowVector FixedComplexRowVector::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of each
+element of the current fixed point object.
+
+@item ComplexRowVector getintsize (const FixedComplexRowVector &amp;x)
+Return the number of bit @code{is} used to represent the integer part of each
+element of the fixed point object @code{x}.
+
+@item ComplexRowVector FixedComplexRowVector::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the current fixed point object.
+
+@item ComplexRowVector getdecsize (const FixedComplexRowVector &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item ComplexRowVector getdecsize (const FixedComplexRowVector &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item ComplexRowVector FixedComplexRowVector::getnumber ()
+Return the integer representation of the fixed point value of the each
+eleement of the current fixed point object.
+
+@item FixedComplexRowVector FixedComplexRowVector::chintsize (const ComplexRowVector &amp;n)
+@itemx FixedComplexRowVector FixedComplexRowVector::chintsize (const double n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the integer part @code{is} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedComplexRowVector FixedComplexRowVector::chdecsize (const double n)
+@itemx FixedComplexRowVector FixedComplexRowVector::chdecsize (const ComplexRowVector &amp;n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the decimal part @code{ds} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedComplexRowVector FixedComplexRowVector::incintsize (const Complex n)
+@itemx FixedComplexRowVector FixedComplexRowVector::incintsize (const ComplexRowVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexRowVector FixedComplexRowVector::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexRowVector FixedComplexRowVector::incdecsize (const Complex n)
+@itemx FixedComplexRowVector FixedComplexRowVector::incdecsize (const ComplexRowVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexRowVector FixedComplexRowVector::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node FixedComplexColumnVector, , FixedComplexRowVector, Derived
+@subsection @code{FixedComplexColumnVector} class
+
+@table @code
+@item FixedComplexColumnVector::FixedComplexColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of the real and imaginary part of each element represented by 
+@code{is} and the number in the decimal part by @code{ds}. The fixed point 
+elements themselves will be initialized to zero.
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of each element represented by @code{is} and the number in the 
+decimal part by @code{ds}. The fixed point elements themselves will be 
+initialized to zero.
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (unsigned int is, unsigned int ds, const FixedComplexColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (Complex is, Complex ds, const FixedComplexColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const FixedComplexColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds, const FixedComplexColumnVector&amp; a)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of the real and imaginary part of each element represented by 
+@code{is} and the number in the decimal part by @code{ds}. The fixed point 
+elements themselves will be initialized to the complex fixed point column 
+vector @code{a}
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const FixedComplexColumnVector &amp;x)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const FixedColumnVector &amp;r, const FixedColumnVector &amp;i)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of each element represented by @code{is} and the number in the 
+decimal part by @code{ds}. The fixed point elements themselves will be 
+initialized to the complex fixed point column vector @code{a}, or the real 
+part by @code{r} and the imaginary by @code{i}.
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (unsigned int is, unsigned int ds, const FixedColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (Complex is, Complex ds, const FixedColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const FixedColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds, const FixedColumnVector&amp; a)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of the real and imaginary part of each element represented by 
+@code{is} and the number in the decimal part by @code{ds}. The fixed point 
+elements themselves will be initialized to the fixed point column vector 
+@code{a}
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const FixedColumnVector &amp;x)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of each element represented by @code{is} and the number in the 
+decimal part by @code{ds}. The fixed point elements themselves will be 
+initialized to the fixed point column vector @code{a}.
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (unsigned int is, unsigned int ds, const ComplexColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (Complex is, Complex ds, const ComplexColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ComplexColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const ComplexColumnVector&amp; a)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of the real and imaginary part of each element represented by 
+@code{is} and the number in the decimal part by @code{ds}. The fixed point 
+elements themselves will be initialized to the complex column vector @code{a}
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const ComplexColumnVector &amp;x)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const ColumnVector &amp;r, const ColumnVector &amp;i)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of each element represented by @code{is} and the number in the 
+decimal part by @code{ds}. The fixed point elements themselves will be 
+initialized to the complex column vector @code{a}, or the real part by 
+@code{r} and the imaginary by @code{i}.
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (unsigned int is, unsigned int ds, const ColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (Complex is, Complex ds, const ColumnVector&amp; a)
+@item FixedComplexColumnVector::FixedComplexColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ColumnVector&amp; a)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const ColumnVector&amp; a)
+Create a complex fixed point column vector with the number of bits in the 
+integer part of the real and imaginary part of each element represented by 
+@code{is} and the number in the decimal part by @code{ds}. The fixed point
+elements themselves will be initialized to the column vector @code{a}
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const ColumnVector &amp;x)
+Create a complex fixed point column vector with the number of bits in the
+integer part of each element represented by @code{is} and the number in the
+decimal part by @code{ds}. The fixed point elements themselves will be 
+initialized to the column vector @code{a}.
+
+@item FixedComplexColumnVector::FixedComplexColumnVector (unsigned int is, unsigned int ds, const ComplexColumnVector&amp; a, const ComplexColumnVector&amp; b)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (Complex is, Complex ds, const ComplexColumnVector&amp; a, const ComplexColumnVector&amp; b)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const MArray&lt;int&gt; &amp;is, const MArray&lt;int&gt; &amp;ds, const ComplexColumnVector&amp; a, const ComplexColumnVector&amp; b)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ColumnVector &amp;is, const ColumnVector &amp;ds, const ComplexColumnVector&amp; a, const ComplexColumnVector&amp; b)
+@itemx FixedComplexColumnVector::FixedComplexColumnVector (const ComplexColumnVector &amp;is, const ComplexColumnVector &amp;ds, const ComplexColumnVector&amp; a, const ComplexColumnVector&amp; b)
+Create a fixed point column vector with the number of bits in the integer 
+part of each element represented by @code{is} and the number in the decimal
+part by @code{ds}. The fixed point elements themselves will have the integer
+parts loaded by the complex column vector @code{a} and the decimal part by 
+the compelx column vector @code{b}. It should be noted that @code{a} and 
+@code{b} are both considered  as unsigned compelx integers and are the strict
+representation of the bits of the fixed point value.
+
+@item ComplexColumnVector FixedComplexColumnVector::fixedpoint ()
+Method to create a @code{ColumnVector} from a fixed point column vector 
+@code{x}
+
+@item ComplexColumnVector fixedpoint (const FixedComplexColumnVector &amp;x)
+Create a @code{ColumnVector} from a fixed point column vector @code{x}
+
+@item ComplexColumnVector FixedComplexColumnVector::sign ()
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if the fixed point element is zero, for every element of the current 
+fixed point object.
+
+@item ComplexColumnVector sign (const FixedComplexColumnVector &amp;x)
+Return @code{-1} for negative numbers, @code{1} for positive and @code{0} 
+if zero, for every element of the fixed point object @code{x}.
+
+@item ComplexColumnVector FixedComplexColumnVector::getintsize ()
+Return the number of bit @code{is} used to represent the integer part of each
+element of the current fixed point object.
+
+@item ComplexColumnVector getintsize (const FixedComplexColumnVector &amp;x)
+Return the number of bit @code{is} used to represent the integer part of each
+element of the fixed point object @code{x}.
+
+@item ComplexColumnVector FixedComplexColumnVector::getdecsize ()
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the current fixed point object.
+
+@item ComplexColumnVector getdecsize (const FixedComplexColumnVector &amp;x)
+Return the number of bit @code{ds} used to represent the decimal part of each
+element of the fixed point object @code{x}.
+
+@item ComplexColumnVector FixedComplexColumnVector::getnumber ()
+Return the integer representation of the fixed point value of the each
+eleement of the current fixed point object.
+
+@item ComplexColumnVector getnumber (const FixedComplexColumnVector &amp;x)
+Return the integer representation of the fixed point value of the each
+eleement of the fixed point object @code{x}.
+
+@item FixedComplexColumnVector FixedComplexColumnVector::chintsize (const ComplexColumnVector &amp;n)
+@itemx FixedComplexColumnVector FixedComplexColumnVector::chintsize (const double n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the integer part @code{is} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedComplexColumnVector FixedComplexColumnVector::chdecsize (const double n)
+@itemx FixedComplexColumnVector FixedComplexColumnVector::chdecsize (const ComplexColumnVector &amp;n)
+Return a fixed point object equivalent to the current fixed point object but
+with the number of bits representing the decimal part @code{ds} of every
+element changed to @code{n}. If the result of this operation causes any 
+element of @code{is + ds} to be greater than @code{sizeof(int)*8 - 2}, 
+the error handler is called.
+
+@item FixedComplexColumnVector FixedComplexColumnVector::incintsize (const double n)
+@itemx FixedComplexColumnVector FixedComplexColumnVector::incintsize (const ComplexColumnVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+@code{n}. If @code{n} is negative, then @code{is} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexColumnVector FixedComplexColumnVector::incintsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the integer part @code{is} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexColumnVector FixedComplexColumnVector::incdecsize (const double n)
+@itemx FixedComplexColumnVector FixedComplexColumnVector::incdecsize (const ComplexColumnVector &amp;n)
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+@code{n}. If @code{n} is negative, then @code{ds} is decreased. If the
+result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+
+@item FixedComplexColumnVector FixedComplexColumnVector::incdecsize ()
+Return a fixed point object equivalent to the current fixed point number but
+with the number of bits representing the decimal part @code{ds} increased by 
+1. If the result of this operation causes @code{is + ds} to be greater than 
+@code{sizeof(int)*8 - 2}, the error handler is called.
+@end table
+
+@node  Upper, Oct-files, Derived, Programming
+@section The Upper Level Octave Classes
+
+There are 4 upper level classes that define the interface of the fixed point
+type to the octave interpreter. These mirror similar definitions for 
+floating values in octave and are
+
+@iftex
+@tex
+\vskip 2ex
+\hfil\vbox{
+\offinterlineskip
+\tabskip=0pt
+\halign{ 
+\vrule height1.75ex depth1.25ex width 0.6pt #\tabskip=1em &amp;
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # width 0.6pt \tabskip=0pt\cr
+\noalign{\hrule height 0.6pt}
+&amp;        Fixed Point          &amp;&amp; Floating Point &amp;\cr
+\noalign{\hrule}
+&amp; @code{octave_fixed}         &amp;&amp; @code{octave_scalar} &amp;\cr
+&amp; @code{octave_fixed_complex} &amp;&amp; @code{octave_complex} &amp;\cr
+&amp; @code{octave_fixed_matrix}  &amp;&amp; @code{octave_matrix} &amp;\cr
+&amp; @code{octave_fixed_complex_matrix} &amp;&amp; @code{octave_complex_matrix} &amp;\cr
+\noalign{\hrule height 0.6pt}
+}}\hfil
+\vskip 1ex
+@end tex
+@end iftex
+@ifinfo
+@multitable @columnfractions 0.03 .47 .03 .47 
+@item @tab @code{octave_fixed} @tab -&gt; @tab @code{octave_scalar}
+@item @tab @code{octave_fixed_complex} @tab -&gt; @tab @code{octave_complex}
+@item @tab @code{octave_fixed_matrix}  @tab -&gt; @tab @code{octave_matrix}
+@item @tab @code{octave_fixed_complex_matrix} @tab -&gt; @tab @code{octave_complex_matrix}
+@end multitable
+@end ifinfo
+
+These fixed point classes use the same base classes as the corresponding
+floating classes, and so have similar capabilities. However, one notable
+addition are the methods to obtain the base fixed point objects from these
+classes, and also correspond to similar floating point methods. These are
+
+@iftex
+@tex
+\vskip 2ex
+\hfil\vbox{
+\offinterlineskip
+\tabskip=0pt
+\halign{ 
+\vrule height1.75ex depth1.25ex width 0.6pt #\tabskip=1em &amp;
+\hfil #\hfil &amp;\vrule # &amp; 
+\hfil #\hfil &amp;\vrule # width 0.6pt \tabskip=0pt\cr
+\noalign{\hrule height 0.6pt}
+&amp;        Fixed Point          &amp;&amp; Floating Point &amp;\cr
+\noalign{\hrule}
+&amp; @code{fixed_value}         &amp;&amp; @code{scalar_value} &amp;\cr
+&amp; @code{fixed_complex_value} &amp;&amp; @code{complex_value} &amp;\cr
+&amp; @code{fixed_matrix_value}  &amp;&amp; @code{matrix_value} &amp;\cr
+&amp; @code{fixed_complex_matrix_value} &amp;&amp; @code{complex_matrix_value} &amp;\cr
+\noalign{\hrule height 0.6pt}
+}}\hfil
+\vskip 1ex
+@end tex
+@end iftex
+@ifinfo
+@multitable @columnfractions 0.03 .47 .03 .47 
+@item @tab @code{fixed_value} @tab -&gt; @tab @code{scalar_value}
+@item @tab @code{fixed_complex_value} @tab -&gt; @tab @code{complex_value}
+@item @tab @code{fixed_matrix_value}  @tab -&gt; @tab @code{matrix_value}
+@item @tab @code{fixed_complex_matrix_value} @tab -&gt; @tab @code{complex_matrix_value}
+@end multitable
+@end ifinfo
+
+and can be used in all fixed point classes, subject to a possible reduction
+operations (eg. casts a @code{FixedComplexMatrix} as a @code{FixedPoint}).
+In addition the methods @code{scalar_value}, @code{complex_value}, 
+@code{matrix_value} and @code{complex_matrix_value} can all be used.
+
+The user should examine the files @file{ov-fixed-cx-mat.h}, 
+@file{ov-fixed-complex.h},  @file{ov-fixed-mat.h} and @file{ov-fixed.h} and
+the base classes  in the files @file{ov-base-fixed.h}, 
+@file{ov-base-fixed-mat.h}, and file @file{ov-base.h} within octave to see 
+the methods that are available for the upper level classes.
+
+@node Oct-files, , Upper, Programming
+@section Writing Oct-files with the Fixed Point Type
+
+It is not the purpose of this section to discuss how to write an oct-file,
+or discuss what they are, but rather the specifics of using oct-files with
+the fixed point type. An oct-file is a means of writing an octave function
+in a compilable language like C++, rather than as a script file. This results
+in a significant acceleration in the code. The reader is referred to the 
+tutorial available at @url{http://octave.sourceforge.net/coda/coda.html}.
+The examples discussed here assume that the oct-file is written entirely
+in C++.
+
+@menu
+* Templates:: Using C++ Templates in Oct-files 
+* Problems:: Specific Problems of Oct-files using Fixed Point
+* Cygwin:: Specific points to note when using Oct-files and Cygwin 
+* OctExample:: A Simple Example of an Oct-file
+@end menu
+
+@node Templates, Problems, Oct-files, Oct-files
+@subsection Using C++ Templates in Oct-files
+
+When using the fixed point toolbox, you will almost certainly want to
+compare an implementation in fixed-point against the corresponding
+implementation in floating point. This allows the degradation due to
+the conversion to a fixed-point algorithm to be easily observed. The
+concept of C++ templates allows easy implementation of both fixed and
+floating point versions of the same code. For example consider
+
+@example
+template &lt;class A, class B&gt;
+A myfunc(const A &amp;a, const B &amp;b) @{
+  return (a + b);
+@}
+
+// Floating point instantiations
+template double myfunc (const double&amp;, const double&amp;);
+template Complex myfunc (const Complex&amp;, const double&amp;);
+template Matrix myfunc (const Matrix&amp;, const double&amp;);
+template ComplexMatrix myfunc (const ComplexMatrix&amp;, const double&amp;);
+
+// Fixed point instantiations
+template FixedPoint myfunc (const FixedPoint&amp;, const FixedPoint&amp;);
+template FixedPointComplex myfunc (const FixedPointComplex&amp;, 
+				   const FixedPoint&amp;);
+template FixedMatrix myfunc (const FixedMatrix&amp;, const FixedPoint&amp;);
+template FixedComplexMatrix myfunc (const FixedComplexMatrix&amp;, 
+				    const FixedPoint&amp;);
+@end example
+
+Eight versions of the function @code{myfunc} are created, that allow its
+use with all floating and fixed types.
+
+@node Problems, Cygwin, Templates, Oct-files
+@subsection Specific Problems of Oct-files using Fixed Point
+
+The fact that the fixed point type is loadable, means that the symbols
+of this type are not available till the first use of a fixed point
+variable. This means that the function @dfn{fixed} must be called
+at least once prior to accessing fixed point values in an oct-file.
+If a user function is called, that uses a fixed point type, before the
+type is loaded the result will be an error message complaining of
+unknown symbols. For example
+
+@example
+octave:1&gt; fixed_inc(a)
+error: /home/dbateman/octave/fixed/fixed_inc.oct: undefined symbol: 
+_ZN24octave_base_fixed_matrixI18FixedComplexMatrixE7subsref
+ERKSsRKSt4listI17octave_value_listSaIS5_EE
+error: `fixed_inc' undefined near line 1 column 1
+@end example
+
+This should not in itself result in an abnormal exit from Octave.
+
+Another problem when accessing fixed point variables within oct-files,
+is that the Octave @code{octave_value} class knows nothing about this type.
+So you can not directly call a method such as @code{fixed_value()} on
+the input arguments, but rather must cast the representation of the
+@code{octave_value} as a fixed type and then call the relevant method.
+An example of extracting a fixed point value from an @code{octave_value}
+variable @code{arg} is then
+
+@example
+  octave_value arg;
+  ...
+  if (arg.type_id () == octave_fixed::static_type_id ()) @{
+    FixedPoint f = ((const octave_fixed&amp;) arg.get_rep()).fixed_value();
+@end example
+
+Similarly, the return value from an oct-file is itself either an 
+@code{octave_value} or an @code{octave_value_list}. So a special means
+of creating the return value must be used. For example
+
+@example
+  octave_value_list retval;
+  Matrix m;
+  FixedPoint f;
+  ...
+  retval(0) = octave_value(m);
+  retval(1) = new octave_fixed (f);
+@end example
+
+@c start example of code on new page
+@c Maybe not!!
+@c @page
+
+@node Cygwin, OctExample, Problems, Oct-files
+@subsection Specific points to note when using Oct-files and Cygwin 
+
+When using the GNU C++ compiler under Cygwin to create a shared
+object, such as an oct-file, the symbols must be resolved at compile
+time. This is as opposed to a Unix platform where the resolution of
+the symbols can be left till runtime. For this reason the fixed point
+type, when built under Cygwin is split into an oct-file and a shared
+library called @file{liboctave_fixed.dll}. This is as opposed to the
+situation under Unix, where only the Oct-file containing all of the
+fixed point type is needed.
+
+This has the implication that when you build an Oct-file under Cygwin
+using the fixed point type, that they must be linked to 
+@file{liboctave_fixed.dll}. An appropriate means to do this is for
+example
+
+@example
+% mkoctfile -loctave_fixed myfile.cc
+@end example
+
+The file @file{liboctave_fixed.dll} and @file{liboctave_fixed.dll.a} must
+be located somewhere that the compiler can find them. If these are
+installed in the same directory as @file{liboctave.dll} and
+@file{liboctave.dll.a} respectively, then @code{mkoctfile} will
+find them automatically.
+
+@node OctExample, , Cygwin, Oct-files
+@subsection A Simple Example of an Oct-file
+
+An example of a simple oct-file written in C++ using the fixed point type 
+can be seen below. It integrates the ideas discussed previously.
+
+@c Note the @verbatim environment is a relatively new addition to texinfo.
+@c Therefore use the @example environment and replace @, with @@, 
+@c { with @{, etc
+
+@example
+#include &lt;octave/config.h&gt;
+#include &lt;octave/oct.h&gt;
+#include "fixed.h"
+
+template &lt;class A, class B&gt;
+A myfunc(const A &amp;a, const B &amp;b) @{
+  return (a + b);
+@}
+
+// Floating point instantiations
+template double myfunc (const double&amp;, const double&amp;);
+template Complex myfunc (const Complex&amp;, const double&amp;);
+template Matrix myfunc (const Matrix&amp;, const double&amp;);
+template ComplexMatrix myfunc (const ComplexMatrix&amp;, const double&amp;);
+
+// Fixed point instantiations
+template FixedPoint myfunc (const FixedPoint&amp;, const FixedPoint&amp;);
+template FixedPointComplex myfunc (const FixedPointComplex&amp;, 
+				   const FixedPoint&amp;);
+template FixedMatrix myfunc (const FixedMatrix&amp;, const FixedPoint&amp;);
+template FixedComplexMatrix myfunc (const FixedComplexMatrix&amp;, 
+				    const FixedPoint&amp;);
+
+DEFUN_DLD (fixed_inc, args, ,
+"-*- texinfo -*-\n\
+@@deftypefn @{Loadable Function@} @{@@var@{y@} =@}  fixed_inc (@@var@{x@})\n\
+Example code of the use of the fixed point types in an oct-file.\n\
+Returns @@code@{@@var@{x@} + 1@}\n\
+@@end deftypefn")
+@{
+  octave_value retval;
+  FixedPoint one(1,0,1,0);  // Fixed Point value of 1
+
+  if (args.length() != 1)
+    print_usage("fixed_inc");
+  else
+    if (args(0).type_id () == octave_fixed_matrix::static_type_id ()) @{
+      FixedMatrix f = ((const octave_fixed_matrix&amp;) args(0).get_rep()).
+        fixed_matrix_value();
+      retval = new octave_fixed_matrix (myfunc(f,one));
+    @} else if (args(0).type_id () == octave_fixed::static_type_id ()) @{
+      FixedPoint f = ((const octave_fixed&amp;) args(0).get_rep()).
+        fixed_value();
+      retval = new octave_fixed (myfunc(f,one));
+    @} else if (args(0).type_id () == 
+                octave_fixed_complex::static_type_id ()) @{
+      FixedPointComplex f = ((const octave_fixed_complex&amp;) 
+			     args(0).get_rep()).fixed_complex_value();
+      retval = new octave_fixed_complex (myfunc(f,one));
+    @} else if (args(0).type_id () == 
+                octave_fixed_complex_matrix::static_type_id ()) @{
+      FixedComplexMatrix f = ((const octave_fixed_complex_matrix&amp;) 
+                args(0).get_rep()).fixed_complex_matrix_value();
+      retval = new octave_fixed_complex_matrix (myfunc(f,one));
+    @} else @{
+      // promote the operation to complex matrix. The narrowing op in 
+      // octave_value will later change the type if needed. This is not
+      // optimal but is convenient....
+      ComplexMatrix f = args(0).complex_matrix_value();
+      retval = octave_value (myfunc(f,1.));
+    @}
+  return retval;
+@}
+@end example
+
+@node Example, Function Reference, Programming, Top
+@chapter Fixed Point Type Applied to Real Signal Processing Example
+
+As an example of the use of the fixed point toolbox applied to a real
+signal processing example, we consider the implementation of a Radix-4
+IFFT in an OFDM modulator. Code for this IFFT has been
+written as a C++ template class, and integrated as an Octave Oct-file.
+This allowed a single version of the code to be instantiated to perform
+both the fixed and floating point implementations of the same code. The
+instantiations of this class are
+
+@example
+template Fft&lt;double,Complex,ComplexRowVector&gt;;
+template Fft&lt;FixedPoint,FixedPointComplex,FixedComplexRowVector&gt;;
+
+template Ifft&lt;double,Complex,ComplexRowVector&gt;;
+template Ifft&lt;FixedPoint,FixedPointComplex,FixedComplexRowVector&gt;;
+@end example
+
+The code for this example is available as part of the release of this
+software package.
+
+A particular problem of a hardware implementation of an IFFT is that
+each butterfly in the radix-4 IFFT consists of the summation of four
+terms with a suitable phase. Thus, an additional 2 output bits are
+potentially needed after each butterfly of the radix-4 IFFT. There are
+several ways of addressing this issue
+
+@enumerate
+@item Increase the number of bits in the fixed point representation 
+by two after each radix-4 butterfly. There are then two ways of treating
+these added bits:
+
+@enumerate A
+@item Accept them and let the size of the representation of the 
+fixed point numbers grows. For large IFFT's this is not acceptable
+@item Cut the least significant bits of representation, either 
+after each butterfly, or after groups of butterflies. This reduces the number 
+of bits in the representation, but still trades off complexity to avoid an 
+overflow condition
+@end enumerate
+
+@item Keep the fixed point representation used in the IFFT fixed,
+but reduce the input signal level to avoid overflows. The IFFT can then have
+internal overflows.
+@end enumerate
+
+An overflow will cause a bit-error which is not necessarily critical. The
+last option is therefore attractive in that it allows the minimum complexity
+in the hardware implementation of the IFFT. However, careful investigation of
+the overflow effects are needed, which can be performed with the fixed point
+toolbox.
+
+@iftex
+The figures 1 and 2 below shows the case of a 64QAM OFDM signal similar
+to that used in the 802.11a standard. In this figure the OFDM modulator
+has been represented using fixed point, while the rest of the system is
+assumed to be perfect. Figures 1 and 2 shows the tradeoff between the
+backoff of the RMS power in the frequency domain signal relative to the
+fixed point representation for several different fixed point
+representations.
+
+@center @image{ofdmber}
+
+@center Figure 1: Bit-error rate due to fixed point representation for various
+@center backoffs of the RMS power in frequency domain signal. Fixed point 
+@center representation of @var{n} bits plus 1 bit for the sign
+
+@center @image{ofdmsnr}
+
+@center Figure 2: The signal-to-noise ratio as measured by comparing a fixed
+@center to a floating point representation for various backoffs of the RMS 
+@center power in frequency domain signal. Fixed point representation of 
+@center @var{n} bits plus 1 bit for the sign
+
+Two regions are clearly visible in these figures. When the backoff of
+the RMS power is small, the effects of the overflow in the IFFT
+dominate, and reduce the performance. When the backoff is large, there
+are fewer bits in the fixed point representation relative to the
+average signal power and therefore a slow degradation in the
+performance. It is clear that somewhere between 11 and 13 bits in the
+representation of the fixed point numbers in the IFFT is optimal, with a
+backoff of approximately 13dB.
+@end iftex
+
+@c This stupidity below is needed since I can't be sure texi2html can
+@c call latex2html for the equations, tables, etc. Thus need the expandinfo
+@c flag. So if I want the images for the plots, need to do something special
+@c Note, I not texi2html 1.56k has broken code to ignore the ifnothtml 
+@c directive and so I'd suggest using a recent version of texi2html!!
+
+@ifinfo
+@ifnothtml
+The table below shows the case of a 64QAM OFDM signal similar to that
+used in the 802.11a standard. In this table the OFDM modulator has been
+represented using fixed point, while the rest of the system is assumed
+to be perfect. The table shows the tradeoff between the backoff of the
+RMS power in the frequency domain signal relative to the fixed point
+representation for several different fixed point representations.
+
+@multitable @columnfractions 0.10 0.20 0.20 0.20 0.20
+@item @tab   Backoff@tab   BER    @tab  BER     @tab  BER
+@item @tab       dB @tab 8+1 Bits @tab 10+1 Bits@tab 12+1 Bits
+@item @tab   -------@tab -------- @tab ---------@tab ---------
+@item @tab     5.00 @tab 2.11e-01 @tab 2.27e-01 @tab 2.30e-01 
+@item @tab     6.00 @tab 1.09e-01 @tab 1.18e-01 @tab 1.21e-01 
+@item @tab     7.00 @tab 4.23e-02 @tab 5.25e-02 @tab 5.53e-02 
+@item @tab     8.00 @tab 1.17e-02 @tab 1.36e-02 @tab 1.48e-02 
+@item @tab     9.00 @tab 5.34e-03 @tab 2.21e-03 @tab 2.33e-03 
+@item @tab    10.00 @tab 7.49e-03 @tab 3.78e-04 @tab 3.71e-04 
+@item @tab    11.00 @tab 1.22e-02 @tab 0.00e+00 @tab 0.00e+00 
+@item @tab    12.00 @tab 2.00e-02 @tab 0.00e+00 @tab 0.00e+00 
+@item @tab    13.00 @tab 3.12e-02 @tab 0.00e+00 @tab 0.00e+00 
+@item @tab    14.00 @tab 4.34e-02 @tab 0.00e+00 @tab 0.00e+00 
+@item @tab    15.00 @tab 6.12e-02 @tab 2.31e-07 @tab 0.00e+00 
+@item @tab    16.00 @tab 7.53e-02 @tab 2.31e-06 @tab 0.00e+00 
+@item @tab    17.00 @tab 9.00e-02 @tab 1.87e-05 @tab 0.00e+00 
+@item @tab    18.00 @tab 1.15e-01 @tab 5.56e-05 @tab 0.00e+00 
+@item @tab    19.00 @tab 1.30e-01 @tab 4.69e-04 @tab 0.00e+00 
+@item @tab    20.00 @tab 1.55e-01 @tab 1.30e-03 @tab 0.00e+00 
+@item @tab    21.00 @tab 1.84e-01 @tab 2.96e-03 @tab 0.00e+00 
+@item @tab    22.00 @tab 1.98e-01 @tab 7.41e-03 @tab 0.00e+00 
+@item @tab    23.00 @tab 2.30e-01 @tab 1.09e-02 @tab 0.00e+00 
+@item @tab    24.00 @tab 2.50e-01 @tab 1.99e-02 @tab 0.00e+00 
+@item @tab    25.00 @tab 2.73e-01 @tab 2.99e-02 @tab 0.00e+00 
+@item @tab    26.00 @tab 2.99e-01 @tab 4.38e-02 @tab 0.00e+00 
+@item @tab    27.00 @tab 3.39e-01 @tab 6.09e-02 @tab 2.31e-07 
+@item @tab    28.00 @tab 3.51e-01 @tab 7.57e-02 @tab 2.31e-06 
+@item @tab    29.00 @tab 3.86e-01 @tab 8.99e-02 @tab 9.72e-06 
+@item @tab    30.00 @tab 3.97e-01 @tab 1.16e-01 @tab 6.99e-05 
+@end multitable
+
+Two regions are clearly visible in this table. When the backoff of
+the RMS power is small, the effects of the overflow in the IFFT
+dominate, and reduce the performance. When the backoff is large, there
+are fewer bits in the fixed point representation relative to the
+average signal power and therefore a slow degradation in the
+performance. It is clear that somewhere between 11 and 13 bits in the
+representation of the fixed point numbers in the IFFT is optimal, with a
+backoff of approximately 13dB.
+@end ifnothtml
+
+@ifhtml
+&lt;P&gt;
+The figures 1 and 2 below shows the case of a 64QAM OFDM signal similar
+to that used in the 802.11a standard. In this figure the OFDM modulator
+has been represented using fixed point, while the rest of the system is
+assumed to be perfect. Figures 1 and 2 shows the tradeoff between the
+backoff of the RMS power in the frequency domain signal relative to the
+fixed point representation for several different fixed point
+representations.
+&lt;/P&gt;
+&lt;CENTER&gt;
+&lt;IMG SRC="ofdmber.png" ALT="ofdmber"&gt;
+&lt;P&gt;
+Figure 1: Bit-error rate due to fixed point representation for various
+backoffs of the RMS power in frequency domain signal. Fixed point 
+representation of &lt;VAR&gt;n&lt;/VAR&gt; bits plus 1 bit for the sign
+&lt;/P&gt;
+&lt;/CENTER&gt;
+&lt;CENTER&gt;
+&lt;IMG SRC="ofdmsnr.png" ALT="ofdmsnr"&gt;
+&lt;P&gt;
+Figure 2: The signal-to-noise ratio as measured by comparing a fixed
+to a floating point representation for various backoffs of the RMS 
+power in frequency domain signal. Fixed point representation of 
+&lt;VAR&gt;n&lt;/VAR&gt; bits plus 1 bit for the sign
+&lt;/P&gt;
+&lt;/CENTER&gt;
+&lt;P&gt;
+Two regions are clearly visible in these figures. When the backoff of
+the RMS power is small, the effects of the overflow in the IFFT
+dominate, and reduce the performance. When the backoff is large, there
+are fewer bits in the fixed point representation relative to the
+average signal power and therefore a slow degradation in the
+performance. It is clear that somewhere between 11 and 13 bits in the
+representation of the fixed point numbers in the IFFT is optimal, with a
+backoff of approximately 13dB.
+&lt;/P&gt;
+@end ifhtml
+@end ifinfo
+
+@node Function Reference, , Example, Top
+@chapter Function Reference
+
+@REFERENCE_SECTION(Fixed Point Type)
+
+@bye
+
+@c Local Variables: ***
+@c Mode: texinfo ***
+@c End: ***
+</pre>
+      
+    </div>
+  
+
+          </div>
+			
+          
+        </div>
+      </div>
+    </section>
+      
+<footer id="site-footer">
+    <div class="wrapper">
+        <nav>
+            <h5>SourceForge</h5>
+            <a href="/about">About</a>
+            <a href="/blog/category/sitestatus/">Site Status</a>
+            <a href="http://twitter.com/sfnet_ops">@sfnet_ops</a>
+        </nav>
+        <nav>
+            <h5>Find and Develop Software</h5>
+            <a href="/create/">Create a Project</a>
+            <a href="/directory/">Software Directory</a>
+            <a href="/top">Top Downloaded Projects</a>
+        </nav>
+        <nav>
+            <h5>Community</h5>
+            <a href="/blog/">Blog</a>
+            <a href="http://twitter.com/sourceforge">@sourceforge</a>
+            <a href="http://seeker.dice.com/jobsearch/servlet/JobSearch?caller=0&amp;source=76&amp;LOCATION_OPTION=2&amp;EXTRA_STUFF=0&amp;N=0&amp;Hf=0&amp;Ntk=JobSearchRanking&amp;op=300&amp;values=&amp;FREE_TEXT=&amp;Ntx=mode+matchall&amp;EXCLUDE_KEY1=p_JobTitle&amp;EXCLUDE_TEXT1=&amp;EXCLUDE_KEY2=p_JobTitle&amp;EXCLUDE_TEXT2=&amp;EXCLUDE_KEY3=p_JobTitle&amp;EXCLUDE_TEXT3=&amp;EXCLUDE_KEY4=p_JobTitle&amp;EXCLUDE_TEXT4=&amp;EXCLUDE_KEY5=p_JobTitle&amp;EXCLUDE_TEXT5=&amp;EXCLUDE_KEY6=p_JobTitle&amp;EXCLUDE_TEXT6=&amp;EXCLUDE_KEY7=p_JobTitle&amp;EXCLUDE_TEXT7=&amp;EXCLUDE_KEY8=p_JobTitle&amp;EXCLUDE_TEXT8=&amp;locationRadio=on&amp;RADIUS=64.37376&amp;WHERE=&amp;COUNTRY=1525&amp;STAT_PROV=0&amp;METRO_AREA=33.78715899%2C-84.39164034&amp;AREA_CODES=&amp;AC_COUNTRY=1525&amp;TRAVEL=0&amp;TAXTERM=0&amp;SORTSPEC=0&amp;FRMT=0&amp;DAYSBACK=30&amp;NUM_PER_PAGE=30&amp;source_page=allura">Job Board</a>
+        </nav>
+        <nav>
+            <h5>Help</h5>
+            <a href="/apps/trac/sourceforge/wiki/WikiStart">Site Documentation</a>
+            <a href="/support">Support Request</a>
+            <a href="https://sourceforge.net/p/forge/documentation/Support%20via%20IRC/">Real-Time Support</a>
+        </nav>
+    </div>
+</footer>
+<footer id="site-copyright-footer">
+    <div class="wrapper">
+        <div id="copyright">
+            Copyright &copy; 2012 SourceForge. All Rights Reserved.<br />
+            SourceForge is a <a href="http://www.diceholdingsinc.com/phoenix.zhtml?c=211152&amp;p=irol-landing">Dice Holdings, Inc.</a> company.
+        </div>
+        <nav>
+            <a href="http://geeknetmedia.com/terms-of-use">Terms</a>
+            <a href="http://geeknetmedia.com/privacy-statement/">Privacy</a>
+            <a href="http://geeknetmedia.com/opt-out-choices">Cookies/Opt Out</a>
+            <a href="http://geeknetmedia.com">Advertise</a>
+            <a href="http://sourceforge.jp/">SourceForge.JP</a>
+        </nav>
+    </div>
+</footer>
+    <div id="messages">
+        
+    </div>
+    
+      <!-- ew:body_js -->
+
+    
+      <script type="text/javascript" src="http://a.fsdn.com/allura/nf/1354307686/_ew_/_slim/js?href=allura%2Fjs%2Fjquery-base.js%3Ballura%2Fjs%2Fjquery.notify.js%3Ballura%2Fjs%2Fsylvester.js%3Ballura%2Fjs%2Fpb.transformie.min.js%3Ballura%2Fjs%2Fallura-base.js"></script>
+    
+      
+<!-- /ew:body_js -->
+
+    
+    
+      <!-- ew:body_js_tail -->
+
+    
+      
+<!-- /ew:body_js_tail -->
+
+    
+    
+
+<script type="text/javascript" src="http://a.fsdn.com/allura/nf/1354307686/_static_/js/spin.min.js"></script>
+<script type="text/javascript">(function() {
+  $('#access_urls .btn').click(function(evt){
+    evt.preventDefault();
+    var parent = $(this).parents('.btn-bar');
+    $(parent).find('input').val($(this).attr('data-url'));
+    $(parent).find('span').text($(this).attr('title')+' access');
+    $(this).parent().children('.btn').removeClass('active');
+    $(this).addClass('active');
+  });
+  $('#access_urls .btn').first().click();
+
+  
+  var repo_status = document.getElementById('repo_status');
+  // The repo_status div will only be present if repo.status != 'ready'
+  if (repo_status) {
+    var opts = {
+        lines: 9, // The number of lines to draw
+        length: 4, // The length of each line
+        width: 2, // The line thickness
+        radius: 3, // The radius of the inner circle
+        rotate: 0, // The rotation offset
+        color: '#555', // #rgb or #rrggbb
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: 10, // Top position relative to parent in px
+        left: 10 // Left position relative to parent in px
+    };
+    var spinner = new Spinner(opts).spin(repo_status);
+    function check_status() {
+        $.get('/p/octave/code/status', function(data) {
+            if (data.status === 'ready') {
+                window.clearInterval(status_checker);
+                spinner.opts.speed = 0;
+                spinner.opts.opacity = 1;
+                spinner.spin(repo_status)
+                $('#repo_status h2').html('Repo status: ready. <a href=".">Click here to refresh this page.</a>');
+            }
+            else {
+                $('#repo_status h2 span').html(data.status);
+            }
+        });
+    }
+    // Check repo status every 15 seconds
+    var status_checker = window.setInterval(check_status, 15000);
+    
+  }
+}());
+</script>
+
+<script type="text/javascript">(function() {
+  $(window).bind('hashchange', function(e) {
+    var hash = window.location.hash.substring(1);
+	if ('originalEvent' in e && 'oldURL' in e.originalEvent) {
+      $('#' + e.originalEvent.oldURL.split('#')[1]).css('background-color', 'transparent');
+	}
+    if (hash !== '' && hash.substring(0, 1) === 'l' && !isNaN(hash.substring(1))) {
+      $('#' + hash).css('background-color', '#ffff99');
+    }
+  }).trigger('hashchange');
+
+  $('.code_block').each(function(index, element) {
+    $(element).bind('click', function() {
+      var hash = window.location.hash.substring(1);
+      if (hash !== '' && hash.substring(0, 1) === 'l' && !isNaN(hash.substring(1))) {
+        $('#' + hash).css('background-color', 'transparent');
+      }
+      $(element).css('background-color', '#ffff99');
+      window.location.href = '#' + $(element).attr('id');
+    });
+  });
+}());
+</script>
+
+    
+      
+    
+    
+   
+    
+  </body>
+</html>

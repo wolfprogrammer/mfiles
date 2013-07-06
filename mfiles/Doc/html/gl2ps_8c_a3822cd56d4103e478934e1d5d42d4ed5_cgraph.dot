@@ -1,0 +1,33 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="gl2psAddPrimitiveInList",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="gl2psDivideQuad",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a19aeb49d886359842b68c5698fd174f4"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="gl2psMalloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ae8687abe691957a70d1b0456015e2a4f"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="gl2psMsg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ab2b05dc9c0ad9b295309ef903218908c"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="gl2psFreePrimitive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a2e6682ec07dc244fd1ee99a07bbe0245"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="gl2psFree",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a9da21cb65c24c911efd2d82c988287bc"];
+  Node5 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="gl2psFreeText",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ad2d77be172e23794091201f555307cac"];
+  Node7 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="gl2psFreePixmap",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a676a71038ca841eb8845224bd43b879f"];
+  Node8 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="gl2psListAdd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ac6854212b14c712b8866abe23ff3e329"];
+  Node9 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="gl2psListRealloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ad60529307a4f9f99386e892d4a0879ed"];
+  Node10 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="gl2psRealloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ad97a3884fd09ae984f539e0ebc59b9ed"];
+  Node11 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

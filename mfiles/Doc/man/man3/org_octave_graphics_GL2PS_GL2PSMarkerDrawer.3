@@ -1,0 +1,124 @@
+.TH "GL2PS.GL2PSMarkerDrawer" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GL2PS.GL2PSMarkerDrawer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGLRenderer\&.MarkerDrawer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGL2PSMarkerDrawer\fP (GL \fBgl\fP)"
+.br
+.ti -1c
+.RI "void \fBbegin\fP (\fBMarkerProperty\fP m, \fBDoubleProperty\fP ms, float lw)"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (double x, double y, double z, double[] lc, double[] fc)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBmFormat\fP"
+.br
+.ti -1c
+.RI "boolean \fBdotStyle\fP"
+.br
+.ti -1c
+.RI "boolean \fBcanFill\fP"
+.br
+.ti -1c
+.RI "GL \fBgl\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBGL2PSMarkerDrawer\fP (GLgl)\fC [inline]\fP"
+.PP
+References GL2PS\&.GL2PSMarkerDrawer\&.dotStyle, and GL2PS\&.GL2PSMarkerDrawer\&.gl\&.
+.PP
+.nf
+                {
+                        this\&.gl = gl;
+                        this\&.dotStyle = false;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBbegin\fP (\fBMarkerProperty\fPm, \fBDoubleProperty\fPms, floatlw)\fC [inline]\fP"
+.PP
+Implements \fBGLRenderer\&.MarkerDrawer\fP\&.
+.PP
+References GL2PS\&.GL2PSMarkerDrawer\&.canFill, GL2PS\&.GL2PSMarkerDrawer\&.dotStyle, RadioProperty\&.is(), GL2PS\&.makeMarkerPSString(), and GL2PS\&.GL2PSMarkerDrawer\&.mFormat\&.
+.PP
+.nf
+                {
+                        mFormat = makeMarkerPSString(m, ms, lw);
+                        dotStyle = m\&.is('\&.');
+                        canFill = (m\&.is('s') || m\&.is('o') || m\&.is('<') || m\&.is('>') || m\&.is('v') || m\&.is('^') ||
+                                   m\&.is('p') || m\&.is('h') || m\&.is('d'));
+                }
+.fi
+.SS "void \fBdraw\fP (doublex, doubley, doublez, double[]lc, double[]fc)\fC [inline]\fP"
+.PP
+Implements \fBGLRenderer\&.MarkerDrawer\fP\&.
+.PP
+References GL2PS\&.GL2PSMarkerDrawer\&.canFill, GL2PS\&.GL2PSMarkerDrawer\&.dotStyle, GL2PS\&.GL2PSMarkerDrawer\&.gl, GL2PS\&.GL2PS_PS, GL2PS\&.gl2psSpecial(), and GL2PS\&.GL2PSMarkerDrawer\&.mFormat\&.
+.PP
+.nf
+                {
+                        String str = ('gsave\n' + mFormat);
+
+                        if (dotStyle)
+                        {
+                                fc = lc;
+                                lc = null;
+                        }
+                        else if (!canFill)
+                                fc = null;
+
+                        if (fc != null)
+                                str += (fc[0] + ' ' + fc[1] + ' ' + fc[2] + ' C gsave fill grestore\n');
+                        if (lc != null)
+                                str += (lc[0] + ' ' + lc[1] + ' ' + lc[2] + ' C stroke\n');
+                        str += 'grestore\n';
+
+                        gl\&.glRasterPos3d(x, y, z);
+                        gl2psSpecial(GL2PS_PS, str, 1);
+                }
+.fi
+.SS "void \fBend\fP ()\fC [inline]\fP"
+.PP
+Implements \fBGLRenderer\&.MarkerDrawer\fP\&.
+.PP
+.nf
+                {
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean \fBcanFill\fP\fC [package]\fP"
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.begin(), and GL2PS\&.GL2PSMarkerDrawer\&.draw()\&.
+.SS "boolean \fBdotStyle\fP\fC [package]\fP"
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.begin(), GL2PS\&.GL2PSMarkerDrawer\&.draw(), and GL2PS\&.GL2PSMarkerDrawer\&.GL2PSMarkerDrawer()\&.
+.SS "GL \fBgl\fP\fC [package]\fP"
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.draw(), and GL2PS\&.GL2PSMarkerDrawer\&.GL2PSMarkerDrawer()\&.
+.SS "String \fBmFormat\fP\fC [package]\fP"
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.begin(), and GL2PS\&.GL2PSMarkerDrawer\&.draw()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

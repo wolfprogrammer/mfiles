@@ -1,0 +1,161 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/legend.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/legend.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBelseif\fP (ischar(\fBvarargin\fP{\fBk\fP})) \fBif\fP(\fBis_cell_str\fP) \fBerror\fP('cannot mix strings and cell array of strings as arguments')"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBelseif\fP (isnumeric(\fBvarargin\fP{\fBk\fP})&&ishandle(\fBvarargin\fP{\fBk\fP})&&\fBk\fP==1) ca"
+.br
+.ti -1c
+.RI "\fBendif\fP endfor \fBif\fP (isempty(ca)) ca"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (\fBlength\fP(\fBnames\fP)==0) \fBlegend_obj\fP"
+.br
+.ti -1c
+.RI "\fBelseif\fP (\fBlength\fP(\fBnames\fP)==1 &&any(strcmp(\fBnames\fP{1},{'hide','\fBshow\fP','boxoff','boxon','\fBoff\fP'}))) ax_obj"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBlegend_obj\fP)) \fBhl\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (strcmp(\fBop\fP,'off')) ax_obj\&.makeLegend([])"
+.br
+.ti -1c
+.RI "\fBelseif\fP (strcmp(\fBop\fP,'boxoff')) set(\fBhl\fP"
+.br
+.ti -1c
+.RI "\fBelseif\fP (strcmp(\fBop\fP,'boxon')) set(\fBhl\fP"
+.br
+.ti -1c
+.RI "\fBelseif\fP (strcmp(\fBop\fP,'hide')) set(\fBhl\fP"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBget\fP(\fBhl\fP,'children'),'\fBvisible\fP','\fBoff\fP')"
+.br
+.ti -1c
+.RI "\fBelseif\fP (strcmp(\fBop\fP,'show')) set(\fBhl\fP"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBget\fP(\fBhl\fP,'children'),'\fBvisible\fP','\fBon\fP')"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBif\fP (strcmp(\fBop\fP,'show')) hh"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (nargout > 0) \fBif\fP(!isempty(\fBlegend_obj\fP)) \fBh\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBnames\fP = {}"
+.br
+.ti -1c
+.RI "\fBis_cell_str\fP = false"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.ti -1c
+.RI "\fBlegend_obj\fP = ax_obj\&.getLegend ()"
+.br
+.ti -1c
+.RI "\fBop\fP = \fBnames\fP{1}"
+.br
+.ti -1c
+.RI "\fBvisible\fP"
+.br
+.ti -1c
+.RI "\fBoff\fP"
+.br
+.ti -1c
+.RI "\fBon\fP"
+.br
+.ti -1c
+.RI "else \fBh\fP = []"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fB__request_drawnow__\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBelseif\fP (ischar(\fBvarargin\fP{\fBk\fP}))"
+.SS "\fBendif\fP \fBelseif\fP (isnumeric(\fBvarargin\fP{\fBk\fP})&&ishandle(\fBvarargin\fP{\fBk\fP})&&k = \fC=1\fP)"
+.SS "\fBelseif\fP (\fBlength\fP(\fBnames\fP) = \fC=1 &&any(strcmp(\fBnames\fP{1},{'hide','\fBshow\fP','boxoff','boxon','\fBoff\fP'}))\fP)"
+.SS "\fBelseif\fP (strcmp(\fBop\fP,'boxoff'))"
+.SS "\fBelseif\fP (strcmp(\fBop\fP,'boxon'))"
+.SS "\fBelseif\fP (strcmp(\fBop\fP,'hide'))"
+.SS "\fBelseif\fP (strcmp(\fBop\fP,'show'))"
+.SS "\fBendif\fP endfor \fBif\fP (isempty(ca))"
+.SS "\fBendif\fP \fBif\fP (\fBlength\fP(\fBnames\fP) = \fC=0\fP)"
+.SS "\fBif\fP (!isemptylegend_obj)"
+.SS "\fBif\fP (strcmp(\fBop\fP,'off'))"
+.SS "\fBendif\fP else \fBif\fP (strcmp(\fBop\fP,'show'))"
+.SS "\fBendif\fP \fBif\fP (nargout, 0)"
+.SS "\fBset\fP (\fBget\fP(\fBhl\fP,'children'), 'visible', 'off')"
+.SS "\fBset\fP (\fBget\fP(\fBhl\fP,'children'), 'visible', 'on')"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBendif\fP \fBendif\fP \fB__request_drawnow__\fP"
+.PP
+Definition at line 84 of file legend\&.m\&.
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ legend (varargin)
+
+  ca = []
+.fi
+.PP
+Definition at line 16 of file legend\&.m\&.
+.SS "else \fBh\fP = []"
+.PP
+Definition at line 80 of file legend\&.m\&.
+.SS "\fBis_cell_str\fP = false"
+.PP
+Definition at line 20 of file legend\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:length (varargin)
+    if (iscellstr (varargin{k}))
+      names = varargin{k}
+.fi
+.PP
+Definition at line 22 of file legend\&.m\&.
+.SS "\fBendif\fP \fBendif\fP else \fBlegend_obj\fP = ax_obj\&.getLegend ()"
+.PP
+Definition at line 46 of file legend\&.m\&.
+.SS "\fBnames\fP = {}"
+.PP
+Definition at line 19 of file legend\&.m\&.
+.SS "\fBoff\fP"
+.PP
+Definition at line 53 of file legend\&.m\&.
+.SS "\fBon\fP"
+.PP
+Definition at line 55 of file legend\&.m\&.
+.SS "\fBop\fP = \fBnames\fP{1}"
+.PP
+Definition at line 47 of file legend\&.m\&.
+.SS "\fBvisible\fP"
+.PP
+Definition at line 53 of file legend\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

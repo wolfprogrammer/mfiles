@@ -1,0 +1,430 @@
+.TH "GL2PS" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GL2PS \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBGL2PSMarkerDrawer\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static native int \fBgl2psBeginPage\fP (String title, String producer, int[] viewport, int format, int sort, int options, int colormode, int colorsize, Object[] colortable, int nr, int ng, int nb, int buffersize, String outputname, String filename)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psEndPage\fP ()"
+.br
+.ti -1c
+.RI "static native int \fBgl2psText\fP (String string, String fontname, int fontsize)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psTextOpt\fP (String string, String fontname, int fontsize, int align, float angle, float margin, boolean offsetmargin, float linewidth, float[] linecolor, short linepattern, int linefactor, float[] fillcolor)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psEnable\fP (int mode)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psDisable\fP (int mode)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psBeginViewport\fP (int[] viewport)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psEndViewport\fP ()"
+.br
+.ti -1c
+.RI "static native int \fBgl2psLineWidth\fP (float w)"
+.br
+.ti -1c
+.RI "static native int \fBgl2psSpecial\fP (int format, String str, int moveTo)"
+.br
+.ti -1c
+.RI "static GLRenderer\&.MarkerDrawer \fBgetMarkerDrawer\fP (GL gl)"
+.br
+.ti -1c
+.RI "static String \fBmakeMarkerPSString\fP (\fBMarkerProperty\fP p, \fBDoubleProperty\fP s, float lw)"
+.br
+.in -1c
+.SS "Static Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB[static initializer]\fP"
+.br
+.in -1c
+.SS "Static Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBGL2PS_MAJOR_VERSION\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_MINOR_VERSION\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_PATCH_VERSION\fP = 2"
+.br
+.ti -1c
+.RI "static final String \fBGL2PS_EXTRA_VERSION\fP = ''"
+.br
+.ti -1c
+.RI "static final double \fBGL2PS_VERSION\fP"
+.br
+.ti -1c
+.RI "static final String \fBGL2PS_COPYRIGHT\fP = '(C) 1999-2006 Christophe Geuzaine (geuz@geuz\&.org)'"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_PS\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_EPS\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEX\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_PDF\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_SVG\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_PGF\fP = 5"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NO_SORT\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_SIMPLE_SORT\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_BSP_SORT\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_SUCCESS\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_INFO\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_WARNING\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_ERROR\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NO_FEEDBACK\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_OVERFLOW\fP = 5"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_UNINITIALIZED\fP = 6"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NONE\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_DRAW_BACKGROUND\fP = (1<<0)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_SIMPLE_LINE_OFFSET\fP = (1<<1)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_SILENT\fP = (1<<2)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_BEST_ROOT\fP = (1<<3)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_OCCLUSION_CULL\fP = (1<<4)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NO_TEXT\fP = (1<<5)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_LANDSCAPE\fP = (1<<6)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NO_PS3_SHADING\fP = (1<<7)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NO_PIXMAP\fP = (1<<8)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_USE_CURRENT_VIEWPORT\fP = (1<<9)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_COMPRESS\fP = (1<<10)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_NO_BLENDING\fP = (1<<11)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TIGHT_BOUNDING_BOX\fP = (1<<12)"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_POLYGON_OFFSET_FILL\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_POLYGON_BOUNDARY\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_LINE_STIPPLE\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_BLEND\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_C\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_CL\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_CR\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_B\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_BL\fP = 5"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_BR\fP = 6"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_T\fP = 7"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_TL\fP = 8"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_TR\fP = 9"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_L\fP = 10"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_LL\fP = 11"
+.br
+.ti -1c
+.RI "static final int \fBGL2PS_TEXT_LR\fP = 12"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "[static initializer] ()\fC [inline, static, package]\fP"
+.SS "static GLRenderer\&.MarkerDrawer \fBgetMarkerDrawer\fP (GLgl)\fC [inline, static]\fP"
+.PP
+Referenced by GLRenderer\&.getMarkerDrawer()\&.
+.PP
+.nf
+        {
+                return new GL2PSMarkerDrawer(gl);
+        }
+.fi
+.SS "static native int \fBgl2psBeginPage\fP (Stringtitle, Stringproducer, int[]viewport, intformat, intsort, intoptions, intcolormode, intcolorsize, Object[]colortable, intnr, intng, intnb, intbuffersize, Stringoutputname, Stringfilename)\fC [static]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display()\&.
+.SS "static native int \fBgl2psBeginViewport\fP (int[]viewport)\fC [static]\fP"
+.PP
+Referenced by GLRenderer\&.setXForm()\&.
+.SS "static native int \fBgl2psDisable\fP (intmode)\fC [static]\fP"
+.PP
+Referenced by GLRenderer\&.setLineStyle(), and GLRenderer\&.setPolygonOffset()\&.
+.SS "static native int \fBgl2psEnable\fP (intmode)\fC [static]\fP"
+.PP
+Referenced by GLRenderer\&.setLineStyle(), and GLRenderer\&.setPolygonOffset()\&.
+.SS "static native int \fBgl2psEndPage\fP ()\fC [static]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display()\&.
+.SS "static native int \fBgl2psEndViewport\fP ()\fC [static]\fP"
+.PP
+Referenced by GLRenderer\&.setXForm()\&.
+.SS "static native int \fBgl2psLineWidth\fP (floatw)\fC [static]\fP"
+.PP
+Referenced by GLRenderer\&.setLineWidth()\&.
+.SS "static native int \fBgl2psSpecial\fP (intformat, Stringstr, intmoveTo)\fC [static]\fP"
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.draw(), GLRenderer\&.draw(), and GLRenderer\&.drawText()\&.
+.SS "static native int \fBgl2psText\fP (Stringstring, Stringfontname, intfontsize)\fC [static]\fP"
+.SS "static native int \fBgl2psTextOpt\fP (Stringstring, Stringfontname, intfontsize, intalign, floatangle, floatmargin, booleanoffsetmargin, floatlinewidth, float[]linecolor, shortlinepattern, intlinefactor, float[]fillcolor)\fC [static]\fP"
+.SS "static String \fBmakeMarkerPSString\fP (\fBMarkerProperty\fPp, \fBDoubleProperty\fPs, floatlw)\fC [inline, static]\fP"
+.PP
+References DoubleProperty\&.doubleValue(), Utils\&.getHexagramPoints(), Utils\&.getPentagramPoints(), and RadioProperty\&.getValue()\&.
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.begin()\&.
+.PP
+.nf
+        {
+                String str;
+                double sz2 = s\&.doubleValue()/2, sz = s\&.doubleValue();
+
+                str = (lw + ' W [] 0 setdash\n');
+                switch (p\&.getValue()\&.charAt(0))
+                {
+                        case 's':
+                                str += ((-sz2) + ' ' + (-sz2) + ' rmoveto SP newpath RP\n');
+                                str += ((-sz) + ' 0 0 ' + sz + ' ' + sz + ' 0 3 {rlineto} repeat closepath\n');
+                                break;
+                        case 'o':
+                                str += ('currentpoint newpath ' + sz2 + ' 0 360 arc\n');
+                                break;
+                        case 'x':
+                                str += ((-sz2) + ' ' + (-sz2) + ' rmoveto SP newpath RP\n');
+                                str += (sz + ' ' + sz + ' rlineto\n0 ' + (-sz) + ' rmoveto ' + (-sz) + ' ' + sz + ' rlineto\n');
+                                break;
+                        case '+':
+                                str += ((-sz2) + ' 0 rmoveto SP newpath RP\n');
+                                str += (sz + ' 0 rlineto ' + (-sz2) + ' ' + (-sz2) + ' rmoveto\n');
+                                str += ('0 ' + sz + ' rlineto\n');
+                                break;
+                        case '<':
+                                str += ((-2*sz/3) + ' 0 rmoveto SP newpath RP\n');
+                                str += (sz + ' ' + sz2 + ' rlineto 0 ' + (-sz) + ' rlineto closepath\n');
+                                break;
+                        case '>':
+                                str += ((2*sz/3) + ' 0 rmoveto SP newpath RP\n');
+                                str += ((-sz) + ' ' + sz2 + ' rlineto 0 ' + (-sz) + ' rlineto closepath\n');
+                                break;
+                        case '^':
+                                str += ('0 ' + (2*sz/3) + ' rmoveto SP newpath RP\n');
+                                str += ((-sz2) + ' ' + (-sz) + ' rlineto ' + sz + ' 0 rlineto closepath\n');
+                                break;
+                        case 'v':
+                                str += ('0 ' + (-2*sz/3) + ' rmoveto SP newpath RP\n');
+                                str += ((-sz2) + ' ' + sz + ' rlineto ' + sz + ' 0 rlineto closepath\n');
+                                break;
+                        case 'd':
+                                str += ((-sz2) + ' 0 rmoveto SP newpath RP\n');
+                                str += ((-sz2) + ' ' + (-sz2) + ' '+  sz2 + ' ' + (-sz2) + ' ' + sz2 + ' ' + sz2 + ' 3 {rlineto} repeat closepath\n');
+                                break;
+                        case '*':
+                                str += ('0 ' + (-sz2) + ' rmoveto SP newpath RP\n');
+                                str += ('0 ' + sz + ' rlineto\n');
+                                str += ((-sz2) + ' ' + (-sz2) + ' rmoveto ' + sz + ' 0 rlineto\n');
+                                str += ((-sz/6) + ' ' + (-sz/3) + ' rmoveto ' + (-2*sz/3) + ' ' + (2*sz/3) + ' rlineto\n');
+                                str += ((2*sz/3) + ' 0 rmoveto ' + (-2*sz/3) + ' ' + (-2*sz/3) + ' rlineto\n');
+                                break;
+                        case '\&.':
+                                str += ('currentpoint newpath 1 0 360 arc\n');
+                                break;
+                        case 'p':
+                                double[][] pts = Utils\&.getPentagramPoints();
+                                double pr = (sz/2+1), px = pr*pts[0][0], py = pr*pts[0][1];
+                                str += (px + ' ' + py + ' rmoveto SP newpath RP\n');
+                                for (int i=1; i<pts\&.length; i++)
+                                {
+                                        double x1 = pr*pts[i][0], y1 = pr*pts[i][1];
+                                        str += ((x1-px) + ' ' + (y1-py) + ' rlineto\n');
+                                        px = x1;
+                                        py = y1;
+                                }
+                                str += 'closepath\n';
+                                break;
+                        case 'h':
+                                double[][] hpts = Utils\&.getHexagramPoints();
+                                double hr = (sz/2+1), hx = hr*hpts[0][0], hy = hr*hpts[0][1];
+                                str += (hx + ' ' + hy + ' rmoveto SP newpath RP\n');
+                                for (int i=1; i<hpts\&.length; i++)
+                                {
+                                        double x1 = hr*hpts[i][0], y1 = hr*hpts[i][1];
+                                        str += ((x1-hx) + ' ' + (y1-hy) + ' rlineto\n');
+                                        hx = x1;
+                                        hy = y1;
+                                }
+                                str += 'closepath\n';
+                                break;
+                }
+
+                return str;
+        }       
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "final int \fBGL2PS_BEST_ROOT\fP = (1<<3)\fC [static, package]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display()\&.
+.SS "final int \fBGL2PS_BLEND\fP = 4\fC [static, package]\fP"
+.SS "final int \fBGL2PS_BSP_SORT\fP = 3\fC [static, package]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display()\&.
+.SS "final int \fBGL2PS_COMPRESS\fP = (1<<10)\fC [static, package]\fP"
+.SS "final String \fBGL2PS_COPYRIGHT\fP = '(C) 1999-2006 Christophe Geuzaine (geuz@geuz\&.org)'\fC [static, package]\fP"
+.SS "final int \fBGL2PS_DRAW_BACKGROUND\fP = (1<<0)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_EPS\fP = 1\fC [static, package]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display()\&.
+.SS "final int \fBGL2PS_ERROR\fP = 3\fC [static, package]\fP"
+.SS "final String \fBGL2PS_EXTRA_VERSION\fP = ''\fC [static, package]\fP"
+.SS "final int \fBGL2PS_INFO\fP = 1\fC [static, package]\fP"
+.SS "final int \fBGL2PS_LANDSCAPE\fP = (1<<6)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_LINE_STIPPLE\fP = 3\fC [static, package]\fP"
+.PP
+Referenced by GLRenderer\&.setLineStyle()\&.
+.SS "final int \fBGL2PS_MAJOR_VERSION\fP = 1\fC [static, package]\fP"
+.SS "final int \fBGL2PS_MINOR_VERSION\fP = 3\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NO_BLENDING\fP = (1<<11)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NO_FEEDBACK\fP = 4\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NO_PIXMAP\fP = (1<<8)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NO_PS3_SHADING\fP = (1<<7)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NO_SORT\fP = 1\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NO_TEXT\fP = (1<<5)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_NONE\fP = 0\fC [static, package]\fP"
+.SS "final int \fBGL2PS_OCCLUSION_CULL\fP = (1<<4)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_OVERFLOW\fP = 5\fC [static, package]\fP"
+.SS "final int \fBGL2PS_PATCH_VERSION\fP = 2\fC [static, package]\fP"
+.SS "final int \fBGL2PS_PDF\fP = 3\fC [static, package]\fP"
+.SS "final int \fBGL2PS_PGF\fP = 5\fC [static, package]\fP"
+.SS "final int \fBGL2PS_POLYGON_BOUNDARY\fP = 2\fC [static, package]\fP"
+.SS "final int \fBGL2PS_POLYGON_OFFSET_FILL\fP = 1\fC [static, package]\fP"
+.PP
+Referenced by GLRenderer\&.setPolygonOffset()\&.
+.SS "final int \fBGL2PS_PS\fP = 0\fC [static, package]\fP"
+.PP
+Referenced by GL2PS\&.GL2PSMarkerDrawer\&.draw(), GLRenderer\&.draw(), and GLRenderer\&.drawText()\&.
+.SS "final int \fBGL2PS_SILENT\fP = (1<<2)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_SIMPLE_LINE_OFFSET\fP = (1<<1)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_SIMPLE_SORT\fP = 2\fC [static, package]\fP"
+.SS "final int \fBGL2PS_SUCCESS\fP = 0\fC [static, package]\fP"
+.SS "final int \fBGL2PS_SVG\fP = 4\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEX\fP = 2\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_B\fP = 4\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_BL\fP = 5\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_BR\fP = 6\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_C\fP = 1\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_CL\fP = 2\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_CR\fP = 3\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_L\fP = 10\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_LL\fP = 11\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_LR\fP = 12\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_T\fP = 7\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_TL\fP = 8\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TEXT_TR\fP = 9\fC [static, package]\fP"
+.SS "final int \fBGL2PS_TIGHT_BOUNDING_BOX\fP = (1<<12)\fC [static, package]\fP"
+.SS "final int \fBGL2PS_UNINITIALIZED\fP = 6\fC [static, package]\fP"
+.SS "final int \fBGL2PS_USE_CURRENT_VIEWPORT\fP = (1<<9)\fC [static, package]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display()\&.
+.SS "final double \fBGL2PS_VERSION\fP\fC [static, package]\fP"\fBInitial value:\fP
+.PP
+.nf
+
+                (GL2PS_MAJOR_VERSION +
+                 0\&.01 * GL2PS_MINOR_VERSION +
+                 0\&.0001 * GL2PS_PATCH_VERSION)
+.fi
+.SS "final int \fBGL2PS_WARNING\fP = 2\fC [static, package]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

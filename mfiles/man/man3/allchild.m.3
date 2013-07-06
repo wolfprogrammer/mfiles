@@ -1,0 +1,70 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/allchild.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/allchild.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBset\fP (0,'ShowHiddenHandles','\fBon\fP')"
+.br
+.ti -1c
+.RI "unwind_protect \fBif\fP (\fBlength\fP(\fBh\fP)==1) \fBhc\fP"
+.br
+.ti -1c
+.RI "endfor \fBendif\fP unwind_protect_cleanup \fBset\fP (0,'ShowHiddenHandles', old_hideflag)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBhc\fP]"
+.br
+.ti -1c
+.RI "else \fBhc\fP = cell (1, \fBlength\fP (\fBh\fP))"
+.br
+.ti -1c
+.RI "\fBidx\fP = 1"
+.br
+.ti -1c
+.RI "for \fBhh\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "unwind_protect \fBif\fP (\fBlength\fP(\fBh\fP) = \fC=1\fP)"
+.SS "\fBset\fP (0, 'ShowHiddenHandles', 'on')"
+.SS "endfor \fBendif\fP unwind_protect_cleanup \fBset\fP (0, 'ShowHiddenHandles', old_hideflag)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBhc\fP]"\fBInitial value:\fP
+.PP
+.nf
+ allchild (h)
+
+  old_hideflag = get (0, 'ShowHiddenHandles')
+.fi
+.PP
+Definition at line 16 of file allchild\&.m\&.
+.SS "else \fBhc\fP = cell (1, \fBlength\fP (\fBh\fP))"
+.PP
+Definition at line 26 of file allchild\&.m\&.
+.SS "for \fBhh\fP"\fBInitial value:\fP
+.PP
+.nf
+ h
+        hc{idx++} = get (hh, 'Children')
+.fi
+.PP
+Definition at line 28 of file allchild\&.m\&.
+.SS "\fBidx\fP = 1"
+.PP
+Definition at line 27 of file allchild\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

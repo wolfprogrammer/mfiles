@@ -1,0 +1,18 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="gl2psCreateSplitPrimitive",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="gl2psCutEdge",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a72275dd1e4a87589d2e6ab424c464307"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="gl2psComparePointPlane",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#afb01acbb2a9493e62c981d63d079bbe4"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="gl2psPsca",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a2a96426d3a596a5bad18e2818b258922"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="gl2psMalloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ae8687abe691957a70d1b0456015e2a4f"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="gl2psMsg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#ab2b05dc9c0ad9b295309ef903218908c"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

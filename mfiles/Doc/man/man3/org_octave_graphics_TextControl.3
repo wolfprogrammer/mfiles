@@ -1,0 +1,170 @@
+.TH "TextControl" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TextControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJLabel\fP, and \fBUIControl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTextControl\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "String \fBstringToHTML\fP (String s)"
+.br
+.ti -1c
+.RI "int \fBgetAlignment\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBTextControl\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References TextControl\&.getAlignment(), HandleEvent\&.getProperty(), UIControlObject\&.HorizontalAlignment, HandleEventSinkAdapter\&.listen(), TextControl\&.propertyChanged(), TextControl\&.sink, TextControl\&.stringToHTML(), StringProperty\&.toString(), TextControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+.nf
+        {
+                super();
+                uiObj = obj;
+
+                setText(stringToHTML(obj\&.UIString\&.toString()));
+                setVerticalAlignment(SwingConstants\&.TOP);
+                setHorizontalAlignment(getAlignment());
+                setOpaque(true);
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+                sink\&.listen(obj\&.HorizontalAlignment);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and TextControl\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "int \fBgetAlignment\fP ()\fC [inline, private]\fP"
+.PP
+References UIControlObject\&.HorizontalAlignment, RadioProperty\&.is(), and TextControl\&.uiObj\&.
+.PP
+Referenced by TextControl\&.propertyChanged(), and TextControl\&.TextControl()\&.
+.PP
+.nf
+        {
+                if (uiObj\&.HorizontalAlignment\&.is('left'))
+                        return SwingConstants\&.LEFT;
+                else if (uiObj\&.HorizontalAlignment\&.is('center'))
+                        return SwingConstants\&.CENTER;
+                else if (uiObj\&.HorizontalAlignment\&.is('right'))
+                        return SwingConstants\&.RIGHT;
+                return SwingConstants\&.LEFT;
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References TextControl\&.getAlignment(), UIControlObject\&.HorizontalAlignment, TextControl\&.stringToHTML(), StringProperty\&.toString(), TextControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+Referenced by TextControl\&.TextControl()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.HorizontalAlignment)
+                {
+                        setHorizontalAlignment(getAlignment());
+                        setText(stringToHTML(uiObj\&.UIString\&.toString()));
+                }
+                else if (p == uiObj\&.UIString)
+                        setText(stringToHTML(uiObj\&.UIString\&.toString()));
+        }
+.fi
+.SS "String \fBstringToHTML\fP (Strings)\fC [inline, private]\fP"
+.PP
+References RadioProperty\&.getValue(), UIControlObject\&.HorizontalAlignment, and TextControl\&.uiObj\&.
+.PP
+Referenced by TextControl\&.propertyChanged(), and TextControl\&.TextControl()\&.
+.PP
+.nf
+        {
+                if (s\&.indexOf('\n') < 0)
+                        return s;
+                else
+                {
+                        String[] lines = s\&.split('\\n');
+                        String result = '';
+
+                        for (int i=0; i<lines\&.length; i++)
+                                result += ('<p align=\'' + uiObj\&.HorizontalAlignment\&.getValue() +  '\'>' + lines[i] + '</p>');
+                        return ('<html>' + result + '</html>');
+                }
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [private]\fP"
+.PP
+Referenced by TextControl\&.dispose(), and TextControl\&.TextControl()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [private]\fP"
+.PP
+Referenced by TextControl\&.getAlignment(), TextControl\&.propertyChanged(), TextControl\&.stringToHTML(), and TextControl\&.TextControl()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

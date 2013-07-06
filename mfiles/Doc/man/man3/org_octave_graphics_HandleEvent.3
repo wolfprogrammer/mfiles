@@ -1,0 +1,97 @@
+.TH "HandleEvent" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HandleEvent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EventObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHandleEvent\fP (Object source, String \fBname\fP)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBHandleObject\fP \fBgetHandleObject\fP ()"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetProperty\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBname\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBHandleEvent\fP (Objectsource, Stringname)\fC [inline]\fP"
+.PP
+References HandleEvent\&.name\&.
+.PP
+.nf
+        {
+                super(source);
+                this\&.name = name;
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBHandleObject\fP \fBgetHandleObject\fP ()\fC [inline]\fP"
+.PP
+Referenced by OctaveSink\&.doInvoke(), and OctaveSink\&.OctaveSink()\&.
+.PP
+.nf
+        {
+                Object obj = getSource();
+                if (obj instanceof HandleObject)
+                        return (HandleObject)obj;
+                else if (obj instanceof Property)
+                {
+                        obj = ((Property)obj)\&.getParent();
+                        if (obj instanceof HandleObject)
+                                return (HandleObject)obj;
+                }
+                return null;
+        }
+.fi
+.SS "String \fBgetName\fP ()\fC [inline]\fP"
+.PP
+References HandleEvent\&.name\&.
+.PP
+Referenced by OctaveSink\&.OctaveSink(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return name;
+        }
+.fi
+.SS "\fBProperty\fP \fBgetProperty\fP ()\fC [inline]\fP"
+.PP
+Referenced by CheckBoxControl\&.CheckBoxControl(), Edit2Control\&.Edit2Control(), EditControl\&.EditControl(), ListBoxControl\&.ListBoxControl(), PopupMenuControl\&.PopupMenuControl(), PushButtonControl\&.PushButtonControl(), TextControl\&.TextControl(), and UIControlAdapter\&.UIControlAdapter()\&.
+.PP
+.nf
+        {
+                Object obj = getSource();
+                if (obj instanceof Property)
+                        return (Property)obj;
+                return null;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "String \fBname\fP\fC [private]\fP"
+.PP
+Referenced by HandleEvent\&.getName(), and HandleEvent\&.HandleEvent()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

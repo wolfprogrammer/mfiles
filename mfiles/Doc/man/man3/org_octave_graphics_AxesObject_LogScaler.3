@@ -1,0 +1,92 @@
+.TH "AxesObject.LogScaler" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AxesObject.LogScaler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBAxesObject\&.Scaler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBscale\fP (double x)"
+.br
+.ti -1c
+.RI "double[] \fBscale\fP (double[] x)"
+.br
+.ti -1c
+.RI "double[][] \fBscale\fP (double[][] x)"
+.br
+.ti -1c
+.RI "double \fBunscale\fP (double x)"
+.br
+.ti -1c
+.RI "boolean \fBisLinear\fP ()"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean \fBisLinear\fP ()\fC [inline]\fP"
+.PP
+Implements \fBAxesObject\&.Scaler\fP\&.
+.PP
+.nf
+                {
+                        return false;
+                }
+.fi
+.SS "double \fBscale\fP (doublex)\fC [inline]\fP"
+.PP
+Implements \fBAxesObject\&.Scaler\fP\&.
+.PP
+.nf
+                {
+                        return Math\&.log10(x);
+                }
+.fi
+.SS "double [] \fBscale\fP (double[]x)\fC [inline]\fP"
+.PP
+Implements \fBAxesObject\&.Scaler\fP\&.
+.PP
+References plt\&.y\&.
+.PP
+.nf
+                {
+                        double[] y = new double[x\&.length];
+                        for (int i=0; i<x\&.length; i++)
+                                y[i] = Math\&.log10(x[i]);
+                        return y;
+                }
+.fi
+.SS "double [][] \fBscale\fP (doublex[][])\fC [inline]\fP"
+.PP
+Implements \fBAxesObject\&.Scaler\fP\&.
+.PP
+References plt\&.y\&.
+.PP
+.nf
+                {
+                        double[][] y = new double[x\&.length][x\&.length > 0 ? x[0]\&.length : 0];
+                        for (int i=0; i<x\&.length; i++)
+                                for (int j=0; j<x[0]\&.length; j++)
+                                        y[i][j] = Math\&.log10(x[i][j]);
+                        return y;
+                }
+.fi
+.SS "double \fBunscale\fP (doublex)\fC [inline]\fP"
+.PP
+Implements \fBAxesObject\&.Scaler\fP\&.
+.PP
+.nf
+                {
+                        return Math\&.pow(10, x);
+                }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

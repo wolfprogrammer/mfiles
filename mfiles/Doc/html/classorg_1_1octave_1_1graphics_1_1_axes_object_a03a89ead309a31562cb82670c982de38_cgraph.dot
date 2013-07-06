@@ -1,0 +1,41 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getBaseLine",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="org.octave.graphics.Property.reset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#ab66b5dbada95d5c93af2876420fb49ec"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="org.octave.graphics.LineObject.validate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_line_object.html#a41d45236c37b75848f4b1667a11fb50e"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="org.octave.graphics.VectorProperty.isEmpty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_vector_property.html#aa71d41fd3d95c354d4d5e922c6c21210"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="org.octave.graphics.VectorProperty.getVector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_vector_property.html#a4ee8a1258ab4c3158a01e1442835be2a"];
+  Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="org.octave.graphics.LineObject.updateMinMax",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_line_object.html#a5a7d4ec7a8aa411b67ed0c23bddf5657"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="org.octave.graphics.VectorProperty.getArray",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_vector_property.html#ac9573ab949db7e86c1b0bd502d50e9f1"];
+  Node7 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="org.octave.graphics.Utils.isNaNorInf",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_utils.html#a9c3eb1c4cd7e43fe8ac003e5ad9f37bd"];
+  Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="org.octave.graphics.Property.set",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#afa1a5457d4b402c51eb58b213de1065f"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="org.octave.graphics.Property.convertValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#a0cf42e0d902221b9bc1468664b67af61"];
+  Node9 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="org.octave.graphics.HandleEventSourceHelper.fireEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_handle_event_source_helper.html#a5796b678f5ec69c49edfb0433a55fcdd"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="org.octave.graphics.HandleEventSink.eventOccured",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceorg_1_1octave_1_1graphics_1_1_handle_event_sink.html#af57803a1a5423527ed510fa8f99837d3"];
+  Node11 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node13 [label="org.octave.graphics.HandleEventSink.executeOnce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfaceorg_1_1octave_1_1graphics_1_1_handle_event_sink.html#a8e7a2e3153e7c94f6129087e2a6a62b5"];
+  Node9 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node14 [label="org.octave.graphics.Property.getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#a78ee178b6a73658d65ca60da4d1e6683"];
+  Node9 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node15 [label="org.octave.graphics.Property.getParent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#a3a86c86371259e59b09618cc300d8236"];
+  Node9 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node16 [label="org.octave.graphics.Property.isEqual",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#a0e57b9692f447d896661e3be6198389d"];
+  Node9 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node17 [label="org.octave.graphics.Property.setInternal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classorg_1_1octave_1_1graphics_1_1_property.html#a571fa56bb076982d2bdb9f6a4e670434"];
+}

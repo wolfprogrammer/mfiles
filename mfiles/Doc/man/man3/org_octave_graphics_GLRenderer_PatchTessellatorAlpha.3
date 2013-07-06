@@ -1,0 +1,356 @@
+.TH "GLRenderer.PatchTessellatorAlpha" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLRenderer.PatchTessellatorAlpha \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGLUtessellatorCallbackAdapter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbeginData\fP (int mode, Object pData)"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "void \fBvertex\fP (Object vData)"
+.br
+.ti -1c
+.RI "void \fBcombine\fP (double[] coords, Object[] \fBd\fP, float[] w, Object[] outData)"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPatchTessellatorAlpha\fP (\fBGLRenderer\fP \fBr\fP, int \fBcolorMode\fP, int \fBlightMode\fP, int \fBalphaMode\fP, double[] \fBglobalColor\fP, double \fBglobalAlpha\fP, String \fBlineStyle\fP, float \fBlineWidth\fP)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddLinePrimitive\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBcolorMode\fP"
+.br
+.ti -1c
+.RI "int \fBlightMode\fP"
+.br
+.ti -1c
+.RI "int \fBalphaMode\fP"
+.br
+.ti -1c
+.RI "boolean \fBfirstVertex\fP"
+.br
+.ti -1c
+.RI "\fBGLRenderer\fP \fBr\fP"
+.br
+.ti -1c
+.RI "\fBVertexData\fP \fBv0\fP"
+.br
+.ti -1c
+.RI "\fBVertexData\fP[] \fBv\fP"
+.br
+.ti -1c
+.RI "int \fBvCounter\fP"
+.br
+.ti -1c
+.RI "boolean \fBfill\fP"
+.br
+.ti -1c
+.RI "double[] \fBglobalColor\fP"
+.br
+.ti -1c
+.RI "double \fBglobalAlpha\fP"
+.br
+.ti -1c
+.RI "String \fBlineStyle\fP"
+.br
+.ti -1c
+.RI "float \fBlineWidth\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPatchTessellatorAlpha\fP (\fBGLRenderer\fPr, intcolorMode, intlightMode, intalphaMode, double[]globalColor, doubleglobalAlpha, StringlineStyle, floatlineWidth)\fC [inline, package]\fP"
+.PP
+.nf
+                {
+                        this\&.r = r;
+                        this\&.colorMode = colorMode;
+                        this\&.lightMode = lightMode;
+                        this\&.alphaMode = alphaMode;
+                        this\&.v = new VertexData[3];
+                        this\&.globalColor = globalColor;
+                        this\&.globalAlpha = globalAlpha;
+                        this\&.lineStyle = lineStyle;
+                        this\&.lineWidth = lineWidth;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddLinePrimitive\fP ()\fC [inline, private]\fP"
+.PP
+References Point3D\&.add(), GLRenderer\&.VertexData\&.alpha, GLRenderer\&.VertexData\&.ambient, GLRenderer\&.VertexData\&.color, GLRenderer\&.VertexData\&.diffuse, Point3D\&.dot(), Point3D\&.scale(), GLRenderer\&.VertexData\&.specular, GLRenderer\&.VertexData\&.specularExp, and Point3D\&.sub()\&.
+.PP
+.nf
+                {
+                        Point3D p = new Point3D(0, 0, 0);
+                        final VertexData[] v = (VertexData[])this\&.v\&.clone();
+                        final VertexData v0 = (VertexData)this\&.v0;
+
+                        p\&.add(v[0]\&.coords);
+                        p\&.add(v[1]\&.coords);
+                        p\&.scale(1/2\&.0);
+                        p\&.sub(r\&.cameraPos);
+
+                        r\&.addAlphaPrimitive(
+                                -p\&.dot(r\&.cameraDir),
+                                new Runnable() {
+                                        public void run()
+                                        {
+                                                if (lightMode > 0)
+                                                {
+                                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_SPECULAR,
+                                                                new float[] {v0\&.specular, v0\&.specular, v0\&.specular, 1}, 0);
+                                                        gl\&.glMaterialf(lightSideMode, GL\&.GL_SHININESS, v0\&.specularExp);
+                                                        gl\&.glEnable(GL\&.GL_LIGHTING);
+                                                }
+                                                if (colorMode < 2 && alphaMode < 2)
+                                                {
+                                                        double[] color = (colorMode == 0 ? globalColor : v[1]\&.color);
+                                                        double alpha = (alphaMode == 0 ? globalAlpha : v[1]\&.alpha);
+                                                        gl\&.glColor4d(color[0], color[1], color[2], alpha);
+                                                        if (lightMode > 0)
+                                                        {
+                                                                gl\&.glMaterialfv(lightSideMode, GL\&.GL_AMBIENT,
+                                                                        new float[] {v0\&.ambient*(float)color[0], v0\&.ambient*(float)color[1],
+                                                                                v0\&.ambient*(float)color[2], 1}, 0);
+                                                                gl\&.glMaterialfv(lightSideMode, GL\&.GL_DIFFUSE,
+                                                                        new float[] {v0\&.diffuse*(float)color[0], v0\&.diffuse*(float)color[1],
+                                                                                v0\&.diffuse*(float)color[2], (float)alpha}, 0);
+                                                        }
+                                                }
+                                                if (lightMode == 1)
+                                                        gl\&.glNormal3d(v[1]\&.normal[0], v[1]\&.normal[1], v[1]\&.normal[2]);
+                                                if (colorMode == 2 || lightMode == 2 || alphaMode == 2)
+                                                        gl\&.glShadeModel(GL\&.GL_SMOOTH);
+                                                else
+                                                        gl\&.glShadeModel(GL\&.GL_FLAT);
+                                                setLineStyle(lineStyle, false);
+                                                setLineWidth(lineWidth);
+                                                gl\&.glBegin(GL\&.GL_LINES);
+                                                for (int i=0; i<2; i++)
+                                                {
+                                                        if (colorMode == 2 || alphaMode == 2)
+                                                        {
+                                                                double[] color = (colorMode == 2 ? v[i]\&.color : (colorMode == 1 ? v[1]\&.color : globalColor));
+                                                                double alpha = (alphaMode == 2 ? v[i]\&.alpha : (alphaMode == 1 ? v[1]\&.alpha : globalAlpha));
+                                                                gl\&.glColor4d(color[0], color[1], color[2], alpha);
+                                                                if (lightMode > 0)
+                                                                {
+                                                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_AMBIENT,
+                                                                                new float[] {v0\&.ambient*(float)color[0], v0\&.ambient*(float)color[1],
+                                                                                        v0\&.ambient*(float)color[2], 1}, 0);
+                                                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_DIFFUSE,
+                                                                                new float[] {v0\&.diffuse*(float)color[0], v0\&.diffuse*(float)color[1],
+                                                                                        v0\&.diffuse*(float)color[2], (float)alpha}, 0);
+                                                                }
+                                                        }
+                                                        if (lightMode == 2)
+                                                                gl\&.glNormal3d(v[i]\&.normal[0], v[i]\&.normal[1], v[i]\&.normal[2]);
+                                                        if (v[i]\&.coords\&.length > 2)
+                                                                gl\&.glVertex3d(v[i]\&.coords[0], v[i]\&.coords[1], v[i]\&.coords[2]);
+                                                        else
+                                                                gl\&.glVertex2d(v[i]\&.coords[0], v[i]\&.coords[1]);
+                                                }
+                                                gl\&.glEnd();
+                                                setLineStyle('-', false);
+                                                setLineWidth(0\&.5F);
+                                                if (lightMode > 0)
+                                                        gl\&.glDisable(GL\&.GL_LIGHTING);
+                                        }
+                                });
+                }
+.fi
+.SS "void \fBbeginData\fP (intmode, ObjectpData)\fC [inline]\fP"
+.PP
+.nf
+                {
+                        vCounter = 0;
+                        v0 = (VertexData)pData;
+                        fill = (mode != GL\&.GL_LINE_LOOP);
+                }
+.fi
+.SS "void \fBcombine\fP (double[]coords, Object[]d, float[]w, Object[]outData)\fC [inline]\fP"
+.PP
+References GLRenderer\&.VertexData\&.color\&.
+.PP
+.nf
+                {
+                        VertexData v0 = (VertexData)d[0], v1 = (VertexData)d[1], v2 = (VertexData)d[2], v3 = (VertexData)d[3];
+                        if (v0 == null || v1 == null || v2 == null || v3 == null)
+                                return;
+                        outData[0] = new VertexData(
+                                coords,
+                                (v0\&.color != null && v1\&.color != null && v2\&.color != null && v3\&.color != null ?
+                                        new double[] {
+                                                w[0]*v0\&.color[0]+w[1]*v1\&.color[0]+w[2]*v2\&.color[0]+w[3]*v3\&.color[0],
+                                                w[0]*v0\&.color[1]+w[1]*v1\&.color[1]+w[2]*v2\&.color[1]+w[3]*v3\&.color[1],
+                                                w[0]*v0\&.color[2]+w[1]*v1\&.color[2]+w[2]*v2\&.color[2]+w[3]*v3\&.color[2]} :
+                                        null),
+                                w[0]*v0\&.alpha+w[1]*v1\&.alpha+w[2]*v2\&.alpha+w[3]*v3\&.alpha,
+                                new double[] {
+                                        w[0]*v0\&.normal[0]+w[1]*v1\&.normal[0]+w[2]*v2\&.normal[0]+w[3]*v3\&.normal[0],
+                                        w[0]*v0\&.normal[1]+w[1]*v1\&.normal[1]+w[2]*v2\&.normal[1]+w[3]*v3\&.normal[1],
+                                        w[0]*v0\&.normal[2]+w[1]*v1\&.normal[2]+w[2]*v2\&.normal[2]+w[3]*v3\&.normal[2]},
+                                v0\&.ambient, v0\&.diffuse, v0\&.specular, v0\&.specularExp);
+                }
+.fi
+.SS "void \fBend\fP ()\fC [inline]\fP"
+.PP
+.nf
+                {
+                        if (!fill)
+                        {
+                                v[1] = v0;
+                                addLinePrimitive();
+                        }
+                }
+.fi
+.SS "void \fBvertex\fP (ObjectvData)\fC [inline]\fP"
+.PP
+References Point3D\&.add(), GLRenderer\&.VertexData\&.alpha, GLRenderer\&.VertexData\&.ambient, GLRenderer\&.VertexData\&.color, GLRenderer\&.VertexData\&.coords, GLRenderer\&.VertexData\&.diffuse, Point3D\&.dot(), Point3D\&.scale(), GLRenderer\&.VertexData\&.specular, GLRenderer\&.VertexData\&.specularExp, and Point3D\&.sub()\&.
+.PP
+.nf
+                {
+                        if (fill)
+                        {
+                                v[vCounter%3] = (VertexData)vData;
+                                vCounter++;
+
+                                if ((vCounter%3) == 0)
+                                {
+                                        Point3D p = new Point3D(0, 0, 0);
+                                        final VertexData[] v = (VertexData[])this\&.v\&.clone();
+                                        final VertexData v0 = (VertexData)this\&.v0;
+
+                                        for (int i=0; i<3; i++)
+                                                p\&.add(v[i]\&.coords);
+                                        p\&.scale(1/3\&.0);
+                                        p\&.sub(r\&.cameraPos);
+
+                                        r\&.addAlphaPrimitive(
+                                                        -p\&.dot(r\&.cameraDir),
+                                                        new Runnable() {
+                                                                public void run()
+                                                                {
+                                                                        if (lightMode > 0)
+                                                                        {
+                                                                                gl\&.glMaterialfv(lightSideMode, GL\&.GL_SPECULAR,
+                                                                                        new float[] {v0\&.specular, v0\&.specular, v0\&.specular, 1}, 0);
+                                                                                gl\&.glMaterialf(lightSideMode, GL\&.GL_SHININESS, v0\&.specularExp);
+                                                                                gl\&.glEnable(GL\&.GL_LIGHTING);
+                                                                        }
+                                                                        if (colorMode < 2 && alphaMode < 2)
+                                                                        {
+                                                                                double[] color = (colorMode == 0 ? globalColor : v0\&.color);
+                                                                                double alpha = (alphaMode == 0 ? globalAlpha : v0\&.alpha);
+                                                                                gl\&.glColor4d(color[0], color[1], color[2], alpha);
+                                                                                if (lightMode > 0)
+                                                                                {
+                                                                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_AMBIENT,
+                                                                                                new float[] {v0\&.ambient*(float)color[0], v0\&.ambient*(float)color[1],
+                                                                                                        v0\&.ambient*(float)color[2], 1}, 0);
+                                                                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_DIFFUSE,
+                                                                                                        new float[] {v0\&.diffuse*(float)color[0], v0\&.diffuse*(float)color[1],
+                                                                                                                v0\&.diffuse*(float)color[2], (float)alpha}, 0);
+                                                                                }
+                                                                        }
+                                                                        if (lightMode == 1)
+                                                                                gl\&.glNormal3d(v0\&.normal[0], v0\&.normal[1], v0\&.normal[2]);
+                                                                        if (colorMode == 2 || lightMode == 2 || alphaMode == 2)
+                                                                                gl\&.glShadeModel(GL\&.GL_SMOOTH);
+                                                                        else
+                                                                                gl\&.glShadeModel(GL\&.GL_FLAT);
+                                                                        gl\&.glPolygonOffset(po, po);
+                                                                        setPolygonOffset(true);
+                                                                        gl\&.glBegin(GL\&.GL_TRIANGLES);
+                                                                        for (int i=0; i<3; i++)
+                                                                        {
+                                                                                if (colorMode == 2 || alphaMode == 2)
+                                                                                {
+                                                                                        double[] color = (colorMode == 2 ? v[i]\&.color : (colorMode == 1 ? v0\&.color : globalColor));
+                                                                                        double alpha = (alphaMode == 2 ? v[i]\&.alpha : (alphaMode == 1 ? v0\&.alpha : globalAlpha));
+                                                                                        gl\&.glColor4d(color[0], color[1], color[2], alpha);
+                                                                                        if (lightMode > 0)
+                                                                                        {
+                                                                                                gl\&.glMaterialfv(lightSideMode, GL\&.GL_AMBIENT,
+                                                                                                                new float[] {v0\&.ambient*(float)color[0], v0\&.ambient*(float)color[1],
+                                                                                                                        v0\&.ambient*(float)color[2], 1}, 0);
+                                                                                                gl\&.glMaterialfv(lightSideMode, GL\&.GL_DIFFUSE,
+                                                                                                                new float[] {v0\&.diffuse*(float)color[0], v0\&.diffuse*(float)color[1],
+                                                                                                                        v0\&.diffuse*(float)color[2], (float)alpha}, 0);
+                                                                                        }
+                                                                                }
+                                                                                if (lightMode == 2)
+                                                                                        gl\&.glNormal3d(v[i]\&.normal[0], v[i]\&.normal[1], v[i]\&.normal[2]);
+                                                                                if (v[i]\&.coords\&.length > 2)
+                                                                                        gl\&.glVertex3d(v[i]\&.coords[0], v[i]\&.coords[1], v[i]\&.coords[2]);
+                                                                                else
+                                                                                        gl\&.glVertex2d(v[i]\&.coords[0], v[i]\&.coords[1]);
+                                                                        }
+                                                                        gl\&.glEnd();
+                                                                        setPolygonOffset(false);
+                                                                        if (lightMode > 0)
+                                                                                gl\&.glDisable(GL\&.GL_LIGHTING);
+                                                                }
+                                                        });
+                                }
+                        }
+                        else
+                        {
+                                v[vCounter] = (VertexData)vData;
+                                if (vCounter == 0)
+                                {
+                                        v0 = v[vCounter];
+                                        vCounter++;
+                                }
+                                else
+                                {
+                                        addLinePrimitive();
+                                        v[0] = v[1];
+                                }
+                        }
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int \fBalphaMode\fP\fC [private]\fP"
+.SS "int \fBcolorMode\fP\fC [private]\fP"
+.SS "boolean \fBfill\fP\fC [private]\fP"
+.SS "boolean \fBfirstVertex\fP\fC [private]\fP"
+.SS "double \fBglobalAlpha\fP\fC [private]\fP"
+.SS "double [] \fBglobalColor\fP\fC [private]\fP"
+.SS "int \fBlightMode\fP\fC [private]\fP"
+.SS "String \fBlineStyle\fP\fC [private]\fP"
+.SS "float \fBlineWidth\fP\fC [private]\fP"
+.SS "\fBGLRenderer\fP \fBr\fP\fC [private]\fP"
+.SS "\fBVertexData\fP [] \fBv\fP\fC [private]\fP"
+.SS "\fBVertexData\fP \fBv0\fP\fC [private]\fP"
+.SS "int \fBvCounter\fP\fC [private]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

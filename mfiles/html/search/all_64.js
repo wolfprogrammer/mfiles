@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['d',['d',['../fkin_8m.html#a1aabac6d068eef6a7bad3fdf50a05cc8',1,'d():&#160;fkin.m'],['../units_8m.html#a5b5265e1d7fb5808da5fa6ee03665f86',1,'d():&#160;units.m']]],
+  ['d2',['d2',['../prova1_8m.html#a49ed1f4226814ae02097b7563ecf00fc',1,'d2():&#160;prova1.m'],['../prova1a_8m.html#ad0621028341e95daa8207747d9d9c4f2',1,'d2():&#160;prova1a.m'],['../prova1c_8m.html#a49ed1f4226814ae02097b7563ecf00fc',1,'d2():&#160;prova1c.m']]],
+  ['data',['data',['../structGL2PSprimitive.html#ae7a49faf0c0852bf298f2fa5c21fb569',1,'GL2PSprimitive']]],
+  ['dataaspectratio',['dataaspectratio',['../____bar3_____8m.html#a48133d39fdbe1a85f5721e335559ac6f',1,'__bar3__.m']]],
+  ['debug',['DEBUG',['../report_8m.html#a73585d7121de037cf2e2ca12b27eb83e',1,'report.m']]],
+  ['defun_5fdld',['DEFUN_DLD',['../____jhandles_____8cc.html#abe531a67f622d48dd095d0af9fd651c2',1,'DEFUN_DLD(__jhandles__, args,,&quot;&quot;):&#160;__jhandles__.cc'],['../____jhandles_____8cc.html#ac8cd8e7a299ccb95f6b5d58cfb6ec5a1',1,'DEFUN_DLD(__jhandles_go_patch2, _args,,&quot;&quot;):&#160;__jhandles__.cc']]],
+  ['defval',['defval',['../____jhandles__add__property_8m.html#a79d1f8ecac1997cdd0ca444f652da3ed',1,'__jhandles_add_property.m']]],
+  ['delete',['delete',['../____jhandles__go__delete_8m.html#a028bc26b8a008deed0f440f844e650c0',1,'__jhandles_go_delete.m']]],
+  ['demo1_2em',['demo1.m',['../demo1_8m.html',1,'']]],
+  ['den',['den',['../demo1_8m.html#a075a79fb221852f46c51b49f9d83204b',1,'den():&#160;demo1.m'],['../step1_8m.html#a075a79fb221852f46c51b49f9d83204b',1,'den():&#160;step1.m']]],
+  ['depthtest',['depthtest',['../structGL2PSstring.html#a96b6b2c16509e6e582668423039cefc1',1,'GL2PSstring']]],
+  ['description',['description',['../structGL2PSbackend.html#a8725b2c22957f08b84553f89658aea78',1,'GL2PSbackend']]],
+  ['dh_2em',['DH.m',['../DH_8m.html',1,'']]],
+  ['dhtab_2em',['dhtab.m',['../dhtab_8m.html',1,'']]],
+  ['dialog_2em',['dialog.m',['../dialog_8m.html',1,'']]],
+  ['disp',['disp',['../fkin_8m.html#a81c9ee2b7e5044d71335775647e0f1cf',1,'disp(i):&#160;fkin.m'],['../help2_8m.html#a87ad1022f2a48358c6f7e954352d6b1c',1,'disp(line):&#160;help2.m'],['../prova1_8m.html#add51256afb96e417ca508f096e28f4b8',1,'disp(&apos;R03=&apos;) disp(R03) X3:&#160;prova1.m'],['../prova1a_8m.html#a29bc266184bce7aba986e83bf0a6d3e9',1,'disp(&quot;H03=&quot;) disp(H03) X3:&#160;prova1a.m'],['../prova1c_8m.html#a41b2eed14e77e1f8ff62d2a50926105c',1,'disp(&quot;H03=&quot;)%disp(H03) HH03:&#160;prova1c.m'],['../report_8m.html#a66c08a87afd97c57c39ae0b2daed4a2f',1,'disp(&apos;----------------&apos;) endif switch statett%-----------------------------------------------------case 0%Procede normalmente if(strmatch(&apos;disp&apos;:&#160;report.m'],['../report_8m.html#a24defb3c23dbb3b2cb551befb8f744bc',1,'disp():&#160;report.m'],['../report_8m.html#adca5af40d88c1297473650e3299897d5',1,'disp(&apos;------------------Resultados------------------&apos;)%vars:&#160;report.m'],['../stop_8m.html#a7a7005ad6404cc1d4475356d3dfdb3f5',1,'disp(&apos;\nModo debug entre com break para sair\n&apos;) while(true) userinputt:&#160;stop.m'],['../stp_8m.html#a7a6e5a454f9037a8f688e15d3057878c',1,'disp(&quot;&quot;):&#160;stp.m'],['../stp_8m.html#a3c6dba2a49af6b350b3d01496ed974c2',1,'disp(&apos;------------------Resultados------------------&apos;) vars:&#160;stp.m']]],
+  ['dofill',['dofill',['../____parse__stem__args_____8m.html#af0712aedbc9568c1d324c51f5d8679a1',1,'__parse_stem_args__.m']]],
+  ['drawnow',['drawnow',['../drawnow_8m.html#a1dd6c2d0e08cd90e4e67e0ee0221d947',1,'drawnow.m']]],
+  ['drawnow_2em',['drawnow.m',['../drawnow_8m.html',1,'']]],
+  ['dummy',['dummy',['../structGL2PScompress.html#ac05cb9cfb6af433cd4f7bd9005345df3',1,'GL2PScompress']]],
+  ['dummy_2em',['dummy.m',['../dummy_8m.html',1,'']]],
+  ['dx',['dx',['../____bar3_____8m.html#a86673b94ca751a7dceeeae88f35c9e9b',1,'__bar3__.m']]],
+  ['dy',['dy',['../____bar3_____8m.html#a22b1a06ae09d552a5ca668a07885ebf1',1,'__bar3__.m']]],
+  ['dz',['dz',['../____bar3_____8m.html#a71f0caccd6959b358543ee9cdc9b9c3e',1,'__bar3__.m']]]
+];

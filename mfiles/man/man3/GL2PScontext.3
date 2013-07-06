@@ -1,0 +1,381 @@
+.TH "GL2PScontext" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GL2PScontext \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "GLint \fBformat\fP"
+.br
+.ti -1c
+.RI "GLint \fBsort\fP"
+.br
+.ti -1c
+.RI "GLint \fBoptions\fP"
+.br
+.ti -1c
+.RI "GLint \fBcolorsize\fP"
+.br
+.ti -1c
+.RI "GLint \fBcolormode\fP"
+.br
+.ti -1c
+.RI "GLint \fBbuffersize\fP"
+.br
+.ti -1c
+.RI "char * \fBtitle\fP"
+.br
+.ti -1c
+.RI "char * \fBproducer\fP"
+.br
+.ti -1c
+.RI "char * \fBfilename\fP"
+.br
+.ti -1c
+.RI "GLboolean \fBboundary\fP"
+.br
+.ti -1c
+.RI "GLboolean \fBblending\fP"
+.br
+.ti -1c
+.RI "GLfloat * \fBfeedback\fP"
+.br
+.ti -1c
+.RI "GLfloat \fBoffset\fP [2]"
+.br
+.ti -1c
+.RI "GLfloat \fBlastlinewidth\fP"
+.br
+.ti -1c
+.RI "GLint \fBviewport\fP [4]"
+.br
+.ti -1c
+.RI "GLint \fBblendfunc\fP [2]"
+.br
+.ti -1c
+.RI "GLint \fBlastfactor\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSrgba\fP * \fBcolormap\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSrgba\fP \fBlastrgba\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSrgba\fP \fBthreshold\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSrgba\fP \fBbgcolor\fP"
+.br
+.ti -1c
+.RI "GLushort \fBlastpattern\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSvertex\fP \fBlastvertex\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSlist\fP * \fBprimitives\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSlist\fP * \fBauxprimitives\fP"
+.br
+.ti -1c
+.RI "FILE * \fBstream\fP"
+.br
+.ti -1c
+.RI "\fBGL2PScompress\fP * \fBcompress\fP"
+.br
+.ti -1c
+.RI "GLboolean \fBheader\fP"
+.br
+.ti -1c
+.RI "GLint \fBmaxbestroot\fP"
+.br
+.ti -1c
+.RI "GLboolean \fBzerosurfacearea\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSbsptree2d\fP * \fBimagetree\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSprimitive\fP * \fBprimitivetoadd\fP"
+.br
+.ti -1c
+.RI "int \fBstreamlength\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSlist\fP * \fBpdfprimlist\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSlist\fP * \fBpdfgrouplist\fP"
+.br
+.ti -1c
+.RI "int * \fBxreflist\fP"
+.br
+.ti -1c
+.RI "int \fBobjects_stack\fP"
+.br
+.ti -1c
+.RI "int \fBextgs_stack\fP"
+.br
+.ti -1c
+.RI "int \fBfont_stack\fP"
+.br
+.ti -1c
+.RI "int \fBim_stack\fP"
+.br
+.ti -1c
+.RI "int \fBtrgroupobjects_stack\fP"
+.br
+.ti -1c
+.RI "int \fBshader_stack\fP"
+.br
+.ti -1c
+.RI "int \fBmshader_stack\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSimagemap\fP * \fBimagemap_head\fP"
+.br
+.ti -1c
+.RI "\fBGL2PSimagemap\fP * \fBimagemap_tail\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 239 of file gl2ps\&.c\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBGL2PSlist\fP * \fBGL2PScontext::auxprimitives\fP"
+.PP
+Definition at line 249 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddText(), gl2psBeginPage(), gl2psDrawPixels(), gl2psEndPage(), and gl2psParseFeedbackBuffer()\&.
+.SS "\fBGL2PSrgba\fP \fBGL2PScontext::bgcolor\fP"
+.PP
+Definition at line 246 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psOpenPDFDataStreamWritePreface(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), and gl2psPrintSVGHeader()\&.
+.SS "GLint \fBGL2PScontext::blendfunc\fP[2]"
+.PP
+Definition at line 245 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAdaptVertexForBlending(), gl2psBeginPage(), and gl2psParseFeedbackBuffer()\&.
+.SS "GLboolean \fBGL2PScontext::blending\fP"
+.PP
+Definition at line 243 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAdaptVertexForBlending(), gl2psBeginPage(), gl2psDrawPixels(), and gl2psParseFeedbackBuffer()\&.
+.SS "GLboolean \fBGL2PScontext::boundary\fP"
+.PP
+Definition at line 243 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psParseFeedbackBuffer(), and gl2psPrintPrimitives()\&.
+.SS "GLint \fBGL2PScontext::buffersize\fP"
+.PP
+Definition at line 241 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage()\&.
+.SS "\fBGL2PSrgba\fP* \fBGL2PScontext::colormap\fP"
+.PP
+Definition at line 246 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPage(), gl2psGetVertex(), gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), and gl2psPrintSVGBeginViewport()\&.
+.SS "GLint \fBGL2PScontext::colormode\fP"
+.PP
+Definition at line 241 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psGetVertex(), gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), and gl2psPrintSVGBeginViewport()\&.
+.SS "GLint \fBGL2PScontext::colorsize\fP"
+.PP
+Definition at line 241 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psGetVertex(), gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), and gl2psPrintSVGBeginViewport()\&.
+.SS "\fBGL2PScompress\fP* \fBGL2PScontext::compress\fP"
+.PP
+Definition at line 251 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psClosePDFDataStream(), gl2psPrintf(), gl2psPrintGzipFooter(), gl2psPrintPDFFooter(), gl2psPrintPDFPixmap(), and gl2psPrintPDFShader()\&.
+.SS "int \fBGL2PScontext::extgs_stack\fP"
+.PP
+Definition at line 267 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFstacksInit(), and gl2psSortOutTrianglePDFgroup()\&.
+.SS "GLfloat* \fBGL2PScontext::feedback\fP"
+.PP
+Definition at line 244 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPage(), and gl2psParseFeedbackBuffer()\&.
+.SS "char * \fBGL2PScontext::filename\fP"
+.PP
+Definition at line 242 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPage(), and gl2psPrintTeXHeader()\&.
+.SS "int \fBGL2PScontext::font_stack\fP"
+.PP
+Definition at line 268 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFgroupListInit(), and gl2psPDFstacksInit()\&.
+.SS "GLint \fBGL2PScontext::format\fP"
+.PP
+Definition at line 241 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psBeginViewport(), gl2psEndPage(), gl2psEndViewport(), gl2psPrintPostScriptHeader(), and gl2psPrintPrimitives()\&.
+.SS "GLboolean \fBGL2PScontext::header\fP"
+.PP
+Definition at line 252 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), gl2psPrintPrimitives(), gl2psPrintSVGBeginViewport(), and gl2psPrintTeXBeginViewport()\&.
+.SS "int \fBGL2PScontext::im_stack\fP"
+.PP
+Definition at line 269 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFgroupListInit(), and gl2psPDFstacksInit()\&.
+.SS "\fBGL2PSimagemap\fP* \fBGL2PScontext::imagemap_head\fP"
+.PP
+Definition at line 275 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPage(), and gl2psParseFeedbackBuffer()\&.
+.SS "\fBGL2PSimagemap\fP* \fBGL2PScontext::imagemap_tail\fP"
+.PP
+Definition at line 276 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), and gl2psParseFeedbackBuffer()\&.
+.SS "\fBGL2PSbsptree2d\fP* \fBGL2PScontext::imagetree\fP"
+.PP
+Definition at line 259 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddInImageTree(), gl2psBeginPage(), and gl2psPrintPrimitives()\&.
+.SS "GLint \fBGL2PScontext::lastfactor\fP"
+.PP
+Definition at line 245 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPGFDash(), gl2psPrintPostScriptDash(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "GLfloat \fBGL2PScontext::lastlinewidth\fP"
+.PP
+Definition at line 244 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndViewport(), gl2psPrintPGFPrimitive(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "GLushort \fBGL2PScontext::lastpattern\fP"
+.PP
+Definition at line 247 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPGFDash(), gl2psPrintPostScriptDash(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "\fBGL2PSrgba\fP \fBGL2PScontext::lastrgba\fP"
+.PP
+Definition at line 246 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPGFColor(), gl2psPrintPostScriptColor(), gl2psPrintPostScriptPrimitive(), gl2psPrintSVGPrimitive(), gl2psResetPostScriptColor(), and gl2psSetLastColor()\&.
+.SS "\fBGL2PSvertex\fP \fBGL2PScontext::lastvertex\fP"
+.PP
+Definition at line 248 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPostScriptLine(), gl2psEndSVGLine(), gl2psPrintPostScriptPrimitive(), and gl2psPrintSVGPrimitive()\&.
+.SS "GLint \fBGL2PScontext::maxbestroot\fP"
+.PP
+Definition at line 255 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), and gl2psFindRoot()\&.
+.SS "int \fBGL2PScontext::mshader_stack\fP"
+.PP
+Definition at line 272 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFstacksInit(), and gl2psSortOutTrianglePDFgroup()\&.
+.SS "int \fBGL2PScontext::objects_stack\fP"
+.PP
+Definition at line 266 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFgroupListWriteFontResources(), gl2psPDFgroupListWriteXObjectResources(), gl2psPDFstacksInit(), gl2psPrintPDFFooter(), gl2psPrintPDFHeader(), and gl2psSortOutTrianglePDFgroup()\&.
+.SS "GLfloat \fBGL2PScontext::offset\fP[2]"
+.PP
+Definition at line 244 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psEnable(), and gl2psRescaleAndOffset()\&.
+.SS "GLint \fBGL2PScontext::options\fP"
+.PP
+Definition at line 241 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAdaptVertexForBlending(), gl2psAddText(), gl2psBeginPage(), gl2psClosePDFDataStream(), gl2psDrawPixels(), gl2psFindRoot(), gl2psMsg(), gl2psOpenPDFDataStreamWritePreface(), gl2psPrintf(), gl2psPrintGzipFooter(), gl2psPrintGzipHeader(), gl2psPrintPDFBeginViewport(), gl2psPrintPDFCompressorType(), gl2psPrintPDFFooter(), gl2psPrintPDFHeader(), gl2psPrintPDFOpenPage(), gl2psPrintPDFPixmap(), gl2psPrintPDFPrimitive(), gl2psPrintPDFShader(), gl2psPrintPGFBeginViewport(), gl2psPrintPGFHeader(), gl2psPrintPostScriptBeginViewport(), gl2psPrintPostScriptHeader(), gl2psPrintPostScriptPrimitive(), gl2psPrintPrimitives(), gl2psPrintSVGBeginViewport(), gl2psPrintSVGHeader(), gl2psPrintSVGPrimitive(), gl2psPrintTeXFooter(), gl2psPrintTeXHeader(), gl2psRescaleAndOffset(), and gl2psSetOptions()\&.
+.SS "\fBGL2PSlist\fP * \fBGL2PScontext::pdfgrouplist\fP"
+.PP
+Definition at line 264 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPDFgroupListDelete(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteFontResources(), gl2psPDFgroupListWriteGStateResources(), gl2psPDFgroupListWriteMainStream(), gl2psPDFgroupListWriteObjects(), gl2psPDFgroupListWriteShaderResources(), and gl2psPDFgroupListWriteXObjectResources()\&.
+.SS "\fBGL2PSlist\fP* \fBGL2PScontext::pdfprimlist\fP"
+.PP
+Definition at line 264 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPDFgroupListInit(), gl2psPrintPDFFooter(), gl2psPrintPDFHeader(), and gl2psPrintPDFPrimitive()\&.
+.SS "\fBGL2PSlist\fP* \fBGL2PScontext::primitives\fP"
+.PP
+Definition at line 249 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddPolyPrimitive(), gl2psBeginPage(), gl2psEndPage(), gl2psParseFeedbackBuffer(), gl2psPrintPrimitives(), and gl2psRescaleAndOffset()\&.
+.SS "\fBGL2PSprimitive\fP* \fBGL2PScontext::primitivetoadd\fP"
+.PP
+Definition at line 260 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddInBspImageTree(), gl2psAddInImageTree(), and gl2psBeginPage()\&.
+.SS "char * \fBGL2PScontext::producer\fP"
+.PP
+Definition at line 242 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPage(), gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "int \fBGL2PScontext::shader_stack\fP"
+.PP
+Definition at line 271 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFstacksInit(), and gl2psSortOutTrianglePDFgroup()\&.
+.SS "GLint \fBGL2PScontext::sort\fP"
+.PP
+Definition at line 241 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPrimitives(), and gl2psRescaleAndOffset()\&.
+.SS "FILE* \fBGL2PScontext::stream\fP"
+.PP
+Definition at line 250 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psClosePDFDataStream(), gl2psEndPage(), gl2psOpenPDFDataStream(), gl2psPDFgroupListWriteFontResources(), gl2psPDFgroupListWriteGStateResources(), gl2psPDFgroupListWriteObjects(), gl2psPDFgroupListWriteShaderResources(), gl2psPDFgroupListWriteVariableResources(), gl2psPDFgroupListWriteXObjectResources(), gl2psPrintf(), gl2psPrintGzipFooter(), gl2psPrintGzipHeader(), gl2psPrintPDFCatalog(), gl2psPrintPDFCompressorType(), gl2psPrintPDFDataStreamLength(), gl2psPrintPDFFooter(), gl2psPrintPDFGSObject(), gl2psPrintPDFHeader(), gl2psPrintPDFInfo(), gl2psPrintPDFOpenPage(), gl2psPrintPDFPages(), gl2psPrintPDFPixmap(), gl2psPrintPDFShader(), gl2psPrintPDFShaderExtGS(), gl2psPrintPDFShaderMask(), gl2psPrintPDFShaderSimpleExtGS(), gl2psPrintPDFText(), gl2psPrintPGFBeginViewport(), gl2psPrintPGFColor(), gl2psPrintPGFDash(), gl2psPrintPGFEndViewport(), gl2psPrintPGFFooter(), gl2psPrintPGFHeader(), gl2psPrintPGFPrimitive(), gl2psPrintTeXFooter(), gl2psPrintTeXHeader(), gl2psPrintTeXPrimitive(), and gl2psWriteBigEndian()\&.
+.SS "int \fBGL2PScontext::streamlength\fP"
+.PP
+Definition at line 263 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psClosePDFDataStream(), gl2psPDFgroupListWriteMainStream(), gl2psPrintPDFBeginViewport(), gl2psPrintPDFEndViewport(), gl2psPrintPDFFooter(), gl2psPrintPDFHeader(), gl2psPutPDFImage(), and gl2psPutPDFText()\&.
+.SS "\fBGL2PSrgba\fP \fBGL2PScontext::threshold\fP"
+.PP
+Definition at line 246 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPrintPostScriptHeader(), and gl2psPrintSVGSmoothTriangle()\&.
+.SS "char* \fBGL2PScontext::title\fP"
+.PP
+Definition at line 242 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psEndPage(), gl2psPrintPDFInfo(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintSVGHeader(), and gl2psPrintTeXHeader()\&.
+.SS "int \fBGL2PScontext::trgroupobjects_stack\fP"
+.PP
+Definition at line 270 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psPDFstacksInit(), and gl2psSortOutTrianglePDFgroup()\&.
+.SS "GLint \fBGL2PScontext::viewport\fP[4]"
+.PP
+Definition at line 245 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psComputeTightBoundingBox(), gl2psEndSVGLine(), gl2psOpenPDFDataStreamWritePreface(), gl2psPrintPDFOpenPage(), gl2psPrintPDFShaderMask(), gl2psPrintPGFHeader(), gl2psPrintPostScriptHeader(), gl2psPrintPrimitives(), gl2psPrintSVGBeginViewport(), gl2psPrintSVGHeader(), gl2psPrintTeXHeader(), and gl2psSVGGetCoordsAndColors()\&.
+.SS "int* \fBGL2PScontext::xreflist\fP"
+.PP
+Definition at line 265 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psBeginPage(), gl2psPDFgroupListWriteObjects(), gl2psPrintPDFFooter(), and gl2psPrintPDFHeader()\&.
+.SS "GLboolean \fBGL2PScontext::zerosurfacearea\fP"
+.PP
+Definition at line 258 of file gl2ps\&.c\&.
+.PP
+Referenced by gl2psAddInBspImageTree(), and gl2psBeginPage()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

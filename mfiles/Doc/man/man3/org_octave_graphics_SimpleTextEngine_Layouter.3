@@ -1,0 +1,77 @@
+.TH "SimpleTextEngine.Layouter" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.Layouter \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBRenderCanvas\fP \fBcanvas\fP"
+.br
+.ti -1c
+.RI "Font \fBfont\fP"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLayouter\fP (\fBRenderCanvas\fP \fBcanvas\fP, Font \fBfont\fP)"
+.br
+.ti -1c
+.RI "FontMetrics \fBgetFontMetrics\fP (Font f)"
+.br
+.ti -1c
+.RI "FontMetrics \fBgetFontMetrics\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBLayouter\fP (\fBRenderCanvas\fPcanvas, Fontfont)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.Layouter\&.canvas, and SimpleTextEngine\&.Layouter\&.font\&.
+.PP
+.nf
+                {
+                        this\&.canvas = canvas;
+                        this\&.font = font;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "FontMetrics \fBgetFontMetrics\fP (Fontf)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.Layouter\&.canvas, and RenderCanvas\&.getFontMetrics()\&.
+.PP
+Referenced by SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.LineElement\&.layout(), and SimpleTextEngine\&.SuperscriptElement\&.layout()\&.
+.PP
+.nf
+                {
+                        return canvas\&.getFontMetrics(f);
+                }
+.fi
+.SS "FontMetrics \fBgetFontMetrics\fP ()\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.Layouter\&.font\&.
+.PP
+.nf
+                {
+                        return getFontMetrics(font);
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBRenderCanvas\fP \fBcanvas\fP"
+.PP
+Referenced by SimpleTextEngine\&.Layouter\&.getFontMetrics(), and SimpleTextEngine\&.Layouter\&.Layouter()\&.
+.SS "Font \fBfont\fP"
+.PP
+Referenced by SimpleTextEngine\&.Layouter\&.getFontMetrics(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.SubscriptElement\&.layout(), SimpleTextEngine\&.SuperscriptElement\&.layout(), SimpleTextEngine\&.TeXFontCommand\&.layout(), SimpleTextEngine\&.TeXElement\&.layout(), and SimpleTextEngine\&.Layouter\&.Layouter()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

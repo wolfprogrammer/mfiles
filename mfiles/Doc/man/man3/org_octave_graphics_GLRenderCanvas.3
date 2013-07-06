@@ -1,0 +1,329 @@
+.TH "GLRenderCanvas" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLRenderCanvas \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGLCanvas\fP, \fBGLEventListener\fP, and \fBRenderCanvas\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGLRenderCanvas\fP ()"
+.br
+.ti -1c
+.RI "void \fBdisplay\fP (GLAutoDrawable d)"
+.br
+.ti -1c
+.RI "void \fBinit\fP (GLAutoDrawable d)"
+.br
+.ti -1c
+.RI "void \fBreshape\fP (GLAutoDrawable d, int x, int y, int width, int height)"
+.br
+.ti -1c
+.RI "void \fBdisplayChanged\fP (GLAutoDrawable d, boolean deviceChanged, boolean modeChanged)"
+.br
+.ti -1c
+.RI "\fBRenderer\fP \fBgetRenderer\fP ()"
+.br
+.ti -1c
+.RI "Component \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBredraw\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddRenderEventListener\fP (\fBRenderEventListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveRenderEventListener\fP (\fBRenderEventListener\fP l)"
+.br
+.ti -1c
+.RI "BufferedImage \fBtoImage\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoPostScript\fP (String filename)"
+.br
+.ti -1c
+.RI "void \fBaddMouseListener\fP (\fBMouseListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveMouseListener\fP (\fBMouseListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBaddMouseMotionListener\fP (\fBMouseMotionListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveMouseMotionListener\fP (\fBMouseMotionListener\fP l)"
+.br
+.ti -1c
+.RI "int \fBgetWidth\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetHeight\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetX\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetY\fP ()"
+.br
+.ti -1c
+.RI "Font \fBgetFont\fP ()"
+.br
+.ti -1c
+.RI "FontMetrics \fBgetFontMetrics\fP (Font fnt)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBGLRenderer\fP \fBr\fP"
+.br
+.ti -1c
+.RI "java\&.util\&.List \fBrListeners\fP"
+.br
+.ti -1c
+.RI "String \fBgl2psFileName\fP = null"
+.br
+.ti -1c
+.RI "boolean \fBreshapeDone\fP = false"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBGLRenderCanvas\fP ()\fC [inline]\fP"
+.PP
+References GLRenderCanvas\&.r, and GLRenderCanvas\&.rListeners\&.
+.PP
+.nf
+        {
+                r = null;
+                rListeners = new LinkedList();
+
+                addGLEventListener(this);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddMouseListener\fP (\fBMouseListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "void \fBaddMouseMotionListener\fP (\fBMouseMotionListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "void \fBaddRenderEventListener\fP (\fBRenderEventListener\fPl)\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References GLRenderCanvas\&.rListeners\&.
+.PP
+.nf
+        {
+                rListeners\&.add(l);
+        }
+.fi
+.SS "void \fBdisplay\fP (GLAutoDrawabled)\fC [inline]\fP"
+.PP
+References GL2PS\&.GL2PS_BEST_ROOT, GL2PS\&.GL2PS_BSP_SORT, GL2PS\&.GL2PS_EPS, GL2PS\&.GL2PS_USE_CURRENT_VIEWPORT, GL2PS\&.gl2psBeginPage(), GL2PS\&.gl2psEndPage(), GLRenderCanvas\&.gl2psFileName, GLRenderCanvas\&.r, GLRenderCanvas\&.rListeners, and GLRenderer\&.setGL2PS()\&.
+.PP
+Referenced by GLRenderCanvas\&.redraw(), GLRenderCanvas\&.toImage(), and GLRenderCanvas\&.toPostScript()\&.
+.PP
+.nf
+        {
+                if (gl2psFileName != null)
+                {
+                        int result;
+
+                        result = GL2PS\&.gl2psBeginPage('Title', 'JHandles', null, GL2PS\&.GL2PS_EPS, GL2PS\&.GL2PS_BSP_SORT,
+                                /*GL2PS\&.GL2PS_SILENT|*/GL2PS\&.GL2PS_BEST_ROOT|GL2PS\&.GL2PS_USE_CURRENT_VIEWPORT/*|GL2PS\&.GL2PS_OCCLUSION_CULL*/,
+                                GL\&.GL_RGBA, 0, null, 0, 0, 0, 1024*1024,
+                                gl2psFileName, '');
+                        r\&.setGL2PS(true);
+                        System\&.out\&.println('gl2psBeginPage: ' + result);
+                }
+
+                Iterator it = rListeners\&.iterator();
+                while (it\&.hasNext())
+                        ((RenderEventListener)it\&.next())\&.display(this);
+
+                if (gl2psFileName != null)
+                {
+                        int result = GL2PS\&.gl2psEndPage();
+                        r\&.setGL2PS(false);
+                        System\&.out\&.println('gl2psEndPage: ' + result);
+                }
+        }
+.fi
+.SS "void \fBdisplayChanged\fP (GLAutoDrawabled, booleandeviceChanged, booleanmodeChanged)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "Component \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "Font \fBgetFont\fP ()\fC [inherited]\fP"
+.PP
+Referenced by LegendObject\&.doLayout(), and J2DRenderer\&.drawText()\&.
+.SS "FontMetrics \fBgetFontMetrics\fP (Fontfnt)\fC [inherited]\fP"
+.PP
+Referenced by LegendObject\&.doLayout(), SimpleTextEngine\&.Layouter\&.getFontMetrics(), AxesObject\&.updateOuterPosition(), and AxesObject\&.updatePosition()\&.
+.SS "int \fBgetHeight\fP ()\fC [inherited]\fP"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), J2DRenderer\&.clear(), AxesObject\&.convertUnits(), LegendObject\&.doLayout(), J2DRenderer\&.draw(), TextObject\&.getExtent(), AxesContainer\&.getObjectForPoint(), GLRenderCanvas\&.toImage(), TextObject\&.updateData(), and AxesObject\&.updateXFormMatrices()\&.
+.SS "\fBRenderer\fP \fBgetRenderer\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References GLRenderCanvas\&.r\&.
+.PP
+.nf
+        {
+                return r;
+        }
+.fi
+.SS "int \fBgetWidth\fP ()\fC [inherited]\fP"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), J2DRenderer\&.clear(), LegendObject\&.doLayout(), and GLRenderCanvas\&.toImage()\&.
+.SS "int \fBgetX\fP ()\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.getMouseLocation(), and AxesContainer\&.getObjectForPoint()\&.
+.SS "int \fBgetY\fP ()\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.getMouseLocation(), and AxesContainer\&.getObjectForPoint()\&.
+.SS "void \fBinit\fP (GLAutoDrawabled)\fC [inline]\fP"
+.PP
+References GLRenderCanvas\&.r\&.
+.PP
+.nf
+        {
+                GL gl = d\&.getGL();
+
+                r = new GLRenderer(d);
+                gl\&.glEnable(GL\&.GL_DEPTH_TEST);
+                gl\&.glDepthFunc(GL\&.GL_LEQUAL);
+                gl\&.glBlendFunc(GL\&.GL_SRC_ALPHA, GL\&.GL_ONE_MINUS_SRC_ALPHA);
+                gl\&.glEnable(GL\&.GL_NORMALIZE);
+                //gl\&.glFrontFace(GL\&.GL_CW);
+                //gl\&.glCullFace(GL\&.GL_BACK);
+                //gl\&.glEnable(GL\&.GL_CULL_FACE);
+        }
+.fi
+.SS "void \fBredraw\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References GLRenderCanvas\&.display()\&.
+.PP
+.nf
+        {
+                display();
+                //repaint();
+        }
+.fi
+.SS "void \fBremoveMouseListener\fP (\fBMouseListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "void \fBremoveMouseMotionListener\fP (\fBMouseMotionListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "void \fBremoveRenderEventListener\fP (\fBRenderEventListener\fPl)\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References GLRenderCanvas\&.rListeners\&.
+.PP
+.nf
+        {
+                rListeners\&.remove(l);
+        }
+.fi
+.SS "void \fBreshape\fP (GLAutoDrawabled, intx, inty, intwidth, intheight)\fC [inline]\fP"
+.PP
+References GLRenderCanvas\&.r, GLRenderCanvas\&.reshapeDone, GLRenderCanvas\&.rListeners, and GLRenderer\&.setViewport()\&.
+.PP
+.nf
+        {
+                r\&.setViewport(width, height);
+
+                Iterator it = rListeners\&.iterator();
+                while (it\&.hasNext())
+                        ((RenderEventListener)it\&.next())\&.reshape(this, x, y, width, height);
+                
+                if (reshapeDone && !Threading\&.isSingleThreaded())
+                {
+                        GL gl = d\&.getGL();
+                        gl\&.glClear(GL\&.GL_COLOR_BUFFER_BIT | GL\&.GL_DEPTH_BUFFER_BIT);
+                        d\&.swapBuffers();
+                }
+                reshapeDone = true;
+        }
+.fi
+.SS "BufferedImage \fBtoImage\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References GLRenderCanvas\&.display(), RenderCanvas\&.getHeight(), and RenderCanvas\&.getWidth()\&.
+.PP
+.nf
+        {
+                display();
+                getContext()\&.makeCurrent();
+
+                GL gl = getGL();
+                ByteBuffer buf = ByteBuffer\&.allocate(getWidth()*getHeight()*3);
+                gl\&.glReadBuffer(GL\&.GL_FRONT);
+                gl\&.glReadPixels(0, 0, getWidth(), getHeight(), GL\&.GL_RGB, GL\&.GL_UNSIGNED_BYTE, buf);
+                gl\&.glReadBuffer(GL\&.GL_BACK);
+
+                BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage\&.TYPE_3BYTE_BGR);
+                img\&.getRaster()\&.setDataElements(0, 0, getWidth(), getHeight(), buf\&.array());
+                com\&.sun\&.opengl\&.util\&.ImageUtil\&.flipImageVertically(img);
+
+                getContext()\&.release();
+
+                return img;
+        }
+.fi
+.SS "void \fBtoPostScript\fP (Stringfilename)\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References GLRenderCanvas\&.display(), and GLRenderCanvas\&.gl2psFileName\&.
+.PP
+.nf
+        {
+                gl2psFileName = filename;
+                display();
+                gl2psFileName = null;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "String \fBgl2psFileName\fP = null\fC [private]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display(), and GLRenderCanvas\&.toPostScript()\&.
+.SS "\fBGLRenderer\fP \fBr\fP\fC [private]\fP"
+.PP
+Referenced by GLRenderCanvas\&.display(), GLRenderCanvas\&.getRenderer(), GLRenderCanvas\&.GLRenderCanvas(), GLRenderCanvas\&.init(), and GLRenderCanvas\&.reshape()\&.
+.SS "boolean \fBreshapeDone\fP = false\fC [private]\fP"
+.PP
+Referenced by GLRenderCanvas\&.reshape()\&.
+.SS "java\&.util\&.List \fBrListeners\fP\fC [private]\fP"
+.PP
+Referenced by GLRenderCanvas\&.addRenderEventListener(), GLRenderCanvas\&.display(), GLRenderCanvas\&.GLRenderCanvas(), GLRenderCanvas\&.removeRenderEventListener(), and GLRenderCanvas\&.reshape()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

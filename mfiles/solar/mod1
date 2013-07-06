@@ -1,0 +1,90 @@
+# Created by Octave 3.2.4, Wed Oct 31 02:02:37 2012 BRT <caio@ghost1>
+# name: pv1
+# type: struct
+# length: 10
+# name: manufacture
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 7
+Kiocera
+
+# name: model
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+msx60i
+
+# name: ref
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 3
+STC
+
+# name: Voc
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+36.4
+
+# name: Isc
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+5.43
+
+# name: Vmp
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+45
+
+# name: avoc
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+-0.34
+
+# name: aisc
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0.037
+
+# name: apm
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+-0.48
+
+# name: NOCT
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+45
+

@@ -1,0 +1,135 @@
+.TH "CheckBoxControl" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CheckBoxControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJCheckBox\fP, \fBUIControl\fP, and \fBActionListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCheckBoxControl\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBactionPerformed\fP (ActionEvent event)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBCheckBoxControl\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References HandleEvent\&.getProperty(), CheckBoxControl\&.propertyChanged(), CheckBoxControl\&.sink, StringProperty\&.toString(), CheckBoxControl\&.uiObj, UIControlObject\&.UIString, and UIControlObject\&.Value\&.
+.PP
+.nf
+        {
+                super();
+                addActionListener(this);
+                uiObj = obj;
+
+                setText(obj\&.UIString\&.toString());
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+                sink\&.listen(obj\&.Value);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBactionPerformed\fP (ActionEventevent)\fC [inline]\fP"
+.PP
+References UIControlObject\&.controlActivated(), and CheckBoxControl\&.uiObj\&.
+.PP
+.nf
+        {
+                uiObj\&.controlActivated(new UIControlEvent(this));
+        }
+.fi
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and CheckBoxControl\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References DoubleProperty\&.doubleValue(), VectorProperty\&.getArray(), UIControlObject\&.Max, StringProperty\&.toString(), CheckBoxControl\&.uiObj, UIControlObject\&.UIString, and UIControlObject\&.Value\&.
+.PP
+Referenced by CheckBoxControl\&.CheckBoxControl()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.UIString)
+                        setText(uiObj\&.UIString\&.toString());
+                else if (p == uiObj\&.Value)
+                {
+                        double v = uiObj\&.Value\&.getArray()[0];
+                        setSelected(v == uiObj\&.Max\&.doubleValue());
+                }
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References Property\&.get(), UIControlObject\&.Max, UIControlObject\&.Min, Property\&.reset(), CheckBoxControl\&.uiObj, and UIControlObject\&.Value\&.
+.PP
+.nf
+        {
+                uiObj\&.Value\&.reset(isSelected() ? uiObj\&.Max\&.get() : uiObj\&.Min\&.get());
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [private]\fP"
+.PP
+Referenced by CheckBoxControl\&.CheckBoxControl(), and CheckBoxControl\&.dispose()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [private]\fP"
+.PP
+Referenced by CheckBoxControl\&.actionPerformed(), CheckBoxControl\&.CheckBoxControl(), CheckBoxControl\&.propertyChanged(), and CheckBoxControl\&.update()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

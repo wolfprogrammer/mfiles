@@ -1,0 +1,268 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__area__.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__area__.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'BaseValue','double', bv)"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'XData','doublearray', X(:, \fBk\fP))"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'YData','doublearray', Y(:, \fBk\fP))"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'FaceColor','colorradio','flat|interp|none','flat')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'EdgeColor','colorradio','flat|interp|none','\fBk\fP')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'CDataMapping','radio','scaled|direct','scaled','hidden')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'AreaGroup','\fBhandle\fP','hidden')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'LineStyle','linestyle','-')"
+.br
+.ti -1c
+.RI "\fBaddprop\fP (\fBhh\fP,'LineWidth','double', 0\&.5)"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBhh\fP,'CLimInclude', true)"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBhh\fP, \fBvarargin\fP{:})"
+.br
+.ti -1c
+.RI "\fBaddlistener\fP (\fBhh\fP,{'FaceColor','EdgeColor','LineStyle','LineWidth'},@updatePatchColor)"
+.br
+.ti -1c
+.RI "\fBaddlistener\fP (\fBhh\fP,'ObjectDeleted',@memberDeleted)"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBk\fP==1) \fBvv\fP"
+.br
+.ti -1c
+.RI "\fBX\fP(:, \fBk\fP) \fBY\fP( \fBX\fP (end, \fBk\fP) \fBbv\fP 0]"
+.br
+.ti -1c
+.RI "endfor \fBif\fP (!isempty(\fBh\fP)) \fBset\fP(\fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBmemberDeleted\fP (\fBh\fP) \fBhlist\fP"
+.br
+.ti -1c
+.RI "\fBhlist\fP (find(\fBhlist\fP==\fBh\fP))"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBhlist\fP)) \fBset\fP(\fBhlist\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP \fBupdatePatchColor\fP (\fBh\fP) hv"
+.br
+.ti -1c
+.RI "\fBset\fP (hv\&.children(1),'FaceColor', hv\&.facecolor,\&.\&.\&.'EdgeColor', hv\&.edgecolor,\&.\&.\&.'LineStyle', hv\&.linestyle,\&.\&.\&.'LineWidth', hv\&.linewidth)"
+.br
+.ti -1c
+.RI "endfunction \fBfunction\fP \fBupdatePatchData\fP (\fBh\fP) \fBhlist\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (isempty(\fBYY\fP)) \fBvv\fP"
+.br
+.ti -1c
+.RI "\fBx\fP \fBy\fP \fBzeros\fP (\fBlength\fP(\fBy\fP), 1)"
+.br
+.ti -1c
+.RI "\fBx\fP (end) \fBbv\fP 0]"
+.br
+.ti -1c
+.RI "\fBlength\fP(\fBy\fP \fBzeros\fP ()"
+.br
+.ti -1c
+.RI "id \fBy\fP ()"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBhp\fP)) \fBset\fP(\fBhp\fP(1)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBYY\fP = cumsum (\fBY\fP, 2)"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.ti -1c
+.RI "\fBhh_v\fP = \fBget\fP (\fBhh\fP)"
+.br
+.ti -1c
+.RI "\fBfv\fP = [1:size(\fBvv\fP,1)]"
+.br
+.ti -1c
+.RI "else \fBvv\fP = [\fBX\fP(end:-1:1,\fBk\fP-1) \fBYY\fP(end:-1:1,\fBk\fP-1) \fBzeros\fP(size(\fBY\fP,1),1)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBfvc\fP = \fBk\fP * ones (size (\fBvv\fP,1), 1)"
+.br
+.ti -1c
+.RI "\fBhp\fP"
+.br
+.ti -1c
+.RI "\fBh\fP = [\fBh\fP \fBhh\fP]"
+.br
+.ti -1c
+.RI "endfor \fBAreaGroup\fP"
+.br
+.ti -1c
+.RI "\fBhlist\fP"
+.br
+.ti -1c
+.RI "\fBbv\fP = \fBget\fP (\fBh\fP, 'BaseValue')"
+.br
+.ti -1c
+.RI "for \fBhh\fP"
+.br
+.ti -1c
+.RI "\fBy\fP = \fBget\fP (\fBhh\fP, 'YData')"
+.br
+.ti -1c
+.RI "\fBx\fP = \fBx\fP(:)"
+.br
+.ti -1c
+.RI "\fBFaces\fP"
+.br
+.ti -1c
+.RI "\fBVertices\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBaddlistener\fP (\fBhh\fP)"
+.SS "\fBaddlistener\fP (\fBhh\fP, 'ObjectDeleted', @memberDeleted)"
+.SS "\fBaddprop\fP (\fBhh\fP, 'BaseValue', 'double', \fBbv\fP)"
+.SS "\fBaddprop\fP (\fBhh\fP, 'XData', 'doublearray', \fBX\fP(:, \fBk\fP))"
+.SS "\fBaddprop\fP (\fBhh\fP, 'YData', 'doublearray', \fBY\fP(:, \fBk\fP))"
+.SS "\fBaddprop\fP (\fBhh\fP, 'FaceColor', 'colorradio', 'flat|interp|none', 'flat')"
+.SS "\fBaddprop\fP (\fBhh\fP, 'EdgeColor', 'colorradio', 'flat|interp|none', 'k')"
+.SS "\fBaddprop\fP (\fBhh\fP, 'CDataMapping', 'radio', 'scaled|direct', 'scaled', 'hidden')"
+.SS "\fBaddprop\fP (\fBhh\fP, 'AreaGroup', 'handle', 'hidden')"
+.SS "\fBaddprop\fP (\fBhh\fP, 'LineStyle', 'linestyle', '-')"
+.SS "\fBaddprop\fP (\fBhh\fP, 'LineWidth', 'double', 0\&.5)"
+.SS "\fBhlist\fP (find(\fBhlist\fP==\fBh\fP))"
+.SS "\fBif\fP (\fBk\fP = \fC=1\fP)"
+.SS "endfor \fBif\fP (!isemptyh)"
+.SS "\fBif\fP (!isemptyhlist)"
+.SS "\fBif\fP (isempty(\fBYY\fP))"
+.SS "\fBif\fP (!isemptyhp)"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBmemberDeleted\fP (\fBh\fP)"
+.SS "\fBset\fP (\fBhh\fP, 'CLimInclude', true)"
+.SS "\fBset\fP (\fBhh\fP)"
+.SS "\fBset\fP (hv\&.children1, 'FaceColor', hv\&.facecolor, \&.\&.\&.'EdgeColor', hv\&.edgecolor, \&.\&.\&.'LineStyle', hv\&.linestyle, \&.\&.\&.'LineWidth', hv\&.linewidth)"
+.SS "\fBendif\fP endfunction \fBfunction\fP \fBupdatePatchColor\fP (\fBh\fP)"
+.SS "endfunction \fBfunction\fP \fBupdatePatchData\fP (\fBh\fP)"
+.SS "\fBX\fP (:,\fBk\fP) \fBY\fP( \fBX\fP (end, \fBk\fP)"
+.SS "\fBx\fP (end)"
+.SS "id \fBy\fP ()\fC [static, virtual]\fP"
+.SS "\fBx\fP \fBy\fP \fBzeros\fP (\fBlength\fP(\fBy\fP), 1)"
+.SS "\fBlength\fP (\fBy\fP \fBzeros\fP ()\fC [static, virtual]\fP"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBAreaGroup\fP"
+.PP
+Definition at line 56 of file __area__\&.m\&.
+.SS "\fBbv\fP = \fBget\fP (\fBh\fP, 'BaseValue')"
+.PP
+Definition at line 84 of file __area__\&.m\&.
+.SS "\fBFaces\fP"
+.PP
+Definition at line 102 of file __area__\&.m\&.
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __area__ (ax, X, Y, bv, varargin)
+
+  h = []
+.fi
+.PP
+Definition at line 16 of file __area__\&.m\&.
+.SS "\fBendif\fP \fBfv\fP = [1:size(\fBvv\fP,1)]"
+.PP
+Definition at line 43 of file __area__\&.m\&.
+.SS "\fBendif\fP \fBfvc\fP = \fBk\fP * ones (size (\fBvv\fP,1), 1)"
+.PP
+Definition at line 48 of file __area__\&.m\&.
+.SS "\fBendif\fP \fBendif\fP \fBh\fP = [\fBh\fP \fBhh\fP]"
+.PP
+Definition at line 52 of file __area__\&.m\&.
+.PP
+Referenced by gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), gl2psPrintSVGBeginViewport(), and gl2psWriteByte()\&.
+.SS "for \fBhh\fP"\fBInitial value:\fP
+.PP
+.nf
+ hlist(:)'
+    x = get (hh, 'XData')
+.fi
+.PP
+Definition at line 86 of file __area__\&.m\&.
+.SS "\fBhh_v\fP = \fBget\fP (\fBhh\fP)"
+.PP
+Definition at line 39 of file __area__\&.m\&.
+.SS "\fBhlist\fP"
+.PP
+Definition at line 66 of file __area__\&.m\&.
+.SS "\fBhp\fP"\fBInitial value:\fP
+.PP
+.nf
+ patch (hh, 'Faces', fv, 'Vertices', vv, 'FaceVertexCData', fvc, \&.\&.\&.
+      'FaceColor', hh_v\&.facecolor, 'EdgeColor', hh_v\&.edgecolor, 'LineStyle', hh_v\&.linestyle, \&.\&.\&.
+      'LineWidth', hh_v\&.linewidth, '__Index__', k-1)
+.fi
+.PP
+Definition at line 49 of file __area__\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:size (Y,2)
+
+    hh = hggroup (ax)
+.fi
+.PP
+Definition at line 22 of file __area__\&.m\&.
+.PP
+Referenced by gl2psAddIndex()\&.
+.SS "\fBVertices\fP"
+.PP
+Definition at line 102 of file __area__\&.m\&.
+.SS "\fBvv\fP = [\fBX\fP(end:-1:1,\fBk\fP-1) \fBYY\fP(end:-1:1,\fBk\fP-1) \fBzeros\fP(size(\fBY\fP,1),1)"
+.PP
+Definition at line 45 of file __area__\&.m\&.
+.SS "else \fBx\fP = \fBx\fP(:)"
+.PP
+Definition at line 90 of file __area__\&.m\&.
+.PP
+Referenced by gl2psPrintPDFBeginViewport(), gl2psPrintPDFPixmapStreamData(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), gl2psPrintSVGBeginViewport(), and gl2psPrintSVGHeader()\&.
+.SS "else \fBy\fP = \fBget\fP (\fBhh\fP, 'YData')"
+.PP
+Definition at line 88 of file __area__\&.m\&.
+.PP
+Referenced by gl2psGetRGB(), gl2psPrintPDFBeginViewport(), gl2psPrintPDFPixmapStreamData(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), gl2psPrintSVGBeginViewport(), and gl2psPrintSVGHeader()\&.
+.SS "\fBYY\fP = cumsum (\fBY\fP, 2)"
+.PP
+Definition at line 20 of file __area__\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

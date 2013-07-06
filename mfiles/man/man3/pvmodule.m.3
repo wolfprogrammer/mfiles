@@ -1,0 +1,154 @@
+.TH "/home/caio/mfiles/solar/pvmodule.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/solar/pvmodule.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "while \fB~feof\fP (\fBfid\fP) \fBline\fP"
+.br
+.ti -1c
+.RI "\fBeval\fP (\fBline\fP) end%endwhile%\fBmodule\fP"
+.br
+.ti -1c
+.RI "\fBfclose\fP (\fBfid\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBmodule\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBmanufacture\fP = \fBmanufacture\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBmodel\fP = \fBmodel\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBref\fP = \fBref\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBVoc\fP = \fBVoc\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBIsc\fP = \fBIsc\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBVmp\fP = \fBVmp\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBImp\fP = \fBImp\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBPm\fP"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBaisc\fP = \fBaisc\fP/100"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBapm\fP = \fBapm\fP/100"
+.br
+.ti -1c
+.RI "\fBmodule\fP \fBNOCT\fP = \fBNOCT\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBeval\fP (\fBline\fP)"
+.SS "\fBfclose\fP (\fBfid\fP)"
+.SS "while ~feof (\fBfid\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBmodule\fP \fBaisc\fP = \fBaisc\fP/100"
+.PP
+Definition at line 49 of file pvmodule\&.m\&.
+.SS "\fBmodule\fP \fBapm\fP = \fBapm\fP/100"
+.PP
+Definition at line 50 of file pvmodule\&.m\&.
+.SS "\fBmodule\fP \fBImp\fP = \fBImp\fP"
+.PP
+Definition at line 46 of file pvmodule\&.m\&.
+.PP
+Referenced by pvrating()\&.
+.SS "\fBmodule\fP \fBIsc\fP = \fBIsc\fP"
+.PP
+Definition at line 44 of file pvmodule\&.m\&.
+.SS "\fBmodule\fP \fBmanufacture\fP = \fBmanufacture\fP"
+.PP
+Definition at line 40 of file pvmodule\&.m\&.
+.SS "\fBmodule\fP \fBmodel\fP = \fBmodel\fP"
+.PP
+Definition at line 41 of file pvmodule\&.m\&.
+.SS "\fBfunction\fP \fBmodule\fP"\fBInitial value:\fP
+.PP
+.nf
+pvmodule(pvfile)
+%{
+   Retorna os dados de um painel solar 
+   armazenado em um arquivo texto 
+   com a seguinte extrutura
+   
+   pvfile= arquivo com as caracteristicas do módulo
+
+   -------- msx60i-kiocera\&.txt ---------
+
+   manufacture = 'Kiocera'
+   model = 'msx60i'
+   ref =   'STC'            % Condição de teste
+   Voc=45\&.9                 % Volts
+   Isc= 14\&.5                % Amps
+   Vmp= 17                  % Amps
+   Imp= 19                  % Amps
+   Pm=18\&.93                 % Watts
+   avoc = nan               % %/ºC
+   aisc = nan               % %/ºC
+   apm  = nan               % %/ºC
+   NOCT= nan                % ºC
+   Ac= nan                  % m2       Area do painel 
+
+
+%}
+
+
+fid=fopen(pvfile,'r')
+.fi
+.PP
+Definition at line 1 of file pvmodule\&.m\&.
+.PP
+Referenced by pvrating()\&.
+.SS "\fBmodule\fP \fBNOCT\fP = \fBNOCT\fP"
+.PP
+Definition at line 51 of file pvmodule\&.m\&.
+.PP
+Referenced by pvrating()\&.
+.SS "\fBmodule\fP \fBPm\fP"\fBInitial value:\fP
+.PP
+.nf
+ Pm
+module\&.avoc = avoc/100
+.fi
+.PP
+Definition at line 47 of file pvmodule\&.m\&.
+.PP
+Referenced by pvrating()\&.
+.SS "\fBmodule\fP \fBref\fP = \fBref\fP"
+.PP
+Definition at line 42 of file pvmodule\&.m\&.
+.SS "\fBmodule\fP \fBVmp\fP = \fBVmp\fP"
+.PP
+Definition at line 45 of file pvmodule\&.m\&.
+.PP
+Referenced by pvrating()\&.
+.SS "\fBmodule\fP \fBVoc\fP = \fBVoc\fP"
+.PP
+Definition at line 43 of file pvmodule\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,88 @@
+.TH "MarkerProperty.Marker" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MarkerProperty.Marker \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMarker\fP (byte[] \fBdata\fP, int \fBw\fP, int \fBh\fP, int \fBxhot\fP, int \fByhot\fP)"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (GL gl, double x, double y, double z)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "byte[] \fBdata\fP"
+.br
+.ti -1c
+.RI "int \fBxhot\fP"
+.br
+.ti -1c
+.RI "int \fByhot\fP"
+.br
+.ti -1c
+.RI "int \fBw\fP"
+.br
+.ti -1c
+.RI "int \fBh\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBMarker\fP (byte[]data, intw, inth, intxhot, intyhot)\fC [inline, package]\fP"
+.PP
+References MarkerProperty\&.Marker\&.data, MarkerProperty\&.Marker\&.h, MarkerProperty\&.Marker\&.w, MarkerProperty\&.Marker\&.xhot, and MarkerProperty\&.Marker\&.yhot\&.
+.PP
+.nf
+                {
+                        this\&.data = data;
+                        this\&.w = w;
+                        this\&.h = h;
+                        this\&.xhot = xhot;
+                        this\&.yhot = yhot;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdraw\fP (GLgl, doublex, doubley, doublez)\fC [inline, package]\fP"
+.PP
+References MarkerProperty\&.Marker\&.data, MarkerProperty\&.Marker\&.h, MarkerProperty\&.Marker\&.w, MarkerProperty\&.Marker\&.xhot, and MarkerProperty\&.Marker\&.yhot\&.
+.PP
+.nf
+                {
+                        gl\&.glRasterPos3d(x, y, z);
+                        gl\&.glPixelStorei(GL\&.GL_UNPACK_ALIGNMENT, 1);
+                        gl\&.glBitmap(0, 0, 0, 0, -xhot, -yhot, null, 0);
+                        gl\&.glBitmap(w, h, 0, 0, 0, 0, data, 0);
+                        gl\&.glPixelStorei(GL\&.GL_UNPACK_ALIGNMENT, 4);
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "byte [] \fBdata\fP\fC [package]\fP"
+.PP
+Referenced by MarkerProperty\&.Marker\&.draw(), and MarkerProperty\&.Marker\&.Marker()\&.
+.SS "int \fBh\fP\fC [package]\fP"
+.PP
+Referenced by MarkerProperty\&.Marker\&.draw(), and MarkerProperty\&.Marker\&.Marker()\&.
+.SS "int \fBw\fP\fC [package]\fP"
+.PP
+Referenced by MarkerProperty\&.Marker\&.draw(), GLRenderer\&.draw(), and MarkerProperty\&.Marker\&.Marker()\&.
+.SS "int \fBxhot\fP\fC [package]\fP"
+.PP
+Referenced by MarkerProperty\&.Marker\&.draw(), and MarkerProperty\&.Marker\&.Marker()\&.
+.SS "int \fByhot\fP\fC [package]\fP"
+.PP
+Referenced by MarkerProperty\&.Marker\&.draw(), and MarkerProperty\&.Marker\&.Marker()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

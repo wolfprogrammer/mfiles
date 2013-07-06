@@ -1,0 +1,115 @@
+.TH "/home/caio/mfiles/vars.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/vars.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (isscalar(\fBvvalue\fP)&!isstruct(\fBvvalue\fP)) \fBif\fP(abs(\fBvvalue\fP)>1) \fBprintf\fP('\\t%\fBs\fP\\\fBt\fP\\\fBt\fP%3\&.3f\\n'"
+.br
+.ti -1c
+.RI "else \fBprintf\fP ('\\t%\fBs\fP\\\fBt\fP\\\fBt\fP%3\&.3g\\n', vname, vvalue)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "vars \fBm\fP Imprime todas variaveis 
+.br
+escalares do contexto 
+.br
+principal em uma \fBlista\fP"
+.br
+.ti -1c
+.RI "vars \fBm\fP Imprime todas variaveis 
+.br
+escalares do contexto 
+.br
+principal em uma por exemplo \fBt\fP"
+.br
+.ti -1c
+.RI "\fBsave\fP \fBtmp\fP varlist \fBmat\fP"
+.br
+.ti -1c
+.RI "\fBnames\fP = who"
+.br
+.ti -1c
+.RI "\fBnn1\fP = \fBlength\fP(\fBnames\fP)"
+.br
+.ti -1c
+.RI "for \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBvvalue\fP = \fBeval\fP(\fBvname\fP)"
+.br
+.ti -1c
+.RI "\fBvname\fP"
+.br
+.ti -1c
+.RI "format \fBshort\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBif\fP (isscalar(\fBvvalue\fP)&!isstruct(\fBvvalue\fP))"
+.SS "else \fBprintf\fP ('\\t%\fBs\fP\\\fBt\fP\\\fBt\fP%3\&.3g\\n', \fBvname\fP, \fBvvalue\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "for \fBidx\fP"\fBInitial value:\fP
+.PP
+.nf
+1:nn1
+        
+        vname=cell2mat(names(idx,1))
+.fi
+.PP
+Definition at line 22 of file vars\&.m\&.
+.SS "vars \fBm\fP Imprime todas variaveis escalares do contexto principal em uma \fBlista\fP"
+.PP
+Definition at line 4 of file vars\&.m\&.
+.SS "end else end end clear \fBnames\fP vnames \fBvvalue\fP \fBidx\fP \fBnn1\fP load \fBtmp\fP varlist \fBmat\fP"
+.PP
+Definition at line 15 of file vars\&.m\&.
+.SS "\fBnames\fP = who"
+.PP
+Definition at line 17 of file vars\&.m\&.
+.SS "\fBnn1\fP = \fBlength\fP(\fBnames\fP)"
+.PP
+Definition at line 18 of file vars\&.m\&.
+.SS "format \fBshort\fP"
+.PP
+Definition at line 43 of file vars\&.m\&.
+.SS "vars \fBm\fP Imprime todas variaveis escalares do contexto principal em uma por exemplo \fBt\fP"\fBInitial value:\fP
+.PP
+.nf
+2 c=4 d=10\&.3
+%
+% C     0\&.000052
+% Cmin  0\&.000052
+% D     0\&.705882
+% D1    0\&.294118
+%
+
+% Flags de configuração
+
+format long
+.fi
+.PP
+Definition at line 4 of file vars\&.m\&.
+.PP
+Referenced by gl2psPDFgroupListWriteMainStream(), and gl2psSortOutTrianglePDFgroup()\&.
+.SS "\fBvname\fP"
+.PP
+Definition at line 28 of file vars\&.m\&.
+.SS "\fBvvalue\fP = \fBeval\fP(\fBvname\fP)"
+.PP
+Definition at line 25 of file vars\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

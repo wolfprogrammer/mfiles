@@ -1,0 +1,93 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/colorbar.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/colorbar.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBvarargin\fP) > 1) \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBidx\fP)) \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBvarargin\fP (\fBidx\fP)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBif\fP (isempty(\fBax\fP)) \fBax\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBvarargin\fP) > 0 &&ischar(\fBvarargin\fP{1})&&strcmp(\fBvarargin\fP{1},'off')) cflag"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBcflag\fP &&\fBlength\fP(\fBvarargin\fP) > 0) \fBset\fP(\fBtmp\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (nargout > 0) \fBif\fP(\fBcflag\fP) \fBh\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBax\fP = \fBvarargin\fP{\fBidx\fP+1}"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBcflag\fP = true"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBtmp\fP = __jhandles_go_colorbar (\fBax\fP, \fBcflag\fP)"
+.br
+.ti -1c
+.RI "else \fB__request_drawnow__\fP"
+.br
+.ti -1c
+.RI "else \fBh\fP = []"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBif\fP (\fBlength\fP(\fBvarargin\fP), 1)"
+.SS "\fBif\fP (!isemptyidx)"
+.SS "\fBendif\fP \fBendif\fP \fBif\fP (isempty(\fBax\fP))"
+.SS "\fBif\fP (\fBlength\fP(\fBvarargin\fP), 0 &&ischarvarargin{1})&&strcmp(varargin{1},'off')"
+.SS "\fBif\fP (\fBcflag\fP &&lengthvarargin, 0)"
+.SS "\fBendif\fP \fBif\fP (nargout, 0)"
+.SS "\fBvarargin\fP (\fBidx\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "else \fB__request_drawnow__\fP"
+.PP
+Definition at line 41 of file colorbar\&.m\&.
+.SS "\fBax\fP = \fBvarargin\fP{\fBidx\fP+1}"
+.PP
+Definition at line 24 of file colorbar\&.m\&.
+.SS "\fBendif\fP \fBcflag\fP = true"
+.PP
+Definition at line 34 of file colorbar\&.m\&.
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ colorbar (varargin)
+
+  ax = []
+.fi
+.PP
+Definition at line 16 of file colorbar\&.m\&.
+.SS "else \fBh\fP = []"
+.PP
+Definition at line 50 of file colorbar\&.m\&.
+.SS "\fBendif\fP \fBtmp\fP = __jhandles_go_colorbar (\fBax\fP, \fBcflag\fP)"
+.PP
+Definition at line 39 of file colorbar\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

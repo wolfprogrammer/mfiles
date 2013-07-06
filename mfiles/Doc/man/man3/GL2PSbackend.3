@@ -1,0 +1,66 @@
+.TH "GL2PSbackend" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GL2PSbackend \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBprintHeader\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBprintFooter\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBbeginViewport\fP )(GLint viewport[4])"
+.br
+.ti -1c
+.RI "GLint(* \fBendViewport\fP )(void)"
+.br
+.ti -1c
+.RI "void(* \fBprintPrimitive\fP )(void *data)"
+.br
+.ti -1c
+.RI "void(* \fBprintFinalPrimitive\fP )(void)"
+.br
+.ti -1c
+.RI "const char * \fBfile_extension\fP"
+.br
+.ti -1c
+.RI "const char * \fBdescription\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "void(* \fBbeginViewport\fP)(GLint viewport[4])"
+.PP
+Referenced by gl2psBeginViewport()\&.
+.SS "const char* \fBdescription\fP"
+.PP
+Referenced by gl2psGetFormatDescription()\&.
+.SS "GLint(* \fBendViewport\fP)(void)"
+.PP
+Referenced by gl2psEndViewport()\&.
+.SS "const char* \fBfile_extension\fP"
+.PP
+Referenced by gl2psGetFileExtension()\&.
+.SS "void(* \fBprintFinalPrimitive\fP)(void)"
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+.SS "void(* \fBprintFooter\fP)(void)"
+.PP
+Referenced by gl2psEndPage()\&.
+.SS "void(* \fBprintHeader\fP)(void)"
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+.SS "void(* \fBprintPrimitive\fP)(void *data)"
+.PP
+Referenced by gl2psPrintPrimitives()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

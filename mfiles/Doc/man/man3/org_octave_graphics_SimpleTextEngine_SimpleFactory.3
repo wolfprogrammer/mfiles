@@ -1,0 +1,319 @@
+.TH "SimpleTextEngine.SimpleFactory" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.SimpleFactory \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimpleFactory\fP (String txt, LinkedList lst)"
+.br
+.ti -1c
+.RI "int \fBmatchBrace\fP (int start)"
+.br
+.ti -1c
+.RI "String \fBgetArgument\fP (int start)"
+.br
+.ti -1c
+.RI "String \fBgetParameter\fP (int start, char startChar, char endChar)"
+.br
+.ti -1c
+.RI "String \fBgetTeXCommand\fP (int start)"
+.br
+.ti -1c
+.RI "void \fBflush\fP ()"
+.br
+.ti -1c
+.RI "void \fBparse\fP ()"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBcurrent\fP = 0"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBbuffer\fP"
+.br
+.ti -1c
+.RI "LinkedList \fBlist\fP"
+.br
+.ti -1c
+.RI "int \fBanchor\fP = 0"
+.br
+.ti -1c
+.RI "StringBuilder \fBbuilder\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBSimpleFactory\fP (Stringtxt, LinkedListlst)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.buffer, SimpleTextEngine\&.SimpleFactory\&.builder, and SimpleTextEngine\&.SimpleFactory\&.list\&.
+.PP
+.nf
+                {
+                        buffer = txt;
+                        list = lst;
+                        builder = new StringBuilder();
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBflush\fP ()\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.anchor, SimpleTextEngine\&.SimpleFactory\&.builder, SimpleTextEngine\&.SimpleFactory\&.current, and SimpleTextEngine\&.SimpleFactory\&.list\&.
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.PP
+.nf
+                {
+                        if (/*current > anchor &&*/ builder\&.length() > 0)
+                        {
+                                list\&.add(new Element(builder\&.toString()));
+                                anchor = current;
+                                builder\&.setLength(0);
+                        }
+                }
+.fi
+.SS "String \fBgetArgument\fP (intstart)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.anchor, SimpleTextEngine\&.SimpleFactory\&.buffer, and SimpleTextEngine\&.SimpleFactory\&.matchBrace()\&.
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.PP
+.nf
+                {
+                        if (start >= buffer\&.length())
+                                return null;
+                        if (buffer\&.charAt(start) == '{')
+                        {
+                                int pos = matchBrace(start);
+                                if (pos < 0)
+                                        return null;
+                                else
+                                {
+                                        anchor = pos+1;
+                                        return buffer\&.substring(start+1, pos);
+                                }
+                        }
+                        else
+                        {
+                                anchor = start+1;
+                                return buffer\&.substring(start, start+1);
+                        }
+                }
+.fi
+.SS "String \fBgetParameter\fP (intstart, charstartChar, charendChar)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.anchor, and SimpleTextEngine\&.SimpleFactory\&.buffer\&.
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.PP
+.nf
+                {
+                        if (start >= buffer\&.length() || buffer\&.charAt(start) != startChar)
+                                return null;
+
+                        int pos = buffer\&.indexOf(endChar, start);
+                        if (pos == -1)
+                                return null;
+                        else
+                        {
+                                anchor = pos+1;
+                                return buffer\&.substring(start+1, pos);
+                        }
+                }
+.fi
+.SS "String \fBgetTeXCommand\fP (intstart)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.anchor, and SimpleTextEngine\&.SimpleFactory\&.buffer\&.
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.PP
+.nf
+                {
+                        int end = start;
+                        while (end < buffer\&.length())
+                        {
+                                char c = buffer\&.charAt(end);
+                                if (!Character\&.isLetterOrDigit(c))
+                                        break;
+                                end++;
+                        }
+                        anchor = end;
+                        return buffer\&.substring(start, end);
+                }
+.fi
+.SS "int \fBmatchBrace\fP (intstart)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.buffer\&.
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.getArgument()\&.
+.PP
+.nf
+                {
+                        int depth = 0;
+                        while (start < buffer\&.length())
+                        {
+                                switch (buffer\&.charAt(start))
+                                {
+                                case '{': depth++; break;
+                                case '}': depth--; if (depth == 0) return start; break;
+                                default: break;
+                                }
+                                start++;
+                        }
+                        return -1;
+                }
+.fi
+.SS "void \fBparse\fP ()\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.SimpleFactory\&.anchor, SimpleTextEngine\&.SimpleFactory\&.buffer, SimpleTextEngine\&.SimpleFactory\&.builder, SimpleTextEngine\&.SimpleFactory\&.current, SimpleTextEngine\&.SimpleFactory\&.flush(), SimpleTextEngine\&.SimpleFactory\&.getArgument(), SimpleTextEngine\&.SimpleFactory\&.getParameter(), SimpleTextEngine\&.SimpleFactory\&.getTeXCommand(), SimpleTextEngine\&.TeXElement\&.isSymbol(), and SimpleTextEngine\&.SimpleFactory\&.list\&.
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.LineElement()\&.
+.PP
+.nf
+                {
+                        String arg;
+
+                        current = anchor;
+                        while (current < buffer\&.length())
+                        {
+                                switch (buffer\&.charAt(current))
+                                {
+                                case '^':
+                                case '_':
+                                        flush();
+                                        arg = getArgument(current+1);
+                                        if (arg != null)
+                                        {
+                                                if (buffer\&.charAt(current) == '_')
+                                                        list\&.add(new SubscriptElement(arg));
+                                                else if (buffer\&.charAt(current) == '^')
+                                                        list\&.add(new SuperscriptElement(arg));
+                                                current = anchor;
+
+                                                if (list\&.size() > 1)
+                                                {
+                                                        Element e1 = (Element)list\&.get(list\&.size()-2);
+                                                        Element e2 = (Element)list\&.get(list\&.size()-1);
+                                                        if ((e1 instanceof SubscriptElement && e2 instanceof SuperscriptElement) ||
+                                                            (e2 instanceof SubscriptElement && e1 instanceof SuperscriptElement))
+                                                        {
+                                                                list\&.remove(list\&.size()-2);
+                                                                list\&.remove(list\&.size()-1);
+                                                                list\&.add(new ScriptElement(e1, e2));
+                                                        }
+                                                }
+                                        }
+                                        else
+                                                current++;
+                                        break;
+                                case '{':
+                                        flush();
+                                        arg = getArgument(current);
+                                        if (arg != null)
+                                                list\&.add(new LineElement(arg, false));
+                                        else
+                                                System\&.err\&.println('WARNING: unmatched brace '{'');
+                                        current = anchor;
+                                        break;
+                                case '\\':
+                                        if (current+1 < buffer\&.length())
+                                                switch (buffer\&.charAt(current+1))
+                                                {
+                                                        case '\\':
+                                                        case '{':
+                                                        case '}':
+                                                        case '_':
+                                                        case '^':
+                                                                builder\&.append(buffer\&.charAt(current+1));
+                                                                current = anchor = current+2;
+                                                                break;
+                                                        default:
+                                                                flush();
+                                                                arg = getTeXCommand(current+1);
+                                                                if (arg != null && arg\&.length() > 0)
+                                                                {
+                                                                        if (TeXElement\&.isSymbol(arg))
+                                                                                list\&.add(new TeXElement(arg));
+                                                                        else if (arg\&.startsWith('it') || arg\&.startsWith('sl'))
+                                                                        {
+                                                                                list\&.add(new TeXFontSwitchCommand(Font\&.ITALIC));
+                                                                                anchor = current+3;
+                                                                        }
+                                                                        else if (arg\&.startsWith('bf'))
+                                                                        {
+                                                                                list\&.add(new TeXFontSwitchCommand(Font\&.BOLD));
+                                                                                anchor = current+3;
+                                                                        }
+                                                                        else if (arg\&.startsWith('rm'))
+                                                                        {
+                                                                                list\&.add(new TeXFontSwitchCommand(Font\&.PLAIN));
+                                                                                anchor = current+3;
+                                                                        }
+                                                                        else if (arg\&.equals('color'))
+                                                                        {
+                                                                                String mode = getParameter(anchor, '[', ']');
+                                                                                String color = getParameter(anchor, '{', '}');
+                                                                                list\&.add(new TeXFontColorCommand(mode, color));
+                                                                        }
+                                                                        else if (arg\&.equals('fontsize'))
+                                                                        {
+                                                                                String sz = getParameter(anchor, '{', '}');
+                                                                                list\&.add(new TeXFontSizeCommand(sz));
+                                                                        }
+                                                                        else if (arg\&.equals('fontname'))
+                                                                        {
+                                                                                String name = getParameter(anchor, '{', '}');
+                                                                                list\&.add(new TeXFontNameCommand(name));
+                                                                        }
+                                                                }
+                                                                else
+                                                                        System\&.err\&.println('WARNING: unable to interpret TeX command: ' + buffer\&.substring(current));
+                                                                current = anchor;
+                                                                break;
+                                                }
+                                        else
+                                                System\&.err\&.println('WARNING: unable to interpret TeX command: ' + buffer\&.substring(current));
+                                        break;
+                                default:
+                                        builder\&.append(buffer\&.charAt(current++));
+                                        break;
+                                }
+                        }
+
+                        flush();
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int \fBanchor\fP = 0\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.flush(), SimpleTextEngine\&.SimpleFactory\&.getArgument(), SimpleTextEngine\&.SimpleFactory\&.getParameter(), SimpleTextEngine\&.SimpleFactory\&.getTeXCommand(), and SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.SS "String \fBbuffer\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.getArgument(), SimpleTextEngine\&.SimpleFactory\&.getParameter(), SimpleTextEngine\&.SimpleFactory\&.getTeXCommand(), SimpleTextEngine\&.SimpleFactory\&.matchBrace(), SimpleTextEngine\&.SimpleFactory\&.parse(), and SimpleTextEngine\&.SimpleFactory\&.SimpleFactory()\&.
+.SS "StringBuilder \fBbuilder\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.flush(), SimpleTextEngine\&.SimpleFactory\&.parse(), and SimpleTextEngine\&.SimpleFactory\&.SimpleFactory()\&.
+.SS "int \fBcurrent\fP = 0\fC [package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.flush(), and SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.SS "LinkedList \fBlist\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.flush(), SimpleTextEngine\&.SimpleFactory\&.parse(), and SimpleTextEngine\&.SimpleFactory\&.SimpleFactory()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

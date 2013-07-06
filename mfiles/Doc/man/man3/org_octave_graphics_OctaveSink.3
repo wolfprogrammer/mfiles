@@ -1,0 +1,117 @@
+.TH "OctaveSink" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OctaveSink \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOctaveSink\fP (OctaveReference \fBref\fP, \fBHandleObject\fP h, String[] pnames, \fBHandleObject\fP hp)"
+.br
+.ti -1c
+.RI "void \fBdoInvoke\fP (\fBHandleEvent\fP evt)"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "OctaveReference \fBref\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.ti -1c
+.RI "\fBHandleObject\fP \fBparent\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBOctaveSink\fP (OctaveReferenceref, \fBHandleObject\fPh, String[]pnames, \fBHandleObject\fPhp)\fC [inline]\fP"
+.PP
+References OctaveSink\&.dispose(), OctaveSink\&.doInvoke(), HandleEvent\&.getHandleObject(), HandleEvent\&.getName(), PropertySet\&.getProperty(), HandleObject\&.hasHandleEvent(), HandleEventSinkAdapter\&.listen(), OctaveSink\&.parent, OctaveSink\&.ref, OctaveSink\&.sink, StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+.nf
+        {
+                this\&.ref = ref;
+                this\&.sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        {
+                                if (OctaveSink\&.this\&.parent == null || !evt\&.getName()\&.equals('ObjectDeleted') ||
+                                                evt\&.getHandleObject() != OctaveSink\&.this\&.parent)
+                                        OctaveSink\&.this\&.doInvoke(evt);
+                        }
+                        public void sourceDeleted(Object source)
+                        {
+                                super\&.sourceDeleted(source);
+                                if (source == OctaveSink\&.this\&.parent)
+                                        OctaveSink\&.this\&.dispose();
+                        }
+                };
+                this\&.parent = (hp != null && hp != h ? hp : null);
+
+                for (int i=0; i<pnames\&.length; i++)
+                {
+                        Property p = h\&.getProperty(pnames[i]);
+                        if (p != null)
+                                this\&.sink\&.listen(p);
+                        else if (h\&.hasHandleEvent(pnames[i]))
+                                this\&.sink\&.listen(h, pnames[i]);
+                        else
+                                System\&.out\&.println('WARNING: `' + pnames[i] + '' is not a valid property name of ' + h\&.Type\&.toString());
+                }
+
+                if (this\&.parent != null)
+                        this\&.sink\&.listen(this\&.parent, 'ObjectDeleted');
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+References HandleEventSinkAdapter\&.dispose(), and OctaveSink\&.sink\&.
+.PP
+Referenced by OctaveSink\&.OctaveSink()\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "void \fBdoInvoke\fP (\fBHandleEvent\fPevt)\fC [inline]\fP"
+.PP
+References HandleObject\&.getHandle(), HandleEvent\&.getHandleObject(), and OctaveSink\&.ref\&.
+.PP
+Referenced by OctaveSink\&.OctaveSink()\&.
+.PP
+.nf
+        {
+                HandleObject h = evt\&.getHandleObject();
+                if (h != null)
+                        ref\&.invokeAndWait(new Object[] {new Double(h\&.getHandle()), null});
+                else
+                        ref\&.invokeAndWait(new Object[] {null, evt});
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleObject\fP \fBparent\fP\fC [private]\fP"
+.PP
+Referenced by OctaveSink\&.OctaveSink()\&.
+.SS "OctaveReference \fBref\fP\fC [private]\fP"
+.PP
+Referenced by OctaveSink\&.doInvoke(), and OctaveSink\&.OctaveSink()\&.
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [private]\fP"
+.PP
+Referenced by OctaveSink\&.dispose(), and OctaveSink\&.OctaveSink()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

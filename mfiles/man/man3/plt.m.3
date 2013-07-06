@@ -1,0 +1,93 @@
+.TH "/home/caio/mfiles/plt.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/plt.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "end \fBif\fP \fBn1\fP (1)< \fBn1\fP(2)%\fBdisp\fP('ONE')"
+.br
+.ti -1c
+.RI "\fBsave\fP ('-ascii', fname,'xy')"
+.br
+.ti -1c
+.RI "\fBsystem\fP (\fBcmd\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP []"
+.br
+.ti -1c
+.RI "\fBy\fP \fB__pad0__\fP"
+.br
+.ti -1c
+.RI "\fBn2\fP = size(\fBy\fP)"
+.br
+.ti -1c
+.RI "\fBif\fP \fBn1\fP"
+.br
+.ti -1c
+.RI "\fBxy\fP = [\fBx\fP' \fBy\fP']"
+.br
+.ti -1c
+.RI "end Cria arquivo temporário em TMP \fBfname\fP = '/tmp/plot\&.txt'"
+.br
+.ti -1c
+.RI "\fBcmd\fP = 'python $HOME/mfiles/plt\&.py &'"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "end \fBif\fP \fBn1\fP (1)"
+.SS "\fBsave\fP ('-ascii', \fBfname\fP, 'xy')"
+.SS "\fBsystem\fP (\fBcmd\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBy\fP \fB__pad0__\fP"
+.PP
+Definition at line 1 of file plt\&.m\&.
+.SS "\fBcmd\fP = 'python $HOME/mfiles/plt\&.py &'"
+.PP
+Definition at line 29 of file plt\&.m\&.
+.SS "end Cria arquivo temporário em TMP \fBfname\fP = '/tmp/plot\&.txt'"
+.PP
+Definition at line 26 of file plt\&.m\&.
+.SS "\fBfunction\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ plt(x,y)
+%
+%  plt(x,y)
+%
+%  Plot data usinfg matplotlib
+%
+%  INPUT
+%  x
+.fi
+.PP
+Definition at line 1 of file plt\&.m\&.
+.SS "\fBif\fP \fBn1\fP"\fBInitial value:\fP
+.PP
+.nf
+n2
+        error('Vectors of different sizes')
+.fi
+.PP
+Definition at line 14 of file plt\&.m\&.
+.SS "\fBn2\fP = size(\fBy\fP)"
+.PP
+Definition at line 12 of file plt\&.m\&.
+.SS "else \fBxy\fP = [\fBx\fP' \fBy\fP']"
+.PP
+Definition at line 20 of file plt\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

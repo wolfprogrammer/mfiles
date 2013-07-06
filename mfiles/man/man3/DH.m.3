@@ -1,0 +1,125 @@
+.TH "/home/caio/mfiles/DH.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/DH.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBH\fP (1, 1)"
+.br
+.ti -1c
+.RI "\fBH\fP (1, 2)"
+.br
+.ti -1c
+.RI "\fBH\fP (1, 3)"
+.br
+.ti -1c
+.RI "\fBH\fP (1, 4)"
+.br
+.ti -1c
+.RI "\fBH\fP (2, 1)"
+.br
+.ti -1c
+.RI "\fBH\fP (2, 2)"
+.br
+.ti -1c
+.RI "\fBH\fP (2, 3)"
+.br
+.ti -1c
+.RI "\fBH\fP (2, 4)"
+.br
+.ti -1c
+.RI "\fBH\fP (3, 1)=0"
+.br
+.ti -1c
+.RI "\fBH\fP (3, 2)"
+.br
+.ti -1c
+.RI "\fBH\fP (3, 3)"
+.br
+.ti -1c
+.RI "\fBH\fP (3, 4)"
+.br
+.ti -1c
+.RI "\fBH\fP (4, 1)=0"
+.br
+.ti -1c
+.RI "\fBH\fP (4, 2)=0"
+.br
+.ti -1c
+.RI "\fBH\fP (4, 3)=0"
+.br
+.ti -1c
+.RI "\fBH\fP (4, 4)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBH\fP"
+.br
+.ti -1c
+.RI "\fBtheta\fP = \fBtheta\fP*d2r"
+.br
+.ti -1c
+.RI "\fBalpha\fP = \fBalpha\fP*d2r"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBH\fP (1, 1)"
+.SS "\fBH\fP (1, 2)"
+.SS "\fBH\fP (1, 3)"
+.SS "\fBH\fP (1, 4)"
+.SS "\fBH\fP (2, 1)"
+.SS "\fBH\fP (2, 2)"
+.SS "\fBH\fP (2, 3)"
+.SS "\fBH\fP (2, 4)"
+.SS "\fBH\fP (3, 1)\fC [pure virtual]\fP"
+.SS "\fBH\fP (3, 2)"
+.SS "\fBH\fP (3, 3)"
+.SS "\fBH\fP (3, 4)"
+.SS "\fBH\fP (4, 1)\fC [pure virtual]\fP"
+.SS "\fBH\fP (4, 2)\fC [pure virtual]\fP"
+.SS "\fBH\fP (4, 3)\fC [pure virtual]\fP"
+.SS "\fBH\fP (4, 4)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBalpha\fP = \fBalpha\fP*d2r"
+.PP
+Definition at line 19 of file DH\&.m\&.
+.SS "\fBH\fP"\fBInitial value:\fP
+.PP
+.nf
+ DH(theta,alpha,d,a)
+% DH(theta,alpha,d,a) 
+% Computes the denavit hartenberg parameters
+%
+% theta: Angle from  Xi-1 to Xi
+% alpha: Angle from  Zi-1  to Zi
+% d    : Distance from Xi-1 to Xi
+% a    : Distance from Zi-1 to Zi
+%
+%
+%   Returns   the tranformation matrix from the frame i-1 to frame i
+%
+%    i-1
+%       H
+%        i
+%
+d2r=pi/180
+.fi
+.PP
+Definition at line 1 of file DH\&.m\&.
+.SS "\fBtheta\fP = \fBtheta\fP*d2r"
+.PP
+Definition at line 18 of file DH\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

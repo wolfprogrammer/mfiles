@@ -1,0 +1,170 @@
+.TH "packages/jhandles-0.3.5/src/__jhandles__.cc" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+packages/jhandles-0.3.5/src/__jhandles__.cc \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <octave/oct\&.h>\fP
+.br
+\fC#include <octave/graphics\&.h>\fP
+.br
+\fC#include <octave/unwind-prot\&.h>\fP
+.br
+\fC#include <__java__\&.h>\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTO_JAVA\fP(obj)   dynamic_cast<octave_java*>((obj)\&.internal_rep())"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static octave_value \fBhandle_to_object\fP (const octave_value &h)"
+.br
+.ti -1c
+.RI "static octave_value \fBget_parent_arg\fP (octave_value_list &args, int idx)"
+.br
+.ti -1c
+.RI "static void \fBset_properties\fP (octave_java *obj, const octave_value_list &args, octave_idx_type idx)"
+.br
+.ti -1c
+.RI "static void \fBinitialize_object\fP (octave_java *obj, const octave_value_list &args, octave_idx_type idx)"
+.br
+.ti -1c
+.RI "\fBDEFUN_DLD\fP (__jhandles__, args,,'')"
+.br
+.ti -1c
+.RI "\fBDEFUN_DLD\fP (__jhandles_go_patch2, _args,,'')"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define \fBTO_JAVA\fP(obj)   dynamic_cast<octave_java*>((obj)\&.internal_rep())"
+.PP
+Referenced by DEFUN_DLD()\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBDEFUN_DLD\fP (__jhandles__, args, '')"
+.PP
+.nf
+{
+  return octave_value ();
+}
+.fi
+.SS "\fBDEFUN_DLD\fP (__jhandles_go_patch2, _args, '')"
+.PP
+References get_parent_arg(), handle_to_object(), initialize_object(), and TO_JAVA\&.
+.PP
+.nf
+{
+  octave_value_list args (_args);
+  octave_value parent = get_parent_arg (args, 1);
+  octave_value retval;
+
+  if (parent\&.is_undefined ())
+    parent = args(0);
+
+  parent = handle_to_object (parent);
+  if (error_state)
+    return retval;
+
+  octave_value obj = octave_java::do_java_create ('org\&.octave\&.graphics\&.PatchObject', parent);
+
+  if (! error_state)
+    {
+      octave_java *jobj = TO_JAVA (obj);
+      octave_value handle = jobj->do_java_invoke ('getHandle', octave_value_list ());
+
+      initialize_object (jobj, args, 1);
+      if (! error_state)
+        retval = handle;
+    }
+
+  return retval;
+}
+.fi
+.SS "static octave_value \fBget_parent_arg\fP (octave_value_list &args, intidx)\fC [static]\fP"
+.PP
+Referenced by DEFUN_DLD()\&.
+.PP
+.nf
+{
+  octave_value retval;
+  caseless_str pstr ('parent');
+
+  for (int i = idx; i < args\&.length (); i += 2)
+    {
+      if (args(i)\&.is_string () && (i+1) < args\&.length ())
+        {
+          if (pstr\&.compare (args(i)\&.string_value ()))
+            {
+              retval = args(i+1);
+              args = args\&.splice (i, 2);
+            }
+        }
+      else
+        return retval;
+    }
+
+  return retval;
+}
+.fi
+.SS "static octave_value \fBhandle_to_object\fP (const octave_value &h)\fC [static]\fP"
+.PP
+Referenced by DEFUN_DLD()\&.
+.PP
+.nf
+{
+  return octave_java::do_java_invoke('org\&.octave\&.graphics\&.HandleObject', 'getHandleObject', h);
+}
+.fi
+.SS "static void \fBinitialize_object\fP (octave_java *obj, const octave_value_list &args, octave_idx_typeidx)\fC [static]\fP"
+.PP
+References set_properties()\&.
+.PP
+Referenced by DEFUN_DLD()\&.
+.PP
+.nf
+{
+  if (args\&.length () > idx)
+    set_properties (obj, args, idx);
+
+  if (! error_state)
+    obj->do_java_invoke ('validate', octave_value_list ());
+}
+.fi
+.SS "static void \fBset_properties\fP (octave_java *obj, const octave_value_list &args, octave_idx_typeidx)\fC [static]\fP"
+.PP
+Referenced by initialize_object()\&.
+.PP
+.nf
+{
+  octave_value_list set_args(2, octave_value ());
+
+  unwind_protect::begin_frame ('jhandles_set_properties');
+  unwind_protect_bool (Vjava_convert_matrix);
+  unwind_protect_bool (Vjava_unsigned_conversion);
+
+  Vjava_convert_matrix = true;
+  Vjava_unsigned_conversion = true;
+
+  for (int i = idx; (! error_state) && (i < (args\&.length () - 1)); i += 2)
+    {
+      set_args(0) = args(i);
+      set_args(1) = args(i+1);
+      obj->do_java_invoke ('set', set_args);
+    }
+
+  unwind_protect::run_frame ('jhandles_set_properties');
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

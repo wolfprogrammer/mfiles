@@ -1,0 +1,55 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__get_parent_arg__.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__get_parent_arg__.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (isempty(\fBidx\fP)) \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (!isempty(\fBidx\fP)&&\fBlength\fP(\fBargs\fP) > \fBidx\fP(1)) \fBp\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP (\fBidx\fP(1):\fBidx\fP(1)+1)"
+.br
+.ti -1c
+.RI "\fBelseif\fP (\fBlength\fP(\fBargs\fP) > 0 &&ishandle(\fBargs\fP{1})) \fBp\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP (1)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBp\fP, \fBargs\fP]"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBargs\fP (\fBidx\fP(1):\fBidx\fP(1)+1)"
+.SS "\fBargs\fP (1)"
+.SS "\fBelseif\fP (\fBlength\fP(\fBargs\fP), 0 &&ishandleargs{1})"
+.SS "\fBif\fP (isempty(\fBidx\fP))"
+.SS "\fBendif\fP \fBif\fP (!isemptyidx)&&length(args, \fBidx\fP(1))"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBp\fP, \fBargs\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __get_parent_arg__ (p, args)
+
+  idx = find (strcmp (args, 'Parent'))
+.fi
+.PP
+Definition at line 16 of file __get_parent_arg__\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

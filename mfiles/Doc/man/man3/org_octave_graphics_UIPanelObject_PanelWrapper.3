@@ -1,0 +1,61 @@
+.TH "UIPanelObject.PanelWrapper" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UIPanelObject.PanelWrapper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Panel, and \fBPositionable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPanelWrapper\fP (\fBUIPanelObject\fP \fBuiPanel\fP)"
+.br
+.ti -1c
+.RI "double[] \fBgetPosition\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIPanelObject\fP \fBuiPanel\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPanelWrapper\fP (\fBUIPanelObject\fPuiPanel)\fC [inline]\fP"
+.PP
+References UIPanelObject\&.PanelWrapper\&.uiPanel\&.
+.PP
+.nf
+                {
+                        super(new BorderLayout());
+                        this\&.uiPanel = uiPanel;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "double [] \fBgetPosition\fP ()\fC [inline]\fP"
+.PP
+Implements \fBPositionable\fP\&.
+.PP
+References UIPanelObject\&.getPosition(), and UIPanelObject\&.PanelWrapper\&.uiPanel\&.
+.PP
+.nf
+                {
+                        return uiPanel\&.getPosition();
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBUIPanelObject\fP \fBuiPanel\fP\fC [private]\fP"
+.PP
+Referenced by UIPanelObject\&.PanelWrapper\&.getPosition(), and UIPanelObject\&.PanelWrapper\&.PanelWrapper()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

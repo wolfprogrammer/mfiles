@@ -1,0 +1,110 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/stem3.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/stem3.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (isempty(\fBax\fP)) \fBax\fP"
+.br
+.ti -1c
+.RI "else \fBaxes\fP (\fBax\fP)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBnewplot\fP ()"
+.br
+.ti -1c
+.RI "\fBif\fP (!strcmp(\fBget\fP(\fBax\fP,'nextplot'),'add')) set(\fBax\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (nargout > 0) \fBh\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP [\fBax\fP, \fBx\fP, \fBy\fP, \fBz\fP, \fBdofill\fP, \fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP] = __parse_stem_args__ ('stem3', 1, varargin{:})"
+.br
+.ti -1c
+.RI "\fBtmp\fP = __jhandles_go_stemseries (\fBax\fP, \fBx\fP, \fBy\fP, \fBz\fP, \fBdofill\fP, \fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP)"
+.br
+.ti -1c
+.RI "\fBview\fP"
+.br
+.ti -1c
+.RI "\fBbox\fP"
+.br
+.ti -1c
+.RI "\fBoff\fP"
+.br
+.ti -1c
+.RI "\fBxgrid\fP"
+.br
+.ti -1c
+.RI "\fBon\fP"
+.br
+.ti -1c
+.RI "\fBygrid\fP"
+.br
+.ti -1c
+.RI "\fBzgrid\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "else \fBaxes\fP (\fBax\fP)"
+.SS "\fBif\fP (isempty(\fBax\fP))"
+.SS "\fBif\fP (!strcmpget(ax,'nextplot'),'add')"
+.SS "\fBendif\fP \fBif\fP (nargout, 0)"
+.SS "\fBendif\fP \fBnewplot\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBbox\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SS "\fBendif\fP[\fBax\fP, \fBx\fP, \fBy\fP, \fBz\fP, \fBdofill\fP, \fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP] = __parse_stem_args__ ('stem3', 1, varargin{:})"
+.PP
+Definition at line 23 of file stem3\&.m\&.
+.SS "\fBfunction\fP \fBh\fP"\fBInitial value:\fP
+.PP
+.nf
+ stem3 (varargin)
+
+  if (nargin < 1 || nargin > 6)
+    print_usage ()
+.fi
+.PP
+Definition at line 17 of file stem3\&.m\&.
+.SS "\fBoff\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SS "\fBon\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SS "\fBtmp\fP = __jhandles_go_stemseries (\fBax\fP, \fBx\fP, \fBy\fP, \fBz\fP, \fBdofill\fP, \fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP)"
+.PP
+Definition at line 32 of file stem3\&.m\&.
+.SS "\fBview\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SS "\fBxgrid\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SS "\fBygrid\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SS "\fBzgrid\fP"
+.PP
+Definition at line 35 of file stem3\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

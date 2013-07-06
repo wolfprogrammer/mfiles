@@ -1,0 +1,251 @@
+.TH "SimpleTextEngine.TeXElement" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.TeXElement \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSimpleTextEngine\&.Element\fP\&.
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTeXElement\fP (String txt)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBLayouter\fP l)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (Graphics2D g)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTextRenderer\fP r)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBRenderCanvas\fP comp, Font font)"
+.br
+.in -1c
+.SS "Static Package Functions"
+
+.in +1c
+.ti -1c
+.RI "static Font \fBgetSymbolFont\fP (Font f)"
+.br
+.ti -1c
+.RI "static String \fBconvertString\fP (String s, int idx)"
+.br
+.ti -1c
+.RI "static String \fBconvertString\fP (String s)"
+.br
+.ti -1c
+.RI "static int \fBgetSymbolCode\fP (String s, int idx)"
+.br
+.ti -1c
+.RI "static int \fBgetSymbolCode\fP (String s)"
+.br
+.ti -1c
+.RI "static boolean \fBisSymbol\fP (String s)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBsymbol\fP"
+.br
+.ti -1c
+.RI "String \fBtext\fP"
+.br
+.ti -1c
+.RI "Rectangle \fBrect\fP"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static String[] \fBsymbol_names\fP"
+.br
+.ti -1c
+.RI "static int[][] \fBsymbol_codes\fP"
+.br
+.ti -1c
+.RI "static Map \fBsymbol_map\fP"
+.br
+.ti -1c
+.RI "static boolean \fBuse_symbol_font\fP = System\&.getProperty('os\&.name')\&.startsWith('Windows')"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBTeXElement\fP (Stringtxt)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXElement\&.convertString(), SimpleTextEngine\&.TeXElement\&.symbol, and SimpleTextEngine\&.TeXElement\&.use_symbol_font\&.
+.PP
+.nf
+                {
+                        super(convertString(txt, (use_symbol_font ? 1 : 0)));
+                        this\&.symbol = txt;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "static String \fBconvertString\fP (Strings, intidx)\fC [inline, static, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXElement\&.getSymbolCode()\&.
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.convertString(), and SimpleTextEngine\&.TeXElement\&.TeXElement()\&.
+.PP
+.nf
+                {
+                        int c = getSymbolCode(s, idx);
+                        if (c >= 0)
+                                return new String(new int[] {c}, 0, 1);
+                        return '';
+                }
+.fi
+.SS "static String \fBconvertString\fP (Strings)\fC [inline, static, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXElement\&.convertString()\&.
+.PP
+.nf
+                {
+                        return convertString(s, 0);
+                }
+.fi
+.SS "static int \fBgetSymbolCode\fP (Strings, intidx)\fC [inline, static, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXElement\&.symbol_codes, SimpleTextEngine\&.TeXElement\&.symbol_map, and SimpleTextEngine\&.TeXElement\&.symbol_names\&.
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.convertString(), SimpleTextEngine\&.TeXElement\&.getSymbolCode(), SimpleTextEngine\&.TeXElement\&.isSymbol(), and SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        if (symbol_map == null)
+                        {
+                                symbol_map = new HashMap();
+                                for (int i=0; i<symbol_names\&.length; i++)
+                                        if (symbol_names[i] != null && symbol_codes[i][0] != 0)
+                                                symbol_map\&.put(symbol_names[i], symbol_codes[i]);
+                        }
+                        int[] c = (int[])symbol_map\&.get(s);
+                        if (c != null && idx >= 0 && idx < c\&.length)
+                                return c[idx];
+                        return -1;
+                }
+.fi
+.SS "static int \fBgetSymbolCode\fP (Strings)\fC [inline, static, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXElement\&.getSymbolCode()\&.
+.PP
+.nf
+                {
+                        return getSymbolCode(s, 0);
+                }
+.fi
+.SS "static Font \fBgetSymbolFont\fP (Fontf)\fC [inline, static, package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.layout(), and SimpleTextEngine\&.TeXElement\&.render()\&.
+.PP
+.nf
+                {
+                        return new Font('Symbol', f\&.getStyle(), f\&.getSize());
+                }
+.fi
+.SS "static boolean \fBisSymbol\fP (Strings)\fC [inline, static, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXElement\&.getSymbolCode()\&.
+.PP
+Referenced by SimpleTextEngine\&.SimpleFactory\&.parse()\&.
+.PP
+.nf
+                {
+                        return (getSymbolCode(s) >= 0);
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBRenderCanvas\fPcomp, Fontfont)\fC [inline, package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.layout(), and SimpleTextEngine\&.ScriptElement\&.layout()\&.
+.PP
+.nf
+                {
+                        return layout(new Layouter(comp, font));
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBLayouter\fPl)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.Layouter\&.font, SimpleTextEngine\&.TeXElement\&.getSymbolFont(), SimpleTextEngine\&.Element\&.rect, and SimpleTextEngine\&.TeXElement\&.use_symbol_font\&.
+.PP
+.nf
+                {
+                        if (use_symbol_font)
+                        {
+                                Font currentFont = l\&.font;
+                                l\&.font = getSymbolFont(currentFont);
+                                super\&.layout(l);
+                                l\&.font = currentFont;
+                                return rect;
+                        }
+                        else
+                                return super\&.layout(l);
+                }
+.fi
+.SS "void \fBrender\fP (Graphics2Dg)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.TeXElement\&.getSymbolFont(), and SimpleTextEngine\&.TeXElement\&.use_symbol_font\&.
+.PP
+.nf
+                {
+                        if (use_symbol_font)
+                        {
+                                Font currentFont = g\&.getFont();
+                                g\&.setFont(getSymbolFont(currentFont));
+                                super\&.render(g);
+                                g\&.setFont(currentFont);
+                        }
+                        else
+                                super\&.render(g);
+                }
+.fi
+.SS "void \fBrender\fP (\fBTextRenderer\fPr)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.TextRenderer\&.render()\&.
+.PP
+.nf
+{ r\&.render(this); }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "Rectangle \fBrect\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.SubscriptElement\&.layout(), SimpleTextEngine\&.SuperscriptElement\&.layout(), SimpleTextEngine\&.ScriptElement\&.layout(), SimpleTextEngine\&.TeXFontCommand\&.layout(), SimpleTextEngine\&.TeXElement\&.layout(), SimpleTextEngine\&.Content\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), SimpleTextEngine\&.LineElement\&.render(), SimpleTextEngine\&.SuperscriptElement\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "String \fBsymbol\fP\fC [package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.TeXElement\&.TeXElement()\&.
+.SS "int [][] \fBsymbol_codes\fP\fC [static, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.getSymbolCode()\&.
+.SS "Map \fBsymbol_map\fP\fC [static, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.getSymbolCode()\&.
+.SS "String [] \fBsymbol_names\fP\fC [static, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.getSymbolCode()\&.
+.SS "String \fBtext\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Element\&.render()\&.
+.SS "boolean \fBuse_symbol_font\fP = System\&.getProperty('os\&.name')\&.startsWith('Windows')\fC [static, private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.TeXElement\&.layout(), SimpleTextEngine\&.TeXElement\&.render(), and SimpleTextEngine\&.TeXElement\&.TeXElement()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

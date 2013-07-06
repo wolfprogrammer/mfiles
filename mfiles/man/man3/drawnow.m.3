@@ -1,0 +1,37 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/drawnow.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/drawnow.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBdrawnow\fP (term, file, mono, debugfile) \fBh\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBh\fP)&&h!=0 &&ishandle(\fBh\fP)) \fBfig\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (nargin==0) fig\&.redraw()"
+.br
+.ti -1c
+.RI "\fBelseif\fP (nargin >=2) elt"
+.br
+.ti -1c
+.RI "otherwise \fBerror\fP ('unsupported output format: %\fBs\fP', term)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBfunction\fP \fBdrawnow\fP (term, file, mono, debugfile)"
+.SS "\fBelseif\fP (nargin >=2)"
+.SS "otherwise \fBerror\fP ('unsupported output format: %\fBs\fP', term)"
+.SS "\fBif\fP (!isempty(\fBh\fP)&&h! = \fC0 &&ishandle(\fBh\fP)\fP)"
+.SS "\fBif\fP (nargin = \fC=0\fP)"
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,115 @@
+.TH "SimpleTextEngine.ScriptElement" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.ScriptElement \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSimpleTextEngine\&.Element\fP\&.
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBScriptElement\fP (\fBElement\fP e1, \fBElement\fP e2)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBLayouter\fP l)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (Graphics2D g)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTextRenderer\fP r)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBRenderCanvas\fP comp, Font font)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBElement\fP[] \fBelems\fP = new \fBElement\fP[2]"
+.br
+.ti -1c
+.RI "String \fBtext\fP"
+.br
+.ti -1c
+.RI "Rectangle \fBrect\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBScriptElement\fP (\fBElement\fPe1, \fBElement\fPe2)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.ScriptElement\&.elems\&.
+.PP
+.nf
+                {
+                        super('');
+                        elems[0] = e1;
+                        elems[1] = e2;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "Rectangle \fBlayout\fP (\fBRenderCanvas\fPcomp, Fontfont)\fC [inline, package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.layout(), and SimpleTextEngine\&.ScriptElement\&.layout()\&.
+.PP
+.nf
+                {
+                        return layout(new Layouter(comp, font));
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBLayouter\fPl)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.ScriptElement\&.elems, SimpleTextEngine\&.Element\&.layout(), and SimpleTextEngine\&.Element\&.rect\&.
+.PP
+.nf
+                {
+                        rect = elems[0]\&.layout(l);
+                        rect = rect\&.union(elems[1]\&.layout(l));
+                        return rect;
+                }
+.fi
+.SS "void \fBrender\fP (Graphics2Dg)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.ScriptElement\&.elems, and SimpleTextEngine\&.Element\&.render()\&.
+.PP
+.nf
+                {
+                        elems[0]\&.render(g);
+                        elems[1]\&.render(g);
+                }
+.fi
+.SS "void \fBrender\fP (\fBTextRenderer\fPr)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.TextRenderer\&.render()\&.
+.PP
+.nf
+{ r\&.render(this); }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBElement\fP [] \fBelems\fP = new \fBElement\fP[2]\fC [package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.ScriptElement\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), SimpleTextEngine\&.ScriptElement\&.render(), and SimpleTextEngine\&.ScriptElement\&.ScriptElement()\&.
+.SS "Rectangle \fBrect\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.SubscriptElement\&.layout(), SimpleTextEngine\&.SuperscriptElement\&.layout(), SimpleTextEngine\&.ScriptElement\&.layout(), SimpleTextEngine\&.TeXFontCommand\&.layout(), SimpleTextEngine\&.TeXElement\&.layout(), SimpleTextEngine\&.Content\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), SimpleTextEngine\&.LineElement\&.render(), SimpleTextEngine\&.SuperscriptElement\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "String \fBtext\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Element\&.render()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

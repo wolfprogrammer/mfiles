@@ -1,0 +1,179 @@
+.TH "GLRenderer.PatchTessellator" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLRenderer.PatchTessellator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGLUtessellatorCallbackAdapter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPatchTessellator\fP (GL \fBgl\fP, int \fBcolorMode\fP, int \fBlightMode\fP)"
+.br
+.ti -1c
+.RI "\fBPatchTessellator\fP (GL \fBgl\fP, int \fBcolorMode\fP, int \fBlightMode\fP, int \fBindex\fP)"
+.br
+.ti -1c
+.RI "void \fBbeginData\fP (int mode, Object pData)"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "void \fBvertex\fP (Object vData)"
+.br
+.ti -1c
+.RI "void \fBcombine\fP (double[] coords, Object[] \fBd\fP, float[] w, Object[] outData)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBcolorMode\fP"
+.br
+.ti -1c
+.RI "int \fBlightMode\fP"
+.br
+.ti -1c
+.RI "boolean \fBfirstVertex\fP"
+.br
+.ti -1c
+.RI "GL \fBgl\fP"
+.br
+.ti -1c
+.RI "\fBVertexData\fP \fBv0\fP"
+.br
+.ti -1c
+.RI "boolean \fBfill\fP"
+.br
+.ti -1c
+.RI "int \fBindex\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPatchTessellator\fP (GLgl, intcolorMode, intlightMode)\fC [inline]\fP"
+.PP
+.nf
+                {
+                        this(gl, colorMode, lightMode, 0);
+                }
+.fi
+.SS "\fBPatchTessellator\fP (GLgl, intcolorMode, intlightMode, intindex)\fC [inline]\fP"
+.PP
+.nf
+                {
+                        this\&.gl = gl;
+                        this\&.colorMode = colorMode;
+                        this\&.lightMode = lightMode;
+                        this\&.index = index;
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBbeginData\fP (intmode, ObjectpData)\fC [inline]\fP"
+.PP
+.nf
+                {
+                        firstVertex = true;
+                        v0 = (VertexData)pData;
+                        if (colorMode == 2 || lightMode == 2)
+                                gl\&.glShadeModel(GL\&.GL_SMOOTH);
+                        else
+                                gl\&.glShadeModel(GL\&.GL_FLAT);
+                        if (mode != GL\&.GL_LINE_LOOP)
+                        {
+                                gl\&.glPolygonOffset(po+index, po+index);
+                                setPolygonOffset(true);
+                                fill = true;
+                        }
+                        else
+                                fill = false;
+                        gl\&.glBegin(mode);
+                }
+.fi
+.SS "void \fBcombine\fP (double[]coords, Object[]d, float[]w, Object[]outData)\fC [inline]\fP"
+.PP
+References GLRenderer\&.VertexData\&.color\&.
+.PP
+.nf
+                {
+                        VertexData v0 = (VertexData)d[0], v1 = (VertexData)d[1], v2 = (VertexData)d[2], v3 = (VertexData)d[3];
+                        /*
+                        System\&.out\&.println(v0);
+                        System\&.out\&.println(v1);
+                        System\&.out\&.println(v2);
+                        System\&.out\&.println(v3);
+                        */
+                        if (v0 == null || v1 == null || v2 == null || v3 == null)
+                                return;
+                        outData[0] = new VertexData(
+                                coords,
+                                (v0\&.color != null && v1\&.color != null && v2\&.color != null && v3\&.color != null ?
+                                        new double[] {
+                                                w[0]*v0\&.color[0]+w[1]*v1\&.color[0]+w[2]*v2\&.color[0]+w[3]*v3\&.color[0],
+                                                w[0]*v0\&.color[1]+w[1]*v1\&.color[1]+w[2]*v2\&.color[1]+w[3]*v3\&.color[1],
+                                                w[0]*v0\&.color[2]+w[1]*v1\&.color[2]+w[2]*v2\&.color[2]+w[3]*v3\&.color[2]} :
+                                        null),
+                                w[0]*v0\&.alpha+w[1]*v1\&.alpha+w[2]*v2\&.alpha+w[3]*v3\&.alpha,
+                                new double[] {
+                                        w[0]*v0\&.normal[0]+w[1]*v1\&.normal[0]+w[2]*v2\&.normal[0]+w[3]*v3\&.normal[0],
+                                        w[0]*v0\&.normal[1]+w[1]*v1\&.normal[1]+w[2]*v2\&.normal[1]+w[3]*v3\&.normal[1],
+                                        w[0]*v0\&.normal[2]+w[1]*v1\&.normal[2]+w[2]*v2\&.normal[2]+w[3]*v3\&.normal[2]},
+                                v0\&.ambient, v0\&.diffuse, v0\&.specular, v0\&.specularExp);
+                }
+.fi
+.SS "void \fBend\fP ()\fC [inline]\fP"
+.PP
+.nf
+                {
+                        gl\&.glEnd();
+                        setPolygonOffset(false);
+                }
+.fi
+.SS "void \fBvertex\fP (ObjectvData)\fC [inline]\fP"
+.PP
+References GLRenderer\&.VertexData\&.ambient, GLRenderer\&.VertexData\&.color, and GLRenderer\&.VertexData\&.diffuse\&.
+.PP
+.nf
+                {
+                        VertexData v = (VertexData)vData;
+                        if (colorMode > 0 && (firstVertex || colorMode == 2 || !fill))
+                        {
+                                double[] color = ((colorMode == 2 || !fill) ? v\&.color : v0\&.color);
+                                gl\&.glColor3d(color[0], color[1], color[2]);
+                                if (lightMode > 0)
+                                {
+                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_AMBIENT,
+                                                new float[] {v\&.ambient*(float)color[0], v\&.ambient*(float)color[1], v\&.ambient*(float)color[2], 1}, 0);
+                                        gl\&.glMaterialfv(lightSideMode, GL\&.GL_DIFFUSE,
+                                                new float[] {v\&.diffuse*(float)color[0], v\&.diffuse*(float)color[1], v\&.diffuse*(float)color[2], 1}, 0);
+                                }
+                        }
+                        if (lightMode > 0 && (firstVertex || lightMode == 2))
+                                gl\&.glNormal3d(v\&.normal[0], v\&.normal[1], v\&.normal[2]);
+                        if (v\&.coords\&.length > 2)
+                                gl\&.glVertex3d(v\&.coords[0], v\&.coords[1], v\&.coords[2]);
+                        else
+                                gl\&.glVertex2d(v\&.coords[0], v\&.coords[1]);
+                        firstVertex = false;
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int \fBcolorMode\fP\fC [private]\fP"
+.SS "boolean \fBfill\fP\fC [private]\fP"
+.SS "boolean \fBfirstVertex\fP\fC [private]\fP"
+.SS "GL \fBgl\fP\fC [private]\fP"
+.SS "int \fBindex\fP\fC [private]\fP"
+.SS "int \fBlightMode\fP\fC [private]\fP"
+.SS "\fBVertexData\fP \fBv0\fP\fC [private]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

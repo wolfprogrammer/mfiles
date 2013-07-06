@@ -1,0 +1,63 @@
+.TH "/home/caio/mfiles/help2.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/help2.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBprintf\fP ('Comados mais utéis:\\\fBn\fP\\\fBn\fP')"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBmode\fP==1) \fBsystem\fP('less /home/caio/mfiles/helptext\&.txt') else \fBfid\fP"
+.br
+.ti -1c
+.RI "while \fB~feof\fP (\fBfid\fP) \fBline\fP"
+.br
+.ti -1c
+.RI "\fBdisp\fP (\fBline\fP)"
+.br
+.ti -1c
+.RI "end \fBfclose\fP (\fBfid\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP []"
+.br
+.ti -1c
+.RI "\fBline\fP = fgets(\fBfid\fP)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBdisp\fP (\fBline\fP)"
+.SS "end \fBfclose\fP (\fBfid\fP)"
+.SS "\fBif\fP (\fBmode\fP = \fC=1\fP)"
+.SS "\fBprintf\fP ('Comados mais utéis:\\\fBn\fP\\\fBn\fP')"
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psBeginPage(), and Java_org_octave_graphics_GL2PS_gl2psLineWidth()\&.
+.SS "while ~feof (\fBfid\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ help2 (mode=1)
+
+printf('Ajuda do OCTAVE\n')
+.fi
+.PP
+Definition at line 22 of file help2\&.m\&.
+.SS "\fBline\fP = fgets(\fBfid\fP)"
+.PP
+Definition at line 33 of file help2\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

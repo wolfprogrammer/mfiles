@@ -1,0 +1,173 @@
+.TH "PopupMenuControl" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PopupMenuControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJComboBox\fP, \fBUIControl\fP, and \fBActionListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPopupMenuControl\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBactionPerformed\fP (ActionEvent event)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateItems\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateValue\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPopupMenuControl\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References HandleEvent\&.getProperty(), HandleEventSinkAdapter\&.listen(), PopupMenuControl\&.propertyChanged(), PopupMenuControl\&.sink, PopupMenuControl\&.uiObj, UIControlObject\&.UIString, PopupMenuControl\&.updateItems(), PopupMenuControl\&.updateValue(), and UIControlObject\&.Value\&.
+.PP
+.nf
+        {
+                super();
+                addActionListener(this);
+                uiObj = obj;
+
+                updateItems();
+                updateValue();
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+                sink\&.listen(obj\&.Value);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBactionPerformed\fP (ActionEventevent)\fC [inline]\fP"
+.PP
+References UIControlObject\&.controlActivated(), and PopupMenuControl\&.uiObj\&.
+.PP
+.nf
+        {
+                uiObj\&.controlActivated(new UIControlEvent(this));
+        }
+.fi
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and PopupMenuControl\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References PopupMenuControl\&.uiObj, UIControlObject\&.UIString, PopupMenuControl\&.updateItems(), PopupMenuControl\&.updateValue(), and UIControlObject\&.Value\&.
+.PP
+Referenced by PopupMenuControl\&.PopupMenuControl()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.UIString)
+                        updateItems();
+                else if (p == uiObj\&.Value)
+                        updateValue();
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References Property\&.reset(), PopupMenuControl\&.uiObj, and UIControlObject\&.Value\&.
+.PP
+.nf
+        {
+                uiObj\&.Value\&.reset(new double[] {getSelectedIndex()+1});
+        }
+.fi
+.SS "void \fBupdateItems\fP ()\fC [inline, private]\fP"
+.PP
+References StringProperty\&.toString(), PopupMenuControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+Referenced by PopupMenuControl\&.PopupMenuControl(), and PopupMenuControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                String[] items = uiObj\&.UIString\&.toString()\&.split('\\|');
+                removeAllItems();
+                for (int i=0; i<items\&.length; i++)
+                        addItem(items[i]);
+        }
+.fi
+.SS "void \fBupdateValue\fP ()\fC [inline, private]\fP"
+.PP
+References VectorProperty\&.getArray(), PopupMenuControl\&.uiObj, and UIControlObject\&.Value\&.
+.PP
+Referenced by PopupMenuControl\&.PopupMenuControl(), and PopupMenuControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if (uiObj\&.Value\&.getArray()\&.length > 0)
+                {
+                        int index = (int)uiObj\&.Value\&.getArray()[0];
+                        if (index > 0 && index <= getItemCount())
+                                setSelectedIndex(index-1);
+                }
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [package]\fP"
+.PP
+Referenced by PopupMenuControl\&.dispose(), and PopupMenuControl\&.PopupMenuControl()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [package]\fP"
+.PP
+Referenced by PopupMenuControl\&.actionPerformed(), PopupMenuControl\&.PopupMenuControl(), PopupMenuControl\&.propertyChanged(), PopupMenuControl\&.update(), PopupMenuControl\&.updateItems(), and PopupMenuControl\&.updateValue()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

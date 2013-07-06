@@ -1,0 +1,173 @@
+.TH "HandleEventSourceHelper" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HandleEventSourceHelper \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHandleEventSourceHelper\fP (Object \fBsource\fP, String[] events)"
+.br
+.ti -1c
+.RI "boolean \fBhasHandleEvent\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBfireEvent\fP (String name)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBaddHandleEventSink\fP (String name, \fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Map \fBeventMap\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Object \fBsource\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBHandleEventSourceHelper\fP (Objectsource, String[]events)\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.eventMap, and HandleEventSourceHelper\&.source\&.
+.PP
+.nf
+        {
+                this\&.source = source;
+                this\&.eventMap = Collections\&.synchronizedMap(new HashMap());
+
+                for (int i=0; i<events\&.length; i++)
+                        eventMap\&.put(events[i], null);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddHandleEventSink\fP (Stringname, \fBHandleEventSink\fPsink)\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.eventMap, and HandleEventSourceHelper\&.source\&.
+.PP
+Referenced by Property\&.addHandleEventSink(), and HandleObject\&.addHandleEventSink()\&.
+.PP
+.nf
+        {
+                if (eventMap\&.containsKey(name))
+                {
+                        List l = (List)eventMap\&.get(name);
+                        if (l == null)
+                        {
+                                l = new LinkedList();
+                                eventMap\&.put(name, l);
+                        }
+                        l\&.add(sink);
+                }
+                else
+                        System\&.out\&.println('ERROR: unknown event `' + name + '' for objects of type ' + source\&.getClass());
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.eventMap, and HandleEventSourceHelper\&.source\&.
+.PP
+Referenced by HandleObject\&.delete(), and Property\&.delete()\&.
+.PP
+.nf
+        {
+                Iterator it = eventMap\&.values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        List l = (List)it\&.next();
+                        if (l != null)
+                        {
+                                Iterator lit = l\&.iterator();
+                                while (lit\&.hasNext())
+                                        ((HandleEventSink)lit\&.next())\&.sourceDeleted(source);
+                        }
+                }
+        }
+.fi
+.SS "void \fBfireEvent\fP (Stringname)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.eventMap, HandleEventSink\&.eventOccured(), HandleEventSink\&.executeOnce(), and HandleEventSourceHelper\&.source\&.
+.PP
+Referenced by HandleObject\&.delete(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                if (eventMap\&.containsKey(name))
+                {
+                        LinkedList l = (LinkedList)eventMap\&.get(name);
+                        if (l != null)
+                                synchronized (l)
+                                {
+                                        HandleEvent evt = new HandleEvent(source, name);
+                                        Iterator it = l\&.iterator();
+                                        while (it\&.hasNext())
+                                        {
+                                                HandleEventSink sink = (HandleEventSink)it\&.next();
+                                                sink\&.eventOccured(evt);
+                                                if (sink\&.executeOnce())
+                                                        it\&.remove();
+                                        }
+                                }
+                }
+                else
+                        System\&.out\&.println('ERROR: unknown event `' + name + '' for objects of type ' + source\&.getClass());
+        }
+.fi
+.SS "boolean \fBhasHandleEvent\fP (Stringname)\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.eventMap\&.
+.PP
+Referenced by Property\&.hasHandleEvent(), and HandleObject\&.hasHandleEvent()\&.
+.PP
+.nf
+        {
+                return eventMap\&.containsKey(name);
+        }
+.fi
+.SS "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fPsink)\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.eventMap\&.
+.PP
+Referenced by Property\&.removeHandleEventSink(), and HandleObject\&.removeHandleEventSink()\&.
+.PP
+.nf
+        {
+                Iterator it = eventMap\&.values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        List l = (List)it\&.next();
+                        if (l != null)
+                                while (l\&.remove(sink));
+                }
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "Map \fBeventMap\fP\fC [protected]\fP"
+.PP
+Referenced by HandleEventSourceHelper\&.addHandleEventSink(), HandleEventSourceHelper\&.delete(), HandleEventSourceHelper\&.fireEvent(), HandleEventSourceHelper\&.HandleEventSourceHelper(), HandleEventSourceHelper\&.hasHandleEvent(), and HandleEventSourceHelper\&.removeHandleEventSink()\&.
+.SS "Object \fBsource\fP\fC [private]\fP"
+.PP
+Referenced by HandleEventSourceHelper\&.addHandleEventSink(), HandleEventSourceHelper\&.delete(), HandleEventSourceHelper\&.fireEvent(), and HandleEventSourceHelper\&.HandleEventSourceHelper()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

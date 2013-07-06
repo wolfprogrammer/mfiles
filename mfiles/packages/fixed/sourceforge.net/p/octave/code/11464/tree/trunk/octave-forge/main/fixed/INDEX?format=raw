@@ -1,0 +1,62 @@
+fixed >> Fixed Point Type
+Fixed Point Operators
+ + - = Addition/subtraction in a fixed point algebra.
+ * / \ = Multiplication/division in fixed point (Division for scalars only).
+ .* ./ .\ = Element by element multiplication/division of fixed point arrays.
+ ** ^ =  Matrix exponentiation of fixed point arrays.
+ .** .^ = Element by element matrix exponentiation of fixed point arrays.
+ ' .' = Matrix transpose of fixed point arrays.
+ == ~= != > >= < <= = Logical operators on fixed point arrays.
+Fixed Point Variables
+ fixed_point_warn_overflow
+ fixed_point_debug
+ fixed_point_count_operations
+ fixed_point_version
+ fixed_point_library_version
+Fixed Point Utility Functions
+ concat
+ create_lookup_table
+ display_fixed_operations
+ fdiag
+ fixed
+ fixedpoint
+ float
+ freshape
+ fsort
+ isfixed
+ length
+ lookup_table
+ reset_fixed_operations
+ size
+ all
+ any
+Fixed Point Functions
+ fabs
+ fangle
+ farg
+ fatan2
+ fceil
+ fconj
+ fcosh
+ fcos
+ fcumprod
+ fcumsum
+ fexp
+ ffloor
+ fimag
+ flog10
+ flog
+ fprod
+ freal
+ fround
+ fsinh
+ fsin
+ fsqrt
+ fsum
+ fsumsq
+ ftanh
+ ftan
+Examples
+ ffft
+ fifft
+ fixed_inc

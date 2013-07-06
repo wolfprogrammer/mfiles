@@ -1,0 +1,92 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_get.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_get.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBhandle\fP)) \fBif\fP(nargin"
+.br
+.ti -1c
+.RI "\fBelseif\fP (nargout > 0) \fBnames\fP"
+.br
+.ti -1c
+.RI "else \fBhandle\fP \fBshow\fP ()"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('invalid \fBhandle\fP')"
+.br
+.ti -1c
+.RI "\fBendif\fP unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.br
+.ti -1c
+.RI "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [varargout]"
+.br
+.ti -1c
+.RI "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.br
+.ti -1c
+.RI "unwind_protect \fBhandle\fP = \fB__get_object__\fP (\fBh\fP)"
+.br
+.ti -1c
+.RI "\fBret\fP = struct([])"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBelseif\fP (nargout, 0)"
+.SS "\fBendif\fP else \fBerror\fP ('invalid \fBhandle\fP')"
+.SS "\fBif\fP (!isemptyhandle)"
+.SS "\fBendif\fP unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.SS "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.SS "else \fBhandle\fP \fBshow\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[varargout]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_get (h, property)
+
+  j1 = java_convert_matrix (1)
+.fi
+.PP
+Definition at line 16 of file __jhandles_get\&.m\&.
+.SS "unwind_protect \fBhandle\fP = \fB__get_object__\fP (\fBh\fP)"
+.PP
+Definition at line 22 of file __jhandles_get\&.m\&.
+.PP
+Referenced by DEFUN_DLD()\&.
+.SS "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.PP
+Definition at line 19 of file __jhandles_get\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:length (names)
+          ret\&.(tolower(names{k})) = java2mat (handle\&.get (names{k}))
+.fi
+.PP
+Definition at line 29 of file __jhandles_get\&.m\&.
+.SS "endfor endswitch else \fBret\fP = struct([])"
+.PP
+Definition at line 28 of file __jhandles_get\&.m\&.
+.PP
+Referenced by gl2psAddInBspImageTree(), gl2psAddPlanesInBspTreeImage(), and gl2psPrintf()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,108 @@
+.TH "/home/caio/mfiles/units.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/units.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBd\fP \fBd\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "STANDARD UNITS OF SI ANF 
+.br
+CONSTANTS Constants Gravity \fBgravity\fP"
+.br
+.ti -1c
+.RI "\fBminn\fP = 60*sec"
+.br
+.ti -1c
+.RI "\fBhour\fP = 60*\fBminn\fP"
+.br
+.ti -1c
+.RI "Transforma de radianos para graus \fBr2d\fP = @(r) 180/pi*r"
+.br
+.ti -1c
+.RI "Converte de radianos seg para Hertz \fBrads2hz\fP = @(\fBw\fP) \fBw\fP/(2*pi)"
+.br
+.ti -1c
+.RI "Converte de Hertz para radianos seg \fBhz2rads\fP = @(\fBf\fP) \fBf\fP/(2*pi)"
+.br
+.ti -1c
+.RI "Rpm para radianos seg \fBrpm2rads\fP"
+.br
+.ti -1c
+.RI "\fBmm2in\fP = 1/25\&.4"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBd\fP \fBd\fP ()\fC [virtual]\fP"
+.SH "Variable Documentation"
+.PP 
+.SS "STANDARD UNITS OF SI ANF CONSTANTS Constants Gravity \fBgravity\fP"\fBInitial value:\fP
+.PP
+.nf
+9\&.80665 % m/s2
+g0=gravity
+
+% Gas constant
+R0=8\&.3145 % J/K mol
+
+
+
+
+
+%-------------------------------------%
+
+%       Tempo
+sec=1
+.fi
+.PP
+Definition at line 10 of file units\&.m\&.
+.SS "\fBhour\fP = 60*\fBminn\fP"
+.PP
+Definition at line 25 of file units\&.m\&.
+.SS "Converte de Hertz para radianos seg \fBhz2rads\fP = @(\fBf\fP) \fBf\fP/(2*pi)"
+.PP
+Definition at line 39 of file units\&.m\&.
+.SS "\fBminn\fP = 60*sec"
+.PP
+Definition at line 24 of file units\&.m\&.
+.SS "\fBmm2in\fP = 1/25\&.4"
+.PP
+Definition at line 53 of file units\&.m\&.
+.SS "Transforma de radianos para graus \fBr2d\fP = @(r) 180/pi*r"
+.PP
+Definition at line 33 of file units\&.m\&.
+.SS "Converte de radianos seg para Hertz \fBrads2hz\fP = @(\fBw\fP) \fBw\fP/(2*pi)"
+.PP
+Definition at line 36 of file units\&.m\&.
+.SS "Rpm para radianos seg \fBrpm2rads\fP"\fBInitial value:\fP
+.PP
+.nf
+ @(rpm) rpm*2*pi/60
+
+% Rpm para Hz
+rpm2hz= @(rpm) rpm/60
+
+
+%----------------------------------%
+%       FATORES DE CONVERSÃO      %
+%----------------------------------%
+
+in2mm= 25\&.4
+.fi
+.PP
+Definition at line 42 of file units\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

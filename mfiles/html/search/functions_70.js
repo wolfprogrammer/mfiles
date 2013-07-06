@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['print_5fusage',['print_usage',['../uipanel_8m.html#a85c703d5b99a7533627651e071051e3e',1,'print_usage():&#160;uipanel.m'],['../uiresume_8m.html#afa92abd1fd9794e012ad2733d3b95bfc',1,'print_usage():&#160;uiresume.m'],['../uiwait_8m.html#ae4cf6ade7831eb435817137266876e11',1,'print_usage():&#160;uiwait.m'],['../waitfor_8m.html#ae4cf6ade7831eb435817137266876e11',1,'print_usage():&#160;waitfor.m']]],
+  ['printf',['printf',['../help2_8m.html#a62d9ac51cae14ea89cc50626224dbcae',1,'printf(&quot;Comados mais utéis:\n\n&quot;):&#160;help2.m'],['../prova1_8m.html#a82e767b9f63e1191d88cea83b90da3ef',1,'printf(&quot;Testes\n\n&quot;):&#160;prova1.m'],['../prova1a_8m.html#a82e767b9f63e1191d88cea83b90da3ef',1,'printf(&quot;Testes\n\n&quot;):&#160;prova1a.m'],['../prova1c_8m.html#a82e767b9f63e1191d88cea83b90da3ef',1,'printf(&quot;Testes\n\n&quot;):&#160;prova1c.m'],['../report_8m.html#a4d35d413b44153f08ba79ab7bf0125bb',1,'printf( &apos;line=%s\n&apos;, line):&#160;report.m'],['../vars_8m.html#ae8f2e532693efb78d85c873dd28d7b92',1,'printf(&quot;\t%s\t\t%3.3g\n&quot;, vname, vvalue):&#160;vars.m']]],
+  ['pvrating',['pvrating',['../pvrating_8m.html#a733395f0359554166f24075bd6ef1e2f',1,'pvrating.m']]]
+];

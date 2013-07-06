@@ -1,0 +1,127 @@
+.TH "PushButtonControl" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PushButtonControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJButton\fP, \fBUIControl\fP, and \fBActionListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPushButtonControl\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBactionPerformed\fP (ActionEvent event)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPushButtonControl\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References HandleEvent\&.getProperty(), PushButtonControl\&.propertyChanged(), PushButtonControl\&.sink, StringProperty\&.toString(), PushButtonControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+.nf
+        {
+                super();
+                setMargin(new Insets(2, 2, 2, 2));
+                addActionListener(this);
+                uiObj = obj;
+
+                setText(obj\&.UIString\&.toString());
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBactionPerformed\fP (ActionEventevent)\fC [inline]\fP"
+.PP
+References UIControlObject\&.controlActivated(), and PushButtonControl\&.uiObj\&.
+.PP
+.nf
+        {
+                uiObj\&.controlActivated(new UIControlEvent(this));
+        }
+.fi
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and PushButtonControl\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References StringProperty\&.toString(), PushButtonControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+Referenced by PushButtonControl\&.PushButtonControl()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.UIString)
+                        setText(uiObj\&.UIString\&.toString());
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [package]\fP"
+.PP
+Referenced by PushButtonControl\&.dispose(), and PushButtonControl\&.PushButtonControl()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [package]\fP"
+.PP
+Referenced by PushButtonControl\&.actionPerformed(), PushButtonControl\&.propertyChanged(), and PushButtonControl\&.PushButtonControl()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,261 @@
+.TH "ListBoxControl" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ListBoxControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJScrollPane\fP, \fBUIControl\fP, and \fBListSelectionListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBListBoxControl\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBvalueChanged\fP (ListSelectionEvent event)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.ti -1c
+.RI "JList \fBlist\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateItems\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateSelectionMode\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateColors\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateTop\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBListBoxControl\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References UIControlObject\&.BackgroundColor, UIControlObject\&.ForegroundColor, HandleEvent\&.getProperty(), ListBoxControl\&.list, UIControlObject\&.ListboxTop, HandleEventSinkAdapter\&.listen(), UIControlObject\&.Max, UIControlObject\&.Min, ListBoxControl\&.propertyChanged(), ListBoxControl\&.sink, ListBoxControl\&.uiObj, UIControlObject\&.UIString, ListBoxControl\&.updateColors(), ListBoxControl\&.updateItems(), ListBoxControl\&.updateSelectionMode(), ListBoxControl\&.updateTop(), ListBoxControl\&.updateValue(), and UIControlObject\&.Value\&.
+.PP
+.nf
+        {
+                super();
+                uiObj = obj;
+
+                list = new JList();
+                list\&.getSelectionModel()\&.addListSelectionListener(this);
+                getViewport()\&.setView(list);
+
+                updateItems();
+                updateSelectionMode();
+                updateColors();
+                updateTop();
+                updateValue();
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+                sink\&.listen(obj\&.Value);
+                sink\&.listen(obj\&.Min);
+                sink\&.listen(obj\&.Max);
+                sink\&.listen(obj\&.BackgroundColor);
+                sink\&.listen(obj\&.ForegroundColor);
+                sink\&.listen(obj\&.ListboxTop);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and ListBoxControl\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References UIControlObject\&.BackgroundColor, UIControlObject\&.ForegroundColor, UIControlObject\&.ListboxTop, UIControlObject\&.Max, UIControlObject\&.Min, ListBoxControl\&.uiObj, UIControlObject\&.UIString, ListBoxControl\&.updateColors(), ListBoxControl\&.updateItems(), ListBoxControl\&.updateSelectionMode(), ListBoxControl\&.updateTop(), ListBoxControl\&.updateValue(), and UIControlObject\&.Value\&.
+.PP
+Referenced by ListBoxControl\&.ListBoxControl()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.UIString)
+                        updateItems();
+                else if (p == uiObj\&.Value)
+                        updateValue();
+                else if (p == uiObj\&.Min || p == uiObj\&.Max)
+                        updateSelectionMode();
+                else if (p == uiObj\&.BackgroundColor || p == uiObj\&.ForegroundColor)
+                        updateColors();
+                else if (p == uiObj\&.ListboxTop)
+                        updateTop();
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References ListBoxControl\&.list, UIControlObject\&.ListboxTop, Property\&.reset(), ListBoxControl\&.uiObj, and UIControlObject\&.Value\&.
+.PP
+.nf
+        {
+                int[] sel = list\&.getSelectedIndices();
+                double[] val = new double[sel\&.length];
+
+                for (int i=0; i<sel\&.length; i++)
+                        val[i] = sel[i]+1;
+                uiObj\&.Value\&.reset(val);
+                uiObj\&.ListboxTop\&.reset(new Double(list\&.getFirstVisibleIndex()+1));
+        }
+.fi
+.SS "void \fBupdateColors\fP ()\fC [inline, private]\fP"
+.PP
+References UIControlObject\&.BackgroundColor, UIControlObject\&.ForegroundColor, ColorProperty\&.getColor(), ListBoxControl\&.list, and ListBoxControl\&.uiObj\&.
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), and ListBoxControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                setBackground(uiObj\&.BackgroundColor\&.getColor());
+                setForeground(uiObj\&.ForegroundColor\&.getColor());
+                list\&.setBackground(uiObj\&.BackgroundColor\&.getColor());
+                list\&.setForeground(uiObj\&.ForegroundColor\&.getColor());
+        }
+.fi
+.SS "void \fBupdateItems\fP ()\fC [inline, private]\fP"
+.PP
+References ListBoxControl\&.list, StringProperty\&.toString(), ListBoxControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), and ListBoxControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                String[] items = uiObj\&.UIString\&.toString()\&.split('\\|');
+                list\&.setListData(items);
+        }
+.fi
+.SS "void \fBupdateSelectionMode\fP ()\fC [inline, private]\fP"
+.PP
+References DoubleProperty\&.doubleValue(), ListBoxControl\&.list, UIControlObject\&.Max, UIControlObject\&.Min, and ListBoxControl\&.uiObj\&.
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), and ListBoxControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if ((uiObj\&.Max\&.doubleValue() - uiObj\&.Min\&.doubleValue()) <= 1)
+                        list\&.setSelectionMode(ListSelectionModel\&.SINGLE_SELECTION);
+                else
+                        list\&.setSelectionMode(ListSelectionModel\&.MULTIPLE_INTERVAL_SELECTION);
+        }
+.fi
+.SS "void \fBupdateTop\fP ()\fC [inline, private]\fP"
+.PP
+References DoubleProperty\&.intValue(), ListBoxControl\&.list, UIControlObject\&.ListboxTop, and ListBoxControl\&.uiObj\&.
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), and ListBoxControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                list\&.ensureIndexIsVisible(uiObj\&.ListboxTop\&.intValue()-1);
+                /*
+                Point pt = list\&.indexToLocation(uiObj\&.ListboxTop\&.intValue()-1);
+                if (pt != null)
+                        getViewport()\&.setViewPosition(pt);
+                        */
+        }
+.fi
+.SS "void \fBupdateValue\fP ()\fC [inline, private]\fP"
+.PP
+References VectorProperty\&.getArray(), ListBoxControl\&.list, ListBoxControl\&.uiObj, and UIControlObject\&.Value\&.
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), and ListBoxControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if (uiObj\&.Value\&.getArray()\&.length > 0)
+                {
+                        double[] val = uiObj\&.Value\&.getArray();
+                        int[] sel = new int[val\&.length];
+
+                        for (int i=0; i<val\&.length; i++)
+                                sel[i] = (int)val[i]-1;
+                        list\&.setSelectedIndices(sel);
+                }
+                else
+                        list\&.clearSelection();
+        }
+.fi
+.SS "void \fBvalueChanged\fP (ListSelectionEventevent)\fC [inline]\fP"
+.PP
+References UIControlObject\&.controlActivated(), and ListBoxControl\&.uiObj\&.
+.PP
+.nf
+        {
+                if (!event\&.getValueIsAdjusting())
+                {
+                        uiObj\&.controlActivated(new UIControlEvent(this));
+                }
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "JList \fBlist\fP\fC [package]\fP"
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), ListBoxControl\&.update(), ListBoxControl\&.updateColors(), ListBoxControl\&.updateItems(), ListBoxControl\&.updateSelectionMode(), ListBoxControl\&.updateTop(), and ListBoxControl\&.updateValue()\&.
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [package]\fP"
+.PP
+Referenced by ListBoxControl\&.dispose(), and ListBoxControl\&.ListBoxControl()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [package]\fP"
+.PP
+Referenced by ListBoxControl\&.ListBoxControl(), ListBoxControl\&.propertyChanged(), ListBoxControl\&.update(), ListBoxControl\&.updateColors(), ListBoxControl\&.updateItems(), ListBoxControl\&.updateSelectionMode(), ListBoxControl\&.updateTop(), ListBoxControl\&.updateValue(), and ListBoxControl\&.valueChanged()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,312 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__bar3__.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__bar3__.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (nargout > 0) \fBh\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (orient)[\fBidx1\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (strcmp(\fBmode\fP,'detached')) bw"
+.br
+.ti -1c
+.RI "\fBvv\fP ([1:8:end, 2:8:end, 3:8:end, 4:8:end], 1)"
+.br
+.ti -1c
+.RI "\fBvv\fP ([1:8:end, 4:8:end, 5:8:end, 8:8:end], \fBidx1\fP)"
+.br
+.ti -1c
+.RI "\fBvv\fP ([1:8:end, 2:8:end, 5:8:end, 6:8:end], \fBidx2\fP)=0"
+.br
+.ti -1c
+.RI "endfor \fBelseif\fP (strcmp(\fBmode\fP,'stacked')) bw"
+.br
+.ti -1c
+.RI "endfor \fBelseif\fP (strcmp(\fBmode\fP,'grouped')) if(\fBnr\fP"
+.br
+.ti -1c
+.RI "endfor else \fBerror\fP ('%s: invalid bar \fBmode\fP', from)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (!ishold()) \fBaxes\fP(\fBax\fP)"
+.br
+.ti -1c
+.RI "\fBview\fP (3)"
+.br
+.ti -1c
+.RI "else \fBset\fP (\fBax\fP,'dataaspectratio',[1, 1,(dz/\fBdy\fP)/0\&.6],'ydir','\fBreverse\fP')"
+.br
+.ti -1c
+.RI "\fBif\fP (ishandle(\fBvarargin\fP{\fBidx\fP})) \fBax\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (\fBnargs\fP >=\fBidx\fP+1 &&isnumeric(\fBvarargin\fP{\fBidx\fP})&&isnumeric(\fBvarargin\fP{\fBidx\fP+1})&&!isscalar(\fBvarargin\fP{\fBidx\fP+1})) \fBxx\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBtmp\fP = parseInputArgs(from, \fBvarargin\fP{:}) makeBar3D (from, \fBax\fP, \fBxx\fP, \fByy\fP, \fBw\fP, \fBmode\fP, \fBc\fP, orient)"
+.br
+.ti -1c
+.RI "else \fBdx\fP = 1"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBm\fP = \fBlength\fP (\fBxx\fP)"
+.br
+.ti -1c
+.RI "\fBnr\fP = size (\fByy\fP, 2)"
+.br
+.ti -1c
+.RI "\fBh\fP = []"
+.br
+.ti -1c
+.RI "\fBidx1\fP = 2"
+.br
+.ti -1c
+.RI "\fBidx2\fP = 3"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBff_unit\fP = [1, 2, 3, 4"
+.br
+.ti -1c
+.RI "\fBM\fP = (0:\fBm\fP-1)*8"
+.br
+.ti -1c
+.RI "\fBff\fP = repmat (\fBff_unit\fP, \fBm\fP, 1) + \fBM\fP"
+.br
+.ti -1c
+.RI "\fBxx\fP = repmat (\fBxx\fP, 4, 1)"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.ti -1c
+.RI "\fBfvc\fP = ones(8*\fBm\fP, 1)*\fBk\fP"
+.br
+.ti -1c
+.RI "\fBY\fP = repmat (\fByy\fP(:, \fBk\fP), 4, 1)"
+.br
+.ti -1c
+.RI "\fBhp\fP = patch (\fBax\fP, 'Faces', ff, 'Vertices', vv, 'FaceVertexCData', fvc, 'FaceColor', c)"
+.br
+.ti -1c
+.RI "\fBbv\fP = \fBzeros\fP(4*\fBm\fP, 1)"
+.br
+.ti -1c
+.RI "\fBbo\fP = \fBzeros\fP (1, \fBnr\fP)"
+.br
+.ti -1c
+.RI "else \fBgw\fP = 0\&.8*\fBdx\fP"
+.br
+.ti -1c
+.RI "\fBbw\fP = (\fBgw\fP/\fBnr\fP)*\fBw\fP"
+.br
+.ti -1c
+.RI "\fBdy\fP = diff (\fBget\fP (\fBax\fP, 'YLim'))"
+.br
+.ti -1c
+.RI "\fBdz\fP = diff (\fBget\fP (\fBax\fP, 'ZLim'))"
+.br
+.ti -1c
+.RI "\fBdataaspectratio\fP"
+.br
+.ti -1c
+.RI "\fBydir\fP"
+.br
+.ti -1c
+.RI "\fBreverse\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP grid \fBon\fP"
+.br
+.ti -1c
+.RI "axis \fBlabelyz\fP"
+.br
+.ti -1c
+.RI "\fBbox\fP \fBoff\fP"
+.br
+.ti -1c
+.RI "\fByy\fP = []"
+.br
+.ti -1c
+.RI "\fBw\fP = 0\&.8"
+.br
+.ti -1c
+.RI "\fBc\fP = 'flat'"
+.br
+.ti -1c
+.RI "\fBmode\fP = 'detached'"
+.br
+.ti -1c
+.RI "\fBax\fP = gca ()"
+.br
+.ti -1c
+.RI "\fBidx\fP = 1"
+.br
+.ti -1c
+.RI "\fBnargs\fP = \fBlength\fP (\fBvarargin\fP)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "endfor \fBelseif\fP (strcmp(\fBmode\fP,'stacked'))"
+.SS "endfor \fBelseif\fP (strcmp(\fBmode\fP,'grouped'))"
+.SS "endfor else \fBerror\fP ('%s: invalid bar \fBmode\fP', from)"
+.SS "\fBif\fP (nargout, 0)"
+.SS "\fBif\fP (orient)"
+.SS "\fBif\fP (strcmp(\fBmode\fP,'detached'))"
+.SS "\fBendif\fP \fBif\fP (!ishold())"
+.SS "\fBif\fP (ishandle(\fBvarargin\fP{\fBidx\fP}))"
+.SS "\fBendif\fP \fBif\fP (\fBnargs\fP >=\fBidx\fP+1 &&isnumericvarargin{idx})&&isnumeric(varargin{idx+1})&&!isscalar(varargin{idx+1})"
+.SS "else \fBset\fP (\fBax\fP, 'dataaspectratio', 'ydir', 'reverse')"
+.SS "\fBview\fP (3)"
+.SS "\fBvv\fP (1)"
+.SS "\fBvv\fP (\fBidx1\fP)"
+.SS "\fBvv\fP (\fBidx2\fP)\fC [pure virtual]\fP"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBaxes\fP \fBax\fP = gca ()"
+.PP
+Definition at line 142 of file __bar3__\&.m\&.
+.SS "\fBbo\fP = \fBzeros\fP (1, \fBnr\fP)"
+.PP
+Definition at line 94 of file __bar3__\&.m\&.
+.SS "\fBbv\fP = \fBzeros\fP(4*\fBm\fP, 1)"
+.PP
+Definition at line 76 of file __bar3__\&.m\&.
+.SS "\fBbw\fP = (\fBgw\fP/\fBnr\fP)*\fBw\fP"
+.PP
+Definition at line 97 of file __bar3__\&.m\&.
+.SS "\fBc\fP = 'flat'"
+.PP
+Definition at line 140 of file __bar3__\&.m\&.
+.PP
+Referenced by gl2psAddBoundaryInList(), and gl2psPrintSVGPixmap()\&.
+.SS "\fBdataaspectratio\fP"
+.PP
+Definition at line 124 of file __bar3__\&.m\&.
+.SS "else \fBdx\fP = 1"
+.PP
+Definition at line 33 of file __bar3__\&.m\&.
+.SS "\fBdy\fP = diff (\fBget\fP (\fBax\fP, 'YLim'))"
+.PP
+Definition at line 121 of file __bar3__\&.m\&.
+.SS "\fBdz\fP = diff (\fBget\fP (\fBax\fP, 'ZLim'))"
+.PP
+Definition at line 122 of file __bar3__\&.m\&.
+.SS "\fBff\fP = repmat (\fBff_unit\fP, \fBm\fP, 1) + \fBM\fP"
+.PP
+Definition at line 55 of file __bar3__\&.m\&.
+.SS "\fBendif\fP \fBff_unit\fP = [1, 2, 3, 4"
+.PP
+Definition at line 46 of file __bar3__\&.m\&.
+.SS "\fBendif\fP endfunction \fBfunction\fP[\fBxx\fP, \fByy\fP, \fBw\fP, \fBc\fP, \fBmode\fP, \fBax\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __bar3__ (from, orient, varargin)
+
+  newplot ()
+.fi
+.PP
+Definition at line 16 of file __bar3__\&.m\&.
+.SS "\fBfvc\fP = ones(8*\fBm\fP, 1)*\fBk\fP"
+.PP
+Definition at line 62 of file __bar3__\&.m\&.
+.SS "else \fBgw\fP = 0\&.8*\fBdx\fP"
+.PP
+Definition at line 96 of file __bar3__\&.m\&.
+.SS "\fBh\fP = []"
+.PP
+Definition at line 38 of file __bar3__\&.m\&.
+.SS "\fBhp\fP = patch (\fBax\fP, 'Faces', ff, 'Vertices', vv, 'FaceVertexCData', fvc, 'FaceColor', c)"
+.PP
+Definition at line 70 of file __bar3__\&.m\&.
+.SS "\fBendif\fP \fBidx\fP = 1"
+.PP
+Definition at line 143 of file __bar3__\&.m\&.
+.PP
+Referenced by initialize_object()\&.
+.SS "\fBidx1\fP = 2"
+.PP
+Definition at line 40 of file __bar3__\&.m\&.
+.SS "\fBidx2\fP = 3"
+.PP
+Definition at line 41 of file __bar3__\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:nr
+      vv = zeros (8*m, 3)
+.fi
+.PP
+Definition at line 60 of file __bar3__\&.m\&.
+.SS "axis \fBlabelyz\fP"
+.PP
+Definition at line 129 of file __bar3__\&.m\&.
+.SS "\fBendif\fP \fBm\fP = \fBlength\fP (\fBxx\fP)"
+.PP
+Definition at line 36 of file __bar3__\&.m\&.
+.SS "\fBM\fP = (0:\fBm\fP-1)*8"
+.PP
+Definition at line 52 of file __bar3__\&.m\&.
+.SS "\fBmode\fP = 'detached'"
+.PP
+Definition at line 141 of file __bar3__\&.m\&.
+.SS "\fBnargs\fP = \fBlength\fP (\fBvarargin\fP)"
+.PP
+Definition at line 144 of file __bar3__\&.m\&.
+.SS "\fBnr\fP = size (\fByy\fP, 2)"
+.PP
+Definition at line 37 of file __bar3__\&.m\&.
+.SS "\fBbox\fP \fBoff\fP"
+.PP
+Definition at line 130 of file __bar3__\&.m\&.
+.PP
+Referenced by gl2psParseStipplePattern()\&.
+.SS "\fBendif\fP grid \fBon\fP"
+.PP
+Definition at line 128 of file __bar3__\&.m\&.
+.PP
+Referenced by gl2psParseStipplePattern()\&.
+.SS "\fBreverse\fP"
+.PP
+Definition at line 124 of file __bar3__\&.m\&.
+.SS "endfor \fBtmp\fP = parseInputArgs(from, \fBvarargin\fP{:}) makeBar3D (from, \fBax\fP, \fBxx\fP, \fByy\fP, \fBw\fP, \fBmode\fP, \fBc\fP, orient)"
+.PP
+Definition at line 21 of file __bar3__\&.m\&.
+.PP
+Referenced by gl2psEnable(), gl2psParseStipplePattern(), gl2psPrintGzipFooter(), and gl2psPrintGzipHeader()\&.
+.SS "\fBw\fP = 0\&.8"
+.PP
+Definition at line 139 of file __bar3__\&.m\&.
+.PP
+Referenced by gl2psCompareDepth(), gl2psGetPlane(), gl2psPrintPDFBeginViewport(), gl2psPrintPGFBeginViewport(), gl2psPrintPostScriptBeginViewport(), gl2psPrintSVGBeginViewport(), and gl2psTrianglesFirst()\&.
+.SS "\fBxx\fP = repmat (\fBxx\fP, 4, 1)"
+.PP
+Definition at line 59 of file __bar3__\&.m\&.
+.SS "\fBY\fP = repmat (\fByy\fP(:, \fBk\fP), 4, 1)"
+.PP
+Definition at line 63 of file __bar3__\&.m\&.
+.SS "\fBydir\fP"
+.PP
+Definition at line 124 of file __bar3__\&.m\&.
+.SS "\fByy\fP = []"
+.PP
+Definition at line 138 of file __bar3__\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

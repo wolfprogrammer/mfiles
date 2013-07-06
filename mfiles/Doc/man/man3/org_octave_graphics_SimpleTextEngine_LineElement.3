@@ -1,0 +1,200 @@
+.TH "SimpleTextEngine.LineElement" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.LineElement \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+Inherited by \fBSimpleTextEngine\&.SubscriptElement\fP, and \fBSimpleTextEngine\&.SuperscriptElement\fP\&.
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLineElement\fP (String txt)"
+.br
+.ti -1c
+.RI "\fBLineElement\fP (String txt, boolean \fBtoplevel\fP)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBLayouter\fP l)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (Graphics2D g)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBElement\fP e)"
+.br
+.ti -1c
+.RI "Iterator \fBiterator\fP ()"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTextRenderer\fP r)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBRenderCanvas\fP comp, Font font)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBtext\fP"
+.br
+.ti -1c
+.RI "Rectangle \fBrect\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "LinkedList \fBelements\fP = new LinkedList()"
+.br
+.ti -1c
+.RI "boolean \fBtoplevel\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBLineElement\fP (Stringtxt)\fC [inline, package]\fP"
+.PP
+.nf
+                {
+                        this(txt, true);
+                }
+.fi
+.SS "\fBLineElement\fP (Stringtxt, booleantoplevel)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.LineElement\&.elements, SimpleTextEngine\&.SimpleFactory\&.parse(), and SimpleTextEngine\&.LineElement\&.toplevel\&.
+.PP
+.nf
+                {
+                        super(txt);
+                        this\&.toplevel = toplevel;
+
+                        SimpleFactory f = new SimpleFactory(txt, elements);
+                        f\&.parse();
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBadd\fP (\fBElement\fPe)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.LineElement\&.elements\&.
+.PP
+.nf
+                {
+                        elements\&.add(e);
+                }
+.fi
+.SS "Iterator \fBiterator\fP ()\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.LineElement\&.elements\&.
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render()\&.
+.PP
+.nf
+                {
+                        return elements\&.iterator();
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBRenderCanvas\fPcomp, Fontfont)\fC [inline, package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.layout(), and SimpleTextEngine\&.ScriptElement\&.layout()\&.
+.PP
+.nf
+                {
+                        return layout(new Layouter(comp, font));
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBLayouter\fPl)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+Reimplemented in \fBSimpleTextEngine\&.SuperscriptElement\fP, and \fBSimpleTextEngine\&.SubscriptElement\fP\&.
+.PP
+References SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.LineElement\&.elements, SimpleTextEngine\&.Layouter\&.font, SimpleTextEngine\&.Layouter\&.getFontMetrics(), SimpleTextEngine\&.Element\&.layout(), and SimpleTextEngine\&.Element\&.rect\&.
+.PP
+Referenced by SimpleTextEngine\&.Content\&.layout()\&.
+.PP
+.nf
+                {
+                        Iterator it = elements\&.iterator();
+                        FontMetrics fm = l\&.getFontMetrics();
+                        Font currentFont = l\&.font;
+
+                        rect = new Rectangle(0, -fm\&.getMaxDescent(), 0, fm\&.getMaxAscent()+fm\&.getMaxDescent());
+                        while (it\&.hasNext())
+                        {
+                                Element e = (Element)it\&.next();
+                                Rectangle eRect = e\&.layout(l);
+                                eRect\&.x = rect\&.width;
+                                rect = rect\&.union(eRect);
+                        }
+                        l\&.font = currentFont;
+                        return rect;
+                }
+.fi
+.SS "void \fBrender\fP (Graphics2Dg)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+Reimplemented in \fBSimpleTextEngine\&.SuperscriptElement\fP, and \fBSimpleTextEngine\&.SubscriptElement\fP\&.
+.PP
+References SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.LineElement\&.elements, SimpleTextEngine\&.Element\&.rect, SimpleTextEngine\&.Element\&.render(), and SimpleTextEngine\&.LineElement\&.toplevel\&.
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.PP
+.nf
+                {
+                        Iterator it = elements\&.iterator();
+                        int xoffset = 0, yoffset = (toplevel ? (rect\&.height + rect\&.y) : 0);
+                        Font currentFont = g\&.getFont();
+                        Color currentColor = g\&.getColor();
+
+                        g\&.translate(0, yoffset);
+                        while (it\&.hasNext())
+                        {
+                                Element e = (Element)it\&.next();
+                                e\&.render(g);
+                                g\&.translate(e\&.rect\&.width, 0);
+                                xoffset += e\&.rect\&.width;
+                        }
+                        g\&.translate(-xoffset, -yoffset);
+                        g\&.setColor(currentColor);
+                        g\&.setFont(currentFont);
+                }
+.fi
+.SS "void \fBrender\fP (\fBTextRenderer\fPr)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+Reimplemented in \fBSimpleTextEngine\&.SuperscriptElement\fP, and \fBSimpleTextEngine\&.SubscriptElement\fP\&.
+.PP
+References SimpleTextEngine\&.TextRenderer\&.render()\&.
+.PP
+.nf
+{ r\&.render(this); }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "LinkedList \fBelements\fP = new LinkedList()\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.add(), SimpleTextEngine\&.LineElement\&.iterator(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.LineElement\&.LineElement(), and SimpleTextEngine\&.LineElement\&.render()\&.
+.SS "Rectangle \fBrect\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.SubscriptElement\&.layout(), SimpleTextEngine\&.SuperscriptElement\&.layout(), SimpleTextEngine\&.ScriptElement\&.layout(), SimpleTextEngine\&.TeXFontCommand\&.layout(), SimpleTextEngine\&.TeXElement\&.layout(), SimpleTextEngine\&.Content\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), SimpleTextEngine\&.LineElement\&.render(), SimpleTextEngine\&.SuperscriptElement\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "String \fBtext\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Element\&.render()\&.
+.SS "boolean \fBtoplevel\fP\fC [private]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.LineElement(), and SimpleTextEngine\&.LineElement\&.render()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

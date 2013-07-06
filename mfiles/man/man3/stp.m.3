@@ -1,0 +1,105 @@
+.TH "/home/caio/mfiles/stp.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/stp.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "while \fB~feof\fP (\fBfid\fP) \fBline\fP"
+.br
+.ti -1c
+.RI "strfind(\fBline\fP,'\fBprintf\fP' \fBlength\fP ()"
+.br
+.ti -1c
+.RI "\fBif\fP (fff_1) \fBdisp\fP(\fBline\fP)"
+.br
+.ti -1c
+.RI "end \fBif\fP (\fBlength\fP(strfind(\fBline\fP,'*{'))>0) statett"
+.br
+.ti -1c
+.RI "end \fBeval\fP (\fBline\fP)"
+.br
+.ti -1c
+.RI "id \fBcom\fP ()"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(strfind(\fBline\fP,'*}'))>0) statett=0"
+.br
+.ti -1c
+.RI "end otherwise endswitch endswitch \fBdisp\fP ('')"
+.br
+.ti -1c
+.RI "endwhile endwhile \fBfclose\fP (\fBfid\fP)"
+.br
+.ti -1c
+.RI "\fBsave\fP (\fBfname2\fP)"
+.br
+.ti -1c
+.RI "\fBunlink\fP (\fBfname2\fP)"
+.br
+.ti -1c
+.RI "Apaga o arquivo temporario 
+.br
+Imprime todas variaveis no 
+.br
+contexto da funcao \fBdisp\fP ('------------------Resultados------------------') vars"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBVARS\fP = '/tmp/vars'"
+.br
+.ti -1c
+.RI "\fBfid\fP"
+.br
+.ti -1c
+.RI "clear \fBline\fP \fBfname\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "id \fBcom\fP ()\fC [virtual]\fP"
+.PP
+Definition at line 43 of file stp\&.m\&.
+.PP
+.nf
+                                                              { e %}
+.fi
+.SS "end otherwise endswitch endswitch \fBdisp\fP ('')"
+.SS "Apaga o arquivo temporario Imprime todas variaveis no contexto da funcao \fBdisp\fP ('------------------Resultados------------------')"
+.SS "end \fBeval\fP (\fBline\fP)"
+.SS "endwhile endwhile \fBfclose\fP (\fBfid\fP)"
+.SS "\fBif\fP (fff_1)"
+.SS "end \fBif\fP (\fBlength\fP(strfind(\fBline\fP,'*{')), 0)"
+.SS "\fBif\fP (\fBlength\fP(strfind(\fBline\fP,'*}')), 0)\fC [pure virtual]\fP"
+.SS "strfind(\fBline\fP,'\fBprintf\fP' \fBlength\fP ()\fC [virtual]\fP"
+.SS "\fBsave\fP (\fBfname2\fP)"
+.SS "\fBunlink\fP (\fBfname2\fP)"
+.SS "while ~feof (\fBfid\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfid\fP"\fBInitial value:\fP
+.PP
+.nf
+fopen(fname,'r')
+format short
+statett=0
+.fi
+.PP
+Definition at line 20 of file stp\&.m\&.
+.SS "clear \fBline\fP \fBfname\fP"
+.PP
+Definition at line 62 of file stp\&.m\&.
+.SS "\fBVARS\fP = '/tmp/vars'"
+.PP
+Definition at line 1 of file stp\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

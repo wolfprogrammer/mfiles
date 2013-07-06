@@ -1,0 +1,135 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_surface.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_surface.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "endswitch endfor \fBif\fP (isvector(\fBx\fP)&&isvector(\fBy\fP))[\fBx\fP"
+.br
+.ti -1c
+.RI "unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.br
+.ti -1c
+.RI "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBothers\fP) > 0) \fBset\fP(\fBtmp\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBsurf_obj\fP \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "\fBif\fP (nargout > 0) \fBh\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBy\fP = []"
+.br
+.ti -1c
+.RI "\fBz\fP = []"
+.br
+.ti -1c
+.RI "\fBothers\fP = {}"
+.br
+.ti -1c
+.RI "\fBargs\fP = \fBvarargin\fP"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBj1\fP = \fBjava_convert_matrix\fP (1)"
+.br
+.ti -1c
+.RI "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.br
+.ti -1c
+.RI "unwind_protect \fBax_obj\fP = \fB__get_object__\fP (\fBax\fP)"
+.br
+.ti -1c
+.RI "\fBsurf_obj\fP"
+.br
+.ti -1c
+.RI "end_unwind_protect \fBtmp\fP = surf_obj\&.getHandle ()"
+.br
+.ti -1c
+.RI "else \fB__request_drawnow__\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "endswitch endfor \fBif\fP (isvector(\fBx\fP)&&isvector(\fBy\fP))"
+.SS "\fBif\fP (\fBlength\fP(\fBothers\fP), 0)"
+.SS "\fBif\fP (nargout, 0)"
+.SS "unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.SS "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.SS "\fBendif\fP \fBsurf_obj\fP \fBvalidate\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "else \fB__request_drawnow__\fP"
+.PP
+Definition at line 57 of file __jhandles_go_surface\&.m\&.
+.SS "\fBargs\fP = \fBvarargin\fP"
+.PP
+Definition at line 22 of file __jhandles_go_surface\&.m\&.
+.SS "unwind_protect \fBax_obj\fP = \fB__get_object__\fP (\fBax\fP)"
+.PP
+Definition at line 46 of file __jhandles_go_surface\&.m\&.
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_go_surface (ax, varargin)
+
+  x = []
+.fi
+.PP
+Definition at line 16 of file __jhandles_go_surface\&.m\&.
+.SS "\fBendif\fP \fBj1\fP = \fBjava_convert_matrix\fP (1)"
+.PP
+Definition at line 42 of file __jhandles_go_surface\&.m\&.
+.SS "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.PP
+Definition at line 43 of file __jhandles_go_surface\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+'xdata'
+        x = args{k+1}
+.fi
+.PP
+Definition at line 24 of file __jhandles_go_surface\&.m\&.
+.SS "\fBothers\fP = {}"
+.PP
+Definition at line 21 of file __jhandles_go_surface\&.m\&.
+.SS "\fBsurf_obj\fP"\fBInitial value:\fP
+.PP
+.nf
+ java_new ('org\&.octave\&.graphics\&.SurfaceObject', ax_obj, \&.\&.\&.
+      x, y, z)
+.fi
+.PP
+Definition at line 47 of file __jhandles_go_surface\&.m\&.
+.SS "end_unwind_protect \fBtmp\fP = surf_obj\&.getHandle ()"
+.PP
+Definition at line 54 of file __jhandles_go_surface\&.m\&.
+.SS "endswitch endfor \fBy\fP = []"
+.PP
+Definition at line 19 of file __jhandles_go_surface\&.m\&.
+.SS "case zdata \fBz\fP = []"
+.PP
+Definition at line 20 of file __jhandles_go_surface\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

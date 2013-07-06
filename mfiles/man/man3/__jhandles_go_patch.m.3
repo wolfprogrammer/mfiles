@@ -1,0 +1,71 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_patch.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_patch.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBargs\fP) >=0) \fBset\fP(\fBtmp\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBp_obj\fP \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "\fBif\fP (nargout > 0) \fBh\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBax_obj\fP = \fB__get_object__\fP (\fBax\fP)"
+.br
+.ti -1c
+.RI "\fBp_obj\fP = \fBjava_new\fP ('org\&.octave\&.graphics\&.PatchObject', ax_obj)"
+.br
+.ti -1c
+.RI "\fBtmp\fP = p_obj\&.getHandle ()"
+.br
+.ti -1c
+.RI "else \fB__request_drawnow__\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBif\fP (\fBlength\fP(\fBargs\fP) >=0)"
+.SS "\fBif\fP (nargout, 0)"
+.SS "\fBendif\fP \fBp_obj\fP \fBvalidate\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "else \fB__request_drawnow__\fP"
+.PP
+Definition at line 24 of file __jhandles_go_patch\&.m\&.
+.SS "\fBax_obj\fP = \fB__get_object__\fP (\fBax\fP)"
+.PP
+Definition at line 19 of file __jhandles_go_patch\&.m\&.
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_go_patch (ax, varargin)
+
+  [ax, args] = __get_parent_arg__ (ax, varargin)
+.fi
+.PP
+Definition at line 16 of file __jhandles_go_patch\&.m\&.
+.SS "\fBp_obj\fP = \fBjava_new\fP ('org\&.octave\&.graphics\&.PatchObject', ax_obj)"
+.PP
+Definition at line 21 of file __jhandles_go_patch\&.m\&.
+.SS "\fBtmp\fP = p_obj\&.getHandle ()"
+.PP
+Definition at line 22 of file __jhandles_go_patch\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

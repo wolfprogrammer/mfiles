@@ -1,0 +1,516 @@
+.TH "Utils" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Utils \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBcrossProduct\fP (double ax, double ay, double az, double bx, double by, double bz, double[] res)"
+.br
+.ti -1c
+.RI "static void \fBcrossProduct\fP (double ax, double ay, double az, double bx, double by, double bz, double[] res, int offset, int ldr)"
+.br
+.ti -1c
+.RI "static void \fBprintCpuTime\fP ()"
+.br
+.ti -1c
+.RI "static double[][] \fBgetAlphaData\fP (\fBArrayProperty\fP adata, \fBRadioProperty\fP mapping, \fBAxesObject\fP axes)"
+.br
+.ti -1c
+.RI "static float \fBgetFontSize\fP (\fBDoubleProperty\fP FontSize, \fBRadioProperty\fP FontUnits, double h)"
+.br
+.ti -1c
+.RI "static Font \fBgetFont\fP (\fBStringProperty\fP FontName, \fBDoubleProperty\fP FontSize, \fBRadioProperty\fP FontUnits, \fBRadioProperty\fP FontAngle, \fBRadioProperty\fP FontWeight, double h)"
+.br
+.ti -1c
+.RI "static Rectangle \fBgetScreenRectangle\fP ()"
+.br
+.ti -1c
+.RI "static Dimension \fBgetScreenSize\fP ()"
+.br
+.ti -1c
+.RI "static int \fBgetScreenResolution\fP ()"
+.br
+.ti -1c
+.RI "static double[] \fBconvertPosition\fP (double[] pos, String fromUnits, String toUnits, Component parent)"
+.br
+.ti -1c
+.RI "static Color \fBgetBackgroundColor\fP ()"
+.br
+.ti -1c
+.RI "static Color \fBgetShadowColor\fP ()"
+.br
+.ti -1c
+.RI "static Color \fBgetHighlightColor\fP ()"
+.br
+.ti -1c
+.RI "static String \fBjoin\fP (String[] items, String sepstr)"
+.br
+.ti -1c
+.RI "static Icon \fBloadIcon\fP (String name)"
+.br
+.ti -1c
+.RI "static boolean \fBisNaNorInf\fP (double x)"
+.br
+.ti -1c
+.RI "static boolean \fBisNaNorInf\fP (double x, double y, double z)"
+.br
+.ti -1c
+.RI "static String \fBhandleToString\fP (double handle)"
+.br
+.ti -1c
+.RI "static double[][] \fBgetPentagramPoints\fP ()"
+.br
+.ti -1c
+.RI "static double[][] \fBgetHexagramPoints\fP ()"
+.br
+.in -1c
+.SS "Static Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static Color \fBgetUIColor\fP (String name, Color def)"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static java\&.text\&.DecimalFormat \fBhFmt\fP = new java\&.text\&.DecimalFormat('0\&.0000')"
+.br
+.ti -1c
+.RI "static double[][] \fBpentagramPoints\fP"
+.br
+.ti -1c
+.RI "static double[][] \fBhexagramPoints\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "static double [] \fBconvertPosition\fP (double[]pos, StringfromUnits, StringtoUnits, Componentparent)\fC [inline, static]\fP"
+.PP
+References Utils\&.getScreenRectangle(), and Utils\&.getScreenResolution()\&.
+.PP
+Referenced by ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.getBoundingBox(), AxesObject\&.getOuterBoundingBox(), UIControlObject\&.getPosition(), UIPanelObject\&.getPosition(), UIControlObject\&.propertyChanged(), UIPanelObject\&.propertyChanged(), AxesObject\&.propertyChanged(), ColorbarObject\&.updateActivePosition(), LegendObject\&.updateActivePosition(), FigureObject\&.updateFramePosition(), AxesObject\&.updateOuterPosition(), FigureObject\&.updatePosition(), and AxesObject\&.updatePosition()\&.
+.PP
+.nf
+        {
+                double[] p = null;
+                boolean isContainer = (parent != null && parent instanceof Container);
+
+                if (fromUnits\&.equalsIgnoreCase('pixels'))
+                        p = (double[])pos\&.clone();
+                else if (fromUnits\&.equalsIgnoreCase('normalized'))
+                {
+                        Insets ir = (isContainer ? ((Container)parent)\&.getInsets() : new Insets(0, 0, 0, 0));
+                        Rectangle r = (parent != null ? parent\&.getBounds() : getScreenRectangle());
+                        int w = r\&.width-ir\&.left-ir\&.right, h = r\&.height-ir\&.top-ir\&.bottom;
+
+                        p = new double[] {pos[0]*w+1, pos[1]*h+1, pos[2]*w, pos[3]*h};
+                }
+                else if (fromUnits\&.equalsIgnoreCase('characters'))
+                {
+                        FontMetrics fm = (parent != null ? parent\&.getFontMetrics(Font\&.decode('')) :
+                                        Toolkit\&.getDefaultToolkit()\&.getFontMetrics(Font\&.decode('')));
+                        double f = 1\&.0;
+                        double w = fm\&.charWidth('x')*f, h = fm\&.getHeight()*f;
+                        
+                        p = new double[] {pos[0]*w+1, pos[1]*h+1, pos[2]*w, pos[3]*h};
+                }
+                else if (fromUnits\&.equalsIgnoreCase('points'))
+                {
+                        double f = getScreenResolution()/72\&.0;
+                        p = new double[] {pos[0]*f+1, pos[1]*f+1, pos[2]*f, pos[3]*f};
+                }
+                else if (fromUnits\&.equalsIgnoreCase('inches'))
+                {
+                        double f = getScreenResolution();
+                        p = new double[] {pos[0]*f+1, pos[1]*f+1, pos[2]*f, pos[3]*f};
+                }
+                else if (fromUnits\&.equalsIgnoreCase('centimeters'))
+                {
+                        double f = getScreenResolution()/2\&.54;
+                        p = new double[] {pos[0]*f+1, pos[1]*f+1, pos[2]*f, pos[3]*f};
+                }
+
+                if (!toUnits\&.equalsIgnoreCase('pixels'))
+                {
+                        if (toUnits\&.equalsIgnoreCase('normalized'))
+                        {
+                                Insets ir = (isContainer ? ((Container)parent)\&.getInsets() : new Insets(0, 0, 0, 0));
+                                Rectangle r = (parent != null ? parent\&.getBounds() : getScreenRectangle());
+                                int w = r\&.width-ir\&.left-ir\&.right, h = r\&.height-ir\&.top-ir\&.bottom;
+
+                                p[0] = (p[0]-1)/w;
+                                p[1] = (p[1]-1)/h;
+                                p[2] /= w;
+                                p[3] /= h;
+                        }
+                        else if (toUnits\&.equalsIgnoreCase('characters'))
+                        {
+                                FontMetrics fm = (parent != null ? parent\&.getFontMetrics(Font\&.decode('')) :
+                                                Toolkit\&.getDefaultToolkit()\&.getFontMetrics(Font\&.decode('')));
+                                double f = 1\&.0;
+                                double w = fm\&.charWidth('x')*f, h = fm\&.getHeight()*f;
+
+                                p[0] = (p[0]-1)/w;
+                                p[1] = (p[1]-1)/h;
+                                p[2] /= w;
+                                p[3] /= h;
+                        }
+                        else if (toUnits\&.equalsIgnoreCase('inches'))
+                        {
+                                double f = getScreenResolution();
+                                p[0] = (p[0]-1)/f;
+                                p[1] = (p[1]-1)/f;
+                                p[2] /= f;
+                                p[3] /= f;
+                        }
+                        else if (toUnits\&.equalsIgnoreCase('centimeters'))
+                        {
+                                double f = getScreenResolution()/2\&.54;
+                                p[0] = (p[0]-1)/f;
+                                p[1] = (p[1]-1)/f;
+                                p[2] /= f;
+                                p[3] /= f;
+                        }
+                        else if (toUnits\&.equalsIgnoreCase('inches'))
+                        {
+                                double f = getScreenResolution()/72\&.0;
+                                p[0] = (p[0]-1)/f;
+                                p[1] = (p[1]-1)/f;
+                                p[2] /= f;
+                                p[3] /= f;
+                        }
+                }
+
+                return p;
+        }
+.fi
+.SS "static void \fBcrossProduct\fP (doubleax, doubleay, doubleaz, doublebx, doubleby, doublebz, double[]res)\fC [inline, static]\fP"
+.PP
+Referenced by SurfaceObject\&.computeNormals(), and PatchObject\&.computeNormals()\&.
+.PP
+.nf
+        {
+                crossProduct(ax, ay, az, bx, by, bz, res, 0, 1);
+        }
+.fi
+.SS "static void \fBcrossProduct\fP (doubleax, doubleay, doubleaz, doublebx, doubleby, doublebz, double[]res, intoffset, intldr)\fC [inline, static]\fP"
+.PP
+.nf
+        {
+                res[offset+0*ldr] += (ay*bz-az*by);
+                res[offset+1*ldr] += (az*bx-ax*bz);
+                res[offset+2*ldr] += (ax*by-ay*bx);
+        }
+.fi
+.SS "static double [][] \fBgetAlphaData\fP (\fBArrayProperty\fPadata, \fBRadioProperty\fPmapping, \fBAxesObject\fPaxes)\fC [inline, static]\fP"
+.PP
+References AxesObject\&.ALim, FigureObject\&.Alphamap, ArrayProperty\&.asDoubleMatrix(), ArrayProperty\&.asIntMatrix(), VectorProperty\&.getArray(), AxesObject\&.getFigure(), ArrayProperty\&.getNDims(), RadioProperty\&.is(), and ArrayProperty\&.isType()\&.
+.PP
+.nf
+        {
+                if (adata\&.getNDims() != 2)
+                        return null;
+
+                if (mapping\&.is('none'))
+                {
+                        if (adata\&.isType('double'))
+                                return adata\&.asDoubleMatrix();
+                }
+                else if (mapping\&.is('direct'))
+                {
+                        double[] amap = axes\&.getFigure()\&.Alphamap\&.getArray();
+                        if (adata\&.isType('double'))
+                        {
+                                double[][] aa = adata\&.asDoubleMatrix();
+                                double[][] res = new double[aa\&.length][aa[0]\&.length];
+
+                                for (int i=0; i<res\&.length; i++)
+                                        for (int j=0; j<res[i]\&.length; j++)
+                                                res[i][j] = amap[(int)Math\&.min(Math\&.max(1, aa[i][j]), amap\&.length)-1];
+                                return res;
+                        }
+                        else if (adata\&.isType('integer'))
+                        {
+                                int[][] aa = adata\&.asIntMatrix();
+                                double[][] res = new double[aa\&.length][aa[0]\&.length];
+                                
+                                for (int i=0; i<res\&.length; i++)
+                                        for (int j=0; j<res[i]\&.length; j++)
+                                                res[i][j] = amap[Math\&.min(Math\&.max(0, aa[i][j]), amap\&.length-1)];
+                                return res;
+                        }
+                }
+                else if (mapping\&.is('scaled'))
+                {
+                        double[] amap = axes\&.getFigure()\&.Alphamap\&.getArray();
+                        double[] alim = axes\&.ALim\&.getArray();
+
+                        if (adata\&.isType('double'))
+                        {
+                                double[][] aa = adata\&.asDoubleMatrix();
+                                double[][] res = new double[aa\&.length][aa[0]\&.length];
+
+                                for (int i=0; i<aa\&.length; i++)
+                                        for (int j=0; j<aa[0]\&.length; j++)
+                                        {
+                                                double s = (aa[i][j]-alim[0])/(alim[1]-alim[0]);
+                                                res[i][j] = amap[(int)Math\&.round((amap\&.length-1)*s)];
+                                        }
+                                return res;
+                        }
+                }
+
+                return null;
+        }
+.fi
+.SS "static Color \fBgetBackgroundColor\fP ()\fC [inline, static]\fP"
+.PP
+References Utils\&.getUIColor()\&.
+.PP
+Referenced by FigureObject\&.FigureObject(), Factory\&.initUIControlProperties(), and UIPanelObject\&.UIPanelObject()\&.
+.PP
+.nf
+        {
+                return getUIColor('control', Color\&.lightGray);
+        }
+.fi
+.SS "static Font \fBgetFont\fP (\fBStringProperty\fPFontName, \fBDoubleProperty\fPFontSize, \fBRadioProperty\fPFontUnits, \fBRadioProperty\fPFontAngle, \fBRadioProperty\fPFontWeight, doubleh)\fC [inline, static]\fP"
+.PP
+References Utils\&.getFontSize(), Utils\&.getScreenResolution(), RadioProperty\&.is(), and StringProperty\&.toString()\&.
+.PP
+Referenced by J2DRenderer\&.draw(), AxesObject\&.draw(), TextObject\&.getExtent(), UIControlAdapter\&.init(), UIPanelObject\&.makePanel(), UIControlAdapter\&.propertyChanged(), UIPanelObject\&.propertyChanged(), TextObject\&.updateData(), AxesObject\&.updateOuterPosition(), and AxesObject\&.updatePosition()\&.
+.PP
+.nf
+        {
+                Map map = new HashMap();
+
+                map\&.put(TextAttribute\&.FAMILY, FontName\&.toString());
+                map\&.put(TextAttribute\&.POSTURE,
+                        FontAngle\&.is('normal') ? TextAttribute\&.POSTURE_REGULAR : TextAttribute\&.POSTURE_OBLIQUE);
+                map\&.put(TextAttribute\&.WEIGHT,
+                        FontWeight\&.is('normal') ? TextAttribute\&.WEIGHT_REGULAR :
+                        FontWeight\&.is('light') ? TextAttribute\&.WEIGHT_LIGHT :
+                        FontWeight\&.is('demi') ? TextAttribute\&.WEIGHT_SEMIBOLD : TextAttribute\&.WEIGHT_BOLD);
+                float fs = getFontSize(FontSize, FontUnits, h);
+                map\&.put(TextAttribute\&.SIZE, new Float(Math\&.round(fs*Utils\&.getScreenResolution()/72\&.0)));
+                
+                return new Font(map);
+        }
+.fi
+.SS "static float \fBgetFontSize\fP (\fBDoubleProperty\fPFontSize, \fBRadioProperty\fPFontUnits, doubleh)\fC [inline, static]\fP"
+.PP
+References DoubleProperty\&.doubleValue(), DoubleProperty\&.floatValue(), Utils\&.getScreenResolution(), RadioProperty\&.getValue(), and RadioProperty\&.is()\&.
+.PP
+Referenced by Utils\&.getFont(), and TextObject\&.toPostScript()\&.
+.PP
+.nf
+        {
+                float fs = 12;
+                if (FontUnits\&.is('points'))
+                        fs = FontSize\&.floatValue();
+                else if (FontUnits\&.is('normalized'))
+                        fs = (float)(FontSize\&.doubleValue()*h*72\&.0/Utils\&.getScreenResolution());
+                else if (FontUnits\&.is('inches'))
+                        fs = FontSize\&.floatValue()*72;
+                else if (FontUnits\&.is('centimeters'))
+                        fs = (FontSize\&.floatValue()/2\&.54f)*72;
+                else
+                        System\&.out\&.println('Warning: ignoring FontUnits (' + FontUnits\&.getValue() + ')');
+                return fs;
+        }
+.fi
+.SS "static double [][] \fBgetHexagramPoints\fP ()\fC [inline, static]\fP"
+.PP
+References Utils\&.hexagramPoints\&.
+.PP
+Referenced by GLRenderer\&.makeMarkerList(), and GL2PS\&.makeMarkerPSString()\&.
+.PP
+.nf
+        {
+                if (hexagramPoints == null)
+                {
+                        hexagramPoints = new double[12][2];
+
+                        double f = 1/Math\&.sqrt(3);
+                        boolean flag = true;
+                        for (int i=0; i<12; i++, flag=!flag)
+                        {
+                                double ang = Math\&.PI/2 + 2*i*Math\&.PI/12;
+                                double r = (flag ? 1 : f);
+                                hexagramPoints[i][0] = r*Math\&.cos(ang);
+                                hexagramPoints[i][1] = r*Math\&.sin(ang);
+                        }
+                }
+
+                return hexagramPoints;
+        }
+.fi
+.SS "static Color \fBgetHighlightColor\fP ()\fC [inline, static]\fP"
+.PP
+References Utils\&.getUIColor()\&.
+.PP
+Referenced by UIPanelObject\&.UIPanelObject()\&.
+.PP
+.nf
+        {
+                return getUIColor('controlLtHighlight', Color\&.white);
+        }
+.fi
+.SS "static double [][] \fBgetPentagramPoints\fP ()\fC [inline, static]\fP"
+.PP
+References Utils\&.pentagramPoints\&.
+.PP
+Referenced by GLRenderer\&.makeMarkerList(), and GL2PS\&.makeMarkerPSString()\&.
+.PP
+.nf
+        {
+                if (pentagramPoints == null)
+                {
+                        pentagramPoints = new double[10][2];
+
+                        double f = Math\&.sin(Math\&.PI/10)/Math\&.sin(3*Math\&.PI/10);
+                        boolean flag = true;
+                        for (int i=0; i<10; i++, flag=!flag)
+                        {
+                                double ang = Math\&.PI/2 + 2*i*Math\&.PI/10;
+                                double r = (flag ? 1 : f);
+                                pentagramPoints[i][0] = r*Math\&.cos(ang);
+                                pentagramPoints[i][1] = r*Math\&.sin(ang);
+                        }
+                }
+
+                return pentagramPoints;
+        }
+.fi
+.SS "static Rectangle \fBgetScreenRectangle\fP ()\fC [inline, static]\fP"
+.PP
+Referenced by Utils\&.convertPosition()\&.
+.PP
+.nf
+        {
+                return new Rectangle(Toolkit\&.getDefaultToolkit()\&.getScreenSize());
+        }
+.fi
+.SS "static int \fBgetScreenResolution\fP ()\fC [inline, static]\fP"
+.PP
+Referenced by Utils\&.convertPosition(), AxesObject\&.convertUnits(), MarkerProperty\&.drawMarker(), GLRenderer\&.drawText(), Utils\&.getFont(), Utils\&.getFontSize(), MarkerProperty\&.makeMarker(), GLRenderer\&.makeMarkerList(), SimpleTextEngine\&.PSTextRenderer\&.PSTextRenderer(), and TextObject\&.toPostScript()\&.
+.PP
+.nf
+        {
+                return Toolkit\&.getDefaultToolkit()\&.getScreenResolution();
+        }
+.fi
+.SS "static Dimension \fBgetScreenSize\fP ()\fC [inline, static]\fP"
+.PP
+Referenced by FigureObject\&.FigureObject(), RootObject\&.RootObject(), FigureObject\&.updateFramePosition(), and FigureObject\&.updatePosition()\&.
+.PP
+.nf
+        {
+                return Toolkit\&.getDefaultToolkit()\&.getScreenSize();
+        }
+.fi
+.SS "static Color \fBgetShadowColor\fP ()\fC [inline, static]\fP"
+.PP
+References Utils\&.getUIColor()\&.
+.PP
+Referenced by UIPanelObject\&.UIPanelObject()\&.
+.PP
+.nf
+        {
+                return getUIColor('controlShadow', Color\&.gray);
+        }
+.fi
+.SS "static Color \fBgetUIColor\fP (Stringname, Colordef)\fC [inline, static, private]\fP"
+.PP
+Referenced by Utils\&.getBackgroundColor(), Utils\&.getHighlightColor(), and Utils\&.getShadowColor()\&.
+.PP
+.nf
+        {
+                try { return (Color)UIManager\&.get(name); }
+                catch (Exception e) { return def; }
+        }
+.fi
+.SS "static String \fBhandleToString\fP (doublehandle)\fC [inline, static]\fP"
+.PP
+References Utils\&.hFmt\&.
+.PP
+Referenced by TextProperty\&.toString(), and HandleObjectListProperty\&.toString()\&.
+.PP
+.nf
+        {
+                return hFmt\&.format(handle);
+        }
+.fi
+.SS "static boolean \fBisNaNorInf\fP (doublex)\fC [inline, static]\fP"
+.PP
+Referenced by J2DRenderer\&.draw(), and LineObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                return (Double\&.isInfinite(x) || Double\&.isNaN(x));
+        }
+.fi
+.SS "static boolean \fBisNaNorInf\fP (doublex, doubley, doublez)\fC [inline, static]\fP"
+.PP
+.nf
+        {
+                return (Double\&.isInfinite(x) || Double\&.isNaN(x) ||
+                                Double\&.isInfinite(y) || Double\&.isNaN(y) ||
+                                Double\&.isInfinite(z) || Double\&.isNaN(z));
+        }
+.fi
+.SS "static String \fBjoin\fP (String[]items, Stringsepstr)\fC [inline, static]\fP"
+.PP
+Referenced by UIControlObject\&.set()\&.
+.PP
+.nf
+        {
+                String new_str = '';
+                for (int i=0; i<items\&.length; i++)
+                {
+                        if (i != 0)
+                                new_str += sepstr;
+                        new_str += items[i];
+                }
+                return new_str;
+        }
+.fi
+.SS "static Icon \fBloadIcon\fP (Stringname)\fC [inline, static]\fP"
+.PP
+Referenced by FigureObject\&.createFigure()\&.
+.PP
+.nf
+        {
+                return new ImageIcon(Utils\&.class\&.getResource('/org/octave/graphics/images/' + name + '\&.png'));
+        }
+.fi
+.SS "static void \fBprintCpuTime\fP ()\fC [inline, static]\fP"
+.PP
+.nf
+        {
+                System\&.out\&.println(java\&.lang\&.management\&.ManagementFactory\&.getThreadMXBean()\&.getCurrentThreadCpuTime());
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "double [][] \fBhexagramPoints\fP\fC [static, private]\fP"
+.PP
+Referenced by Utils\&.getHexagramPoints()\&.
+.SS "java\&.text\&.DecimalFormat \fBhFmt\fP = new java\&.text\&.DecimalFormat('0\&.0000')\fC [static, private]\fP"
+.PP
+Referenced by Utils\&.handleToString()\&.
+.SS "double [][] \fBpentagramPoints\fP\fC [static, private]\fP"
+.PP
+Referenced by Utils\&.getPentagramPoints()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

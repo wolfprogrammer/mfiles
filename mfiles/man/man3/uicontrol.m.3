@@ -1,0 +1,89 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/uicontrol.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/uicontrol.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBvarargin\fP) > 0) \fBif\fP(!ischar(\fBvarargin\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (ishandle(\fBvarargin\fP{1})) \fBparent\fP"
+.br
+.ti -1c
+.RI "\fBvarargin\fP (1)"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('invalid \fBparent\fP, it must be \fBa\fP valid \fBhandle\fP')"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBidx\fP)&&\fBlength\fP(\fBvarargin\fP) >=2 *\fBidx\fP) \fBparent\fP"
+.br
+.ti -1c
+.RI "\fBvarargin\fP ([2 *\fBidx\fP-1, 2 *\fBidx\fP])"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBif\fP (mod(\fBlength\fP(\fBvarargin\fP), 2)==0) \fBif\fP(isempty(\fBparent\fP)) \fBparent\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (nargout > 0) \fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('invalid number of arguments, it must be \fBa\fP property/value list')"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBidx\fP = find (strcmpi ('parent', varargin(1:2:end)), 1, 'first')"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBtmp\fP = __jhandles_go_uicontrol (\fBparent\fP, \fBvarargin\fP{:})"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "else \fBerror\fP ('invalidparent, it must be \fBa\fP valid \fBhandle\fP')"
+.SS "\fBendif\fP else \fBerror\fP ('invalid number ofarguments, it must be \fBa\fP property/value list')"
+.SS "\fBif\fP (\fBlength\fP(\fBvarargin\fP), 0)"
+.PP
+Definition at line 20 of file uicontrol\&.m\&.
+.PP
+.nf
+                          {1}))
+.fi
+.SS "\fBif\fP (ishandle(\fBvarargin\fP{1}))"
+.SS "\fBif\fP (!isempty(\fBidx\fP)&&\fBlength\fP(\fBvarargin\fP) >=2 *idx)"
+.SS "\fBendif\fP \fBendif\fP \fBif\fP (mod(\fBlength\fP(\fBvarargin\fP), 2) = \fC=0\fP)"
+.SS "\fBif\fP (nargout, 0)"
+.SS "\fBvarargin\fP (1)"
+.SS "\fBvarargin\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ uicontrol (varargin)
+
+  parent = []
+.fi
+.PP
+Definition at line 16 of file uicontrol\&.m\&.
+.SS "\fBendif\fP \fBendif\fP \fBidx\fP = find (strcmpi ('parent', varargin(1:2:end)), 1, 'first')"
+.PP
+Definition at line 29 of file uicontrol\&.m\&.
+.SS "\fBendif\fP \fBtmp\fP = __jhandles_go_uicontrol (\fBparent\fP, \fBvarargin\fP{:})"
+.PP
+Definition at line 40 of file uicontrol\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

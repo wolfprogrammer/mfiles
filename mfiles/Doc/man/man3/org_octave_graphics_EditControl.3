@@ -1,0 +1,224 @@
+.TH "EditControl" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EditControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJTextField\fP, \fBUIControl\fP, \fBActionListener\fP, DocumentListener, and \fBFocusListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEditControl\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBsetAlignment\fP ()"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBactionPerformed\fP (ActionEvent event)"
+.br
+.ti -1c
+.RI "void \fBchangedUpdate\fP (DocumentEvent e)"
+.br
+.ti -1c
+.RI "void \fBinsertUpdate\fP (DocumentEvent e)"
+.br
+.ti -1c
+.RI "void \fBremoveUpdate\fP (DocumentEvent e)"
+.br
+.ti -1c
+.RI "void \fBfocusGained\fP (FocusEvent e)"
+.br
+.ti -1c
+.RI "void \fBfocusLost\fP (FocusEvent e)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcontentChanged\fP = false"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBEditControl\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References HandleEvent\&.getProperty(), UIControlObject\&.HorizontalAlignment, EditControl\&.propertyChanged(), EditControl\&.setAlignment(), EditControl\&.sink, StringProperty\&.toString(), EditControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+.nf
+        {
+                super();
+                addActionListener(this);
+                addFocusListener(this);
+                getDocument()\&.addDocumentListener(this);
+                uiObj = obj;
+
+                setAlignment();
+                setText(obj\&.UIString\&.toString());
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+                sink\&.listen(obj\&.HorizontalAlignment);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBactionPerformed\fP (ActionEventevent)\fC [inline]\fP"
+.PP
+References EditControl\&.contentChanged, UIControlObject\&.controlActivated(), and EditControl\&.uiObj\&.
+.PP
+.nf
+        {
+                uiObj\&.controlActivated(new UIControlEvent(this));
+                contentChanged = false;
+        }
+.fi
+.SS "void \fBchangedUpdate\fP (DocumentEvente)\fC [inline]\fP"
+.PP
+.nf
+{}
+.fi
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and EditControl\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "void \fBfocusGained\fP (FocusEvente)\fC [inline]\fP"
+.PP
+References EditControl\&.contentChanged\&.
+.PP
+.nf
+        {
+                contentChanged = false;
+        }
+.fi
+.SS "void \fBfocusLost\fP (FocusEvente)\fC [inline]\fP"
+.PP
+References EditControl\&.contentChanged, UIControlObject\&.controlActivated(), and EditControl\&.uiObj\&.
+.PP
+.nf
+        {
+                if (contentChanged)
+                {
+                        uiObj\&.controlActivated(new UIControlEvent(this));
+                        contentChanged = false;
+                }
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "void \fBinsertUpdate\fP (DocumentEvente)\fC [inline]\fP"
+.PP
+References EditControl\&.contentChanged\&.
+.PP
+.nf
+        {
+                contentChanged = true;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References UIControlObject\&.HorizontalAlignment, EditControl\&.setAlignment(), StringProperty\&.toString(), EditControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+Referenced by EditControl\&.EditControl()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.UIString)
+                        setText(uiObj\&.UIString\&.toString());
+                else if (p == uiObj\&.HorizontalAlignment)
+                        setAlignment();
+        }
+.fi
+.SS "void \fBremoveUpdate\fP (DocumentEvente)\fC [inline]\fP"
+.PP
+References EditControl\&.contentChanged\&.
+.PP
+.nf
+        {
+                contentChanged = true;
+        }
+.fi
+.SS "void \fBsetAlignment\fP ()\fC [inline]\fP"
+.PP
+References UIControlObject\&.HorizontalAlignment, RadioProperty\&.is(), and EditControl\&.uiObj\&.
+.PP
+Referenced by EditControl\&.EditControl(), and EditControl\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                setHorizontalAlignment(
+                        uiObj\&.HorizontalAlignment\&.is('center') ? JTextField\&.CENTER :
+                        uiObj\&.HorizontalAlignment\&.is('left') ? JTextField\&.LEFT :
+                        uiObj\&.HorizontalAlignment\&.is('right') ? JTextField\&.RIGHT :
+                        JTextField\&.LEFT);
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References Property\&.reset(), EditControl\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+.nf
+        {
+                uiObj\&.UIString\&.reset(getText());
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean \fBcontentChanged\fP = false\fC [private]\fP"
+.PP
+Referenced by EditControl\&.actionPerformed(), EditControl\&.focusGained(), EditControl\&.focusLost(), EditControl\&.insertUpdate(), and EditControl\&.removeUpdate()\&.
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [package]\fP"
+.PP
+Referenced by EditControl\&.dispose(), and EditControl\&.EditControl()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [package]\fP"
+.PP
+Referenced by EditControl\&.actionPerformed(), EditControl\&.EditControl(), EditControl\&.focusLost(), EditControl\&.propertyChanged(), EditControl\&.setAlignment(), and EditControl\&.update()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

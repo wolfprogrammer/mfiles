@@ -1,0 +1,43 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_add_listener.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_add_listener.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fB__jhandles_add_listener\fP (\fBh\fP, \fBpname\fP, \fBfun\fP, \fBhh\fP) source"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBhh\fP)) \fBparent\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBjava_new\fP ('org\&.octave\&.graphics\&.OctaveSink', fun, source, \fBpname\fP, \fBparent\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "else \fBparent\fP = []"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBfunction\fP \fB__jhandles_add_listener\fP (\fBh\fP, \fBpname\fP, \fBfun\fP, \fBhh\fP)"
+.SS "\fBif\fP (!isemptyhh)"
+.SS "\fBendif\fP \fBjava_new\fP ('org\&.octave\&.graphics\&.OctaveSink', \fBfun\fP, source, \fBpname\fP, \fBparent\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "else \fBparent\fP = []"
+.PP
+Definition at line 22 of file __jhandles_add_listener\&.m\&.
+.PP
+Referenced by DEFUN_DLD()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

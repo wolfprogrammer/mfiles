@@ -1,0 +1,49 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/uiwait.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/uiwait.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBuiwait\fP (\fBfig\fP) \fBif\fP(ishandle(\fBfig\fP)&&strcmp(\fBget\fP(\fBfig\fP"
+.br
+.ti -1c
+.RI "\fBfunction\fP figure try \fBset\fP (\fBfig\fP,'__wait__','\fBon\fP')"
+.br
+.ti -1c
+.RI "catch \fBaddprop\fP (\fBfig\fP,'__wait__','radio','\fBon\fP|\fBoff\fP','\fBon\fP')"
+.br
+.ti -1c
+.RI "end \fBwaitfor\fP (\fBfig\fP,'__wait__','\fBoff\fP')"
+.br
+.ti -1c
+.RI "else \fBprint_usage\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBtype\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "catch \fBaddprop\fP (\fBfig\fP, '__wait__', 'radio', 'on|\fBoff\fP', 'on')"
+.SS "else \fBprint_usage\fP ()"
+.SS "\fBfunction\fP figure try \fBset\fP (\fBfig\fP, '__wait__', 'on')"
+.SS "\fBfunction\fP \fBuiwait\fP (\fBfig\fP)"
+.SS "end \fBwaitfor\fP (\fBfig\fP, '__wait__', 'off')"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP \fBtype\fP"
+.PP
+Definition at line 18 of file uiwait\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

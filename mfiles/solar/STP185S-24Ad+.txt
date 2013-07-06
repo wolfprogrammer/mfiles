@@ -1,0 +1,20 @@
+% Modulo solar
+%
+manufacture = "Kiocera"
+model = "msx60i"
+ref =  "STC"
+
+Voc= 36.4
+Isc= 5.43
+Vmp= 36.04
+Imp= 5.09
+Pm=  185
+
+%coeficientes de temperatura em %/ºC
+avoc = -0.34
+aisc =  0.037
+apm  = -0.48
+
+
+NOCT=  45
+

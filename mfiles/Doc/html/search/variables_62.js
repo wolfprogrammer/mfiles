@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['back',['back',['../struct___g_l2_p_sbsptree2d.html#a5a0b1afc7162375eacaf41783aeec370',1,'_GL2PSbsptree2d::back()'],['../struct___g_l2_p_sbsptree.html#abaeb5e7e8ca1039716a6dc80e218c1fc',1,'_GL2PSbsptree::back()']]],
+  ['backgroundcolor',['BackgroundColor',['../classorg_1_1octave_1_1graphics_1_1_text_object.html#a69d25b190bd11a0ca85b9fb77f9c1e16',1,'org::octave::graphics::TextObject.BackgroundColor()'],['../classorg_1_1octave_1_1graphics_1_1_u_i_control_object.html#a69d25b190bd11a0ca85b9fb77f9c1e16',1,'org::octave::graphics::UIControlObject.BackgroundColor()'],['../classorg_1_1octave_1_1graphics_1_1_u_i_panel_object.html#a69d25b190bd11a0ca85b9fb77f9c1e16',1,'org::octave::graphics::UIPanelObject.BackgroundColor()']]],
+  ['bargroup',['BarGroup',['../classorg_1_1octave_1_1graphics_1_1_barseries_object.html#af3a8b6df9647963f88edf9da431fae41',1,'org::octave::graphics::BarseriesObject']]],
+  ['barlayout',['BarLayout',['../classorg_1_1octave_1_1graphics_1_1_barseries_object.html#a4b9e7981edcaed56c1192975e682e27a',1,'org::octave::graphics::BarseriesObject']]],
+  ['barwidth',['BarWidth',['../classorg_1_1octave_1_1graphics_1_1_barseries_object.html#a30b1f16fd43f1ff9a1fed032cee6b8c8',1,'org::octave::graphics::BarseriesObject']]],
+  ['baseline',['baseLine',['../classorg_1_1octave_1_1graphics_1_1_axes_object.html#a4a0dadea20e617f900de57150385d317',1,'org::octave::graphics::AxesObject.baseLine()'],['../classorg_1_1octave_1_1graphics_1_1_barseries_object.html#a424a6fb3fcce8fa1c08ca8661c5798fd',1,'org::octave::graphics::BarseriesObject.BaseLine()']]],
+  ['basevalue',['BaseValue',['../classorg_1_1octave_1_1graphics_1_1_barseries_object.html#aec0dd3709024c1d18b537dfda4baeef5',1,'org::octave::graphics::BarseriesObject.BaseValue()'],['../classorg_1_1octave_1_1graphics_1_1_base_line_object.html#aec0dd3709024c1d18b537dfda4baeef5',1,'org::octave::graphics::BaseLineObject.BaseValue()']]],
+  ['beginviewport',['beginViewport',['../struct_g_l2_p_sbackend.html#af435e3eea2922c04d01a1f98efab36f4',1,'GL2PSbackend']]],
+  ['beingdeleted',['BeingDeleted',['../classorg_1_1octave_1_1graphics_1_1_handle_object.html#a634793ae3f0ea15625f9795ce36b20b7',1,'org::octave::graphics::HandleObject']]],
+  ['bgcolor',['bgcolor',['../struct_g_l2_p_scontext.html#ae40ab8db5d88be79d32c408d18a8ac55',1,'GL2PScontext']]],
+  ['blendfunc',['blendfunc',['../struct_g_l2_p_scontext.html#aaa9f25f163552b7be95dce667f07bd3e',1,'GL2PScontext']]],
+  ['blending',['blending',['../struct_g_l2_p_scontext.html#afe53bb20e90a6ba09ab8b82af47cf3a4',1,'GL2PScontext']]],
+  ['bordertype',['BorderType',['../classorg_1_1octave_1_1graphics_1_1_u_i_panel_object.html#afdd656b76d5a2a049c4d6fdc7a9737ce',1,'org::octave::graphics::UIPanelObject']]],
+  ['boundary',['boundary',['../struct_g_l2_p_sprimitive.html#a5b6139a660e50c641a0e3c9053f69fea',1,'GL2PSprimitive::boundary()'],['../struct_g_l2_p_scontext.html#ae3b01a05101588ddff3ed0ad20858852',1,'GL2PScontext::boundary()']]],
+  ['boundingbox',['boundingBox',['../classorg_1_1octave_1_1graphics_1_1_axes_object.html#a0b6dd4d125296e867d21bd38bb70559c',1,'org::octave::graphics::AxesObject']]],
+  ['box',['Box',['../classorg_1_1octave_1_1graphics_1_1_axes_object.html#a120c1e6097c60ed01465ec6a8889edc3',1,'org::octave::graphics::AxesObject']]],
+  ['buf',['buf',['../classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_p_s_text_renderer.html#ac3b0bb7f1aa7b7ee637cf3b0c9fce886',1,'org::octave::graphics::SimpleTextEngine::PSTextRenderer']]],
+  ['buffer',['buffer',['../classorg_1_1octave_1_1graphics_1_1_j2_d_render_canvas.html#a93b81ecd1eb1276ed45dc171931bd19d',1,'org::octave::graphics::J2DRenderCanvas.buffer()'],['../classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_simple_factory.html#affb2930c2ce1a0819d647af67e4c2a5e',1,'org::octave::graphics::SimpleTextEngine::SimpleFactory.buffer()']]],
+  ['buffersize',['buffersize',['../struct_g_l2_p_scontext.html#aa0db3c5bfb376039fdb90af5a18c0f68',1,'GL2PScontext']]],
+  ['builder',['builder',['../classorg_1_1octave_1_1graphics_1_1_simple_text_engine_1_1_simple_factory.html#aaee0f6ee36eb2d61302473c6cba21074',1,'org::octave::graphics::SimpleTextEngine::SimpleFactory']]],
+  ['buttondownfcn',['ButtonDownFcn',['../classorg_1_1octave_1_1graphics_1_1_handle_object.html#a4ffe071c9412fbab4c667d9cc5dc5ef7',1,'org::octave::graphics::HandleObject']]]
+];

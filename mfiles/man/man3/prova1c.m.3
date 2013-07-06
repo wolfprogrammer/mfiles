@@ -1,0 +1,164 @@
+.TH "/home/caio/mfiles/prova1c.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/prova1c.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "incia vetor Z3 Coluna \fBH03\fP (1, 1)"
+.br
+.ti -1c
+.RI "\fBH03\fP (2, 1)"
+.br
+.ti -1c
+.RI "\fBH03\fP (3, 1)"
+.br
+.ti -1c
+.RI "Coluna \fBH03\fP (1, 2)"
+.br
+.ti -1c
+.RI "\fBH03\fP (2, 2)"
+.br
+.ti -1c
+.RI "\fBH03\fP (3, 2)=0"
+.br
+.ti -1c
+.RI "Coluna \fBH03\fP (1, 3)"
+.br
+.ti -1c
+.RI "\fBH03\fP (2, 3)"
+.br
+.ti -1c
+.RI "\fBH03\fP (3, 3)"
+.br
+.ti -1c
+.RI "Coluna \fBH03\fP (1, 4)"
+.br
+.ti -1c
+.RI "\fBH03\fP (2, 4)"
+.br
+.ti -1c
+.RI "\fBH03\fP (3, 4)"
+.br
+.ti -1c
+.RI "\fBH03\fP (4, 4)"
+.br
+.ti -1c
+.RI "\fBdisp\fP ('H03=')%disp(\fBH03\fP) HH03"
+.br
+.ti -1c
+.RI "q1 \fBq2\fP q3 \fBq4\fP \fBq5\fP \fBq6\fP Testes \fBprintf\fP ('Testes\\\fBn\fP\\\fBn\fP')"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "Configuracoes \fBclc\fP clear \fBd2\fP"
+.br
+.ti -1c
+.RI "\fBT\fP = [ 0 , 1 , 0 ,-1"
+.br
+.ti -1c
+.RI "\fBARM\fP"
+.br
+.ti -1c
+.RI "\fBq2\fP"
+.br
+.ti -1c
+.RI "\fBq4\fP"
+.br
+.ti -1c
+.RI "\fBq5\fP"
+.br
+.ti -1c
+.RI "\fBq6\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBdisp\fP ()"
+.SS "incia vetor Z3 Coluna \fBH03\fP (1, 1)"
+.SS "\fBH03\fP (2, 1)"
+.SS "\fBH03\fP (3, 1)"
+.SS "Coluna \fBH03\fP (1, 2)"
+.SS "\fBH03\fP (2, 2)"
+.SS "\fBH03\fP (3, 2)\fC [pure virtual]\fP"
+.SS "Coluna \fBH03\fP (1, 3)"
+.SS "\fBH03\fP (2, 3)"
+.SS "\fBH03\fP (3, 3)"
+.SS "Coluna \fBH03\fP (1, 4)"
+.SS "\fBH03\fP (2, 4)"
+.SS "\fBH03\fP (3, 4)"
+.SS "\fBH03\fP (4, 4)"
+.SS "q1 \fBq2\fP q3 \fBq4\fP \fBq5\fP \fBq6\fP Testes \fBprintf\fP ('Testes\\\fBn\fP\\\fBn\fP')"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBARM\fP"\fBInitial value:\fP
+.PP
+.nf
+'\n\nAngulo teta4'
+
+% Constantes auxiliares
+C1=cosd(q1)
+S1=sind(q1)
+
+C2=cosd(q2)
+S2=sind(q2)
+
+C3=cosd(q3)
+S3=sind(q3)
+
+C23=C2*C3 -S2*S3
+S23=S2*C3 +C2*S3
+
+
+
+
+H03=zeros(4,4)
+.fi
+.PP
+Definition at line 34 of file prova1c\&.m\&.
+.SS "Configuracoes \fBclc\fP clear \fBd2\fP"\fBInitial value:\fP
+.PP
+.nf
+1
+a2=1
+
+a3=-1
+
+d4=1
+
+d6=1
+
+%    Tabela DH
+%  alpha d a
+%               
+%
+DHTAB= [ -90 , 0 , 0
+.fi
+.PP
+Definition at line 10 of file prova1c\&.m\&.
+.SS "\fBq2\fP"
+.PP
+Definition at line 230 of file prova1c\&.m\&.
+.SS "\fBq4\fP"
+.PP
+Definition at line 230 of file prova1c\&.m\&.
+.SS "\fBq5\fP"
+.PP
+Definition at line 230 of file prova1c\&.m\&.
+.SS "\fBq6\fP"
+.PP
+Definition at line 230 of file prova1c\&.m\&.
+.SS "\fBT\fP = [ 0 , 1 , 0 ,-1"
+.PP
+Definition at line 31 of file prova1c\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

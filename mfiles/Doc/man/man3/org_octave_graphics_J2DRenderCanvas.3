@@ -1,0 +1,270 @@
+.TH "J2DRenderCanvas" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+J2DRenderCanvas \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Canvas, and \fBRenderCanvas\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBJ2DRenderCanvas\fP ()"
+.br
+.ti -1c
+.RI "void \fBpaint\fP (Graphics g)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Graphics g)"
+.br
+.ti -1c
+.RI "void \fBsetBounds\fP (int x, int y, int w, int h)"
+.br
+.ti -1c
+.RI "void \fBaddRenderEventListener\fP (\fBRenderEventListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveRenderEventListener\fP (\fBRenderEventListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBredraw\fP ()"
+.br
+.ti -1c
+.RI "\fBRenderer\fP \fBgetRenderer\fP ()"
+.br
+.ti -1c
+.RI "Component \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "BufferedImage \fBtoImage\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoPostScript\fP (String filename)"
+.br
+.ti -1c
+.RI "void \fBaddMouseListener\fP (\fBMouseListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveMouseListener\fP (\fBMouseListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBaddMouseMotionListener\fP (\fBMouseMotionListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveMouseMotionListener\fP (\fBMouseMotionListener\fP l)"
+.br
+.ti -1c
+.RI "int \fBgetWidth\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetHeight\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetX\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetY\fP ()"
+.br
+.ti -1c
+.RI "Font \fBgetFont\fP ()"
+.br
+.ti -1c
+.RI "FontMetrics \fBgetFontMetrics\fP (Font fnt)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "List \fBlistenerList\fP"
+.br
+.ti -1c
+.RI "\fBJ2DRenderer\fP \fBr\fP"
+.br
+.ti -1c
+.RI "Image \fBbuffer\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBJ2DRenderCanvas\fP ()\fC [inline]\fP"
+.PP
+References J2DRenderCanvas\&.listenerList, and J2DRenderCanvas\&.r\&.
+.PP
+.nf
+        {
+                listenerList = new LinkedList();
+                r = new J2DRenderer(this);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddMouseListener\fP (\fBMouseListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "void \fBaddMouseMotionListener\fP (\fBMouseMotionListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.createCanvas()\&.
+.SS "void \fBaddRenderEventListener\fP (\fBRenderEventListener\fPl)\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References J2DRenderCanvas\&.listenerList\&.
+.PP
+.nf
+        {
+                listenerList\&.add(l);
+        }
+.fi
+.SS "Component \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+.nf
+        {
+                return this;
+        }
+.fi
+.SS "Font \fBgetFont\fP ()\fC [inherited]\fP"
+.PP
+Referenced by LegendObject\&.doLayout(), and J2DRenderer\&.drawText()\&.
+.SS "FontMetrics \fBgetFontMetrics\fP (Fontfnt)\fC [inherited]\fP"
+.PP
+Referenced by LegendObject\&.doLayout(), SimpleTextEngine\&.Layouter\&.getFontMetrics(), AxesObject\&.updateOuterPosition(), and AxesObject\&.updatePosition()\&.
+.SS "int \fBgetHeight\fP ()\fC [inherited]\fP"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), J2DRenderer\&.clear(), AxesObject\&.convertUnits(), LegendObject\&.doLayout(), J2DRenderer\&.draw(), TextObject\&.getExtent(), AxesContainer\&.getObjectForPoint(), GLRenderCanvas\&.toImage(), TextObject\&.updateData(), and AxesObject\&.updateXFormMatrices()\&.
+.SS "\fBRenderer\fP \fBgetRenderer\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References J2DRenderCanvas\&.r\&.
+.PP
+.nf
+        {
+                return r;
+        }
+.fi
+.SS "int \fBgetWidth\fP ()\fC [inherited]\fP"
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), J2DRenderer\&.clear(), LegendObject\&.doLayout(), and GLRenderCanvas\&.toImage()\&.
+.SS "int \fBgetX\fP ()\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.getMouseLocation(), and AxesContainer\&.getObjectForPoint()\&.
+.SS "int \fBgetY\fP ()\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.getMouseLocation(), and AxesContainer\&.getObjectForPoint()\&.
+.SS "void \fBpaint\fP (Graphicsg)\fC [inline]\fP"
+.PP
+References J2DRenderCanvas\&.buffer, J2DRenderCanvas\&.listenerList, J2DRenderCanvas\&.r, and J2DRenderer\&.setGraphics()\&.
+.PP
+Referenced by J2DRenderCanvas\&.update()\&.
+.PP
+.nf
+        {
+                if (buffer != null)
+                {
+                        Graphics bufferGC = buffer\&.getGraphics();
+
+                        r\&.setGraphics(bufferGC);
+
+                        Iterator it = listenerList\&.iterator();
+                        while (it\&.hasNext())
+                                ((RenderEventListener)it\&.next())\&.display(this);
+
+                        r\&.setGraphics(null);
+                        bufferGC\&.dispose();
+                        g\&.drawImage(buffer, 0, 0, this);
+                }
+        }
+.fi
+.SS "void \fBredraw\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+.nf
+        {
+                repaint();
+        }
+.fi
+.SS "void \fBremoveMouseListener\fP (\fBMouseListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "void \fBremoveMouseMotionListener\fP (\fBMouseMotionListener\fPl)\fC [inherited]\fP"
+.PP
+Referenced by AxesContainer\&.updateCanvas()\&.
+.SS "void \fBremoveRenderEventListener\fP (\fBRenderEventListener\fPl)\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+References J2DRenderCanvas\&.listenerList\&.
+.PP
+.nf
+        {
+                listenerList\&.remove(l);
+        }
+.fi
+.SS "void \fBsetBounds\fP (intx, inty, intw, inth)\fC [inline]\fP"
+.PP
+References J2DRenderCanvas\&.buffer, and J2DRenderCanvas\&.listenerList\&.
+.PP
+.nf
+        {
+                super\&.setBounds(x, y, w, h);
+                if (buffer != null)
+                {
+                        buffer\&.flush();
+                        buffer = null;
+                }
+                if (w > 0 && h > 0)
+                        buffer = createImage(w, h);
+
+                Iterator it = listenerList\&.iterator();
+                while (it\&.hasNext())
+                        ((RenderEventListener)it\&.next())\&.reshape(this, x, y, w, h);
+        }
+.fi
+.SS "BufferedImage \fBtoImage\fP ()\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+.nf
+        {
+                return null;
+        }
+.fi
+.SS "void \fBtoPostScript\fP (Stringfilename)\fC [inline]\fP"
+.PP
+Implements \fBRenderCanvas\fP\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBupdate\fP (Graphicsg)\fC [inline]\fP"
+.PP
+References J2DRenderCanvas\&.paint()\&.
+.PP
+.nf
+        {
+                paint(g);
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "Image \fBbuffer\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderCanvas\&.paint(), and J2DRenderCanvas\&.setBounds()\&.
+.SS "List \fBlistenerList\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderCanvas\&.addRenderEventListener(), J2DRenderCanvas\&.J2DRenderCanvas(), J2DRenderCanvas\&.paint(), J2DRenderCanvas\&.removeRenderEventListener(), and J2DRenderCanvas\&.setBounds()\&.
+.SS "\fBJ2DRenderer\fP \fBr\fP\fC [private]\fP"
+.PP
+Referenced by J2DRenderCanvas\&.getRenderer(), J2DRenderCanvas\&.J2DRenderCanvas(), and J2DRenderCanvas\&.paint()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

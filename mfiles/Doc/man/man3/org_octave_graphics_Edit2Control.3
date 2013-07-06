@@ -1,0 +1,194 @@
+.TH "Edit2Control" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Edit2Control \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBJScrollPane\fP, \fBUIControl\fP, and \fBKeyListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEdit2Control\fP (\fBUIControlObject\fP obj)"
+.br
+.ti -1c
+.RI "void \fBsetAlignment\fP ()"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "JComponent \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void \fBkeyPressed\fP (KeyEvent event)"
+.br
+.ti -1c
+.RI "void \fBkeyReleased\fP (KeyEvent event)"
+.br
+.ti -1c
+.RI "void \fBkeyTyped\fP (KeyEvent event)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUIControlObject\fP \fBuiObj\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSinkAdapter\fP \fBsink\fP"
+.br
+.ti -1c
+.RI "JTextPane \fBtext\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBEdit2Control\fP (\fBUIControlObject\fPobj)\fC [inline]\fP"
+.PP
+References UIControlObject\&.BackgroundColor, UIControlObject\&.ForegroundColor, ColorProperty\&.getColor(), HandleEvent\&.getProperty(), UIControlObject\&.HorizontalAlignment, Edit2Control\&.propertyChanged(), Edit2Control\&.setAlignment(), Edit2Control\&.sink, Edit2Control\&.text, StringProperty\&.toString(), Edit2Control\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+.nf
+        {
+                super(new JTextPane());
+                text = (JTextPane)getViewport()\&.getView();
+                text\&.addKeyListener(this);
+                uiObj = obj;
+
+                setVerticalScrollBarPolicy(ScrollPaneConstants\&.VERTICAL_SCROLLBAR_ALWAYS);
+                setAlignment();
+                text\&.setText(obj\&.UIString\&.toString());
+                setBackground(obj\&.BackgroundColor\&.getColor());
+                setForeground(obj\&.ForegroundColor\&.getColor());
+
+                sink = new HandleEventSinkAdapter() {
+                        public void eventOccured(HandleEvent evt) throws PropertyException
+                        { propertyChanged(evt\&.getProperty()); }
+                };
+                sink\&.listen(obj\&.UIString);
+                sink\&.listen(obj\&.HorizontalAlignment);
+                sink\&.listen(obj\&.BackgroundColor);
+                sink\&.listen(obj\&.ForegroundColor);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBdispose\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References HandleEventSinkAdapter\&.dispose(), and Edit2Control\&.sink\&.
+.PP
+.nf
+        {
+                sink\&.dispose();
+        }
+.fi
+.SS "JComponent \fBgetComponent\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References Edit2Control\&.text\&.
+.PP
+.nf
+        {
+                return text;
+        }
+.fi
+.SS "void \fBkeyPressed\fP (KeyEventevent)\fC [inline]\fP"
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBkeyReleased\fP (KeyEventevent)\fC [inline]\fP"
+.PP
+.nf
+        {
+        }
+.fi
+.SS "void \fBkeyTyped\fP (KeyEventevent)\fC [inline]\fP"
+.PP
+References UIControlObject\&.controlActivated(), and Edit2Control\&.uiObj\&.
+.PP
+.nf
+        {
+                if (event\&.getKeyChar() == '\n' && event\&.getModifiers() == InputEvent\&.CTRL_MASK)
+                        uiObj\&.controlActivated(new UIControlEvent(this));
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+References UIControlObject\&.BackgroundColor, UIControlObject\&.ForegroundColor, ColorProperty\&.getColor(), UIControlObject\&.HorizontalAlignment, Edit2Control\&.setAlignment(), Edit2Control\&.text, StringProperty\&.toString(), Edit2Control\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+Referenced by Edit2Control\&.Edit2Control()\&.
+.PP
+.nf
+        {
+                if (p == uiObj\&.UIString)
+                        text\&.setText(uiObj\&.UIString\&.toString());
+                else if (p == uiObj\&.HorizontalAlignment)
+                        setAlignment();
+                else if (p == uiObj\&.BackgroundColor)
+                        setBackground(uiObj\&.BackgroundColor\&.getColor());
+                else if (p == uiObj\&.ForegroundColor)
+                        setForeground(uiObj\&.ForegroundColor\&.getColor());
+        }
+.fi
+.SS "void \fBsetAlignment\fP ()\fC [inline]\fP"
+.PP
+References UIControlObject\&.HorizontalAlignment, RadioProperty\&.is(), Edit2Control\&.text, and Edit2Control\&.uiObj\&.
+.PP
+Referenced by Edit2Control\&.Edit2Control(), and Edit2Control\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                MutableAttributeSet s = new SimpleAttributeSet();
+                s\&.addAttribute(
+                        StyleConstants\&.Alignment,
+                        new Integer(
+                                (uiObj\&.HorizontalAlignment\&.is('left') ? StyleConstants\&.ALIGN_LEFT :
+                                 uiObj\&.HorizontalAlignment\&.is('center') ? StyleConstants\&.ALIGN_CENTER :
+                                 uiObj\&.HorizontalAlignment\&.is('right') ? StyleConstants\&.ALIGN_RIGHT :
+                                 StyleConstants\&.ALIGN_LEFT)));
+                StyledDocument doc = text\&.getStyledDocument();
+
+                doc\&.setParagraphAttributes(0, doc\&.getLength()+1, s, false);
+        }
+.fi
+.SS "void \fBupdate\fP ()\fC [inline]\fP"
+.PP
+Implements \fBUIControl\fP\&.
+.PP
+References Property\&.reset(), Edit2Control\&.text, Edit2Control\&.uiObj, and UIControlObject\&.UIString\&.
+.PP
+.nf
+        {
+                uiObj\&.UIString\&.reset(text\&.getText());
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleEventSinkAdapter\fP \fBsink\fP\fC [package]\fP"
+.PP
+Referenced by Edit2Control\&.dispose(), and Edit2Control\&.Edit2Control()\&.
+.SS "JTextPane \fBtext\fP\fC [package]\fP"
+.PP
+Referenced by Edit2Control\&.Edit2Control(), Edit2Control\&.getComponent(), Edit2Control\&.propertyChanged(), Edit2Control\&.setAlignment(), and Edit2Control\&.update()\&.
+.SS "\fBUIControlObject\fP \fBuiObj\fP\fC [package]\fP"
+.PP
+Referenced by Edit2Control\&.Edit2Control(), Edit2Control\&.keyTyped(), Edit2Control\&.propertyChanged(), Edit2Control\&.setAlignment(), and Edit2Control\&.update()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

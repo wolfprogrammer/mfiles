@@ -1,0 +1,48 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/hggroup.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/hggroup.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "else \fBif\fP (ishandle(\fBax\fP)) typ"
+.br
+.ti -1c
+.RI "\fBif\fP (!strcmp(typ,'axes')&&!strcmp(typ,'hggroup')) error('parent of hggroup must be an \fBaxes\fP or hggroup object')"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('parent of hggroup must be \fBa\fP valid \fBhandle\fP object')"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBh\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBendif\fP else \fBerror\fP ('parent of hggroup must be \fBa\fP valid \fBhandle\fP object')"
+.SS "else \fBif\fP (ishandle(\fBax\fP))"
+.SS "\fBif\fP (!strcmptyp,'axes')&&!strcmp(typ,'hggroup')"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBendif\fP \fBendif\fP \fBh\fP"\fBInitial value:\fP
+.PP
+.nf
+ hggroup (ax)
+
+  if (nargin == 0)
+    ax = gca ()
+.fi
+.PP
+Definition at line 16 of file hggroup\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

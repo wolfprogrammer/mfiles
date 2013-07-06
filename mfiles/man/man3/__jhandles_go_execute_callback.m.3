@@ -1,0 +1,87 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_execute_callback.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_execute_callback.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fB__jhandles_go_execute_callback\fP (\fBh\fP, name, param) \fBj1\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (nargin==3) \fBargs\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP (1)"
+.br
+.ti -1c
+.RI "\fBargs\fP (2)"
+.br
+.ti -1c
+.RI "\fBargs\fP (3)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBprop\fP \fBexecute\fP (\fBargs\fP)"
+.br
+.ti -1c
+.RI "unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.br
+.ti -1c
+.RI "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.br
+.ti -1c
+.RI "end_unwind_protect \fBjava_invoke\fP ('org\&.octave\&.graphics\&.HandleObject','shutdown')"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.br
+.ti -1c
+.RI "unwind_protect \fBobj\fP = \fB__get_object__\fP (\fBh\fP)"
+.br
+.ti -1c
+.RI "\fBprop\fP = obj\&.getProperty (name)"
+.br
+.ti -1c
+.RI "else \fBargs\fP = javaArray ('java\&.lang\&.Object', 2)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBfunction\fP \fB__jhandles_go_execute_callback\fP (\fBh\fP, name, param)"
+.SS "\fBargs\fP (1)"
+.SS "\fBargs\fP (2)"
+.SS "\fBargs\fP (3)"
+.SS "\fBendif\fP \fBprop\fP \fBexecute\fP (\fBargs\fP)"
+.SS "\fBif\fP (nargin = \fC=3\fP)"
+.SS "unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.SS "end_unwind_protect \fBjava_invoke\fP ('org\&.octave\&.graphics\&.HandleObject', 'shutdown')"
+.SS "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "else \fBargs\fP = javaArray ('java\&.lang\&.Object', 2)"
+.PP
+Definition at line 30 of file __jhandles_go_execute_callback\&.m\&.
+.SS "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.PP
+Definition at line 19 of file __jhandles_go_execute_callback\&.m\&.
+.SS "unwind_protect \fBobj\fP = \fB__get_object__\fP (\fBh\fP)"
+.PP
+Definition at line 22 of file __jhandles_go_execute_callback\&.m\&.
+.PP
+Referenced by DEFUN_DLD()\&.
+.SS "\fBprop\fP = obj\&.getProperty (name)"
+.PP
+Definition at line 23 of file __jhandles_go_execute_callback\&.m\&.
+.PP
+Referenced by gl2psPDFgroupListWriteObjects()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

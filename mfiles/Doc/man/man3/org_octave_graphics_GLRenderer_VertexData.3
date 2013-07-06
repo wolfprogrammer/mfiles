@@ -1,0 +1,87 @@
+.TH "GLRenderer.VertexData" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLRenderer.VertexData \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVertexData\fP (double[] \fBcoords\fP, double[] \fBcolor\fP, double \fBalpha\fP, double[] \fBnormal\fP, float \fBambient\fP, float \fBdiffuse\fP, float \fBspecular\fP, float \fBspecularExp\fP)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "double[] \fBcoords\fP"
+.br
+.ti -1c
+.RI "double[] \fBcolor\fP"
+.br
+.ti -1c
+.RI "double \fBalpha\fP"
+.br
+.ti -1c
+.RI "double[] \fBnormal\fP"
+.br
+.ti -1c
+.RI "float \fBambient\fP"
+.br
+.ti -1c
+.RI "float \fBdiffuse\fP"
+.br
+.ti -1c
+.RI "float \fBspecular\fP"
+.br
+.ti -1c
+.RI "float \fBspecularExp\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBVertexData\fP (double[]coords, double[]color, doublealpha, double[]normal, floatambient, floatdiffuse, floatspecular, floatspecularExp)\fC [inline, package]\fP"
+.PP
+.nf
+                {
+                        this\&.coords = coords;
+                        this\&.color = color;
+                        this\&.alpha = alpha;
+                        this\&.normal = normal;
+                        this\&.ambient = ambient;
+                        this\&.diffuse = diffuse;
+                        this\&.specular = specular;
+                        this\&.specularExp = specularExp;
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "double \fBalpha\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.addLinePrimitive(), and GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+.SS "float \fBambient\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.addLinePrimitive(), GLRenderer\&.PatchTessellator\&.vertex(), and GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+.SS "double [] \fBcolor\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.addLinePrimitive(), GLRenderer\&.PatchTessellator\&.combine(), GLRenderer\&.PatchTessellatorAlpha\&.combine(), GLRenderer\&.PatchTessellator\&.vertex(), and GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+.SS "double [] \fBcoords\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+.SS "float \fBdiffuse\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.addLinePrimitive(), GLRenderer\&.PatchTessellator\&.vertex(), and GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+.SS "double [] \fBnormal\fP\fC [package]\fP"
+.SS "float \fBspecular\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.addLinePrimitive(), and GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+.SS "float \fBspecularExp\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.PatchTessellatorAlpha\&.addLinePrimitive(), and GLRenderer\&.PatchTessellatorAlpha\&.vertex()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

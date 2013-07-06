@@ -1,0 +1,770 @@
+.TH "ArrayProperty" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ArrayProperty \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBProperty\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBArrayProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String[] types, int dims)"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, Matrix matrix)"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String[] types, int dims, Matrix matrix)"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBcloneProperty\fP ()"
+.br
+.ti -1c
+.RI "Matrix \fBgetMatrix\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNDims\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetDim\fP (int index)"
+.br
+.ti -1c
+.RI "String \fBgetClassName\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisType\fP (String cls)"
+.br
+.ti -1c
+.RI "boolean \fBisAllowedType\fP (String cls)"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBasDoubleVector\fP ()"
+.br
+.ti -1c
+.RI "double[][] \fBasDoubleMatrix\fP ()"
+.br
+.ti -1c
+.RI "double[][][] \fBasDoubleMatrix3\fP ()"
+.br
+.ti -1c
+.RI "int[][] \fBasIntMatrix\fP ()"
+.br
+.ti -1c
+.RI "\fBPropertySet\fP \fBgetParent\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisReadOnly\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetReadOnly\fP (boolean flag)"
+.br
+.ti -1c
+.RI "boolean \fBisVisible\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetVisible\fP (boolean flag)"
+.br
+.ti -1c
+.RI "Object \fBget\fP ()"
+.br
+.ti -1c
+.RI "void \fBset\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (Object value, boolean warn_on_exception)"
+.br
+.ti -1c
+.RI "void \fBreset\fP (Object value)"
+.br
+.ti -1c
+.RI "void \fBlock\fP ()"
+.br
+.ti -1c
+.RI "void \fBunLock\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSameValue\fP (Object value)"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddHandleEventSink\fP (String \fBname\fP, \fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "boolean \fBhasHandleEvent\fP (String \fBname\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String type)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String type, Object arg)  throws PropertyException 	"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBArrayProperty\fP (\fBArrayProperty\fP p)"
+.br
+.ti -1c
+.RI "Object \fBconvertValue\fP (Object array)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBsetInternal\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBinitDefault\fP ()"
+.br
+.ti -1c
+.RI "Object \fBgetInternal\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisEqual\fP (Object value)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Object \fBpvalue\fP"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "String[] \fBallowedTypes\fP"
+.br
+.ti -1c
+.RI "int \fBallowedDims\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBArrayProperty\fP (\fBArrayProperty\fPp)\fC [inline, protected]\fP"
+.PP
+References ArrayProperty\&.allowedDims, and ArrayProperty\&.allowedTypes\&.
+.PP
+Referenced by ArrayProperty\&.cloneProperty()\&.
+.PP
+.nf
+        {
+                super(p);
+                this\&.allowedTypes = p\&.allowedTypes;
+                this\&.allowedDims = p\&.allowedDims;
+        }
+.fi
+.SS "\fBArrayProperty\fP (\fBPropertySet\fPparent, Stringname, String[]types, intdims)\fC [inline]\fP"
+.PP
+References ArrayProperty\&.allowedDims, and ArrayProperty\&.allowedTypes\&.
+.PP
+.nf
+        {
+                super(parent, name);
+                allowedTypes = types;
+                allowedDims = dims;
+        }
+.fi
+.SS "\fBArrayProperty\fP (\fBPropertySet\fPparent, Stringname, Matrixmatrix)\fC [inline]\fP"
+.PP
+References Property\&.name, Property\&.parent, and Property\&.pvalue\&.
+.PP
+.nf
+        {
+                this(parent, name, (String[])null, -1);
+                this\&.pvalue = (matrix != null ? matrix : new Matrix(new double[0], new int[] {0, 0}));
+        }
+.fi
+.SS "\fBArrayProperty\fP (\fBPropertySet\fPparent, Stringname, String[]types, intdims, Matrixmatrix)\fC [inline]\fP"
+.PP
+References Property\&.name, Property\&.parent, and Property\&.pvalue\&.
+.PP
+.nf
+        {
+                this(parent, name, types, dims);
+                this\&.pvalue = (matrix != null ? matrix : new Matrix(new double[0], new int[] {0, 0}));
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddHandleEventSink\fP (Stringname, \fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleEventSourceHelper\&.addHandleEventSink(), and Property\&.eventSource\&.
+.PP
+Referenced by HandleObject\&.listen(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSource\&.addHandleEventSink(name, sink);
+        }
+.fi
+.SS "double [][] \fBasDoubleMatrix\fP ()\fC [inline]\fP"
+.PP
+References ArrayProperty\&.getMatrix()\&.
+.PP
+Referenced by SurfaceObject\&.computeNormals(), PatchObject\&.computeNormals(), AxesObject\&.convertCData(), AxesObject\&.convertCDataToIndex(), GLRenderer\&.draw(), Utils\&.getAlphaData(), SurfaceObject\&.getAlphaData(), SurfaceObject\&.getCData(), PatchObject\&.getCData(), FigureObject\&.makeColormapTextureData(), PatchObject\&.updateCData(), PatchObject\&.updateFaceCount(), PatchObject\&.updateFVData(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and PatchObject\&.updateXYZData()\&.
+.PP
+.nf
+        {
+                return getMatrix()\&.asDoubleMatrix();
+        }
+.fi
+.SS "double [][][] \fBasDoubleMatrix3\fP ()\fC [inline]\fP"
+.PP
+References ArrayProperty\&.getMatrix()\&.
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.getCData()\&.
+.PP
+.nf
+        {
+                return getMatrix()\&.asDoubleMatrix3();
+        }
+.fi
+.SS "double [] \fBasDoubleVector\fP ()\fC [inline]\fP"
+.PP
+References ArrayProperty\&.getMatrix()\&.
+.PP
+Referenced by PatchObject\&.getCData(), PatchObject\&.updateFVCData(), and PatchObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                return getMatrix()\&.asDoubleVector();
+        }
+.fi
+.SS "int [][] \fBasIntMatrix\fP ()\fC [inline]\fP"
+.PP
+References ArrayProperty\&.getMatrix()\&.
+.PP
+Referenced by Utils\&.getAlphaData()\&.
+.PP
+.nf
+        {
+                return getMatrix()\&.asIntMatrix();
+        }
+.fi
+.SS "\fBProperty\fP \fBcloneProperty\fP ()\fC [inline, virtual]\fP"
+.PP
+Implements \fBProperty\fP\&.
+.PP
+References ArrayProperty\&.ArrayProperty()\&.
+.PP
+.nf
+        {
+                return new ArrayProperty(this);
+        }
+.fi
+.SS "Object \fBconvertValue\fP (Objectarray)  throws \fBPropertyException\fP 	\fC [inline, protected]\fP"
+.PP
+Reimplemented from \fBProperty\fP\&.
+.PP
+References ArrayProperty\&.allowedDims, and ArrayProperty\&.isAllowedType()\&.
+.PP
+.nf
+        {
+                if (array == null)
+                        return new Matrix(new double[0], new int[] {0, 0});
+
+                if (array instanceof Matrix)
+                {
+                        Matrix m = (Matrix)array;
+                        if (!isAllowedType(m\&.getClassName()))
+                                throw new PropertyException('invalid matrix class - ' + m\&.getClassName());
+                        if (allowedDims != -1)
+                        {
+                                if (m\&.getNDims() != allowedDims)
+                                        throw new PropertyException('invalid matrix number of dimensions - ' + m\&.getNDims());
+                        }
+                        return array;
+                }
+                else if (array instanceof Number)
+                {
+                        Number n = (Number)array;
+                        if (n instanceof Double && isAllowedType('double'))
+                                return new Matrix(new double[] {n\&.doubleValue()}, new int[] {1, 1});
+                        else if (n instanceof Byte && isAllowedType('byte'))
+                                return new Matrix(new byte[] {n\&.byteValue()}, new int[] {1, 1});
+                        else
+                                throw new PropertyException('invalid data type - ' + n\&.getClass()\&.toString());
+                }
+                else
+                {
+                        try
+                        {
+                                double[] v = (double[]) array;
+                                return new Matrix(v);
+                        }
+                        catch (ClassCastException e)
+                        {
+                                throw new PropertyException('invalid property value - ' + array\&.toString());
+                        }
+                }
+        }
+.fi
+.SS "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fPparent, Stringname, Stringtype)  throws \fBPropertyException\fP 	\fC [inline, static, inherited]\fP"
+.PP
+References Property\&.name, and Property\&.parent\&.
+.PP
+Referenced by Property\&.createProperty()\&.
+.PP
+.nf
+        {
+                if (type\&.equals('double'))
+                        return new DoubleProperty(parent, name);
+                else if (type\&.equals('string'))
+                        return new StringProperty(parent, name);
+                return null;
+        }
+.fi
+.SS "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fPparent, Stringname, Stringtype, Objectarg)  throws \fBPropertyException\fP 	\fC [inline, static, inherited]\fP"
+.PP
+References Property\&.createProperty(), Property\&.name, Property\&.parent, and Property\&.set()\&.
+.PP
+.nf
+        {
+                if (type\&.equals('radio'))
+                {
+                        String[] values = ((String)arg)\&.split('|');
+                        return new RadioProperty(parent, name, values, '');
+                }
+                else
+                {
+                        Property p = createProperty(parent, name, type);
+                        if (p != null)
+                                p\&.set(arg);
+                        return p;
+                }
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleEventSourceHelper\&.delete(), and Property\&.eventSource\&.
+.PP
+.nf
+        {
+                eventSource\&.delete();
+        }
+.fi
+.SS "Object \fBget\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBNotImplProperty\fP\&.
+.PP
+References Property\&.getInternal()\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BarseriesObject\&.doLayout(), AxesObject\&.doZoom(), HandleObject\&.get(), LegendObject\&.LegendObject(), LegendObject\&.makeItemFromLine(), LegendObject\&.propertyChanged(), UnwindHandleObject\&.swapValues(), and CheckBoxControl\&.update()\&.
+.PP
+.nf
+        {
+                /* TODO: needed?
+                if (!lockNotify)
+                {
+                        Iterator it = listenerList\&.iterator();
+                        while (it\&.hasNext())
+                                ((PropertyListener)it\&.next())\&.propertyGetting(this);
+                }
+                */
+                return getInternal();
+        }
+.fi
+.SS "String \fBgetClassName\fP ()\fC [inline]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by SurfaceObject\&.getAlphaData(), ArrayProperty\&.isType(), and GLRenderer\&.makeTextureFromCData()\&.
+.PP
+.nf
+        {
+                return ((Matrix)pvalue)\&.getClassName();
+        }
+.fi
+.SS "int \fBgetDim\fP (intindex)\fC [inline]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by ColorbarObject\&.buildColorbar(), PatchObject\&.checkConsistency(), PatchObject\&.checkXYZData(), PatchObject\&.getCData(), ArrayProperty\&.isEmpty(), GLRenderer\&.makeTextureFromCData(), PatchObject\&.updateCData(), PatchObject\&.updateFVCData(), PatchObject\&.updateFVData(), ImageObject\&.updateMinMax(), PatchObject\&.updateMinMax(), PatchObject\&.updateXYZData(), and PatchObject\&.validate()\&.
+.PP
+.nf
+        {
+                return ((Matrix)pvalue)\&.getDim(index);
+        }
+.fi
+.SS "Object \fBgetInternal\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBColorProperty\fP, \fBCallbackProperty\fP, \fBHandleObjectListProperty\fP, and \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.get()\&.
+.PP
+.nf
+        {
+                return pvalue;
+        }
+.fi
+.SS "Matrix \fBgetMatrix\fP ()\fC [inline]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by ArrayProperty\&.asDoubleMatrix(), ArrayProperty\&.asDoubleMatrix3(), ArrayProperty\&.asDoubleVector(), ArrayProperty\&.asIntMatrix(), GLRenderer\&.makeTextureFromCData(), ColorbarObject\&.propertyChanged(), SurfaceObject\&.updateColorMinMax(), and ImageObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                return (Matrix)pvalue;
+        }
+.fi
+.SS "String \fBgetName\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.name\&.
+.PP
+Referenced by PropertySet\&.addProperty(), AxesObject\&.autoAxis(), NotImplProperty\&.get(), PropertySet\&.getNames(), NotImplProperty\&.set(), Property\&.set(), and PropertySet\&.show()\&.
+.PP
+.nf
+        {
+                return name;
+        }
+.fi
+.SS "int \fBgetNDims\fP ()\fC [inline]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by PatchObject\&.checkXYZData(), Utils\&.getAlphaData(), SurfaceObject\&.getAlphaData(), SurfaceObject\&.getCData(), ArrayProperty\&.isEmpty(), GLRenderer\&.makeTextureFromCData(), PatchObject\&.updateFVCData(), and ImageObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                return ((Matrix)pvalue)\&.getNDims();
+        }
+.fi
+.SS "\fBPropertySet\fP \fBgetParent\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.parent\&.
+.PP
+Referenced by CallbackProperty\&.execute(), NotImplProperty\&.get(), Property\&.initDefault(), HandleObject\&.listen(), NotImplProperty\&.set(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                return parent;
+        }
+.fi
+.SS "boolean \fBhasHandleEvent\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References Property\&.eventSource, and HandleEventSourceHelper\&.hasHandleEvent()\&.
+.PP
+.nf
+        {
+                return eventSource\&.hasHandleEvent(name);
+        }
+.fi
+.SS "void \fBinitDefault\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.getDefaultProperty(), Property\&.getParent(), HandleObject\&.getType(), Property\&.name, Property\&.parent, and Property\&.pvalue\&.
+.PP
+Referenced by Property\&.Property()\&.
+.PP
+.nf
+        {
+                HandleObject parent = (HandleObject)getParent();
+                String defname = 'default' + parent\&.getType() + name;
+                Property p = parent\&.getDefaultProperty(defname);
+
+                if (p != null)
+                        pvalue = p\&.pvalue;
+        }
+.fi
+.SS "boolean \fBisAllowedType\fP (Stringcls)\fC [inline]\fP"
+.PP
+References ArrayProperty\&.allowedTypes\&.
+.PP
+Referenced by ArrayProperty\&.convertValue()\&.
+.PP
+.nf
+        {
+                if (allowedTypes != null)
+                {
+                        for (int i=0; i<allowedTypes\&.length; i++)
+                                if (allowedTypes[i]\&.equals(cls))
+                                        return true;
+                        return false;
+                }
+                return true;
+        }
+.fi
+.SS "boolean \fBisEmpty\fP ()\fC [inline]\fP"
+.PP
+References ArrayProperty\&.getDim(), ArrayProperty\&.getNDims(), and Property\&.pvalue\&.
+.PP
+Referenced by PatchObject\&.checkXYZData(), PatchObject\&.updateCData(), PatchObject\&.updateFVCData(), PatchObject\&.updateFVData(), PatchObject\&.updateXYZData(), and PatchObject\&.validate()\&.
+.PP
+.nf
+        {
+                if (pvalue == null)
+                        return true;
+                for (int i=0; i<getNDims(); i++)
+                        if (getDim(i) > 0)
+                                return false;
+                return true;
+        }
+.fi
+.SS "boolean \fBisEqual\fP (Objectvalue)\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.isSameValue(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                /*Object v = getInternal();*/
+                Object v = pvalue;
+                return (value == null ? v == null : value\&.equals(v));
+        }
+.fi
+.SS "boolean \fBisReadOnly\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.readOnly\&.
+.PP
+.nf
+        {
+                return readOnly;
+        }
+.fi
+.SS "boolean \fBisSameValue\fP (Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References Property\&.convertValue(), and Property\&.isEqual()\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                try
+                {
+                        value = convertValue(value);
+                        return isEqual(value);
+                }
+                catch (PropertyException e)
+                {
+                        return false;
+                }
+        }
+.fi
+.SS "boolean \fBisType\fP (Stringcls)\fC [inline]\fP"
+.PP
+References ArrayProperty\&.getClassName()\&.
+.PP
+Referenced by Utils\&.getAlphaData(), and GLRenderer\&.makeTextureFromCData()\&.
+.PP
+.nf
+        {
+                return getClassName()\&.equals(cls);
+        }
+.fi
+.SS "boolean \fBisVisible\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.visible\&.
+.PP
+Referenced by PropertySet\&.getNames(), and PropertySet\&.show()\&.
+.PP
+.nf
+        {
+                return visible;
+        }
+.fi
+.SS "void \fBlock\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+.nf
+        {
+                lockNotify = true;
+        }
+.fi
+.SS "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References Property\&.eventSource, and HandleEventSourceHelper\&.removeHandleEventSink()\&.
+.PP
+.nf
+        {
+                eventSource\&.removeHandleEventSink(sink);
+        }
+.fi
+.SS "void \fBreset\fP (Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), ColorbarObject\&.buildColorbar(), LegendObject\&.buildLegend(), ColorbarObject\&.ColorbarObject(), HandleObject\&.delete(), LegendObject\&.doLayout(), AxesObject\&.draw(), AxesObject\&.getBaseLine(), ImageObject\&.ImageObject(), LegendObject\&.LegendObject(), LineObject\&.LineObject(), LegendObject\&.makeItemFromLine(), AxesObject\&.makeTextObject(), PatchObject\&.PatchObject(), FigureObject\&.print(), LineObject\&.propertyChanged(), BarseriesObject\&.propertyChanged(), TextObject\&.propertyChanged(), SurfaceObject\&.propertyChanged(), AxesObject\&.propertyChanged(), AxesObject\&.reset(), GraphicObject\&.set(), SurfaceObject\&.SurfaceObject(), UnwindHandleObject\&.swapValues(), TextObject\&.TextObject(), CheckBoxControl\&.update(), EditControl\&.update(), PopupMenuControl\&.update(), Edit2Control\&.update(), ListBoxControl\&.update(), AxesObject\&.updateXFormMatrices(), LineObject\&.validate(), SurfaceObject\&.validate(), and PatchObject\&.validate()\&.
+.PP
+.nf
+        {
+                boolean oldLockNotify = lockNotify;
+
+                lockNotify = true;
+                try { set(value); }
+                catch (PropertyException e)
+                {
+                        System\&.err\&.println('WARNING: exception during property reset: ' + e);
+                }
+                lockNotify = oldLockNotify;
+        }
+.fi
+.SS "void \fBset\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBBooleanProperty\fP, and \fBNotImplProperty\fP\&.
+.PP
+References Property\&.convertValue(), Property\&.eventSource, HandleEventSourceHelper\&.fireEvent(), Property\&.getName(), Property\&.getParent(), Property\&.isEqual(), Property\&.lockNotify, Property\&.readOnly, Property\&.setFlag, and Property\&.setInternal()\&.
+.PP
+Referenced by HandleObject\&.autoSet(), BarseriesObject\&.BarseriesObject(), ColorbarObject\&.buildColorbar(), Property\&.createProperty(), BarseriesObject\&.doLayout(), LegendObject\&.doLayout(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.doZoom(), AxesObject\&.draw(), UIControlObject\&.propertyChanged(), UIPanelObject\&.propertyChanged(), BarseriesObject\&.propertyChanged(), LegendObject\&.propertyChanged(), PatchObject\&.propertyChanged(), AxesObject\&.propertyChanged(), HandleObject\&.set(), AxesObject\&.unZoom(), ColorbarObject\&.updateActivePosition(), LegendObject\&.updateActivePosition(), SurfaceObject\&.updateColorMinMax(), ColorbarObject\&.updateImageFromColormap(), GroupObject\&.updateLimits(), BaseLineObject\&.updateLine(), ImageObject\&.updateMinMax(), LineObject\&.updateMinMax(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and TextObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                if (readOnly)
+                        throw new PropertyException('read-only property - ' + getName());
+
+                value = convertValue(value);
+                if (isEqual(value))
+                {
+                        //System\&.out\&.println(getName() + ': identical value, not setting - ' + value\&.toString());
+                        return;
+                }
+
+                if (setFlag)
+                {
+                        System\&.out\&.println('WARNING: ' + getName() + '\&.set (' + ((HandleObject)getParent())\&.getHandle() + '): recursive behavior detected, not setting');
+                        Thread\&.dumpStack();
+                        return;
+                }
+
+                setFlag = true;
+                try
+                {
+                        /* TODO: needed?
+                        if (!lockNotify)
+                        {
+                                Iterator it = listenerList\&.iterator();
+                                while (it\&.hasNext())
+                                        ((PropertyListener)it\&.next())\&.propertySetting(this, value);
+                        }
+                        */
+                        setInternal(value);
+                        if (!lockNotify)
+                        {
+                                eventSource\&.fireEvent('PropertyChanged');
+                        }
+                        setFlag = false;
+                }
+                catch (Exception e)
+                {
+                        setFlag = false;
+                        if (e instanceof PropertyException)
+                                throw (PropertyException)e;
+                        else
+                                throw new PropertyException(e);
+                }
+        }
+.fi
+.SS "void \fBset\fP (Objectvalue, booleanwarn_on_exception)\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName()\&.
+.PP
+.nf
+        {
+                try { set(value); }
+                catch (PropertyException e)
+                {
+                        if (warn_on_exception)
+                        {
+                                System\&.out\&.println('WARNING: ' + getName() + '\&.set: exception occured');
+                                e\&.printStackTrace();
+                        }
+                }
+        }
+.fi
+.SS "void \fBsetInternal\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, protected]\fP"
+.PP
+Reimplemented from \fBProperty\fP\&.
+.PP
+.nf
+        {
+                super\&.setInternal(value);
+        }
+.fi
+.SS "void \fBsetReadOnly\fP (booleanflag)\fC [inline, inherited]\fP"
+.PP
+References Property\&.readOnly\&.
+.PP
+.nf
+        {
+                readOnly = flag;
+        }
+.fi
+.SS "void \fBsetVisible\fP (booleanflag)\fC [inline, inherited]\fP"
+.PP
+References Property\&.visible\&.
+.PP
+Referenced by AxesObject\&.AxesObject(), BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), FigureObject\&.FigureObject(), GraphicObject\&.GraphicObject(), and PatchObject\&.PatchObject()\&.
+.PP
+.nf
+        {
+                visible = flag;
+        }
+.fi
+.SS "String \fBtoString\fP ()\fC [inline]\fP"
+.PP
+References Property\&.pvalue\&.
+.PP
+.nf
+        {
+                return pvalue\&.toString();
+        }
+.fi
+.SS "void \fBunLock\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+Referenced by HandleObject\&.addProperty(), and PropertySet\&.validate()\&.
+.PP
+.nf
+        {
+                lockNotify = false;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int \fBallowedDims\fP\fC [package]\fP"
+.PP
+Referenced by ArrayProperty\&.ArrayProperty(), and ArrayProperty\&.convertValue()\&.
+.SS "String [] \fBallowedTypes\fP\fC [package]\fP"
+.PP
+Referenced by ArrayProperty\&.ArrayProperty(), and ArrayProperty\&.isAllowedType()\&.
+.SS "Object \fBpvalue\fP\fC [protected, inherited]\fP"
+.PP
+Referenced by HandleObjectListProperty\&.addElement(), ArrayProperty\&.ArrayProperty(), BooleanProperty\&.BooleanProperty(), CallbackProperty\&.CallbackProperty(), ColorProperty\&.ColorProperty(), HandleObjectListProperty\&.contains(), DoubleProperty\&.DoubleProperty(), DoubleRadioProperty\&.DoubleRadioProperty(), DoubleProperty\&.doubleValue(), DoubleRadioProperty\&.doubleValue(), HandleObjectListProperty\&.elementAt(), DoubleProperty\&.floatValue(), StringArrayProperty\&.getArray(), CallbackProperty\&.getCallback(), ArrayProperty\&.getClassName(), ColorProperty\&.getColor(), ArrayProperty\&.getDim(), TextProperty\&.getInternal(), Property\&.getInternal(), ColorProperty\&.getInternal(), ArrayProperty\&.getMatrix(), ArrayProperty\&.getNDims(), ObjectProperty\&.getObject(), TextProperty\&.getText(), RadioProperty\&.getValue(), VectorProperty\&.getVector(), HandleObjectListProperty\&.getVisibleObjects(), HandleObjectListProperty\&.HandleObjectListProperty(), Property\&.initDefault(), DoubleProperty\&.intValue(), DoubleRadioProperty\&.is(), ColorProperty\&.is(), DoubleRadioProperty\&.isDouble(), ArrayProperty\&.isEmpty(), TextProperty\&.isEqual(), Property\&.isEqual(), ColorProperty\&.isSet(), HandleObjectListProperty\&.iterator(), LineStyleProperty\&.LineStyleProperty(), MarkerProperty\&.MarkerProperty(), ObjectProperty\&.ObjectProperty(), Property\&.Property(), RadioProperty\&.RadioProperty(), HandleObjectListProperty\&.removeAllElements(), HandleObjectListProperty\&.removeElement(), TextProperty\&.setInternal(), Property\&.setInternal(), HandleObjectListProperty\&.size(), StringArrayProperty\&.StringArrayProperty(), StringProperty\&.StringProperty(), TextProperty\&.TextProperty(), ObjectProperty\&.toString(), StringProperty\&.toString(), RadioProperty\&.toString(), DoubleRadioProperty\&.toString(), VectorProperty\&.toString(), ArrayProperty\&.toString(), ColorProperty\&.toString(), and VectorProperty\&.VectorProperty()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

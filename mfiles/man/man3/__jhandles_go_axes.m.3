@@ -1,0 +1,71 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_axes.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_axes.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBvarargin\fP) > 0) \fBset\fP(\fBh\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (any(strcmpi(\fBvarargin\fP(1:2:end),'position'))) set(\fBh\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBax_obj\fP \fBvalidate\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBax_obj\fP = \fBjava_new\fP ('org\&.octave\&.graphics\&.AxesObject', fig_obj, 0)"
+.br
+.ti -1c
+.RI "\fBh\fP = ax_obj\&.getHandle ()"
+.br
+.ti -1c
+.RI "\fBactivepositionproperty\fP"
+.br
+.ti -1c
+.RI "\fBposition\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBif\fP (\fBlength\fP(\fBvarargin\fP), 0)"
+.SS "\fBif\fP (any(strcmpi(\fBvarargin\fP(1:2:end),'position')))"
+.SS "\fBendif\fP \fBendif\fP \fBax_obj\fP \fBvalidate\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBactivepositionproperty\fP"
+.PP
+Definition at line 25 of file __jhandles_go_axes\&.m\&.
+.SS "\fBax_obj\fP = \fBjava_new\fP ('org\&.octave\&.graphics\&.AxesObject', fig_obj, 0)"
+.PP
+Definition at line 19 of file __jhandles_go_axes\&.m\&.
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_go_axes (fig, varargin)
+
+  fig_obj = __get_object__ (fig)
+.fi
+.PP
+Definition at line 16 of file __jhandles_go_axes\&.m\&.
+.SS "\fBh\fP = ax_obj\&.getHandle ()"
+.PP
+Definition at line 20 of file __jhandles_go_axes\&.m\&.
+.SS "\fBposition\fP"
+.PP
+Definition at line 25 of file __jhandles_go_axes\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

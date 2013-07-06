@@ -1,0 +1,148 @@
+.TH "SimpleTextEngine.Content" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.Content \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSimpleTextEngine\&.Element\fP\&.
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContent\fP (String txt)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBLayouter\fP l)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (Graphics2D g)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTextRenderer\fP r)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBRenderCanvas\fP comp, Font font)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBLineElement\fP[] \fBlines\fP"
+.br
+.ti -1c
+.RI "int \fBalign\fP"
+.br
+.ti -1c
+.RI "String \fBtext\fP"
+.br
+.ti -1c
+.RI "Rectangle \fBrect\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBContent\fP (Stringtxt)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.Content\&.lines\&.
+.PP
+.nf
+                {
+                        super(txt);
+                        String[] txtLines = txt\&.split('\n', -1);
+                        lines = new LineElement[txtLines\&.length];
+                        for (int i=0; i<txtLines\&.length; i++)
+                        {
+                                lines[i] = new LineElement(txtLines[i]);
+                        }
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "Rectangle \fBlayout\fP (\fBRenderCanvas\fPcomp, Fontfont)\fC [inline, package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.layout(), and SimpleTextEngine\&.ScriptElement\&.layout()\&.
+.PP
+.nf
+                {
+                        return layout(new Layouter(comp, font));
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBLayouter\fPl)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.Content\&.lines, and SimpleTextEngine\&.Element\&.rect\&.
+.PP
+Referenced by SimpleTextEngine\&.drawAsImage()\&.
+.PP
+.nf
+                {
+                        int w = 0, h = 0;
+                        Rectangle r;
+
+                        for (int i=0; i<lines\&.length; i++)
+                        {
+                                r = lines[i]\&.layout(l);
+                                if (r\&.width > w)
+                                        w = r\&.width;
+                                h += r\&.height;
+                        }
+                        rect = new Rectangle(0, -(h-lines[0]\&.rect\&.height-lines[0]\&.rect\&.y), w, h);
+                        return rect;
+                }
+.fi
+.SS "void \fBrender\fP (Graphics2Dg)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.Content\&.align, SimpleTextEngine\&.Content\&.lines, SimpleTextEngine\&.Element\&.rect, and SimpleTextEngine\&.LineElement\&.render()\&.
+.PP
+Referenced by SimpleTextEngine\&.drawAsImage()\&.
+.PP
+.nf
+                {
+                        int xoffset = 0, yoffset = 0;
+
+                        for (int i=0; i<lines\&.length; i++)
+                        {
+                                int dx = rect\&.width-lines[i]\&.rect\&.width;
+                                xoffset = (align == 0 ? 0 : (align == 1 ? dx/2 : dx));
+                                g\&.translate(xoffset, 0);
+                                lines[i]\&.render(g);
+                                g\&.translate(-xoffset, lines[i]\&.rect\&.height);
+                                yoffset += lines[i]\&.rect\&.height;
+                        }
+                        g\&.translate(0, -yoffset);
+                }
+.fi
+.SS "void \fBrender\fP (\fBTextRenderer\fPr)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.TextRenderer\&.render()\&.
+.PP
+.nf
+{ r\&.render(this); }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int \fBalign\fP\fC [package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "\fBLineElement\fP [] \fBlines\fP\fC [package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Content\&.Content(), SimpleTextEngine\&.Content\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "Rectangle \fBrect\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.SubscriptElement\&.layout(), SimpleTextEngine\&.SuperscriptElement\&.layout(), SimpleTextEngine\&.ScriptElement\&.layout(), SimpleTextEngine\&.TeXFontCommand\&.layout(), SimpleTextEngine\&.TeXElement\&.layout(), SimpleTextEngine\&.Content\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), SimpleTextEngine\&.LineElement\&.render(), SimpleTextEngine\&.SuperscriptElement\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "String \fBtext\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Element\&.render()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

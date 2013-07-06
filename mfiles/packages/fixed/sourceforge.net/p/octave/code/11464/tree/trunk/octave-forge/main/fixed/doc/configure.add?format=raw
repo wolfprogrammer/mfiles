@@ -1,0 +1,3 @@
+dnl version of the fixed point code
+OCTAVEFIXEDVERSION="0.7.4"
+AC_SUBST(OCTAVEFIXEDVERSION)

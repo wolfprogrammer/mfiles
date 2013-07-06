@@ -1,0 +1,15 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="gl2psSamePosition",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="gl2psPDFgroupListWriteMainStream",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a35139168f094ebdf9a521777d62f8ae8"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="gl2psPrintPDFFooter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a9c59e0e0b768cf1f16d50b0c6be1863a"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="gl2psPrintPostScriptPrimitive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a639440c25980482eca0710ac1fafd3ce"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="gl2psPrintSVGPrimitive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gl2ps_8c.html#a7ea286bc4043e99b36634edd77d2a042"];
+}

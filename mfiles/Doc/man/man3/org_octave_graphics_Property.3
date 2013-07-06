@@ -1,0 +1,572 @@
+.TH "Property" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Property \- 
+.PP
+Abstract root class for any kind of property\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHandleEventSource\fP\&.
+.PP
+Inherited by \fBArrayProperty\fP, \fBCallbackProperty\fP, \fBColorProperty\fP, \fBDoubleProperty\fP, \fBDoubleRadioProperty\fP, \fBHandleObjectListProperty\fP, \fBObjectProperty\fP, \fBRadioProperty\fP, \fBStringArrayProperty\fP, \fBStringProperty\fP, \fBTextProperty\fP, and \fBVectorProperty\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract \fBProperty\fP \fBcloneProperty\fP ()"
+.br
+.ti -1c
+.RI "\fBPropertySet\fP \fBgetParent\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisReadOnly\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetReadOnly\fP (boolean flag)"
+.br
+.ti -1c
+.RI "boolean \fBisVisible\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetVisible\fP (boolean flag)"
+.br
+.ti -1c
+.RI "Object \fBget\fP ()"
+.br
+.ti -1c
+.RI "void \fBset\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBreset\fP (Object value)"
+.br
+.ti -1c
+.RI "void \fBset\fP (Object value, boolean warn_on_exception)"
+.br
+.ti -1c
+.RI "void \fBlock\fP ()"
+.br
+.ti -1c
+.RI "void \fBunLock\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSameValue\fP (Object value)"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddHandleEventSink\fP (String \fBname\fP, \fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "boolean \fBhasHandleEvent\fP (String \fBname\fP)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String type)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP, String type, Object arg)  throws PropertyException 	"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProperty\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "\fBProperty\fP (\fBPropertySet\fP \fBparent\fP, String \fBname\fP)"
+.br
+.ti -1c
+.RI "void \fBinitDefault\fP ()"
+.br
+.ti -1c
+.RI "Object \fBgetInternal\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetInternal\fP (Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "boolean \fBisEqual\fP (Object value)"
+.br
+.ti -1c
+.RI "Object \fBconvertValue\fP (Object value)  throws PropertyException 	"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Object \fBpvalue\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBname\fP"
+.br
+.ti -1c
+.RI "\fBHandleEventSourceHelper\fP \fBeventSource\fP = new \fBHandleEventSourceHelper\fP(this, new String[] {'PropertyChanged'})"
+.br
+.ti -1c
+.RI "boolean \fBlockNotify\fP = true"
+.br
+.ti -1c
+.RI "boolean \fBreadOnly\fP = false"
+.br
+.ti -1c
+.RI "boolean \fBvisible\fP = true"
+.br
+.ti -1c
+.RI "\fBPropertySet\fP \fBparent\fP"
+.br
+.ti -1c
+.RI "boolean \fBsetFlag\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract root class for any kind of property\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBProperty\fP (\fBProperty\fPp)\fC [inline, protected]\fP"
+.PP
+References Property\&.name, Property\&.parent, Property\&.pvalue, Property\&.readOnly, and Property\&.visible\&.
+.PP
+.nf
+        {
+                this\&.name = p\&.name;
+                this\&.parent = null; /* do not copy parent */
+                this\&.visible = p\&.visible;
+                this\&.readOnly = p\&.readOnly;
+                this\&.pvalue = p\&.pvalue;
+        }
+.fi
+.SS "\fBProperty\fP (\fBPropertySet\fPparent, Stringname)\fC [inline, protected]\fP"
+.PP
+References PropertySet\&.addProperty(), Property\&.initDefault(), Property\&.name, and Property\&.parent\&.
+.PP
+.nf
+        {
+                this\&.name = name;
+                this\&.parent = parent;
+                if (parent != null)
+                {
+                        parent\&.addProperty(this);
+                        if (parent instanceof HandleObject &&
+                                        !name\&.equalsIgnoreCase('parent') && !name\&.equalsIgnoreCase('type'))
+                                initDefault();
+                }
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddHandleEventSink\fP (Stringname, \fBHandleEventSink\fPsink)\fC [inline]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleEventSourceHelper\&.addHandleEventSink(), and Property\&.eventSource\&.
+.PP
+Referenced by HandleObject\&.listen(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSource\&.addHandleEventSink(name, sink);
+        }
+.fi
+.SS "abstract \fBProperty\fP \fBcloneProperty\fP ()\fC [pure virtual]\fP"
+.PP
+Implemented in \fBMarkerProperty\fP, \fBColorProperty\fP, \fBRadioProperty\fP, \fBVectorProperty\fP, \fBArrayProperty\fP, \fBDoubleRadioProperty\fP, \fBHandleObjectListProperty\fP, \fBDoubleProperty\fP, \fBLineStyleProperty\fP, \fBStringArrayProperty\fP, \fBBooleanProperty\fP, \fBCallbackProperty\fP, \fBObjectProperty\fP, \fBStringProperty\fP, \fBNotImplProperty\fP, and \fBTextProperty\fP\&.
+.PP
+Referenced by HandleObject\&.set()\&.
+.SS "Object \fBconvertValue\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, protected]\fP"
+.PP
+Reimplemented in \fBColorProperty\fP, \fBRadioProperty\fP, \fBVectorProperty\fP, \fBArrayProperty\fP, \fBDoubleRadioProperty\fP, \fBHandleObjectListProperty\fP, \fBStringProperty\fP, \fBDoubleProperty\fP, \fBStringArrayProperty\fP, \fBCallbackProperty\fP, and \fBTextProperty\fP\&.
+.PP
+Referenced by Property\&.isSameValue(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                return value;
+        }
+.fi
+.SS "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fPparent, Stringname, Stringtype)  throws \fBPropertyException\fP 	\fC [inline, static]\fP"
+.PP
+References Property\&.name, and Property\&.parent\&.
+.PP
+Referenced by Property\&.createProperty()\&.
+.PP
+.nf
+        {
+                if (type\&.equals('double'))
+                        return new DoubleProperty(parent, name);
+                else if (type\&.equals('string'))
+                        return new StringProperty(parent, name);
+                return null;
+        }
+.fi
+.SS "static \fBProperty\fP \fBcreateProperty\fP (\fBPropertySet\fPparent, Stringname, Stringtype, Objectarg)  throws \fBPropertyException\fP 	\fC [inline, static]\fP"
+.PP
+References Property\&.createProperty(), Property\&.name, Property\&.parent, and Property\&.set()\&.
+.PP
+.nf
+        {
+                if (type\&.equals('radio'))
+                {
+                        String[] values = ((String)arg)\&.split('|');
+                        return new RadioProperty(parent, name, values, '');
+                }
+                else
+                {
+                        Property p = createProperty(parent, name, type);
+                        if (p != null)
+                                p\&.set(arg);
+                        return p;
+                }
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline]\fP"
+.PP
+References HandleEventSourceHelper\&.delete(), and Property\&.eventSource\&.
+.PP
+.nf
+        {
+                eventSource\&.delete();
+        }
+.fi
+.SS "Object \fBget\fP ()\fC [inline]\fP"
+.PP
+Reimplemented in \fBNotImplProperty\fP\&.
+.PP
+References Property\&.getInternal()\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BarseriesObject\&.doLayout(), AxesObject\&.doZoom(), HandleObject\&.get(), LegendObject\&.LegendObject(), LegendObject\&.makeItemFromLine(), LegendObject\&.propertyChanged(), UnwindHandleObject\&.swapValues(), and CheckBoxControl\&.update()\&.
+.PP
+.nf
+        {
+                /* TODO: needed?
+                if (!lockNotify)
+                {
+                        Iterator it = listenerList\&.iterator();
+                        while (it\&.hasNext())
+                                ((PropertyListener)it\&.next())\&.propertyGetting(this);
+                }
+                */
+                return getInternal();
+        }
+.fi
+.SS "Object \fBgetInternal\fP ()\fC [inline, protected]\fP"
+.PP
+Reimplemented in \fBColorProperty\fP, \fBCallbackProperty\fP, \fBHandleObjectListProperty\fP, and \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.get()\&.
+.PP
+.nf
+        {
+                return pvalue;
+        }
+.fi
+.SS "String \fBgetName\fP ()\fC [inline]\fP"
+.PP
+References Property\&.name\&.
+.PP
+Referenced by PropertySet\&.addProperty(), AxesObject\&.autoAxis(), NotImplProperty\&.get(), PropertySet\&.getNames(), NotImplProperty\&.set(), Property\&.set(), and PropertySet\&.show()\&.
+.PP
+.nf
+        {
+                return name;
+        }
+.fi
+.SS "\fBPropertySet\fP \fBgetParent\fP ()\fC [inline]\fP"
+.PP
+References Property\&.parent\&.
+.PP
+Referenced by CallbackProperty\&.execute(), NotImplProperty\&.get(), Property\&.initDefault(), HandleObject\&.listen(), NotImplProperty\&.set(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                return parent;
+        }
+.fi
+.SS "boolean \fBhasHandleEvent\fP (Stringname)\fC [inline]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References Property\&.eventSource, and HandleEventSourceHelper\&.hasHandleEvent()\&.
+.PP
+.nf
+        {
+                return eventSource\&.hasHandleEvent(name);
+        }
+.fi
+.SS "void \fBinitDefault\fP ()\fC [inline, protected]\fP"
+.PP
+References HandleObject\&.getDefaultProperty(), Property\&.getParent(), HandleObject\&.getType(), Property\&.name, Property\&.parent, and Property\&.pvalue\&.
+.PP
+Referenced by Property\&.Property()\&.
+.PP
+.nf
+        {
+                HandleObject parent = (HandleObject)getParent();
+                String defname = 'default' + parent\&.getType() + name;
+                Property p = parent\&.getDefaultProperty(defname);
+
+                if (p != null)
+                        pvalue = p\&.pvalue;
+        }
+.fi
+.SS "boolean \fBisEqual\fP (Objectvalue)\fC [inline, protected]\fP"
+.PP
+Reimplemented in \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.isSameValue(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                /*Object v = getInternal();*/
+                Object v = pvalue;
+                return (value == null ? v == null : value\&.equals(v));
+        }
+.fi
+.SS "boolean \fBisReadOnly\fP ()\fC [inline]\fP"
+.PP
+References Property\&.readOnly\&.
+.PP
+.nf
+        {
+                return readOnly;
+        }
+.fi
+.SS "boolean \fBisSameValue\fP (Objectvalue)\fC [inline]\fP"
+.PP
+References Property\&.convertValue(), and Property\&.isEqual()\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                try
+                {
+                        value = convertValue(value);
+                        return isEqual(value);
+                }
+                catch (PropertyException e)
+                {
+                        return false;
+                }
+        }
+.fi
+.SS "boolean \fBisVisible\fP ()\fC [inline]\fP"
+.PP
+References Property\&.visible\&.
+.PP
+Referenced by PropertySet\&.getNames(), and PropertySet\&.show()\&.
+.PP
+.nf
+        {
+                return visible;
+        }
+.fi
+.SS "void \fBlock\fP ()\fC [inline]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+.nf
+        {
+                lockNotify = true;
+        }
+.fi
+.SS "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fPsink)\fC [inline]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References Property\&.eventSource, and HandleEventSourceHelper\&.removeHandleEventSink()\&.
+.PP
+.nf
+        {
+                eventSource\&.removeHandleEventSink(sink);
+        }
+.fi
+.SS "void \fBreset\fP (Objectvalue)\fC [inline]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), ColorbarObject\&.buildColorbar(), LegendObject\&.buildLegend(), ColorbarObject\&.ColorbarObject(), HandleObject\&.delete(), LegendObject\&.doLayout(), AxesObject\&.draw(), AxesObject\&.getBaseLine(), ImageObject\&.ImageObject(), LegendObject\&.LegendObject(), LineObject\&.LineObject(), LegendObject\&.makeItemFromLine(), AxesObject\&.makeTextObject(), PatchObject\&.PatchObject(), FigureObject\&.print(), LineObject\&.propertyChanged(), BarseriesObject\&.propertyChanged(), TextObject\&.propertyChanged(), SurfaceObject\&.propertyChanged(), AxesObject\&.propertyChanged(), AxesObject\&.reset(), GraphicObject\&.set(), SurfaceObject\&.SurfaceObject(), UnwindHandleObject\&.swapValues(), TextObject\&.TextObject(), CheckBoxControl\&.update(), EditControl\&.update(), PopupMenuControl\&.update(), Edit2Control\&.update(), ListBoxControl\&.update(), AxesObject\&.updateXFormMatrices(), LineObject\&.validate(), SurfaceObject\&.validate(), and PatchObject\&.validate()\&.
+.PP
+.nf
+        {
+                boolean oldLockNotify = lockNotify;
+
+                lockNotify = true;
+                try { set(value); }
+                catch (PropertyException e)
+                {
+                        System\&.err\&.println('WARNING: exception during property reset: ' + e);
+                }
+                lockNotify = oldLockNotify;
+        }
+.fi
+.SS "void \fBset\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Reimplemented in \fBBooleanProperty\fP, and \fBNotImplProperty\fP\&.
+.PP
+References Property\&.convertValue(), Property\&.eventSource, HandleEventSourceHelper\&.fireEvent(), Property\&.getName(), Property\&.getParent(), Property\&.isEqual(), Property\&.lockNotify, Property\&.readOnly, Property\&.setFlag, and Property\&.setInternal()\&.
+.PP
+Referenced by HandleObject\&.autoSet(), BarseriesObject\&.BarseriesObject(), ColorbarObject\&.buildColorbar(), Property\&.createProperty(), BarseriesObject\&.doLayout(), LegendObject\&.doLayout(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.doZoom(), AxesObject\&.draw(), UIControlObject\&.propertyChanged(), UIPanelObject\&.propertyChanged(), BarseriesObject\&.propertyChanged(), LegendObject\&.propertyChanged(), PatchObject\&.propertyChanged(), AxesObject\&.propertyChanged(), HandleObject\&.set(), AxesObject\&.unZoom(), ColorbarObject\&.updateActivePosition(), LegendObject\&.updateActivePosition(), SurfaceObject\&.updateColorMinMax(), ColorbarObject\&.updateImageFromColormap(), GroupObject\&.updateLimits(), BaseLineObject\&.updateLine(), ImageObject\&.updateMinMax(), LineObject\&.updateMinMax(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and TextObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                if (readOnly)
+                        throw new PropertyException('read-only property - ' + getName());
+
+                value = convertValue(value);
+                if (isEqual(value))
+                {
+                        //System\&.out\&.println(getName() + ': identical value, not setting - ' + value\&.toString());
+                        return;
+                }
+
+                if (setFlag)
+                {
+                        System\&.out\&.println('WARNING: ' + getName() + '\&.set (' + ((HandleObject)getParent())\&.getHandle() + '): recursive behavior detected, not setting');
+                        Thread\&.dumpStack();
+                        return;
+                }
+
+                setFlag = true;
+                try
+                {
+                        /* TODO: needed?
+                        if (!lockNotify)
+                        {
+                                Iterator it = listenerList\&.iterator();
+                                while (it\&.hasNext())
+                                        ((PropertyListener)it\&.next())\&.propertySetting(this, value);
+                        }
+                        */
+                        setInternal(value);
+                        if (!lockNotify)
+                        {
+                                eventSource\&.fireEvent('PropertyChanged');
+                        }
+                        setFlag = false;
+                }
+                catch (Exception e)
+                {
+                        setFlag = false;
+                        if (e instanceof PropertyException)
+                                throw (PropertyException)e;
+                        else
+                                throw new PropertyException(e);
+                }
+        }
+.fi
+.SS "void \fBset\fP (Objectvalue, booleanwarn_on_exception)\fC [inline]\fP"
+.PP
+References Property\&.getName()\&.
+.PP
+.nf
+        {
+                try { set(value); }
+                catch (PropertyException e)
+                {
+                        if (warn_on_exception)
+                        {
+                                System\&.out\&.println('WARNING: ' + getName() + '\&.set: exception occured');
+                                e\&.printStackTrace();
+                        }
+                }
+        }
+.fi
+.SS "void \fBsetInternal\fP (Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, protected]\fP"
+.PP
+Reimplemented in \fBArrayProperty\fP, and \fBTextProperty\fP\&.
+.PP
+References Property\&.pvalue\&.
+.PP
+Referenced by Property\&.set()\&.
+.PP
+.nf
+        {
+                pvalue = value;
+        }
+.fi
+.SS "void \fBsetReadOnly\fP (booleanflag)\fC [inline]\fP"
+.PP
+References Property\&.readOnly\&.
+.PP
+.nf
+        {
+                readOnly = flag;
+        }
+.fi
+.SS "void \fBsetVisible\fP (booleanflag)\fC [inline]\fP"
+.PP
+References Property\&.visible\&.
+.PP
+Referenced by AxesObject\&.AxesObject(), BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), FigureObject\&.FigureObject(), GraphicObject\&.GraphicObject(), and PatchObject\&.PatchObject()\&.
+.PP
+.nf
+        {
+                visible = flag;
+        }
+.fi
+.SS "void \fBunLock\fP ()\fC [inline]\fP"
+.PP
+References Property\&.lockNotify\&.
+.PP
+Referenced by HandleObject\&.addProperty(), and PropertySet\&.validate()\&.
+.PP
+.nf
+        {
+                lockNotify = false;
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBHandleEventSourceHelper\fP \fBeventSource\fP = new \fBHandleEventSourceHelper\fP(this, new String[] {'PropertyChanged'})\fC [private]\fP"
+.PP
+Referenced by Property\&.addHandleEventSink(), Property\&.delete(), Property\&.hasHandleEvent(), Property\&.removeHandleEventSink(), and Property\&.set()\&.
+.SS "boolean \fBlockNotify\fP = true\fC [private]\fP"
+.PP
+Referenced by Property\&.lock(), Property\&.reset(), Property\&.set(), and Property\&.unLock()\&.
+.SS "String \fBname\fP\fC [private]\fP"
+.PP
+Referenced by ArrayProperty\&.ArrayProperty(), BooleanProperty\&.BooleanProperty(), CallbackProperty\&.CallbackProperty(), ColorProperty\&.ColorProperty(), Property\&.createProperty(), DoubleProperty\&.DoubleProperty(), DoubleRadioProperty\&.DoubleRadioProperty(), Property\&.getName(), HandleObjectListProperty\&.HandleObjectListProperty(), Property\&.initDefault(), LineStyleProperty\&.LineStyleProperty(), MarkerProperty\&.MarkerProperty(), ObjectProperty\&.ObjectProperty(), Property\&.Property(), RadioProperty\&.RadioProperty(), StringArrayProperty\&.StringArrayProperty(), StringProperty\&.StringProperty(), and VectorProperty\&.VectorProperty()\&.
+.SS "\fBPropertySet\fP \fBparent\fP\fC [private]\fP"
+.PP
+Referenced by ArrayProperty\&.ArrayProperty(), BooleanProperty\&.BooleanProperty(), CallbackProperty\&.CallbackProperty(), ColorProperty\&.ColorProperty(), Property\&.createProperty(), DoubleProperty\&.DoubleProperty(), DoubleRadioProperty\&.DoubleRadioProperty(), Property\&.getParent(), HandleObjectListProperty\&.HandleObjectListProperty(), Property\&.initDefault(), LineStyleProperty\&.LineStyleProperty(), MarkerProperty\&.MarkerProperty(), ObjectProperty\&.ObjectProperty(), Property\&.Property(), RadioProperty\&.RadioProperty(), StringArrayProperty\&.StringArrayProperty(), StringProperty\&.StringProperty(), and VectorProperty\&.VectorProperty()\&.
+.SS "Object \fBpvalue\fP\fC [protected]\fP"
+.PP
+Referenced by HandleObjectListProperty\&.addElement(), ArrayProperty\&.ArrayProperty(), BooleanProperty\&.BooleanProperty(), CallbackProperty\&.CallbackProperty(), ColorProperty\&.ColorProperty(), HandleObjectListProperty\&.contains(), DoubleProperty\&.DoubleProperty(), DoubleRadioProperty\&.DoubleRadioProperty(), DoubleProperty\&.doubleValue(), DoubleRadioProperty\&.doubleValue(), HandleObjectListProperty\&.elementAt(), DoubleProperty\&.floatValue(), StringArrayProperty\&.getArray(), CallbackProperty\&.getCallback(), ArrayProperty\&.getClassName(), ColorProperty\&.getColor(), ArrayProperty\&.getDim(), TextProperty\&.getInternal(), Property\&.getInternal(), ColorProperty\&.getInternal(), ArrayProperty\&.getMatrix(), ArrayProperty\&.getNDims(), ObjectProperty\&.getObject(), TextProperty\&.getText(), RadioProperty\&.getValue(), VectorProperty\&.getVector(), HandleObjectListProperty\&.getVisibleObjects(), HandleObjectListProperty\&.HandleObjectListProperty(), Property\&.initDefault(), DoubleProperty\&.intValue(), DoubleRadioProperty\&.is(), ColorProperty\&.is(), DoubleRadioProperty\&.isDouble(), ArrayProperty\&.isEmpty(), TextProperty\&.isEqual(), Property\&.isEqual(), ColorProperty\&.isSet(), HandleObjectListProperty\&.iterator(), LineStyleProperty\&.LineStyleProperty(), MarkerProperty\&.MarkerProperty(), ObjectProperty\&.ObjectProperty(), Property\&.Property(), RadioProperty\&.RadioProperty(), HandleObjectListProperty\&.removeAllElements(), HandleObjectListProperty\&.removeElement(), TextProperty\&.setInternal(), Property\&.setInternal(), HandleObjectListProperty\&.size(), StringArrayProperty\&.StringArrayProperty(), StringProperty\&.StringProperty(), TextProperty\&.TextProperty(), StringProperty\&.toString(), ObjectProperty\&.toString(), RadioProperty\&.toString(), DoubleRadioProperty\&.toString(), VectorProperty\&.toString(), ArrayProperty\&.toString(), ColorProperty\&.toString(), and VectorProperty\&.VectorProperty()\&.
+.SS "boolean \fBreadOnly\fP = false\fC [private]\fP"
+.PP
+Referenced by Property\&.isReadOnly(), Property\&.Property(), Property\&.set(), and Property\&.setReadOnly()\&.
+.SS "boolean \fBsetFlag\fP = false\fC [private]\fP"
+.PP
+Referenced by Property\&.set()\&.
+.SS "boolean \fBvisible\fP = true\fC [private]\fP"
+.PP
+Referenced by Property\&.isVisible(), Property\&.Property(), and Property\&.setVisible()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

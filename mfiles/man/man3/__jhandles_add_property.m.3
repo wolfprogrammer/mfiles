@@ -1,0 +1,174 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_add_property.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_add_property.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fB__jhandles_add_property\fP (\fBh\fP, \fBpname\fP, ptype, \fBopts\fP, \fBvarargin\fP) \fBparent\fP"
+.br
+.ti -1c
+.RI "unwind_protect \fBswitch\fP (ptype) case'radio'if(\fBn\fP > 0 &&ischar(\fBvarargin\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (!strcmp(\fBdefval\fP,'')&&!any(strcmp(\fBvals\fP, \fBdefval\fP))) \fBerror\fP('default value for radio property must be part of possible values')"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('radio property values are \fBmissing\fP')"
+.br
+.ti -1c
+.RI "endfor case colorradio \fBif\fP (\fBn\fP > 0 &&ischar(\fBvarargin\fP{1})) \fBvals\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (\fBlength\fP(\fBvals\fP) > 0) \fBmissing\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (ischar(\fBdefval\fP)&&!any(strcmp(\fBvals\fP, \fBdefval\fP))&&(\fBlength\fP(\fBdefval\fP) > 1||isempty(findstr(\fBdefval\fP,'rgbywkmc')))) error('invalid default value for colorradio property')"
+.br
+.ti -1c
+.RI "\fBp\fP \fBset\fP (\fBdefval\fP, true)"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('colorradio property values are \fBmissing\fP')"
+.br
+.ti -1c
+.RI "\fBendif\fP otherwise \fBerror\fP ('unknown property \fBtype\fP `%\fBs\fP'', ptype)"
+.br
+.ti -1c
+.RI "endswitch unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.br
+.ti -1c
+.RI "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.br
+.ti -1c
+.RI "end_unwind_protect \fBif\fP (!\fBopts\&.visible\fP) p\&.setVisible(false)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (\fBopts\&.readonly\fP) p\&.setReadOnly(true)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (any(cellfun(@(\fBx\fP) isa(\fBvarargin\fP{1}, \fBx\fP), ctype))) \fBval\fP"
+.br
+.ti -1c
+.RI "\fBerror\fP ('invalid property default value, expected `%\fBs\fP'', tstr(1:end-4))"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBn\fP = \fBlength\fP (\fBvarargin\fP)"
+.br
+.ti -1c
+.RI "\fBj1\fP = \fBjava_convert_matrix\fP (1)"
+.br
+.ti -1c
+.RI "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.br
+.ti -1c
+.RI "\fBvals\fP = regexp (\fBvarargin\fP{1}, '[^|]+', 'match')"
+.br
+.ti -1c
+.RI "\fBdefval\fP = get_default_value ('char', '', varargin{2:end})"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBp\fP = \fBjava_new\fP ('org\&.octave\&.graphics\&.RadioProperty', parent, \fBpname\fP, \fBvals\fP, \fBdefval\fP)"
+.br
+.ti -1c
+.RI "for \fBhh\fP"
+.br
+.ti -1c
+.RI "else \fBmissing\fP = [0 0 0]"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP [\fBval\fP]"
+.br
+.ti -1c
+.RI "else \fBtstr\fP = sprintf ('%s or ', ctype{:})"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBval\fP = \fBmissing\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBfunction\fP \fB__jhandles_add_property\fP (\fBh\fP, \fBpname\fP, ptype, \fBopts\fP, \fBvarargin\fP)"
+.SS "else \fBerror\fP ('radio property values are \fBmissing\fP')"
+.SS "else \fBerror\fP ('colorradio property values are \fBmissing\fP')"
+.SS "\fBendif\fP otherwise \fBerror\fP ('unknown property \fBtype\fP `%\fBs\fP'', ptype)"
+.SS "\fBerror\fP ('invalid property defaultvalue, expected`%\fBs\fP'', \fBtstr\fP(1:end-4))"
+.SS "\fBif\fP (!strcmpdefval,'')&&!any(strcmp(vals, defval))"
+.SS "endfor case colorradio \fBif\fP (\fBn\fP, 0 &&ischarvarargin{1})"
+.SS "\fBif\fP (\fBlength\fP(\fBvals\fP), 0)"
+.SS "\fBif\fP (ischar(\fBdefval\fP)&&!any(strcmp(\fBvals\fP, \fBdefval\fP))&&(\fBlength\fP(\fBdefval\fP) > 1||isempty(findstr(\fBdefval\fP,'rgbywkmc'))))"
+.SS "end_unwind_protect \fBif\fP (!opts\&.visible)"
+.SS "\fBendif\fP \fBif\fP (opts\&.readonly)"
+.SS "\fBendif\fP \fBif\fP (any(cellfun(@(\fBx\fP) isa(\fBvarargin\fP{1}, \fBx\fP), ctype)))"
+.SS "endswitch unwind_protect_cleanup \fBjava_convert_matrix\fP (\fBj1\fP)"
+.SS "\fBjava_unsigned_conversion\fP (\fBj2\fP)"
+.SS "\fBp\fP \fBset\fP (\fBdefval\fP, true)"
+.SS "unwind_protect \fBswitch\fP (ptype)"
+.PP
+Definition at line 25 of file __jhandles_add_property\&.m\&.
+.PP
+.nf
+                                   {1}))
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "\fBendif\fP \fBdefval\fP = get_default_value ('char', '', varargin{2:end})"
+.PP
+Definition at line 29 of file __jhandles_add_property\&.m\&.
+.SS "\fBendif\fP endfunction \fBfunction\fP[\fBval\fP]"\fBInitial value:\fP
+.PP
+.nf
+ get_default_value (ctype, missing, varargin)
+
+  if (length (varargin) > 0)
+    if (! iscellstr (ctype))
+      ctype = {ctype}
+.fi
+.PP
+Definition at line 92 of file __jhandles_add_property\&.m\&.
+.SS "for \fBhh\fP"\fBInitial value:\fP
+.PP
+.nf
+ defval(:)'
+        p\&.addElement (__get_object__ (hh))
+.fi
+.PP
+Definition at line 55 of file __jhandles_add_property\&.m\&.
+.SS "\fBj1\fP = \fBjava_convert_matrix\fP (1)"
+.PP
+Definition at line 21 of file __jhandles_add_property\&.m\&.
+.SS "\fBj2\fP = \fBjava_unsigned_conversion\fP (1)"
+.PP
+Definition at line 22 of file __jhandles_add_property\&.m\&.
+.SS "else \fBmissing\fP = [0 0 0]"
+.PP
+Definition at line 64 of file __jhandles_add_property\&.m\&.
+.SS "else \fBn\fP = \fBlength\fP (\fBvarargin\fP)"
+.PP
+Definition at line 19 of file __jhandles_add_property\&.m\&.
+.PP
+Referenced by gl2psGetPlaneFromPoints(), gl2psListRealloc(), gl2psParseStipplePattern(), gl2psPrintGzipFooter(), gl2psPrintPGFDash(), gl2psPrintPostScriptDash(), gl2psPrintSVGDash(), gl2psSameColorThreshold(), and gl2psSVGGetCoordsAndColors()\&.
+.SS "\fBendif\fP \fBp\fP = \fBjava_new\fP ('org\&.octave\&.graphics\&.RadioProperty', parent, \fBpname\fP, \fBvals\fP, \fBdefval\fP)"
+.PP
+Definition at line 33 of file __jhandles_add_property\&.m\&.
+.SS "else \fBtstr\fP = sprintf ('%s or ', ctype{:})"
+.PP
+Definition at line 101 of file __jhandles_add_property\&.m\&.
+.SS "\fBendif\fP else \fBval\fP = \fBmissing\fP"
+.PP
+Definition at line 105 of file __jhandles_add_property\&.m\&.
+.SS "\fBvals\fP = regexp (\fBvarargin\fP{1}, '[^|]+', 'match')"
+.PP
+Definition at line 28 of file __jhandles_add_property\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

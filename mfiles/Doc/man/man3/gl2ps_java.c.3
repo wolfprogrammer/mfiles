@@ -1,0 +1,275 @@
+.TH "packages/jhandles-0.3.5/src/gl2ps_java.c" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+packages/jhandles-0.3.5/src/gl2ps_java.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <jni\&.h>\fP
+.br
+\fC#include <gl2ps\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <errno\&.h>\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBJSTRING\fP(s)   const char* s = (_ ## s ? (*env)->GetStringUTFChars(env, _ ## s, NULL) : NULL)"
+.br
+.ti -1c
+.RI "#define \fBEND_JSTRING\fP(s)   if (s) (*env)->ReleaseStringUTFChars(env, _ ## s, s)"
+.br
+.ti -1c
+.RI "#define \fBWITH_JSTRING\fP(s, code)   \fBJSTRING\fP(s); do { code } while (0); \fBEND_JSTRING\fP(s);"
+.br
+.ti -1c
+.RI "#define \fBJINTARRAY\fP(s)   jint* s = (_ ## s ? (*env)->GetIntArrayElements(env, _ ## s, NULL) : NULL)"
+.br
+.ti -1c
+.RI "#define \fBEND_JINTARRAY\fP(s)   if (s) (*env)->ReleaseIntArrayElements(env, _ ## s, s, 0)"
+.br
+.ti -1c
+.RI "#define \fBWITH_JINTARRAY\fP(s, code)   \fBJINTARRAY\fP(s); do { code } while (0); \fBEND_JINTARRAY\fP(s);"
+.br
+.ti -1c
+.RI "#define \fBJFLOATARRAY\fP(s)   jfloat* s = (_ ## s ? (*env)->GetFloatArrayElements(env, _ ## s, NULL) : NULL)"
+.br
+.ti -1c
+.RI "#define \fBEND_JFLOATARRAY\fP(s)   if (s) (*env)->ReleaseFloatArrayElements(env, _ ## s, s, 0)"
+.br
+.ti -1c
+.RI "#define \fBWITH_JFLOATARRAY\fP(s, code)   \fBJFLOATARRAY\fP(s); do { code } while (0); \fBEND_JFLOATARRAY\fP(s);"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psBeginPage\fP (JNIEnv *env, jclass cls, jstring _title, jstring _producer, jintArray _viewport, jint format, jint sort, jint options, jint colormode, jint colorsize, jobjectArray colortable, jint nr, jint ng, jint nb, jint buffersize, jstring _outputname, jstring _filename)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psEndPage\fP (JNIEnv *env, jclass cls)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psText\fP (JNIEnv *env, jclass cls, jstring _string, jstring _fontname, jint fontsize)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psTextOpt\fP (JNIEnv *env, jclass cls, jstring _string, jstring _fontname, jint fontsize, jint align, jfloat angle, jfloat margin, jboolean offsetmargin, jfloat linewidth, jfloatArray _linecolor, jshort linepattern, jint linefactor, jfloatArray _fillcolor)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psEnable\fP (JNIEnv *env, jclass cls, jint mode)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psDisable\fP (JNIEnv *env, jclass cls, jint mode)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psBeginViewport\fP (JNIEnv *env, jclass cls, jintArray _viewport)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psEndViewport\fP (JNIEnv *env, jclass cls)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psLineWidth\fP (JNIEnv *env, jclass cls, jfloat w)"
+.br
+.ti -1c
+.RI "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psSpecial\fP (JNIEnv *env, jclass cls, jint format, jstring _string, jint moveTo)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static FILE * \fBstream\fP = NULL"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define \fBEND_JFLOATARRAY\fP(s)   if (s) (*env)->ReleaseFloatArrayElements(env, _ ## s, s, 0)"
+.SS "#define \fBEND_JINTARRAY\fP(s)   if (s) (*env)->ReleaseIntArrayElements(env, _ ## s, s, 0)"
+.SS "#define \fBEND_JSTRING\fP(s)   if (s) (*env)->ReleaseStringUTFChars(env, _ ## s, s)"
+.SS "#define \fBJFLOATARRAY\fP(s)   jfloat* s = (_ ## s ? (*env)->GetFloatArrayElements(env, _ ## s, NULL) : NULL)"
+.SS "#define \fBJINTARRAY\fP(s)   jint* s = (_ ## s ? (*env)->GetIntArrayElements(env, _ ## s, NULL) : NULL)"
+.SS "#define \fBJSTRING\fP(s)   const char* s = (_ ## s ? (*env)->GetStringUTFChars(env, _ ## s, NULL) : NULL)"
+.SS "#define \fBWITH_JFLOATARRAY\fP(s, code)   \fBJFLOATARRAY\fP(s); do { code } while (0); \fBEND_JFLOATARRAY\fP(s);"
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psTextOpt()\&.
+.SS "#define \fBWITH_JINTARRAY\fP(s, code)   \fBJINTARRAY\fP(s); do { code } while (0); \fBEND_JINTARRAY\fP(s);"
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psBeginPage(), and Java_org_octave_graphics_GL2PS_gl2psBeginViewport()\&.
+.SS "#define \fBWITH_JSTRING\fP(s, code)   \fBJSTRING\fP(s); do { code } while (0); \fBEND_JSTRING\fP(s);"
+.PP
+Referenced by Java_org_octave_graphics_GL2PS_gl2psBeginPage(), Java_org_octave_graphics_GL2PS_gl2psSpecial(), Java_org_octave_graphics_GL2PS_gl2psText(), and Java_org_octave_graphics_GL2PS_gl2psTextOpt()\&.
+.SH "Function Documentation"
+.PP 
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psBeginPage\fP (JNIEnv *env, jclasscls, jstring_title, jstring_producer, jintArray_viewport, jintformat, jintsort, jintoptions, jintcolormode, jintcolorsize, jobjectArraycolortable, jintnr, jintng, jintnb, jintbuffersize, jstring_outputname, jstring_filename)"
+.PP
+References GL2PS_ERROR, gl2psBeginPage(), stream, WITH_JINTARRAY, and WITH_JSTRING\&.
+.PP
+.nf
+{
+  GLint result;
+
+  WITH_JSTRING(title,
+    WITH_JSTRING(producer,
+      WITH_JSTRING(outputname,
+        WITH_JSTRING(filename,
+          WITH_JINTARRAY(viewport,
+            if (stream != NULL)
+              result = GL2PS_ERROR;
+            else
+            {
+              stream = fopen(outputname, 'w');
+              if (stream == NULL)
+              {
+                printf('cannot open %s for writing\n', outputname);
+                result = GL2PS_ERROR;
+              }
+              else
+                result = gl2psBeginPage(
+                  title, producer,
+                  viewport,
+                  format, sort, options,
+                  colormode, colorsize,
+                  NULL /* TODO */,
+                  nr, ng, nb,
+                  buffersize, stream,
+                  filename);
+            }
+            )))))
+
+  return result;
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psBeginViewport\fP (JNIEnv *env, jclasscls, jintArray_viewport)"
+.PP
+References gl2psBeginViewport(), and WITH_JINTARRAY\&.
+.PP
+.nf
+{
+  GLint result;
+
+  WITH_JINTARRAY(viewport,
+    result = gl2psBeginViewport(viewport);
+    )
+
+  return result;
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psDisable\fP (JNIEnv *env, jclasscls, jintmode)"
+.PP
+References gl2psDisable()\&.
+.PP
+.nf
+{
+  return gl2psDisable(mode);
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psEnable\fP (JNIEnv *env, jclasscls, jintmode)"
+.PP
+References gl2psEnable()\&.
+.PP
+.nf
+{
+  return gl2psEnable(mode);
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psEndPage\fP (JNIEnv *env, jclasscls)"
+.PP
+References GL2PS_UNINITIALIZED, gl2psEndPage(), and stream\&.
+.PP
+.nf
+{
+  GLint result = GL2PS_UNINITIALIZED;
+
+  if (stream != NULL)
+  {
+    result = gl2psEndPage();
+    fclose(stream);
+    stream = NULL;
+  }
+  
+  return result;
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psEndViewport\fP (JNIEnv *env, jclasscls)"
+.PP
+References gl2psEndViewport()\&.
+.PP
+.nf
+{
+  return gl2psEndViewport();
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psLineWidth\fP (JNIEnv *env, jclasscls, jfloatw)"
+.PP
+References gl2psLineWidth()\&.
+.PP
+.nf
+{
+  printf('gl2psLineWidth: %f\n', w);
+  return gl2psLineWidth(w);
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psSpecial\fP (JNIEnv *env, jclasscls, jintformat, jstring_string, jintmoveTo)"
+.PP
+References gl2psSpecial(), and WITH_JSTRING\&.
+.PP
+.nf
+{
+  GLint result;
+
+  WITH_JSTRING(string,
+    result = gl2psSpecial(format, string, moveTo);
+    )
+
+  return result;
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psText\fP (JNIEnv *env, jclasscls, jstring_string, jstring_fontname, jintfontsize)"
+.PP
+References gl2psText(), and WITH_JSTRING\&.
+.PP
+.nf
+{
+  GLint result;
+
+  WITH_JSTRING(string,
+    WITH_JSTRING(fontname,
+      result = gl2psText(string, fontname, fontsize);
+      ))
+
+  return result;
+}
+.fi
+.SS "JNIEXPORT jint JNICALL \fBJava_org_octave_graphics_GL2PS_gl2psTextOpt\fP (JNIEnv *env, jclasscls, jstring_string, jstring_fontname, jintfontsize, jintalign, jfloatangle, jfloatmargin, jbooleanoffsetmargin, jfloatlinewidth, jfloatArray_linecolor, jshortlinepattern, jintlinefactor, jfloatArray_fillcolor)"
+.PP
+References gl2psTextOpt(), WITH_JFLOATARRAY, and WITH_JSTRING\&.
+.PP
+.nf
+{
+  GLint result;
+
+  WITH_JSTRING(string,
+    WITH_JSTRING(fontname,
+      WITH_JFLOATARRAY(linecolor,
+        WITH_JFLOATARRAY(fillcolor,
+          result = gl2psTextOpt(string, fontname, fontsize, align, angle, margin, offsetmargin,
+            linewidth, linecolor, linepattern, linefactor, fillcolor);
+          ))))
+
+  return result;
+}
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "FILE* \fBstream\fP = NULL\fC [static]\fP"
+.PP
+Referenced by gl2psBeginPage(), Java_org_octave_graphics_GL2PS_gl2psBeginPage(), and Java_org_octave_graphics_GL2PS_gl2psEndPage()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

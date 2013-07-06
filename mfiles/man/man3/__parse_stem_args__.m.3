@@ -1,0 +1,214 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__parse_stem_args__.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__parse_stem_args__.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (ishandle(\fBargs\fP{1})) \fBif\fP(strcmp(\fBget\fP(\fBargs\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP (1)"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('%s: invalid stemseries \fBparent\fP, it must be an \fBaxes\fP object', name)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBif\fP (\fBlength\fP(\fBargs\fP) > 0 &&\fBismatrix\fP(\fBargs\fP{1})) \fBif\fP(is3D) \fBif\fP(\fBlength\fP(\fBargs\fP) > 2 &&\fBismatrix\fP(\fBargs\fP"
+.br
+.ti -1c
+.RI "&& \fBismatrix\fP (\fBargs\fP{3})) \fBx\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP ([1:3])"
+.br
+.ti -1c
+.RI "\fBif\fP (isvector(\fBz\fP)) \fBx\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP else \fBif\fP (\fBlength\fP(\fBargs\fP) > 1 &&\fBismatrix\fP(\fBargs\fP{2})) \fBx\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (isvector(\fBy\fP)) \fBx\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBendif\fP \fBendif\fP else \fBerror\fP ('%s: \fBmissing\fP stem data', name)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (is3D) \fBx\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (\fBlength\fP(\fBargs\fP) > 0) \fBif\fP(iscellstr(\fBargs\fP)) \fBidx\fP"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBidx\fP)) \fBdofill\fP = []"
+.br
+.ti -1c
+.RI "\fBargs\fP (\fBidx\fP)"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (\fBlength\fP(\fBargs\fP)==1)[\fBlc\fP"
+.br
+.ti -1c
+.RI "\fBelseif\fP(\fBlength\fP(\fBargs\fP) > 0) \fBerror\fP('%s 
+.br
+\fBendif\fP \fBendif\fP \fBif\fP (isempty(\fBmc\fP)) \fBmc\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (isfield(\fBcur_props\fP(\fBi\fP),'color')&&!isempty(\fBcur_props\fP(\fBi\fP)\&.color))"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (isfield(\fBcur_props\fP(\fBi\fP),'linestyle')) ls"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBif\fP (isfield(\fBcur_props\fP(\fBi\fP),'marker')&&!strcmp(\fBcur_props\fP(\fBi\fP)\&.marker,'none')) ms"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBax\fP, \fBx\fP, \fBy\fP, \fBz\fP, \fBdofill\fP, \fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP]"
+.br
+.ti -1c
+.RI "\fBax\fP = []"
+.br
+.ti -1c
+.RI "\fBx\fP = \fBy\fP = \fBz\fP = []"
+.br
+.ti -1c
+.RI "\fBdofill\fP = 0"
+.br
+.ti -1c
+.RI "\fBtype\fP"
+.br
+.ti -1c
+.RI "\fBy\fP = \fBargs\fP{2}"
+.br
+.ti -1c
+.RI "\fBz\fP = \fBargs\fP{3}"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBls\fP = '-'"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBmc\fP"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBms\fP = stem_line_spec (name, \fBargs\fP{1})"
+.br
+.ti -1c
+.RI "\fBendif\fP [\fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP] = set_default_values ()"
+.br
+.ti -1c
+.RI "\fBcur_props\fP = __pltopt__ (name, str, false)"
+.br
+.ti -1c
+.RI "for \fBi\fP"
+.br
+.ti -1c
+.RI "\fBlc\fP = \fBcur_props\fP(\fBi\fP)\&.color"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBargs\fP (1)"
+.SS "\fBargs\fP ()"
+.SS "\fBargs\fP (\fBidx\fP)"
+.SS "else \fBerror\fP ('%s: invalid stemseriesparent, it must be an \fBaxes\fP object', name)"
+.SS "\fBendif\fP \fBendif\fP \fBendif\fP else \fBerror\fP ('%s: \fBmissing\fP stem data', name)"
+.SS "\fBif\fP (ishandle(\fBargs\fP{1}))"
+.PP
+Definition at line 26 of file __parse_stem_args__\&.m\&.
+.PP
+.nf
+                    {1}))
+    if (strcmp (get (args{1}, 'type'), 'axes'))
+.fi
+.SS "\fBendif\fP \fBendif\fP \fBif\fP (\fBlength\fP(\fBargs\fP), 0 &&ismatrixargs{1})"
+.PP
+Definition at line 36 of file __parse_stem_args__\&.m\&.
+.PP
+.nf
+                                         {1}))
+    if (is3D)
+      if (length (args) > 2 && ismatrix (args{2}) && ismatrix (args{3}))
+.fi
+.SS "\fBif\fP (isvector(\fBz\fP))"
+.SS "\fBendif\fP \fBendif\fP else \fBif\fP (\fBlength\fP(\fBargs\fP), 1 &&ismatrixargs{2})"
+.SS "\fBif\fP (isvector(\fBy\fP))"
+.SS "\fBendif\fP \fBif\fP (is3D)"
+.SS "\fBendif\fP \fBif\fP (\fBlength\fP(\fBargs\fP), 0)"
+.SS "\fBif\fP (!isemptyidx) = []"
+.SS "\fBendif\fP \fBif\fP (\fBlength\fP(\fBargs\fP) = \fC= 1\fP)"
+.SS "\fBelseif\fP (\fBlength\fP (\fBargs\fP) > 0) \fBerror\fP ('%s \fBendif\fP \fBendif\fP \fBif\fP (isempty(\fBmc\fP))"
+.SS "\fBendif\fP \fBif\fP (isfield(\fBcur_props\fP(\fBi\fP),'color')&&!isempty(\fBcur_props\fP(\fBi\fP)\&.color))"
+.SS "\fBendif\fP \fBif\fP (isfield(\fBcur_props\fP(\fBi\fP),'linestyle'))"
+.SS "\fBendif\fP \fBif\fP (isfield(\fBcur_props\fP(\fBi\fP),'marker')&&!strcmp(\fBcur_props\fP(\fBi\fP)\&.marker,'none'))"
+.SS "&& \fBismatrix\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBaxes\fP \fBax\fP = []"
+.PP
+Definition at line 20 of file __parse_stem_args__\&.m\&.
+.SS "\fBcur_props\fP = __pltopt__ (name, str, false)"
+.PP
+Definition at line 111 of file __parse_stem_args__\&.m\&.
+.SS "\fBdofill\fP = 0"
+.PP
+Definition at line 22 of file __parse_stem_args__\&.m\&.
+.SS "\fBendif\fP[\fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP] = set_default_values ()"
+.PP
+Definition at line 109 of file __parse_stem_args__\&.m\&.
+.SS "\fBendif\fP endfor endfunction \fBfunction\fP[\fBlc\fP, \fBls\fP, \fBmc\fP, \fBms\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __parse_stem_args__ (name, is3D, varargin)
+
+  args = varargin
+.fi
+.PP
+Definition at line 17 of file __parse_stem_args__\&.m\&.
+.SS "for \fBi\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:length(cur_props)
+    if (isfield (cur_props(i), 'markeredgecolor'))
+      mc = cur_props(i)\&.markeredgecolor
+.fi
+.PP
+Definition at line 112 of file __parse_stem_args__\&.m\&.
+.SS "\fBlc\fP = \fBcur_props\fP(\fBi\fP)\&.color"
+.PP
+Definition at line 117 of file __parse_stem_args__\&.m\&.
+.SS "\fBls\fP = '-'"
+.PP
+Definition at line 89 of file __parse_stem_args__\&.m\&.
+.SS "\fBendif\fP \fBmc\fP"
+.PP
+Definition at line 89 of file __parse_stem_args__\&.m\&.
+.SS "\fBms\fP = stem_line_spec (name, \fBargs\fP{1})"
+.PP
+Definition at line 89 of file __parse_stem_args__\&.m\&.
+.SS "\fBtype\fP"
+.PP
+Definition at line 27 of file __parse_stem_args__\&.m\&.
+.PP
+Referenced by gl2psAddPolyPrimitive(), gl2psAddText(), gl2psDrawPixels(), gl2psSplitPrimitive(), and gl2psTestSplitPrimitive()\&.
+.SS "else \fBx\fP = \fBy\fP = \fBz\fP = []"
+.PP
+Definition at line 21 of file __parse_stem_args__\&.m\&.
+.SS "\fBy\fP = \fBargs\fP{2}"
+.PP
+Definition at line 40 of file __parse_stem_args__\&.m\&.
+.SS "\fBz\fP = \fBargs\fP{3}"
+.PP
+Definition at line 41 of file __parse_stem_args__\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

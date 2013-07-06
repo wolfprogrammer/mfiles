@@ -1,0 +1,1503 @@
+.TH "SurfaceObject" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SurfaceObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGraphicObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSurfaceObject\fP (\fBHandleObject\fP parent, Matrix xdata, Matrix ydata, Matrix zdata)"
+.br
+.ti -1c
+.RI "void \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (\fBRenderer\fP r)"
+.br
+.ti -1c
+.RI "void \fBpropertyChanged\fP (\fBProperty\fP p)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "\fBAxesObject\fP \fBgetAxes\fP ()"
+.br
+.ti -1c
+.RI "void \fBset\fP (\fBProperty\fP p, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (String name, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "boolean \fBisLegendable\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetHandle\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetDefaultProperty\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBdeleteChildren\fP ()"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddChild\fP (\fBHandleObject\fP child)"
+.br
+.ti -1c
+.RI "void \fBremoveChild\fP (\fBHandleObject\fP child)"
+.br
+.ti -1c
+.RI "void \fBaddProperty\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "boolean \fBisValid\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCachedData\fP (Renderer\&.CachedData d)"
+.br
+.ti -1c
+.RI "Renderer\&.CachedData \fBgetCachedData\fP ()"
+.br
+.ti -1c
+.RI "java\&.awt\&.Component \fBgetComponent\fP ()"
+.br
+.ti -1c
+.RI "\fBHandleObject\fP \fBgetAncestor\fP (String type)"
+.br
+.ti -1c
+.RI "Object \fBget\fP (String name)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "Object \fBget\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "void \fBwaitFor\fP ()"
+.br
+.ti -1c
+.RI "void \fBwaitFor\fP (String pname)"
+.br
+.ti -1c
+.RI "void \fBwaitFor\fP (String pname, Object value)"
+.br
+.ti -1c
+.RI "void \fBdoButtonDownFcn\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBaddHandleEventSink\fP (String name, \fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fP sink)"
+.br
+.ti -1c
+.RI "boolean \fBhasHandleEvent\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBeventOccured\fP (\fBHandleEvent\fP evt)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBsourceDeleted\fP (Object source)"
+.br
+.ti -1c
+.RI "boolean \fBexecuteOnce\fP ()"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetProperty\fP (String name)"
+.br
+.ti -1c
+.RI "boolean \fBhasProperty\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBshow\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetNames\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static boolean \fBisHandle\fP (double \fBhandle\fP)"
+.br
+.ti -1c
+.RI "static \fBHandleObject\fP \fBgetHandleObject\fP (double \fBhandle\fP)  throws Exception 	"
+.br
+.ti -1c
+.RI "static void \fBremoveHandleObject\fP (double \fBhandle\fP)"
+.br
+.ti -1c
+.RI "static void \fBaddHandleObject\fP (double \fBhandle\fP, \fBHandleObject\fP obj)"
+.br
+.ti -1c
+.RI "static void \fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "static void \fBlistObjects\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitProperties\fP (\fBHandleObject\fP parent, String type)"
+.br
+.ti -1c
+.RI "void \fBsetHandle\fP (double \fBhandle\fP)"
+.br
+.ti -1c
+.RI "void \fBlisten\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "void \fBchildValidated\fP (\fBHandleObject\fP child)"
+.br
+.ti -1c
+.RI "void \fBautoSet\fP (\fBProperty\fP p, Object value)"
+.br
+.ti -1c
+.RI "boolean \fBisAutoMode\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBnewHandle\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBglID\fP"
+.br
+.ti -1c
+.RI "int \fBautoMode\fP = 0"
+.br
+.ti -1c
+.RI "\fBPropertySet\fP \fBdefaultSet\fP = new \fBPropertySet\fP()"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "Matrix \fBcomputeNormals\fP ()"
+.br
+.ti -1c
+.RI "double[][][] \fBgetCData\fP ()"
+.br
+.ti -1c
+.RI "double[][] \fBgetAlphaData\fP ()"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBArrayProperty\fP \fBXData\fP"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP \fBYData\fP"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP \fBZData\fP"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP \fBCData\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBCDataMapping\fP"
+.br
+.ti -1c
+.RI "\fBColorProperty\fP \fBEdgeColor\fP"
+.br
+.ti -1c
+.RI "\fBColorProperty\fP \fBFaceColor\fP"
+.br
+.ti -1c
+.RI "\fBDoubleProperty\fP \fBAmbientStrength\fP"
+.br
+.ti -1c
+.RI "\fBDoubleProperty\fP \fBDiffuseStrength\fP"
+.br
+.ti -1c
+.RI "\fBDoubleProperty\fP \fBSpecularStrength\fP"
+.br
+.ti -1c
+.RI "\fBDoubleProperty\fP \fBSpecularExponent\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBEdgeLighting\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBFaceLighting\fP"
+.br
+.ti -1c
+.RI "\fBDoubleRadioProperty\fP \fBFaceAlpha\fP"
+.br
+.ti -1c
+.RI "\fBDoubleRadioProperty\fP \fBEdgeAlpha\fP"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP \fBVertexNormals\fP"
+.br
+.ti -1c
+.RI "\fBArrayProperty\fP \fBAlphaData\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBAlphaDataMapping\fP"
+.br
+.ti -1c
+.RI "\fBMarkerProperty\fP \fBMarker\fP"
+.br
+.ti -1c
+.RI "\fBColorProperty\fP \fBMarkerEdgeColor\fP"
+.br
+.ti -1c
+.RI "\fBColorProperty\fP \fBMarkerFaceColor\fP"
+.br
+.ti -1c
+.RI "\fBDoubleProperty\fP \fBMarkerSize\fP"
+.br
+.ti -1c
+.RI "\fBLineStyleProperty\fP \fBLineStyle\fP"
+.br
+.ti -1c
+.RI "\fBDoubleProperty\fP \fBLineWidth\fP"
+.br
+.ti -1c
+.RI "\fBVectorProperty\fP \fBXLim\fP"
+.br
+.ti -1c
+.RI "\fBVectorProperty\fP \fBYLim\fP"
+.br
+.ti -1c
+.RI "\fBVectorProperty\fP \fBZLim\fP"
+.br
+.ti -1c
+.RI "\fBVectorProperty\fP \fBCLim\fP"
+.br
+.ti -1c
+.RI "\fBVectorProperty\fP \fBALim\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBXLimInclude\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBYLimInclude\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBZLimInclude\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBCLimInclude\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBALimInclude\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBLegendInclude\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBBeingDeleted\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBButtonDownFcn\fP"
+.br
+.ti -1c
+.RI "\fBHandleObjectListProperty\fP \fBChildren\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBClipping\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBCreateFcn\fP"
+.br
+.ti -1c
+.RI "\fBCallbackProperty\fP \fBDeleteFcn\fP"
+.br
+.ti -1c
+.RI "\fBRadioProperty\fP \fBHandleVisibility\fP"
+.br
+.ti -1c
+.RI "\fBHandleObjectListProperty\fP \fBParent\fP"
+.br
+.ti -1c
+.RI "\fBStringProperty\fP \fBTag\fP"
+.br
+.ti -1c
+.RI "\fBStringProperty\fP \fBType\fP"
+.br
+.ti -1c
+.RI "\fBObjectProperty\fP \fBUserData\fP"
+.br
+.ti -1c
+.RI "\fBBooleanProperty\fP \fBVisible\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateMinMax\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateColorMinMax\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcallListValid\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBSurfaceObject\fP (\fBHandleObject\fPparent, Matrixxdata, Matrixydata, Matrixzdata)\fC [inline]\fP"
+.PP
+References GraphicObject\&.ALimInclude, SurfaceObject\&.AlphaData, SurfaceObject\&.AlphaDataMapping, SurfaceObject\&.AmbientStrength, SurfaceObject\&.callListValid, SurfaceObject\&.CData, SurfaceObject\&.CDataMapping, GraphicObject\&.CLimInclude, SurfaceObject\&.DiffuseStrength, SurfaceObject\&.EdgeAlpha, SurfaceObject\&.EdgeColor, SurfaceObject\&.EdgeLighting, SurfaceObject\&.FaceAlpha, SurfaceObject\&.FaceColor, SurfaceObject\&.FaceLighting, GraphicObject\&.getAxes(), SurfaceObject\&.LineStyle, SurfaceObject\&.LineWidth, HandleObject\&.listen(), SurfaceObject\&.Marker, SurfaceObject\&.MarkerEdgeColor, SurfaceObject\&.MarkerFaceColor, SurfaceObject\&.MarkerSize, Property\&.reset(), SurfaceObject\&.SpecularExponent, SurfaceObject\&.SpecularStrength, SurfaceObject\&.VertexNormals, SurfaceObject\&.XData, SurfaceObject\&.YData, SurfaceObject\&.ZData, and GraphicObject\&.ZLimInclude\&.
+.PP
+.nf
+        {
+                super(parent, 'surface');
+                callListValid = false;
+
+                XData = new ArrayProperty(this, 'XData', new String[] {'double'}, 2, xdata);
+                YData = new ArrayProperty(this, 'YData', new String[] {'double'}, 2, ydata);
+                ZData = new ArrayProperty(this, 'ZData', new String[] {'double'}, 2, zdata);
+                CData = new ArrayProperty(this, 'CData', new String[] {'double', 'byte'}, -1, zdata);
+                CDataMapping = new RadioProperty(this, 'CDataMapping', new String[] {'direct', 'scaled'}, 'scaled');
+                EdgeColor = new ColorProperty(this, 'EdgeColor', new String[] {'none', 'flat', 'interp'}, Color\&.black);
+                FaceColor = new ColorProperty(this, 'FaceColor', new String[] {'none', 'flat', 'interp', 'texturemap'}, 'flat');
+                AmbientStrength = new DoubleProperty(this, 'AmbientStrength', 0\&.3);
+                DiffuseStrength = new DoubleProperty(this, 'DiffuseStrength', 0\&.6);
+                SpecularStrength = new DoubleProperty(this, 'SpecularStrength', 0\&.9);
+                SpecularExponent = new DoubleProperty(this, 'SpecularExponent', 10);
+                EdgeLighting = new RadioProperty(this, 'EdgeLighting', new String[] {'none', 'flat', 'gouraud', 'phong'}, 'none');
+                FaceLighting = new RadioProperty(this, 'FaceLighting', new String[] {'none', 'flat', 'gouraud', 'phong'}, 'none');
+                FaceAlpha = new DoubleRadioProperty(this, 'FaceAlpha', new String[] {'flat', 'interp'}, 1\&.0);
+                EdgeAlpha = new DoubleRadioProperty(this, 'EdgeAlpha', new String[] {'flat', 'interp'}, 1\&.0);
+                VertexNormals = new ArrayProperty(this, 'VertexNormals', new String[] {'double'}, 3, null);
+                AlphaData = new ArrayProperty(this, 'AlphaData', new String[] {'double', 'byte'}, 2, null);
+                AlphaDataMapping = new RadioProperty(this, 'AlphaDataMapping', new String[] {'none', 'scaled', 'direct'}, 'scaled');
+                Marker = new MarkerProperty(this, 'Marker', 'none');
+                MarkerSize = new DoubleProperty(this, 'MarkerSize', 7\&.0);
+                MarkerEdgeColor = new ColorProperty(this, 'MarkerEdgeColor', new String[] {'none', 'auto', 'flat'}, 'auto');
+                MarkerFaceColor = new ColorProperty(this, 'MarkerFaceColor', new String[] {'none', 'auto', 'flat'}, 'none');
+                LineStyle = new LineStyleProperty(this, 'LineStyle', '-');
+                LineWidth = new DoubleProperty(this, 'LineWidth', 0\&.5);
+
+                ZLimInclude\&.reset(new Boolean(true));
+                CLimInclude\&.reset(new Boolean(true));
+                ALimInclude\&.reset(new Boolean(true));
+
+                listen(XData);
+                listen(YData);
+                listen(ZData);
+                listen(CData);
+                listen(getAxes()\&.getFigure()\&.Colormap);
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddChild\fP (\fBHandleObject\fPchild)\fC [inline, inherited]\fP"
+.PP
+References HandleObjectListProperty\&.addElement(), and HandleObject\&.Children\&.
+.PP
+Referenced by HandleObject\&.initProperties()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        Children\&.addElement(child);
+                }
+        }
+.fi
+.SS "void \fBaddHandleEventSink\fP (Stringname, \fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleEventSourceHelper\&.addHandleEventSink(), and HandleObject\&.eventSource\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSource\&.addHandleEventSink(name, sink);
+        }
+.fi
+.SS "static void \fBaddHandleObject\fP (doublehandle, \fBHandleObject\fPobj)\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+Referenced by HandleObject\&.HandleObject(), and HandleObject\&.setHandle()\&.
+.PP
+.nf
+        {
+                handleMap\&.put(new Double(handle), new WeakReference(obj));
+        }
+.fi
+.SS "void \fBaddProperty\fP (\fBProperty\fPp)\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References HandleObject\&.isValid(), and Property\&.unLock()\&.
+.PP
+.nf
+        {
+                super\&.addProperty(p);
+                if (isValid())
+                        p\&.unLock();
+        }
+.fi
+.SS "void \fBautoSet\fP (\fBProperty\fPp, Objectvalue)\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.autoMode, and Property\&.set()\&.
+.PP
+Referenced by AxesObject\&.autoAspectRatio(), AxesObject\&.autoAxis(), AxesObject\&.autoScaleC(), AxesObject\&.computeAutoTickLabels(), FigureObject\&.propertyChanged(), AxesObject\&.propertyChanged(), AxesObject\&.setInternalPosition(), PatchObject\&.updateCData(), PatchObject\&.updateFVCData(), PatchObject\&.updateFVData(), AxesObject\&.updateOuterPosition(), FigureObject\&.updatePosition(), AxesObject\&.updatePosition(), AxesObject\&.updateXFormMatrices(), and PatchObject\&.updateXYZData()\&.
+.PP
+.nf
+        {
+                autoMode++;
+                p\&.set(value, true);
+                autoMode--;
+        }
+.fi
+.SS "void \fBchildValidated\fP (\fBHandleObject\fPchild)\fC [inline, protected, inherited]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP, and \fBGroupObject\fP\&.
+.PP
+Referenced by HandleObject\&.validate()\&.
+.PP
+.nf
+        {
+        }
+.fi
+.SS "Matrix \fBcomputeNormals\fP ()\fC [inline, package]\fP"
+.PP
+References ArrayProperty\&.asDoubleMatrix(), Utils\&.crossProduct(), plt\&.x, SurfaceObject\&.XData, plt\&.y, SurfaceObject\&.YData, and SurfaceObject\&.ZData\&.
+.PP
+Referenced by SurfaceObject\&.validate()\&.
+.PP
+.nf
+        {
+                double[][] x = XData\&.asDoubleMatrix();
+                double[][] y = YData\&.asDoubleMatrix();
+                double[][] z = ZData\&.asDoubleMatrix();
+                int p = z\&.length;
+                int q = (z\&.length > 0 ? z[0]\&.length : 0);
+                double[][][] n = new double[p][q][3];
+
+                // TODO: normal computation at boundaries
+                for (int i=1; i<p-1; i++)
+                {
+                        for (int j=1; j<q-1; j++)
+                        {
+                                n[i][j][0] = n[i][j][1] = n[i][j][2] = 0;
+                                Utils\&.crossProduct(
+                                        x[i][j+1]-x[i][j], y[i][j+1]-y[i][j], z[i][j+1]-z[i][j],
+                                        x[i+1][j]-x[i][j], y[i+1][j]-y[i][j], z[i+1][j]-z[i][j],
+                                        n[i][j]);
+                                Utils\&.crossProduct(
+                                        x[i-1][j]-x[i][j], y[i-1][j]-y[i][j], z[i-1][j]-z[i][j],
+                                        x[i][j+1]-x[i][j], y[i][j+1]-y[i][j], z[i][j+1]-z[i][j],
+                                        n[i][j]);
+                                Utils\&.crossProduct(
+                                        x[i][j-1]-x[i][j], y[i][j-1]-y[i][j], z[i][j-1]-z[i][j],
+                                        x[i-1][j]-x[i][j], y[i-1][j]-y[i][j], z[i-1][j]-z[i][j],
+                                        n[i][j]);
+                                Utils\&.crossProduct(
+                                        x[i+1][j]-x[i][j], y[i+1][j]-y[i][j], z[i+1][j]-z[i][j],
+                                        x[i][j-1]-x[i][j], y[i][j-1]-y[i][j], z[i][j-1]-z[i][j],
+                                        n[i][j]);
+                                n[i][j][0] /= 4;
+                                n[i][j][1] /= 4;
+                                n[i][j][2] /= 4;
+
+                                double d = Math\&.sqrt(n[i][j][0]*n[i][j][0]+n[i][j][1]*n[i][j][1]+n[i][j][2]*n[i][j][2]);
+
+                                n[i][j][0] /= d;
+                                n[i][j][1] /= d;
+                                n[i][j][2] /= d;
+                        }
+                }
+
+                return new Matrix(n);
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+Reimplemented in \fBFigureObject\fP, \fBUIPanelObject\fP, \fBUIControlObject\fP, \fBBarseriesObject\fP, and \fBColorbarObject\fP\&.
+.PP
+References HandleObject\&.BeingDeleted, HandleObject\&.cachedData, HandleEventSourceHelper\&.delete(), HandleObject\&.deleteChildren(), HandleObject\&.DeleteFcn, HandleObjectListProperty\&.elementAt(), HandleObject\&.eventSource, HandleObject\&.eventSourceSet, CallbackProperty\&.execute(), HandleEventSourceHelper\&.fireEvent(), HandleObject\&.getHandle(), HandleObject\&.Parent, HandleObject\&.removeChild(), HandleObject\&.removeHandleEventSink(), HandleObject\&.removeHandleObject(), and Property\&.reset()\&.
+.PP
+Referenced by HandleObject\&.deleteChildren(), AxesObject\&.deleteChildren(), ColorbarObject\&.doClear(), LegendObject\&.doClear(), and AxesObject\&.makeLegend()\&.
+.PP
+.nf
+        {
+                BeingDeleted\&.reset('on');
+                try { eventSource\&.fireEvent('ObjectDeleted'); }
+                catch (PropertyException ex) {}
+                DeleteFcn\&.execute(new Object[] {
+                        new Double(getHandle()),
+                        null});
+                removeHandleObject(getHandle());
+
+                super\&.delete();
+
+                Iterator it = eventSourceSet\&.iterator();
+                while (it\&.hasNext())
+                        ((HandleEventSource)it\&.next())\&.removeHandleEventSink(this);
+                eventSource\&.delete();
+
+                deleteChildren();
+                if (cachedData != null)
+                        cachedData\&.dispose();
+                Parent\&.elementAt(0)\&.removeChild(this);
+        }
+.fi
+.SS "void \fBdeleteChildren\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP\&.
+.PP
+References HandleObject\&.Children, HandleObject\&.delete(), HandleObjectListProperty\&.elementAt(), HandleObjectListProperty\&.size(), StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+Referenced by HandleObject\&.delete()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        while (Children\&.size() > 0)
+                        {
+                                int len = Children\&.size();
+                                HandleObject obj = Children\&.elementAt(0);
+
+                                obj\&.delete();
+                                if (Children\&.size() == len)
+                                {
+                                        System\&.out\&.println('ERROR: wrong parentship in graphic object of class `' + Type\&.toString() + '' with child of class `' + 
+                                                        obj\&.Type\&.toString() + ''');
+                                        break;
+                                }
+                        }
+                }
+        }
+.fi
+.SS "void \fBdoButtonDownFcn\fP (MouseEvente)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.ButtonDownFcn, CallbackProperty\&.execute(), HandleObject\&.getAncestor(), HandleObject\&.getHandle(), and CallbackProperty\&.unwind()\&.
+.PP
+Referenced by UIControlAdapter\&.mousePressed(), and AxesContainer\&.mousePressed()\&.
+.PP
+.nf
+        {
+                String selType = 'normal';
+
+                switch (e\&.getButton())
+                {
+                        case MouseEvent\&.BUTTON2:
+                                selType = 'extend';
+                                break;
+                        case MouseEvent\&.BUTTON3:
+                                selType = 'alt';
+                                break;
+                }
+
+                switch (e\&.getModifiers() & (MouseEvent\&.SHIFT_MASK|MouseEvent\&.CTRL_MASK))
+                {
+                        case MouseEvent\&.CTRL_MASK:
+                                selType = 'alt';
+                                break;
+                        case MouseEvent\&.SHIFT_MASK:
+                                selType = 'extend';
+                                break;
+                        case 0:
+                                if (e\&.getClickCount() == 2)
+                                        selType = 'open';
+                                break;
+                }
+
+                ButtonDownFcn\&.unwind(((FigureObject)getAncestor('figure'))\&.SelectionType, selType);
+                ButtonDownFcn\&.execute(new Object[] {
+                        new Double(getHandle()),
+                        null});
+        }
+.fi
+.SS "void \fBdraw\fP (\fBRenderer\fPr)\fC [inline, virtual]\fP"
+.PP
+Implements \fBGraphicObject\fP\&.
+.PP
+References Renderer\&.draw()\&.
+.PP
+.nf
+        {
+                r\&.draw(this);
+        }
+.fi
+.SS "void \fBeventOccured\fP (\fBHandleEvent\fPevt)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+References HandleObject\&.propertyChanged()\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                if (evt\&.getName()\&.equals('PropertyChanged'))
+                        propertyChanged(evt\&.getProperty());
+        }
+.fi
+.SS "boolean \fBexecuteOnce\fP ()\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return false;
+        }
+.fi
+.SS "Object \fBget\fP (\fBProperty\fPp)\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBFigureObject\fP, and \fBUIControlObject\fP\&.
+.PP
+.nf
+        {
+                return p\&.get();
+        }
+.fi
+.SS "Object \fBget\fP (Stringname)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References Property\&.get(), and HandleObject\&.getDefaultProperty()\&.
+.PP
+Referenced by AxesObject\&.autoScaleC(), and LegendObject\&.makeItemFromLine()\&.
+.PP
+.nf
+        {
+                if (name\&.toLowerCase()\&.startsWith('default'))
+                {
+                        Property p = getDefaultProperty(name);
+                        if (p != null)
+                                return p\&.get();
+                        throw new PropertyException('invalid default property - ' + name\&.toLowerCase());
+                }
+                else
+                        return super\&.get(name);
+        }
+.fi
+.SS "double [][] \fBgetAlphaData\fP ()\fC [inline, package]\fP"
+.PP
+References AxesObject\&.ALim, SurfaceObject\&.AlphaData, SurfaceObject\&.AlphaDataMapping, FigureObject\&.Alphamap, ArrayProperty\&.asDoubleMatrix(), VectorProperty\&.getArray(), GraphicObject\&.getAxes(), ArrayProperty\&.getClassName(), AxesObject\&.getFigure(), ArrayProperty\&.getNDims(), and RadioProperty\&.is()\&.
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                if (AlphaData\&.getNDims() != 2)
+                        return null;
+
+                if (AlphaData\&.getClassName()\&.equals('double'))
+                {
+                        double[][] aa = AlphaData\&.asDoubleMatrix();
+
+                        if (AlphaDataMapping\&.is('none'))
+                                return aa;
+                        else if (AlphaDataMapping\&.is('scaled'))
+                        {
+                                double[][] res = new double[aa\&.length][aa[0]\&.length];
+                                double[] amap = getAxes()\&.getFigure()\&.Alphamap\&.getArray();
+                                double[] alim = getAxes()\&.ALim\&.getArray();
+
+                                for (int i=0; i<res\&.length; i++)
+                                        for (int j=0; j<res[i]\&.length; j++)
+                                        {
+                                                int s = (int)Math\&.round((amap\&.length-1)*(aa[i][j]-alim[0])/(alim[1]-alim[0]));
+                                                s = Math\&.min(Math\&.max(0, s), amap\&.length-1);
+                                                res[i][j] = amap[s];
+                                        }
+                                return res;
+                        }
+                        else if (AlphaDataMapping\&.is('direct'))
+                        {
+                                double[][] res = new double[aa\&.length][aa[0]\&.length];
+                                double[] amap = getAxes()\&.getFigure()\&.Alphamap\&.getArray();
+                                
+                                for (int i=0; i<res\&.length; i++)
+                                        for (int j=0; j<res[i]\&.length; j++)
+                                        {
+                                                int s = (int)Math\&.round(aa[i][j])-1;
+                                                s = Math\&.min(Math\&.max(0, s), amap\&.length-1);
+                                                res[i][j] = amap[s];
+                                        }
+                                return res;
+                        }
+                }
+
+                return null;
+        }
+.fi
+.SS "\fBHandleObject\fP \fBgetAncestor\fP (Stringtype)\fC [inline, inherited]\fP"
+.PP
+References HandleObjectListProperty\&.elementAt(), HandleObject\&.Parent, HandleObjectListProperty\&.size(), StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+Referenced by AxesContainer\&.createCanvas(), HandleObject\&.doButtonDownFcn(), AxesContainer\&.getDefaultMouseOp(), AxesObject\&.getFigure(), and GraphicObject\&.set()\&.
+.PP
+.nf
+        {
+                HandleObject curr = this;
+
+                while (true)
+                {
+                        if (curr\&.Type\&.toString()\&.equalsIgnoreCase(type))
+                                return curr;
+                        else if (curr\&.Parent\&.size() <= 0)
+                                return null;
+                        else
+                                curr = curr\&.Parent\&.elementAt(0);
+                }
+        }
+.fi
+.SS "\fBAxesObject\fP \fBgetAxes\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObjectListProperty\&.elementAt(), and HandleObject\&.Parent\&.
+.PP
+Referenced by BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), J2DRenderer\&.draw(), GLRenderer\&.draw(), TextObject\&.drawAsImage(), SurfaceObject\&.getAlphaData(), PatchObject\&.getAlphaData(), SurfaceObject\&.getCData(), PatchObject\&.getCData(), TextObject\&.getExtent(), ImageObject\&.ImageObject(), BaseLineObject\&.propertyChanged(), TextObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), TextObject\&.toPostScript(), TextObject\&.updateData(), BaseLineObject\&.updateLine(), and TextObject\&.updateMinMax()\&.
+.PP
+.nf
+        {
+                HandleObject obj = Parent\&.elementAt(0);
+                if (obj instanceof AxesObject)
+                        return (AxesObject)obj;
+                else
+                        return ((GraphicObject)obj)\&.getAxes();
+        }
+.fi
+.SS "Renderer\&.CachedData \fBgetCachedData\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.cachedData\&.
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                return cachedData;
+        }
+.fi
+.SS "double [][][] \fBgetCData\fP ()\fC [inline, package]\fP"
+.PP
+References ArrayProperty\&.asDoubleMatrix(), ArrayProperty\&.asDoubleMatrix3(), SurfaceObject\&.CData, SurfaceObject\&.CDataMapping, AxesObject\&.convertCData(), GraphicObject\&.getAxes(), ArrayProperty\&.getNDims(), and RadioProperty\&.getValue()\&.
+.PP
+Referenced by GLRenderer\&.draw()\&.
+.PP
+.nf
+        {
+                if (CData\&.getNDims() == 2)
+                        return getAxes()\&.convertCData(CData\&.asDoubleMatrix(), CDataMapping\&.getValue());
+                else
+                        return CData\&.asDoubleMatrix3();
+        }
+.fi
+.SS "java\&.awt\&.Component \fBgetComponent\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBFigureObject\fP, \fBUIPanelObject\fP, and \fBUIControlObject\fP\&.
+.PP
+Referenced by UIControlObject\&.getParentComponent(), and UIPanelObject\&.getParentComponent()\&.
+.PP
+.nf
+        {
+                System\&.out\&.println('Warning: no component associated with ' + getClass());
+                return null;
+        }
+.fi
+.SS "\fBProperty\fP \fBgetDefaultProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.defaultSet, HandleObjectListProperty\&.elementAt(), Factory\&.getDefaultProperty(), HandleObject\&.getDefaultProperty(), PropertySet\&.getProperty(), HandleObject\&.Parent, and HandleObjectListProperty\&.size()\&.
+.PP
+Referenced by HandleObject\&.get(), HandleObject\&.getDefaultProperty(), Property\&.initDefault(), and HandleObject\&.set()\&.
+.PP
+.nf
+        {
+                Property p = defaultSet\&.getProperty(name);
+                if (p != null)
+                        return p;
+                else if (Parent\&.size() > 0)
+                        return Parent\&.elementAt(0)\&.getDefaultProperty(name);
+                else
+                        return Factory\&.getDefaultProperty(name);
+        }
+.fi
+.SS "double \fBgetHandle\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.handle\&.
+.PP
+Referenced by UIPanelObject\&.componentResized(), FigureObject\&.componentResized(), UIControlObject\&.controlActivated(), HandleObject\&.delete(), HandleObject\&.doButtonDownFcn(), OctaveSink\&.doInvoke(), RootObject\&.findFigure(), HandleObjectListProperty\&.getHandleArray(), HandleObject\&.HandleObject(), AxesObject\&.reset(), HandleObject\&.setHandle(), HandleObjectListProperty\&.toString(), FigureObject\&.updateHandle(), FigureObject\&.updateTitle(), HandleObject\&.validate(), and FigureObject\&.windowClosing()\&.
+.PP
+.nf
+        {
+                return handle;
+        }
+.fi
+.SS "static \fBHandleObject\fP \fBgetHandleObject\fP (doublehandle)  throws \fBException\fP 	\fC [inline, static, inherited]\fP"
+.PP
+References RootObject\&.getInstance(), HandleObject\&.handle, and HandleObject\&.handleMap\&.
+.PP
+Referenced by TextProperty\&.convertValue(), HandleObjectListProperty\&.convertValue(), and RootObject\&.createNewFigure()\&.
+.PP
+.nf
+        {
+                WeakReference ref = (WeakReference)handleMap\&.get(new Double(handle));
+                if (ref != null && ref\&.get() != null)
+                {
+                        return (HandleObject)ref\&.get();
+                }
+                if (handle == 0)
+                        return RootObject\&.getInstance();
+                throw new Exception('invalid handle - ' + handle);
+        }
+.fi
+.SS "String [] \fBgetNames\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                List names = new ArrayList();
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                                names\&.add(p\&.getName());
+                }
+                return (String[])names\&.toArray(new String[names\&.size()]);
+        }
+.fi
+.SS "\fBProperty\fP \fBgetProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Referenced by AxesObject\&.childValidated(), AxesObject\&.draw(), PropertySet\&.get(), AxesObject\&.getChildrenLimits(), HandleObject\&.getDefaultProperty(), OctaveSink\&.OctaveSink(), PropertySet\&.set(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return (Property)get((Object)name\&.toLowerCase());
+        }
+.fi
+.SS "String \fBgetType\fP ()\fC [inline, inherited]\fP"
+.PP
+References StringProperty\&.toString(), and HandleObject\&.Type\&.
+.PP
+Referenced by Property\&.initDefault()\&.
+.PP
+.nf
+        {
+                return (Type != null ? Type\&.toString() : '');
+        }
+.fi
+.SS "boolean \fBhasHandleEvent\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleObject\&.eventSource, and HandleEventSourceHelper\&.hasHandleEvent()\&.
+.PP
+Referenced by OctaveSink\&.OctaveSink()\&.
+.PP
+.nf
+        {
+                return eventSource\&.hasHandleEvent(name);
+        }
+.fi
+.SS "boolean \fBhasProperty\fP (Stringname)\fC [inline, inherited]\fP"
+.PP
+Referenced by AxesObject\&.draw()\&.
+.PP
+.nf
+        {
+                return containsKey(name\&.toLowerCase());
+        }
+.fi
+.SS "void \fBinitProperties\fP (\fBHandleObject\fPparent, Stringtype)\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.addChild(), HandleObjectListProperty\&.addElement(), HandleObject\&.BeingDeleted, HandleObject\&.ButtonDownFcn, HandleObject\&.Children, HandleObject\&.Clipping, HandleObject\&.CreateFcn, HandleObject\&.DeleteFcn, HandleObject\&.HandleVisibility, HandleObject\&.Parent, HandleObject\&.Tag, HandleObject\&.Type, HandleObject\&.UserData, and HandleObject\&.Visible\&.
+.PP
+Referenced by HandleObject\&.HandleObject()\&.
+.PP
+.nf
+        {
+                // These properties must be created first, in order to
+                // get correct behavior when looking for default values
+                // of properties
+                Type = new StringProperty(this, 'Type', type);
+                Parent = new HandleObjectListProperty(this, 'Parent', -1);
+                if (parent != null)
+                        Parent\&.addElement(parent);
+
+                // Create other properties
+                BeingDeleted = new BooleanProperty(this, 'BeingDeleted', false);
+                ButtonDownFcn = new CallbackProperty(this, 'ButtonDownFcn', (String)null);
+                Children = new HandleObjectListProperty(this, 'Children', -1);
+                Clipping = new BooleanProperty(this, 'Clipping', true);
+                CreateFcn = new CallbackProperty(this, 'CreateFcn', (String)null);
+                DeleteFcn = new CallbackProperty(this, 'DeleteFcn', (String)null);
+                HandleVisibility = new RadioProperty(this, 'HandleVisibility', new String[] {'on', 'callback', 'off'}, 'on');
+                Tag = new StringProperty(this, 'Tag', '');
+                UserData = new ObjectProperty(this, 'UserData', null);
+                Visible = new BooleanProperty(this, 'Visible', true);
+
+                // TODO: move this to validate() ??
+                if (parent != null)
+                        parent\&.addChild(this);
+        }
+.fi
+.SS "boolean \fBisAutoMode\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.autoMode\&.
+.PP
+Referenced by ColorbarObject\&.propertyChanged(), FigureObject\&.propertyChanged(), LegendObject\&.propertyChanged(), and PatchObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                return (autoMode > 0);
+        }
+.fi
+.SS "static boolean \fBisHandle\fP (doublehandle)\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+Referenced by TextProperty\&.convertValue(), RootObject\&.createNewFigure(), and RootObject\&.getUnusedFigureNumber()\&.
+.PP
+.nf
+        {
+                WeakReference ref = (WeakReference)handleMap\&.get(new Double(handle));
+                if (ref != null && ref\&.get() != null)
+                        return true;
+                return false;
+        }
+.fi
+.SS "boolean \fBisLegendable\fP ()\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+Reimplemented in \fBBaseLineObject\fP\&.
+.PP
+References BooleanProperty\&.isSet(), and GraphicObject\&.LegendInclude\&.
+.PP
+.nf
+        {
+                return LegendInclude\&.isSet();
+        }
+.fi
+.SS "boolean \fBisValid\fP ()\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.valid\&.
+.PP
+Referenced by HandleObject\&.addProperty(), AxesObject\&.childValidated(), UIControlObject\&.controlActivated(), AxesContainer\&.display(), AxesContainer\&.getObjectForPoint(), and AxesContainer\&.reshape()\&.
+.PP
+.nf
+        {
+                return valid;
+        }
+.fi
+.SS "void \fBlisten\fP (\fBProperty\fPp)\fC [inline, protected, inherited]\fP"
+.PP
+References Property\&.addHandleEventSink(), HandleObject\&.eventSourceSet, and Property\&.getParent()\&.
+.PP
+Referenced by AxesObject\&.AxesObject(), BarseriesObject\&.BarseriesObject(), BaseLineObject\&.BaseLineObject(), GroupObject\&.childValidated(), AxesObject\&.childValidated(), ColorbarObject\&.ColorbarObject(), FigureObject\&.FigureObject(), ImageObject\&.ImageObject(), LegendObject\&.LegendObject(), LineObject\&.LineObject(), PatchObject\&.PatchObject(), RootObject\&.RootObject(), SurfaceObject\&.SurfaceObject(), TextObject\&.TextObject(), UIControlObject\&.UIControlObject(), and UIPanelObject\&.UIPanelObject()\&.
+.PP
+.nf
+        {
+                p\&.addHandleEventSink('PropertyChanged', this);
+                if (p\&.getParent() != this)
+                        eventSourceSet\&.add(p);
+        }
+.fi
+.SS "static void \fBlistObjects\fP ()\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap, and HandleObject\&.HandleObject()\&.
+.PP
+.nf
+        {
+                Iterator it = handleMap\&.entrySet()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Map\&.Entry entry = (Map\&.Entry)it\&.next();
+                        HandleObject hObj = (HandleObject)((WeakReference)entry\&.getValue())\&.get();
+                        System\&.out\&.println(entry\&.getKey() + ' = ' + hObj\&.getClass());
+                }
+        }
+.fi
+.SS "static double \fBnewHandle\fP ()\fC [inline, static, protected, inherited]\fP"
+.PP
+References HandleObject\&.handleSeed\&.
+.PP
+Referenced by HandleObject\&.HandleObject(), UIPanelObject\&.UIPanelObject(), and FigureObject\&.updateHandle()\&.
+.PP
+.nf
+        {
+                double h = handleSeed;
+                handleSeed = Math\&.ceil(handleSeed) - 1 - Math\&.random();
+                return h;
+        }
+.fi
+.SS "void \fBpropertyChanged\fP (\fBProperty\fPp)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References SurfaceObject\&.CData, Property\&.reset(), HandleObject\&.setCachedData(), SurfaceObject\&.updateColorMinMax(), SurfaceObject\&.updateMinMax(), SurfaceObject\&.VertexNormals, SurfaceObject\&.XData, SurfaceObject\&.YData, and SurfaceObject\&.ZData\&.
+.PP
+.nf
+        {
+                super\&.propertyChanged(p);
+
+                if (p == XData || p == YData || p == ZData)
+                {
+                        VertexNormals\&.reset(null);
+                        updateMinMax();
+                }
+                else if (p == CData)
+                        updateColorMinMax();
+                else if (p\&.getName()\&.equalsIgnoreCase('colormap'))
+                        setCachedData(null);
+        }
+.fi
+.SS "void \fBremoveChild\fP (\fBHandleObject\fPchild)\fC [inline, inherited]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP, \fBFigureObject\fP, \fBGroupObject\fP, and \fBRootObject\fP\&.
+.PP
+References HandleObject\&.Children, and HandleObjectListProperty\&.removeElement()\&.
+.PP
+Referenced by HandleObject\&.delete()\&.
+.PP
+.nf
+        {
+                synchronized (Children)
+                {
+                        Children\&.removeElement(child);
+                }
+        }
+.fi
+.SS "void \fBremoveHandleEventSink\fP (\fBHandleEventSink\fPsink)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSource\fP\&.
+.PP
+References HandleObject\&.eventSource, and HandleEventSourceHelper\&.removeHandleEventSink()\&.
+.PP
+Referenced by HandleObject\&.delete()\&.
+.PP
+.nf
+        {
+                eventSource\&.removeHandleEventSink(sink);
+        }
+.fi
+.SS "static void \fBremoveHandleObject\fP (doublehandle)\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+Referenced by HandleObject\&.delete(), and HandleObject\&.setHandle()\&.
+.PP
+.nf
+        {
+                handleMap\&.remove(new Double(handle));
+        }
+.fi
+.SS "void \fBset\fP (\fBProperty\fPp, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References FigureObject\&.__Dirty__, HandleObject\&.getAncestor(), and Property\&.reset()\&.
+.PP
+Referenced by LegendObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                super\&.set(p, value);
+
+                FigureObject fig = (FigureObject)getAncestor('figure');
+                fig\&.__Dirty__\&.reset('on');
+        }
+.fi
+.SS "void \fBset\fP (Stringname, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline, inherited]\fP"
+.PP
+Reimplemented from \fBPropertySet\fP\&.
+.PP
+References PropertySet\&.addProperty(), Property\&.cloneProperty(), HandleObject\&.defaultSet, HandleObject\&.getDefaultProperty(), and Property\&.set()\&.
+.PP
+.nf
+        {
+                if (name\&.toLowerCase()\&.startsWith('default'))
+                {
+                        Property p = getDefaultProperty(name);
+                        if (p != null)
+                        {
+                                Property new_p = p\&.cloneProperty();
+                                new_p\&.set(value);
+                                defaultSet\&.addProperty(new_p);
+                        }
+                        else
+                                throw new PropertyException('invalid default property - ' + name\&.toLowerCase());
+                }
+                else
+                        super\&.set(name, value);
+        }
+.fi
+.SS "void \fBsetCachedData\fP (Renderer\&.CachedDatad)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.cachedData\&.
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.propertyChanged()\&.
+.PP
+.nf
+        {
+                if (cachedData != null)
+                        cachedData\&.dispose();
+                cachedData = d;
+        }
+.fi
+.SS "void \fBsetHandle\fP (doublehandle)\fC [inline, protected, inherited]\fP"
+.PP
+References HandleObject\&.addHandleObject(), HandleObject\&.getHandle(), HandleObject\&.handle, and HandleObject\&.removeHandleObject()\&.
+.PP
+Referenced by FigureObject\&.updateHandle()\&.
+.PP
+.nf
+        {
+                removeHandleObject(getHandle());
+                this\&.handle = handle;
+                addHandleObject(getHandle(), this);
+        }
+.fi
+.SS "void \fBshow\fP ()\fC [inline, inherited]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                        {
+                                get(p); /* force any getter to execute */
+                                System\&.out\&.println('  ' + p\&.getName() + ' = ' + p);
+                        }
+                }
+        }
+.fi
+.SS "static void \fBshutdown\fP ()\fC [inline, static, inherited]\fP"
+.PP
+References HandleObject\&.handleMap\&.
+.PP
+.nf
+        {
+                LinkedList figList = new LinkedList();
+                Iterator it = handleMap\&.values()\&.iterator();
+
+                while (it\&.hasNext())
+                {
+                        WeakReference ref = (WeakReference)it\&.next();
+                        if (ref != null && ref\&.get() != null && ref\&.get() instanceof FigureObject)
+                                figList\&.add(ref\&.get());
+                }
+
+                it = figList\&.iterator();
+                while (it\&.hasNext())
+                        ((HandleObject)it\&.next())\&.delete();
+        }
+.fi
+.SS "void \fBsourceDeleted\fP (Objectsource)\fC [inline, inherited]\fP"
+.PP
+Implements \fBHandleEventSink\fP\&.
+.PP
+References HandleObject\&.eventSourceSet\&.
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                eventSourceSet\&.remove(source);
+        }
+.fi
+.SS "void \fBupdateColorMinMax\fP ()\fC [inline, private]\fP"
+.PP
+References SurfaceObject\&.CData, GraphicObject\&.CLim, ArrayProperty\&.getMatrix(), and Property\&.set()\&.
+.PP
+Referenced by SurfaceObject\&.propertyChanged(), and SurfaceObject\&.validate()\&.
+.PP
+.nf
+        {
+                Matrix m = CData\&.getMatrix();
+                CLim\&.set(new double[] {m\&.minValue(), m\&.maxValue()}, true);
+        }
+.fi
+.SS "void \fBupdateMinMax\fP ()\fC [inline, private]\fP"
+.PP
+References ArrayProperty\&.asDoubleMatrix(), Property\&.set(), plt\&.x, SurfaceObject\&.XData, GraphicObject\&.XLim, plt\&.y, SurfaceObject\&.YData, GraphicObject\&.YLim, SurfaceObject\&.ZData, and GraphicObject\&.ZLim\&.
+.PP
+Referenced by SurfaceObject\&.propertyChanged(), and SurfaceObject\&.validate()\&.
+.PP
+.nf
+        {
+                double xmin, xmax, ymin, ymax, zmin, zmax;
+                double xmin2, xmax2, ymin2, ymax2, zmin2, zmax2;
+
+                double[][] x = XData\&.asDoubleMatrix();
+                double[][] y = YData\&.asDoubleMatrix();
+                double[][] z = ZData\&.asDoubleMatrix();
+
+                int m = Math\&.min(Math\&.min(x\&.length, y\&.length), z\&.length);
+                int n = (m > 0 ? Math\&.min(Math\&.min(x[0]\&.length, y[0]\&.length), z[0]\&.length) : 0);
+
+                xmin = ymin = zmin = Double\&.POSITIVE_INFINITY;
+                xmax = ymax = zmax = Double\&.NEGATIVE_INFINITY;
+                xmin2 = ymin2 = zmin2 = Double\&.POSITIVE_INFINITY;
+                xmax2 = ymax2 = zmax2 = Double\&.MIN_VALUE;
+
+                for (int i=0; i<m; i++)
+                        for (int j=0; j<n; j++)
+                        {
+                                if (x[i][j] < xmin) xmin = x[i][j];
+                                if (x[i][j] > xmax) xmax = x[i][j];
+                                if (x[i][j] > 0)
+                                {
+                                        if (x[i][j] < xmin2) xmin2 = x[i][j];
+                                        if (x[i][j] > xmax2) xmax2 = x[i][j];
+                                }
+                                if (y[i][j] < ymin) ymin = y[i][j];
+                                if (y[i][j] > ymax) ymax = y[i][j];
+                                if (y[i][j] > 0)
+                                {
+                                        if (y[i][j] < ymin2) ymin2 = y[i][j];
+                                        if (y[i][j] > ymax2) ymax2 = y[i][j];
+                                }
+                                if (z[i][j] < zmin) zmin = z[i][j];
+                                if (z[i][j] > zmax) zmax = z[i][j];
+                                if (z[i][j] > 0)
+                                {
+                                        if (z[i][j] < zmin2) zmin2 = z[i][j];
+                                        if (z[i][j] > zmax2) zmax2 = z[i][j];
+                                }
+                        }
+
+                XLim\&.set(new double[] {xmin, xmax, xmin2, xmax2}, true);
+                YLim\&.set(new double[] {ymin, ymax, ymin2, ymax2}, true);
+                ZLim\&.set(new double[] {zmin, zmax, zmin2, zmax2}, true);
+        }
+.fi
+.SS "void \fBvalidate\fP ()\fC [inline]\fP"
+.PP
+Reimplemented from \fBHandleObject\fP\&.
+.PP
+References SurfaceObject\&.computeNormals(), Property\&.reset(), SurfaceObject\&.updateColorMinMax(), SurfaceObject\&.updateMinMax(), and SurfaceObject\&.VertexNormals\&.
+.PP
+.nf
+        {
+                updateMinMax();
+                updateColorMinMax();
+                VertexNormals\&.reset(computeNormals());
+                super\&.validate();
+        }
+.fi
+.SS "void \fBwaitFor\fP ()\fC [inline, inherited]\fP"
+.PP
+Referenced by HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                waitFor(null, null, false);
+        }
+.fi
+.SS "void \fBwaitFor\fP (Stringpname)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                waitFor(pname, null, false);
+        }
+.fi
+.SS "void \fBwaitFor\fP (Stringpname, Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                waitFor(pname, value, true);
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBVectorProperty\fP \fBALim\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GroupObject\&.childValidated(), GraphicObject\&.GraphicObject(), and GroupObject\&.updateLimits()\&.
+.SS "\fBBooleanProperty\fP \fBALimInclude\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GraphicObject\&.GraphicObject(), PatchObject\&.PatchObject(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBArrayProperty\fP \fBAlphaData\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.getAlphaData(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBRadioProperty\fP \fBAlphaDataMapping\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.getAlphaData(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBDoubleProperty\fP \fBAmbientStrength\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "int \fBautoMode\fP = 0\fC [protected, inherited]\fP"
+.PP
+Referenced by HandleObject\&.autoSet(), ColorbarObject\&.doLocate(), LegendObject\&.doLocate(), AxesObject\&.doZoom(), AxesObject\&.draw(), HandleObject\&.isAutoMode(), ColorbarObject\&.propertyChanged(), LegendObject\&.propertyChanged(), AxesObject\&.propertyChanged(), and AxesObject\&.unZoom()\&.
+.SS "\fBBooleanProperty\fP \fBBeingDeleted\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.delete(), HandleObject\&.initProperties(), and AxesObject\&.removeChild()\&.
+.SS "\fBCallbackProperty\fP \fBButtonDownFcn\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.doButtonDownFcn(), and HandleObject\&.initProperties()\&.
+.SS "boolean \fBcallListValid\fP\fC [private]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBArrayProperty\fP \fBCData\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.getCData(), SurfaceObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), and SurfaceObject\&.updateColorMinMax()\&.
+.SS "\fBRadioProperty\fP \fBCDataMapping\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.getCData(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBHandleObjectListProperty\fP \fBChildren\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.addChild(), AxesObject\&.autoLegend(), AxesObject\&.autoScaleC(), LegendObject\&.buildLegend(), HandleObject\&.deleteChildren(), AxesContainer\&.display(), ColorbarObject\&.doClear(), LegendObject\&.doClear(), GroupObject\&.draw(), AxesObject\&.draw(), RootObject\&.findFigure(), AxesObject\&.getChildrenLimits(), AxesContainer\&.getObjectForPoint(), BarseriesObject\&.getPatch(), HandleObject\&.initProperties(), RootObject\&.removeChild(), HandleObject\&.removeChild(), AxesContainer\&.reshape(), ColorbarObject\&.updateImageFromColormap(), GroupObject\&.updateLimits(), GroupObject\&.validate(), and HandleObject\&.validate()\&.
+.SS "\fBVectorProperty\fP \fBCLim\fP\fC [package, inherited]\fP"
+.PP
+Referenced by AxesObject\&.autoScaleC(), GroupObject\&.childValidated(), AxesObject\&.childValidated(), BarseriesObject\&.doLayout(), GraphicObject\&.GraphicObject(), SurfaceObject\&.updateColorMinMax(), GroupObject\&.updateLimits(), ImageObject\&.updateMinMax(), and PatchObject\&.updateMinMax()\&.
+.SS "\fBBooleanProperty\fP \fBCLimInclude\fP\fC [package, inherited]\fP"
+.PP
+Referenced by AxesObject\&.autoScaleC(), BarseriesObject\&.BarseriesObject(), GraphicObject\&.GraphicObject(), ImageObject\&.ImageObject(), PatchObject\&.PatchObject(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBBooleanProperty\fP \fBClipping\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), AxesObject\&.draw(), HandleObject\&.initProperties(), and TextObject\&.TextObject()\&.
+.SS "\fBCallbackProperty\fP \fBCreateFcn\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.initProperties(), and HandleObject\&.validate()\&.
+.SS "\fBPropertySet\fP \fBdefaultSet\fP = new \fBPropertySet\fP()\fC [protected, inherited]\fP"
+.PP
+Referenced by HandleObject\&.getDefaultProperty(), and HandleObject\&.set()\&.
+.SS "\fBCallbackProperty\fP \fBDeleteFcn\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.delete(), and HandleObject\&.initProperties()\&.
+.SS "\fBDoubleProperty\fP \fBDiffuseStrength\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBDoubleRadioProperty\fP \fBEdgeAlpha\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBColorProperty\fP \fBEdgeColor\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBRadioProperty\fP \fBEdgeLighting\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBDoubleRadioProperty\fP \fBFaceAlpha\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBColorProperty\fP \fBFaceColor\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBRadioProperty\fP \fBFaceLighting\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "int \fBglID\fP\fC [protected, inherited]\fP"
+.PP
+Referenced by GraphicObject\&.GraphicObject()\&.
+.SS "\fBRadioProperty\fP \fBHandleVisibility\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObjectListProperty\&.getVisibleObjects(), HandleObject\&.initProperties(), and AxesObject\&.makeTextObject()\&.
+.SS "\fBBooleanProperty\fP \fBLegendInclude\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GraphicObject\&.GraphicObject(), GraphicObject\&.isLegendable(), and LineObject\&.LineObject()\&.
+.SS "\fBLineStyleProperty\fP \fBLineStyle\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBDoubleProperty\fP \fBLineWidth\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBMarkerProperty\fP \fBMarker\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBColorProperty\fP \fBMarkerEdgeColor\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBColorProperty\fP \fBMarkerFaceColor\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBDoubleProperty\fP \fBMarkerSize\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBHandleObjectListProperty\fP \fBParent\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.delete(), HandleObject\&.getAncestor(), GraphicObject\&.getAxes(), AxesObject\&.getAxesContainer(), AxesObject\&.getCanvas(), HandleObject\&.getDefaultProperty(), UIControlObject\&.getParentComponent(), UIPanelObject\&.getParentComponent(), HandleObject\&.initProperties(), LegendObject\&.LegendObject(), and HandleObject\&.validate()\&.
+.SS "\fBDoubleProperty\fP \fBSpecularExponent\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBDoubleProperty\fP \fBSpecularStrength\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), and SurfaceObject\&.SurfaceObject()\&.
+.SS "\fBStringProperty\fP \fBTag\fP\fC [package, inherited]\fP"
+.PP
+Referenced by ColorbarObject\&.ColorbarObject(), HandleObject\&.initProperties(), and LegendObject\&.LegendObject()\&.
+.SS "\fBStringProperty\fP \fBType\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.deleteChildren(), HandleObject\&.getAncestor(), HandleObject\&.getType(), HandleObject\&.initProperties(), and OctaveSink\&.OctaveSink()\&.
+.SS "\fBObjectProperty\fP \fBUserData\fP\fC [package, inherited]\fP"
+.PP
+Referenced by HandleObject\&.initProperties()\&.
+.SS "\fBArrayProperty\fP \fBVertexNormals\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.draw(), SurfaceObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), and SurfaceObject\&.validate()\&.
+.SS "\fBBooleanProperty\fP \fBVisible\fP\fC [package, inherited]\fP"
+.PP
+Referenced by AxesObject\&.childValidated(), FigureObject\&.createFigure(), AxesObject\&.draw(), FigureObject\&.FigureObject(), AxesObject\&.getChildrenLimits(), HandleObject\&.initProperties(), FigureObject\&.propertyChanged(), and AxesObject\&.reset()\&.
+.SS "\fBArrayProperty\fP \fBXData\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.computeNormals(), GLRenderer\&.draw(), SurfaceObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), and SurfaceObject\&.updateMinMax()\&.
+.SS "\fBVectorProperty\fP \fBXLim\fP\fC [package, inherited]\fP"
+.PP
+Referenced by BaseLineObject\&.BaseLineObject(), GroupObject\&.childValidated(), AxesObject\&.childValidated(), BarseriesObject\&.doLayout(), GraphicObject\&.GraphicObject(), GroupObject\&.updateLimits(), BaseLineObject\&.updateLine(), ImageObject\&.updateMinMax(), LineObject\&.updateMinMax(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and TextObject\&.updateMinMax()\&.
+.SS "\fBBooleanProperty\fP \fBXLimInclude\fP\fC [package, inherited]\fP"
+.PP
+Referenced by BaseLineObject\&.BaseLineObject(), GraphicObject\&.GraphicObject(), AxesObject\&.makeTextObject(), and BaseLineObject\&.propertyChanged()\&.
+.SS "\fBArrayProperty\fP \fBYData\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.computeNormals(), GLRenderer\&.draw(), SurfaceObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), and SurfaceObject\&.updateMinMax()\&.
+.SS "\fBVectorProperty\fP \fBYLim\fP\fC [package, inherited]\fP"
+.PP
+Referenced by BaseLineObject\&.BaseLineObject(), GroupObject\&.childValidated(), AxesObject\&.childValidated(), BarseriesObject\&.doLayout(), GraphicObject\&.GraphicObject(), GroupObject\&.updateLimits(), BaseLineObject\&.updateLine(), ImageObject\&.updateMinMax(), LineObject\&.updateMinMax(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and TextObject\&.updateMinMax()\&.
+.SS "\fBBooleanProperty\fP \fBYLimInclude\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GraphicObject\&.GraphicObject(), AxesObject\&.makeTextObject(), and BaseLineObject\&.propertyChanged()\&.
+.SS "\fBArrayProperty\fP \fBZData\fP\fC [package]\fP"
+.PP
+Referenced by SurfaceObject\&.computeNormals(), GLRenderer\&.draw(), SurfaceObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), and SurfaceObject\&.updateMinMax()\&.
+.SS "\fBVectorProperty\fP \fBZLim\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GroupObject\&.childValidated(), AxesObject\&.childValidated(), BarseriesObject\&.doLayout(), GraphicObject\&.GraphicObject(), GroupObject\&.updateLimits(), LineObject\&.updateMinMax(), SurfaceObject\&.updateMinMax(), PatchObject\&.updateMinMax(), and TextObject\&.updateMinMax()\&.
+.SS "\fBBooleanProperty\fP \fBZLimInclude\fP\fC [package, inherited]\fP"
+.PP
+Referenced by GraphicObject\&.GraphicObject(), LineObject\&.LineObject(), PatchObject\&.PatchObject(), LineObject\&.propertyChanged(), SurfaceObject\&.SurfaceObject(), and LineObject\&.validate()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

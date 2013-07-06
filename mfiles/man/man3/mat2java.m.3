@@ -1,0 +1,66 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/mat2java.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/mat2java.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBret\fP (\fBk\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBret\fP"
+.br
+.ti -1c
+.RI "else \fBs\fP = size (\fBM\fP)"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.ti -1c
+.RI "\fBind\fP = cell (1, \fBlength\fP (\fBs\fP))"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBret\fP (\fBk\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBind\fP = cell (1, \fBlength\fP (\fBs\fP))"
+.PP
+Definition at line 33 of file mat2java\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:s(1)
+            ret(k) = M(k,:)
+.fi
+.PP
+Definition at line 26 of file mat2java\&.m\&.
+.SS "endfor endswitch else \fBret\fP"\fBInitial value:\fP
+.PP
+.nf
+ mat2java (M)
+
+  if (! isempty (M) && isnumeric (M))
+        switch length (size (M))
+      case 2
+        if (size (M, 1) == 1 || size (M, 2) == 1)
+          ret = M
+.fi
+.PP
+Definition at line 16 of file mat2java\&.m\&.
+.SS "endfor \fBendif\fP otherwise \fBs\fP = size (\fBM\fP)"
+.PP
+Definition at line 24 of file mat2java\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

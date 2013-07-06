@@ -1,0 +1,141 @@
+.TH "GLRenderer.GLMarkerDrawer" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GLRenderer.GLMarkerDrawer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBGLRenderer\&.MarkerDrawer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGLMarkerDrawer\fP ()"
+.br
+.ti -1c
+.RI "void \fBbegin\fP (\fBMarkerProperty\fP m, \fBDoubleProperty\fP ms, float lw)"
+.br
+.ti -1c
+.RI "void \fBend\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw\fP (double x, double y, double z, double[] lc, double[] fc)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBID2\fP"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBID\fP"
+.br
+.ti -1c
+.RI "boolean \fBhasClip\fP"
+.br
+.ti -1c
+.RI "double[] \fBtmp\fP = new double[4]"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBGLMarkerDrawer\fP ()\fC [inline]\fP"
+.PP
+.nf
+                {
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBbegin\fP (\fBMarkerProperty\fPm, \fBDoubleProperty\fPms, floatlw)\fC [inline]\fP"
+.PP
+Implements \fBGLRenderer\&.MarkerDrawer\fP\&.
+.PP
+References GLRenderer\&.d, GLRenderer\&.gl, GLRenderer\&.GLMarkerDrawer\&.hasClip, GLRenderer\&.hasClipping(), GLRenderer\&.GLMarkerDrawer\&.ID, GLRenderer\&.GLMarkerDrawer\&.ID2, GLRenderer\&.makeMarkerList(), GLRenderer\&.setClipping(), GLRenderer\&.setLineWidth(), GLRenderer\&.xZ1, and GLRenderer\&.xZ2\&.
+.PP
+.nf
+                {
+                        gl\&.glMatrixMode(GL\&.GL_PROJECTION);
+                        gl\&.glPushMatrix();
+                        gl\&.glLoadIdentity();
+                        gl\&.glOrtho(0, d\&.getWidth(), d\&.getHeight(), 0, xZ1, xZ2);
+                        gl\&.glMatrixMode(GL\&.GL_MODELVIEW);
+                        gl\&.glPushMatrix();
+
+                        hasClip = hasClipping();
+                        setClipping(false);
+                        setLineWidth(lw);
+                
+                        ID = makeMarkerList(m, ms, false);
+                        ID2 = makeMarkerList(m, ms, true);
+                }
+.fi
+.SS "void \fBdraw\fP (doublex, doubley, doublez, double[]lc, double[]fc)\fC [inline]\fP"
+.PP
+Implements \fBGLRenderer\&.MarkerDrawer\fP\&.
+.PP
+References GLRenderer\&.gl, GLRenderer\&.GLMarkerDrawer\&.ID, GLRenderer\&.GLMarkerDrawer\&.ID2, GLRenderer\&.setPolygonOffset(), GLRenderer\&.GLMarkerDrawer\&.tmp, Matrix3D\&.transform(), and GLRenderer\&.xForm\&.
+.PP
+.nf
+                {
+                        xForm\&.transform(x, y, z, tmp, 0);
+                        gl\&.glLoadIdentity();
+                        gl\&.glTranslated(tmp[0], tmp[1], -tmp[2]);
+                        if (fc != null)
+                        {
+                                gl\&.glColor3d(fc[0], fc[1], fc[2]);
+                                setPolygonOffset(true);
+                                gl\&.glCallList(ID2);
+                                setPolygonOffset(false);
+                        }
+                        if (lc != null)
+                        {
+                                gl\&.glColor3d(lc[0], lc[1], lc[2]);
+                                gl\&.glCallList(ID);
+                        }
+                }
+.fi
+.SS "void \fBend\fP ()\fC [inline]\fP"
+.PP
+Implements \fBGLRenderer\&.MarkerDrawer\fP\&.
+.PP
+References GLRenderer\&.gl, GLRenderer\&.GLMarkerDrawer\&.hasClip, GLRenderer\&.GLMarkerDrawer\&.ID, GLRenderer\&.GLMarkerDrawer\&.ID2, GLRenderer\&.setClipping(), and GLRenderer\&.setLineWidth()\&.
+.PP
+.nf
+                {
+                        gl\&.glDeleteLists(ID, 1);
+                        gl\&.glDeleteLists(ID2, 1);
+
+                        gl\&.glMatrixMode(GL\&.GL_MODELVIEW);
+                        gl\&.glPopMatrix();
+                        gl\&.glMatrixMode(GL\&.GL_PROJECTION);
+                        gl\&.glPopMatrix();
+                        setClipping(hasClip);
+                        setLineWidth(0\&.5f);
+                }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean \fBhasClip\fP\fC [private]\fP"
+.PP
+Referenced by GLRenderer\&.GLMarkerDrawer\&.begin(), and GLRenderer\&.GLMarkerDrawer\&.end()\&.
+.SS "int \fBID\fP\fC [private]\fP"
+.PP
+Referenced by GLRenderer\&.GLMarkerDrawer\&.begin(), GLRenderer\&.GLMarkerDrawer\&.draw(), and GLRenderer\&.GLMarkerDrawer\&.end()\&.
+.SS "int \fBID2\fP\fC [package]\fP"
+.PP
+Referenced by GLRenderer\&.GLMarkerDrawer\&.begin(), GLRenderer\&.GLMarkerDrawer\&.draw(), and GLRenderer\&.GLMarkerDrawer\&.end()\&.
+.SS "double [] \fBtmp\fP = new double[4]\fC [private]\fP"
+.PP
+Referenced by GLRenderer\&.GLMarkerDrawer\&.draw()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

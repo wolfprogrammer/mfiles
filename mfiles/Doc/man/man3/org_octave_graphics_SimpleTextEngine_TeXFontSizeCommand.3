@@ -1,0 +1,148 @@
+.TH "SimpleTextEngine.TeXFontSizeCommand" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimpleTextEngine.TeXFontSizeCommand \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBSimpleTextEngine\&.TeXFontCommand\fP\&.
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTeXFontSizeCommand\fP (String sz)"
+.br
+.ti -1c
+.RI "Font \fBnewFont\fP (Font f)"
+.br
+.ti -1c
+.RI "Color \fBnewColor\fP (Color c)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBLayouter\fP l)"
+.br
+.ti -1c
+.RI "Rectangle \fBlayout\fP (\fBRenderCanvas\fP comp, Font font)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (Graphics2D g)"
+.br
+.ti -1c
+.RI "void \fBrender\fP (\fBTextRenderer\fP r)"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBnewSize\fP"
+.br
+.ti -1c
+.RI "String \fBtext\fP"
+.br
+.ti -1c
+.RI "Rectangle \fBrect\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBTeXFontSizeCommand\fP (Stringsz)\fC [inline, package]\fP"
+.PP
+References SimpleTextEngine\&.TeXFontSizeCommand\&.newSize\&.
+.PP
+.nf
+                {
+                        try { this\&.newSize = Integer\&.parseInt(sz); }
+                        catch (NumberFormatException e)
+                        {
+                                System\&.err\&.println('WARNING: invalid font size: ' + sz);
+                                newSize = -1;
+                        }
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "Rectangle \fBlayout\fP (\fBRenderCanvas\fPcomp, Fontfont)\fC [inline, package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.LineElement\&.layout(), and SimpleTextEngine\&.ScriptElement\&.layout()\&.
+.PP
+.nf
+                {
+                        return layout(new Layouter(comp, font));
+                }
+.fi
+.SS "Rectangle \fBlayout\fP (\fBLayouter\fPl)\fC [inline, package, inherited]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.Layouter\&.font, SimpleTextEngine\&.TeXFontCommand\&.newFont(), and SimpleTextEngine\&.Element\&.rect\&.
+.PP
+.nf
+                {
+                        l\&.font = newFont(l\&.font);
+                        rect = new Rectangle(0, 0, 0, 0);
+                        return rect;
+                }
+.fi
+.SS "Color \fBnewColor\fP (Colorc)\fC [inline, package, inherited]\fP"
+.PP
+Reimplemented in \fBSimpleTextEngine\&.TeXFontColorCommand\fP\&.
+.PP
+Referenced by SimpleTextEngine\&.TeXFontCommand\&.render()\&.
+.PP
+.nf
+{ return c; }
+.fi
+.SS "Font \fBnewFont\fP (Fontf)\fC [inline, package]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.TeXFontCommand\fP\&.
+.PP
+References SimpleTextEngine\&.TeXFontSizeCommand\&.newSize\&.
+.PP
+.nf
+                {
+                        return (newSize == -1 ? f : new Font(f\&.getFamily(), f\&.getStyle(), newSize));
+                }
+.fi
+.SS "void \fBrender\fP (Graphics2Dg)\fC [inline, package, inherited]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.TeXFontCommand\&.newColor(), and SimpleTextEngine\&.TeXFontCommand\&.newFont()\&.
+.PP
+.nf
+                {
+                        // Font
+                        Font f = g\&.getFont();
+                        g\&.setFont(newFont(f));
+                        // Color
+                        Color c = g\&.getColor();
+                        g\&.setColor(newColor(c));
+                }
+.fi
+.SS "void \fBrender\fP (\fBTextRenderer\fPr)\fC [inline, package, inherited]\fP"
+.PP
+Reimplemented from \fBSimpleTextEngine\&.Element\fP\&.
+.PP
+References SimpleTextEngine\&.TextRenderer\&.render()\&.
+.PP
+.nf
+{ r\&.render(this); }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int \fBnewSize\fP\fC [package]\fP"
+.PP
+Referenced by SimpleTextEngine\&.TeXFontSizeCommand\&.newFont(), and SimpleTextEngine\&.TeXFontSizeCommand\&.TeXFontSizeCommand()\&.
+.SS "Rectangle \fBrect\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.LineElement\&.layout(), SimpleTextEngine\&.SubscriptElement\&.layout(), SimpleTextEngine\&.SuperscriptElement\&.layout(), SimpleTextEngine\&.ScriptElement\&.layout(), SimpleTextEngine\&.TeXFontCommand\&.layout(), SimpleTextEngine\&.TeXElement\&.layout(), SimpleTextEngine\&.Content\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), SimpleTextEngine\&.LineElement\&.render(), SimpleTextEngine\&.SuperscriptElement\&.render(), and SimpleTextEngine\&.Content\&.render()\&.
+.SS "String \fBtext\fP\fC [package, inherited]\fP"
+.PP
+Referenced by SimpleTextEngine\&.Element\&.Element(), SimpleTextEngine\&.Element\&.layout(), SimpleTextEngine\&.PSTextRenderer\&.render(), and SimpleTextEngine\&.Element\&.render()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

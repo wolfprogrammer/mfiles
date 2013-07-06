@@ -1,0 +1,208 @@
+.TH "PropertySet" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PropertySet \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits TreeMap\&.
+.PP
+Inherited by \fBFactory\fP, and \fBHandleObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPropertySet\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddProperty\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "\fBProperty\fP \fBgetProperty\fP (String name)"
+.br
+.ti -1c
+.RI "boolean \fBhasProperty\fP (String name)"
+.br
+.ti -1c
+.RI "Object \fBget\fP (String name)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "Object \fBget\fP (\fBProperty\fP p)"
+.br
+.ti -1c
+.RI "void \fBset\fP (String name, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBset\fP (\fBProperty\fP p, Object value)  throws PropertyException 	"
+.br
+.ti -1c
+.RI "void \fBshow\fP ()"
+.br
+.ti -1c
+.RI "void \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetNames\fP ()"
+.br
+.ti -1c
+.RI "void \fBdelete\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBPropertySet\fP ()\fC [inline]\fP"
+.PP
+.nf
+        {
+                super();
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddProperty\fP (\fBProperty\fPp)\fC [inline]\fP"
+.PP
+Reimplemented in \fBHandleObject\fP\&.
+.PP
+References Property\&.getName()\&.
+.PP
+Referenced by Property\&.Property(), and HandleObject\&.set()\&.
+.PP
+.nf
+        {
+                put(p\&.getName()\&.toLowerCase(), p);
+        }
+.fi
+.SS "void \fBdelete\fP ()\fC [inline]\fP"
+.PP
+Reimplemented in \fBFigureObject\fP, \fBHandleObject\fP, \fBUIPanelObject\fP, \fBUIControlObject\fP, \fBBarseriesObject\fP, and \fBColorbarObject\fP\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                        ((Property)it\&.next())\&.delete();
+        }
+.fi
+.SS "Object \fBget\fP (Stringname)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Reimplemented in \fBHandleObject\fP\&.
+.PP
+References PropertySet\&.getProperty()\&.
+.PP
+.nf
+        {
+                Property p = getProperty(name);
+                if (p != null)
+                        return get(p);
+                throw new PropertyException('property not found - ' + name);
+        }
+.fi
+.SS "Object \fBget\fP (\fBProperty\fPp)\fC [inline]\fP"
+.PP
+Reimplemented in \fBFigureObject\fP, and \fBUIControlObject\fP\&.
+.PP
+.nf
+        {
+                return p\&.get();
+        }
+.fi
+.SS "String [] \fBgetNames\fP ()\fC [inline]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                List names = new ArrayList();
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                                names\&.add(p\&.getName());
+                }
+                return (String[])names\&.toArray(new String[names\&.size()]);
+        }
+.fi
+.SS "\fBProperty\fP \fBgetProperty\fP (Stringname)\fC [inline]\fP"
+.PP
+Referenced by AxesObject\&.childValidated(), AxesObject\&.draw(), PropertySet\&.get(), AxesObject\&.getChildrenLimits(), HandleObject\&.getDefaultProperty(), OctaveSink\&.OctaveSink(), PropertySet\&.set(), and HandleObject\&.waitFor()\&.
+.PP
+.nf
+        {
+                return (Property)get((Object)name\&.toLowerCase());
+        }
+.fi
+.SS "boolean \fBhasProperty\fP (Stringname)\fC [inline]\fP"
+.PP
+Referenced by AxesObject\&.draw()\&.
+.PP
+.nf
+        {
+                return containsKey(name\&.toLowerCase());
+        }
+.fi
+.SS "void \fBset\fP (Stringname, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Reimplemented in \fBHandleObject\fP\&.
+.PP
+References PropertySet\&.getProperty()\&.
+.PP
+.nf
+        {
+                Property p = getProperty(name);
+                if (p != null)
+                        set(p, value);
+                else
+                        throw new PropertyException('property not found - ' + name);
+        }
+.fi
+.SS "void \fBset\fP (\fBProperty\fPp, Objectvalue)  throws \fBPropertyException\fP 	\fC [inline]\fP"
+.PP
+Reimplemented in \fBUIControlObject\fP, and \fBGraphicObject\fP\&.
+.PP
+.nf
+        {
+                p\&.set(value);
+        }
+.fi
+.SS "void \fBshow\fP ()\fC [inline]\fP"
+.PP
+References Property\&.getName(), and Property\&.isVisible()\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        if (p\&.isVisible())
+                        {
+                                get(p); /* force any getter to execute */
+                                System\&.out\&.println('  ' + p\&.getName() + ' = ' + p);
+                        }
+                }
+        }
+.fi
+.SS "void \fBvalidate\fP ()\fC [inline]\fP"
+.PP
+Reimplemented in \fBAxesObject\fP, \fBHandleObject\fP, \fBFigureObject\fP, \fBUIPanelObject\fP, \fBGroupObject\fP, \fBUIControlObject\fP, \fBPatchObject\fP, \fBTextObject\fP, \fBSurfaceObject\fP, \fBImageObject\fP, \fBBarseriesObject\fP, \fBLineObject\fP, and \fBLightObject\fP\&.
+.PP
+References Property\&.unLock()\&.
+.PP
+.nf
+        {
+                Iterator it = values()\&.iterator();
+                while (it\&.hasNext())
+                {
+                        Property p = (Property)it\&.next();
+                        p\&.unLock();
+                }
+        }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

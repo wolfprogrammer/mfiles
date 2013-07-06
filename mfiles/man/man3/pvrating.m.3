@@ -1,0 +1,58 @@
+.TH "/home/caio/mfiles/solar/pvrating.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/solar/pvrating.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBpvrating\fP (\fBmodule\fP, Ta=20, G=0\&.8)%"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBfunction\fP \fBpvrating\fP (\fBmodule\fP, Ta = \fC20\fP, G = \fC0\&.8\fP)"
+.PP
+Definition at line 1 of file pvrating\&.m\&.
+.PP
+References Imp, Isc, module, NOCT, Pm, T, Vmp, and Voc\&.
+.PP
+.nf
+ {
+        usage:  pvrating(PV,T,G)
+
+        module  : Estrutura que representa os dados do painel
+        Ta      : Temperatura Ambiente  [ºC]
+        G       : Irradiação            [ kW/m2]
+
+
+        Default: T=20ºC e G=0\&.8  Tcel=NOCT
+
+        ----------------------------------------------
+
+        Determina de modo aproximado as características
+        do painel solar 
+
+
+        Cálcula:
+
+        FF= Fill Factor / Fator de forma
+        FF = (Imp\&.Vmp)/(Isc\&.Voc)
+
+        Rmp(STC): Vmp/Imp
+
+
+        Voc(T)
+        Isc(T)
+        Pm(T) 
+
+
+%}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

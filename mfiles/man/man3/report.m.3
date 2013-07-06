@@ -1,0 +1,117 @@
+.TH "/home/caio/mfiles/report.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/report.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (!exist('\fBDEBUG\fP')) \fBDEBUG\fP"
+.br
+.ti -1c
+.RI "while \fB~feof\fP (\fBfid\fP) \fBline\fP"
+.br
+.ti -1c
+.RI "\fBN\fPão imprime linha que tem \fBdisp\fP \fBif\fP (\fBDEBUG\fP) \fBdisp\fP('----------------') \fBprintf\fP( '\fBidxx\fP"
+.br
+.ti -1c
+.RI "\fBprintf\fP ( '\fBline\fP=%\fBs\fP\\\fBn\fP', \fBline\fP)"
+.br
+.ti -1c
+.RI "\fBdisp\fP ('----------------') \fBendif\fP \fBswitch\fP statett%-----------------------------------------------------case 0%Procede normalmente \fBif\fP(\fBstrmatch\fP('\fBdisp\fP'"
+.br
+.ti -1c
+.RI "\fBline\fP \fBstrmatch\fP ('\fBprintf\fP', \fBline\fP)) \fBeval\fP(\fBline\fP)"
+.br
+.ti -1c
+.RI "\fBelseif\fP (\fBstrmatch\fP('*{', \fBline\fP)) statett"
+.br
+.ti -1c
+.RI "'' \fBdisp\fP ()"
+.br
+.ti -1c
+.RI "endwhile endwhile \fBfclose\fP (\fBfid\fP)"
+.br
+.ti -1c
+.RI "\fBsave\fP (\fBfname2\fP)"
+.br
+.ti -1c
+.RI "\fBunlink\fP (\fBfname2\fP)"
+.br
+.ti -1c
+.RI "Apaga o arquivo temporario 
+.br
+Imprime todas variaveis no 
+.br
+contexto da funcao \fBdisp\fP ('------------------Resultados------------------')%vars"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBVARS\fP = '/tmp/vars'"
+.br
+.ti -1c
+.RI "\fBfid\fP"
+.br
+.ti -1c
+.RI "\fBpprint_\fP = false"
+.br
+.ti -1c
+.RI "\fBidxx\fP = 1"
+.br
+.ti -1c
+.RI "\fBDEBUG\fP = true"
+.br
+.ti -1c
+.RI "clear \fBline\fP \fBfname\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBdisp\fP ('----------------')"
+.SS "'' \fBdisp\fP ()\fC [virtual]\fP"
+.SS "Apaga o arquivo temporario Imprime todas variaveis no contexto da funcao \fBdisp\fP ('------------------Resultados------------------')"
+.SS "\fBelseif\fP (\fBstrmatch\fP('*{', \fBline\fP))"
+.SS "endwhile endwhile \fBfclose\fP (\fBfid\fP)"
+.SS "\fBif\fP (!exist'DEBUG')"
+.SS "\fBN\fPão imprime linha que tem \fBdisp\fP \fBif\fP (\fBDEBUG\fP)"
+.SS "\fBprintf\fP ('line = \fC%\fBs\fP\\\fBn\fP'\fP, \fBline\fP)"
+.SS "\fBsave\fP (\fBfname2\fP)"
+.SS "\fBline\fP \fBstrmatch\fP ('\fBprintf\fP', \fBline\fP)"
+.SS "\fBunlink\fP (\fBfname2\fP)"
+.SS "while ~feof (\fBfid\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBDEBUG\fP = true"
+.PP
+Definition at line 28 of file report\&.m\&.
+.SS "\fBfid\fP"\fBInitial value:\fP
+.PP
+.nf
+fopen(fname,'r')
+format short
+statett=0
+.fi
+.PP
+Definition at line 20 of file report\&.m\&.
+.SS "clear \fBline\fP \fBfname\fP"
+.PP
+Definition at line 91 of file report\&.m\&.
+.SS "\fBN\fPão imprime linha que tem \fBdisp\fP \fBidxx\fP = 1"
+.PP
+Definition at line 25 of file report\&.m\&.
+.SS "\fBpprint_\fP = false"
+.PP
+Definition at line 23 of file report\&.m\&.
+.SS "\fBVARS\fP = '/tmp/vars'"
+.PP
+Definition at line 1 of file report\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,117 @@
+.TH "/home/caio/mfiles/fkin.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/fkin.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdisp\fP (\fBi\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBH\fP]"
+.br
+.ti -1c
+.RI "Numbers of rows of matrix \fBM\fP \fBN\fP = \fBN\fP(1)"
+.br
+.ti -1c
+.RI "\fBHH\fP = eye(4)"
+.br
+.ti -1c
+.RI "Indentity matrix for \fBi\fP = 1:\fBN\fP"
+.br
+.ti -1c
+.RI "\fBtheta\fP = q(\fBi\fP)"
+.br
+.ti -1c
+.RI "\fBalpha\fP = \fBM\fP(\fBi\fP,1)"
+.br
+.ti -1c
+.RI "\fBd\fP = \fBM\fP(\fBi\fP,2)"
+.br
+.ti -1c
+.RI "\fBa\fP = \fBM\fP(\fBi\fP,3)"
+.br
+.ti -1c
+.RI "\fBHt\fP = DH(\fBtheta\fP,\fBalpha\fP,\fBd\fP,\fBa\fP)"
+.br
+.ti -1c
+.RI "endfor \fBH\fP = \fBHH\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBdisp\fP (\fBi\fP)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBa\fP = \fBM\fP(\fBi\fP,3)"
+.PP
+Definition at line 30 of file fkin\&.m\&.
+.PP
+Referenced by gl2psPrintPDFPixmapStreamData()\&.
+.SS "\fBalpha\fP = \fBM\fP(\fBi\fP,1)"
+.PP
+Definition at line 28 of file fkin\&.m\&.
+.SS "\fBd\fP = \fBM\fP(\fBi\fP,2)"
+.PP
+Definition at line 29 of file fkin\&.m\&.
+.PP
+Referenced by gl2psSplitPrimitive(), and gl2psTestSplitPrimitive()\&.
+.SS "\fBfunction\fP[\fBH\fP]"\fBInitial value:\fP
+.PP
+.nf
+fkin(q,M)
+%  fkin(q,M)
+%  
+%  Computes the robot foward kinamtic using the
+%  the
+%
+%   q : Array of joints angles
+%   q= [ q1,q2 \&.\&.\&. ]
+%
+%   M : Matrix of constant denavit parameters
+%   M= [ alpha  ,  d, a ]
+%
+%
+%   Returns:
+%   [ H1,H2,H3\&.\&.\&.Hn]
+%
+%   Ht=[ n s a p]
+%      [ 0 0 0 1]
+%
+%
+N=size(M)
+.fi
+.PP
+Definition at line 1 of file fkin\&.m\&.
+.SS "endfor \fBH\fP = \fBHH\fP"
+.PP
+Definition at line 35 of file fkin\&.m\&.
+.SS "\fBHH\fP = eye(4)"
+.PP
+Definition at line 23 of file fkin\&.m\&.
+.SS "\fBHt\fP = DH(\fBtheta\fP,\fBalpha\fP,\fBd\fP,\fBa\fP)"
+.PP
+Definition at line 31 of file fkin\&.m\&.
+.SS "for \fBi\fP = 1:\fBN\fP"
+.PP
+Definition at line 25 of file fkin\&.m\&.
+.PP
+Referenced by get_parent_arg(), gl2psAddBoundaryInList(), gl2psAddIndex(), gl2psAddPlanesInBspTreeImage(), gl2psBeginPage(), gl2psBuildBspTree(), gl2psBuildPolygonBoundary(), gl2psCheckPrimitive(), gl2psCompareDepth(), gl2psComputeTightBoundingBox(), gl2psCreateSplitPrimitive(), gl2psCreateSplitPrimitive2D(), gl2psDrawImageMap(), gl2psDrawPixels(), gl2psEndPostScriptLine(), gl2psEndSVGLine(), gl2psFindRoot(), gl2psGetVertex(), gl2psInitTriangle(), gl2psListAction(), gl2psListActionInverse(), gl2psParseFeedbackBuffer(), gl2psParseStipplePattern(), gl2psPDFgroupListDelete(), gl2psPDFgroupListInit(), gl2psPDFgroupListWriteFontResources(), gl2psPDFgroupListWriteGStateResources(), gl2psPDFgroupListWriteMainStream(), gl2psPDFgroupListWriteObjects(), gl2psPDFgroupListWriteShaderResources(), gl2psPDFgroupListWriteXObjectResources(), gl2psPDFRectHull(), gl2psPrintPDFFillColor(), gl2psPrintPDFFooter(), gl2psPrintPDFShader(), gl2psPrintPDFShaderStreamData(), gl2psPrintPDFStrokeColor(), gl2psPrintPGFDash(), gl2psPrintPostScriptDash(), gl2psPrintPostScriptImagemap(), gl2psPrintSVGDash(), gl2psPrintSVGPixmap(), gl2psPrintSVGSmoothTriangle(), gl2psPrintTeXHeader(), gl2psRescaleAndOffset(), gl2psSameColorThreshold(), gl2psSetLastColor(), gl2psSplitPrimitive(), gl2psSplitPrimitive2D(), gl2psSVGGetCoordsAndColors(), gl2psTestSplitPrimitive(), gl2psVertsSameColor(), gl2psWriteBigEndian(), and set_properties()\&.
+.SS "Numbers of rows of matrix \fBM\fP \fBN\fP = \fBN\fP(1)"
+.PP
+Definition at line 22 of file fkin\&.m\&.
+.SS "\fBtheta\fP = q(\fBi\fP)"
+.PP
+Definition at line 27 of file fkin\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

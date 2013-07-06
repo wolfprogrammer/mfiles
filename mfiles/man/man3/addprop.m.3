@@ -1,0 +1,89 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/addprop.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/addprop.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBaddprop\fP (\fBh\fP, \fBpname\fP, ptype, \fBvarargin\fP) \fBif\fP(ishandle(\fBh\fP)) \fBif\fP(ischar(\fBpname\fP)) \fBif\fP(ischar(ptype))[\fBargs\fP"
+.br
+.ti -1c
+.RI "\fB__jhandles_add_property\fP (\fBh\fP, \fBpname\fP, ptype, \fBopts\fP, \fBargs\fP{:})"
+.br
+.ti -1c
+.RI "else \fBerror\fP ('invalid property \fBtype\fP')"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('invalid property name')"
+.br
+.ti -1c
+.RI "\fBendif\fP else \fBerror\fP ('invalid \fBhandle\fP')"
+.br
+.ti -1c
+.RI "\fBif\fP (!isempty(\fBidx\fP)) \fBargs\fP(\fBidx\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP \fBopts\fP = parse_addprop_args (\fBvarargin\fP{:})"
+.br
+.ti -1c
+.RI "\fBendif\fP endfunction \fBfunction\fP [\fBargs\fP, \fBopts\fP]"
+.br
+.ti -1c
+.RI "\fBargs\fP = \fBvarargin\fP"
+.br
+.ti -1c
+.RI "\fBidx\fP = find (strcmp (\fBargs\fP, 'hidden'))"
+.br
+.ti -1c
+.RI "\fBopts\fP \fBvisible\fP = false"
+.br
+.ti -1c
+.RI "\fBopts\fP \fBreadonly\fP = true"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fB__jhandles_add_property\fP (\fBh\fP, \fBpname\fP, ptype, \fBopts\fP)"
+.SS "\fBfunction\fP \fBaddprop\fP (\fBh\fP, \fBpname\fP, ptype, \fBvarargin\fP)"
+.SS "else \fBerror\fP ('invalid property \fBtype\fP')"
+.SS "\fBendif\fP else \fBerror\fP ('invalid property name')"
+.SS "\fBendif\fP else \fBerror\fP ('invalid \fBhandle\fP')"
+.SS "\fBif\fP (!isemptyidx)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBargs\fP = \fBvarargin\fP"
+.PP
+Definition at line 38 of file addprop\&.m\&.
+.SS "\fBendif\fP endfunction \fBfunction\fP[\fBargs\fP, \fBopts\fP]"\fBInitial value:\fP
+.PP
+.nf
+ parse_addprop_args (varargin)
+
+  opts = struct ('visible', true, 'readonly', false)
+.fi
+.PP
+Definition at line 35 of file addprop\&.m\&.
+.SS "\fBendif\fP \fBidx\fP = find (strcmp (\fBargs\fP, 'hidden'))"
+.PP
+Definition at line 40 of file addprop\&.m\&.
+.SS "\fBfunction\fP \fBopts\fP = parse_addprop_args (\fBvarargin\fP{:})"
+.PP
+Definition at line 21 of file addprop\&.m\&.
+.SS "\fBopts\fP \fBreadonly\fP = true"
+.PP
+Definition at line 49 of file addprop\&.m\&.
+.SS "\fBopts\fP \fBvisible\fP = false"
+.PP
+Definition at line 43 of file addprop\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

@@ -1,0 +1,72 @@
+.TH "/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_barseries.m" 3 "Tue Nov 27 2012" "Version 3.0" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/caio/mfiles/packages/jhandles-0.3.5/inst/__jhandles_go_barseries.m \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBif\fP (isvector(\fByy\fP)) \fByy\fP"
+.br
+.ti -1c
+.RI "\fBobj\fP \fBvalidate\fP ()"
+.br
+.ti -1c
+.RI "\fBset\fP (\fBh\fP(end),'barwidth', width,'barlayout', mode,'facecolor', color)"
+.br
+.ti -1c
+.RI "endfor \fBset\fP (\fBh\fP,'bargroup', h)"
+.br
+.ti -1c
+.RI "\fB__get_object__\fP (\fBh\fP(1))\&.updateBars()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBfunction\fP [\fBh\fP]"
+.br
+.ti -1c
+.RI "\fBendif\fP \fBh\fP = []"
+.br
+.ti -1c
+.RI "for \fBk\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fB__get_object__\fP (\fBh\fP(1))"
+.SS "\fBif\fP (isvector(\fByy\fP))"
+.SS "\fBset\fP (\fBh\fP(end), 'barwidth', \fBwidth\fP, 'barlayout', \fBmode\fP, 'facecolor', color)"
+.SS "endfor \fBset\fP (\fBh\fP, 'bargroup', \fBh\fP)"
+.SS "\fBobj\fP \fBvalidate\fP ()"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBfunction\fP[\fBh\fP]"\fBInitial value:\fP
+.PP
+.nf
+ __jhandles_go_barseries (ax, xx, yy, width, mode, color, orient)
+
+  xx = xx(:)
+.fi
+.PP
+Definition at line 16 of file __jhandles_go_barseries\&.m\&.
+.SS "\fBh\fP = []"
+.PP
+Definition at line 23 of file __jhandles_go_barseries\&.m\&.
+.SS "for \fBk\fP"\fBInitial value:\fP
+.PP
+.nf
+ 1:size (yy, 2)
+    obj = java_new ('org\&.octave\&.graphics\&.BarseriesObject', __get_object__ (ax), xx, yy(:,k), orient)
+.fi
+.PP
+Definition at line 24 of file __jhandles_go_barseries\&.m\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

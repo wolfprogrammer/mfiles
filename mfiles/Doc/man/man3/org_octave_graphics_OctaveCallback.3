@@ -1,0 +1,261 @@
+.TH "OctaveCallback" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OctaveCallback \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBCallback\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOctaveCallback\fP (OctaveReference \fBref\fP)"
+.br
+.ti -1c
+.RI "\fBOctaveCallback\fP (String \fBcmd\fP)"
+.br
+.ti -1c
+.RI "void \fBexecute\fP (\fBHandleObject\fP parent, Object[] args)"
+.br
+.ti -1c
+.RI "Object \fBget\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddCallbackListener\fP (\fBCallbackListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveCallbackListener\fP (\fBCallbackListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBunwind\fP (\fBProperty\fP p, Object value)"
+.br
+.ti -1c
+.RI "void \fBexecute\fP (\fBHandleObject\fP parent)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBCallback\fP \fBmakeCallback\fP (Object obj)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfireCallbackExecuted\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUnwindHandleObject\fP \fBunwinder\fP"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "OctaveReference \fBref\fP"
+.br
+.ti -1c
+.RI "String \fBcmd\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBOctaveCallback\fP (OctaveReferenceref)\fC [inline]\fP"
+.PP
+References OctaveCallback\&.cmd, and OctaveCallback\&.ref\&.
+.PP
+.nf
+        {
+                this\&.ref = ref;
+                this\&.cmd = null;
+        }
+.fi
+.SS "\fBOctaveCallback\fP (Stringcmd)\fC [inline]\fP"
+.PP
+References OctaveCallback\&.cmd, and OctaveCallback\&.ref\&.
+.PP
+.nf
+        {
+                this\&.ref = null;
+                this\&.cmd = cmd;
+        }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBaddCallbackListener\fP (\fBCallbackListener\fPl)\fC [inline, inherited]\fP"
+.PP
+References Callback\&.listenerList\&.
+.PP
+.nf
+        {
+                synchronized(listenerList)
+                {
+                        listenerList\&.add(l);
+                }
+        }
+.fi
+.SS "void \fBexecute\fP (\fBHandleObject\fPparent, Object[]args)\fC [inline, virtual]\fP"
+.PP
+Implements \fBCallback\fP\&.
+.PP
+References RootObject\&.CallbackObject, OctaveCallback\&.cmd, UnwindHandleObject\&.end(), Callback\&.fireCallbackExecuted(), RootObject\&.getInstance(), OctaveCallback\&.ref, UnwindHandleObject\&.start(), Callback\&.unwind(), and Callback\&.unwinder\&.
+.PP
+.nf
+        {
+                if (ref == null && (cmd == null || cmd\&.length() == 0))
+                {
+                        fireCallbackExecuted();
+                        return;
+                }
+
+                unwind(RootObject\&.getInstance()\&.CallbackObject, parent);
+
+                final RootObject root = RootObject\&.getInstance();
+                final Object[] theArgs = args;
+                final HandleObject theParent = parent;
+                final UnwindHandleObject theUnwinder = unwinder;
+
+                Octave\&.invokeLater(new Runnable() {
+                        public void run()
+                        {
+                                try
+                                {
+                                        if (theUnwinder != null)
+                                                theUnwinder\&.start();
+                                        if (ref != null)
+                                                Octave\&.doInvoke(ref\&.getID(), theArgs);
+                                        else if (cmd != null && cmd\&.length() > 0)
+                                                Octave\&.doEvalString(cmd);
+                                }
+                                catch (Exception e)
+                                {
+                                        System\&.err\&.println('Exception occured during callback execution: ' + e\&.toString());
+                                        e\&.printStackTrace();
+                                }
+                                finally
+                                {
+                                        if (theUnwinder != null)
+                                                theUnwinder\&.end();
+                                }
+                                fireCallbackExecuted();
+                        }
+                });
+                unwinder = null;
+        }
+.fi
+.SS "void \fBexecute\fP (\fBHandleObject\fPparent)\fC [inline, inherited]\fP"
+.PP
+References Callback\&.execute()\&.
+.PP
+.nf
+        {
+                execute(parent, new Object[0]);
+        }
+.fi
+.SS "void \fBfireCallbackExecuted\fP ()\fC [inline, protected, inherited]\fP"
+.PP
+References Callback\&.listenerList\&.
+.PP
+Referenced by OctaveCallback\&.execute()\&.
+.PP
+.nf
+        {
+                synchronized(listenerList)
+                {
+                        Iterator it = listenerList\&.iterator();
+                        while (it\&.hasNext())
+                                ((CallbackListener)it\&.next())\&.callbackExecuted(this);
+                }
+        }
+.fi
+.SS "Object \fBget\fP ()\fC [inline, virtual]\fP"
+.PP
+Implements \fBCallback\fP\&.
+.PP
+References OctaveCallback\&.cmd, and OctaveCallback\&.ref\&.
+.PP
+.nf
+        {
+                if (ref != null)
+                        return ref;
+                else
+                        return cmd;
+        }
+.fi
+.SS "static \fBCallback\fP \fBmakeCallback\fP (Objectobj)\fC [inline, static, inherited]\fP"
+.PP
+Referenced by CallbackProperty\&.CallbackProperty(), and CallbackProperty\&.convertValue()\&.
+.PP
+.nf
+        {
+                if (obj instanceof OctaveReference)
+                        return new OctaveCallback((OctaveReference)obj);
+                else if (obj instanceof String)
+                        return new OctaveCallback((String)obj);
+                return null;
+        }
+.fi
+.SS "void \fBremoveCallbackListener\fP (\fBCallbackListener\fPl)\fC [inline, inherited]\fP"
+.PP
+References Callback\&.listenerList\&.
+.PP
+.nf
+        {
+                synchronized(listenerList)
+                {
+                        listenerList\&.remove(l);
+                }
+        }
+.fi
+.SS "String \fBtoString\fP ()\fC [inline]\fP"
+.PP
+References OctaveCallback\&.cmd, and OctaveCallback\&.ref\&.
+.PP
+.nf
+        {
+                if (ref != null)
+                        return ref\&.toString();
+                else
+                        return cmd;
+        }
+.fi
+.SS "void \fBunwind\fP (\fBProperty\fPp, Objectvalue)\fC [inline, inherited]\fP"
+.PP
+References UnwindHandleObject\&.unwind(), and Callback\&.unwinder\&.
+.PP
+Referenced by OctaveCallback\&.execute(), and CallbackProperty\&.unwind()\&.
+.PP
+.nf
+        {
+                if (unwinder == null)
+                        unwinder = new UnwindHandleObject();
+                unwinder\&.unwind(p, value);
+        }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "String \fBcmd\fP\fC [package]\fP"
+.PP
+Referenced by OctaveCallback\&.execute(), OctaveCallback\&.get(), OctaveCallback\&.OctaveCallback(), and OctaveCallback\&.toString()\&.
+.SS "OctaveReference \fBref\fP\fC [package]\fP"
+.PP
+Referenced by OctaveCallback\&.execute(), OctaveCallback\&.get(), OctaveCallback\&.OctaveCallback(), and OctaveCallback\&.toString()\&.
+.SS "\fBUnwindHandleObject\fP \fBunwinder\fP\fC [protected, inherited]\fP"
+.PP
+Referenced by Callback\&.Callback(), OctaveCallback\&.execute(), and Callback\&.unwind()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.

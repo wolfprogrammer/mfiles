@@ -1,0 +1,61 @@
+.TH "FigureObject.FigurePanel" 3 "Tue Nov 27 2012" "Version 3.2" "Octave" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FigureObject.FigurePanel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Panel\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpaint\fP (Graphics g)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Graphics g)"
+.br
+.in -1c
+.SS "Package Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFigurePanel\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBFigurePanel\fP ()\fC [inline, package]\fP"
+.PP
+.nf
+                {
+                        super();
+                }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBpaint\fP (Graphicsg)\fC [inline]\fP"
+.PP
+Referenced by FigureObject\&.FigurePanel\&.update()\&.
+.PP
+.nf
+                {
+                        super\&.paint(g);
+                }
+.fi
+.SS "void \fBupdate\fP (Graphicsg)\fC [inline]\fP"
+.PP
+References FigureObject\&.FigurePanel\&.paint()\&.
+.PP
+.nf
+                {
+                        paint(g);
+                }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Octave from the source code\&.
